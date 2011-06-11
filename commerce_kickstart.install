@@ -637,7 +637,7 @@ function _commerce_kickstart_install() {
 
   // Give checkout access to anonymous and authenticated users.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access checkout'));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access checkout', 'view own orders'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access checkout'));
 
   // Disable Views' Advanced Help module nag message until it's production ready.
   variable_set('views_hide_help_message', TRUE);
