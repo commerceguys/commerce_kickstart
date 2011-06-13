@@ -19,6 +19,7 @@ dependencies[] = dblog
 dependencies[] = search
 dependencies[] = shortcut
 dependencies[] = overlay
+dependencies[] = toolbar
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf

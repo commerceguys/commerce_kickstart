@@ -642,9 +642,6 @@ function _commerce_kickstart_install() {
   // Disable Views' Advanced Help module nag message until it's production ready.
   variable_set('views_hide_help_message', TRUE);
 
-  // Collapse fieldsets on the modules page using Admin Menu's setting.
-  variable_set('admin_menu_tweak_modules', TRUE);
-
   // Add a shortcut set for store administration.
   $set = new stdClass;
   $set->title = st('Store administration');

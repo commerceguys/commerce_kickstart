@@ -10,13 +10,6 @@ projects[addressfield][download][type] = git
 projects[addressfield][download][url] = http://git.drupal.org/project/addressfield.git
 projects[addressfield][download][branch] = 7.x-1.x
 
-projects[admin_menu][type] = module
-projects[admin_menu][subdir] = contrib
-projects[admin_menu][version] = 3.0-rc1
-projects[admin_menu][download][type] = git
-projects[admin_menu][download][url] = http://git.drupal.org/project/admin_menu.git
-projects[admin_menu][download][tag] = 7.x-3.0-rc1
-
 projects[ctools][type] = module
 projects[ctools][subdir] = contrib
 projects[ctools][version] = 1.x-dev
