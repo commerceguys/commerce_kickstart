@@ -25,7 +25,7 @@ dependencies[] = rdf
 
 ; Install other contributed modules first.
 dependencies[] = addressfield
-dependencies[] = admin_menu
+; dependencies[] = admin_menu
 dependencies[] = ctools
 dependencies[] = entity
 dependencies[] = entity_token
