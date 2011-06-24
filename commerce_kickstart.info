@@ -1,6 +1,7 @@
 name = Commerce Kickstart
 description = Install with Drupal Commerce pre-configured for use.
 core = 7.x
+distribution_name = Drupal Commerce
 
 dependencies[] = block
 dependencies[] = color
