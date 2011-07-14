@@ -468,6 +468,9 @@ function _commerce_kickstart_install() {
   }
   $query->execute();
 
+  // Add an image field to the default product type.
+  _commerce_kickstart_create_product_image_field('commerce_product', 'product');
+
   // Insert a product display node type into the database.
   $types = array(
     array(
@@ -491,149 +494,8 @@ function _commerce_kickstart_install() {
   variable_set('comment_product_display', COMMENT_NODE_HIDDEN);
   variable_set('node_submitted_product_display', FALSE);
 
-  // Create a default Catalog vocabulary for the Product display node type.
-  $description = st('Describes a hierarchy for the product catalog.');
-  $vocabulary = (object) array(
-    'name' => st('Catalog'),
-    'description' => $description,
-    'machine_name' => 'catalog',
-    'help' => '',
-  );
-  taxonomy_vocabulary_save($vocabulary);
-
-  $field = array(
-    'field_name' => 'taxonomy_' . $vocabulary->machine_name,
-    'type' => 'taxonomy_term_reference',
-    'cardinality' => 1,
-    'settings' => array(
-      'allowed_values' => array(
-        array(
-          'vocabulary' => $vocabulary->machine_name,
-          'parent' => 0,
-        ),
-      ),
-    ),
-  );
-  field_create_field($field);
-
-  $instance = array(
-    'field_name' => 'taxonomy_' . $vocabulary->machine_name,
-    'entity_type' => 'node',
-    'label' => st('Catalog category'),
-    'bundle' => 'product_display',
-    'description' => '',
-    'widget' => array(
-      'type' => 'options_select',
-    ),
-  );
-  field_create_instance($instance);
-
-  // Add a default image field to the basic product type.
-  $instance = array(
-    'field_name' => 'field_image',
-    'entity_type' => 'commerce_product',
-    'label' => st('Image'),
-    'bundle' => 'product',
-    'description' => st('Upload an image for this product.'),
-    'required' => FALSE,
-
-    'settings' => array(
-      'file_directory' => 'field/image',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'alt_field' => TRUE,
-      'title_field' => '',
-    ),
-
-    'widget' => array(
-      'type' => 'image_image',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-        'preview_image_style' => 'thumbnail',
-      ),
-      'weight' => -1,
-    ),
-
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array('image_style' => 'medium', 'image_link' => 'file'),
-        'weight' => -1,
-      ),
-      'full' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array('image_style' => 'medium', 'image_link' => 'file'),
-        'weight' => -1,
-      ),
-      'line_item' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array('image_style' => 'thumbnail', 'image_link' => ''),
-        'weight' => -1,
-      ),
-      'node_full' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array('image_style' => 'medium', 'image_link' => 'file'),
-        'weight' => -1,
-      ),
-      'node_teaser' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array('image_style' => 'thumbnail', 'image_link' => 'content'),
-        'weight' => -1,
-      ),
-      'node_rss' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array('image_style' => 'medium', 'image_link' => ''),
-        'weight' => -1,
-      ),
-    ),
-  );
-  field_create_instance($instance);
-
-  // Add a product reference field to the Product display node type.
-  $field = array(
-    'field_name' => 'field_product',
-    'type' => 'commerce_product_reference',
-    'cardinality' => 1,
-    'translatable' => FALSE,
-  );
-  field_create_field($field);
-
-  $instance = array(
-    'field_name' => 'field_product',
-    'entity_type' => 'node',
-    'label' => st('Product'),
-    'bundle' => 'product_display',
-    'description' => 'Choose a product to display for sale.',
-    'required' => TRUE,
-
-    'widget' => array(
-      'type' => 'options_select',
-    ),
-
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'commerce_cart_add_to_cart_form',
-      ),
-      'full' => array(
-        'label' => 'hidden',
-        'type' => 'commerce_cart_add_to_cart_form',
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'commerce_cart_add_to_cart_form',
-      ),
-    ),
-  );
-  field_create_instance($instance);
+  // Add the product reference field to our product display node type.
+  _commerce_kickstart_create_product_reference('node', 'product_display');
 
   // Give checkout access to anonymous and authenticated users.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access checkout'));
