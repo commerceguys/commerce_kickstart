@@ -1,5 +1,5 @@
 ; Drupal.org release file.
-core = 7.2
+core = 7.4
 api = 2
 
 projects[ctools] = 1.0-beta1
