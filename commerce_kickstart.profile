@@ -37,8 +37,8 @@ function commerce_kickstart_example_store_form() {
 
   // Prepare all the options for example content.
   $options = array(
-    'products' => t('Products'),
-    'product_displays' => t('Node displays for example products'),
+    'products' => st('Products'),
+    'product_displays' => st('Product display nodes (if <em>Products</em> is selected)'),
   );
 
   $form['example_content'] = array(
