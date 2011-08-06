@@ -63,49 +63,47 @@ function commerce_kickstart_example_store_form() {
  * Submit callback: creates the requested example content.
  */
 function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
-  if (!empty($form_state['values']['example_content'])) {
-    $example_content = $form_state['values']['example_content'];
-    $created_products = array();
-    $created_nodes = array();
+  $example_content = $form_state['values']['example_content'];
+  $created_products = array();
+  $created_nodes = array();
 
-    // First create products if specified.
-    if (in_array('products', $example_content)) {
-      $product_names = array(
-        '01' => st('Product One'),
-        '02' => st('Product Two'),
-        '03' => st('Product Three')
-      );
+  // First create products if specified.
+  if (!empty($example_content['products'])) {
+    $product_names = array(
+      '01' => st('Product One'),
+      '02' => st('Product Two'),
+      '03' => st('Product Three')
+    );
 
-      foreach ($product_names as $sku => $title) {
-        // Create the new product.
-        $product = commerce_product_new('product');
-        $product->sku = 'PROD-' . $sku;
-        $product->title = $title;
-        $product->uid = 1;
+    foreach ($product_names as $sku => $title) {
+      // Create the new product.
+      $product = commerce_product_new('product');
+      $product->sku = 'PROD-' . $sku;
+      $product->title = $title;
+      $product->uid = 1;
 
-        // Set a default price.
-        $product->commerce_price[LANGUAGE_NONE][0]['amount'] = $sku * 1000;
-        $product->commerce_price[LANGUAGE_NONE][0]['currency_code'] = 'USD';
+      // Set a default price.
+      $product->commerce_price[LANGUAGE_NONE][0]['amount'] = $sku * 1000;
+      $product->commerce_price[LANGUAGE_NONE][0]['currency_code'] = 'USD';
+
+      // Save it and retain a copy.
+      commerce_product_save($product);
+      $created_products[] = $product;
+
+      // Create a node display for the product if specified.
+      if (!empty($example_content['product_displays'])) {
+        // Create the new node.
+        $node = (object) array('type' => 'product_display');
+        node_object_prepare($node);
+        $node->title = $product->title;
+        $node->uid = 1;
+
+        // Reference the product we just made.
+        $node->field_product[LANGUAGE_NONE][]['product_id'] = $product->product_id;
 
         // Save it and retain a copy.
-        commerce_product_save($product);
-        $created_products[] = $product;
-
-        // Create a node display for the product if specified.
-        if (in_array('product_displays', $example_content)) {
-          // Create the new node.
-          $node = (object) array('type' => 'product_display');
-          node_object_prepare($node);
-          $node->title = $product->title;
-          $node->uid = 1;
-
-          // Reference the product we just made.
-          $node->field_product[LANGUAGE_NONE][]['product_id'] = $product->product_id;
-
-          // Save it and retain a copy.
-          node_save($node);
-          $created_nodes[] = $node;
-        }
+        node_save($node);
+        $created_nodes[] = $node;
       }
     }
   }
