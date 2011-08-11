@@ -3,6 +3,15 @@ description = Install with Drupal Commerce pre-configured for use.
 core = 7.x
 distribution_name = Drupal Commerce
 
+; Developers can feel free to invert the comments below to install modules that
+; aid in module development.
+dependencies[] = toolbar
+; dependencies[] = php
+; dependencies[] = simpletest
+; dependencies[] = devel
+; dependencies[] = admin_menu
+
+; Install necessary core modules.
 dependencies[] = block
 dependencies[] = color
 dependencies[] = comment
@@ -20,14 +29,12 @@ dependencies[] = dblog
 dependencies[] = search
 dependencies[] = shortcut
 dependencies[] = overlay
-dependencies[] = toolbar
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
 
-; Install other contributed modules first.
+; Install Commerce dependencies.
 dependencies[] = addressfield
-; dependencies[] = admin_menu
 dependencies[] = ctools
 dependencies[] = entity
 dependencies[] = entity_token
@@ -58,8 +65,5 @@ dependencies[] = commerce_product_pricing_ui
 dependencies[] = commerce_product_reference
 dependencies[] = commerce_tax
 dependencies[] = commerce_tax_ui
-
-; Install Features modules last.
-; dependencies[] = commerce_kickstart_support
 
 files[] = commerce_kickstart.profile
