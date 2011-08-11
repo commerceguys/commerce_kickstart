@@ -501,6 +501,10 @@ function _commerce_kickstart_install() {
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access checkout'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access checkout'));
 
+  // Allow users to view their own completed orders.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('view own commerce_order entities'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('view own commerce_order entities'));
+
   // Disable Views' Advanced Help module nag message until it's production ready.
   variable_set('views_hide_help_message', TRUE);
 
