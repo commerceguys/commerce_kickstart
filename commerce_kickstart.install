@@ -357,7 +357,7 @@ function commerce_kickstart_install() {
   $instance = array(
     'field_name' => 'field_image',
     'entity_type' => 'node',
-    'label' => 'Image',
+    'label' => st('Image'),
     'bundle' => 'article',
     'description' => st('Upload an image to go with this article.'),
     'required' => FALSE,
