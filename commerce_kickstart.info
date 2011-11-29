@@ -10,6 +10,7 @@ dependencies[] = toolbar
 ; dependencies[] = simpletest
 ; dependencies[] = devel
 ; dependencies[] = admin_menu
+; dependencies[] = admin_menu_toolbar
 
 ; Install necessary core modules.
 dependencies[] = block
