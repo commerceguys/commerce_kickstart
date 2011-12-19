@@ -101,6 +101,9 @@ function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
         // Reference the product we just made.
         $node->field_product[LANGUAGE_NONE][]['product_id'] = $product->product_id;
 
+        // Make sure we set the default language
+        $node->language = LANGUAGE_NONE;
+
         // Save it and retain a copy.
         node_save($node);
         $created_nodes[] = $node;
