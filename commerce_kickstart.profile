@@ -80,6 +80,7 @@ function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
       $product = commerce_product_new('product');
       $product->sku = 'PROD-' . $sku;
       $product->title = $title;
+      $product->language = LANGUAGE_NONE;
       $product->uid = 1;
 
       // Set a default price.
