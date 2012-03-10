@@ -1,0 +1,110 @@
+<?php
+/**
+ * Tests for the hooks invoked during node_load().
+ */
+class DemoTestCase extends DrupalWebTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => 'Demo test',
+      'description' => 'todo.',
+      'group' => 'Demo',
+    );
+  }
+
+  function setUp() {
+    parent::setUp('entity', 'demo');
+    $this->admin_user = $this->drupalCreateUser(array('access administration pages', 'access content overview', 'administer nodes', 'bypass node access'));
+  }
+
+  function testDemoTestKillAll() {
+
+    $this->drupalLogin($this->admin_user);
+
+    // Create some sample articles and pages.
+    $nodes = array();
+    $nodes[] = $this->drupalCreateNode(array('type' => 'article', 'status' => NODE_PUBLISHED));
+    $nodes[] = $this->drupalCreateNode(array('type' => 'article', 'status' => NODE_PUBLISHED));
+    $nodes[] = $this->drupalCreateNode(array('type' => 'article', 'status' => NODE_NOT_PUBLISHED));
+    $nodes[] = $this->drupalCreateNode(array('type' => 'page', 'status' => NODE_NOT_PUBLISHED));
+
+
+    // Verify those nodes are here.
+    foreach($nodes as $node) {
+      $query = db_select('node', 'node')
+        ->fields('node');
+      $query->condition('title', $node->title);
+      $result = $query->execute()->fetchAll();
+      $this->assertEqual(count($result), 1, t('The node have been found.'));
+    }
+
+    // Delete them.
+    $this->drupalPost('admin/demo', array(), t('Kill me !'));
+
+    // Check that they have been deleted.
+    // Verify those nodes are here.
+    foreach ($nodes as $node) {
+      $query = db_select('node', 'node')
+        ->fields('node');
+      $query->condition('title', $node->title);
+      $result = $query->execute()->fetchAll();
+      $this->assertEqual(count($result), 0, t('The node have not been found.'));
+    }
+  }
+}
+
+/**
+ * Tests for the hooks invoked during node_load() .
+ */
+class Demo_other_TestCase extends DrupalWebTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => 'Demo test2',
+      'description' => 'todo.',
+      'group' => 'Demo',
+    );
+  }
+
+  function setUp() {
+    parent::setUp('entity');
+    $this->admin_user = $this->drupalCreateUser(array('access administration pages', 'access content overview', 'administer nodes', 'bypass node access'));
+  }
+
+  function testDemo2TestKillAll() {
+
+    $this->drupalLogin($this->admin_user);
+
+    // Create some sample articles and pages before the demo is enable.
+    $nodes = array();
+    $nodes[] = $this->drupalCreateNode(array('type' => 'article', 'status' => NODE_PUBLISHED));
+    $nodes[] = $this->drupalCreateNode(array('type' => 'article', 'status' => NODE_NOT_PUBLISHED));
+
+    // Enable the demo module
+    module_enable(array('demo'));
+    drupal_flush_all_caches();
+    // Create some nodes now the demo is enable
+
+    $nodes_demo = array();
+    $nodes_demo[] = $this->drupalCreateNode(array('type' => 'article', 'status' => NODE_PUBLISHED));
+    $nodes_demo[] = $this->drupalCreateNode(array('type' => 'article', 'status' => NODE_NOT_PUBLISHED));
+
+    // Delete them.
+    $this->drupalPost('admin/demo', array(), t('Kill me !'));
+
+    // Check that only node create after demo module has been enabled have been
+    // deleted.
+    foreach ($nodes as $node) {
+      $query = db_select('node', 'node')
+        ->fields('node');
+      $query->condition('title', $node->title);
+      $result = $query->execute()->fetchAll();
+      $this->assertEqual(count($result), 1, t('Nodes created before demo are still here.'));
+    }
+    foreach ($nodes_demo as $node) {
+      $query = db_select('node', 'node')
+        ->fields('node');
+      $query->condition('title', $node->title);
+      $result = $query->execute()->fetchAll();
+      $this->assertEqual(count($result), 0, t('Nodes created after demo are no more there.'));
+    }
+  }
+}

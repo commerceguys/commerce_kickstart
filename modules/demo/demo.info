@@ -1,0 +1,6 @@
+name = Demo
+core = 7.x
+dependencies[] = "entity"
+
+; Tests
+files[] = test/demo.test
