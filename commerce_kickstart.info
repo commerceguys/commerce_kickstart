@@ -67,4 +67,8 @@ dependencies[] = commerce_product_reference
 dependencies[] = commerce_tax
 dependencies[] = commerce_tax_ui
 
+; Install Features
+dependencies[] = features
+dependencies[] = commerce_features
+
 files[] = commerce_kickstart.profile
