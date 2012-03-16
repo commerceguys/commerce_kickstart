@@ -1,0 +1,43 @@
+diff --git a/core/includes/install.core.inc b/core/includes/install.core.inc
+index 07e25a0..746ad97 100644
+--- a/core/includes/install.core.inc
++++ b/core/includes/install.core.inc
+@@ -1072,7 +1072,19 @@ function install_find_profiles() {
+ function install_select_profile(&$install_state) {
+   if (empty($install_state['parameters']['profile'])) {
+     // Try to find a profile.
+-    $profile = _install_select_profile($install_state['profiles']);
++    $profiles = $install_state['profiles'];
++    foreach ($profiles as $key => $profile) {
++      $details = install_profile_info($profile->name);
++      // Remove hidden profiles (such as the testing profile, which only exists
++      // to speed up test runs) from the list. This prevents them from being
++      // displayed in the user interface, and also means that if there is only
++      // one non-hidden profile, _install_select_profile() will choose it
++      // automatically.
++      if (!empty($details['hidden'])) {
++        unset($profiles[$key]);
++      }
++    }
++    $profile = _install_select_profile($profiles);
+     if (empty($profile)) {
+       // We still don't have a profile, so display a form for selecting one.
+       // Only do this in the case of interactive installations, since this is
+@@ -1082,7 +1094,7 @@ function install_select_profile(&$install_state) {
+       if ($install_state['interactive']) {
+         include_once DRUPAL_ROOT . '/core/includes/form.inc';
+         drupal_set_title(st('Select an installation profile'));
+-        $form = drupal_get_form('install_select_profile_form', $install_state['profiles']);
++        $form = drupal_get_form('install_select_profile_form', $profiles);
+         return drupal_render($form);
+       }
+       else {
+@@ -1138,6 +1150,8 @@ function install_select_profile_form($form, &$form_state, $profile_files) {
+     $details = install_profile_info($profile->name);
+     // Don't show hidden profiles. This is used by to hide the testing profile,
+     // which only exists to speed up test runs.
++    // @todo: This duplicates logic in install_select_profile() and is here
++    //   only for backwards compatibility. Remove it in Drupal 8.
+     if ($details['hidden'] === TRUE) {
+       continue;
+     }
