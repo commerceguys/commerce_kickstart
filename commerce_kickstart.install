@@ -336,7 +336,7 @@ function commerce_kickstart_install() {
   $field = array(
     'field_name' => 'field_image',
     'type' => 'image',
-    'cardinality' => 1,
+    'cardinality' => FIELD_CARDINALITY_UNLIMITED,
     'translatable' => TRUE,
     'locked' => FALSE,
     'indexes' => array('fid' => array('fid')),

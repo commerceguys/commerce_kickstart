@@ -35,8 +35,18 @@ function _commerce_kickstart_example_hats() {
   $product_names = _kickstart_parse_csv('hats.csv');
 
   foreach ($product_names as $sku => $item) {
+    $images = $item[5];
     $product = _kickstart_create_product('hats', $item[1], $item[0], $item[4] * 100);
 
+    // Add the image
+    if (isset($images) && !empty($images)) {
+      $image_files = explode(', ', $images);
+      foreach ($image_files as $image_file) {
+        $file_temp = file_get_contents(drupal_get_path('module', 'demo_content') . '/images/' . $image_file);
+        $file_temp = file_save_data($file_temp, 'public://' . $image_file, FILE_EXISTS_REPLACE);
+        $product->field_image[LANGUAGE_NONE][]['fid'] = $file_temp->fid;
+      }
+    }
 
     // Add the taxonomy
     $taxonomy_id = array_pop(taxonomy_get_term_by_name($item[2]));

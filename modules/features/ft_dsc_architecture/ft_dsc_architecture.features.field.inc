@@ -302,7 +302,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-bags_cases-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -594,7 +594,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-drinks-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -966,7 +966,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-hats-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -1258,7 +1258,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-shoes-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -1550,7 +1550,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-storage_devices-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',
@@ -1922,7 +1922,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-tops-field_image'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_image',

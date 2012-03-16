@@ -164,9 +164,6 @@ function _commerce_kickstart_example_display() {
       $node->field_product[LANGUAGE_NONE][]['product_id'] = $product->product_id;;
 
     }
-    // Reference the product we just made.
-//    $node->field_product[LANGUAGE_NONE][]['product_id'] = $products_id;
-
 
     // Make sure we set the default language
     $node->language = LANGUAGE_NONE;
