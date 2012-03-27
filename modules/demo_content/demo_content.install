@@ -1,64 +1,8 @@
 <?php
 
-require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'demo_content') .
-  '/demo_content.install.storage.inc';
-require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'demo_content') .
-  '/demo_content.install.drinks.inc';
-require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'demo_content') .
-  '/demo_content.install.hats.inc';
-require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'demo_content') .
-  '/demo_content.install.bags.inc';
-require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'demo_content') .
-  '/demo_content.install.shoes.inc';
-require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'demo_content') .
-  '/demo_content.install.tops.inc';
-require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'demo_content') .
-  '/demo_content.install.display.inc';
 
 /**
  * Implements hook_enable().
  */
 function demo_content_enable() {
-
-  _commerce_kickstart_example_storage_device();
-  _commerce_kickstart_example_drinks();
-  _commerce_kickstart_example_hats();
-  _commerce_kickstart_example_bags();
-  _commerce_kickstart_example_shoes();
-  _commerce_kickstart_example_tops();
-//   the product displays
-  _commerce_kickstart_example_display();
-
-}
-
-function _kickstart_create_product($product_type, $sku, $product_title, $product_price, $currency_code = 'USD') {
-  // Create the new product.
-  $product = commerce_product_new($product_type);
-  $product->sku = $sku;
-  $product->title = $product_title;
-  $product->language = LANGUAGE_NONE;
-  $product->uid = 1;
-
-  // Set a default price.
-  $product->commerce_price[LANGUAGE_NONE][0]['amount'] = $product_price;
-  $product->commerce_price[LANGUAGE_NONE][0]['currency_code'] = $currency_code;
-
-  return $product;
-}
-
-function _kickstart_parse_csv($file) {
-  $csv = array();
-  $path = drupal_get_path('module', 'demo_content') . '/csv/';
-  $row = 1;
-  $file = fopen(realpath($_SERVER['DOCUMENT_ROOT']) . '/' . $path . $file, 'r');
-  while (($result = fgetcsv($file, NULL, ',')) !== false) {
-    if ($row == 1) {
-      $row++;
-      continue;
-    }
-    $row++;
-    $csv[] = $result;
-  }
-  fclose($file);
-  return $csv;
 }

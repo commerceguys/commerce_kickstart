@@ -20,15 +20,17 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
 function commerce_kickstart_install_tasks() {
   $tasks = array();
   $import_product = variable_get('import_product', FALSE);
-  // Add a page allowing the user to indicate they'd like to install demo content.
+  // Add a page allowing the user to indicate they'd like to install demo
+  // content.
   $tasks['commerce_kickstart_example_store_form'] = array(
     'display_name' => st('Example store'),
     'type' => 'form',
   );
+  // And let the user choose an example tax to be set up by default.
   $tasks['commerce_kickstart_import_product'] = array(
-    'display_name' => st('Example store'),
+    'display_name' => st('Import example products'),
     'display' => $import_product,
-    'type' => 'normal',
+    'type' => 'batch',
     'run' => $import_product ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
   );
   return $tasks;
@@ -45,7 +47,6 @@ function commerce_kickstart_example_store_form() {
   $options = array(
     'products' => st('Products'),
   );
-
   $form['example_content'] = array(
     '#type' => 'checkboxes',
     '#title' => st('Create example content for the following store components:'),
@@ -53,21 +54,18 @@ function commerce_kickstart_example_store_form() {
     '#options' => $options,
     '#default_value' => drupal_map_assoc(array_keys($options)),
   );
-
   // Prepare all the options for example content.
   $options = array(
     'us' => st('US'),
     'europe' => st('Europe'),
   );
-
-  $form['choose_country'] = array(
-    '#type' => 'checkboxes',
+  $form['example_choose_country'] = array(
+    '#type' => 'radios',
     '#title' => st('Setup default currency and taxes:'),
     '#description' => st('The example content is not comprehensive but illustrates how the basic components work.'),
     '#options' => $options,
-    '#default_value' => drupal_map_assoc(array_keys($options)),
+    '#default_value' => key($options),
   );
-
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
     '#type' => 'submit',
@@ -83,26 +81,83 @@ function commerce_kickstart_example_store_form() {
  */
 function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
   $example_content = $form_state['values']['example_content'];
-  $country = $form_state['values']['choose_country'];
+  $choose_country = $form_state['values']['example_choose_country'];
 
   // Create products if specified.
   if (!empty($example_content['products'])) {
     variable_set('import_product', TRUE);
+    module_enable(array(
+      'features',
+      'commerce_features',
+      'ft_dsc_architecture'
+    ));
+    features_rebuild();
+    drupal_static_reset();
+    node_types_rebuild();
+    module_enable(array('demo'));
 
-    // Enable an other theme.
-    theme_enable(array('garland'));
-    variable_set('theme_default', 'garland');
+  }
+
+  // Create the choosen tax.
+  if (!empty($choose_country)) {
+    if ($choose_country == 'us') {
+      $tax = array(
+        'name' => 'sample_californian_sales_tax',
+        'title' => 'Sample Californian Sales Tax 7,25%',
+        'display_title' => 'Sample Californian Sales Tax 7,25%',
+        'description' => '',
+        'rate' => 0.0725,
+        'type' => 'sales_tax', // vat
+        'default_rules_component' => TRUE,
+        'tax_component' => '',
+        'admin_list' => TRUE,
+        'calculation_callback' => 'commerce_tax_rate_calculate',
+        'module' => 'commerce_tax_ui',
+        'is_new' => TRUE,
+      );
+      commerce_tax_ui_tax_rate_save($tax);
+    }
+
+    if ($choose_country == 'europe') {
+      variable_set('import_choosen_tax', 'europe');
+      $tax = array(
+        'name' => 'sample_french_vat_tax',
+        'title' => 'Sample French VAT 19,6%',
+        'display_title' => 'Sample French VAT 19,6%',
+        'description' => '',
+        'rate' => 0.196,
+        'type' => 'vat', // vat
+        'default_rules_component' => TRUE,
+        'tax_component' => '',
+        'admin_list' => TRUE,
+        'calculation_callback' => 'commerce_tax_rate_calculate',
+        'module' => 'commerce_tax_ui',
+        'is_new' => TRUE,
+      );
+      commerce_tax_ui_tax_rate_save($tax);
+    }
   }
 }
 
-function commerce_kickstart_import_product()  {
-  module_enable(array(
-    'features',
-    'commerce_features',
-    'ft_dsc_architecture'
-  ));
-  features_rebuild();
-  module_enable(array('demo', 'demo_content'));
+/**
+ * Task callback: return a batch API array with the products to be imported.
+ */
+function commerce_kickstart_import_product() {
+  // Batch api
+  $batch = array(
+    'title' => t('Importing'),
+    'operations' => array(
+      array('_commerce_kickstart_example_storage_device', array()),
+      array('_commerce_kickstart_example_bags', array()),
+      array('_commerce_kickstart_example_drinks', array()),
+      array('_commerce_kickstart_example_hats', array()),
+      array('_commerce_kickstart_example_shoes', array()),
+      array('_commerce_kickstart_example_tops', array()),
+      array('_commerce_kickstart_example_display', array()),
+    ),
+    'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',
+  );
+  return $batch;
 }
 
 /**
@@ -155,13 +210,36 @@ function _commerce_kickstart_create_example_catalog() {
  * Creates an image field on the specified entity bundle.
  */
 function _commerce_kickstart_create_product_image_field($entity_type, $bundle) {
+
+  // Create an image field named "Images", enabled for the 'article' content type.
+  // Many of the following values will be defaulted, they're included here as an illustrative examples.
+  // See http://api.drupal.org/api/function/field_create_field/7
+
+  $field = array(
+    'field_name' => 'field_images',
+    'type' => 'image',
+    'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+    'translatable' => TRUE,
+    'locked' => FALSE,
+    'indexes' => array('fid' => array('fid')),
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => FALSE,
+    ),
+    'storage' => array(
+      'type' => 'field_sql_storage',
+      'settings' => array(),
+    ),
+  );
+  field_create_field($field);
+
   // Add a default image field to the specified product type.
   $instance = array(
-    'field_name' => 'field_image',
+    'field_name' => 'field_images',
     'entity_type' => $entity_type,
-    'label' => st('Image'),
+    'label' => st('Images'),
     'bundle' => $bundle,
-    'description' => st('Upload an image for this product.'),
+    'description' => st('Upload images for this product.'),
     'required' => FALSE,
 
     'settings' => array(
@@ -211,7 +289,10 @@ function _commerce_kickstart_create_product_image_field($entity_type, $bundle) {
       'node_teaser' => array(
         'label' => 'hidden',
         'type' => 'image',
-        'settings' => array('image_style' => 'thumbnail', 'image_link' => 'content'),
+        'settings' => array(
+          'image_style' => 'thumbnail',
+          'image_link' => 'content'
+        ),
         'weight' => -1,
       ),
       'node_rss' => array(
@@ -266,4 +347,23 @@ function _commerce_kickstart_create_product_reference($entity_type, $bundle, $fi
   );
   field_create_instance($instance);
 }
+
+
+function _commerce_kickstart_parse_csv($file) {
+  $csv = array();
+  $path = drupal_get_path('profile', 'commerce_kickstart') . '/import/csv/';
+  $row = 1;
+  $file = fopen(realpath($_SERVER['DOCUMENT_ROOT']) . '/' . $path . $file, 'r');
+  while (($result = fgetcsv($file, NULL, ',')) !== FALSE) {
+    if ($row == 1) {
+      $row++;
+      continue;
+    }
+    $row++;
+    $csv[] = $result;
+  }
+  fclose($file);
+  return $csv;
+}
+
 

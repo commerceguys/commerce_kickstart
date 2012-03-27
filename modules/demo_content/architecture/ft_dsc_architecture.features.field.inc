@@ -298,14 +298,14 @@ function ft_dsc_architecture_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-bags_cases-field_image'
-  $fields['commerce_product-bags_cases-field_image'] = array(
+  // Exported field: 'commerce_product-bags_cases-field_images'
+  $fields['commerce_product-bags_cases-field_images'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -356,7 +356,7 @@ function ft_dsc_architecture_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'label' => 'Image',
       'required' => 0,
       'settings' => array(
@@ -590,14 +590,14 @@ function ft_dsc_architecture_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-drinks-field_image'
-  $fields['commerce_product-drinks-field_image'] = array(
+  // Exported field: 'commerce_product-drinks-field_images'
+  $fields['commerce_product-drinks-field_images'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -648,7 +648,7 @@ function ft_dsc_architecture_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'label' => 'Image',
       'required' => 0,
       'settings' => array(
@@ -962,14 +962,14 @@ function ft_dsc_architecture_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-hats-field_image'
-  $fields['commerce_product-hats-field_image'] = array(
+  // Exported field: 'commerce_product-hats-field_images'
+  $fields['commerce_product-hats-field_images'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -1020,7 +1020,7 @@ function ft_dsc_architecture_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'label' => 'Image',
       'required' => 0,
       'settings' => array(
@@ -1254,14 +1254,14 @@ function ft_dsc_architecture_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-shoes-field_image'
-  $fields['commerce_product-shoes-field_image'] = array(
+  // Exported field: 'commerce_product-shoes-field_images'
+  $fields['commerce_product-shoes-field_images'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -1312,7 +1312,7 @@ function ft_dsc_architecture_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'label' => 'Image',
       'required' => 0,
       'settings' => array(
@@ -1546,14 +1546,14 @@ function ft_dsc_architecture_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-storage_devices-field_image'
-  $fields['commerce_product-storage_devices-field_image'] = array(
+  // Exported field: 'commerce_product-storage_devices-field_images'
+  $fields['commerce_product-storage_devices-field_images'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -1604,7 +1604,7 @@ function ft_dsc_architecture_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'label' => 'Image',
       'required' => 0,
       'settings' => array(
@@ -1918,14 +1918,14 @@ function ft_dsc_architecture_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-tops-field_image'
-  $fields['commerce_product-tops-field_image'] = array(
+  // Exported field: 'commerce_product-tops-field_images'
+  $fields['commerce_product-tops-field_images'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => FIELD_CARDINALITY_UNLIMITED,
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -1976,7 +1976,7 @@ function ft_dsc_architecture_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_image',
+      'field_name' => 'field_images',
       'label' => 'Image',
       'required' => 0,
       'settings' => array(
