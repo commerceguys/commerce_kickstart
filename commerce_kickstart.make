@@ -60,3 +60,40 @@ projects[commerce_paypal][version] = 1.x-dev
 projects[commerce_paypal][download][type] = git
 projects[commerce_paypal][download][url] = http://git.drupal.org/project/commerce_paypal.git
 projects[commerce_paypal][download][branch] = 7.x-1.x
+
+projects[commerce_features][type] = module
+projects[commerce_features][subdir] = contrib
+projects[commerce_features][version] = 1.x-dev
+projects[commerce_features][download][type] = git
+projects[commerce_features][download][url] = http://git.drupal.org/project/commerce_features.git
+projects[commerce_features][download][branch] = 7.x-1.x
+
+; Other contribs ===============================================================
+
+projects[features][type] = module
+projects[features][subdir] = contrib
+projects[features][version] = 1.x-dev
+projects[features][download][type] = git
+projects[features][download][url] = http://git.drupal.org/project/features.git
+projects[features][download][branch] = 7.x-1.x
+
+projects[search_api][type] = module
+projects[search_api][subdir] = contrib
+projects[search_api][version] = 1.x-dev
+projects[search_api][download][type] = git
+projects[search_api][download][url] = http://git.drupal.org/project/search_api.git
+projects[search_api][download][branch] = 7.x-1.x
+
+projects[search_api_db][type] = module
+projects[search_api_db][subdir] = contrib
+projects[search_api_db][version] = 1.x-dev
+projects[search_api_db][download][type] = git
+projects[search_api_db][download][url] = http://git.drupal.org/project/search_api_db.git
+projects[search_api_db][download][branch] = 7.x-1.x
+
+projects[facetapi][type] = module
+projects[facetapi][subdir] = contrib
+projects[facetapi][version] = 1.0-rc4
+projects[facetapi][download][type] = git
+projects[facetapi][download][url] = http://git.drupal.org/project/facetapi.git
+projects[facetapi][download][branch] = 7.x-1.x
