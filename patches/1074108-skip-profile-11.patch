@@ -1,9 +1,9 @@
-diff --git a/core/includes/install.core.inc b/core/includes/install.core.inc
-index 07e25a0..746ad97 100644
---- a/core/includes/install.core.inc
-+++ b/core/includes/install.core.inc
-@@ -1072,7 +1072,19 @@ function install_find_profiles() {
- function install_select_profile(&$install_state) {
+diff --git a/includes/install.core.inc b/includes/install.core.inc
+index ec3a853..883c592 100644
+--- a/includes/install.core.inc
++++ b/includes/install.core.inc
+@@ -1017,7 +1017,19 @@ function install_select_profile(&$install_state) {
+   $install_state['profiles'] += install_find_profiles();
    if (empty($install_state['parameters']['profile'])) {
      // Try to find a profile.
 -    $profile = _install_select_profile($install_state['profiles']);
@@ -23,16 +23,16 @@ index 07e25a0..746ad97 100644
      if (empty($profile)) {
        // We still don't have a profile, so display a form for selecting one.
        // Only do this in the case of interactive installations, since this is
-@@ -1082,7 +1094,7 @@ function install_select_profile(&$install_state) {
+@@ -1027,7 +1039,7 @@ function install_select_profile(&$install_state) {
        if ($install_state['interactive']) {
-         include_once DRUPAL_ROOT . '/core/includes/form.inc';
+         include_once DRUPAL_ROOT . '/includes/form.inc';
          drupal_set_title(st('Select an installation profile'));
 -        $form = drupal_get_form('install_select_profile_form', $install_state['profiles']);
 +        $form = drupal_get_form('install_select_profile_form', $profiles);
          return drupal_render($form);
        }
        else {
-@@ -1138,6 +1150,8 @@ function install_select_profile_form($form, &$form_state, $profile_files) {
+@@ -1083,6 +1095,8 @@ function install_select_profile_form($form, &$form_state, $profile_files) {
      $details = install_profile_info($profile->name);
      // Don't show hidden profiles. This is used by to hide the testing profile,
      // which only exists to speed up test runs.
