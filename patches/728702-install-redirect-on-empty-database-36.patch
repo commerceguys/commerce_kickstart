@@ -1,0 +1,37 @@
+From 87d920236e9b0c301128f441268a8ca365cf5e8e Mon Sep 17 00:00:00 2001
+From: Bob Vincent <bobvin@pillars.net>
+Date: Sun, 25 Sep 2011 12:08:56 -0400
+Subject: [PATCH] Issue #728702: Visiting index.php should redirect to
+ install.php if settings.php already has database
+ credentials but database is empty.
+
+---
+ index.php |   14 +++++++++++++-
+ 1 files changed, 13 insertions(+), 1 deletions(-)
+
+diff --git a/index.php b/index.php
+index 8b831997815f521b150c5b0c27038f6b04e3cf40..3ef86cd6e13f223e45d93a287ca4ec6bd2ec804c 100644
+--- a/index.php
++++ b/index.php
+@@ -17,5 +17,17 @@
+ define('DRUPAL_ROOT', getcwd());
+ 
+ require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
+-drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
++
++try {
++  drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
++}
++catch (PDOException $e) {
++  // A PDO exception might mean that we are running on an empty database. In
++  // that case, just redirect the user to install.php.
++  if (!db_table_exists('variable')) {
++    include_once DRUPAL_ROOT . '/includes/install.inc';
++    install_goto('install.php');
++  }
++  throw $e;
++}
+ menu_execute_active_handler();
+-- 
+1.7.5.4
+
