@@ -70,6 +70,7 @@ dependencies[] = commerce_tax_ui
 ; Install contribs.
 dependencies[] = commerce_addressbook
 dependencies[] = inline_entity_form
+dependencies[] = module_filter
 
 ; Install Features
 dependencies[] = features
