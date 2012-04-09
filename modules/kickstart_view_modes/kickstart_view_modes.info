@@ -1,0 +1,7 @@
+core = "7.x"
+description = "Handles some view modes."
+name = "Kickstart view modes"
+package = "Commerce Kickstart Bundle"
+php = "5.2.4"
+
+dependencies[] = "commerce_product"

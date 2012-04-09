@@ -1,0 +1,7 @@
+core = "7.x"
+description = ""
+name = "Demo features"
+package = "Commerce Kickstart Bundle"
+php = "5.2.4"
+
+dependencies[] = "kickstart_view_modes"

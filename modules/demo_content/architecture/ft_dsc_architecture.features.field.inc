@@ -83,6 +83,15 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_price',
+          'settings' => array(
+            'calculation' => FALSE,
+          ),
+          'type' => 'commerce_price_formatted_amount',
+          'weight' => '4',
+        ),
         'node_rss' => array(
           'label' => 'hidden',
           'module' => 'commerce_price',
@@ -194,6 +203,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -274,6 +289,13 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '3',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -347,6 +369,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'medium',
+          ),
+          'type' => 'image',
+          'weight' => '2',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -454,6 +486,15 @@ function ft_dsc_architecture_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_price',
+          'settings' => array(
+            'calculation' => FALSE,
+          ),
+          'type' => 'commerce_price_formatted_amount',
+          'weight' => '4',
         ),
         'node_rss' => array(
           'label' => 'hidden',
@@ -566,6 +607,13 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '3',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -639,6 +687,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'medium',
+          ),
+          'type' => 'image',
+          'weight' => '2',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -746,6 +804,15 @@ function ft_dsc_architecture_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_price',
+          'settings' => array(
+            'calculation' => FALSE,
+          ),
+          'type' => 'commerce_price_formatted_amount',
+          'weight' => '4',
         ),
         'node_rss' => array(
           'label' => 'hidden',
@@ -858,6 +925,13 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '3',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -938,6 +1012,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1011,6 +1091,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'medium',
+          ),
+          'type' => 'image',
+          'weight' => '2',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -1118,6 +1208,15 @@ function ft_dsc_architecture_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_price',
+          'settings' => array(
+            'calculation' => FALSE,
+          ),
+          'type' => 'commerce_price_formatted_amount',
+          'weight' => '4',
         ),
         'node_rss' => array(
           'label' => 'hidden',
@@ -1230,6 +1329,13 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '3',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1303,6 +1409,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'medium',
+          ),
+          'type' => 'image',
+          'weight' => '2',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -1393,6 +1509,12 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -1490,6 +1612,15 @@ function ft_dsc_architecture_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_price',
+          'settings' => array(
+            'calculation' => FALSE,
+          ),
+          'type' => 'commerce_price_formatted_amount',
+          'weight' => '3',
         ),
         'node_rss' => array(
           'label' => 'hidden',
@@ -1596,6 +1727,16 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'medium',
+          ),
+          'type' => 'image',
+          'weight' => '2',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1685,6 +1826,12 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'inline',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -1782,6 +1929,15 @@ function ft_dsc_architecture_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_price',
+          'settings' => array(
+            'calculation' => FALSE,
+          ),
+          'type' => 'commerce_price_formatted_amount',
+          'weight' => '2',
         ),
         'node_rss' => array(
           'label' => 'hidden',
@@ -1894,6 +2050,13 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '1',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1967,6 +2130,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_product_list' => array(
+          'label' => 'hidden',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => 'medium',
+          ),
+          'type' => 'image',
+          'weight' => '0',
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -2058,6 +2231,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
         'node_teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2121,6 +2300,12 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
         'teaser' => array(
@@ -2201,6 +2386,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => 5,
         ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2270,6 +2461,12 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
           'weight' => 3,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2341,6 +2538,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => 2,
         ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2411,6 +2614,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => 4,
         ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2431,6 +2640,103 @@ function ft_dsc_architecture_field_default_fields() {
         'settings' => array(),
         'type' => 'options_select',
         'weight' => '0',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-product_display-field_product'
+  $fields['node-product_display-field_product'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_product',
+      'foreign keys' => array(
+        'product_id' => array(
+          'columns' => array(
+            'product_id' => 'product_id',
+          ),
+          'table' => 'commerce_product',
+        ),
+      ),
+      'indexes' => array(
+        'product_id' => array(
+          0 => 'product_id',
+        ),
+      ),
+      'module' => 'commerce_product_reference',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'commerce_product_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'product_display',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Choose the product(s) to display for sale on this node by SKU. Enter multiple SKUs using a comma separated list.',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_cart',
+          'settings' => array(
+            'combine' => TRUE,
+            'default_quantity' => 1,
+            'line_item_type' => 'product',
+            'show_quantity' => FALSE,
+          ),
+          'type' => 'commerce_cart_add_to_cart_form',
+          'weight' => 1,
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_cart',
+          'settings' => array(
+            'combine' => TRUE,
+            'default_quantity' => 1,
+            'line_item_type' => 'product',
+            'show_quantity' => FALSE,
+          ),
+          'type' => 'commerce_cart_add_to_cart_form',
+          'weight' => 0,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_cart',
+          'settings' => array(
+            'combine' => TRUE,
+            'default_quantity' => 1,
+            'line_item_type' => 'product',
+            'show_quantity' => FALSE,
+          ),
+          'type' => 'commerce_cart_add_to_cart_form',
+          'weight' => 1,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_product',
+      'label' => 'Product',
+      'required' => TRUE,
+      'settings' => array(
+        'field_injection' => TRUE,
+        'referenceable_types' => array(),
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'commerce_product_reference',
+        'settings' => array(
+          'autocomplete_match' => 'contains',
+          'autocomplete_path' => 'commerce_product/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'commerce_product_reference_autocomplete',
+        'weight' => '-3',
       ),
     ),
   );

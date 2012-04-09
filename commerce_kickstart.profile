@@ -90,6 +90,9 @@ function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
       'features',
       'commerce_features',
       'ft_dsc_architecture'
+      'kickstart_view_modes',
+      'feature_ck2_demo',
+      'demo_features',
     ));
     features_rebuild();
     drupal_static_reset();

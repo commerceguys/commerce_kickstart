@@ -51,6 +51,12 @@ function feature_ck2_demo_field_default_fields() {
           'type' => 'text_default',
           'weight' => 0,
         ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -125,6 +131,12 @@ function feature_ck2_demo_field_default_fields() {
           ),
           'type' => 'image',
           'weight' => -1,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -210,6 +222,12 @@ function feature_ck2_demo_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => 10,
         ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'module' => 'taxonomy',
@@ -276,6 +294,12 @@ function feature_ck2_demo_field_default_fields() {
           'settings' => array(),
           'type' => 'list_default',
           'weight' => 11,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',

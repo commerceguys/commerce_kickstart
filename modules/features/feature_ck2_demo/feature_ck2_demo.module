@@ -34,6 +34,11 @@ function feature_ck2_demo_block_info_alter(&$blocks, $theme, $code_blocks) {
       $blocks['views']['demo_content-block_4']['visibility'] = 1;
       $blocks['views']['demo_content-block_4']['pages'] = '<front>';
       $blocks['views']['demo_content-block_4']['region'] = 'content';
+
+      // Block Demo Menu.
+      $blocks['demo_features']['demo_menu']['status'] = 1;
+      $blocks['demo_features']['demo_menu']['region'] = 'menu';
+
     }
 
     // Menu footer navigation.
