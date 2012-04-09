@@ -394,6 +394,28 @@ function _commerce_kickstart_example_display() {
     }
   }
 
+  $taxonomy = taxonomy_vocabulary_machine_name_load('brand');
+  // Add our terms
+  $terms = array(
+    'Simple Threads',
+    'Made well',
+    'Toppers',
+    'Wonderknits',
+    'Foursquare',
+    'Acme gear',
+    'Bits & Bots',
+    'Courtsides',
+  );
+  // Add terms inside.
+  foreach ($terms as $term) {
+    if (!array_pop(taxonomy_get_term_by_name($term))) {
+      taxonomy_term_save((object) array(
+        'name' => $term,
+        'vid' => $taxonomy->vid,
+      ));
+    }
+  }
+
   $created_nodes = array();
   $product_display = _commerce_kickstart_parse_csv('product_display.csv');
 
@@ -435,6 +457,13 @@ function _commerce_kickstart_example_display() {
       foreach ($terms as $term) {
         $taxonomy_id = array_pop(taxonomy_get_term_by_name($term));
         $node->field_gender[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
+      }
+    }
+    // Add the brand.
+    if (!empty($item['5'])) {
+      $taxonomy_id = array_pop(taxonomy_get_term_by_name($item['5']));
+      if (!empty($taxonomy_id)) {
+        $node->field_brand[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
       }
     }
     // Make sure we set the default language

@@ -20,6 +20,8 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
 function commerce_kickstart_install_tasks() {
   $tasks = array();
   $import_product = variable_get('import_product', FALSE);
+  // Add a page allowing the user to indicate they'd like to install demo content.
+  $install_configure_seachapi = variable_get('install_configure_seachapi', FALSE);
   // Add a page allowing the user to indicate they'd like to install demo
   // content.
   $tasks['commerce_kickstart_example_store_form'] = array(
@@ -32,6 +34,12 @@ function commerce_kickstart_install_tasks() {
     'display' => $import_product,
     'type' => 'batch',
     'run' => $import_product ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
+  );
+  $tasks['commerce_kickstart_configure_searchapi'] = array(
+    'display_name' => st('Configure Search API'),
+    'display' => $import_product,
+    'type' => 'normal',
+    'run' => $install_configure_seachapi ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
   );
   return $tasks;
 }
@@ -159,7 +167,41 @@ function commerce_kickstart_import_product() {
     ),
     'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',
   );
+  variable_set('install_configure_seachapi', TRUE);
   return $batch;
+}
+
+/**
+ * Task callback: Configure Search API and facets for the imported products.
+ */
+function commerce_kickstart_configure_searchapi() {
+  // Enable the search API modules.
+  module_enable(array('search_api_db', 'search_api_views', 'facetapi'));
+  // Enable the feature.
+  module_enable(array('ft_dsc_searchapi'));
+
+  // Load the search api index.
+  $index = search_api_index_load('1');
+  // Index it.
+  search_api_index_items($index);
+
+  // Put the facets blocks in the right place.
+  _block_rehash('ck2');
+  try {
+    db_update('block')
+      ->fields(array(
+      'region' => 'sidebar_first',
+      'status' => (int) '1',
+    ))
+      ->condition('module', 'facetapi')
+      ->condition('delta', '0', '<>')
+      ->condition('theme', 'ck2')
+      ->execute();
+  }
+  catch (Exception $e) {
+    watchdog_exception('block', $e);
+    throw $e;
+  }
 }
 
 /**

@@ -1,0 +1,7 @@
+name = Kickstart Search API
+core = 7.x
+dependencies[] = "search_api"
+dependencies[] = "commerce_product"
+
+
+

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Demo Store Search Configuration feature.
+ */
+
+include_once('ft_dsc_searchapi.features.inc');
