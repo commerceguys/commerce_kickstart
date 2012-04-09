@@ -241,9 +241,8 @@ function _commerce_kickstart_create_product_reference($entity_type, $bundle, $fi
   $instance = array(
     'field_name' => $field_name,
     'entity_type' => $entity_type,
-    'label' => st('Product'),
+    'label' => st('Product variations'),
     'bundle' => $bundle,
-    'description' => st('Choose the product(s) to display for sale on this node by SKU. Enter multiple SKUs using a comma separated list.'),
     'required' => TRUE,
 
     'widget' => array(

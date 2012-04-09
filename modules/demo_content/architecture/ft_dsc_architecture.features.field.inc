@@ -2435,97 +2435,6 @@ function ft_dsc_architecture_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-product_display-field_product'
-  $fields['node-product_display-field_product'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_product',
-      'foreign keys' => array(
-        'product_id' => array(
-          'columns' => array(
-            'product_id' => 'product_id',
-          ),
-          'table' => 'commerce_product',
-        ),
-      ),
-      'indexes' => array(
-        'product_id' => array(
-          0 => 'product_id',
-        ),
-      ),
-      'module' => 'commerce_product_reference',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'commerce_product_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'product_display',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Choose the product(s) to display for sale on this node by SKU. Enter multiple SKUs using a comma separated list.',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'module' => 'commerce_cart',
-          'settings' => array(
-            'combine' => TRUE,
-            'default_quantity' => 1,
-            'line_item_type' => 'product',
-            'show_quantity' => FALSE,
-          ),
-          'type' => 'commerce_cart_add_to_cart_form',
-          'weight' => 1,
-        ),
-        'full' => array(
-          'label' => 'hidden',
-          'module' => 'commerce_cart',
-          'settings' => array(
-            'combine' => TRUE,
-            'default_quantity' => 1,
-            'line_item_type' => 'product',
-            'show_quantity' => FALSE,
-          ),
-          'type' => 'commerce_cart_add_to_cart_form',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'hidden',
-          'module' => 'commerce_cart',
-          'settings' => array(
-            'combine' => TRUE,
-            'default_quantity' => 1,
-            'line_item_type' => 'product',
-            'show_quantity' => FALSE,
-          ),
-          'type' => 'commerce_cart_add_to_cart_form',
-          'weight' => 1,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_product',
-      'label' => 'Product',
-      'required' => TRUE,
-      'settings' => array(
-        'field_injection' => TRUE,
-        'referenceable_types' => array(),
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'commerce_product_reference',
-        'settings' => array(
-          'autocomplete_match' => 'contains',
-          'autocomplete_path' => 'commerce_product/autocomplete',
-          'size' => 60,
-        ),
-        'type' => 'commerce_product_reference_autocomplete',
-        'weight' => '-3',
-      ),
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Brand');
@@ -2538,7 +2447,6 @@ function ft_dsc_architecture_field_default_fields() {
   t('Gender');
   t('Image');
   t('Price');
-  t('Product');
   t('Size');
 
   return $fields;
