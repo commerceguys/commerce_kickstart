@@ -21,6 +21,7 @@ projects[inline_entity_form][download][revision] = d852bce7227582c9937c8095cad74
 projects[inline_entity_form][download][branch] = 7.x-1.x
 
 projects[features] = 1.0-rc1
+projects[strongarm] = 2.0-rc1
 projects[search_api] = 1.x-dev
 projects[search_api_db] = 1.x-dev
 projects[facetapi] = 1.0-rc4
