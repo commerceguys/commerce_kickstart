@@ -24,6 +24,7 @@ projects[features] = 1.0-rc1
 projects[strongarm] = 2.0-rc1
 projects[search_api] = 1.x-dev
 projects[search_api_db] = 1.x-dev
+projects[search_api_ranges] = 1.2
 projects[facetapi] = 1.0-rc4
 projects[module_filter] = 1.6
 
