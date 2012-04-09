@@ -24,3 +24,6 @@ projects[features] = 1.0-rc1
 projects[search_api] = 1.x-dev
 projects[search_api_db] = 1.x-dev
 projects[facetapi] = 1.0-rc4
+
+projects[omega] = 3.1
+
