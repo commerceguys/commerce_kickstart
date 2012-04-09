@@ -30,3 +30,4 @@ projects[module_filter] = 1.6
 
 projects[omega] = 3.1
 
+projects[views_bulk_operations] = 7.x-3.0-rc1

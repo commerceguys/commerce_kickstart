@@ -1,0 +1,159 @@
+<?php
+
+/**
+ * Implements hook_views_api().
+ */
+function kickstart_order_manager_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'kickstart_order_manager') .'/views',
+  );
+}
+
+/**
+ * Implements hook_commerce_order_update().
+ */
+function kickstart_order_manager_commerce_order_update($order) {
+  kickstart_order_manager_statistics_reset();
+}
+
+/**
+ * Implements hook_commerce_order_insert().
+ */
+function kickstart_order_manager_commerce_order_insert($order) {
+  kickstart_order_manager_statistics_reset();
+}
+
+/**
+ * Rebuild the statistics for orders.
+ */
+function kickstart_order_manager_statistics_reset() {
+  drupal_static_reset('kickstart_order_manager_statistics');
+  cache_clear_all('kickstart_order_statistics', 'cache');
+}
+
+/**
+ * Get the statistics for orders.
+ */
+function kickstart_order_manager_statistics() {
+  $statistics = &drupal_static(__FUNCTION__, array());
+
+  if (empty($statistics)) {
+    $cache = cache_get('kickstart_order_statistics', 'cache');
+    if ($cache) {
+      $statistics = $cache->data;
+    }
+  }
+  if (empty($statistics)) {
+    foreach (commerce_order_states() as $state_name => $state_info) {
+      $statistics['by state'][$state_name] = 0;
+      foreach (commerce_order_statuses(array('state' => $state_name)) as $status_name => $status_info) {
+        $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'commerce_order');
+        $query->propertyCondition('status', $status_name);
+        $query->count();
+        $statistics['by status'][$status_name] = $query->execute();
+        $statistics['by state'][$state_name] += $statistics['by status'][$status_name];
+      }
+    }
+    cache_set('kickstart_order_statistics', $statistics, 'cache');
+  }
+  return $statistics;
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function kickstart_order_manager_module_implements_alter(&$implementations, $hook) {
+  if (in_array($hook, array('menu_alter', 'form_alter'))) {
+    // Move our hook implementation to the bottom.
+    $group = $implementations['kickstart_order_manager'];
+    unset($implementations['kickstart_order_manager']);
+    $implementations['kickstart_order_manager'] = $group;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function kickstart_order_manager_menu() {
+  $items['admin/commerce/orders'] = array(
+    'title' => 'Orders',
+    'description' => 'Manage orders in the store.',
+    'page callback' => 'kickstart_order_redirect',
+    'access arguments' => array('administer commerce_order entities'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Redirect the user to the relevant page.
+ */
+function kickstart_order_redirect() {
+  drupal_goto('admin/commerce/orders/pending');
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function kickstart_order_manager_menu_alter(&$items) {
+  foreach ($items as $path => &$item) {
+    if (_kickstart_order_manager_extract_from_path($path)) {
+      $item['options']['alter'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * Add counts to the order states tabs.
+ */
+function kickstart_order_manager_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  foreach ($data['tabs'] as $level => &$tabs) {
+    foreach ($tabs['output'] as &$item) {
+      if ($states = _kickstart_order_manager_extract_from_path($item['#link']['path'])) {
+        $statistics = kickstart_order_manager_statistics();
+        if (empty($states['status']) && isset($statistics['by state'][$states['state']])) {
+          $item['#link']['title'] .= ' (' . $statistics['by state'][$states['state']] . ')';
+        }
+        elseif (isset($statistics['by status'][$states['status']])) {
+          $item['#link']['title'] .= ' (' . $statistics['by status'][$states['status']] . ')';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Utility function: extract state and status from a order management path.
+ */
+function _kickstart_order_manager_extract_from_path($path) {
+  if (preg_match('@^admin/commerce/orders/([^/]+)(?:/([^/]+)|)$@', $path, $matches)) {
+    return array('state' => $matches[1], 'status' => isset($matches[2]) ? $matches[2] : '');
+  }
+}
+
+/**
+ * Implements hook_form_views_form_alter().
+ */
+function kickstart_order_manager_form_alter(&$form, &$form_state, $form_id) {
+  if (strpos($form_id, 'views_form_') === 0) {
+    $vbo = _views_bulk_operations_get_field($form_state['build_info']['args'][0]);
+  }
+  // Not a VBO-enabled views form.
+  if (empty($vbo)) {
+    return;
+  }
+
+  $view = $form_state['build_info']['args'][0];
+
+  if (preg_match('/^kom_/', $view->name) && isset($form['select'])) {
+    $form['select']['#title'] = t('Bulk Updates');
+    $form['select']['#collapsible'] = TRUE;
+    $form['select']['#collapsed'] = TRUE;
+    $form['select']['submit']['#value'] = t('Update');
+  }
+}
+

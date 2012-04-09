@@ -76,4 +76,7 @@ dependencies[] = module_filter
 dependencies[] = features
 dependencies[] = commerce_features
 
+; Distribution modules.
+dependencies[] = kickstart_order_manager
+
 files[] = commerce_kickstart.profile
