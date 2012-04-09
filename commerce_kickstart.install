@@ -7,7 +7,7 @@
  */
 
 // Define some Commerce Kickstart specific components.
-define('KICKSTART_DEFAULT_THEME', 'bartik');
+define('KICKSTART_DEFAULT_THEME', 'ck2');
 define('KICKSTART_ADMIN_THEME', 'seven');
 
 /**
@@ -73,6 +73,8 @@ function commerce_kickstart_install() {
   filter_format_save($full_html_format);
 
   // Enable some standard blocks.
+  theme_enable(array('ck2'));
+  variable_set('theme_default', 'ck2');
   $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
   $admin_theme = KICKSTART_ADMIN_THEME;
   $values = array(
@@ -83,7 +85,7 @@ function commerce_kickstart_install() {
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
-      'pages' => '',
+      'pages' => '<front>', // Dp not show the block on front.
       'cache' => -1,
     ),
     array(
@@ -107,16 +109,6 @@ function commerce_kickstart_install() {
       'cache' => -1,
     ),
     array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 10, // Display the user login block below the cart block.
-      'region' => 'sidebar_first',
-      'pages' => "cart\ncheckout/*", // And hide it on cart / checkout pages.
-      'cache' => -1,
-    ),
-    array(
       'module' => 'system',
       'delta' => 'navigation',
       'theme' => $default_theme,
@@ -132,7 +124,7 @@ function commerce_kickstart_install() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 10,
-      'region' => 'footer',
+      'region' => 'footer_first',
       'pages' => '',
       'cache' => -1,
     ),
@@ -142,7 +134,7 @@ function commerce_kickstart_install() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'help',
+      'region' => 'preface_first',
       'pages' => '',
       'cache' => -1,
     ),
@@ -200,6 +192,7 @@ function commerce_kickstart_install() {
   $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
   foreach ($values as $record) {
     $query->values($record);
+    //$query->values($record + array('title' => ''));
   }
   $query->execute();
 
@@ -264,6 +257,9 @@ function commerce_kickstart_install() {
   // Default "Basic page" to not be promoted and have comments disabled.
   variable_set('node_options_page', array('status'));
   variable_set('comment_page', COMMENT_NODE_HIDDEN);
+
+  // Default "Basic article" to not be promoted and have comments disabled.
+  variable_set('node_options_article', array('status'));
 
   // Don't display date and author information for "Basic page" nodes by default.
   variable_set('node_submitted_page', FALSE);
@@ -398,6 +394,65 @@ function commerce_kickstart_install() {
   );
   field_create_instance($instance);
 
+
+  // Create field type
+  $field = array(
+      'cardinality' => '1',
+      'entity_types' => array(),
+      'field_name' => 'field_type',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'news' => 'News',
+          'blog' => 'Blog',
+          'brand' => 'Brand',
+          'slideshow' => 'Slideshow',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+  );
+  field_create_field($field);
+
+  $instance = array(
+    'bundle' => 'article',
+    'default_value' => NULL,
+    'deleted' => '0',
+    'description' => 'Select the kind of article you wish to publish.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_type',
+    'label' => 'Type',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+  field_create_instance($instance);
+  //
+
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
@@ -438,6 +493,9 @@ function commerce_kickstart_install() {
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
 
+    // Disable secondary menu links.
+  variable_set('menu_secondary_links_source', '');
+
   // Perform additional non-standard installation configuration of the Commerce
   // modules and components.
   _commerce_kickstart_install();
@@ -447,6 +505,74 @@ function commerce_kickstart_install() {
  * Performs additional configuration for Drupal Commerce modules and components.
  */
 function _commerce_kickstart_install() {
+
+  $body1  = "<p>Nunc tempor, sapien sed rhoncus vulputate, lectus felis scelerisque dolor, vitae interdum ipsum quam vitae purus.
+  Maecenas neque. Donec semper imperdiet libero. Nulla facilisi. Mauris in velit eu nisl dapibus interdum. Fusce vulputate tellus nec risus.</p>";
+  $body1 .= "<p>Proin nec metus. Pellentesque mollis, erat non hendrerit tincidunt.</p>";
+
+  $body2  = "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed eu dui.
+  Phasellus eget orci volutpat sem accumsan condimentum. Etiam lobortis facilisis sem.
+  Aliquam pede erat, sagittis sed, bibendum ac, consequat sed, arcu. Fusce placerat bibendum risus.
+  Maecenas semper adipiscing purus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum eget leo.
+  Suspendisse nonummy dolor in pede ullamcorper venenatis. Vivamus sapien. Vivamus ante quam, tristique quis, porttitor nec, viverra eget, ante.
+  Nulla vitae nunc vel est dignissim dictum. Suspendisse feugiat pellentesque ante.
+  Etiam viverra commodo neque. Aenean id mi. Sed lacinia tincidunt purus.
+  Maecenas eros quam, feugiat quis, feugiat vel, rutrum in, sem. Pellentesque eu ipsum.
+  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Vestibulum mollis molestie elit.</p>";
+  $body2 .= "<p>Nunc vulputate ligula a quam. Praesent nec justo. Maecenas vulputate porttitor ipsum. Proin semper turpis quis orci scelerisque congue.
+  Sed sit amet ipsum eu augue tempor sollicitudin. Praesent eu velit eu pede tincidunt sagittis. Proin tortor erat, bibendum id, tempor vitae, blandit sit amet, tortor.
+  Curabitur tincidunt nisi blandit pede. Pellentesque mi ligula, iaculis sit amet, scelerisque nec, lacinia in, nulla. Nunc in elit nec risus feugiat posuere.
+  Duis vitae est. Quisque convallis convallis leo. Vivamus molestie vehicula dui. Donec vulputate, ipsum in porttitor condimentum, nunc felis pellentesque sem,
+  interdum pharetra risus sapien eu urna. Morbi nisl. Quisque odio lorem, iaculis vitae, commodo eu, vestibulum elementum, est.
+  Etiam tempus cursus risus. Integer luctus dapibus lorem.</p><p>Sed lectus dui, bibendum et, eleifend id, aliquet ac, nulla. Morbi sed lacus nec ipsum sagittis facilisis.
+  Sed id nulla nec augue interdum porttitor. Phasellus varius posuere justo. Nunc et est eu metus pharetra posuere. Ut sit amet orci ut nibh aliquet accumsan.
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed fermentum, velit at porttitor sollicitudin, pede massa feugiat enim, eget volutpat felis leo ut lacus.
+  Vestibulum orci orci, gravida eu, scelerisque sit amet, aliquet euismod, ante. Duis nonummy. Sed placerat dolor. Vivamus tempor sapien sit amet felis.</p><p>Nam viverra eleifend metus. Nulla tortor nisl, faucibus ut, convallis eget, malesuada et, velit. Nulla scelerisque molestie enim. Curabitur et orci. Proin mauris neque, laoreet eu, iaculis dapibus, euismod sed, tellus. Aenean viverra quam eu magna. Morbi porttitor semper sem. Fusce a ipsum eu dolor ultrices placerat. Integer nec velit non nulla dictum aliquet. Aenean lorem velit, tincidunt non, auctor at, blandit tristique, ligula. Fusce at nisl in sapien porttitor convallis. Cras lacus. Morbi nec libero a sapien facilisis fringilla. Nulla porta. Praesent at ligula. Aenean erat mauris, nonummy nec, fermentum sit amet, porta ac, magna. Mauris vestibulum. Mauris ut arcu id urna ornare malesuada. Aliquam ut sapien quis nisi rutrum mollis. Aliquam lacus arcu, ultricies a, dignissim vitae, faucibus in, sapien.</p>";
+  $body2 .= "<p>Nunc tempor, sapien sed rhoncus vulputate, lectus felis scelerisque dolor, vitae interdum ipsum quam vitae purus. Maecenas neque. Donec semper imperdiet libero. Nulla facilisi. Mauris in velit eu nisl dapibus interdum. Fusce vulputate tellus nec risus.</p>";
+  $body2 .= "<p>Proin nec metus. Pellentesque mollis, erat non hendrerit tincidunt.</p>";
+  $body2 .= "<p>Massa est egestas est, at laoreet dolor mi at purus. Vivamus dictum, metus in varius dictum, ipsum mi sodales tellus, in egestas lacus metus et enim. Phasellus rhoncus nisl at metus. Ut lobortis cursus velit. Sed risus. Curabitur sed orci nec nibh gravida hendrerit. Phasellus laoreet. Morbi blandit porta orci. Morbi turpis justo, egestas vel, sodales ac, pretium ut, tellus. Aliquam erat volutpat. Curabitur nibh. Nulla facilisi. Proin erat.</p>";
+
+  $body3 = "<p>Proin nec metus. Pellentesque mollis, erat non hendrerit tincidunt.</p>
+  <p>Massa est egestas est, at laoreet dolor mi at purus. Vivamus dictum, metus in varius dictum, ipsum mi sodales tellus,
+  in egestas lacus metus et enim. Phasellus rhoncus nisl at metus. Ut lobortis cursus velit. Sed risus.
+  Curabitur sed orci nec nibh gravida hendrerit. Phasellus laoreet. Morbi blandit porta orci. Morbi turpis justo,
+  egestas vel, sodales ac, pretium ut, tellus. Aliquam erat volutpat. Curabitur nibh. Nulla facilisi. Proin erat.</p>";
+
+  $contents = array(
+    array('Contact', $body1, 'contact-us', 'page'),
+    array('About', $body1, 'abous-us', 'page'),
+    array('Terms of Use', $body2, 'terms-of-use', 'page'),
+    array('Payment', $body2, 'payment', 'page'),
+    array('Shipping', $body3, 'shipping-return', 'page'),
+    array('Press links', $body1, 'press-links', 'page'),
+    array('Service & support', $body2, 'service-support', 'page'),
+    array('Security & privacy', $body3, 'security-privacy-policy', 'page'),
+  );
+
+  foreach ($contents as &$content) {
+    _commerce_kickstart_custom_createContent($content[0], $content[1], $content[2], $content[3], '', '');
+  }
+
+  $contents = array(
+    array('Article 1', $body1, '', 'article', 'brand', 'brand-1.jpg'),
+    array('Article 2', $body1, '', 'article', 'brand', 'brand-2.jpg'),
+    array('Article 3', $body1, '', 'article', 'brand', 'brand-3.jpg'),
+    array('Blog post 1', $body1, '', 'article', 'blog', 'blog-1.jpg'),
+    array('Blog post 2', $body1, '', 'article', 'blog', 'blog-2.jpg'),
+    array('Blog post 3', $body1, '', 'article', 'blog', 'blog-3.jpg'),
+    array('News 1', $body1, '', 'article', 'news', 'article-1.jpg'),
+    array('News 2', $body1, '', 'article', 'news', 'article-2.jpg'),
+    array('News 3', $body1, '', 'article', 'news', 'article-3.jpg'),
+    array('Slideshow 1', $body1, '', 'article', 'slideshow', 'slideshow-1.jpg'),
+    array('Slideshow 2', $body1, '', 'article', 'slideshow', 'slideshow-2.jpg'),
+    array('Slideshow 3', $body1, '', 'article', 'slideshow', 'slideshow-3.jpg'),
+  );
+
+  foreach ($contents as &$content) {
+    _commerce_kickstart_custom_createContent($content[0], $content[1], $content[2], $content[3], $content[4], $content[5]);
+  }
+
+
   // Enable Commerce blocks.
   $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
   $admin_theme = KICKSTART_ADMIN_THEME;
@@ -457,12 +583,13 @@ function _commerce_kickstart_install() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'sidebar_first',
+      'region' => 'user_second',
       'pages' => "cart\ncheckout/*",
+      'title' => '<none>',
       'cache' => -1,
     ),
   );
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'title', 'cache'));
   foreach ($values as $record) {
     $query->values($record);
   }
@@ -493,6 +620,7 @@ function _commerce_kickstart_install() {
   // Update "Product" comment and author information settings.
   variable_set('comment_product_display', COMMENT_NODE_HIDDEN);
   variable_set('node_submitted_product_display', FALSE);
+  variable_set('node_options_product_display', array('status'));
 
   // Add the product reference field to our product display node type.
   _commerce_kickstart_create_product_reference('node', 'product_display');
@@ -529,3 +657,4 @@ function _commerce_kickstart_install() {
   // Enable the addressbook on the "Billing information" checkout pane.
   variable_set('commerce_customer_profile_billing_addressbook', TRUE);
 }
+

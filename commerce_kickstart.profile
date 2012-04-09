@@ -95,7 +95,6 @@ function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
     drupal_static_reset();
     node_types_rebuild();
     module_enable(array('demo'));
-
   }
 
   // Create the choosen tax.
@@ -366,4 +365,19 @@ function _commerce_kickstart_parse_csv($file) {
   return $csv;
 }
 
-
+function _commerce_kickstart_custom_createContent($title, $body_text, $path, $content_type, $field_type, $image_file) {
+  $node = new stdClass();
+  $node->type = $content_type;
+  $node->title    = $title;
+  $node->language = LANGUAGE_NONE;
+  $node->comment = '0';
+  $node->field_type[$node->language][0]['value'] = $field_type;
+  $node->body[$node->language][0]['value']   = $body_text;
+  $node->body[$node->language][0]['format']  = 'filtered_html';
+  $file_temp = file_get_contents(drupal_get_path('profile', 'commerce_kickstart') . '/import/images/' . $image_file);
+  $file_temp = file_save_data($file_temp, 'public://' . $image_file, FILE_EXISTS_REPLACE);
+  $node->field_image[$node->language][]['fid'] = $file_temp->fid;
+  $node->path = array('alias' => $path);
+  node_object_prepare($node);
+  node_save($node);
+}

@@ -1,6 +1,0 @@
-name = Demo Content
-core = 7.x
-dependencies[] = "commerce_product"
-dependencies[] = "taxonomy"
-
-
