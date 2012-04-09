@@ -247,7 +247,7 @@ function _commerce_kickstart_create_product_reference($entity_type, $bundle, $fi
     'required' => TRUE,
 
     'widget' => array(
-      'type' => 'commerce_product_reference_autocomplete',
+      'type' => 'inline_entity_form',
     ),
 
     'display' => array(

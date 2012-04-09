@@ -15,6 +15,7 @@ projects[commerce_features] = 1.x-dev
 projects[commerce_addressbook] = 2.x-dev
 
 ; Other contribs
+projects[inline_entity_form] = 1.x-dev
 projects[features] = 1.0-rc1
 projects[search_api] = 1.x-dev
 projects[search_api_db] = 1.x-dev
