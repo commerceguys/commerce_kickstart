@@ -67,6 +67,9 @@ dependencies[] = commerce_product_reference
 dependencies[] = commerce_tax
 dependencies[] = commerce_tax_ui
 
+; Install Commerce contribs.
+dependencies[] = commerce_addressbook
+
 ; Install Features
 dependencies[] = features
 dependencies[] = commerce_features

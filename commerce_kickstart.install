@@ -525,4 +525,7 @@ function _commerce_kickstart_install() {
 
   // Apply the shortcut set to the first user.
   shortcut_set_assign_user($set, (object) array('uid' => 1));
+
+  // Enable the addressbook on the "Billing information" checkout pane.
+  variable_set('commerce_customer_profile_billing_addressbook', TRUE);
 }
