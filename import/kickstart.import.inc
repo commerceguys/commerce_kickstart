@@ -1,4 +1,72 @@
 <?php
+/**
+ * BatchAPI callback.
+ *
+ * @file commerce_kickstart_profile.
+ * @see commerce_kickstart_import_product.
+ */
+function _commerce_kickstart_example_taxes() {
+  $commerce_kickstart_example_content = variable_get('commerce_kickstart_example_content', NULL);
+  $commerce_kickstart_choose_tax_country = variable_get('commerce_kickstart_choose_tax_country', NULL);
+  // Create products if specified.
+  if (!empty($commerce_kickstart_example_content['products'])) {
+    module_enable(array(
+      'features',
+      'commerce_features',
+      'ft_dsc_architecture',
+      'kickstart_view_modes',
+      'feature_ck2_demo',
+      'demo_features',
+    ));
+    features_rebuild();
+    drupal_static_reset();
+    node_types_rebuild();
+    module_enable(array('demo'));
+  }
+
+  // Create the choosen tax.
+  if (!empty($commerce_kickstart_choose_tax_country)) {
+    if ($commerce_kickstart_choose_tax_country == 'us') {
+      $tax = array(
+        'name' => 'sample_californian_sales_tax',
+        'title' => 'Sample Californian Sales Tax 7,25%',
+        'display_title' => 'Sample Californian Sales Tax 7,25%',
+        'description' => '',
+        'rate' => 0.0725,
+        'type' => 'sales_tax', // vat
+        'default_rules_component' => TRUE,
+        'tax_component' => '',
+        'admin_list' => TRUE,
+        'calculation_callback' => 'commerce_tax_rate_calculate',
+        'module' => 'commerce_tax_ui',
+        'is_new' => TRUE,
+      );
+      commerce_tax_ui_tax_rate_save($tax);
+    }
+
+    if ($commerce_kickstart_choose_tax_country == 'europe') {
+      variable_set('import_choosen_tax', 'europe');
+      $tax = array(
+        'name' => 'sample_french_vat_tax',
+        'title' => 'Sample French VAT 19,6%',
+        'display_title' => 'Sample French VAT 19,6%',
+        'description' => '',
+        'rate' => 0.196,
+        'type' => 'vat', // vat
+        'default_rules_component' => TRUE,
+        'tax_component' => '',
+        'admin_list' => TRUE,
+        'calculation_callback' => 'commerce_tax_rate_calculate',
+        'module' => 'commerce_tax_ui',
+        'is_new' => TRUE,
+      );
+      commerce_tax_ui_tax_rate_save($tax);
+    }
+  }
+  // delete the variables we used during this task.
+  variable_del('commerce_kickstart_example_content');
+  variable_del('commerce_kickstart_choose_tax_country');
+}
 
 /**
  * BatchAPI callback.

@@ -19,7 +19,7 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
  */
 function commerce_kickstart_install_tasks() {
   $tasks = array();
-  $import_product = variable_get('import_product', FALSE);
+  $commerce_kickstart_import_product = variable_get('commerce_kickstart_import_product', FALSE);
   // Add a page allowing the user to indicate they'd like to install demo content.
   $install_configure_seachapi = variable_get('install_configure_seachapi', FALSE);
   // Add a page allowing the user to indicate they'd like to install demo
@@ -31,13 +31,13 @@ function commerce_kickstart_install_tasks() {
   // And let the user choose an example tax to be set up by default.
   $tasks['commerce_kickstart_import_product'] = array(
     'display_name' => st('Import example products'),
-    'display' => $import_product,
+    'display' => $commerce_kickstart_import_product,
     'type' => 'batch',
-    'run' => $import_product ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
+    'run' => $commerce_kickstart_import_product ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
   );
   $tasks['commerce_kickstart_configure_searchapi'] = array(
     'display_name' => st('Configure Search API'),
-    'display' => $import_product,
+    'display' => $commerce_kickstart_import_product,
     'type' => 'normal',
     'run' => $install_configure_seachapi ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
   );
@@ -109,7 +109,7 @@ function commerce_kickstart_example_store_form() {
   $options = array(
     'products' => st('Products'),
   );
-  $form['example_content'] = array(
+  $form['commerce_kickstart_example_content'] = array(
     '#type' => 'checkboxes',
     '#title' => st('Create example content for the following store components:'),
     '#description' => st('The example content is not comprehensive but illustrates how the basic components work.'),
@@ -121,7 +121,7 @@ function commerce_kickstart_example_store_form() {
     'us' => st('US'),
     'europe' => st('Europe'),
   );
-  $form['example_choose_country'] = array(
+  $form['commerce_kickstart_choose_tax_country'] = array(
     '#type' => 'radios',
     '#title' => st('Setup default currency and taxes:'),
     '#description' => st('The example content is not comprehensive but illustrates how the basic components work.'),
@@ -142,64 +142,10 @@ function commerce_kickstart_example_store_form() {
  * Submit callback: creates the requested example content.
  */
 function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
-  $example_content = $form_state['values']['example_content'];
-  $choose_country = $form_state['values']['example_choose_country'];
-
-  // Create products if specified.
-  if (!empty($example_content['products'])) {
-    variable_set('import_product', TRUE);
-    module_enable(array(
-      'features',
-      'commerce_features',
-      'ft_dsc_architecture',
-      'kickstart_view_modes',
-      'feature_ck2_demo',
-      'demo_features',
-    ));
-    features_rebuild();
-    drupal_static_reset();
-    node_types_rebuild();
-    module_enable(array('demo'));
-  }
-
-  // Create the choosen tax.
-  if (!empty($choose_country)) {
-    if ($choose_country == 'us') {
-      $tax = array(
-        'name' => 'sample_californian_sales_tax',
-        'title' => 'Sample Californian Sales Tax 7,25%',
-        'display_title' => 'Sample Californian Sales Tax 7,25%',
-        'description' => '',
-        'rate' => 0.0725,
-        'type' => 'sales_tax', // vat
-        'default_rules_component' => TRUE,
-        'tax_component' => '',
-        'admin_list' => TRUE,
-        'calculation_callback' => 'commerce_tax_rate_calculate',
-        'module' => 'commerce_tax_ui',
-        'is_new' => TRUE,
-      );
-      commerce_tax_ui_tax_rate_save($tax);
-    }
-
-    if ($choose_country == 'europe') {
-      variable_set('import_choosen_tax', 'europe');
-      $tax = array(
-        'name' => 'sample_french_vat_tax',
-        'title' => 'Sample French VAT 19,6%',
-        'display_title' => 'Sample French VAT 19,6%',
-        'description' => '',
-        'rate' => 0.196,
-        'type' => 'vat', // vat
-        'default_rules_component' => TRUE,
-        'tax_component' => '',
-        'admin_list' => TRUE,
-        'calculation_callback' => 'commerce_tax_rate_calculate',
-        'module' => 'commerce_tax_ui',
-        'is_new' => TRUE,
-      );
-      commerce_tax_ui_tax_rate_save($tax);
-    }
+  variable_set('commerce_kickstart_example_content', $form_state['values']['commerce_kickstart_example_content']);
+  variable_set('commerce_kickstart_choose_tax_country', $form_state['values']['commerce_kickstart_choose_tax_country']);
+  if (!empty($form_state['values']['commerce_kickstart_example_content']['products'])) {
+    variable_set('commerce_kickstart_import_product', TRUE);
   }
 }
 
@@ -211,6 +157,7 @@ function commerce_kickstart_import_product() {
   $batch = array(
     'title' => t('Importing'),
     'operations' => array(
+      array('_commerce_kickstart_example_taxes', array()),
       array('_commerce_kickstart_example_storage_device', array()),
       array('_commerce_kickstart_example_bags', array()),
       array('_commerce_kickstart_example_drinks', array()),
