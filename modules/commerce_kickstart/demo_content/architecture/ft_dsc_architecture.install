@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function ft_dsc_architecture_install() {
+
+  // Add a product reference field to the Product display node type.
+  $field = array(
+    'field_name' => 'field_product',
+    'type' => 'commerce_product_reference',
+    'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+    'translatable' => FALSE,
+  );
+  field_create_field($field);
+
+  $instance = array(
+    'field_name' => 'field_product',
+    'entity_type' => 'node',
+    'label' => st('Product variations'),
+    'bundle' => 'product_display',
+    'required' => TRUE,
+
+    'widget' => array(
+      'type' => 'inline_entity_form',
+    ),
+
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'commerce_cart_add_to_cart_form',
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'type' => 'commerce_cart_add_to_cart_form',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'commerce_cart_add_to_cart_form',
+      ),
+    ),
+  );
+  field_create_instance($instance);
+}

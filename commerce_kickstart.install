@@ -595,9 +595,6 @@ function _commerce_kickstart_install() {
   }
   $query->execute();
 
-  // Add an image field to the default product type.
-  _commerce_kickstart_create_product_image_field('commerce_product', 'product');
-
   // Insert a product display node type into the database.
   $types = array(
     array(
@@ -621,9 +618,6 @@ function _commerce_kickstart_install() {
   variable_set('comment_product_display', COMMENT_NODE_HIDDEN);
   variable_set('node_submitted_product_display', FALSE);
   variable_set('node_options_product_display', array('status'));
-
-  // Add the product reference field to our product display node type.
-  _commerce_kickstart_create_product_reference('node', 'product_display');
 
   // Give checkout access to anonymous and authenticated users.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access checkout'));
