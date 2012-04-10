@@ -205,52 +205,6 @@ function commerce_kickstart_configure_searchapi() {
 }
 
 /**
- * Creates a Catalog taxonomy vocabulary and adds a term reference field for it
- * to the default product display node type.
- *
- * @todo This function is currently unused but should be added in as an option
- * for example content creation.
- */
-function _commerce_kickstart_create_example_catalog() {
-  // Create a default Catalog vocabulary for the Product display node type.
-  $description = st('Describes a hierarchy for the product catalog.');
-  $vocabulary = (object) array(
-    'name' => st('Catalog'),
-    'description' => $description,
-    'machine_name' => 'catalog',
-    'help' => '',
-  );
-  taxonomy_vocabulary_save($vocabulary);
-
-  $field = array(
-    'field_name' => 'taxonomy_' . $vocabulary->machine_name,
-    'type' => 'taxonomy_term_reference',
-    'cardinality' => 1,
-    'settings' => array(
-      'allowed_values' => array(
-        array(
-          'vocabulary' => $vocabulary->machine_name,
-          'parent' => 0,
-        ),
-      ),
-    ),
-  );
-  field_create_field($field);
-
-  $instance = array(
-    'field_name' => 'taxonomy_' . $vocabulary->machine_name,
-    'entity_type' => 'node',
-    'label' => st('Catalog category'),
-    'bundle' => 'product_display',
-    'description' => '',
-    'widget' => array(
-      'type' => 'options_select',
-    ),
-  );
-  field_create_instance($instance);
-}
-
-/**
  * Creates an image field on the specified entity bundle.
  */
 function _commerce_kickstart_create_product_image_field($entity_type, $bundle) {
