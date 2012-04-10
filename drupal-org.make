@@ -31,7 +31,7 @@ projects[commerce_addressbook][subdir] = "contrib"
 ; Other contribs.
 projects[inline_entity_form][type] = module
 projects[inline_entity_form][download][type] = git
-projects[inline_entity_form][download][revision] = d852bce7227582c9937c8095cad748253f94c95b
+projects[inline_entity_form][download][revision] = 965aa3ff319112f2150a343c2c24f3fd73cc4320
 projects[inline_entity_form][download][branch] = 7.x-1.x
 projects[inline_entity_form][subdir] = "contrib"
 
