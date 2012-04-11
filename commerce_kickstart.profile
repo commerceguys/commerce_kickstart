@@ -45,6 +45,60 @@ function commerce_kickstart_install_tasks() {
 }
 
 /**
+ * Implements hook_install_tasks_alter().
+ */
+function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
+  $tasks['install_finished']['function'] = 'commerce_kickstart_install_finished';
+}
+
+/**
+ * Custom Installation task; perform final steps and redirect the user to the
+ * new site if there are no errors.
+ *
+ * @param $install_state
+ *   An array of information about the current installation state.
+ *
+ * @return
+ *   A message informing the user about errors if there was some.
+ */
+function commerce_kickstart_install_finished(&$install_state) {
+  drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
+  $messages = drupal_set_message();
+
+  // Flush all caches to ensure that any full bootstraps during the installer
+  // do not leave stale cached data, and that any content types or other items
+  // registered by the install profile are registered correctly.
+  drupal_flush_all_caches();
+
+  // Remember the profile which was used.
+  variable_set('install_profile', drupal_get_profile());
+
+  // Install profiles are always loaded last
+  db_update('system')
+    ->fields(array('weight' => 1000))
+    ->condition('type', 'module')
+    ->condition('name', drupal_get_profile())
+    ->execute();
+
+  // Cache a fully-built schema.
+  drupal_get_schema(NULL, TRUE);
+
+  // Run cron to populate update status tables (if available) so that users
+  // will be warned if they've installed an out of date Drupal version.
+  // Will also trigger indexing of profile-supplied content or feeds.
+  drupal_cron_run();
+
+  if (isset($messages['error'])) {
+    $output = '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
+    return $output;
+  }
+  else {
+    // Redirect the user to the front page.
+    drupal_goto('');
+  }
+}
+
+/**
  * Task callback: returns the form allowing the user to add example store
  * content on install.
  */
