@@ -93,6 +93,10 @@ function commerce_kickstart_install_finished(&$install_state) {
     return $output;
   }
   else {
+    // Since any module can add a drupal_set_message, this can bug the user
+    // when we redirect him to the front page. For a better user experience,
+    // remove all the message that are only "notifications" message.
+    drupal_get_messages('status', TRUE);
     // Redirect the user to the front page.
     drupal_goto('');
   }
