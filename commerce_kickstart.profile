@@ -8,10 +8,47 @@
 function commerce_kickstart_form_install_configure_form_alter(&$form, $form_state) {
   // Set a default name for the dev site and change title's label.
   $form['site_information']['site_name']['#title'] = 'Store name';
+  $form['site_information']['site_mail']['#title'] = 'Store email address';
   $form['site_information']['site_name']['#default_value'] = t('Commerce Kickstart');
 
   // Set a default country so we can benefit from it on Address Fields.
   $form['server_settings']['site_default_country']['#default_value'] = 'US';
+
+  // Use "admin" as the default username.
+  $form['admin_account']['account']['name']['#default_value'] = 'admin';
+  $form['admin_account']['account']['name']['#access'] = FALSE;
+  // Set the default admin password.
+  $form['admin_account']['account']['pass']['#value'] = 'admin';
+  // Make the password "hidden".
+  $form['admin_account']['account']['pass']['#type'] = 'hidden';
+  $form['admin_account']['account']['mail']['#access'] = FALSE;
+
+  // Hide Update Notifications.
+  $form['update_notifications']['#access'] = FALSE;
+
+  // Add informations about the default username and password.
+  $form['admin_account']['account']['commerce_kickstart_name'] = array(
+    '#type' => 'item', '#title' => st('Username'),
+    '#markup' => 'admin'
+  );
+  $form['admin_account']['account']['commerce_kickstart_password'] = array(
+    '#type' => 'item', '#title' => st('Password'),
+    '#markup' => 'admin'
+  );
+  $form['admin_account']['account']['commerce_kickstart_informations'] = array(
+    '#markup' => '<p>' . t('You can change the default username and password from the store administration page. This information will me emailed to the store email address') . '</p>'
+  );
+
+  // add a custom validation that needs to be trigger before the original one,
+  // where we can copy the site's mail as the admin account's mail.
+  array_unshift($form['#validate'], 'commerce_kickstart_customset_admin_mail');
+}
+
+/**
+ * Validate callback; Populate the admin account'mail with the site's mail.
+ */
+function commerce_kickstart_customset_admin_mail(&$form, &$form_state) {
+  $form_state['values']['account']['mail'] = $form_state['values']['site_mail'];
 }
 
 /**
