@@ -111,24 +111,49 @@ function commerce_kickstart_example_store_form() {
 
   // Prepare all the options for example content.
   $options = array(
-    'products' => st('Products'),
+    '1' => st('Yes'),
+    '0' => st('No'),
   );
   $form['commerce_kickstart_example_content'] = array(
-    '#type' => 'checkboxes',
-    '#title' => st('Create example content for the following store components:'),
-    '#description' => st('The example content is not comprehensive but illustrates how the basic components work.'),
+    '#type' => 'radios',
+    '#title' => st('Do you want to install example store content?'),
+    '#description' => st('Recommended for new users. Demonstrates how you can set-up your Drupal Commerce site.'),
     '#options' => $options,
-    '#default_value' => drupal_map_assoc(array_keys($options)),
+    '#default_value' => '1',
   );
+
+  // Build a currency options list from all defined currencies.
+  $options = array();
+
+  foreach (commerce_currencies(FALSE, TRUE) as $currency_code => $currency) {
+    $options[$currency_code] = t('@code - !name', array(
+      '@code' => $currency['code'],
+      '@symbol' => $currency['symbol'],
+      '!name' => $currency['name']
+    ));
+
+    if (!empty($currency['symbol'])) {
+      $options[$currency_code] .= ' - ' . check_plain($currency['symbol']);
+    }
+  }
+
+  $form['commerce_default_currency'] = array(
+    '#type' => 'select',
+    '#title' => t('Default store currency'),
+    '#description' => t('The default store currency will be used as the default for all price fields.'),
+    '#options' => $options,
+    '#default_value' => commerce_default_currency(),
+  );
+
   // Prepare all the options for example content.
   $options = array(
-    'us' => st('US'),
-    'europe' => st('Europe'),
+    'us' => st('US - Exclusive tax rates'),
+    'europe' => st('European - Inclusive tax rates (VAT)'),
   );
   $form['commerce_kickstart_choose_tax_country'] = array(
     '#type' => 'radios',
-    '#title' => st('Setup default currency and taxes:'),
-    '#description' => st('The example content is not comprehensive but illustrates how the basic components work.'),
+    '#title' => st('Tax rate examples'),
+    '#description' => st('Example tax rates will be created in this style.'),
     '#options' => $options,
     '#default_value' => key($options),
   );
@@ -138,7 +163,6 @@ function commerce_kickstart_example_store_form() {
     '#value' => st('Create and continue'),
     '#weight' => 15,
   );
-
   return $form;
 }
 
@@ -148,7 +172,8 @@ function commerce_kickstart_example_store_form() {
 function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
   variable_set('commerce_kickstart_example_content', $form_state['values']['commerce_kickstart_example_content']);
   variable_set('commerce_kickstart_choose_tax_country', $form_state['values']['commerce_kickstart_choose_tax_country']);
-  if (!empty($form_state['values']['commerce_kickstart_example_content']['products'])) {
+  variable_set('commerce_default_currency', $form_state['values']['commerce_default_currency']);
+  if ($form_state['values']['commerce_kickstart_example_content'] == 1) {
     variable_set('commerce_kickstart_import_product', TRUE);
   }
 }

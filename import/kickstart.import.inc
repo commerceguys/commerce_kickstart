@@ -9,7 +9,7 @@ function _commerce_kickstart_example_taxes() {
   $commerce_kickstart_example_content = variable_get('commerce_kickstart_example_content', NULL);
   $commerce_kickstart_choose_tax_country = variable_get('commerce_kickstart_choose_tax_country', NULL);
   // Create products if specified.
-  if (!empty($commerce_kickstart_example_content['products'])) {
+  if ($commerce_kickstart_example_content == 1) {
     module_enable(array(
       'features',
       'commerce_features',
@@ -564,8 +564,6 @@ function _commerce_kickstart_create_product($product_type, $sku, $product_title,
   if (variable_get('import_choosen_tax', 'us') == 'europe') {
     // Only add this is we use an "include tax". (ie. europe tax)
     $product->commerce_price[LANGUAGE_NONE][0]['data']['include_tax'] = 'sample_french_vat_tax';
-    // At the same time, set the default currency to Euro.
-    variable_set('commerce_default_currency', 'EUR');
   }
   $currency_code = variable_get('commerce_default_currency', 'USD');
   $product->commerce_price[LANGUAGE_NONE][0]['amount'] = $product_price;
