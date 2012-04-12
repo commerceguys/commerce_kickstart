@@ -13,6 +13,8 @@ function commerce_kickstart_settings_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 /**
  * Implements hook_image_default_styles().
@@ -44,3 +46,7 @@ function commerce_kickstart_settings_image_default_styles() {
 
   return $styles;
 }
+=======
+>>>>>>> b680d2d... Revamp features for demo, delete custom modules add slideshow on hp.
+=======
+>>>>>>> b680d2d... Revamp features for demo, delete custom modules add slideshow on hp.

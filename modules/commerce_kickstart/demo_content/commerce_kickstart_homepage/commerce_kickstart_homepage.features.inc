@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * feature_ck2_demo.features.inc
+ * commerce_kickstart_homepage.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function feature_ck2_demo_ctools_plugin_api() {
+function commerce_kickstart_homepage_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
@@ -17,7 +17,7 @@ function feature_ck2_demo_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function feature_ck2_demo_views_api() {
+function commerce_kickstart_homepage_views_api() {
   list($module, $api) = func_get_args();
   if ($module == "views" && $api == "views_default") {
     return array("version" => "3.0");
@@ -27,7 +27,7 @@ function feature_ck2_demo_views_api() {
 /**
  * Implements hook_node_info().
  */
-function feature_ck2_demo_node_info() {
+function commerce_kickstart_homepage_node_info() {
   $items = array(
     'article' => array(
       'name' => t('Article'),

@@ -19,6 +19,12 @@ projects[features] = 1.0-rc1
 projects[features][subdir] = "contrib"
 projects[strongarm] = 2.0-rc1
 projects[strongarm][subdir] = "contrib"
+projects[taxonomy_menu] = 1.2
+projects[taxonomy_menu][subdir] = "contrib"
+projects[views_slideshow] = 3.0
+projects[views_slideshow][subdir] = "contrib"
+projects[libraries] = 1.0
+projects[libraries][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce] = 1.2
@@ -28,6 +34,11 @@ projects[commerce_features] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_addressbook] = 2.x-dev
 projects[commerce_addressbook][subdir] = "contrib"
+projects[commerce_shipping] = 2.0-beta1
+projects[commerce_shipping][subdir] = "contrib"
+projects[commerce_flat_rate] = 1.0-beta1
+projects[commerce_flat_rate][subdir] = "contrib"
+
 
 ; Other contribs.
 projects[inline_entity_form][type] = module
@@ -49,6 +60,13 @@ projects[facetapi][subdir] = "contrib"
 ; UI improvement modules.
 projects[module_filter] = 1.6
 projects[module_filter][subdir] = "contrib"
+projects[flexslider] = 1.0-rc2
+projects[flexslider][subdir] = "contrib"
 
 ; Base theme
 projects[omega] = 3.1
+
+; Libraries
+libraries[flexslider][type] = "libraries"
+libraries[flexslider][download][type] = "git"
+libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider.git"

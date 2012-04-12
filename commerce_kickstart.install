@@ -571,7 +571,8 @@ function _commerce_kickstart_install() {
   foreach ($contents as &$content) {
     _commerce_kickstart_custom_createContent($content[0], $content[1], $content[2], $content[3], $content[4], $content[5]);
   }
-
+  features_rebuild();
+  menu_rebuild();
 
   // Enable Commerce blocks.
   $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);

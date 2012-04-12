@@ -1,56 +1,118 @@
 <?php
 /**
  * @file
- * feature_ck2_demo.features.menu_links.inc
+ * commerce_kickstart_settings.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function feature_ck2_demo_menu_default_menu_links() {
+function commerce_kickstart_settings_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu:blog
-  $menu_links['main-menu:blog'] = array(
+  // Exported menu link: main-menu:<front>
+  $menu_links['main-menu:<front>'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'blog',
-    'router_path' => 'blog',
-    'link_title' => 'Blog',
-    'options' => array(),
-    'module' => 'system',
+    'link_path' => '<front>',
+    'router_path' => '',
+    'link_title' => 'Home',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
     'hidden' => '0',
-    'external' => '0',
+    'external' => '1',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-50',
   );
-  // Exported menu link: main-menu:brands
-  $menu_links['main-menu:brands'] = array(
+  // Exported menu link: main-menu:all-products
+  $menu_links['main-menu:all-products'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'brands',
-    'router_path' => 'brands',
-    'link_title' => 'Brands',
+    'link_path' => 'all-products',
+    'router_path' => 'all-products',
+    'link_title' => 'All products',
     'options' => array(),
     'module' => 'system',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '99',
   );
-  // Exported menu link: main-menu:news
-  $menu_links['main-menu:news'] = array(
+  // Exported menu link: main-menu:taxonomy/term/32
+  $menu_links['main-menu:taxonomy/term/32'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'news',
-    'router_path' => 'news',
-    'link_title' => 'News',
-    'options' => array(),
-    'module' => 'system',
+    'link_path' => 'taxonomy/term/32',
+    'router_path' => 'taxonomy/term/%',
+    'link_title' => 'To wear',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'To wear',
+      ),
+    ),
+    'module' => 'taxonomy_menu',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
+    'expanded' => '1',
+    'weight' => '-46',
+  );
+  // Exported menu link: main-menu:taxonomy/term/33
+  $menu_links['main-menu:taxonomy/term/33'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'taxonomy/term/33',
+    'router_path' => 'taxonomy/term/%',
+    'link_title' => 'To carry',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'To carry',
+      ),
+    ),
+    'module' => 'taxonomy_menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '1',
+    'weight' => '-48',
+  );
+  // Exported menu link: main-menu:taxonomy/term/34
+  $menu_links['main-menu:taxonomy/term/34'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'taxonomy/term/34',
+    'router_path' => 'taxonomy/term/%',
+    'link_title' => 'To Drink',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'To Drink',
+      ),
+    ),
+    'module' => 'taxonomy_menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '1',
+    'weight' => '-49',
+  );
+  // Exported menu link: main-menu:taxonomy/term/35
+  $menu_links['main-menu:taxonomy/term/35'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'taxonomy/term/35',
+    'router_path' => 'taxonomy/term/%',
+    'link_title' => 'To geek out',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'To geek out',
+      ),
+    ),
+    'module' => 'taxonomy_menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '1',
+    'weight' => '-47',
   );
   // Exported menu link: menu-footer-navigation:node/1
   $menu_links['menu-footer-navigation:node/1'] = array(
@@ -183,16 +245,19 @@ function feature_ck2_demo_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Blog');
-  t('Brands');
+  t('All products');
   t('Company info');
   t('Contact us');
-  t('News');
+  t('Home');
   t('Press links');
   t('Security & privacy');
   t('Service & support');
   t('Shipping & returns');
   t('Terms of use');
+  t('To Drink');
+  t('To carry');
+  t('To geek out');
+  t('To wear');
 
 
   return $menu_links;

@@ -41,5 +41,4 @@ features[facetapi][] = "search_api@search_commerce_product:block:search_api_lang
 features[search_api_index][] = "search_commerce_display"
 features[search_api_index][] = "search_commerce_product"
 features[search_api_server][] = "database_search_engine"
-features[views_view][] = "display_all_products"
 features[views_view][] = "display_products"

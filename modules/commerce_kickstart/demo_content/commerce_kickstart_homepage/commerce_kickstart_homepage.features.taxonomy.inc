@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * feature_ck2_demo.features.taxonomy.inc
+ * commerce_kickstart_homepage.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function feature_ck2_demo_taxonomy_default_vocabularies() {
+function commerce_kickstart_homepage_taxonomy_default_vocabularies() {
   return array(
     'tags' => array(
       'name' => 'Tags',

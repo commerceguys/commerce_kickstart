@@ -4,13 +4,25 @@ core = "7.x"
 package = "Features"
 php = "5.2.4"
 dependencies[] = "features"
+<<<<<<< HEAD
+<<<<<<< HEAD
 dependencies[] = "image"
+=======
+>>>>>>> b680d2d... Revamp features for demo, delete custom modules add slideshow on hp.
+=======
+>>>>>>> b680d2d... Revamp features for demo, delete custom modules add slideshow on hp.
 dependencies[] = "menu"
 dependencies[] = "strongarm"
 dependencies[] = "taxonomy"
 dependencies[] = "taxonomy_menu"
 features[ctools][] = "strongarm:strongarm:1"
+<<<<<<< HEAD
+<<<<<<< HEAD
 features[image][] = "product_medium"
+=======
+>>>>>>> b680d2d... Revamp features for demo, delete custom modules add slideshow on hp.
+=======
+>>>>>>> b680d2d... Revamp features for demo, delete custom modules add slideshow on hp.
 features[menu_custom][] = "main-menu"
 features[menu_custom][] = "menu-footer-navigation"
 features[menu_links][] = "main-menu:<front>"

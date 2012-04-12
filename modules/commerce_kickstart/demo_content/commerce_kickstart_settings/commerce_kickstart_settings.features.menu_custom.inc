@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * feature_ck2_demo.features.menu_custom.inc
+ * commerce_kickstart_settings.features.menu_custom.inc
  */
 
 /**
  * Implements hook_menu_default_menu_custom().
  */
-function feature_ck2_demo_menu_default_menu_custom() {
+function commerce_kickstart_settings_menu_default_menu_custom() {
   $menus = array();
 
   // Exported menu: main-menu

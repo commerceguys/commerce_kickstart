@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * feature_ck2_demo.strongarm.inc
+ * commerce_kickstart_homepage.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function feature_ck2_demo_strongarm() {
+function commerce_kickstart_homepage_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
