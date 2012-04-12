@@ -14,13 +14,11 @@ function _commerce_kickstart_example_taxes() {
       'features',
       'commerce_features',
       'ft_dsc_architecture',
-      'kickstart_view_modes',
-      'feature_ck2_demo',
-      'demo_features',
+      'commerce_kickstart_homepage',
+      'commerce_kickstart_settings'
     ));
     features_rebuild();
     drupal_static_reset();
-    node_types_rebuild();
     module_enable(array('demo'));
   }
 
