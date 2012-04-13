@@ -134,8 +134,11 @@ function commerce_kickstart_install_finished(&$install_state) {
     // when we redirect him to the front page. For a better user experience,
     // remove all the message that are only "notifications" message.
     drupal_get_messages('status', TRUE);
-    // Redirect the user to the front page.
-    drupal_goto('');
+    // If we don't install drupal using Drush, redirect the user to the front
+    // page.
+    if (!drupal_is_cli()) {
+      drupal_goto('');
+    }
   }
 }
 
