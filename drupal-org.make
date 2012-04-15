@@ -23,6 +23,7 @@ projects[strongarm][subdir] = "contrib"
 ; Drupal Commerce and Commerce contribs.
 projects[commerce] = 1.2
 projects[commerce][subdir] = "contrib"
+projects[commerce][patch][] = "http://drupal.org/files/1534464-unserialize-fix.patch"
 projects[commerce_features] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_addressbook] = 2.x-dev
@@ -31,7 +32,7 @@ projects[commerce_addressbook][subdir] = "contrib"
 ; Other contribs.
 projects[inline_entity_form][type] = module
 projects[inline_entity_form][download][type] = git
-projects[inline_entity_form][download][revision] = 881ef6ce712c8a1080ce6774d60ac1bce63103d5
+projects[inline_entity_form][download][revision] = 0b57262da6b6e0f5b3107a0f4e6a1a8c935b1449
 projects[inline_entity_form][download][branch] = 7.x-1.x
 projects[inline_entity_form][subdir] = "contrib"
 
