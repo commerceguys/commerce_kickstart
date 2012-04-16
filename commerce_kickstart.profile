@@ -314,6 +314,7 @@ function commerce_kickstart_update_status_alter(&$projects) {
 
     // Current version matches the version we shipped, remove it from the list.
     if (DRUPAL_CORE_COMPATIBILITY . '-' . $make_project_version == $project_info['info']['version']) {
+      $projects['commerce_kickstart']['includes'][$project_info['name']] = $project_info['info']['name'];
       unset($projects[$project_name]);
     }
   }
