@@ -85,7 +85,7 @@ function commerce_kickstart_install() {
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
-      'pages' => '<front>', // Dp not show the block on front.
+      'pages' => '<front>', // Do not show the block on front.
       'cache' => -1,
     ),
     array(
