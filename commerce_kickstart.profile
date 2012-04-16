@@ -61,8 +61,8 @@ function commerce_kickstart_install_tasks() {
   $install_configure_seachapi = variable_get('install_configure_seachapi', FALSE);
   // Add a page allowing the user to indicate they'd like to install demo
   // content.
-  $tasks['commerce_kickstart_example_store_form'] = array(
-    'display_name' => st('Example store'),
+  $tasks['commerce_kickstart_configure_store_form'] = array(
+    'display_name' => st('Configure store'),
     'type' => 'form',
   );
   // And let the user choose an example tax to be set up by default.
@@ -146,8 +146,8 @@ function commerce_kickstart_install_finished(&$install_state) {
  * Task callback: returns the form allowing the user to add example store
  * content on install.
  */
-function commerce_kickstart_example_store_form() {
-  drupal_set_title(st('Example store content'));
+function commerce_kickstart_configure_store_form() {
+  drupal_set_title(st('Configure store content'));
 
   // Prepare all the options for example content.
   $options = array(
@@ -209,7 +209,7 @@ function commerce_kickstart_example_store_form() {
 /**
  * Submit callback: creates the requested example content.
  */
-function commerce_kickstart_example_store_form_submit(&$form, &$form_state) {
+function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
   variable_set('commerce_kickstart_example_content', $form_state['values']['commerce_kickstart_example_content']);
   variable_set('commerce_kickstart_choose_tax_country', $form_state['values']['commerce_kickstart_choose_tax_country']);
   variable_set('commerce_default_currency', $form_state['values']['commerce_default_currency']);
