@@ -2,6 +2,8 @@ name = Commerce Kickstart
 description = Install with Drupal Commerce pre-configured for use.
 core = 7.x
 distribution_name = Drupal Commerce
+project = commerce_kickstart
+version = 1.x-dev
 
 ; Developers can feel free to invert the comments below to install modules that
 ; aid in module development.
