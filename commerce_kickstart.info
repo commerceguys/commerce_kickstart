@@ -72,6 +72,8 @@ dependencies[] = commerce_addressbook
 dependencies[] = inline_entity_form
 dependencies[] = module_filter
 dependencies[] = image_delta_formatter
+dependencies[] = oauth_common
+dependencies[] = http_client
 
 ; Install Features
 dependencies[] = features
