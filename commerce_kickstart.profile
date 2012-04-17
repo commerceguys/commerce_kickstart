@@ -226,6 +226,7 @@ function commerce_kickstart_import_product() {
   $batch = array(
     'title' => t('Importing'),
     'operations' => array(
+      array('_commerce_kickstart_default_vocabularies', array()),
       array('_commerce_kickstart_example_taxes', array()),
       array('_commerce_kickstart_example_storage_device', array()),
       array('_commerce_kickstart_example_bags', array()),
