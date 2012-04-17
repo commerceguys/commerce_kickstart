@@ -54,7 +54,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -195,7 +195,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 3,
+          'weight' => '3',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -281,7 +281,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -324,7 +324,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-bags_cases-field_images'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_images',
@@ -362,7 +362,7 @@ function ft_dsc_architecture_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -374,8 +374,8 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => 'medium',
+            'image_link' => 'content',
+            'image_style' => 'product_medium',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -458,7 +458,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -599,7 +599,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -642,7 +642,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-drinks-field_images'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_images',
@@ -680,7 +680,7 @@ function ft_dsc_architecture_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -692,8 +692,8 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => 'medium',
+            'image_link' => 'content',
+            'image_style' => 'product_medium',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -776,7 +776,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -917,7 +917,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -1004,7 +1004,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 3,
+          'weight' => '3',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -1046,7 +1046,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-hats-field_images'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_images',
@@ -1084,7 +1084,7 @@ function ft_dsc_architecture_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -1096,8 +1096,8 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => 'medium',
+            'image_link' => 'content',
+            'image_style' => 'product_medium',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -1180,7 +1180,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1321,7 +1321,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -1364,7 +1364,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-shoes-field_images'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_images',
@@ -1402,7 +1402,7 @@ function ft_dsc_architecture_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -1414,8 +1414,8 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => 'medium',
+            'image_link' => 'content',
+            'image_style' => 'product_medium',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -1502,7 +1502,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 3,
+          'weight' => '3',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -1584,7 +1584,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -1681,7 +1681,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-storage_devices-field_images'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_images',
@@ -1719,7 +1719,7 @@ function ft_dsc_architecture_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -1731,8 +1731,8 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => 'medium',
+            'image_link' => 'content',
+            'image_style' => 'product_medium',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -1819,7 +1819,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -1901,7 +1901,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -2042,7 +2042,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 2,
+          'weight' => '2',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -2085,7 +2085,7 @@ function ft_dsc_architecture_field_default_fields() {
   $fields['commerce_product-tops-field_images'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_images',
@@ -2123,7 +2123,7 @@ function ft_dsc_architecture_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 1,
+          'weight' => '1',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -2135,8 +2135,8 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => 'medium',
+            'image_link' => 'content',
+            'image_style' => 'product_medium',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -2223,7 +2223,7 @@ function ft_dsc_architecture_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 3,
+          'weight' => '3',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -2644,18 +2644,112 @@ function ft_dsc_architecture_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-product_display-field_product'
+  $fields['node-product_display-field_product'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_product',
+      'foreign keys' => array(
+        'product_id' => array(
+          'columns' => array(
+            'product_id' => 'product_id',
+          ),
+          'table' => 'commerce_product',
+        ),
+      ),
+      'indexes' => array(
+        'product_id' => array(
+          0 => 'product_id',
+        ),
+      ),
+      'module' => 'commerce_product_reference',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'commerce_product_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'product_display',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_cart',
+          'settings' => array(
+            'combine' => TRUE,
+            'default_quantity' => 1,
+            'line_item_type' => 'product',
+            'show_quantity' => FALSE,
+          ),
+          'type' => 'commerce_cart_add_to_cart_form',
+          'weight' => 1,
+        ),
+        'full' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_cart',
+          'settings' => array(
+            'combine' => TRUE,
+            'default_quantity' => 1,
+            'line_item_type' => 'product',
+            'show_quantity' => FALSE,
+          ),
+          'type' => 'commerce_cart_add_to_cart_form',
+          'weight' => 0,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_cart',
+          'settings' => array(
+            'combine' => TRUE,
+            'default_quantity' => 1,
+            'line_item_type' => 'product',
+            'show_quantity' => FALSE,
+          ),
+          'type' => 'commerce_cart_add_to_cart_form',
+          'weight' => 1,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_product',
+      'label' => 'Product variations',
+      'required' => TRUE,
+      'settings' => array(
+        'field_injection' => TRUE,
+        'referenceable_types' => array(),
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'module' => 'inline_entity_form',
+        'settings' => array(
+          'fields' => array(),
+        ),
+        'type' => 'inline_entity_form',
+        'weight' => -3,
+      ),
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Brand');
   t('Capacity');
   t('Category');
-  t('Choose the product(s) to display for sale on this node by SKU. Enter multiple SKUs using a comma separated list.');
   t('Collection');
   t('Color');
   t('Description');
   t('Gender');
   t('Image');
   t('Price');
+  t('Product variations');
   t('Size');
 
   return $fields;

@@ -249,6 +249,7 @@ function commerce_kickstart_configure_searchapi() {
   module_enable(array('search_api_db', 'search_api_views', 'facetapi'));
   // Enable the feature.
   module_enable(array('ft_dsc_searchapi'));
+  drupal_static_reset();
 
   // Load the search api index.
   $index = search_api_index_load('1');
@@ -265,6 +266,15 @@ function commerce_kickstart_configure_searchapi() {
     ))
       ->condition('module', 'facetapi')
       ->condition('delta', '0', '<>')
+      ->condition('theme', 'ck2')
+      ->execute();
+    db_update('block')
+      ->fields(array(
+      'region' => 'branding',
+      'status' => (int) '1',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', '-exp-display_products-page')
       ->condition('theme', 'ck2')
       ->execute();
   }
