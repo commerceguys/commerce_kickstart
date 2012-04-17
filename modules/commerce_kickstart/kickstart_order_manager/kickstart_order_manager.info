@@ -1,7 +1,7 @@
 name = Kickstart order manager
 description = "Provides support for order management."
 core = 7.x
-package = Kickstart
+package = Commerce Kickstart
 
 dependencies[] = commerce_order
 dependencies[] = commerce_order_ui

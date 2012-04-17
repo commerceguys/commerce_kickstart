@@ -1,6 +1,7 @@
 name = Demo
 core = 7.x
 dependencies[] = "entity"
+package = Commerce Kickstart
 
 ; Tests
 files[] = test/demo.test
