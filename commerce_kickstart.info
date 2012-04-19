@@ -83,5 +83,6 @@ dependencies[] = commerce_features
 ; Distribution modules.
 dependencies[] = kickstart_order_manager
 dependencies[] = commerce_kickstart_settings
+dependencies[] = commerce_kickstart_help
 
 files[] = commerce_kickstart.profile

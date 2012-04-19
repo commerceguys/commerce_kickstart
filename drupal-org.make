@@ -26,6 +26,10 @@ projects[views_slideshow] = 3.0
 projects[views_slideshow][subdir] = "contrib"
 projects[libraries] = 1.0
 projects[libraries][subdir] = "contrib"
+projects[tipsy] = 1.0-rc1
+projects[tipsy][subdir] = "contrib"
+projects[advanced_help] = 1.0
+projects[advanced_help][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce] = 1.2

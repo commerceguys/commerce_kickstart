@@ -1,0 +1,118 @@
+/* Accordion */
+.ui-accordion h2.ui-accordion-header {
+  background: url('../images/uncheck.png') no-repeat right;
+}
+
+.ui-accordion h2.ui-accordion-header.checked {
+  background: url('../images/check.png') no-repeat right;
+}
+
+#accordion .accordion-section form {
+  float: right;
+}
+
+#accordion .help-section h3 {
+  float: left;
+  margin-right: 15px;
+  color: #3333ee;
+  font-size: 14px;
+}
+
+.ui-accordion .ui-accordion-content {
+  padding: 0 !important;
+}
+
+.help-section {
+  border-top: 1px solid #cccccc;
+  padding: 5px 25px;
+}
+
+.child {
+  text-align: left;
+  display: none;
+}
+
+/* Tipsy */
+.tipsy {
+  padding: 5px;
+  font-size: 10px;
+  position: absolute;
+  z-index: 100000;
+}
+
+.tipsy-inner h4 {
+  background-color: #bdbeb9;
+}
+.tipsy-inner {
+  padding: 5px 8px 4px 8px;
+  background-color: #ffffea;
+  color: black;
+  max-width: 500px;
+  text-align: left;
+}
+
+.tipsy-inner {
+  border: 2px solid #bdbeb9;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.tipsy-arrow {
+  position: absolute;
+  background: url('../images/tipsy.gif') no-repeat top left;
+  width: 9px;
+  height: 5px;
+}
+
+.tipsy-n .tipsy-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -4px;
+}
+
+.tipsy-nw .tipsy-arrow {
+  top: 0;
+  left: 10px;
+}
+
+.tipsy-ne .tipsy-arrow {
+  top: 0;
+  right: 10px;
+}
+
+.tipsy-s .tipsy-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -4px;
+  background-position: bottom left;
+}
+
+.tipsy-sw .tipsy-arrow {
+  bottom: 0;
+  left: 10px;
+  background-position: bottom left;
+}
+
+.tipsy-se .tipsy-arrow {
+  bottom: 0;
+  right: 10px;
+  background-position: bottom left;
+}
+
+.tipsy-e .tipsy-arrow {
+  top: 50%;
+  margin-top: -4px;
+  right: 0;
+  width: 5px;
+  height: 9px;
+  background-position: top right;
+}
+
+.tipsy-w .tipsy-arrow {
+  top: 50%;
+  margin-top: -4px;
+  left: 0;
+  width: 5px;
+  height: 9px;
+}
