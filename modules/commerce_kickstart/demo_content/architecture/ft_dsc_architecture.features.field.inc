@@ -372,12 +372,14 @@ function ft_dsc_architecture_field_default_fields() {
         ),
         'node_product_list' => array(
           'label' => 'hidden',
-          'module' => 'image',
+          'module' => 'image_delta_formatter',
           'settings' => array(
+            'deltas' => 0,
+            'deltas_reversed' => FALSE,
             'image_link' => 'content',
             'image_style' => 'product_medium',
           ),
-          'type' => 'image',
+          'type' => 'image_delta',
           'weight' => '2',
         ),
         'node_teaser' => array(
@@ -690,12 +692,14 @@ function ft_dsc_architecture_field_default_fields() {
         ),
         'node_product_list' => array(
           'label' => 'hidden',
-          'module' => 'image',
+          'module' => 'image_delta_formatter',
           'settings' => array(
+            'deltas' => 0,
+            'deltas_reversed' => FALSE,
             'image_link' => 'content',
             'image_style' => 'product_medium',
           ),
-          'type' => 'image',
+          'type' => 'image_delta',
           'weight' => '2',
         ),
         'node_teaser' => array(
@@ -1094,12 +1098,14 @@ function ft_dsc_architecture_field_default_fields() {
         ),
         'node_product_list' => array(
           'label' => 'hidden',
-          'module' => 'image',
+          'module' => 'image_delta_formatter',
           'settings' => array(
+            'deltas' => 0,
+            'deltas_reversed' => FALSE,
             'image_link' => 'content',
             'image_style' => 'product_medium',
           ),
-          'type' => 'image',
+          'type' => 'image_delta',
           'weight' => '2',
         ),
         'node_teaser' => array(
@@ -1412,12 +1418,14 @@ function ft_dsc_architecture_field_default_fields() {
         ),
         'node_product_list' => array(
           'label' => 'hidden',
-          'module' => 'image',
+          'module' => 'image_delta_formatter',
           'settings' => array(
+            'deltas' => 0,
+            'deltas_reversed' => FALSE,
             'image_link' => 'content',
             'image_style' => 'product_medium',
           ),
-          'type' => 'image',
+          'type' => 'image_delta',
           'weight' => '2',
         ),
         'node_teaser' => array(
@@ -1729,12 +1737,14 @@ function ft_dsc_architecture_field_default_fields() {
         ),
         'node_product_list' => array(
           'label' => 'hidden',
-          'module' => 'image',
+          'module' => 'image_delta_formatter',
           'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
             'image_link' => 'content',
             'image_style' => 'product_medium',
           ),
-          'type' => 'image',
+          'type' => 'image_delta',
           'weight' => '2',
         ),
         'node_teaser' => array(
@@ -2133,12 +2143,14 @@ function ft_dsc_architecture_field_default_fields() {
         ),
         'node_product_list' => array(
           'label' => 'hidden',
-          'module' => 'image',
+          'module' => 'image_delta_formatter',
           'settings' => array(
+            'deltas' => 0,
+            'deltas_reversed' => FALSE,
             'image_link' => 'content',
             'image_style' => 'product_medium',
           ),
-          'type' => 'image',
+          'type' => 'image_delta',
           'weight' => '0',
         ),
         'node_teaser' => array(
