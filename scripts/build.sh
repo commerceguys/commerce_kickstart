@@ -11,6 +11,7 @@ if [ "x$1" == "x" ]; then
   echo "[error] Usage: build.sh [destination]"
   exit 1
 fi
+DESTINATION=$1
 
 if [ ! -f drupal-org.make ]; then
   echo "[error] Run this script from the distribution base path."
