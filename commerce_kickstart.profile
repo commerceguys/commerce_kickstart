@@ -228,6 +228,7 @@ function commerce_kickstart_import_product() {
     'title' => t('Importing Products'),
     'operations' => array(
       array('_commerce_kickstart_example_taxes', array()),
+      array('_commerce_kickstart_taxonomy_menu', array()),
       array('_commerce_kickstart_example_storage_device', array()),
       array('_commerce_kickstart_example_bags', array()),
       array('_commerce_kickstart_example_drinks', array()),

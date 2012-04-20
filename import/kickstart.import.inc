@@ -5,6 +5,25 @@
  * @file commerce_kickstart_profile.
  * @see commerce_kickstart_import_product.
  */
+function _commerce_kickstart_taxonomy_menu() {
+  // Set up taxonomy main menu.
+  $collection = taxonomy_vocabulary_machine_name_load('collection');
+  $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
+  variable_set($variable_name, 'main-menu');
+  $variable_name = _taxonomy_menu_build_variable('vocab_parent', $collection->vid);
+  variable_set($variable_name, '0');
+  $variable_name = _taxonomy_menu_build_variable('path', $collection->vid);
+  variable_set($variable_name, 'taxonomy_menu_path_default');
+  $variable_name = _taxonomy_menu_build_variable('rebuild', $collection->vid);
+  variable_set($variable_name, 1);
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @file commerce_kickstart_profile.
+ * @see commerce_kickstart_import_product.
+ */
 function _commerce_kickstart_example_taxes() {
   $commerce_kickstart_example_content = variable_get('commerce_kickstart_example_content', NULL);
   $commerce_kickstart_choose_tax_country = variable_get('commerce_kickstart_choose_tax_country', NULL);

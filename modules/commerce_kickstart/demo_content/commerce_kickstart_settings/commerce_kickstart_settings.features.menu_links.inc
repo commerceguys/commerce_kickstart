@@ -42,78 +42,6 @@ function commerce_kickstart_settings_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '99',
   );
-  // Exported menu link: main-menu:taxonomy/term/32
-  $menu_links['main-menu:taxonomy/term/32'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'taxonomy/term/32',
-    'router_path' => 'taxonomy/term/%',
-    'link_title' => 'To wear',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'To wear',
-      ),
-    ),
-    'module' => 'taxonomy_menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '1',
-    'weight' => '-46',
-  );
-  // Exported menu link: main-menu:taxonomy/term/33
-  $menu_links['main-menu:taxonomy/term/33'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'taxonomy/term/33',
-    'router_path' => 'taxonomy/term/%',
-    'link_title' => 'To carry',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'To carry',
-      ),
-    ),
-    'module' => 'taxonomy_menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '1',
-    'weight' => '-48',
-  );
-  // Exported menu link: main-menu:taxonomy/term/34
-  $menu_links['main-menu:taxonomy/term/34'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'taxonomy/term/34',
-    'router_path' => 'taxonomy/term/%',
-    'link_title' => 'To Drink',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'To Drink',
-      ),
-    ),
-    'module' => 'taxonomy_menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '1',
-    'weight' => '-49',
-  );
-  // Exported menu link: main-menu:taxonomy/term/35
-  $menu_links['main-menu:taxonomy/term/35'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'taxonomy/term/35',
-    'router_path' => 'taxonomy/term/%',
-    'link_title' => 'To geek out',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'To geek out',
-      ),
-    ),
-    'module' => 'taxonomy_menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '1',
-    'weight' => '-47',
-  );
   // Exported menu link: menu-footer-navigation:node/1
   $menu_links['menu-footer-navigation:node/1'] = array(
     'menu_name' => 'menu-footer-navigation',
@@ -254,10 +182,6 @@ function commerce_kickstart_settings_menu_default_menu_links() {
   t('Service & support');
   t('Shipping & returns');
   t('Terms of use');
-  t('To Drink');
-  t('To carry');
-  t('To geek out');
-  t('To wear');
 
 
   return $menu_links;

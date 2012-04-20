@@ -74,6 +74,7 @@ dependencies[] = module_filter
 dependencies[] = image_delta_formatter
 dependencies[] = oauth_common
 dependencies[] = http_client
+dependencies[] = taxonomy_menu
 
 ; Install Features
 dependencies[] = features
