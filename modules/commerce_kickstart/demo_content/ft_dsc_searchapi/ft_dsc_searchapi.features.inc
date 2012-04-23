@@ -42,12 +42,15 @@ function ft_dsc_searchapi_default_search_api_index() {
         "field_collection" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_gender" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" },
+        "body:value" : { "type" : "text" },
         "field_product:field_bag_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_color" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_hat_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_shoe_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_storage_capacity" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product:field_top_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
+        "field_product:field_top_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_product:field_color:name" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_product:field_color:description" : { "type" : "list\\u003Ctext\\u003E" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -206,6 +209,21 @@ function ft_dsc_searchapi_default_search_api_server() {
           "field_product:field_top_size" : {
             "table" : "search_api_db_search_commerce_display_field_product_field_top_s",
             "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "body:value" : {
+            "table" : "search_api_db_search_commerce_display_body_value",
+            "type" : "text",
+            "boost" : "1.0"
+          },
+          "field_product:field_color:name" : {
+            "table" : "search_api_db_search_commerce_display_field_product_field_col_1",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "field_product:field_color:description" : {
+            "table" : "search_api_db_search_commerce_display_field_product_field_col_2",
+            "type" : "list\\u003Ctext\\u003E",
             "boost" : "1.0"
           }
         },
