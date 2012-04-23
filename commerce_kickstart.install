@@ -539,6 +539,7 @@ function _commerce_kickstart_install() {
   egestas vel, sodales ac, pretium ut, tellus. Aliquam erat volutpat. Curabitur nibh. Nulla facilisi. Proin erat.</p>";
 
   $contents = array(
+    array('Home', '', 'home', 'page'),
     array('Contact', $body1, 'contact-us', 'page'),
     array('About', $body1, 'abous-us', 'page'),
     array('Terms of Use', $body2, 'terms-of-use', 'page'),
@@ -614,6 +615,9 @@ function _commerce_kickstart_install() {
     node_type_save($type);
     node_add_body_field($type);
   }
+
+  // Set homepage.
+  variable_set('site_frontpage', 'home');
 
   // Update "Product" comment and author information settings.
   variable_set('comment_product_display', COMMENT_NODE_HIDDEN);
