@@ -3,6 +3,7 @@ description = Handle the search API configuration
 core = 7.x
 package = Features
 php = 5.2.4
+dependencies[] = current_search
 dependencies[] = entity
 dependencies[] = facetapi
 dependencies[] = kickstart_searchapi

@@ -278,6 +278,16 @@ function commerce_kickstart_configure_searchapi() {
       ->condition('delta', '-exp-display_products-page')
       ->condition('theme', 'ck2')
       ->execute();
+    db_update('block')
+      ->fields(array(
+      'region' => 'content',
+      'weight' => -10,
+      'status' => (int) '1',
+    ))
+      ->condition('module', 'current_search')
+      ->condition('delta', 'standard')
+      ->condition('theme', 'ck2')
+      ->execute();
   }
   catch (Exception $e) {
     watchdog_exception('block', $e);
