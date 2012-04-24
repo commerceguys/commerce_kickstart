@@ -1,0 +1,54 @@
+/* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
+h2.site-name:after {
+  content: " default";
+}
+/**********************************/
+.main-menu a,
+.secondary-menu a {
+  display: inline;
+}
+.navigation .primary-menu li a,
+.navigation .primary-menu li a.active,
+.navigation .primary-menu li a:hover,
+.navigation .second-menu li a,
+.navigation .second-menu li a.active,
+.navigation .second-menu li a:hover {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+.navigation li.first a {
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.navigation li.first a,
+.navigation li.first a.active,
+.navigation li.first a:hover {
+  border-left: 1px solid #000000;
+}
+.navigation .second-menu li.first a,
+.navigation .second-menu li.first a.active,
+.navigation .second-menu li.first a:hover {
+  border-left: 1px solid #d7d7d7;
+}
+.navigation li.last a {
+  -webkit-border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  -moz-border-radius-bottomright: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.navigation li.last a,
+.navigation li.last a.active,
+.navigation li.last a:hover {
+  border-right: 1px solid #000000;
+}
+.navigation .second-menu li.last a,
+.navigation .second-menu li.last a.active,
+.navigation .second-menu li.last a:hover {
+  border-right: 1px solid #d7d7d7;
+}

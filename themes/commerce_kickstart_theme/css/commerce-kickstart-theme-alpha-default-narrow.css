@@ -1,0 +1,24 @@
+/* This file will hold styles that are loaded using the same media query as the narrow grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the normal and widescreen layouts. You may override these styles in the normal 
+ *  and widescreen CSS files as appropriate. */
+h2.site-name:after {
+  content: " narrow";
+}
+/**********************************/
+.navigation .primary-menu,
+.navigation .second-menu {
+  margin: 26px 0px;
+}
+.main-menu a,
+.secondary-menu a {
+  display: inline;
+}
+
+/* Footer */
+/* Menu footer navigation */
+.section-footer ul.menu li {
+  display: inline;
+  float: left;
+}
+

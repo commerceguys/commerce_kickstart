@@ -7,7 +7,7 @@
  */
 
 // Define some Commerce Kickstart specific components.
-define('KICKSTART_DEFAULT_THEME', 'ck2');
+define('KICKSTART_DEFAULT_THEME', 'commerce_kickstart_theme');
 define('KICKSTART_ADMIN_THEME', 'seven');
 
 /**
@@ -73,8 +73,8 @@ function commerce_kickstart_install() {
   filter_format_save($full_html_format);
 
   // Enable some standard blocks.
-  theme_enable(array('ck2'));
-  variable_set('theme_default', 'ck2');
+  theme_enable(array('commerce_kickstart_theme'));
+  variable_set('theme_default', 'commerce_kickstart_theme');
   $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
   $admin_theme = KICKSTART_ADMIN_THEME;
   $values = array(

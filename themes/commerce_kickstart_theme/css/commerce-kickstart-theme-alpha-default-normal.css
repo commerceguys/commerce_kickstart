@@ -1,0 +1,20 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by body {
+  background-color: #b3e4fd;
+}Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+h2.site-name:after {
+  content: " normal";
+}
+/**********************************/
+.navigation .primary-menu,
+.navigation .second-menu {
+  display: inline;
+}
+.navigation .primary-menu {
+  float: left;
+  margin-right: 12px;
+}
+.navigation .second-menu {
+  float: right;
+}

@@ -258,7 +258,7 @@ function commerce_kickstart_configure_searchapi() {
   search_api_index_items($index);
 
   // Put the facets blocks in the right place.
-  _block_rehash('ck2');
+  _block_rehash('commerce_kickstart_theme');
   try {
     db_update('block')
       ->fields(array(
@@ -267,7 +267,7 @@ function commerce_kickstart_configure_searchapi() {
     ))
       ->condition('module', 'facetapi')
       ->condition('delta', '0', '<>')
-      ->condition('theme', 'ck2')
+      ->condition('theme', 'commerce_kickstart_theme')
       ->execute();
     db_update('block')
       ->fields(array(
@@ -276,7 +276,7 @@ function commerce_kickstart_configure_searchapi() {
     ))
       ->condition('module', 'views')
       ->condition('delta', '-exp-display_products-page')
-      ->condition('theme', 'ck2')
+      ->condition('theme', 'commerce_kickstart_theme')
       ->execute();
     db_update('block')
       ->fields(array(
@@ -286,7 +286,7 @@ function commerce_kickstart_configure_searchapi() {
     ))
       ->condition('module', 'current_search')
       ->condition('delta', 'standard')
-      ->condition('theme', 'ck2')
+      ->condition('theme', 'commerce_kickstart_theme')
       ->execute();
   }
   catch (Exception $e) {

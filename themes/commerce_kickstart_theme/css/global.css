@@ -1,0 +1,159 @@
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+body {
+  background-color: #ececec;
+  font-size: 14px;
+}
+h2.site-name:after {
+  content: " global ";
+}
+/**********************************/
+
+/* Header */
+.section-header {}
+.zone-user-wrapper {
+  background-color: #8e8e8e;
+  height: 28px;
+}
+.zone-user-wrapper .block-commerce-cart,
+.zone-user-wrapper .block-commerce-cart a {
+} 
+.zone-menu-wrapper {}
+.zone-menu {}
+
+.navigation .primary-menu,
+.navigation .second-menu {
+  font-size: 1.142857142857143em;
+}
+
+.navigation .primary-menu .main-menu li,
+.navigation .second-menu .secondary-menu li {
+  margin: 0;
+  padding: 0;
+}
+.main-menu a,
+.secondary-menu a {
+  display: block;
+  margin: 7px 0;
+  padding: 12px;
+  text-decoration: none;
+}
+.main-menu a {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.secondary-menu a {
+  color: #000000;
+}
+
+/*--------------------------------------------------------------*/
+/* transitions */
+.navigation li a {
+  -webkit-transition:background .2s ease-in;
+  -moz-transition:background .2s ease-in;
+  -o-transition:background .2s ease-in;
+  transition:background .2s ease-in
+}
+.navigation li a:hover {
+  -webkit-transition:background .4s ease-out;
+  -moz-transition:background .4s ease-out;
+  -o-transition:background .4s ease-out;
+  transition:background .4s ease-out;
+}
+/*--------------------------------------------------------------*/
+.navigation .primary-menu li a {
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+.navigation .primary-menu li a.active,
+.navigation .primary-menu li a:hover {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+.navigation .primary-menu li a.active {
+  color: #fd9a00;
+}
+.navigation .primary-menu li a:hover {
+  color: #000000;
+}
+
+.navigation .second-menu li a {
+  background-color: #ffffff;
+  border: 1px solid #d7d7d7;
+}
+.navigation .second-menu li a.active,
+.navigation .second-menu li a:hover {
+  background-color: #000000;
+  border: 1px solid #d7d7d7;
+}
+.navigation .second-menu li a.active {
+  color: #fd9a00;
+}
+.navigation .second-menu li a:hover {
+  color: #ffffff;
+}
+
+
+/* Content */
+.section-content {
+  min-height: 500px;
+  height: 100%;
+}
+.zone-content-wrapper {
+  height: 100%;
+}
+.region-content {
+  background-color: #ffffff;
+  height: 100%;
+  padding: 10px;
+}
+
+/* Footer */
+.section-footer {
+  background-color: #3f3f3f;
+}
+.zone-footer-wrapper {
+  background-color: #494949;
+  padding-top: 32px;
+  padding-bottom: 36px;
+}
+.zone-footer2-wrapper {
+  background-color: #3f3f3f;
+  padding-top: 17px;
+  height: 160px;
+}
+.zone-footer2 {
+  color: #eeeeee;
+}
+/* Menu footer navigation */
+.block-menu-menu-footer-navigation {
+  width: auto;
+}
+.section-footer ul.menu {
+  width: 100%;
+}
+.section-footer ul.menu li {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+.section-footer ul.menu li a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.section-footer ul.menu .expanded a.active {
+  color: #fd9a00;
+}
+.section-footer ul.menu .expanded a:hover {
+  text-decoration: underline;
+}
+.section-footer ul.menu .expanded ul.menu li {
+  display: block;
+  float: none;
+  padding: 0;
+}
+.section-footer ul.menu .expanded ul.menu li a {
+  color: #c1c1c1;
+  font-weight: normal;
+}
