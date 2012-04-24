@@ -200,7 +200,7 @@ function commerce_kickstart_configure_store_form() {
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => st('Create and continue'),
+    '#value' => st('Create and Finish'),
     '#weight' => 15,
   );
   return $form;
