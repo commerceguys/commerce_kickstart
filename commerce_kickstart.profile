@@ -222,9 +222,10 @@ function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
  * Task callback: return a batch API array with the products to be imported.
  */
 function commerce_kickstart_import_product() {
-  // Batch api
+  drupal_set_title(st('Import products'));
+  // Batch api import products
   $batch = array(
-    'title' => t('Importing'),
+    'title' => t('Importing Products'),
     'operations' => array(
       array('_commerce_kickstart_example_taxes', array()),
       array('_commerce_kickstart_example_storage_device', array()),
