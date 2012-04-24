@@ -18,25 +18,5 @@ function commerce_kickstart_homepage_ctools_plugin_api() {
  * Implements hook_views_api().
  */
 function commerce_kickstart_homepage_views_api() {
-  list($module, $api) = func_get_args();
-  if ($module == "views" && $api == "views_default") {
-    return array("version" => "3.0");
-  }
-}
-
-/**
- * Implements hook_node_info().
- */
-function commerce_kickstart_homepage_node_info() {
-  $items = array(
-    'article' => array(
-      'name' => t('Article'),
-      'base' => 'node_content',
-      'description' => t('Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-  );
-  return $items;
+  return array("version" => "3.0");
 }

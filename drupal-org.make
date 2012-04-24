@@ -79,6 +79,8 @@ projects[flexslider] = 1.0-rc2
 projects[flexslider][subdir] = "contrib"
 projects[image_delta_formatter] = 1.x-dev
 projects[image_delta_formatter][subdir] = "contrib"
+projects[link] = 1.0
+projects[link][subdir] = "contrib"
 
 ; Base theme
 projects[omega] = 3.1

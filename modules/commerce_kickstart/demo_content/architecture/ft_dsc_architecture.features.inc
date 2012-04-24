@@ -83,10 +83,34 @@ function ft_dsc_architecture_views_api() {
  */
 function ft_dsc_architecture_node_info() {
   $items = array(
+    'blog_post' => array(
+      'name' => t('Blog Post'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'brand' => array(
+      'name' => t('Brand'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'product_display' => array(
       'name' => t('Product display'),
       'base' => 'node_content',
       'description' => t('Use <em>product displays</em> to present Add to Cart form for products to your customers.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'slideshow' => array(
+      'name' => t('Slideshow'),
+      'base' => 'node_content',
+      'description' => '',
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

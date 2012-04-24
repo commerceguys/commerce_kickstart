@@ -34,13 +34,90 @@ function _commerce_kickstart_pre_enable_modules() {
       'features',
       'commerce_features',
       'ft_dsc_architecture',
-      'commerce_kickstart_homepage',
-      'commerce_kickstart_settings'
     ));
     features_rebuild();
     drupal_static_reset();
     module_enable(array('demo'));
   }
+}
+
+function _commerce_kickstart_example_nodes() {
+
+  $body1  = "<p>Nunc tempor, sapien sed rhoncus vulputate, lectus felis scelerisque dolor, vitae interdum ipsum quam vitae purus.
+  Maecenas neque. Donec semper imperdiet libero. Nulla facilisi. Mauris in velit eu nisl dapibus interdum. Fusce vulputate tellus nec risus.</p>";
+  $body1 .= "<p>Proin nec metus. Pellentesque mollis, erat non hendrerit tincidunt.</p>";
+
+  $body2  = "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed eu dui.
+  Phasellus eget orci volutpat sem accumsan condimentum. Etiam lobortis facilisis sem.
+  Aliquam pede erat, sagittis sed, bibendum ac, consequat sed, arcu. Fusce placerat bibendum risus.
+  Maecenas semper adipiscing purus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum eget leo.
+  Suspendisse nonummy dolor in pede ullamcorper venenatis. Vivamus sapien. Vivamus ante quam, tristique quis, porttitor nec, viverra eget, ante.
+  Nulla vitae nunc vel est dignissim dictum. Suspendisse feugiat pellentesque ante.
+  Etiam viverra commodo neque. Aenean id mi. Sed lacinia tincidunt purus.
+  Maecenas eros quam, feugiat quis, feugiat vel, rutrum in, sem. Pellentesque eu ipsum.
+  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Vestibulum mollis molestie elit.</p>";
+  $body2 .= "<p>Nunc vulputate ligula a quam. Praesent nec justo. Maecenas vulputate porttitor ipsum. Proin semper turpis quis orci scelerisque congue.
+  Sed sit amet ipsum eu augue tempor sollicitudin. Praesent eu velit eu pede tincidunt sagittis. Proin tortor erat, bibendum id, tempor vitae, blandit sit amet, tortor.
+  Curabitur tincidunt nisi blandit pede. Pellentesque mi ligula, iaculis sit amet, scelerisque nec, lacinia in, nulla. Nunc in elit nec risus feugiat posuere.
+  Duis vitae est. Quisque convallis convallis leo. Vivamus molestie vehicula dui. Donec vulputate, ipsum in porttitor condimentum, nunc felis pellentesque sem,
+  interdum pharetra risus sapien eu urna. Morbi nisl. Quisque odio lorem, iaculis vitae, commodo eu, vestibulum elementum, est.
+  Etiam tempus cursus risus. Integer luctus dapibus lorem.</p><p>Sed lectus dui, bibendum et, eleifend id, aliquet ac, nulla. Morbi sed lacus nec ipsum sagittis facilisis.
+  Sed id nulla nec augue interdum porttitor. Phasellus varius posuere justo. Nunc et est eu metus pharetra posuere. Ut sit amet orci ut nibh aliquet accumsan.
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed fermentum, velit at porttitor sollicitudin, pede massa feugiat enim, eget volutpat felis leo ut lacus.
+  Vestibulum orci orci, gravida eu, scelerisque sit amet, aliquet euismod, ante. Duis nonummy. Sed placerat dolor. Vivamus tempor sapien sit amet felis.</p><p>Nam viverra eleifend metus. Nulla tortor nisl, faucibus ut, convallis eget, malesuada et, velit. Nulla scelerisque molestie enim. Curabitur et orci. Proin mauris neque, laoreet eu, iaculis dapibus, euismod sed, tellus. Aenean viverra quam eu magna. Morbi porttitor semper sem. Fusce a ipsum eu dolor ultrices placerat. Integer nec velit non nulla dictum aliquet. Aenean lorem velit, tincidunt non, auctor at, blandit tristique, ligula. Fusce at nisl in sapien porttitor convallis. Cras lacus. Morbi nec libero a sapien facilisis fringilla. Nulla porta. Praesent at ligula. Aenean erat mauris, nonummy nec, fermentum sit amet, porta ac, magna. Mauris vestibulum. Mauris ut arcu id urna ornare malesuada. Aliquam ut sapien quis nisi rutrum mollis. Aliquam lacus arcu, ultricies a, dignissim vitae, faucibus in, sapien.</p>";
+  $body2 .= "<p>Nunc tempor, sapien sed rhoncus vulputate, lectus felis scelerisque dolor, vitae interdum ipsum quam vitae purus. Maecenas neque. Donec semper imperdiet libero. Nulla facilisi. Mauris in velit eu nisl dapibus interdum. Fusce vulputate tellus nec risus.</p>";
+  $body2 .= "<p>Proin nec metus. Pellentesque mollis, erat non hendrerit tincidunt.</p>";
+  $body2 .= "<p>Massa est egestas est, at laoreet dolor mi at purus. Vivamus dictum, metus in varius dictum, ipsum mi sodales tellus, in egestas lacus metus et enim. Phasellus rhoncus nisl at metus. Ut lobortis cursus velit. Sed risus. Curabitur sed orci nec nibh gravida hendrerit. Phasellus laoreet. Morbi blandit porta orci. Morbi turpis justo, egestas vel, sodales ac, pretium ut, tellus. Aliquam erat volutpat. Curabitur nibh. Nulla facilisi. Proin erat.</p>";
+
+  $body3 = "<p>Proin nec metus. Pellentesque mollis, erat non hendrerit tincidunt.</p>
+  <p>Massa est egestas est, at laoreet dolor mi at purus. Vivamus dictum, metus in varius dictum, ipsum mi sodales tellus,
+  in egestas lacus metus et enim. Phasellus rhoncus nisl at metus. Ut lobortis cursus velit. Sed risus.
+  Curabitur sed orci nec nibh gravida hendrerit. Phasellus laoreet. Morbi blandit porta orci. Morbi turpis justo,
+  egestas vel, sodales ac, pretium ut, tellus. Aliquam erat volutpat. Curabitur nibh. Nulla facilisi. Proin erat.</p>";
+
+  // Here we set nid to be able to rely on it when exporting menu links in features.
+  $contents = array(
+    array('Home', '', '1', 'home', 'page'),
+    array('Contact', $body1, '2', 'contact-us', 'page'),
+    array('About', $body1, '3', 'about-us', 'page'),
+    array('Terms of Use', $body2, '4', 'terms-of-use', 'page'),
+    array('Payment', $body2, '5', 'payment', 'page'),
+    array('Shipping', $body3, '6', 'shipping-return', 'page'),
+    array('Press links', $body1, '7', 'press-links', 'page'),
+    array('Service & support', $body2, '8', 'service-support', 'page'),
+    array('Security & privacy', $body3, '9', 'security-privacy-policy', 'page'),
+  );
+
+  foreach ($contents as &$content) {
+    _commerce_kickstart_custom_createContent($content[0], $content[1], $content[2], $content[3], $content[4], '');
+  }
+
+  $contents = array(
+    array('Brand 1', $body1, '', '', 'brand', 'brand-1.jpg'),
+    array('Brand 2', $body1, '', '', 'brand', 'brand-2.jpg'),
+    array('Brand 3', $body1, '', '', 'brand', 'brand-3.jpg'),
+    array('Blog post 1', $body1, '', '', 'blog_post', 'blog-1.jpg'),
+    array('Blog post 2', $body1, '', '', 'blog_post', 'blog-2.jpg'),
+    array('Blog post 3', $body1, '', '', 'blog_post', 'blog-3.jpg'),
+    array('Slideshow 1', $body1, '', '', 'slideshow', 'slideshow-1.jpg'),
+    array('Slideshow 2', $body1, '', '', 'slideshow', 'slideshow-2.jpg'),
+    array('Slideshow 3', $body1, '', '', 'slideshow', 'slideshow-3.jpg'),
+  );
+
+  foreach ($contents as &$content) {
+    _commerce_kickstart_custom_createContent($content[0], $content[1], $content[2], $content[3], $content[4], $content[5]);
+  }
+  features_rebuild();
+  menu_rebuild();
+}
+
+function _commerce_kickstart_post_enable_modules() {
+  module_enable(array(
+    'commerce_kickstart_homepage',
+    'commerce_kickstart_settings',
+  ));
+  features_rebuild();
+  drupal_static_reset();
 }
 
 /**
@@ -429,6 +506,7 @@ function _commerce_kickstart_example_display() {
     $node->title = $item[0];
     $node->body[LANGUAGE_NONE][0]['value'] = $item[1];
     $node->uid = 1;
+    $node->field_promoted[LANGUAGE_NONE][0]['value'] = $item[7];
     $products_id = array();
 
     $skus = explode(', ', $item[6]);
@@ -485,13 +563,14 @@ function _commerce_kickstart_example_display() {
  * @param $product_price
  * @return mixed
  */
-function _commerce_kickstart_create_product($product_type, $sku, $product_title, $product_price) {
+function _commerce_kickstart_create_product($product_type, $sku, $product_title, $product_price, $promoted = 0) {
   // Create the new product.
   $product = commerce_product_new($product_type);
   $product->sku = $sku;
   $product->title = $product_title;
   $product->language = LANGUAGE_NONE;
   $product->uid = 1;
+  $product->field_promoted[LANGUAGE_NONE][0] = $promoted;
 
   // Set the price options
   if (variable_get('import_choosen_tax', 'us') == 'europe') {

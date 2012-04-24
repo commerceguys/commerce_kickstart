@@ -75,6 +75,7 @@ dependencies[] = image_delta_formatter
 dependencies[] = oauth_common
 dependencies[] = http_client
 dependencies[] = taxonomy_menu
+dependencies[] = link
 
 ; Install Features
 dependencies[] = features
@@ -82,6 +83,7 @@ dependencies[] = commerce_features
 
 ; Distribution modules.
 dependencies[] = kickstart_order_manager
+dependencies[] = commerce_kickstart_homepage
 dependencies[] = commerce_kickstart_settings
 dependencies[] = commerce_kickstart_help
 

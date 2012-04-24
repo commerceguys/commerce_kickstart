@@ -228,6 +228,7 @@ function commerce_kickstart_import_product() {
     'title' => t('Importing Products'),
     'operations' => array(
       array('_commerce_kickstart_pre_enable_modules', array()),
+      array('_commerce_kickstart_example_nodes', array()),
       array('_commerce_kickstart_example_taxes', array()),
       array('_commerce_kickstart_taxonomy_menu', array()),
       array('_commerce_kickstart_example_storage_device', array()),
@@ -237,6 +238,7 @@ function commerce_kickstart_import_product() {
       array('_commerce_kickstart_example_shoes', array()),
       array('_commerce_kickstart_example_tops', array()),
       array('_commerce_kickstart_example_display', array()),
+      array('_commerce_kickstart_post_enable_modules', array()),
     ),
     'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',
   );
@@ -328,13 +330,30 @@ function _commerce_kickstart_parse_csv($file) {
   return $csv;
 }
 
-function _commerce_kickstart_custom_createContent($title, $body_text, $path, $content_type, $field_type, $image_file) {
+/**
+ * Helper function to create node.
+ *
+ * @param $title
+ *   A title for the node.
+ * @param $body_text
+ *   The body test for the node.
+ * @param $nid
+ *   Maybe sometime we want to fix a nid to rely on it. For example : export node menu link in features.
+ * @param $path
+ *   A custom path for the node.
+ * @param $content_type
+ *   Content type name.
+ * @param $image_file
+ *   Just the name of the image file which should be localte in import/images.
+ */
+function _commerce_kickstart_custom_createContent($title, $body_text, $nid, $path, $content_type, $image_file) {
   $node = new stdClass();
+  $node->nid = $nid;
+  $node->is_new = TRUE;
   $node->type = $content_type;
   $node->title    = $title;
   $node->language = LANGUAGE_NONE;
   $node->comment = '0';
-  $node->field_type[$node->language][0]['value'] = $field_type;
   $node->body[$node->language][0]['value']   = $body_text;
   $node->body[$node->language][0]['format']  = 'filtered_html';
   $file_temp = file_get_contents(drupal_get_path('profile', 'commerce_kickstart') . '/import/images/' . $image_file);

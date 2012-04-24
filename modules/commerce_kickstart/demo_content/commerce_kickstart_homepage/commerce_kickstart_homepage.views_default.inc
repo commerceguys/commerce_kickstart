@@ -126,7 +126,7 @@ function commerce_kickstart_homepage_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'News';
+  $handler->display->display_options['title'] = 'Articles';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -196,27 +196,132 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
-  );
-  /* Filter criterion: Content: Type (field_type) */
-  $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
-  $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['value'] = array(
-    'news' => 'news',
+    'blog_post' => 'blog_post',
+    'brand' => 'brand',
+    'product_push' => 'product_push',
+    'slideshow' => 'slideshow',
   );
 
-  /* Display: Last news block */
-  $handler = $view->new_display('block', 'Last news block', 'block_1');
-  $handler->display->display_options['display_description'] = 'Block showing the latest news.';
+  /* Display: Last products block */
+  $handler = $view->new_display('block', 'Last products block', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Products';
+  $handler->display->display_options['display_description'] = 'Block showing the latest products.';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
-  $handler->display->display_options['block_description'] = 'Last news block';
+  $handler->display->display_options['defaults']['query'] = FALSE;
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['disable_sql_rewrite'] = TRUE;
+  $handler->display->display_options['query']['options']['query_comment'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['hide_empty'] = 0;
+  $handler->display->display_options['row_options']['default_field_elements'] = 1;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Referenced product */
+  $handler->display->display_options['relationships']['field_product_product_id']['id'] = 'field_product_product_id';
+  $handler->display->display_options['relationships']['field_product_product_id']['table'] = 'field_data_field_product';
+  $handler->display->display_options['relationships']['field_product_product_id']['field'] = 'field_product_product_id';
+  $handler->display->display_options['relationships']['field_product_product_id']['required'] = 0;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  /* Field: Commerce Product: Image */
+  $handler->display->display_options['fields']['field_images']['id'] = 'field_images';
+  $handler->display->display_options['fields']['field_images']['table'] = 'field_data_field_images';
+  $handler->display->display_options['fields']['field_images']['field'] = 'field_images';
+  $handler->display->display_options['fields']['field_images']['relationship'] = 'field_product_product_id';
+  $handler->display->display_options['fields']['field_images']['label'] = '';
+  $handler->display->display_options['fields']['field_images']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_images']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_images']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_images']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_images']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_images']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_images']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_images']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_images']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_images']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_images']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => 'content',
+  );
+  $handler->display->display_options['fields']['field_images']['group_rows'] = 0;
+  $handler->display->display_options['fields']['field_images']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_images']['delta_reversed'] = 0;
+  $handler->display->display_options['fields']['field_images']['delta_first_last'] = 0;
+  $handler->display->display_options['fields']['field_images']['field_api_classes'] = 0;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['nl2br'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '180';
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['more_link_text'] = 'Read more';
+  $handler->display->display_options['fields']['body']['alter']['more_link_path'] = '[path]';
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '180',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'product_display' => 'product_display',
+  );
+  /* Filter criterion: Content: Promoted (field_promoted) */
+  $handler->display->display_options['filters']['field_promoted_value']['id'] = 'field_promoted_value';
+  $handler->display->display_options['filters']['field_promoted_value']['table'] = 'field_data_field_promoted';
+  $handler->display->display_options['filters']['field_promoted_value']['field'] = 'field_promoted_value';
+  $handler->display->display_options['filters']['field_promoted_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['block_description'] = 'Last products block';
 
   /* Display: Last blog post block */
   $handler = $view->new_display('block', 'Last blog post block', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Blog';
+  $handler->display->display_options['display_description'] = 'Block showing the latest blog post.';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['link_display'] = FALSE;
@@ -234,14 +339,7 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
-  );
-  /* Filter criterion: Content: Type (field_type) */
-  $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
-  $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['value'] = array(
-    'blog' => 'blog',
+    'blog_post' => 'blog_post',
   );
   $handler->display->display_options['block_description'] = 'Last blog post block';
 
@@ -249,6 +347,7 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler = $view->new_display('block', 'Last brand post block', 'block_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Brand';
+  $handler->display->display_options['display_description'] = 'Block showing the latest brand.';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['link_display'] = FALSE;
@@ -266,13 +365,6 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
-  );
-  /* Filter criterion: Content: Type (field_type) */
-  $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
-  $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['value'] = array(
     'brand' => 'brand',
   );
   $handler->display->display_options['block_description'] = 'Last brand post block';
@@ -409,18 +501,13 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
-  );
-  /* Filter criterion: Content: Type (field_type) */
-  $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
-  $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['value'] = array(
     'slideshow' => 'slideshow',
   );
 
-  /* Display: Page articles */
-  $handler = $view->new_display('page', 'Page articles', 'page_1');
+  /* Display: Page products */
+  $handler = $view->new_display('page', 'Page products', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Products';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
@@ -447,24 +534,9 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
+    'product_display' => 'product_display',
   );
-  /* Filter criterion: Content: Type (field_type) */
-  $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
-  $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['value'] = array(
-    'news' => 'news',
-  );
-  $handler->display->display_options['path'] = 'news';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'News';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'secondary-navigation';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['tab_options']['type'] = 'normal';
-  $handler->display->display_options['tab_options']['weight'] = '0';
-  $handler->display->display_options['tab_options']['name'] = 'secondary-navigation';
+  $handler->display->display_options['path'] = 'products';
 
   /* Display: Page blog */
   $handler = $view->new_display('page', 'Page blog', 'page_2');
@@ -495,14 +567,7 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
-  );
-  /* Filter criterion: Content: Type (field_type) */
-  $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
-  $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['value'] = array(
-    'blog' => 'blog',
+    'blog_post' => 'blog_post',
   );
   $handler->display->display_options['path'] = 'blog';
   $handler->display->display_options['menu']['type'] = 'normal';
@@ -541,22 +606,9 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
-  );
-  /* Filter criterion: Content: Type (field_type) */
-  $handler->display->display_options['filters']['field_type_value']['id'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['table'] = 'field_data_field_type';
-  $handler->display->display_options['filters']['field_type_value']['field'] = 'field_type_value';
-  $handler->display->display_options['filters']['field_type_value']['value'] = array(
     'brand' => 'brand',
   );
   $handler->display->display_options['path'] = 'brands';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Brands';
-  $handler->display->display_options['menu']['weight'] = '1';
-  $handler->display->display_options['menu']['name'] = 'secondary-navigation';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['tab_options']['weight'] = '0';
   $export['demo_content'] = $view;
 
   return $export;
