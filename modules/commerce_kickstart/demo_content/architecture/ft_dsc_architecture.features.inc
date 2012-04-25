@@ -72,6 +72,13 @@ function ft_dsc_architecture_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function ft_dsc_architecture_views_api() {
+  return array("version" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function ft_dsc_architecture_node_info() {
