@@ -73,9 +73,9 @@ function commerce_kickstart_install_tasks() {
     'run' => $commerce_kickstart_import_product ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
   );
   $tasks['commerce_kickstart_configure_searchapi'] = array(
-    'display_name' => st('Configure Search API'),
+    'display_name' => st('Index products'),
     'display' => $commerce_kickstart_import_product,
-    'type' => 'normal',
+    'type' => 'batch',
     'run' => $install_configure_seachapi ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
   );
   return $tasks;
@@ -227,6 +227,7 @@ function commerce_kickstart_import_product() {
   $batch = array(
     'title' => t('Importing Products'),
     'operations' => array(
+      array('_commerce_kickstart_pre_enable_modules', array()),
       array('_commerce_kickstart_example_taxes', array()),
       array('_commerce_kickstart_taxonomy_menu', array()),
       array('_commerce_kickstart_example_storage_device', array()),
@@ -247,17 +248,31 @@ function commerce_kickstart_import_product() {
  * Task callback: Configure Search API and facets for the imported products.
  */
 function commerce_kickstart_configure_searchapi() {
+  // Batch api
+  $batch = array(
+    'title' => t('Indexing your products'),
+    'operations' => array(
+      array('_commerce_kickstart_configure_searchapi_modules_contrib', array()),
+      array('_commerce_kickstart_configure_searchapi_modules_custom', array()),
+      array('_commerce_kickstart_configure_searchapi_blocks', array()),
+    ),
+  );
+  return $batch;
+}
+
+function _commerce_kickstart_configure_searchapi_modules_contrib() {
+  module_enable(array('search_api'));
   // Enable the search API modules.
   module_enable(array('search_api_db', 'search_api_views', 'facetapi'));
+}
+
+function _commerce_kickstart_configure_searchapi_modules_custom() {
   // Enable the feature.
   module_enable(array('ft_dsc_searchapi'));
   drupal_static_reset();
+}
 
-  // Load the search api index.
-  $index = search_api_index_load('1');
-  // Index it.
-  search_api_index_items($index);
-
+function _commerce_kickstart_configure_searchapi_blocks() {
   // Put the facets blocks in the right place.
   _block_rehash('commerce_kickstart_theme');
   try {

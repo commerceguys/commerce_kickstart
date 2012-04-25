@@ -1,4 +1,5 @@
 <?php
+
 /**
  * BatchAPI callback.
  *
@@ -24,7 +25,7 @@ function _commerce_kickstart_taxonomy_menu() {
  * @file commerce_kickstart_profile.
  * @see commerce_kickstart_import_product.
  */
-function _commerce_kickstart_example_taxes() {
+function _commerce_kickstart_pre_enable_modules() {
   $commerce_kickstart_example_content = variable_get('commerce_kickstart_example_content', NULL);
   $commerce_kickstart_choose_tax_country = variable_get('commerce_kickstart_choose_tax_country', NULL);
   // Create products if specified.
@@ -40,6 +41,16 @@ function _commerce_kickstart_example_taxes() {
     drupal_static_reset();
     module_enable(array('demo'));
   }
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @file commerce_kickstart_profile.
+ * @see commerce_kickstart_import_product.
+ */
+function _commerce_kickstart_example_taxes() {
+  $commerce_kickstart_choose_tax_country = variable_get('commerce_kickstart_choose_tax_country', NULL);
 
   // Create the choosen tax.
   if (!empty($commerce_kickstart_choose_tax_country)) {
