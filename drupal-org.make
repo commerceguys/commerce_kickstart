@@ -44,6 +44,7 @@ projects[commerce_flat_rate][subdir] = "contrib"
 
 ; Other contribs.
 projects[http_client] = 2.3
+projects[http_client][subdir] = "contrib"
 projects[oauth] = 3.x-dev
 projects[oauth][subdir] = "contrib"
 projects[oauth][patch][] = "http://drupal.org/files/980340-d7.patch"
