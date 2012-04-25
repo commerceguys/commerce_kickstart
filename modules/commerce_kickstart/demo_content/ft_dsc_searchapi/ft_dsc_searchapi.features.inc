@@ -49,10 +49,10 @@ function ft_dsc_searchapi_default_search_api_index() {
         "field_product:field_shoe_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_storage_capacity" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_top_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_product:commerce_price:amount" : { "type" : "list\\u003Cinteger\\u003E" },
+        "field_product:commerce_price:amount_float" : { "type" : "list\\u003Cdecimal\\u003E" },
         "field_product:field_color:name" : { "type" : "list\\u003Ctext\\u003E" },
         "field_product:field_color:description" : { "type" : "list\\u003Ctext\\u003E" }
-        "field_product:commerce_price:amount" : { "type" : "list\\u003Cinteger\\u003E" },
-        "field_product:commerce_price:amount_float" : { "type" : "list\\u003Cdecimal\\u003E" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -218,9 +218,14 @@ function ft_dsc_searchapi_default_search_api_server() {
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
-          "body:value" : {
-            "table" : "search_api_db_search_commerce_display_body_value",
-            "type" : "text",
+          "field_product:commerce_price:amount" : {
+            "table" : "search_api_db_search_commerce_display_field_product_commerce_pr",
+            "type" : "list\\u003Cinteger\\u003E",
+            "boost" : "1.0"
+          },
+          "field_product:commerce_price:amount_float" : {
+            "table" : "search_api_db_search_commerce_display_field_product_commerce__1",
+            "type" : "list\\u003Cdecimal\\u003E",
             "boost" : "1.0"
           },
           "field_product:field_color:name" : {
@@ -231,14 +236,11 @@ function ft_dsc_searchapi_default_search_api_server() {
           "field_product:field_color:description" : {
             "table" : "search_api_db_search_commerce_display_field_product_field_col_2",
             "type" : "list\\u003Ctext\\u003E",
-          "field_product:commerce_price:amount_float" : {
-            "table" : "search_api_db_search_commerce_display_field_product_commerce_pr",
-            "type" : "list\\u003Cdecimal\\u003E",
             "boost" : "1.0"
           },
-          "field_product:commerce_price:amount" : {
-            "table" : "search_api_db_search_commerce_display_field_product_commerce__1",
-            "type" : "list\\u003Cinteger\\u003E",
+          "body:value" : {
+            "table" : "search_api_db_search_commerce_display_body_value",
+            "type" : "text",
             "boost" : "1.0"
           }
         },
