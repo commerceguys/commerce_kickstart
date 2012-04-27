@@ -17,16 +17,10 @@ if [ ! -f drupal-org.make ]; then
   echo "[error] Run this script from the distribution base path."
   exit 1
 fi
-if [ -d $DESTINATION ]; then
-  echo -n "Removing existing destination... "
-  chmod -R 777 $DESTINATION
-  rm -rf $DESTINATION
-  echo "done"
-fi
 
 # Build the profile.
 echo "Building the profile..."
-drush make --no-core --contrib-destination drupal-org.make tmp
+drush make --no-core --contrib-destination drupal-org.make .
 
 # Build a drupal-org-core.make file if it doesn't exist.
 if [ ! -f drupal-org-core.make ]; then
@@ -40,8 +34,4 @@ fi
 # Build the distribution and copy the profile in place.
 echo "Building the distribution..."
 drush make drupal-org-core.make $DESTINATION
-echo -n "Moving to destination... "
-cp -r tmp $DESTINATION/profiles/commerce_kickstart
-rm -rf tmp
 cp -r . $DESTINATION/profiles/commerce_kickstart
-echo "done"
