@@ -4,23 +4,69 @@ set -e
 #
 # Build the distribution using the same process used on Drupal.org
 #
-# Usage: scripts/build.sh <destination> from the profile main directory.
+# Usage: scripts/build.sh [-y] <destination> from the profile main directory.
 #
 
-if [ "x$1" == "x" ]; then
-  echo "[error] Usage: build.sh [destination]"
+confirm () {
+    read -r -p "${1:-Are you sure? [Y/n]} " response
+    case $response in
+        [yY][eE][sS]|[yY])
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+DESTINATION=$1
+ASK=true
+
+while getopts ":y" opt; do
+  case $opt in
+    y)
+      DESTINATION=$2
+      ASK=false
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      echo "Usage: build.sh [-y] <DESTINATION_PATH>" >&2
+      echo "Use -y to skip deletion confirmation" >&2
+      exit 1
+      ;;
+  esac
+done
+
+if [ "x$DESTINATION" == "x" ]; then
+  echo "Usage: build.sh [-y] <DESTINATION_PATH>" >&2
+  echo "Use -y to skip deletion confirmation" >&2
   exit 1
 fi
-DESTINATION=$1
 
 if [ ! -f drupal-org.make ]; then
   echo "[error] Run this script from the distribution base path."
   exit 1
 fi
 
+DESTINATION=$(/usr/bin/realpath $DESTINATION)
+
+if [ -d $DESTINATION ]; then
+  echo "Removing existing destination: $DESTINATION"
+  if $ASK; then
+    confirm && chmod -R 777 $DESTINATION && rm -rf $DESTINATION
+    if [ -d $DESTINATION ]; then
+      echo "Aborted."
+      exit 1
+    fi
+  else
+    chmod -R 777 $DESTINATION && rm -rf $DESTINATION
+  fi
+  echo "done"
+fi
+
 # Build the profile.
 echo "Building the profile..."
-drush make --no-core --contrib-destination drupal-org.make .
+drush make --no-core --contrib-destination drupal-org.make tmp
 
 # Build a drupal-org-core.make file if it doesn't exist.
 if [ ! -f drupal-org-core.make ]; then
@@ -34,4 +80,8 @@ fi
 # Build the distribution and copy the profile in place.
 echo "Building the distribution..."
 drush make drupal-org-core.make $DESTINATION
+echo -n "Moving to destination... "
+cp -r tmp $DESTINATION/profiles/commerce_kickstart
+rm -rf tmp
 cp -r . $DESTINATION/profiles/commerce_kickstart
+echo "done"
