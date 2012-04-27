@@ -40,10 +40,12 @@ projects[commerce_features] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_addressbook] = 2.x-dev
 projects[commerce_addressbook][subdir] = "contrib"
-projects[commerce_shipping] = 2.0-beta1
+projects[commerce_shipping] = 2.x-dev
 projects[commerce_shipping][subdir] = "contrib"
-projects[commerce_flat_rate] = 1.0-beta1
+projects[commerce_flat_rate] = 1.x-dev
 projects[commerce_flat_rate][subdir] = "contrib"
+projects[commerce_flat_rate][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-4.patch"
+
 
 
 ; Other contribs.

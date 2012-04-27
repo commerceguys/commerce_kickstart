@@ -86,5 +86,6 @@ dependencies[] = kickstart_order_manager
 dependencies[] = commerce_kickstart_homepage
 dependencies[] = commerce_kickstart_settings
 dependencies[] = commerce_kickstart_help
+dependencies[] = commerce_kickstart_products
 
 files[] = commerce_kickstart.profile
