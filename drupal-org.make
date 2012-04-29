@@ -55,10 +55,7 @@ projects[oauth] = 3.x-dev
 projects[oauth][subdir] = "contrib"
 projects[oauth][patch][] = "http://drupal.org/files/980340-d7.patch"
 projects[oauth][patch][] = "http://drupal.org/files/1535764-fix-signatures.patch"
-projects[inline_entity_form][type] = module
-projects[inline_entity_form][download][type] = git
-projects[inline_entity_form][download][revision] = 0b57262da6b6e0f5b3107a0f4e6a1a8c935b1449
-projects[inline_entity_form][download][branch] = 7.x-1.x
+projects[inline_entity_form] = 1.x-dev
 projects[inline_entity_form][subdir] = "contrib"
 
 ; Search related modules.
