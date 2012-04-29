@@ -71,6 +71,7 @@ dependencies[] = commerce_tax_ui
 dependencies[] = commerce_addressbook
 dependencies[] = inline_entity_form
 dependencies[] = module_filter
+dependencies[] = field_extractor
 dependencies[] = image_delta_formatter
 dependencies[] = oauth_common
 dependencies[] = http_client
