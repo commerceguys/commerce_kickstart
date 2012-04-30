@@ -36,17 +36,15 @@ projects[commerce] = 1.2
 projects[commerce][subdir] = "contrib"
 projects[commerce][patch][] = "http://drupal.org/files/1534464-unserialize-fix.patch"
 projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
-projects[commerce_features] = 1.x-dev
+projects[commerce_features][version] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
-projects[commerce_addressbook] = 2.x-dev
+projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-4.patch"
+projects[commerce_addressbook][version] = 2.x-dev
 projects[commerce_addressbook][subdir] = "contrib"
-projects[commerce_shipping] = 2.x-dev
+projects[commerce_shipping][version] = 2.x-dev
 projects[commerce_shipping][subdir] = "contrib"
-projects[commerce_flat_rate] = 1.x-dev
+projects[commerce_flat_rate][version] = 1.x-dev
 projects[commerce_flat_rate][subdir] = "contrib"
-projects[commerce_flat_rate][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-4.patch"
-
-
 
 ; Other contribs.
 projects[http_client] = 2.3
@@ -61,9 +59,9 @@ projects[field_extractor] = 1.x-dev
 projects[field_extractor][subdir] = "contrib"
 
 ; Search related modules.
-projects[search_api] = 1.x-dev
+projects[search_api][version] = 1.x-dev
 projects[search_api][subdir] = "contrib"
-projects[search_api_db] = 1.x-dev
+projects[search_api_db][version] = 1.x-dev
 projects[search_api_db][subdir] = "contrib"
 projects[search_api_ranges][type] = module
 projects[search_api_ranges][download][type] = git
@@ -78,7 +76,7 @@ projects[module_filter] = 1.6
 projects[module_filter][subdir] = "contrib"
 projects[flexslider] = 1.0-rc2
 projects[flexslider][subdir] = "contrib"
-projects[image_delta_formatter] = 1.x-dev
+projects[image_delta_formatter][version] = 1.x-dev
 projects[image_delta_formatter][subdir] = "contrib"
 projects[link] = 1.0
 projects[link][subdir] = "contrib"
