@@ -494,19 +494,26 @@ function _commerce_kickstart_example_display() {
   );
   _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
 
+  _commerce_kickstart_add_view_mode('node', 'bags_cases', 'full');
+  _commerce_kickstart_add_view_mode('node', 'drinks', 'full');
+  _commerce_kickstart_add_view_mode('node', 'hats', 'full');
+  _commerce_kickstart_add_view_mode('node', 'shoes', 'full');
+  _commerce_kickstart_add_view_mode('node', 'storage_devices', 'full');
+  _commerce_kickstart_add_view_mode('node', 'tops', 'full');
+
   $created_nodes = array();
   $product_display = _commerce_kickstart_parse_csv('product_display.csv');
 
   foreach ($product_display as $item) {
 
     // Create the new node.
-    $node = (object) array('type' => 'product_display');
+    $node = (object) array('type' => $item[7]);
     node_object_prepare($node);
 
     $node->title = $item[0];
     $node->body[LANGUAGE_NONE][0]['value'] = $item[1];
     $node->uid = 1;
-    $node->field_promoted[LANGUAGE_NONE][0]['value'] = $item[7];
+    $node->field_promoted[LANGUAGE_NONE][0]['value'] = $item[8];
     $products_id = array();
 
     $skus = explode(', ', $item[6]);

@@ -83,6 +83,14 @@ function ft_dsc_architecture_views_api() {
  */
 function ft_dsc_architecture_node_info() {
   $items = array(
+    'bags_cases' => array(
+      'name' => t('Bags & Cases'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'blog_post' => array(
       'name' => t('Blog Post'),
       'base' => 'node_content',
@@ -99,6 +107,22 @@ function ft_dsc_architecture_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'drinks' => array(
+      'name' => t('Drinks'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'hats' => array(
+      'name' => t('Hats'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'product_display' => array(
       'name' => t('Product display'),
       'base' => 'node_content',
@@ -107,8 +131,32 @@ function ft_dsc_architecture_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'shoes' => array(
+      'name' => t('Shoes'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'slideshow' => array(
       'name' => t('Slideshow'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'storage_devices' => array(
+      'name' => t('Storage Devices'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'tops' => array(
+      'name' => t('Tops'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

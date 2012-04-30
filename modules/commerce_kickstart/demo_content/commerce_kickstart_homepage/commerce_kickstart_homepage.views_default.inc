@@ -306,7 +306,12 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'product_display' => 'product_display',
+    'bags_cases' => 'bags_cases',
+    'drinks' => 'drinks',
+    'hats' => 'hats',
+    'shoes' => 'shoes',
+    'storage_devices' => 'storage_devices',
+    'tops' => 'tops',
   );
   /* Filter criterion: Content: Promoted (field_promoted) */
   $handler->display->display_options['filters']['field_promoted_value']['id'] = 'field_promoted_value';
@@ -534,7 +539,12 @@ function commerce_kickstart_homepage_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'product_display' => 'product_display',
+    'bags_cases' => 'bags_cases',
+    'drinks' => 'drinks',
+    'hats' => 'hats',
+    'shoes' => 'shoes',
+    'storage_devices' => 'storage_devices',
+    'tops' => 'tops',
   );
   $handler->display->display_options['path'] = 'products';
 
