@@ -49,6 +49,9 @@ if [ ! -f drupal-org.make ]; then
 fi
 
 DESTINATION=$(/usr/bin/realpath $DESTINATION)
+TEMP_BUILD=`mktemp -d`
+# Drush make expects destination to be empty.
+rmdir $TEMP_BUILD
 
 if [ -d $DESTINATION ]; then
   echo "Removing existing destination: $DESTINATION"
@@ -79,9 +82,10 @@ fi
 
 # Build the distribution and copy the profile in place.
 echo "Building the distribution..."
-drush make drupal-org-core.make $DESTINATION
+drush make drupal-org-core.make $TEMP_BUILD
 echo -n "Moving to destination... "
-cp -r tmp $DESTINATION/profiles/commerce_kickstart
+cp -r tmp $TEMP_BUILD/profiles/commerce_kickstart
 rm -rf tmp
-cp -r . $DESTINATION/profiles/commerce_kickstart
+cp -r . $TEMP_BUILD/profiles/commerce_kickstart
+mv $TEMP_BUILD $DESTINATION
 echo "done"
