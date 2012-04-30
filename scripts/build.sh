@@ -8,15 +8,15 @@ set -e
 #
 
 confirm () {
-    read -r -p "${1:-Are you sure? [Y/n]} " response
-    case $response in
-        [yY][eE][sS]|[yY])
-            true
-            ;;
-        *)
-            false
-            ;;
-    esac
+  read -r -p "${1:-Are you sure? [Y/n]} " response
+  case $response in
+    [yY][eE][sS]|[yY])
+      true
+      ;;
+    *)
+      false
+      ;;
+  esac
 }
 
 DESTINATION=$1
@@ -49,7 +49,14 @@ if [ ! -f drupal-org.make ]; then
 fi
 
 DESTINATION=$(/usr/bin/realpath $DESTINATION)
-TEMP_BUILD=`mktemp -d`
+case $OSTYPE in
+  darwin*)
+    TEMP_BUILD=`mktemp -d -t tmpdir`
+    ;;
+  *)
+    TEMP_BUILD=`mktemp -d`
+    ;;
+esac
 # Drush make expects destination to be empty.
 rmdir $TEMP_BUILD
 
