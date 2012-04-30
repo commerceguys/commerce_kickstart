@@ -331,21 +331,6 @@ function _commerce_kickstart_install() {
   // If Admin Menu is installed, collapse the module fieldsets.
   variable_set('admin_menu_tweak_modules', TRUE);
 
-  // Add a shortcut set for store administration.
-  $set = new stdClass;
-  $set->title = st('Store administration');
-  $set->links = array(
-    array('link_path' => 'admin/commerce/products/add', 'link_title' => st('Add product')),
-    array('link_path' => 'node/add/product-display', 'link_title' => st('Add product display')),
-    array('link_path' => 'admin/commerce/products', 'link_title' => st('View products')),
-    array('link_path' => 'admin/commerce/orders', 'link_title' => st('View orders')),
-    array('link_path' => 'admin/commerce/config', 'link_title' => st('Configure store')),
-  );
-  shortcut_set_save($set);
-
-  // Apply the shortcut set to the first user.
-  shortcut_set_assign_user($set, (object) array('uid' => 1));
-
   // Enable the addressbook on the "Billing information" checkout pane.
   variable_set('commerce_customer_profile_billing_addressbook', TRUE);
 }

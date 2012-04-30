@@ -11,6 +11,7 @@ dependencies[] = toolbar
 ; dependencies[] = devel
 ; dependencies[] = admin_menu
 ; dependencies[] = admin_menu_toolbar
+; dependencies[] = shortcut
 
 ; Install necessary core modules.
 dependencies[] = block
@@ -25,7 +26,6 @@ dependencies[] = options
 dependencies[] = path
 dependencies[] = taxonomy
 dependencies[] = dblog
-dependencies[] = shortcut
 dependencies[] = overlay
 dependencies[] = field_ui
 dependencies[] = file
@@ -96,5 +96,6 @@ dependencies[] = commerce_kickstart_blog
 dependencies[] = commerce_kickstart_blog_ui
 dependencies[] = commerce_kickstart_merchandising
 dependencies[] = commerce_kickstart_merchandising_ui
+dependencies[] = commerce_kickstart_menus
 
 files[] = commerce_kickstart.profile
