@@ -190,8 +190,6 @@ function _commerce_kickstart_example_bags() {
   $terms = array('One size', '13"', '15"', '17"');
   _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
 
-  _commerce_kickstart_add_view_mode('commerce_product', 'bags_cases', 'node_product_list');
-
   $created_products = array();
 
   $product_names = _commerce_kickstart_parse_csv('bags_cases.csv');
@@ -229,8 +227,6 @@ function _commerce_kickstart_example_drinks() {
   // Add our terms
   $terms = array('White', 'Black', 'Red', 'Blue');
   _commerce_kickstart_add_term($terms, $taxonomy->vid);
-
-  _commerce_kickstart_add_view_mode('commerce_product', 'drinks', 'node_product_list');
 
   $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('drinks.csv');
@@ -271,8 +267,6 @@ function _commerce_kickstart_example_hats() {
   $terms = array('Black', 'White', 'Navy');
   _commerce_kickstart_add_term($terms, $taxonomy->vid);
 
-  _commerce_kickstart_add_view_mode('commerce_product', 'hats', 'node_product_list');
-
   $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('hats.csv');
 
@@ -312,8 +306,6 @@ function _commerce_kickstart_example_shoes() {
   // Add our terms
   $terms = array('5', '6', '7', '8', '9', '10', '11');
   _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
-
-  _commerce_kickstart_add_view_mode('commerce_product', 'shoes', 'node_product_list');
 
   $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('shoes.csv');
@@ -365,8 +357,6 @@ function _commerce_kickstart_example_tops() {
   $terms = array('Small', 'Medium', 'Large');
   _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
 
-  _commerce_kickstart_add_view_mode('commerce_product', 'tops', 'node_product_list');
-
   $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('tops.csv');
 
@@ -408,8 +398,6 @@ function _commerce_kickstart_example_storage_device() {
       'vid' => $taxonomy->vid,
     ));
   }
-
-  _commerce_kickstart_add_view_mode('commerce_product', 'storage_devices', 'node_product_list');
 
   $created_products = array();
   $created_nodes = array();
@@ -636,22 +624,4 @@ function _commerce_kickstart_add_term($terms, $vid, $check = TRUE) {
       ));
     }
   }
-}
-
-/**
- * Helper function to enable a view mode on a bundle.
- *
- * @param $entity_type
- *   Entity type name.
- * @param $bundle
- *   Bundle name.
- * @param $view_mode_name
- *   View mode name.
- */
-function _commerce_kickstart_add_view_mode($entity_type, $bundle, $view_mode_name) {
-  module_load_include('inc', 'field_ui', 'field_ui.admin');
-  $bundle_settings = field_bundle_settings($entity_type, $bundle);
-  _field_ui_add_default_view_mode_settings($entity_type, $bundle, $view_mode_name, $bundle_settings);
-  $bundle_settings['view_modes'][$view_mode_name]['custom_settings'] = TRUE;
-  field_bundle_settings($entity_type, $bundle, $bundle_settings);
 }
