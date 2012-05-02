@@ -83,6 +83,14 @@ function ft_dsc_architecture_views_api() {
  */
 function ft_dsc_architecture_node_info() {
   $items = array(
+    'ad_push' => array(
+      'name' => t('Ad Push'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'bags_cases' => array(
       'name' => t('Bags & Cases'),
       'base' => 'node_content',
@@ -93,14 +101,6 @@ function ft_dsc_architecture_node_info() {
     ),
     'blog_post' => array(
       'name' => t('Blog Post'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'brand' => array(
-      'name' => t('Brand'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

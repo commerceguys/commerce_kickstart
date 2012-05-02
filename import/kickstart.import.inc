@@ -89,23 +89,40 @@ function _commerce_kickstart_example_nodes() {
   );
 
   foreach ($contents as &$content) {
-    _commerce_kickstart_custom_createContent($content[0], $content[1], $content[2], $content[3], $content[4], '');
+    _commerce_kickstart_custom_create_content($content[0], $content[1], $content[2], $content[3], $content[4]);
+  }
+
+  $vocabulary = taxonomy_vocabulary_machine_name_load('tags');
+  $terms['tag1'] = (object) array(
+    'name' => 'Tag 1',
+    'vid' => $vocabulary->vid,
+  );
+  $terms['tag2'] = (object) array(
+    'name' => 'Tag 2',
+    'vid' => $vocabulary->vid,
+  );
+  $terms['tag3'] = (object) array(
+    'name' => 'Tag 3',
+    'vid' => $vocabulary->vid,
+  );
+  foreach($terms as &$term) {
+    taxonomy_term_save($term);
   }
 
   $contents = array(
-    array('Brand 1', $body1, '', '', 'brand', 'brand-1.jpg'),
-    array('Brand 2', $body1, '', '', 'brand', 'brand-2.jpg'),
-    array('Brand 3', $body1, '', '', 'brand', 'brand-3.jpg'),
-    array('Blog post 1', $body1, '', '', 'blog_post', 'blog-1.jpg'),
-    array('Blog post 2', $body1, '', '', 'blog_post', 'blog-2.jpg'),
-    array('Blog post 3', $body1, '', '', 'blog_post', 'blog-3.jpg'),
-    array('Slideshow 1', $body1, '', '', 'slideshow', 'slideshow-1.jpg'),
-    array('Slideshow 2', $body1, '', '', 'slideshow', 'slideshow-2.jpg'),
-    array('Slideshow 3', $body1, '', '', 'slideshow', 'slideshow-3.jpg'),
+    array('Ad push 1', $body1, '', '', 'ad_push', 'ad-push-1.jpg', array($terms['tag1']->tid)),
+    array('Ad push 2', $body1, '', '', 'ad_push', 'ad-push-2.jpg', array($terms['tag2']->tid)),
+    array('Ad push 3', $body1, '', '', 'ad_push', 'ad-push-3.jpg', array($terms['tag3']->tid)),
+    array('Blog post 1', $body1, '', '', 'blog_post', 'blog-1.jpg', array()),
+    array('Blog post 2', $body1, '', '', 'blog_post', 'blog-2.jpg', array()),
+    array('Blog post 3', $body1, '', '', 'blog_post', 'blog-3.jpg', array()),
+    array('Slideshow 1', $body1, '', '', 'slideshow', 'slideshow-1.jpg', array()),
+    array('Slideshow 2', $body1, '', '', 'slideshow', 'slideshow-2.jpg', array()),
+    array('Slideshow 3', $body1, '', '', 'slideshow', 'slideshow-3.jpg', array()),
   );
 
   foreach ($contents as &$content) {
-    _commerce_kickstart_custom_createContent($content[0], $content[1], $content[2], $content[3], $content[4], $content[5]);
+    _commerce_kickstart_custom_create_content($content[0], $content[1], $content[2], $content[3], $content[4], $content[5], $content[6]);
   }
   features_rebuild();
   menu_rebuild();
@@ -592,7 +609,6 @@ function _commerce_kickstart_example_display() {
     $node->title = $item[0];
     $node->body[LANGUAGE_NONE][0]['value'] = $item[1];
     $node->uid = 1;
-    $node->field_promoted[LANGUAGE_NONE][0]['value'] = $item[8];
     $products_id = array();
 
     $skus = explode(', ', $item[6]);
@@ -649,14 +665,13 @@ function _commerce_kickstart_example_display() {
  * @param $product_price
  * @return mixed
  */
-function _commerce_kickstart_create_product($product_type, $sku, $product_title, $product_price, $promoted = 0) {
+function _commerce_kickstart_create_product($product_type, $sku, $product_title, $product_price) {
   // Create the new product.
   $product = commerce_product_new($product_type);
   $product->sku = $sku;
   $product->title = $product_title;
   $product->language = LANGUAGE_NONE;
   $product->uid = 1;
-  $product->field_promoted[LANGUAGE_NONE][0] = $promoted;
 
   // Set the price options
   if (variable_get('import_choosen_tax', 'us') == 'europe') {

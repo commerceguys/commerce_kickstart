@@ -394,65 +394,6 @@ function commerce_kickstart_install() {
   );
   field_create_instance($instance);
 
-
-  // Create field type
-  $field = array(
-    'cardinality' => '1',
-    'entity_types' => array(),
-    'field_name' => 'field_type',
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        'news' => 'News',
-        'blog' => 'Blog',
-        'brand' => 'Brand',
-        'slideshow' => 'Slideshow',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => '0',
-    'type' => 'list_text',
-  );
-  field_create_field($field);
-
-  $instance = array(
-    'bundle' => 'article',
-    'default_value' => NULL,
-    'deleted' => '0',
-    'description' => 'Select the kind of article you wish to publish.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 11,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_type',
-    'label' => 'Type',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 0,
-    ),
-  );
-  field_create_instance($instance);
-  //
-
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));

@@ -340,19 +340,18 @@ function _commerce_kickstart_parse_csv($file) {
  * Helper function to create node.
  *
  * @param $title
- *   A title for the node.
  * @param $body_text
- *   The body test for the node.
  * @param $nid
  *   Maybe sometime we want to fix a nid to rely on it. For example : export node menu link in features.
  * @param $path
- *   A custom path for the node.
  * @param $content_type
- *   Content type name.
  * @param $image_file
- *   Just the name of the image file which should be localte in import/images.
+ *   Name of the image file which should be localte in import/images.
+ * @param $tids
+ *   An array of tid.
  */
-function _commerce_kickstart_custom_createContent($title, $body_text, $nid, $path, $content_type, $image_file) {
+function _commerce_kickstart_custom_create_content($title, $body_text, $nid, $path, $content_type, $image_file = NULL, $tids = array()) {
+
   $node = new stdClass();
   $node->nid = $nid;
   $node->is_new = TRUE;
@@ -362,10 +361,23 @@ function _commerce_kickstart_custom_createContent($title, $body_text, $nid, $pat
   $node->comment = '0';
   $node->body[$node->language][0]['value']   = $body_text;
   $node->body[$node->language][0]['format']  = 'filtered_html';
-  $file_temp = file_get_contents(drupal_get_path('profile', 'commerce_kickstart') . '/import/images/' . $image_file);
-  $file_temp = file_save_data($file_temp, 'public://' . $image_file, FILE_EXISTS_REPLACE);
-  $node->field_image[$node->language][]['fid'] = $file_temp->fid;
   $node->path = array('alias' => $path);
+  if (!is_null($image_file)) {
+    $file_temp = file_get_contents(drupal_get_path('profile', 'commerce_kickstart') . '/import/images/' . $image_file);
+    $file_temp = file_save_data($file_temp, 'public://' . $image_file, FILE_EXISTS_REPLACE);
+    $node->field_image[$node->language][]['fid'] = $file_temp->fid;
+  }
+  foreach($tids as $tid) {
+    $node->field_tags[$node->language][] = array('tid' => $tid);
+  }
+  $instance = field_info_instance('node', 'field_headline', $content_type);
+  if (!empty($instance)) {
+    $node->field_headline[$node->language][0] = array('value' => $title);
+  }
+  $instance = field_info_instance('node', 'field_link', $content_type);
+  if (!empty($instance)) {
+    $node->field_link[$node->language][0] = array('url' => '<front>');
+  }
   node_object_prepare($node);
   node_save($node);
 }
