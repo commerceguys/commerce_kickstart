@@ -114,10 +114,108 @@ function _commerce_kickstart_example_nodes() {
 function _commerce_kickstart_post_enable_modules() {
   module_enable(array(
     'commerce_kickstart_homepage',
+    'commerce_kickstart_content',
     'commerce_kickstart_settings',
   ));
   features_rebuild();
   drupal_static_reset();
+}
+
+function _commerce_kickstart_setup_blocks() {
+  $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
+
+  $blocks = array(
+    // Block Last news post.
+    array(
+      'module' => 'views',
+      'delta' => 'demo_content-block_1',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'postscript_first',
+      'visibility' => 1,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    // Block Last blog post.
+    array(
+      'module' => 'views',
+      'delta' => 'demo_content-block_2',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'postscript_second',
+      'visibility' => 1,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    // Block Last brand post.
+    array(
+      'module' => 'views',
+      'delta' => 'demo_content-block_3',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'postscript_third',
+      'visibility' => 1,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    // Block HP Slideshow.
+    array(
+      'module' => 'views',
+      'delta' => 'demo_content-block_4',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'visibility' => 1,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'visibility', 'pages', 'cache'));
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+  $query->execute();
+
+  _block_rehash('commerce_kickstart_theme');
+  try {
+    db_update('block')
+      ->fields(array(
+        'region' => 'footer_first',
+        'status' => (int) '1',
+        'title' => '<none>',
+    ))
+      ->condition('module', 'menu')
+      ->condition('delta', 'menu-footer-navigation')
+      ->condition('theme', $default_theme)
+      ->execute();
+    db_update('block')
+      ->fields(array(
+        'region' => 'user_first',
+        'status' => (int) '1',
+        'title' => '<none>',
+    ))
+      ->condition('module', 'system')
+      ->condition('delta', 'user-menu')
+      ->condition('theme', $default_theme)
+      ->execute();
+    db_update('block')
+      ->fields(array(
+        'region' => 'branding',
+        'status' => (int) '1',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', '-exp-display_products-page')
+      ->condition('theme', $default_theme)
+      ->execute();
+  }
+  catch (Exception $e) {
+    watchdog_exception('block', $e);
+    throw $e;
+  }
 }
 
 /**

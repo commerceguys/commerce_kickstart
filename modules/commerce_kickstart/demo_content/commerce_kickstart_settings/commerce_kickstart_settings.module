@@ -24,7 +24,7 @@ function commerce_kickstart_settings_entity_info_alter(&$entity_info) {
 /**
  * Implements hook_theme().
  */
-function commerce_kickstart_settings_theme() {
+function commerce_kickstart_settings_theme(&$existing) {
   $themes = array();
   foreach (entity_get_info() as $entity_type => $entity_info) {
     foreach ($entity_info['bundles'] as $bundle => $bundle_info) {
@@ -35,47 +35,32 @@ function commerce_kickstart_settings_theme() {
       }
     }
   }
+  if ($existing['facetapi_title']['function']) {
+    $existing['facetapi_title']['function'] = 'theme_commerce_kickstart_settings_facetapi_title';
+  }
   return $themes;
 }
 
-function commerce_kickstart_settings_block_info_alter(&$blocks, $theme, $code_blocks) {
+/**
+ * Override facetapi default title.
+ */
+function theme_commerce_kickstart_settings_facetapi_title($variables) {
+  $title = explode(' » ', $variables['title']);
+  return t(drupal_ucfirst(drupal_strtolower(array_pop($title))));
+}
 
-  $default_theme = variable_get('theme_default');
-  if ($theme == $default_theme) {
-    if(isset($blocks['views']) && !empty($blocks['views'])) {
-      // Block Last news post.
-      $blocks['views']['demo_content-block_1']['status'] = 1;
-      $blocks['views']['demo_content-block_1']['visibility'] = 1;
-      $blocks['views']['demo_content-block_1']['region'] = 'postscript_first';
-      $blocks['views']['demo_content-block_1']['pages'] = '<front>';
-
-      // Block Last blog post.
-      $blocks['views']['demo_content-block_2']['status'] = 1;
-      $blocks['views']['demo_content-block_2']['visibility'] = 1;
-      $blocks['views']['demo_content-block_2']['region'] = 'postscript_second';
-      $blocks['views']['demo_content-block_2']['pages'] = '<front>';
-
-      // Block Last brand post.
-      $blocks['views']['demo_content-block_3']['status'] = 1;
-      $blocks['views']['demo_content-block_3']['visibility'] = 1;
-      $blocks['views']['demo_content-block_3']['pages'] = '<front>';
-      $blocks['views']['demo_content-block_3']['region'] = 'postscript_third';
-
-      // Block HP Slideshow.
-      $blocks['views']['demo_content-block_4']['status'] = 1;
-      $blocks['views']['demo_content-block_4']['visibility'] = 1;
-      $blocks['views']['demo_content-block_4']['pages'] = '<front>';
-      $blocks['views']['demo_content-block_4']['region'] = 'content';
-    }
-
-    // Menu footer navigation.
-    $blocks['menu']['menu-footer-navigation']['title'] = '<none>';
-    $blocks['menu']['menu-footer-navigation']['status'] = 1;
-    $blocks['menu']['menu-footer-navigation']['region'] = 'footer_first';
-
-    // Menu user.
-    $blocks['system']['user-menu']['title'] = '<none>';
-    $blocks['system']['user-menu']['status'] = 1;
-    $blocks['system']['user-menu']['region'] = 'user_first';
+/**
+ * Preprocess theme variables for facetapi blocks.
+ * Add facet field machine name to block class, make it easier to theme.
+ */
+function commerce_kickstart_settings_preprocess_block(&$variables) {
+  if ($variables['block']->module == 'facetapi') {
+    $delta = $variables['block']->delta;
+    $map = facetapi_get_delta_map();
+    $name = $map[$delta];
+    $name = explode(':', $name);
+    $name = array_pop($name);
+    $name = str_replace('%3A', '_', $name);
+    $variables['classes_array'][] = $name;
   }
 }

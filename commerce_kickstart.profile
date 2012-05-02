@@ -244,6 +244,7 @@ function commerce_kickstart_import_product() {
       array('_commerce_kickstart_example_tops', array()),
       array('_commerce_kickstart_example_display', array()),
       array('_commerce_kickstart_post_enable_modules', array()),
+      array('_commerce_kickstart_setup_blocks', array()),
     ),
     'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',
   );

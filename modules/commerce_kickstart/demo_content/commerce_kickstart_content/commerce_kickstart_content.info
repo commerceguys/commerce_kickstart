@@ -1,0 +1,6 @@
+name = "Commerce kickstart content"
+description = "Setup custom block and dummy content."
+core = "7.x"
+php = "5.2.4"
+
+files[] = commerce_kickstart_content.module

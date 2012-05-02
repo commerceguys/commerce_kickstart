@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function commerce_kickstart_settings_install() {
+  // New module weights.
+  db_update('system')
+    ->fields(array(
+    'weight' => 50,
+  ))
+    ->condition('type', 'module')
+    ->condition('name', 'commerce_kickstart_settings')
+    ->execute();
+}

@@ -1,0 +1,135 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function commerce_kickstart_content_block_info() {
+  $blocks['social'] = array(
+    'info' => t('Social links'),
+    'weight' => '0',
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  $blocks['payment'] = array(
+    'info' => t('Payment methods'),
+    'weight' => '0',
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ *
+ * This hook declares configuration options for blocks provided by this module.
+ */
+function commerce_kickstart_content_block_configure($delta = '') {
+  $form = array();
+  switch ($delta) {
+    case 'social':
+      $form['block_social_content'] = array(
+        '#type' => 'text_format',
+        '#format' => 'full_html',
+        '#title' => t('Block body'),
+        '#size' => 60,
+        '#description' => t('List of social website you\'re on.'),
+        '#default_value' => variable_get('block_social_content'),
+      );
+      break;
+    case 'payment':
+      $form['block_payment_content'] = array(
+        '#type' => 'text_format',
+        '#format' => 'full_html',
+        '#title' => t('Block body'),
+        '#size' => 60,
+        '#description' => t('List all the available payment methods'),
+        '#default_value' => variable_get('block_payment_content'),
+      );
+      break;
+    default:
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ *
+ * This hook declares how the configured options for a block
+ * provided by this module are saved.
+ */
+function commerce_kickstart_content_block_save($delta = '', $edit = array()) {
+  // We need to save settings from the configuration form.
+  switch ($delta) {
+    case 'social':
+      variable_set('block_social_content', $edit['block_social_content']);
+      break;
+    case 'payment':
+      variable_set('block_payment_content', $edit['block_payment_content']);
+      break;
+    default:
+      break;
+  }
+  return;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function commerce_kickstart_content_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'social':
+      $block['subject'] = t('Connect with us');
+      $block['content'] = commerce_kickstart_content_contents($delta);
+      return $block;
+    case 'payment':
+      $block['subject'] = NULL;
+      $block['content'] = commerce_kickstart_content_contents($delta);
+      return $block;
+    default:
+      break;
+  }
+}
+
+/**
+ * A module-defined block content function.
+ */
+function commerce_kickstart_content_contents($which_block) {
+  switch ($which_block) {
+    case 'social':
+      $block = "<div id=\"social\">\n";
+      $block .= "\t<span id=\"facebook\">" . t('Like us on Facebook') . "</span>\n";
+      $block .= "\t<span id=\"twitter\">" . t('Follow Us on Twitter') . "</span>\n";
+      $block .= "\t<span id=\"pinterest\">" . t('What We Like on Pinterest') . "</span>\r\n";
+      $block .= "</div>\n";
+
+      $variable = variable_get('block_social_content');
+      if (empty($variable)) {
+        variable_set('block_social_content', $block);
+      }
+      return variable_get('block_social_content', $block);
+    case 'payment':
+      $block = "<div id=\"payments\">\n";
+      $block .= "\t<span id=\"payment_visa_premier\">" . t('Visa premier') . "</span>\n";
+      $block .= "\t<span id=\"payment_paypal\">" . t('Paypal') . "</span>\n";
+      $block .= "\t<span id=\"payment_mastercard\">" . t('Mastercard') . "</span>\n";
+      $block .= "\t<span id=\"payment_american_express\">" . t('American express') . "</span>\n";
+      $block .= "\t<span id=\"payment_visa\">" . t('Visa') . "</span>\n";
+      $block .= "</div>\n";
+
+      $variable = variable_get('block_payment_content');
+      if (empty($variable)) {
+        variable_set('block_payment_content', $block);
+      }
+      return variable_get('block_payment_content', $block);
+    default:
+      // It is possible that a block not have any content, since it is
+      // probably dynamically constructed. In this case, Drupal will not display
+      // the block at all. This block will not be displayed.
+      return;
+  }
+}
