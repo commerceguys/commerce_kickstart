@@ -482,13 +482,6 @@ function _commerce_kickstart_example_display() {
   );
   _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
 
-  _commerce_kickstart_add_view_mode('node', 'bags_cases', 'full');
-  _commerce_kickstart_add_view_mode('node', 'drinks', 'full');
-  _commerce_kickstart_add_view_mode('node', 'hats', 'full');
-  _commerce_kickstart_add_view_mode('node', 'shoes', 'full');
-  _commerce_kickstart_add_view_mode('node', 'storage_devices', 'full');
-  _commerce_kickstart_add_view_mode('node', 'tops', 'full');
-
   $created_nodes = array();
   $product_display = _commerce_kickstart_parse_csv('product_display.csv');
 

@@ -81,7 +81,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '1',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -203,6 +203,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
         'node_product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -289,6 +295,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -369,6 +381,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_full' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '2',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -487,7 +509,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -609,6 +631,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -689,6 +717,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_full' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '1',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -780,7 +818,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => '0',
+          'weight' => '2',
         ),
         'full' => array(
           'label' => 'hidden',
@@ -807,7 +845,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -918,16 +956,26 @@ function ft_dsc_architecture_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '2',
+          'module' => 'field_extractor',
+          'settings' => array(
+            'field_name' => '',
+            'formatter' => '',
+            'settings' => array(),
+          ),
+          'type' => 'field_extractor',
+          'weight' => '4',
         ),
         'line_item' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
         ),
         'node_product_list' => array(
           'label' => 'inline',
@@ -1005,16 +1053,26 @@ function ft_dsc_architecture_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '3',
+          'module' => 'field_extractor',
+          'settings' => array(
+            'field_name' => '',
+            'formatter' => '',
+            'settings' => array(),
+          ),
+          'type' => 'field_extractor',
+          'weight' => '5',
         ),
         'line_item' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
         ),
         'node_product_list' => array(
           'label' => 'above',
@@ -1088,13 +1146,23 @@ function ft_dsc_architecture_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => '1',
+          'weight' => '3',
         ),
         'line_item' => array(
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_full' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '1',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -1213,7 +1281,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -1335,6 +1403,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -1415,6 +1489,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_full' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '1',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -1518,6 +1602,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -1619,7 +1709,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -1735,6 +1825,16 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '1',
+        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -1837,6 +1937,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -1938,7 +2044,7 @@ function ft_dsc_architecture_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -2060,6 +2166,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -2140,6 +2252,16 @@ function ft_dsc_architecture_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'node_full' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => '1',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -2243,6 +2365,12 @@ function ft_dsc_architecture_field_default_fields() {
           'type' => 'hidden',
           'weight' => 0,
         ),
+        'node_full' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
         'node_product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2325,7 +2453,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -2415,7 +2543,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2498,7 +2626,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2581,7 +2709,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2664,7 +2792,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2749,7 +2877,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -2843,7 +2971,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -3415,7 +3543,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -3505,7 +3633,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -3588,7 +3716,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -3671,7 +3799,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -3754,7 +3882,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -3839,7 +3967,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -3933,7 +4061,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -4013,7 +4141,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -4103,7 +4231,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -4186,7 +4314,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -4269,7 +4397,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -4352,7 +4480,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -4437,7 +4565,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -4531,7 +4659,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -5163,7 +5291,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -5253,7 +5381,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -5336,7 +5464,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -5419,7 +5547,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -5502,7 +5630,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -5587,7 +5715,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -5681,7 +5809,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6094,7 +6222,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -6184,7 +6312,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6267,7 +6395,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6350,7 +6478,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6433,7 +6561,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6518,7 +6646,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6612,7 +6740,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6692,7 +6820,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -6782,7 +6910,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6865,7 +6993,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -6948,7 +7076,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -7031,7 +7159,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -7116,7 +7244,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -7210,7 +7338,7 @@ function ft_dsc_architecture_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',

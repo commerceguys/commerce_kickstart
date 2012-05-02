@@ -461,6 +461,1404 @@ function ft_dsc_architecture_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings';
+  $strongarm->value = array(
+    'commerce_product' => array(
+      'bags_cases' => array(
+        'view_modes' => array(
+          'line_item' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'commerce_line_item_display' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+            ),
+            'title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '3',
+                'visible' => FALSE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'drinks' => array(
+        'view_modes' => array(
+          'line_item' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'commerce_line_item_display' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+            ),
+            'title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'hats' => array(
+        'view_modes' => array(
+          'line_item' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'commerce_line_item_display' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'sku' => array(
+              'default' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_product_list' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+            ),
+            'title' => array(
+              'default' => array(
+                'weight' => '1',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'node_product_list' => array(
+                'weight' => '1',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'shoes' => array(
+        'view_modes' => array(
+          'line_item' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'commerce_line_item_display' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+            ),
+            'title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'storage_devices' => array(
+        'view_modes' => array(
+          'line_item' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'commerce_line_item_display' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+            ),
+            'title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'tops' => array(
+        'view_modes' => array(
+          'line_item' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'commerce_line_item_display' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'node_rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'node_search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+            ),
+            'title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+              'node_full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'node_product_list' => array(
+                'weight' => '-5',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+    'node' => array(
+      'bags_cases' => array(
+        'view_modes' => array(
+          'teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'product:sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:commerce_price' => array(
+              'default' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_bag_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_color' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_images' => array(
+              'default' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_hat_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_shoe_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_storage_capacity' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_top_size' => array(
+              'default' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '39',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'drinks' => array(
+        'view_modes' => array(
+          'teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'product:sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:commerce_price' => array(
+              'default' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_bag_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_color' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_images' => array(
+              'default' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_hat_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_shoe_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_storage_capacity' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_top_size' => array(
+              'default' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '39',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'hats' => array(
+        'view_modes' => array(
+          'teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'product:sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:commerce_price' => array(
+              'default' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_bag_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_color' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_images' => array(
+              'default' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_hat_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_shoe_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_storage_capacity' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_top_size' => array(
+              'default' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '39',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'shoes' => array(
+        'view_modes' => array(
+          'teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'product:sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:commerce_price' => array(
+              'default' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_bag_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_color' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_images' => array(
+              'default' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_hat_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_shoe_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_storage_capacity' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_top_size' => array(
+              'default' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '39',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'storage_devices' => array(
+        'view_modes' => array(
+          'teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'product:sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:commerce_price' => array(
+              'default' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_bag_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_color' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_images' => array(
+              'default' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_hat_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_shoe_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_storage_capacity' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_top_size' => array(
+              'default' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '39',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+      'tops' => array(
+        'view_modes' => array(
+          'teaser' => array(
+            'custom_settings' => TRUE,
+          ),
+          'product_list' => array(
+            'custom_settings' => TRUE,
+          ),
+          'full' => array(
+            'custom_settings' => TRUE,
+          ),
+          'rss' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_index' => array(
+            'custom_settings' => FALSE,
+          ),
+          'search_result' => array(
+            'custom_settings' => FALSE,
+          ),
+        ),
+        'extra_fields' => array(
+          'form' => array(),
+          'display' => array(
+            'product:sku' => array(
+              'default' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-10',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '-10',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:title' => array(
+              'default' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'full' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '-5',
+                'visible' => FALSE,
+              ),
+            ),
+            'product:commerce_price' => array(
+              'default' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '0',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_bag_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_color' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_images' => array(
+              'default' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+              'product_list' => array(
+                'weight' => '37',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_hat_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_shoe_size' => array(
+              'default' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '40',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '40',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_storage_capacity' => array(
+              'default' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '38',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '38',
+                'visible' => TRUE,
+              ),
+            ),
+            'product:field_top_size' => array(
+              'default' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+              'full' => array(
+                'weight' => '39',
+                'visible' => FALSE,
+              ),
+              'product_list' => array(
+                'weight' => '39',
+                'visible' => TRUE,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+  $export['field_bundle_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_bags_cases';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -759,7 +2157,7 @@ function ft_dsc_architecture_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_bags_cases';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_bags_cases'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -780,14 +2178,14 @@ function ft_dsc_architecture_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_drinks';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_drinks'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_hats';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_hats'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -801,7 +2199,7 @@ function ft_dsc_architecture_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_shoes';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_shoes'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -815,14 +2213,14 @@ function ft_dsc_architecture_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_storage_devices';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_storage_devices'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_tops';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_tops'] = $strongarm;
 
   return $export;
