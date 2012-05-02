@@ -1,5 +1,6 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+/* Override Omega */
 body {
   background-color: #ececec;
   font-size: 14px;
@@ -7,6 +8,12 @@ body {
 h2.site-name:after {
   content: " global ";
 }
+/**********************************/
+/* Zones */
+.zone-content {
+  background-color: #ffffff;
+}
+/* Regions */
 /**********************************/
 
 /* Header */
@@ -17,7 +24,7 @@ h2.site-name:after {
 }
 .zone-user-wrapper .block-commerce-cart,
 .zone-user-wrapper .block-commerce-cart a {
-} 
+}
 .zone-menu-wrapper {}
 .zone-menu {}
 
@@ -25,7 +32,6 @@ h2.site-name:after {
 .navigation .second-menu {
   font-size: 1.142857142857143em;
 }
-
 .navigation .primary-menu .main-menu li,
 .navigation .second-menu .secondary-menu li {
   margin: 0;
@@ -94,6 +100,16 @@ h2.site-name:after {
 }
 
 
+/* Sidebar first */
+.region-sidebar-first .block-facetapi h2 {
+  font-size: 16px;
+}
+.region-sidebar-first .block-facetapi a {
+  color: #8e8e8e;
+  text-decoration: none;
+}
+
+
 /* Content */
 .section-content {
   min-height: 500px;
@@ -102,11 +118,31 @@ h2.site-name:after {
 .zone-content-wrapper {
   height: 100%;
 }
-.region-content {
-  background-color: #ffffff;
-  height: 100%;
+.region-content-inner {
   padding: 10px;
 }
+
+
+.page-all-products .view-display-products {
+
+}
+.page-all-products .view-display-products td {
+  padding-right: 30px;
+}
+.page-all-products .view-display-products td.last {
+  padding-right: 0;
+}
+.page-all-products .node-product-display h2 {
+  text-align: center;
+}
+.node-product-display h2 a {
+  text-decoration: none;
+  font-size: 14px;
+}
+.node-product-display .commerce-product-field-commerce-price {
+  text-align: center;
+}
+
 
 /* Footer */
 .section-footer {
@@ -157,3 +193,12 @@ h2.site-name:after {
   color: #c1c1c1;
   font-weight: normal;
 }
+
+
+
+.block-social h2 {
+  background: url('../images/bg_block_footer_title.png') no-repeat left top;
+  color: #eeeeee;
+  padding-left: 27px;
+}
+
