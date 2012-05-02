@@ -38,6 +38,12 @@ function commerce_kickstart_settings_theme(&$existing) {
   if ($existing['facetapi_title']['function']) {
     $existing['facetapi_title']['function'] = 'theme_commerce_kickstart_settings_facetapi_title';
   }
+  // Remove commerce product label.
+  if ($existing['commerce_product_title']) {
+    $existing['commerce_product_title']['path'] = drupal_get_path('module', 'commerce_kickstart_settings') . '/theme';
+    $existing['commerce_product_title']['template'] = 'commerce-product-title';
+  }
+
   return $themes;
 }
 

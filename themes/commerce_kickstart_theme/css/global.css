@@ -99,16 +99,60 @@ h2.site-name:after {
   color: #ffffff;
 }
 
+/* Cart */
+.block-shopping-cart-block p,
+.block-shopping-cart-block div {
+  display: inline;
+}
+/* Breadcrumb */
+.breadcrumb {
+  background-color: #eeeeee;
+  border: 1px solid #d7d7d7;
+  margin: 20px 0;
+  padding: 13px 27px;
+}
+.breadcrumb,
+.breadcrumb a {
+  color: #898a8c;
+}
+.breadcrumb a {
+  font-weight: bold;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
 
 /* Sidebar first */
+.region-sidebar-first .block-facetapi {
+  border-top: 1px solid #000000;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  padding-left: 15px;
+}
+.region-sidebar-first .block-facetapi li  {
+  background: none;
+  line-height: 22px;
+  list-style: none;
+  margin: 0;
+}
 .region-sidebar-first .block-facetapi h2 {
   font-size: 16px;
+  line-height: 30px;
+  padding-bottom: 10px;
 }
 .region-sidebar-first .block-facetapi a {
   color: #8e8e8e;
   text-decoration: none;
 }
-
+/* category */
+.region-sidebar-first .block-facetapi.field_category .item-list {
+  border: 1px solid #d9d9d9;
+  height: 220px;
+  padding: 10px 20px;
+  overflow-y: scroll;
+}
 
 /* Content */
 .section-content {

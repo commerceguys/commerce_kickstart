@@ -52,3 +52,9 @@ h2.site-name:after {
 .navigation .second-menu li.last a:hover {
   border-right: 1px solid #d7d7d7;
 }
+
+.breadcrumb {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}

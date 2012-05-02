@@ -507,7 +507,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'node_product_list' => array(
-                'weight' => '-10',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -521,7 +521,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'node_product_list' => array(
-                'weight' => '-5',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -571,7 +571,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'node_product_list' => array(
-                'weight' => '-10',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -585,7 +585,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'node_product_list' => array(
-                'weight' => '-5',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -649,7 +649,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'node_product_list' => array(
-                'weight' => '1',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -699,7 +699,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'node_product_list' => array(
-                'weight' => '-10',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -713,7 +713,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'node_product_list' => array(
-                'weight' => '-5',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -763,7 +763,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'node_product_list' => array(
-                'weight' => '-10',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -777,7 +777,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'node_product_list' => array(
-                'weight' => '-5',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -827,7 +827,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'node_product_list' => array(
-                'weight' => '-10',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -841,7 +841,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'node_product_list' => array(
-                'weight' => '-5',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -884,7 +884,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '-10',
+                'weight' => '9',
                 'visible' => FALSE,
               ),
             ),
@@ -898,8 +898,8 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '-5',
-                'visible' => FALSE,
+                'weight' => '1',
+                'visible' => TRUE,
               ),
             ),
             'product:commerce_price' => array(
@@ -912,7 +912,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '0',
+                'weight' => '8',
                 'visible' => TRUE,
               ),
             ),
@@ -926,7 +926,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '6',
                 'visible' => TRUE,
               ),
             ),
@@ -940,7 +940,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '3',
                 'visible' => TRUE,
               ),
             ),
@@ -954,7 +954,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '37',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -968,7 +968,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '5',
                 'visible' => TRUE,
               ),
             ),
@@ -982,7 +982,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '7',
                 'visible' => TRUE,
               ),
             ),
@@ -996,7 +996,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -1010,7 +1010,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '39',
+                'weight' => '4',
                 'visible' => TRUE,
               ),
             ),
@@ -1051,7 +1051,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '-10',
+                'weight' => '9',
                 'visible' => FALSE,
               ),
             ),
@@ -1065,8 +1065,8 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '-5',
-                'visible' => FALSE,
+                'weight' => '1',
+                'visible' => TRUE,
               ),
             ),
             'product:commerce_price' => array(
@@ -1079,7 +1079,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '0',
+                'weight' => '8',
                 'visible' => TRUE,
               ),
             ),
@@ -1093,7 +1093,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '6',
                 'visible' => TRUE,
               ),
             ),
@@ -1107,7 +1107,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '3',
                 'visible' => TRUE,
               ),
             ),
@@ -1121,7 +1121,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '37',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -1135,7 +1135,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '5',
                 'visible' => TRUE,
               ),
             ),
@@ -1149,7 +1149,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '7',
                 'visible' => TRUE,
               ),
             ),
@@ -1163,7 +1163,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -1177,7 +1177,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '39',
+                'weight' => '4',
                 'visible' => TRUE,
               ),
             ),
@@ -1218,7 +1218,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '-10',
+                'weight' => '9',
                 'visible' => FALSE,
               ),
             ),
@@ -1232,8 +1232,8 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '-5',
-                'visible' => FALSE,
+                'weight' => '1',
+                'visible' => TRUE,
               ),
             ),
             'product:commerce_price' => array(
@@ -1246,7 +1246,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '0',
+                'weight' => '8',
                 'visible' => TRUE,
               ),
             ),
@@ -1260,7 +1260,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '6',
                 'visible' => TRUE,
               ),
             ),
@@ -1274,7 +1274,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '3',
                 'visible' => TRUE,
               ),
             ),
@@ -1288,7 +1288,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '37',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -1302,7 +1302,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '5',
                 'visible' => TRUE,
               ),
             ),
@@ -1316,7 +1316,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '7',
                 'visible' => TRUE,
               ),
             ),
@@ -1330,7 +1330,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -1344,7 +1344,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '39',
+                'weight' => '4',
                 'visible' => TRUE,
               ),
             ),
@@ -1385,7 +1385,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '-10',
+                'weight' => '9',
                 'visible' => FALSE,
               ),
             ),
@@ -1399,8 +1399,8 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '-5',
-                'visible' => FALSE,
+                'weight' => '1',
+                'visible' => TRUE,
               ),
             ),
             'product:commerce_price' => array(
@@ -1413,7 +1413,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '0',
+                'weight' => '8',
                 'visible' => TRUE,
               ),
             ),
@@ -1427,7 +1427,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '6',
                 'visible' => TRUE,
               ),
             ),
@@ -1441,7 +1441,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '3',
                 'visible' => TRUE,
               ),
             ),
@@ -1455,7 +1455,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '37',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -1469,7 +1469,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '5',
                 'visible' => TRUE,
               ),
             ),
@@ -1483,7 +1483,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '7',
                 'visible' => TRUE,
               ),
             ),
@@ -1497,7 +1497,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -1511,7 +1511,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '39',
+                'weight' => '4',
                 'visible' => TRUE,
               ),
             ),
@@ -1552,7 +1552,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '-10',
+                'weight' => '9',
                 'visible' => FALSE,
               ),
             ),
@@ -1566,8 +1566,8 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '-5',
-                'visible' => FALSE,
+                'weight' => '1',
+                'visible' => TRUE,
               ),
             ),
             'product:commerce_price' => array(
@@ -1580,7 +1580,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '0',
+                'weight' => '8',
                 'visible' => TRUE,
               ),
             ),
@@ -1594,7 +1594,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '6',
                 'visible' => TRUE,
               ),
             ),
@@ -1608,7 +1608,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '3',
                 'visible' => TRUE,
               ),
             ),
@@ -1622,7 +1622,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '37',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -1636,7 +1636,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '5',
                 'visible' => TRUE,
               ),
             ),
@@ -1650,7 +1650,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '7',
                 'visible' => TRUE,
               ),
             ),
@@ -1664,7 +1664,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -1678,7 +1678,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '39',
+                'weight' => '4',
                 'visible' => TRUE,
               ),
             ),
@@ -1719,7 +1719,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '-10',
+                'weight' => '9',
                 'visible' => FALSE,
               ),
             ),
@@ -1733,8 +1733,8 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '-5',
-                'visible' => FALSE,
+                'weight' => '1',
+                'visible' => TRUE,
               ),
             ),
             'product:commerce_price' => array(
@@ -1747,7 +1747,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '0',
+                'weight' => '8',
                 'visible' => TRUE,
               ),
             ),
@@ -1761,7 +1761,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '6',
                 'visible' => TRUE,
               ),
             ),
@@ -1775,7 +1775,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '3',
                 'visible' => TRUE,
               ),
             ),
@@ -1789,7 +1789,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => TRUE,
               ),
               'product_list' => array(
-                'weight' => '37',
+                'weight' => '0',
                 'visible' => TRUE,
               ),
             ),
@@ -1803,7 +1803,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '5',
                 'visible' => TRUE,
               ),
             ),
@@ -1817,7 +1817,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '40',
+                'weight' => '7',
                 'visible' => TRUE,
               ),
             ),
@@ -1831,7 +1831,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '38',
+                'weight' => '2',
                 'visible' => TRUE,
               ),
             ),
@@ -1845,7 +1845,7 @@ function ft_dsc_architecture_strongarm() {
                 'visible' => FALSE,
               ),
               'product_list' => array(
-                'weight' => '39',
+                'weight' => '4',
                 'visible' => TRUE,
               ),
             ),
