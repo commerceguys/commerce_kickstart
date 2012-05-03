@@ -1,0 +1,36 @@
+<?php
+/**
+ * @file
+ * Performs some additional configuration when installing/enabling the module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function commerce_kickstart_content_enable() {
+  $default_theme = 'commerce_kickstart_theme';
+  // Make sure that the region list is populated for our theme.
+  _block_rehash($default_theme);
+  // Social links block.
+  db_update('block')
+    ->fields(array(
+    'region' => 'footer_second',
+    'status' => (int) '1',
+    'title' => t('Connect with us'),
+  ))
+    ->condition('module', 'commerce_kickstart_content')
+    ->condition('delta', 'social')
+    ->condition('theme', $default_theme)
+    ->execute();
+  // Payment block.
+  db_update('block')
+    ->fields(array(
+    'region' => 'footer2_second',
+    'status' => (int) '1',
+    'title' => '<none>',
+  ))
+    ->condition('module', 'commerce_kickstart_content')
+    ->condition('delta', 'payment')
+    ->condition('theme', $default_theme)
+    ->execute();
+}

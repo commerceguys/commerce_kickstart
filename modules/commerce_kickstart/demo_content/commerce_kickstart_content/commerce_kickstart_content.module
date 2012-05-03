@@ -34,7 +34,7 @@ function commerce_kickstart_content_block_configure($delta = '') {
         '#title' => t('Block body'),
         '#size' => 60,
         '#description' => t('List of social website you\'re on.'),
-        '#default_value' => variable_get('block_social_content'),
+        '#default_value' => variable_get('block_social_content', ''),
       );
       break;
     case 'payment':
@@ -44,7 +44,7 @@ function commerce_kickstart_content_block_configure($delta = '') {
         '#title' => t('Block body'),
         '#size' => 60,
         '#description' => t('List all the available payment methods'),
-        '#default_value' => variable_get('block_payment_content'),
+        '#default_value' => variable_get('block_payment_content', ''),
       );
       break;
     default:
@@ -85,14 +85,15 @@ function commerce_kickstart_content_block_view($delta = '') {
     case 'social':
       $block['subject'] = t('Connect with us');
       $block['content'] = commerce_kickstart_content_contents($delta);
-      return $block;
+      break;
     case 'payment':
       $block['subject'] = NULL;
       $block['content'] = commerce_kickstart_content_contents($delta);
-      return $block;
+      break;
     default:
       break;
   }
+  return $block;
 }
 
 /**
@@ -101,11 +102,11 @@ function commerce_kickstart_content_block_view($delta = '') {
 function commerce_kickstart_content_contents($which_block) {
   switch ($which_block) {
     case 'social':
-      $block = "<div id=\"social\">\n";
-      $block .= "\t<span id=\"facebook\">" . t('Like us on Facebook') . "</span>\n";
-      $block .= "\t<span id=\"twitter\">" . t('Follow Us on Twitter') . "</span>\n";
-      $block .= "\t<span id=\"pinterest\">" . t('What We Like on Pinterest') . "</span>\r\n";
-      $block .= "</div>\n";
+      $block = "<ul id=\"social\">\n";
+      $block .= "\t<li id=\"facebook\">" . t('Like us on Facebook') . "</li>\n";
+      $block .= "\t<li id=\"twitter\">" . t('Follow Us on Twitter') . "</li>\n";
+      $block .= "\t<li id=\"pinterest\">" . t('What We Like on Pinterest') . "</li>\n";
+      $block .= "</ul>\n";
 
       $variable = variable_get('block_social_content');
       if (empty($variable)) {
@@ -113,13 +114,13 @@ function commerce_kickstart_content_contents($which_block) {
       }
       return variable_get('block_social_content', $block);
     case 'payment':
-      $block = "<div id=\"payments\">\n";
-      $block .= "\t<span id=\"payment_visa_premier\">" . t('Visa premier') . "</span>\n";
-      $block .= "\t<span id=\"payment_paypal\">" . t('Paypal') . "</span>\n";
-      $block .= "\t<span id=\"payment_mastercard\">" . t('Mastercard') . "</span>\n";
-      $block .= "\t<span id=\"payment_american_express\">" . t('American express') . "</span>\n";
-      $block .= "\t<span id=\"payment_visa\">" . t('Visa') . "</span>\n";
-      $block .= "</div>\n";
+      $block = "<ul id=\"payments\">\n";
+      $block .= "\t<li><span id=\"payment_visa_premier\">" . t('Visa premier') . "</span></li>\n";
+      $block .= "\t<li><span id=\"payment_paypal\">" . t('Paypal') . "</span></li>\n";
+      $block .= "\t<li><span id=\"payment_mastercard\">" . t('Mastercard') . "</span></li>\n";
+      $block .= "\t<li><span id=\"payment_american_express\">" . t('American express') . "</span></li>\n";
+      $block .= "\t<li><span id=\"payment_visa\">" . t('Visa') . "</span></li>\n";
+      $block .= "</ul>\n";
 
       $variable = variable_get('block_payment_content');
       if (empty($variable)) {

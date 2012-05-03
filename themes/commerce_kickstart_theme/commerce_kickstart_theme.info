@@ -38,6 +38,7 @@ regions[footer_first] = Footer First
 regions[footer_second] = Footer Second
 regions[footer_third] = Footer Third
 regions[footer2_first] = Footer2 First
+regions[footer2_second] = Footer2 Second
 
 ; ZONES
 
@@ -198,7 +199,7 @@ settings[alpha_zone_footer2_wrapper] = '1'
 settings[alpha_zone_footer2_force] = ''
 settings[alpha_zone_footer2_section] = 'footer'
 settings[alpha_zone_footer2_weight] = '2'
-settings[alpha_zone_footer2_columns] = '12'
+settings[alpha_zone_footer2_columns] = '24'
 settings[alpha_zone_footer2_primary] = ''
 settings[alpha_zone_footer2_css] = ''
 settings[alpha_zone_footer2_wrapper_css] = ''
@@ -415,7 +416,7 @@ settings[alpha_region_footer2_first_equal_height_element] = ''
 settings[alpha_region_footer2_first_force] = ''
 settings[alpha_region_footer2_first_zone] = 'footer2'
 settings[alpha_region_footer2_first_prefix] = ''
-settings[alpha_region_footer2_first_columns] = '3'
+settings[alpha_region_footer2_first_columns] = '9'
 settings[alpha_region_footer2_first_suffix] = ''
 settings[alpha_region_footer2_first_weight] = '1'
 settings[alpha_region_footer2_first_css] = ''
@@ -424,7 +425,7 @@ settings[alpha_region_footer2_second_equal_height_element] = ''
 settings[alpha_region_footer2_second_force] = ''
 settings[alpha_region_footer2_second_zone] = 'footer2'
 settings[alpha_region_footer2_second_prefix] = ''
-settings[alpha_region_footer2_second_columns] = '3'
+settings[alpha_region_footer2_second_columns] = '7'
 settings[alpha_region_footer2_second_suffix] = ''
 settings[alpha_region_footer2_second_weight] = '2'
 settings[alpha_region_footer2_second_css] = ''

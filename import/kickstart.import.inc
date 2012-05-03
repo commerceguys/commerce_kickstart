@@ -129,6 +129,7 @@ function _commerce_kickstart_setup_blocks() {
       ->condition('delta', 'menu-footer-navigation')
       ->condition('theme', $default_theme)
       ->execute();
+    // User menu.
     db_update('block')
       ->fields(array(
         'region' => 'user_first',
@@ -139,6 +140,7 @@ function _commerce_kickstart_setup_blocks() {
       ->condition('delta', 'user-menu')
       ->condition('theme', $default_theme)
       ->execute();
+    // Search block.
     db_update('block')
       ->fields(array(
         'region' => 'branding',

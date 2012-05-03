@@ -53,7 +53,8 @@ h2.site-name:after {
   border-right: 1px solid #d7d7d7;
 }
 
-.breadcrumb {
+.breadcrumb,
+.block-payment {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;

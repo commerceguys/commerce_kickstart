@@ -90,25 +90,6 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '1',
     'weight' => '-50',
   );
-  // Exported menu link: menu-footer-navigation:node/2
-  $menu_links['menu-footer-navigation:node/2'] = array(
-    'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/2',
-    'router_path' => 'node/%',
-    'link_title' => 'Contact us',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-45',
-    'parent_path' => 'node/1',
-  );
   // Exported menu link: menu-footer-navigation:node/3
   $menu_links['menu-footer-navigation:node/3'] = array(
     'menu_name' => 'menu-footer-navigation',
@@ -127,6 +108,43 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-44',
     'parent_path' => 'node/1',
+  );
+  // Exported menu link: menu-footer-navigation:node/4
+  $menu_links['menu-footer-navigation:node/4'] = array(
+    'menu_name' => 'menu-footer-navigation',
+    'link_path' => 'node/4',
+    'router_path' => 'node/%',
+    'link_title' => 'Terms of use',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-42',
+    'parent_path' => 'node/9',
+  );
+  // Exported menu link: menu-footer-navigation:node/6
+  $menu_links['menu-footer-navigation:node/6'] = array(
+    'menu_name' => 'menu-footer-navigation',
+    'link_path' => 'node/6',
+    'router_path' => 'node/%',
+    'link_title' => 'Shipping & returns',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '1',
+    'expanded' => '1',
+    'weight' => '-47',
   );
   // Exported menu link: menu-footer-navigation:node/7
   $menu_links['menu-footer-navigation:node/7'] = array(
@@ -183,42 +201,47 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '1',
     'weight' => '-48',
   );
-  // Exported menu link: menu-footer-navigation:node/4
-  $menu_links['menu-footer-navigation:node/4'] = array(
-    'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/4',
-    'router_path' => 'node/%',
-    'link_title' => 'Terms of use',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
+  // Exported menu link: secondary-navigation:blog
+  $menu_links['secondary-navigation:blog'] = array(
+    'menu_name' => 'secondary-navigation',
+    'link_path' => 'blog',
+    'router_path' => 'blog',
+    'link_title' => 'Blog',
+    'options' => array(),
+    'module' => 'system',
     'hidden' => '0',
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-42',
-    'parent_path' => 'node/9',
+    'weight' => '0',
   );
-  // Exported menu link: menu-footer-navigation:node/6
-  $menu_links['menu-footer-navigation:node/6'] = array(
-    'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/6',
+  // Exported menu link: secondary-navigation:node/2
+  $menu_links['secondary-navigation:node/2'] = array(
+    'menu_name' => 'secondary-navigation',
+    'link_path' => 'node/2',
     'router_path' => 'node/%',
-    'link_title' => 'Shipping & returns',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
+    'link_title' => 'Contact',
+    'options' => array(),
+    'module' => 'system',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '1',
-    'expanded' => '1',
-    'weight' => '-47',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '1',
+  );
+  // Exported menu link: secondary-navigation:node/3
+  $menu_links['secondary-navigation:node/3'] = array(
+    'menu_name' => 'secondary-navigation',
+    'link_path' => 'node/3',
+    'router_path' => 'node/%',
+    'link_title' => 'About',
+    'options' => array(),
+    'module' => 'system',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '2',
   );
   // Translatables
   // Included for use with string extractors like potx.
