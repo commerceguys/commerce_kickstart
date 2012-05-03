@@ -48,7 +48,15 @@ if [ ! -f drupal-org.make ]; then
   exit 1
 fi
 
-DESTINATION=$(/usr/bin/realpath $DESTINATION)
+# Debian realpath package needs existing parameter.
+if [ ! -d $DESTINATION ]; then
+  mkdir $DESTINATION
+  DESTINATION=$(/usr/bin/realpath $DESTINATION)
+  rmdir $DESTINATION
+else
+  DESTINATION=$(/usr/bin/realpath $DESTINATION)
+fi
+
 case $OSTYPE in
   darwin*)
     TEMP_BUILD=`mktemp -d -t tmpdir`
