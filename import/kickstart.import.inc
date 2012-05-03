@@ -140,6 +140,7 @@ function _commerce_kickstart_post_enable_modules() {
 
 function _commerce_kickstart_setup_blocks() {
   $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
+  _block_rehash('commerce_kickstart_theme');
   try {
     // HP push block.
     db_update('block')
@@ -213,7 +214,6 @@ function _commerce_kickstart_setup_blocks() {
     watchdog_exception('block', $e);
     throw $e;
   }
-  _block_rehash('commerce_kickstart_theme');
 }
 
 /**
