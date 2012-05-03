@@ -72,7 +72,7 @@ function commerce_kickstart_install_tasks() {
   );
   // And let the user choose an example tax to be set up by default.
   $tasks['commerce_kickstart_import_product'] = array(
-    'display_name' => st('Import example products'),
+    'display_name' => st('Import products'),
     'display' => $commerce_kickstart_import_product,
     'type' => 'batch',
     'run' => $commerce_kickstart_import_product ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
