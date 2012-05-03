@@ -287,8 +287,31 @@ h2.site-name:after {
 
 
 .block-social h2 {
-  background: url('../images/bg_block_footer_title.png') no-repeat left top;
+  background: url('../images/bg_block_footer_title.png') left top no-repeat;
   color: #eeeeee;
-  padding-left: 27px;
+  padding-bottom: 22px;
+  padding-left: 25px;
 }
-
+.block-social #facebook,
+.block-social #twitter,
+.block-social #pinterest {
+  color: #eeeeee;
+  display: block;
+  height: 35px;
+  line-height: 15px;
+  margin-bottom: 15px;
+  padding-top: 2px;
+  padding-left: 50px;
+}
+.block-social #facebook {
+  background: url('../images/icon_facebook.png') left top no-repeat;
+  padding-right: 40px;
+}
+.block-social #twitter {
+  background: url('../images/icon_twitter.png') left top no-repeat;
+  padding-right: 40px;
+}
+.block-social #pinterest {
+  background: url('../images/icon_pinterest.png') left top no-repeat;
+  padding-right: 80px;
+}
