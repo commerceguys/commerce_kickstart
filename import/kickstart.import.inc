@@ -140,65 +140,45 @@ function _commerce_kickstart_post_enable_modules() {
 
 function _commerce_kickstart_setup_blocks() {
   $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
-
-  $blocks = array(
-    // Block Last news post.
-    array(
-      'module' => 'views',
-      'delta' => 'demo_content-block_1',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'postscript_first',
-      'visibility' => 1,
-      'pages' => '<front>',
-      'cache' => -1,
-    ),
-    // Block Last blog post.
-    array(
-      'module' => 'views',
-      'delta' => 'demo_content-block_2',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'postscript_second',
-      'visibility' => 1,
-      'pages' => '<front>',
-      'cache' => -1,
-    ),
-    // Block Last brand post.
-    array(
-      'module' => 'views',
-      'delta' => 'demo_content-block_3',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'postscript_third',
-      'visibility' => 1,
-      'pages' => '<front>',
-      'cache' => -1,
-    ),
-    // Block HP Slideshow.
-    array(
-      'module' => 'views',
-      'delta' => 'demo_content-block_4',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'visibility' => 1,
-      'pages' => '<front>',
-      'cache' => -1,
-    ),
-  );
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'visibility', 'pages', 'cache'));
-  foreach ($blocks as $block) {
-    $query->values($block);
-  }
-  $query->execute();
-
-  _block_rehash('commerce_kickstart_theme');
   try {
+    // HP push block.
+    db_update('block')
+      ->fields(array(
+      'region' => 'postscript_first',
+      'status' => (int) '1',
+      'visibility' => '1',
+      'pages' => '<front>',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', 'demo_content-block_1')
+      ->condition('theme', $default_theme)
+      ->execute();
+    // HP blog block.
+    db_update('block')
+      ->fields(array(
+      'region' => 'postscript_second',
+      'status' => (int) '1',
+      'visibility' => '1',
+      'pages' => '<front>',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', 'demo_content-block_2')
+      ->condition('theme', $default_theme)
+      ->execute();
+    // HP Slideshow.
+    db_update('block')
+      ->fields(array(
+      'region' => 'content',
+      'status' => (int) '1',
+      'visibility' => '1',
+      'pages' => '<front>',
+      'title' => '<none>',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', 'demo_content-block_4')
+      ->condition('theme', $default_theme)
+      ->execute();
+    // Footer navigation.
     db_update('block')
       ->fields(array(
         'region' => 'footer_first',
@@ -233,6 +213,7 @@ function _commerce_kickstart_setup_blocks() {
     watchdog_exception('block', $e);
     throw $e;
   }
+  _block_rehash('commerce_kickstart_theme');
 }
 
 /**
