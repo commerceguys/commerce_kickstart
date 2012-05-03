@@ -52,7 +52,6 @@ projects[http_client][subdir] = "contrib"
 projects[oauth][version] = 3.x-dev
 projects[oauth][subdir] = "contrib"
 projects[oauth][patch][] = "http://drupal.org/files/980340-d7.patch"
-projects[oauth][patch][] = "http://drupal.org/files/1535764-fix-signatures.patch"
 projects[inline_entity_form][version] = 1.x-dev
 projects[inline_entity_form][subdir] = "contrib"
 projects[field_extractor][version] = 1.x-dev
