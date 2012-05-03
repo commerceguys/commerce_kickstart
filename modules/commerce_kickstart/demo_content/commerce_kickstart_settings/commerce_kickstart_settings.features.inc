@@ -35,7 +35,7 @@ function commerce_kickstart_settings_image_default_styles() {
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => '230',
-          'height' => '180',
+          'height' => '260',
         ),
         'weight' => '1',
       ),

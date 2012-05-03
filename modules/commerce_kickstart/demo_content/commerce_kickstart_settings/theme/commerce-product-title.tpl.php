@@ -6,7 +6,6 @@
  *
  * Available variables:
  * - $title: The title to render.
- * - $label: If present, the string to use as the title label.
  *
  * Helper variables:
  * - $product: The fully loaded product object the title belongs to.

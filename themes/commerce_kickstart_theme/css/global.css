@@ -146,6 +146,9 @@ h2.site-name:after {
   color: #8e8e8e;
   text-decoration: none;
 }
+.region-sidebar-first .block-facetapi a:hover {
+  text-decoration: underline;
+}
 /* category */
 .region-sidebar-first .block-facetapi.field_category .item-list {
   border: 1px solid #d9d9d9;
@@ -166,25 +169,68 @@ h2.site-name:after {
   padding: 10px;
 }
 
+/* Collection page */
+.view-collection-taxonomy-term .item-list {
+  clear: both;
+}
+.view-collection-taxonomy-term .item-list h3 {
+  display: inline;
+}
+.view-collection-taxonomy-term .item-list h3 .collection {
+  background-color: #d3d3d3;
+  float: left;
+  height: 260px;
+  margin-right: 10px;
+  position: relative;
+  width: 470px;
+}
+.view-collection-taxonomy-term .item-list h3 .collection a {
+  color: #ffffff;
+  font-size: 50px;
+  margin-bottom : 15px;
+  margin-left: 15px;
+  position: absolute;
+  bottom: 0;
+}
+.view-collection-taxonomy-term .products-per-collection li {
+  display: inline;
+  float: left;
+  margin: 0;
+  padding-left: 10px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.view-collection-taxonomy-term .products-per-collection li:nth-child(4n+3) {
+  padding-left: 0;
+}
 
+#iPhone-Cases {
+  background-color: #0ad7d4;
+}
+
+.page-all-products .view-display-products li {
+  display: inline;
+  float: left;
+  margin: 0;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.view-collection-taxonomy-term .products-per-collection li.last,
+.page-all-products .view-display-products li.last {
+  padding-right: 0;
+}
+
+/* All products */
 .page-all-products .view-display-products {
 
 }
-.page-all-products .view-display-products td {
-  padding-right: 30px;
-}
-.page-all-products .view-display-products td.last {
-  padding-right: 0;
-}
-.page-all-products .node-product-display h2 {
-  text-align: center;
-}
-.node-product-display h2 a {
-  text-decoration: none;
+.page-all-products .commerce-product-extra-field-title {
+  background: url('../images/bg_search_product_name.png') left top no-repeat;
+  margin-top: 4px;
+  padding-top: 17px;
   font-size: 14px;
-}
-.node-product-display .commerce-product-field-commerce-price {
-  text-align: center;
+  text-decoration: none;
 }
 
 

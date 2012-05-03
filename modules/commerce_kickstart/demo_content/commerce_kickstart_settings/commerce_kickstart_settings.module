@@ -70,3 +70,20 @@ function commerce_kickstart_settings_preprocess_block(&$variables) {
     $variables['classes_array'][] = $name;
   }
 }
+
+/**
+ * Override or insert variables into the node template.
+ */
+function commerce_kickstart_settings_preprocess_node(&$vars) {
+  $type = array(
+    'bags_cases',
+    'drinks',
+    'hats',
+    'shoes',
+    'storage_devices',
+    'tops',
+  );
+  if (in_array($vars['type'], $type)) {
+    $vars['title'] = FALSE;
+  }
+}
