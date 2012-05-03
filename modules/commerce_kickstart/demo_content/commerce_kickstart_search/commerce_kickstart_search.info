@@ -1,0 +1,15 @@
+name = Commerce Kickstart Search
+description = Provides the default Search API server used by other features.
+core = 7.x
+package = Commerce Kickstart
+php = 5.2.4
+version = 7.x-1.0
+project = commerce_kickstart_search
+dependencies[] = facetapi
+dependencies[] = search_api
+dependencies[] = search_api_db
+dependencies[] = search_api_facetapi
+dependencies[] = search_api_ranges
+dependencies[] = search_api_views
+features[features_api][] = api:1
+features[search_api_server][] = database_search_engine

@@ -84,10 +84,14 @@ dependencies[] = commerce_features
 
 ; Distribution modules.
 dependencies[] = kickstart_order_manager
-dependencies[] = commerce_kickstart_homepage
 dependencies[] = commerce_kickstart_content
-dependencies[] = commerce_kickstart_settings
 dependencies[] = commerce_kickstart_help
-dependencies[] = commerce_kickstart_products
+dependencies[] = commerce_kickstart_search
+dependencies[] = commerce_kickstart_product
+dependencies[] = commerce_kickstart_product_ui
+dependencies[] = commerce_kickstart_blog
+dependencies[] = commerce_kickstart_blog_ui
+dependencies[] = commerce_kickstart_merchandising
+dependencies[] = commerce_kickstart_merchandising_ui
 
 files[] = commerce_kickstart.profile

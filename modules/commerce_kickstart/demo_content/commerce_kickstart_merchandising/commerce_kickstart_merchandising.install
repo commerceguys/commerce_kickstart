@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ *
+ * Rebuilds the feature immediately after it's enabled.
+ */
+function commerce_kickstart_merchandising_enable() {
+  // Make sure any new files are included now that a new module is enabled.
+  features_include(TRUE);
+  // Make sure the statics are reset.
+  features_get_components($component = NULL, $key = NULL, $reset = TRUE);
+
+  $module = 'commerce_kickstart_merchandising';
+  $feature = feature_load($module);
+  $items[$module] = array_keys($feature->info['features']);
+  _features_restore('enable', $items);
+  _features_restore('rebuild', $items);
+
+  // Make sure any new files are included now that a new module is enabled.
+  features_include(TRUE);
+  // Make sure the statics are reset.
+  features_get_components($component = NULL, $key = NULL, $reset = TRUE);
+}

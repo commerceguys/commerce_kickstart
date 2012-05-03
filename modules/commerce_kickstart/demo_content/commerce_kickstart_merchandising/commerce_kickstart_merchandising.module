@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Commerce Kickstart Merchandising feature.
+ */
+
+include_once 'commerce_kickstart_merchandising.features.inc';

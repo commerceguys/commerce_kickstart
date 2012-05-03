@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ */
+function commerce_kickstart_product_ui_enable() {
+  // New module weights in core.
+  db_update('system')
+    ->fields(array(
+      'weight' => 50,
+    ))
+    ->condition('type', 'module')
+    ->condition('name', 'commerce_kickstart_product_ui')
+    ->execute();
+
+  // Make sure any new files are included now that a new module is enabled.
+  features_include(TRUE);
+  // Make sure the statics are reset.
+  features_get_components($component = NULL, $key = NULL, $reset = TRUE);
+
+  $module = 'commerce_kickstart_product_ui';
+  $feature = feature_load($module);
+  $items[$module] = array_keys($feature->info['features']);
+  _features_restore('enable', $items);
+  _features_restore('rebuild', $items);
+
+  // Make sure any new files are included now that a new module is enabled.
+  features_include(TRUE);
+  // Make sure the statics are reset.
+  features_get_components($component = NULL, $key = NULL, $reset = TRUE);
+
+  drupal_static_reset();
+  _block_rehash('commerce_kickstart_theme');
+  try {
+    // HP push shopping_cart.
+    db_update('block')
+      ->fields(array(
+        'region' => 'user_second',
+        'status' => '1',
+        'visibility' => '0',
+        'pages' => 'cart\ncheckout/*',
+        'title' => '<none>',
+        'cache' => '-1',
+      ))
+      ->condition('module', 'views')
+      ->condition('delta', 'shopping_cart-block')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+  }
+  catch (Exception $e) {
+    watchdog_exception('block', $e);
+    throw $e;
+  }
+}

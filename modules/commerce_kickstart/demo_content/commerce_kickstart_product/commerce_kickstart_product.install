@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ *
+ * Rebuilds the feature immediately after it's enabled.
+ */
+function commerce_kickstart_product_enable() {
+  // Make sure any new files are included now that a new module is enabled.
+  features_include(TRUE);
+  // Make sure the statics are reset.
+  features_get_components($component = NULL, $key = NULL, $reset = TRUE);
+
+  $module = 'commerce_kickstart_product';
+  $feature = feature_load($module);
+  $items[$module] = array_keys($feature->info['features']);
+  _features_restore('enable', $items);
+  _features_restore('rebuild', $items);
+
+  // Make sure any new files are included now that a new module is enabled.
+  features_include(TRUE);
+  // Make sure the statics are reset.
+  features_get_components($component = NULL, $key = NULL, $reset = TRUE);
+
+  entity_defaults_rebuild();
+  $index = entity_load_single('search_api_index', 'search_commerce_display');
+  $index->server()->fieldsUpdated($index);
+  $index = entity_load_single('search_api_index', 'search_commerce_product');
+  $index->server()->fieldsUpdated($index);
+}
+
+/**
+ * Implements hook_install().
+ */
+function commerce_kickstart_product_install() {
+
+  // Add a product reference field to the Product display node type.
+  $field = array(
+    'field_name' => 'field_product',
+    'type' => 'commerce_product_reference',
+    'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+    'translatable' => FALSE,
+  );
+  field_create_field($field);
+
+  $instance = array(
+    'field_name' => 'field_product',
+    'entity_type' => 'node',
+    'label' => st('Product variations'),
+    'bundle' => 'product_display',
+    'required' => TRUE,
+
+    'widget' => array(
+      'type' => 'inline_entity_form',
+    ),
+
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'type' => 'commerce_cart_add_to_cart_form',
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'type' => 'commerce_cart_add_to_cart_form',
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'type' => 'commerce_cart_add_to_cart_form',
+      ),
+    ),
+  );
+  field_create_instance($instance);
+}

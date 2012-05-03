@@ -19,28 +19,6 @@ function _commerce_kickstart_taxonomy_menu() {
   variable_set($variable_name, 1);
 }
 
-/**
- * BatchAPI callback.
- *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
- */
-function _commerce_kickstart_pre_enable_modules() {
-  $commerce_kickstart_example_content = variable_get('commerce_kickstart_example_content', NULL);
-  $commerce_kickstart_choose_tax_country = variable_get('commerce_kickstart_choose_tax_country', NULL);
-  // Create products if specified.
-  if ($commerce_kickstart_example_content == 1) {
-    module_enable(array(
-      'features',
-      'commerce_features',
-      'ft_dsc_architecture',
-    ));
-    features_rebuild();
-    drupal_static_reset();
-    module_enable(array('demo'));
-  }
-}
-
 function _commerce_kickstart_example_nodes() {
 
   $body1  = "<p>Nunc tempor, sapien sed rhoncus vulputate, lectus felis scelerisque dolor, vitae interdum ipsum quam vitae purus.
@@ -130,9 +108,7 @@ function _commerce_kickstart_example_nodes() {
 
 function _commerce_kickstart_post_enable_modules() {
   module_enable(array(
-    'commerce_kickstart_homepage',
     'commerce_kickstart_content',
-    'commerce_kickstart_settings',
   ));
   features_rebuild();
   drupal_static_reset();
@@ -142,50 +118,13 @@ function _commerce_kickstart_setup_blocks() {
   $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
   _block_rehash('commerce_kickstart_theme');
   try {
-    // HP push block.
-    db_update('block')
-      ->fields(array(
-      'region' => 'postscript_first',
-      'status' => (int) '1',
-      'visibility' => '1',
-      'pages' => '<front>',
-    ))
-      ->condition('module', 'views')
-      ->condition('delta', 'demo_content-block_1')
-      ->condition('theme', $default_theme)
-      ->execute();
-    // HP blog block.
-    db_update('block')
-      ->fields(array(
-      'region' => 'postscript_second',
-      'status' => (int) '1',
-      'visibility' => '1',
-      'pages' => '<front>',
-    ))
-      ->condition('module', 'views')
-      ->condition('delta', 'demo_content-block_2')
-      ->condition('theme', $default_theme)
-      ->execute();
-    // HP Slideshow.
-    db_update('block')
-      ->fields(array(
-      'region' => 'content',
-      'status' => (int) '1',
-      'visibility' => '1',
-      'pages' => '<front>',
-      'title' => '<none>',
-    ))
-      ->condition('module', 'views')
-      ->condition('delta', 'demo_content-block_4')
-      ->condition('theme', $default_theme)
-      ->execute();
     // Footer navigation.
     db_update('block')
       ->fields(array(
         'region' => 'footer_first',
         'status' => (int) '1',
         'title' => '<none>',
-    ))
+      ))
       ->condition('module', 'menu')
       ->condition('delta', 'menu-footer-navigation')
       ->condition('theme', $default_theme)
@@ -195,7 +134,7 @@ function _commerce_kickstart_setup_blocks() {
         'region' => 'user_first',
         'status' => (int) '1',
         'title' => '<none>',
-    ))
+      ))
       ->condition('module', 'system')
       ->condition('delta', 'user-menu')
       ->condition('theme', $default_theme)
@@ -204,10 +143,40 @@ function _commerce_kickstart_setup_blocks() {
       ->fields(array(
         'region' => 'branding',
         'status' => (int) '1',
-    ))
+      ))
       ->condition('module', 'views')
       ->condition('delta', '-exp-display_products-page')
       ->condition('theme', $default_theme)
+      ->execute();
+
+    // Put the facets blocks in the right place.
+    db_update('block')
+      ->fields(array(
+        'region' => 'sidebar_first',
+        'status' => (int) '1',
+      ))
+      ->condition('module', 'facetapi')
+      ->condition('delta', '0', '<>')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+    db_update('block')
+      ->fields(array(
+        'region' => 'branding',
+        'status' => (int) '1',
+      ))
+      ->condition('module', 'views')
+      ->condition('delta', '-exp-display_products-page')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+    db_update('block')
+      ->fields(array(
+        'region' => 'content',
+        'weight' => -10,
+        'status' => (int) '1',
+      ))
+      ->condition('module', 'current_search')
+      ->condition('delta', 'standard')
+      ->condition('theme', 'commerce_kickstart_theme')
       ->execute();
   }
   catch (Exception $e) {

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Demo Store Content architecture feature.
- */
-
-include_once 'ft_dsc_architecture.features.inc';

@@ -86,6 +86,7 @@ function commerce_kickstart_install() {
       'weight' => 0,
       'region' => 'content',
       'pages' => '<front>', // Do not show the block on front.
+      'visibility' => 0,
       'cache' => -1,
     ),
     array(
@@ -189,12 +190,19 @@ function commerce_kickstart_install() {
       'cache' => -1,
     ),
   );
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'cache'));
+  drupal_static_reset();
+  _block_rehash('commerce_kickstart_theme');
   foreach ($values as $record) {
-    $query->values($record);
-    //$query->values($record + array('title' => ''));
+    $module = array_shift($record);
+    $delta = array_shift($record);
+    $theme = array_shift($record);
+    db_update('block')
+      ->fields($record)
+      ->condition('module', $module)
+      ->condition('delta', $delta)
+      ->condition('theme', $theme)
+      ->execute();
   }
-  $query->execute();
 
   // Insert default pre-defined node types into the database. For a complete
   // list of available node type attributes, refer to the node type API
@@ -273,127 +281,6 @@ function commerce_kickstart_install() {
   // Allow visitor account creation.
   variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
 
-  // Create a default vocabulary named "Tags", enabled for the 'article' content type.
-  $description = st('Use tags to group articles on similar topics into categories.');
-  $help = st('Enter a comma-separated list of words to describe your content.');
-  $vocabulary = (object) array(
-    'name' => 'Tags',
-    'description' => $description,
-    'machine_name' => 'tags',
-    'help' => $help,
-
-  );
-  taxonomy_vocabulary_save($vocabulary);
-
-  $field = array(
-    'field_name' => 'field_' . $vocabulary->machine_name,
-    'type' => 'taxonomy_term_reference',
-    // Set cardinality to unlimited for tagging.
-    'cardinality' => FIELD_CARDINALITY_UNLIMITED,
-    'settings' => array(
-      'allowed_values' => array(
-        array(
-          'vocabulary' => $vocabulary->machine_name,
-          'parent' => 0,
-        ),
-      ),
-    ),
-  );
-  field_create_field($field);
-
-  $instance = array(
-    'field_name' => 'field_' . $vocabulary->machine_name,
-    'entity_type' => 'node',
-    'label' => $vocabulary->name,
-    'bundle' => 'article',
-    'description' => $vocabulary->help,
-    'widget' => array(
-      'type' => 'taxonomy_autocomplete',
-      'weight' => -4,
-    ),
-    'display' => array(
-      'default' => array(
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
-      ),
-      'teaser' => array(
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
-      ),
-    ),
-  );
-  field_create_instance($instance);
-
-
-  // Create an image field named "Image", enabled for the 'article' content type.
-  // Many of the following values will be defaulted, they're included here as an illustrative examples.
-  // See http://api.drupal.org/api/function/field_create_field/7
-
-  $field = array(
-    'field_name' => 'field_image',
-    'type' => 'image',
-    'cardinality' => FIELD_CARDINALITY_UNLIMITED,
-    'translatable' => TRUE,
-    'locked' => FALSE,
-    'indexes' => array('fid' => array('fid')),
-    'settings' => array(
-      'uri_scheme' => 'public',
-      'default_image' => FALSE,
-    ),
-    'storage' => array(
-      'type' => 'field_sql_storage',
-      'settings' => array(),
-    ),
-  );
-  field_create_field($field);
-
-
-  // Many of the following values will be defaulted, they're included here as an illustrative examples.
-  // See http://api.drupal.org/api/function/field_create_instance/7
-  $instance = array(
-    'field_name' => 'field_image',
-    'entity_type' => 'node',
-    'label' => st('Image'),
-    'bundle' => 'article',
-    'description' => st('Upload an image to go with this article.'),
-    'required' => FALSE,
-
-    'settings' => array(
-      'file_directory' => 'field/image',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'alt_field' => TRUE,
-      'title_field' => '',
-    ),
-
-    'widget' => array(
-      'type' => 'image_image',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-        'preview_image_style' => 'thumbnail',
-      ),
-      'weight' => -1,
-    ),
-
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array('image_style' => 'large', 'image_link' => ''),
-        'weight' => -1,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'type' => 'image',
-        'settings' => array('image_style' => 'medium', 'image_link' => 'content'),
-        'weight' => -1,
-      ),
-    ),
-  );
-  field_create_instance($instance);
-
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
@@ -444,28 +331,6 @@ function commerce_kickstart_install() {
  * Performs additional configuration for Drupal Commerce modules and components.
  */
 function _commerce_kickstart_install() {
-
-  // Enable Commerce blocks.
-  $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
-  $admin_theme = KICKSTART_ADMIN_THEME;
-  $values = array(
-    array(
-      'module' => 'views',
-      'delta' => 'shopping_cart-block',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'user_second',
-      'pages' => "cart\ncheckout/*",
-      'title' => '<none>',
-      'cache' => -1,
-    ),
-  );
-  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'title', 'cache'));
-  foreach ($values as $record) {
-    $query->values($record);
-  }
-  $query->execute();
 
   // Insert a product display node type into the database.
   $types = array(

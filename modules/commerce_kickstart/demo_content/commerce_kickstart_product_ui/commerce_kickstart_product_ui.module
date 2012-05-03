@@ -1,0 +1,89 @@
+<?php
+/**
+ * @file
+ * Code for the Demo Store Content architecture feature.
+ */
+
+include_once 'commerce_kickstart_product_ui.features.inc';
+
+/**
+ * Implements hook_entity_info_alter().
+ * Create new view mode for product display, commerce product.
+ */
+function commerce_kickstart_product_ui_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['product_list'] = array(
+    'label' => t('Product list'),
+    'custom settings' => TRUE,
+  );
+  $entity_info['commerce_product']['view modes']['node_product_list'] = array(
+    'label' => t('Node: Product list'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_kickstart_product_ui_theme(&$existing) {
+  $themes = array();
+  foreach (entity_get_info() as $entity_type => $entity_info) {
+    foreach ($entity_info['bundles'] as $bundle => $bundle_info) {
+      foreach ($entity_info['view modes'] as $view_mode => $view_mode_info) {
+        $themes["{$entity_type}__{$bundle}__{$view_mode}"] = array(
+          'render element' => 'elements',
+        );
+      }
+    }
+  }
+  if (!empty($existing['facetapi_title']) && $existing['facetapi_title']['function']) {
+    $existing['facetapi_title']['function'] = 'theme_commerce_kickstart_product_ui_facetapi_title';
+  }
+  // Remove commerce product label.
+  if ($existing['commerce_product_title']) {
+    $existing['commerce_product_title']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
+    $existing['commerce_product_title']['template'] = 'commerce-product-title';
+  }
+
+  return $themes;
+}
+
+/**
+ * Override facetapi default title.
+ */
+function theme_commerce_kickstart_product_ui_facetapi_title($variables) {
+  $title = explode(' » ', $variables['title']);
+  return t(drupal_ucfirst(drupal_strtolower(array_pop($title))));
+}
+
+/**
+ * Preprocess theme variables for facetapi blocks.
+ * Add facet field machine name to block class, make it easier to theme.
+ */
+function commerce_kickstart_product_ui_preprocess_block(&$variables) {
+  if ($variables['block']->module == 'facetapi') {
+    $delta = $variables['block']->delta;
+    $map = facetapi_get_delta_map();
+    $name = $map[$delta];
+    $name = explode(':', $name);
+    $name = array_pop($name);
+    $name = str_replace('%3A', '_', $name);
+    $variables['classes_array'][] = $name;
+  }
+}
+
+/**
+ * Override or insert variables into the node template.
+ */
+function commerce_kickstart_product_ui_preprocess_node(&$vars) {
+  $type = array(
+    'bags_cases',
+    'drinks',
+    'hats',
+    'shoes',
+    'storage_devices',
+    'tops',
+  );
+  if (in_array($vars['type'], $type)) {
+    $vars['title'] = FALSE;
+  }
+}

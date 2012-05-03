@@ -77,12 +77,6 @@ function commerce_kickstart_install_tasks() {
     'type' => 'batch',
     'run' => $commerce_kickstart_import_product ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
   );
-  $tasks['commerce_kickstart_configure_searchapi'] = array(
-    'display_name' => st('Index products'),
-    'display' => $commerce_kickstart_import_product,
-    'type' => 'batch',
-    'run' => $install_configure_seachapi ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
-  );
   return $tasks;
 }
 
@@ -232,7 +226,6 @@ function commerce_kickstart_import_product() {
   $batch = array(
     'title' => t('Importing Products'),
     'operations' => array(
-      array('_commerce_kickstart_pre_enable_modules', array()),
       array('_commerce_kickstart_example_nodes', array()),
       array('_commerce_kickstart_example_taxes', array()),
       array('_commerce_kickstart_taxonomy_menu', array()),
@@ -250,73 +243,6 @@ function commerce_kickstart_import_product() {
   );
   variable_set('install_configure_seachapi', TRUE);
   return $batch;
-}
-
-/**
- * Task callback: Configure Search API and facets for the imported products.
- */
-function commerce_kickstart_configure_searchapi() {
-  // Batch api
-  $batch = array(
-    'title' => t('Indexing your products'),
-    'operations' => array(
-      array('_commerce_kickstart_configure_searchapi_modules_contrib', array()),
-      array('_commerce_kickstart_configure_searchapi_modules_custom', array()),
-      array('_commerce_kickstart_configure_searchapi_blocks', array()),
-    ),
-  );
-  return $batch;
-}
-
-function _commerce_kickstart_configure_searchapi_modules_contrib() {
-  module_enable(array('search_api'));
-  // Enable the search API modules.
-  module_enable(array('search_api_db', 'search_api_views', 'facetapi'));
-}
-
-function _commerce_kickstart_configure_searchapi_modules_custom() {
-  // Enable the feature.
-  module_enable(array('ft_dsc_searchapi'));
-  drupal_static_reset();
-}
-
-function _commerce_kickstart_configure_searchapi_blocks() {
-  // Put the facets blocks in the right place.
-  _block_rehash('commerce_kickstart_theme');
-  try {
-    db_update('block')
-      ->fields(array(
-      'region' => 'sidebar_first',
-      'status' => (int) '1',
-    ))
-      ->condition('module', 'facetapi')
-      ->condition('delta', '0', '<>')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
-    db_update('block')
-      ->fields(array(
-      'region' => 'branding',
-      'status' => (int) '1',
-    ))
-      ->condition('module', 'views')
-      ->condition('delta', '-exp-display_products-page')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
-    db_update('block')
-      ->fields(array(
-      'region' => 'content',
-      'weight' => -10,
-      'status' => (int) '1',
-    ))
-      ->condition('module', 'current_search')
-      ->condition('delta', 'standard')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
-  }
-  catch (Exception $e) {
-    watchdog_exception('block', $e);
-    throw $e;
-  }
 }
 
 function _commerce_kickstart_parse_csv($file) {
