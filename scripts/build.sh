@@ -19,6 +19,12 @@ confirm () {
   esac
 }
 
+usage() {
+  echo "Usage: build.sh [-y] <DESTINATION_PATH>" >&2
+  echo "Use -y to skip deletion confirmation" >&2
+  exit 1
+}
+
 DESTINATION=$1
 ASK=true
 
@@ -30,17 +36,13 @@ while getopts ":y" opt; do
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
-      echo "Usage: build.sh [-y] <DESTINATION_PATH>" >&2
-      echo "Use -y to skip deletion confirmation" >&2
-      exit 1
+      usage
       ;;
   esac
 done
 
 if [ "x$DESTINATION" == "x" ]; then
-  echo "Usage: build.sh [-y] <DESTINATION_PATH>" >&2
-  echo "Use -y to skip deletion confirmation" >&2
-  exit 1
+  usage
 fi
 
 if [ ! -f drupal-org.make ]; then
