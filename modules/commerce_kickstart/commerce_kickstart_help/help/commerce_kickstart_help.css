@@ -116,3 +116,18 @@
   width: 5px;
   height: 9px;
 }
+
+#block-commerce-kickstart-help-commerce-kickstart-help {
+  float: left;
+  width: 47%;
+  border: 1px solid #aaa;
+  background-color: #fafafa;
+  min-height: 150px;
+  margin: 5px 10px;
+}
+
+#block-commerce-kickstart-help-commerce-kickstart-help div,
+#block-commerce-kickstart-help-commerce-kickstart-help h2 {
+  padding: 0 10px;
+}
+

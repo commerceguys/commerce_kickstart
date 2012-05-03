@@ -128,7 +128,10 @@ function commerce_kickstart_help_block_view($delta = '') {
 function commerce_kickstart_help_contents($which_block) {
   switch ($which_block) {
     case 'commerce_kickstart_help':
-      return array('#markup' => 'Need some help ?');
+      $markup = "Need more help ? Find it here :<br />
+        <a href='drupalcommerce.org'>Documentation on drupalcommerce.org</a><br />
+        <a href='drupalcommerce.org/faq'>Q&A on drupalcommerce.org</a>";
+      return array('#markup' => $markup);
   }
 }
 
