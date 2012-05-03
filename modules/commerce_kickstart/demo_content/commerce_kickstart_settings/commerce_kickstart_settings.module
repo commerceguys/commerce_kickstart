@@ -35,7 +35,7 @@ function commerce_kickstart_settings_theme(&$existing) {
       }
     }
   }
-  if ($existing['facetapi_title']['function']) {
+  if (!empty($existing['facetapi_title']) && $existing['facetapi_title']['function']) {
     $existing['facetapi_title']['function'] = 'theme_commerce_kickstart_settings_facetapi_title';
   }
   // Remove commerce product label.
