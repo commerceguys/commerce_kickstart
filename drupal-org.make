@@ -7,6 +7,7 @@ projects[ctools][version] = 1.0
 projects[ctools][subdir] = "contrib"
 projects[entity][version] = 1.0-rc1
 projects[entity][subdir] = "contrib"
+projects[entity][patch][] = "http://drupal.org/files/1556192-hook_options_list-invocation-1.patch"
 projects[rules][version] = 2.1
 projects[rules][subdir] = "contrib"
 projects[views][version] = 3.3
