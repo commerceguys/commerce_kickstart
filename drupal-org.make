@@ -33,9 +33,8 @@ projects[advanced_help][version] = 1.0
 projects[advanced_help][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
-projects[commerce][version] = 1.2
+projects[commerce][version] = 1.x-dev
 projects[commerce][subdir] = "contrib"
-projects[commerce][patch][] = "http://drupal.org/files/1534464-unserialize-fix.patch"
 projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
 projects[commerce_features][version] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
