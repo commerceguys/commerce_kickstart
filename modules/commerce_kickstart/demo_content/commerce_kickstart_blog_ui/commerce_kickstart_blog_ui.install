@@ -27,6 +27,7 @@ function commerce_kickstart_blog_ui_enable() {
  * Implements hook_install().
  */
 function commerce_kickstart_blog_ui_install() {
+  drupal_flush_all_caches();
   drupal_static_reset();
   _block_rehash('commerce_kickstart_theme');
   try {
@@ -39,6 +40,17 @@ function commerce_kickstart_blog_ui_install() {
     ))
       ->condition('module', 'views')
       ->condition('delta', 'blog-block')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+    db_update('block')
+      ->fields(array(
+      'region' => 'user_first',
+      'status' => (int) '1',
+      'visibility' => '0',
+      'pages' => '',
+    ))
+      ->condition('module', 'menu')
+      ->condition('delta', 'menu-kickstart-user-menu')
       ->condition('theme', 'commerce_kickstart_theme')
       ->execute();
   }

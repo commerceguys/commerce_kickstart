@@ -20,4 +20,3 @@ function commerce_kickstart_blog_ui_ctools_plugin_api() {
 function commerce_kickstart_blog_ui_views_api() {
   return array("version" => "3.0");
 }
-

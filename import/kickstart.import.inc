@@ -129,18 +129,6 @@ function _commerce_kickstart_setup_blocks() {
       ->condition('delta', 'menu-footer-navigation')
       ->condition('theme', $default_theme)
       ->execute();
-    // User menu.
-    db_update('block')
-      ->fields(array(
-        'region' => 'user_first',
-        'status' => (int) '1',
-        'title' => '<none>',
-      ))
-      ->condition('module', 'system')
-      ->condition('delta', 'user-menu')
-      ->condition('theme', $default_theme)
-      ->execute();
-    // Search block.
     db_update('block')
       ->fields(array(
         'region' => 'branding',

@@ -5,3 +5,13 @@
  */
 
 include_once 'commerce_kickstart_blog_ui.features.inc';
+
+/**
+ * Implements hook_translated_menu_link_alter().
+ */
+function commerce_kickstart_blog_ui_translated_menu_link_alter(&$item, $map) {
+  // Hide the "User account" link for anonymous users.
+  if ($item['menu_name'] == 'menu-kickstart-user-menu' && $item['link_path'] == 'user' && user_is_anonymous()) {
+    $item['hidden'] = 1;
+  }
+}

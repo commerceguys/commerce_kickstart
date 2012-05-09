@@ -10,48 +10,6 @@
 function commerce_kickstart_blog_ui_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: secondary-navigation:blog
-  $menu_links['secondary-navigation:blog'] = array(
-    'menu_name' => 'secondary-navigation',
-    'link_path' => 'blog',
-    'router_path' => 'blog',
-    'link_title' => 'Blog',
-    'options' => array(),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-  );
-  // Exported menu link: secondary-navigation:node/2
-  $menu_links['secondary-navigation:node/2'] = array(
-    'menu_name' => 'secondary-navigation',
-    'link_path' => 'node/2',
-    'router_path' => 'node/%',
-    'link_title' => 'Contact',
-    'options' => array(),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '1',
-  );
-  // Exported menu link: secondary-navigation:node/3
-  $menu_links['secondary-navigation:node/3'] = array(
-    'menu_name' => 'secondary-navigation',
-    'link_path' => 'node/3',
-    'router_path' => 'node/%',
-    'link_title' => 'About',
-    'options' => array(),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '2',
-  );
   // Exported menu link: menu-footer-navigation:blog
   $menu_links['menu-footer-navigation:blog'] = array(
     'menu_name' => 'menu-footer-navigation',
@@ -201,6 +159,79 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '1',
     'weight' => '-48',
   );
+  // Exported menu link: menu-kickstart-user-menu:user
+  $menu_links['menu-kickstart-user-menu:user'] = array(
+    'menu_name' => 'menu-kickstart-user-menu',
+    'link_path' => 'user',
+    'router_path' => 'user',
+    'link_title' => 'My account',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-48',
+  );
+  // Exported menu link: menu-kickstart-user-menu:user/login
+  $menu_links['menu-kickstart-user-menu:user/login'] = array(
+    'menu_name' => 'menu-kickstart-user-menu',
+    'link_path' => 'user/login',
+    'router_path' => 'user/login',
+    'link_title' => 'Log in',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-50',
+  );
+  // Exported menu link: menu-kickstart-user-menu:user/logout
+  $menu_links['menu-kickstart-user-menu:user/logout'] = array(
+    'menu_name' => 'menu-kickstart-user-menu',
+    'link_path' => 'user/logout',
+    'router_path' => 'user/logout',
+    'link_title' => 'Log out',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-47',
+  );
+  // Exported menu link: menu-kickstart-user-menu:user/register
+  $menu_links['menu-kickstart-user-menu:user/register'] = array(
+    'menu_name' => 'menu-kickstart-user-menu',
+    'link_path' => 'user/register',
+    'router_path' => 'user/register',
+    'link_title' => 'Create account',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-49',
+  );
   // Exported menu link: secondary-navigation:blog
   $menu_links['secondary-navigation:blog'] = array(
     'menu_name' => 'secondary-navigation',
@@ -251,6 +282,10 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
   t('Company info');
   t('Contact');
   t('Contact us');
+  t('Create account');
+  t('Log in');
+  t('Log out');
+  t('My account');
   t('Press links');
   t('Security & privacy');
   t('Service & support');
