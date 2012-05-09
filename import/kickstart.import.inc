@@ -114,67 +114,6 @@ function _commerce_kickstart_post_enable_modules() {
   drupal_static_reset();
 }
 
-function _commerce_kickstart_setup_blocks() {
-  $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
-  _block_rehash('commerce_kickstart_theme');
-  try {
-    // Footer navigation.
-    db_update('block')
-      ->fields(array(
-        'region' => 'footer_first',
-        'status' => (int) '1',
-        'title' => '<none>',
-      ))
-      ->condition('module', 'menu')
-      ->condition('delta', 'menu-footer-navigation')
-      ->condition('theme', $default_theme)
-      ->execute();
-    db_update('block')
-      ->fields(array(
-        'region' => 'branding',
-        'status' => (int) '1',
-      ))
-      ->condition('module', 'views')
-      ->condition('delta', '-exp-display_products-page')
-      ->condition('theme', $default_theme)
-      ->execute();
-
-    // Put the facets blocks in the right place.
-    db_update('block')
-      ->fields(array(
-        'region' => 'sidebar_first',
-        'status' => (int) '1',
-      ))
-      ->condition('module', 'facetapi')
-      ->condition('delta', '0', '<>')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
-    db_update('block')
-      ->fields(array(
-        'region' => 'branding',
-        'status' => (int) '1',
-      ))
-      ->condition('module', 'views')
-      ->condition('delta', '-exp-display_products-page')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
-    db_update('block')
-      ->fields(array(
-        'region' => 'content',
-        'weight' => -10,
-        'status' => (int) '1',
-      ))
-      ->condition('module', 'current_search')
-      ->condition('delta', 'standard')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
-  }
-  catch (Exception $e) {
-    watchdog_exception('block', $e);
-    throw $e;
-  }
-}
-
 /**
  * BatchAPI callback.
  *
