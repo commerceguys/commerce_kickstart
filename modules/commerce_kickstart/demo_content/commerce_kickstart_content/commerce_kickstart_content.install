@@ -10,6 +10,7 @@
 function commerce_kickstart_content_enable() {
   $default_theme = 'commerce_kickstart_theme';
   // Make sure that the region list is populated for our theme.
+  drupal_static_reset();
   _block_rehash($default_theme);
   // Social links block.
   db_update('block')
@@ -32,5 +33,17 @@ function commerce_kickstart_content_enable() {
     ->condition('module', 'commerce_kickstart_content')
     ->condition('delta', 'payment')
     ->condition('theme', $default_theme)
+    ->execute();
+  // Shipping block
+  db_update('block')
+    ->fields(array(
+    'region' => 'content',
+    'status' => '1',
+    'visibility' => '1',
+    'pages' => '<front>',
+  ))
+    ->condition('module', 'commerce_kickstart_content')
+    ->condition('delta', 'shipping')
+    ->condition('theme', 'commerce_kickstart_theme')
     ->execute();
 }

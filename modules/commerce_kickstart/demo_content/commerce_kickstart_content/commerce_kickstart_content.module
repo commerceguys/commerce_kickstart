@@ -16,6 +16,11 @@ function commerce_kickstart_content_block_info() {
     'weight' => '0',
     'cache' => DRUPAL_CACHE_PER_ROLE,
   );
+  $blocks['shipping'] = array(
+    'info' => t('Shipping'),
+    'weight' => '0',
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
   return $blocks;
 }
 
@@ -47,6 +52,24 @@ function commerce_kickstart_content_block_configure($delta = '') {
         '#default_value' => variable_get('block_payment_content', ''),
       );
       break;
+    case 'shipping':
+      $form['block_shipping_message'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Message'),
+        '#size' => 100,
+        '#maxlength' => 128,
+        '#description' => t('Display a short message on homepage'),
+        '#default_value' => variable_get('block_shipping_message'),
+      );
+      $form['block_shipping_amount'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Amount'),
+        '#size' => 10,
+        '#maxlength' => 10,
+        '#description' => t('Amount should be a numeric value'),
+        '#default_value' => variable_get('block_shipping_amount'),
+      );
+      break;
     default:
       break;
   }
@@ -68,6 +91,10 @@ function commerce_kickstart_content_block_save($delta = '', $edit = array()) {
     case 'payment':
       variable_set('block_payment_content', $edit['block_payment_content']);
       break;
+    case 'shipping':
+      variable_set('block_shipping_message', $edit['block_shipping_message']);
+      variable_set('block_shipping_amount', $edit['block_shipping_amount']);
+      break;
     default:
       break;
   }
@@ -87,6 +114,10 @@ function commerce_kickstart_content_block_view($delta = '') {
       $block['content'] = commerce_kickstart_content_contents($delta);
       break;
     case 'payment':
+      $block['subject'] = NULL;
+      $block['content'] = commerce_kickstart_content_contents($delta);
+      break;
+    case 'shipping':
       $block['subject'] = NULL;
       $block['content'] = commerce_kickstart_content_contents($delta);
       break;
@@ -127,6 +158,16 @@ function commerce_kickstart_content_contents($which_block) {
         variable_set('block_payment_content', $block);
       }
       return variable_get('block_payment_content', $block);
+    case 'shipping':
+      $message = variable_get('block_shipping_message', 'Free shipping on order over');
+      $amount = variable_get('block_shipping_amount', '99');
+
+      $block = "<div id=\"shipping\">\n";
+      $block .= "\t<span id=\"shipping_message\">" . $message . "</span>\n";
+      $block .= "\t<span id=\"shipping_currency\">" .commerce_currency_format($amount, commerce_default_currency()) . "</span>\n";
+      $block .= "</div>\n";
+
+      return $block;
     default:
       // It is possible that a block not have any content, since it is
       // probably dynamically constructed. In this case, Drupal will not display
