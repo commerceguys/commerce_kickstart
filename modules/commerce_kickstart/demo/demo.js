@@ -46,18 +46,16 @@ if(window.__noconflict){ jQuery.noConflict();}
 
         // Show the activebar
         if(options.preload){
-          var load = {a:0, b:0, c:0, d:0}          
+          var load = {a:0, b:0}
           
           function preloadInit(){
-            if(load.a && load.b && load.c && load.d){
+            if(load.a && load.b){
               $.fn.activebar.show();
             }
           }
-          
+
           $('<img src="'+options.icons_path+'icon.gif" class="normal">').load(function(){load.a=1; preloadInit()});
           $('<img src="'+options.icons_path+'icon.gif" class="normal">').load(function(){load.b=1; preloadInit()});
-          $('<img src="'+options.icons_path+'close.png" class="normal">').load(function(){load.c=1; preloadInit()});
-          $('<img src="'+options.icons_path+'close-over.png" class="normal">').load(function(){load.d=1; preloadInit()});
           
         }else{
           $.fn.activebar.show();
@@ -203,21 +201,43 @@ if(window.__noconflict){ jQuery.noConflict();}
           .append('<img src="'+options.icons_path+'icon.gif" class="hover">')
         );
 
-        // Add the close button
-        container.append( 
-          $( '<div></div>' ).attr( 'class', 'close' )
+        // Add the icon container
+        container.append(
+          $( '<div>Kill</div>' ).attr( 'class', 'kill' )
           .css({
             'float': 'right',
-            'margin': '0 5px 0 0 ',
-            'width': '16px',
-            'height': '16px'
+            'width': '32px',
+            'height': '20px',
+            'margin': '0 40px 0 0',
+            'padding': '0',
+            'border': '1px solid rgba(0, 0, 0, 0.1)',
+            'background-color': 'red',
+            'text-align': 'center'
           })
           .click(function(event) {
-                $.fn.activebar.hide();
-                event.stopPropagation();
-          }) 
-          .append('<img src="'+options.icons_path+'close.png" class="normal">')
-          .append('<img src="'+options.icons_path+'close-over.png" class="hover">')
+              window.location.href = '/admin/demo/kill';
+              event.stopPropagation();
+            })
+        );
+
+        // Add the close button
+        container.append( 
+          $( '<div>Close</div>' ).attr( 'class', 'close' )
+          .css({
+            'float': 'right',
+            'width': '32px',
+            'height': '20px',
+            'margin': '0 40px 0 0',
+            'padding': '0',
+            'border': '1px solid rgba(0, 0, 0, 0.1)',
+            'background-color': 'green',
+            'text-align': 'center'
+          })
+          .click(function(event) {
+              window.location.href = '/admin/demo/disable';
+              event.stopPropagation();
+          })
+
         );
        
         // Create the initial content container

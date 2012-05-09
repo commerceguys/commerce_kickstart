@@ -5,11 +5,20 @@
  */
 function demo_menu() {
   $items = array();
-  $items['admin/demo'] = array(
+  $items['admin/demo/kill'] = array(
     'title' => 'Manage demo',
     'description' => 'todo.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('demo_kill_me_form'),
+    'access callback' => TRUE,
+    //'access callback' => 'commerce_product_ui_product_add_any_access',
+    'weight' => 10,
+  );
+  $items['admin/demo/disable'] = array(
+    'title' => 'Manage demo',
+    'description' => 'todo.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('demo_disable_me_form'),
     'access callback' => TRUE,
     //'access callback' => 'commerce_product_ui_product_add_any_access',
     'weight' => 10,
@@ -21,6 +30,10 @@ function demo_menu() {
  * Menu callback.
  */
 function demo_kill_me_form() {
+  $form['message'] = array(
+    '#type' => 'item',
+    '#markup' => 'Warning : Your are going to wipe all content from this site',
+  );
   $form['buttons']['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Kill me !'),
@@ -48,12 +61,39 @@ function  demo_kill_me_form_submit($form, &$form_state) {
 }
 
 /**
+ * Menu callback.
+ */
+function demo_disable_me_form() {
+  $form['message'] = array(
+    '#type' => 'item',
+    '#markup' => 'Disable demo mode',
+  );
+  $form['buttons']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Disable me !'),
+  );
+  return $form;
+}
+
+/**
+ * Submit function for .
+ *
+ * @param $form
+ * @param $form_state
+ */
+function  demo_disable_me_form_submit($form, &$form_state) {
+  module_disable(array('demo'));
+  menu_rebuild();
+  drupal_goto('');
+}
+
+/**
  * Implements hook_page_alter().
  */
 function demo_page_alter(&$page) {
   global $base_url, $base_path;
   $message = 'Demo mode enable. You can delete everything you create in this mode by clicking on this message. If you want to keep them, disable the demo module.';
-  $url = 'admin/demo';
+  $url = '/admin/demo';
   $icon_path = $base_url . $base_path . drupal_get_path('module', 'demo') . '/images/';
   $js = '
       <script type="text/javascript">
