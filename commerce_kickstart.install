@@ -332,32 +332,8 @@ function commerce_kickstart_install() {
  */
 function _commerce_kickstart_install() {
 
-  // Insert a product display node type into the database.
-  $types = array(
-    array(
-      'type' => 'product_display',
-      'name' => st('Product display'),
-      'base' => 'node_content',
-      'description' => st('Use <em>product displays</em> to present Add to Cart form for products to your customers.'),
-      'custom' => 1,
-      'modified' => 1,
-      'locked' => 0,
-    ),
-  );
-
-  foreach ($types as $type) {
-    $type = node_type_set_defaults($type);
-    node_type_save($type);
-    node_add_body_field($type);
-  }
-
   // Set homepage.
   variable_set('site_frontpage', 'home');
-
-  // Update "Product" comment and author information settings.
-  variable_set('comment_product_display', COMMENT_NODE_HIDDEN);
-  variable_set('node_submitted_product_display', FALSE);
-  variable_set('node_options_product_display', array('status'));
 
   // Give checkout access to anonymous and authenticated users.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access checkout'));
