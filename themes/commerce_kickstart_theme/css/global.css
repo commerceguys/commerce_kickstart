@@ -297,7 +297,7 @@ h2.site-name:after {
   position: absolute;
   bottom: 0;
 }
-.view-collection-taxonomy-term .products-per-collection li {
+.view-collection-taxonomy-term .products-per-collection li.views-row {
   display: inline;
   float: left;
   margin: 0;
@@ -305,7 +305,7 @@ h2.site-name:after {
   padding-bottom: 30px;
   text-align: center;
 }
-.view-collection-taxonomy-term .products-per-collection li:nth-child(4n+3) {
+.view-collection-taxonomy-term .products-per-collection li.views-row:nth-child(4n+3) {
   padding-left: 0;
 }
 .view-collection-taxonomy-term .products-per-collection li.last {
@@ -318,7 +318,7 @@ h2.site-name:after {
 /**
  * Search page
  */
-.page-all-products .view-display-products li {
+.page-all-products .view-display-products li.views-row {
   display: inline;
   float: left;
   margin: 0;
@@ -326,7 +326,9 @@ h2.site-name:after {
   padding-bottom: 30px;
   text-align: center;
 }
-.page-all-products .view-display-products li.last {
+
+.view-collection-taxonomy-term .products-per-collection li.views-row.last,
+.page-all-products .view-display-products li.views-row.last {
   padding-right: 0;
 }
 /* All products */
