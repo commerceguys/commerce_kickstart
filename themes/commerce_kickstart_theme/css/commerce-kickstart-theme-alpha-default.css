@@ -2,7 +2,36 @@
 h2.site-name:after {
   content: " default";
 }
-/**********************************/
+/*
+ * ==========================================================
+ * Regions
+ * ==========================================================
+ */
+/* Homepage Regions */
+.context-home #region-postscript-second,
+.context-home #region-postscript-third {
+  margin-left: 0;
+}
+
+.context-home #region-postscript-third{
+  margin-right: 0;
+}
+/*
+ * ==========================================================
+ * Header
+ * ==========================================================
+ */
+/**
+ * Breadcrumb
+ */
+.breadcrumb {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+/**
+ * Navigation
+ */
 .main-menu a,
 .secondary-menu a {
   display: inline;
@@ -16,6 +45,7 @@ h2.site-name:after {
   border-left-width: 0;
   border-right-width: 0;
 }
+/* Main menu */
 .navigation li.first a {
   -webkit-border-top-left-radius: 8px;
   -webkit-border-bottom-left-radius: 8px;
@@ -28,11 +58,6 @@ h2.site-name:after {
 .navigation li.first a.active,
 .navigation li.first a:hover {
   border-left: 1px solid #000000;
-}
-.navigation .second-menu li.first a,
-.navigation .second-menu li.first a.active,
-.navigation .second-menu li.first a:hover {
-  border-left: 1px solid #d7d7d7;
 }
 .navigation li.last a {
   -webkit-border-top-right-radius: 8px;
@@ -47,15 +72,92 @@ h2.site-name:after {
 .navigation li.last a:hover {
   border-right: 1px solid #000000;
 }
+/* Secondary menu */
+.navigation .second-menu li.first a,
+.navigation .second-menu li.first a.active,
+.navigation .second-menu li.first a:hover {
+  border-left: 1px solid #d7d7d7;
+}
 .navigation .second-menu li.last a,
 .navigation .second-menu li.last a.active,
 .navigation .second-menu li.last a:hover {
   border-right: 1px solid #d7d7d7;
 }
 
-.breadcrumb,
-.block-payment {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+/*
+ * ==========================================================
+ * Content
+ * ==========================================================
+ */
+/**
+ * HP Blocks
+ */
+.view-display-id-block_1 .views-row,
+.view-display-id-block_3 .views-row,
+.block-blog-block .block-inner {
+  background-color: #cccccc;
+  border: 1px solid #b1b1b1;
+  padding: 10px 0px;
+  position: relative;
+}
+.view-display-id-block_1 .views-row img,
+.view-display-id-block_3 .views-row img,
+.block-blog-block img {
+  border: 4px solid #ffffff;
+}
+.view-display-id-block_1 .views-row .views-field-field-tags,
+.view-display-id-block_3 .views-row .views-field-field-tags,
+.block-blog-block .block-title {
+  background: url('../images/bg_block_homepage_title.png') left top no-repeat;
+  color: #ffffff;
+  font-size: 16px;
+  height: 50px;
+  margin-top: 25px;
+  padding-top: 11px;
+  padding-left: 25px;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 112px;
+  z-index: 1;
+}
+.view-display-id-block_1 .views-row .views-field-field-headline,
+.view-display-id-block_3 .views-row .views-field-field-headline,
+.block-blog-block .views-field-body {
+  margin: 5px 10px;
+  position: absolute;
+  bottom: 0;
+}
+.view-display-id-block_1 .views-row .views-field-field-headline,
+.view-display-id-block_3 .views-row .views-field-field-headline,
+.block-blog-block .views-field-body,
+.view-display-id-block_1 .views-row .views-field-field-headline a,
+.view-display-id-block_3 .views-row .views-field-field-headline a,
+.block-blog-block .views-field-body a {
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+/* Adverts blocks */
+.view-display-id-block_1 .views-row-first,
+.view-display-id-block_1 .views-row-last {
+  margin: 0;
+}
+.view-display-id-block_1 .views-row-last {
+  margin-left: 13px;
+}
+.view-display-id-block_1 .views-row .views-field-field-tags,
+.view-display-id-block_3 .views-row .views-field-field-tags {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.view-display-id-block_1 .views-row .views-field-field-headline,
+.view-display-id-block_3 .views-row .views-field-field-headline {
+  border: 1px solid #5f5f5f;
+  background-color: #504b4a;
+}
+/* Blog block */
+.block-blog-block .views-field-body {
+  border: 1px solid #585655;
+  background-color: #f2a023;
 }

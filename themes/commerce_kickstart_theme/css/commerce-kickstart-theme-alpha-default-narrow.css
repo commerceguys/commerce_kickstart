@@ -5,7 +5,14 @@
 h2.site-name:after {
   content: " narrow";
 }
-/**********************************/
+/*
+ * ==========================================================
+ * Header
+ * ==========================================================
+ */
+/**
+ * Navigation
+ */
 .navigation .primary-menu,
 .navigation .second-menu {
   margin: 26px 0px;
@@ -14,9 +21,14 @@ h2.site-name:after {
 .secondary-menu a {
   display: inline;
 }
-
-/* Footer */
-/* Menu footer navigation */
+/*
+ * ==========================================================
+ * Footer
+ * ==========================================================
+ */
+/**
+ * Menu footer navigation
+ */
 .section-footer ul.menu li {
   display: inline;
   float: left;

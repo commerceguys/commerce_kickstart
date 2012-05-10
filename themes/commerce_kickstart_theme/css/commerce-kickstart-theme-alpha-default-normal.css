@@ -6,7 +6,14 @@
 h2.site-name:after {
   content: " normal";
 }
-/**********************************/
+/*
+ * ==========================================================
+ * Header
+ * ==========================================================
+ */
+/**
+ * Navigation
+ */
 .navigation .primary-menu,
 .navigation .second-menu {
   display: inline;

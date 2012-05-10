@@ -1,6 +1,12 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 /* Override Omega */
+
+/*
+ * ==========================================================
+ * General
+ * ==========================================================
+ */
 body {
   background-color: #ececec;
   font-size: 14px;
@@ -8,16 +14,11 @@ body {
 h2.site-name:after {
   content: " global ";
 }
-/**********************************/
-/* Zones */
-.zone-content {
-  background-color: #ffffff;
-}
-/* Regions */
-/**********************************/
-
-/* Header */
-.section-header {}
+/*
+ * ==========================================================
+ * Zones
+ * ==========================================================
+ */
 .zone-user-wrapper {
   background-color: #8e8e8e;
   height: 28px;
@@ -25,86 +26,45 @@ h2.site-name:after {
 .zone-user-wrapper .block-commerce-cart,
 .zone-user-wrapper .block-commerce-cart a {
 }
-.zone-menu-wrapper {}
-.zone-menu {}
-
-.navigation .primary-menu,
-.navigation .second-menu {
-  font-size: 1.142857142857143em;
+.zone-content-wrapper {
+  height: 100%;
 }
-.navigation .primary-menu .main-menu li,
-.navigation .second-menu .secondary-menu li {
-  margin: 0;
-  padding: 0;
-}
-.main-menu a,
-.secondary-menu a {
-  display: block;
-  margin: 7px 0;
-  padding: 12px;
-  text-decoration: none;
-}
-.main-menu a {
-  color: #ffffff;
-  text-transform: capitalize;
-}
-.secondary-menu a {
-  color: #000000;
-}
-
-/*--------------------------------------------------------------*/
-/* transitions */
-.navigation li a {
-  -webkit-transition:background .2s ease-in;
-  -moz-transition:background .2s ease-in;
-  -o-transition:background .2s ease-in;
-  transition:background .2s ease-in
-}
-.navigation li a:hover {
-  -webkit-transition:background .4s ease-out;
-  -moz-transition:background .4s ease-out;
-  -o-transition:background .4s ease-out;
-  transition:background .4s ease-out;
-}
-/*--------------------------------------------------------------*/
-.navigation .primary-menu li a {
-  background-color: #000000;
-  border: 1px solid #000000;
-}
-.navigation .primary-menu li a.active,
-.navigation .primary-menu li a:hover {
+.zone-content {
   background-color: #ffffff;
-  border: 1px solid #000000;
 }
-.navigation .primary-menu li a.active {
-  color: #fd9a00;
+.zone-postscript {
+  margin-top: 30px;
+  margin-bottom: 24px;
 }
-.navigation .primary-menu li a:hover {
-  color: #000000;
+.zone-footer-wrapper {
+  background-color: #494949;
+  padding-top: 32px;
+  padding-bottom: 36px;
 }
-
-.navigation .second-menu li a {
-  background-color: #ffffff;
-  border: 1px solid #d7d7d7;
+.zone-footer2-wrapper {
+  background-color: #3f3f3f;
+  padding-top: 17px;
+  height: 160px;
 }
-.navigation .second-menu li a.active,
-.navigation .second-menu li a:hover {
-  background-color: #000000;
-  border: 1px solid #d7d7d7;
+.zone-footer2 {
+  color: #eeeeee;
 }
-.navigation .second-menu li a.active {
-  color: #fd9a00;
+/*
+ * ==========================================================
+ * Regions
+ * ==========================================================
+ */
+.region-content-inner {
+  padding: 10px;
 }
-.navigation .second-menu li a:hover {
-  color: #ffffff;
-}
-
-/* Cart */
-.block-shopping-cart-block p,
-.block-shopping-cart-block div {
-  display: inline;
-}
-/* Breadcrumb */
+/*
+ * ==========================================================
+ * Header
+ * ==========================================================
+ */
+/**
+ * Breadcrumb
+ */
 .breadcrumb {
   background-color: #eeeeee;
   border: 1px solid #d7d7d7;
@@ -122,8 +82,87 @@ h2.site-name:after {
 .breadcrumb a:hover {
   text-decoration: underline;
 }
-
-/* Sidebar first */
+/**
+ * Navigation
+ */
+.navigation .primary-menu,
+.navigation .second-menu {
+  font-size: 1.142857142857143em;
+}
+.navigation .primary-menu .main-menu li,
+.navigation .second-menu .secondary-menu li {
+  margin: 0;
+  padding: 0;
+}
+.main-menu a,
+.secondary-menu a {
+  display: block;
+  margin: 7px 0;
+  padding: 12px;
+  text-decoration: none;
+}
+.navigation li a {
+  -webkit-transition:background .2s ease-in;
+  -moz-transition:background .2s ease-in;
+  -o-transition:background .2s ease-in;
+  transition:background .2s ease-in
+}
+.navigation li a:hover {
+  -webkit-transition:background .4s ease-out;
+  -moz-transition:background .4s ease-out;
+  -o-transition:background .4s ease-out;
+  transition:background .4s ease-out;
+}
+/* Main menu */
+.main-menu a {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.navigation .primary-menu li a {
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+.navigation .primary-menu li a.active,
+.navigation .primary-menu li a:hover {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+.navigation .primary-menu li a.active {
+  color: #fd9a00;
+}
+.navigation .primary-menu li a:hover {
+  color: #000000;
+}
+/* Secondary menu */
+.secondary-menu a {
+  color: #000000;
+}
+.navigation .second-menu li a {
+  background-color: #ffffff;
+  border: 1px solid #d7d7d7;
+}
+.navigation .second-menu li a.active,
+.navigation .second-menu li a:hover {
+  background-color: #000000;
+  border: 1px solid #d7d7d7;
+}
+.navigation .second-menu li a.active {
+  color: #fd9a00;
+}
+.navigation .second-menu li a:hover {
+  color: #ffffff;
+}
+/* Cart block */
+.block-shopping-cart-block p,
+.block-shopping-cart-block div {
+  display: inline;
+}
+/*
+ * ==========================================================
+ * Sidebars
+ * ==========================================================
+ */
+/* Sidebar first: Search api facet blocks */
 .region-sidebar-first .block-facetapi {
   border-top: 1px solid #000000;
   margin-top: 15px;
@@ -156,20 +195,86 @@ h2.site-name:after {
   padding: 10px 20px;
   overflow-y: scroll;
 }
-
-/* Content */
+/*
+ * ==========================================================
+ * Content
+ * ==========================================================
+ */
 .section-content {
   min-height: 500px;
   height: 100%;
 }
-.zone-content-wrapper {
-  height: 100%;
+.region-postscript-first,
+.region-postscript-second {
+  margin-bottom: 5px;
 }
-.region-content-inner {
-  padding: 10px;
+.view-display-id-block_1 .views-rows {
+  display: inline;
+  float: left;
+  margin: 0;
 }
-
-/* Collection page */
+.view-display-id-block_1 .views-row,
+.block-blog-block .block-inner {
+  background-color: #cccccc;
+  border: 1px solid #b1b1b1;
+  padding: 5px 0px;
+}
+.view-display-id-block_1 .views-row img {
+  margin: 0 10px;
+}
+.view-display-id-block_1 .views-row img,
+.block-blog-block img {
+  border: 4px solid #ffffff;
+}
+.view-display-id-block_1 .views-row .views-field-field-tags,
+.block-blog-block .block-title {
+  background: url('../images/bg_block_homepage_title.png') left top no-repeat;
+  color: #ffffff;
+  font-size: 16px;
+  height: 50px;
+  padding-top: 11px;
+  padding-left: 25px;
+  width: 112px;
+}
+.view-display-id-block_1 .views-row .views-field-field-headline {
+  margin: 0 10px;
+}
+.view-display-id-block_1 .views-row .views-field-field-headline,
+.block-blog-block .views-field-body {
+  margin-top: 5px;
+}
+.view-display-id-block_1 .views-row .views-field-field-headline,
+.block-blog-block .views-field-body,
+.view-display-id-block_1 .views-row .views-field-field-headline a,
+.block-blog-block .views-field-body a {
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+/* Adverts blocks */
+.view-display-id-block_1 .views-row-first,
+.view-display-id-block_1 .views-row-last {
+  margin: 0;
+}
+.view-display-id-block_1 .views-row-first {
+  margin-bottom: 5px;
+}
+.view-display-id-block_1 .views-row .views-field-field-tags {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.view-display-id-block_1 .views-row .views-field-field-headline {
+  border: 1px solid #5f5f5f;
+  background-color: #504b4a;
+}
+/* Blog block */
+.block-blog-block .views-field-body {
+  border: 1px solid #585655;
+  background-color: #f2a023;
+}
+/**
+ * Collection page
+ */
 .view-collection-taxonomy-term .item-list {
   clear: both;
 }
@@ -203,11 +308,16 @@ h2.site-name:after {
 .view-collection-taxonomy-term .products-per-collection li:nth-child(4n+3) {
   padding-left: 0;
 }
-
+.view-collection-taxonomy-term .products-per-collection li.last {
+  padding-right: 0;
+}
+/* Collection colors */
 #iPhone-Cases {
   background-color: #0ad7d4;
 }
-
+/**
+ * Search page
+ */
 .page-all-products .view-display-products li {
   display: inline;
   float: left;
@@ -216,11 +326,9 @@ h2.site-name:after {
   padding-bottom: 30px;
   text-align: center;
 }
-.view-collection-taxonomy-term .products-per-collection li.last,
 .page-all-products .view-display-products li.last {
   padding-right: 0;
 }
-
 /* All products */
 .page-all-products .view-display-products {
 
@@ -232,26 +340,17 @@ h2.site-name:after {
   font-size: 14px;
   text-decoration: none;
 }
-
-
-/* Footer */
+/*
+ * ==========================================================
+ * Footer
+ * ==========================================================
+ */
 .section-footer {
   background-color: #3f3f3f;
 }
-.zone-footer-wrapper {
-  background-color: #494949;
-  padding-top: 32px;
-  padding-bottom: 36px;
-}
-.zone-footer2-wrapper {
-  background-color: #3f3f3f;
-  padding-top: 17px;
-  height: 160px;
-}
-.zone-footer2 {
-  color: #eeeeee;
-}
-/* Menu footer navigation */
+/**
+ * Menu footer navigation
+ */
 .block-menu-menu-footer-navigation {
   width: auto;
 }
@@ -283,7 +382,9 @@ h2.site-name:after {
   color: #c1c1c1;
   font-weight: normal;
 }
-
+/**
+ * Social links block
+ */
 .block-social h2 {
   background: url('../images/bg_block_footer_title.png') left top no-repeat;
   color: #eeeeee;
