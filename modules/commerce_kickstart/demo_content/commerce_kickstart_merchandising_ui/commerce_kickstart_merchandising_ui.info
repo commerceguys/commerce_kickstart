@@ -9,7 +9,6 @@ dependencies[] = flexslider
 dependencies[] = flexslider_views_slideshow
 dependencies[] = views
 dependencies[] = views_slideshow
-
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
 features[views_view][] = collection_taxonomy_term
