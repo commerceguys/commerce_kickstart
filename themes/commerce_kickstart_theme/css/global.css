@@ -55,7 +55,7 @@ h2.site-name:after {
  * ==========================================================
  */
 .region-content-inner {
-  padding: 10px;
+  padding: 10px 0;
 }
 /*
  * ==========================================================
@@ -120,12 +120,12 @@ h2.site-name:after {
 }
 .navigation .primary-menu li a {
   background-color: #000000;
-  border: 1px solid #000000;
+  border: 1px solid #d7d7d7;
 }
 .navigation .primary-menu li a.active,
 .navigation .primary-menu li a:hover {
   background-color: #ffffff;
-  border: 1px solid #000000;
+  border: 1px solid #d7d7d7;
 }
 .navigation .primary-menu li a.active {
   color: #fd9a00;
@@ -204,6 +204,76 @@ h2.site-name:after {
   min-height: 500px;
   height: 100%;
 }
+/* Homepage blocks */
+/* Top advert */
+.block-promotional-banner {
+  background-color: #fd9a00;
+  color: #ffffff;
+  font-size: 16px;
+  height: 33px;
+  padding: 5px 10px;
+  position: relative;
+  top: 10px;
+  left: -10px;
+  width: 100%;
+  z-index: 10;
+}
+/* Slideshow */
+.view-display-id-block_4 {
+  position: relative;
+}
+.view-display-id-block_4 .bx-window {
+  overflow: visible !important;
+}
+.event-slider,
+.view-display-id-block_4 .item-list .event-slider li {
+  margin: 0;
+}
+.event-slider .views-field-body {
+  text-indent: -9999px;
+}
+.event-slider .views-field-title,
+.view-display-id-block_4 .bx-prev,
+.view-display-id-block_4 .bx-next {
+  height: 80px;
+  text-align: center;
+  width: 320px;
+}
+
+.event-slider .views-field-title {
+  background: url('../images/bg_title_slideshow_current.png') left top no-repeat;
+  color: #ffffff;
+  padding-bottom: 5px;
+  position: absolute;
+  bottom: -65px;
+  left: 32.5%;
+}
+.view-display-id-block_4 .bx-prev,
+.view-display-id-block_4 .bx-next {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  padding-bottom: 5px;
+}
+.event-slider .views-field-title span,
+.view-display-id-block_4 .bx-prev span,
+.view-display-id-block_4 .bx-next span {
+  display: block;
+  line-height: 12px;
+  padding: 20px 35px;
+}
+.view-display-id-block_4 .bx-prev {
+  background: url('../images/bg_title_slideshow_previous.png') left top no-repeat;
+  float: left;
+}
+.view-display-id-block_4 .bx-next {
+  background: url('../images/bg_title_slideshow_next.png') left top no-repeat;
+  float: right;
+  margin-right: 5px;
+}
+
+
+
 .region-postscript-first,
 .region-postscript-second {
   margin-bottom: 5px;
@@ -275,6 +345,10 @@ h2.site-name:after {
 /**
  * Collection page
  */
+
+.collection-terms {
+
+}
 .view-collection-taxonomy-term .item-list {
   clear: both;
 }

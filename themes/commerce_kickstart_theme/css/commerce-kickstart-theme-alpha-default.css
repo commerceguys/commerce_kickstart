@@ -57,7 +57,7 @@ h2.site-name:after {
 .navigation li.first a,
 .navigation li.first a.active,
 .navigation li.first a:hover {
-  border-left: 1px solid #000000;
+  border-left: 1px solid #d7d7d7;
 }
 .navigation li.last a {
   -webkit-border-top-right-radius: 8px;
@@ -70,7 +70,7 @@ h2.site-name:after {
 .navigation li.last a,
 .navigation li.last a.active,
 .navigation li.last a:hover {
-  border-right: 1px solid #000000;
+  border-right: 1px solid #d7d7d7;
 }
 /* Secondary menu */
 .navigation .second-menu li.first a,
@@ -160,4 +160,15 @@ h2.site-name:after {
 .block-blog-block .views-field-body {
   border: 1px solid #585655;
   background-color: #f2a023;
+}
+
+/*
+ * ==========================================================
+ * Footer
+ * ==========================================================
+ */
+ .block-payment {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }

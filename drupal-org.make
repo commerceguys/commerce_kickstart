@@ -87,3 +87,6 @@ projects[omega][version] = 3.1
 libraries[flexslider][type] = "libraries"
 libraries[flexslider][download][type] = "git"
 libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider.git"
+libraries[jquery.bxSlider][type] = "libraries"
+libraries[jquery.bxSlider][download][type] = "git"
+libraries[jquery.bxSlider][download][url] = "https://github.com/wandoledzep/bxslider.git"
