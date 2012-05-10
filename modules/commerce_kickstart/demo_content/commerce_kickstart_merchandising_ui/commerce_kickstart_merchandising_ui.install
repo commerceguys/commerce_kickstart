@@ -41,17 +41,6 @@ function commerce_kickstart_merchandising_ui_install() {
       ->condition('delta', 'menu-footer-navigation')
       ->condition('theme', 'commerce_kickstart_theme')
       ->execute();
-    // User menu.
-    db_update('block')
-      ->fields(array(
-      'region' => 'user_first',
-      'status' => (int) '1',
-      'title' => '<none>',
-    ))
-      ->condition('module', 'system')
-      ->condition('delta', 'user-menu')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
     // HP push block.
     db_update('block')
       ->fields(array(
