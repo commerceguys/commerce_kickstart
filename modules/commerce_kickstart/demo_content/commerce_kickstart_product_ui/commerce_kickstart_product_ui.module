@@ -43,6 +43,11 @@ function commerce_kickstart_product_ui_theme(&$existing) {
     $existing['commerce_product_title']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
     $existing['commerce_product_title']['template'] = 'commerce-product-title';
   }
+  // Remove cart block total label & add cart link on item.
+  if ($existing['commerce_line_item_summary']) {
+    $existing['commerce_line_item_summary']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
+    $existing['commerce_line_item_summary']['template'] = 'commerce-line-item-summary';
+  }
 
   return $themes;
 }
@@ -86,4 +91,12 @@ function commerce_kickstart_product_ui_preprocess_node(&$vars) {
   if (in_array($vars['type'], $type)) {
     $vars['title'] = FALSE;
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ * Link cart block items to cart.
+ */
+function commerce_kickstart_product_ui_preprocess_commerce_line_item_summary(&$variable) {
+  $variable['cart_items'] = l($variable['quantity'], 'cart', array('attributes' => array('class' => 'line-item-quantity')));
 }
