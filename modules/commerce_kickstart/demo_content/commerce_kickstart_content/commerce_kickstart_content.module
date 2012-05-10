@@ -16,8 +16,18 @@ function commerce_kickstart_content_block_info() {
     'weight' => '0',
     'cache' => DRUPAL_CACHE_PER_ROLE,
   );
-  $blocks['shipping'] = array(
-    'info' => t('Shipping'),
+  $blocks['shipping_discount'] = array(
+    'info' => t('Shipping discount'),
+    'weight' => '0',
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  $blocks['promotional_banner'] = array(
+    'info' => t('Promotional banner'),
+    'weight' => '0',
+    'cache' => DRUPAL_CACHE_PER_ROLE,
+  );
+  $blocks['powered_drupal_commerce'] = array(
+    'info' => t('Powered by Drupal Commerce'),
     'weight' => '0',
     'cache' => DRUPAL_CACHE_PER_ROLE,
   );
@@ -39,7 +49,7 @@ function commerce_kickstart_content_block_configure($delta = '') {
         '#title' => t('Block body'),
         '#size' => 60,
         '#description' => t('List of social website you\'re on.'),
-        '#default_value' => variable_get('block_social_content', ''),
+        '#default_value' => variable_get('block_social_content'),
       );
       break;
     case 'payment':
@@ -49,25 +59,35 @@ function commerce_kickstart_content_block_configure($delta = '') {
         '#title' => t('Block body'),
         '#size' => 60,
         '#description' => t('List all the available payment methods'),
-        '#default_value' => variable_get('block_payment_content', ''),
+        '#default_value' => variable_get('block_payment_content'),
       );
       break;
-    case 'shipping':
-      $form['block_shipping_message'] = array(
-        '#type' => 'textfield',
+    case 'shipping_discount':
+      $form['block_shipping_discount_message'] = array(
+        '#type' => 'text_format',
+        '#format' => 'full_html',
         '#title' => t('Message'),
-        '#size' => 100,
-        '#maxlength' => 128,
-        '#description' => t('Display a short message on homepage'),
-        '#default_value' => variable_get('block_shipping_message'),
+        '#size' => 60,
+        '#description' => t('Display a short message on homepage. To display amout use @amount placeholders'),
+        '#default_value' => variable_get('block_shipping_discount_message'),
       );
-      $form['block_shipping_amount'] = array(
+      $form['block_shipping_discount_amount'] = array(
         '#type' => 'textfield',
         '#title' => t('Amount'),
         '#size' => 10,
         '#maxlength' => 10,
         '#description' => t('Amount should be a numeric value'),
-        '#default_value' => variable_get('block_shipping_amount'),
+        '#default_value' => variable_get('block_shipping_discount_amount'),
+      );
+      break;
+    case 'promotional_banner':
+      $form['block_promotional_banner_content'] = array(
+        '#type' => 'text_format',
+        '#format' => 'full_html',
+        '#title' => t('Block body'),
+        '#size' => 60,
+        '#description' => t('Display a promotional message'),
+        '#default_value' => variable_get('block_promotional_banner_content'),
       );
       break;
     default:
@@ -86,14 +106,17 @@ function commerce_kickstart_content_block_save($delta = '', $edit = array()) {
   // We need to save settings from the configuration form.
   switch ($delta) {
     case 'social':
-      variable_set('block_social_content', $edit['block_social_content']);
+      variable_set('block_social_content', $edit['block_social_content']['value']);
       break;
     case 'payment':
-      variable_set('block_payment_content', $edit['block_payment_content']);
+      variable_set('block_payment_content', $edit['block_payment_content']['value']);
       break;
-    case 'shipping':
-      variable_set('block_shipping_message', $edit['block_shipping_message']);
-      variable_set('block_shipping_amount', $edit['block_shipping_amount']);
+    case 'shipping_discount':
+      variable_set('block_shipping_discount_message', $edit['block_shipping_discount_message']['value']);
+      variable_set('block_shipping_discount_amount', $edit['block_shipping_discount_amount']);
+      break;
+    case 'promotional_banner':
+      variable_set('block_promotional_banner_content', $edit['block_promotional_banner_content']['value']);
       break;
     default:
       break;
@@ -117,7 +140,15 @@ function commerce_kickstart_content_block_view($delta = '') {
       $block['subject'] = NULL;
       $block['content'] = commerce_kickstart_content_contents($delta);
       break;
-    case 'shipping':
+    case 'shipping_discount':
+      $block['subject'] = NULL;
+      $block['content'] = commerce_kickstart_content_contents($delta);
+      break;
+    case 'promotional_banner':
+      $block['subject'] = NULL;
+      $block['content'] = commerce_kickstart_content_contents($delta);
+      break;
+    case 'powered_drupal_commerce':
       $block['subject'] = NULL;
       $block['content'] = commerce_kickstart_content_contents($delta);
       break;
@@ -133,40 +164,61 @@ function commerce_kickstart_content_block_view($delta = '') {
 function commerce_kickstart_content_contents($which_block) {
   switch ($which_block) {
     case 'social':
-      $block = "<ul id=\"social\">\n";
-      $block .= "\t<li id=\"facebook\">" . t('Like us on Facebook') . "</li>\n";
-      $block .= "\t<li id=\"twitter\">" . t('Follow Us on Twitter') . "</li>\n";
-      $block .= "\t<li id=\"pinterest\">" . t('What We Like on Pinterest') . "</li>\n";
-      $block .= "</ul>\n";
-
-      $variable = variable_get('block_social_content');
-      if (empty($variable)) {
+      $block = variable_get('block_social_content');
+      if (empty($block)) {
+        $block = "<ul id=\"social\">\n";
+        $block .= "\t<li id=\"facebook\">" . t('Like us on Facebook') . "</li>\n";
+        $block .= "\t<li id=\"twitter\">" . t('Follow Us on Twitter') . "</li>\n";
+        $block .= "\t<li id=\"pinterest\">" . t('What We Like on Pinterest') . "</li>\n";
+        $block .= "</ul>\n";
         variable_set('block_social_content', $block);
       }
-      return variable_get('block_social_content', $block);
+      return $block;
     case 'payment':
-      $block = "<ul id=\"payments\">\n";
-      $block .= "\t<li><span id=\"payment_visa_premier\">" . t('Visa premier') . "</span></li>\n";
-      $block .= "\t<li><span id=\"payment_paypal\">" . t('Paypal') . "</span></li>\n";
-      $block .= "\t<li><span id=\"payment_mastercard\">" . t('Mastercard') . "</span></li>\n";
-      $block .= "\t<li><span id=\"payment_american_express\">" . t('American express') . "</span></li>\n";
-      $block .= "\t<li><span id=\"payment_visa\">" . t('Visa') . "</span></li>\n";
-      $block .= "</ul>\n";
-
-      $variable = variable_get('block_payment_content');
-      if (empty($variable)) {
+      $block = variable_get('block_payment_content');
+      if (empty($block)) {
+        $block = "<ul id=\"payments\">\n";
+        $block .= "\t<li><span id=\"payment_visa_premier\">" . t('Visa premier') . "</span></li>\n";
+        $block .= "\t<li><span id=\"payment_paypal\">" . t('Paypal') . "</span></li>\n";
+        $block .= "\t<li><span id=\"payment_mastercard\">" . t('Mastercard') . "</span></li>\n";
+        $block .= "\t<li><span id=\"payment_american_express\">" . t('American express') . "</span></li>\n";
+        $block .= "\t<li><span id=\"payment_visa\">" . t('Visa') . "</span></li>\n";
+        $block .= "</ul>\n";
         variable_set('block_payment_content', $block);
       }
-      return variable_get('block_payment_content', $block);
-    case 'shipping':
-      $message = variable_get('block_shipping_message', 'Free shipping on order over');
-      $amount = variable_get('block_shipping_amount', '99');
+      return $block;
+    case 'shipping_discount':
+      $amount = variable_get('block_shipping_discount_amount');
+      if (empty($amount)) {
+        $amount = '99';
+        variable_set('block_shipping_discount_amount', $amount);
+      }
 
-      $block = "<div id=\"shipping\">\n";
-      $block .= "\t<span id=\"shipping_message\">" . $message . "</span>\n";
-      $block .= "\t<span id=\"shipping_currency\">" .commerce_currency_format($amount, commerce_default_currency()) . "</span>\n";
-      $block .= "</div>\n";
-
+      $message = variable_get('block_shipping_discount_message');
+      if (empty($message)) {
+        $message = "<div id=\"shipping\">\n";
+        $message .= "\t<span id=\"shipping_message\">Free shipping on order over</span>\n";
+        $message .= "\t<span id=\"shipping_currency\">@amount</span>\n";
+        $message .= "</div>\n";
+        variable_set('block_shipping_discount_message', $message);
+      }
+      $block = format_string($message, array('@amount' => commerce_currency_format($amount, commerce_default_currency())));
+      return $block;
+    case 'promotional_banner':
+      $block = variable_get('block_promotional_banner_content');
+      if (empty($block)) {
+        $block = "<div id=\"promotional_banner\">\n";
+        $block .= "\t<span>SAVE 25% Purchases made between June 5 - 12 will be discounted Offer Details</span>\n";
+        $block .= "</div>\n";
+        variable_set('block_promotional_banner_content', $block);
+      }
+      return $block;
+    case 'powered_drupal_commerce':
+      $block = variable_get('powered_drupal_commerce');
+      if (empty($block)) {
+        $block = "<a id=\"powered_by_drupal_commerce\" href=\"http://www.drupalcommerce.org\" '>Powered by Drupal Commerce</a>\n";
+        variable_set('powered_drupal_commerce', $block);
+      }
       return $block;
     default:
       // It is possible that a block not have any content, since it is

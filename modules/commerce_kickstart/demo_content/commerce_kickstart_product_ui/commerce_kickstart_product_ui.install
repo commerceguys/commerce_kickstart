@@ -49,7 +49,7 @@ function commerce_kickstart_product_ui_enable() {
         'status' => '1',
         'visibility' => '0',
         'pages' => 'cart\ncheckout/*',
-        'title' => '<none>',
+        'title' => 'Cart',
         'cache' => '-1',
       ))
       ->condition('module', 'views')

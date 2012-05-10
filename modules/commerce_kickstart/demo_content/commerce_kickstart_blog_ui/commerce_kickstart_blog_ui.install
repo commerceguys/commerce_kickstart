@@ -48,6 +48,7 @@ function commerce_kickstart_blog_ui_install() {
       'status' => (int) '1',
       'visibility' => '0',
       'pages' => '',
+      'title' => '<none>',
     ))
       ->condition('module', 'menu')
       ->condition('delta', 'menu-kickstart-user-menu')

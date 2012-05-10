@@ -37,13 +37,48 @@ function commerce_kickstart_content_enable() {
   // Shipping block
   db_update('block')
     ->fields(array(
+      'region' => 'content',
+      'status' => '1',
+      'visibility' => '1',
+      'pages' => '<front>',
+  ))
+    ->condition('module', 'commerce_kickstart_content')
+    ->condition('delta', 'shipping_discount')
+    ->condition('theme', 'commerce_kickstart_theme')
+    ->execute();
+  db_update('block')
+    ->fields(array(
     'region' => 'content',
+    'status' => '1',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'weight' => -9,
+  ))
+    ->condition('module', 'commerce_kickstart_content')
+    ->condition('delta', 'promotional_banner')
+    ->condition('theme', 'commerce_kickstart_theme')
+    ->execute();
+  db_update('block')
+    ->fields(array(
+    'region' => 'content',
+    'status' => '1',
+    'visibility' => '1',
+    'pages' => '<front>',
+    'weight' => 1,
+  ))
+    ->condition('module', 'commerce_kickstart_content')
+    ->condition('delta', 'shipping_discount')
+    ->condition('theme', 'commerce_kickstart_theme')
+    ->execute();
+  db_update('block')
+    ->fields(array(
+    'region' => 'footer2_first',
     'status' => '1',
     'visibility' => '1',
     'pages' => '<front>',
   ))
     ->condition('module', 'commerce_kickstart_content')
-    ->condition('delta', 'shipping')
+    ->condition('delta', 'powered_drupal_commerce')
     ->condition('theme', 'commerce_kickstart_theme')
     ->execute();
 }
