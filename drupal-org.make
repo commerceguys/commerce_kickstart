@@ -90,3 +90,6 @@ libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider.
 libraries[jquery.bxSlider][type] = "libraries"
 libraries[jquery.bxSlider][download][type] = "git"
 libraries[jquery.bxSlider][download][url] = "https://github.com/wandoledzep/bxslider.git"
+libraries[jquery_ui_spinner][type] = "libraries"
+libraries[jquery_ui_spinner][download][type] = "git"
+libraries[jquery_ui_spinner][download][url] = "https://github.com/btburnett3/jquery.ui.spinner.git"

@@ -100,3 +100,41 @@ function commerce_kickstart_product_ui_preprocess_node(&$vars) {
 function commerce_kickstart_product_ui_preprocess_commerce_line_item_summary(&$variable) {
   $variable['cart_items'] = l($variable['quantity'], 'cart', array('attributes' => array('class' => 'line-item-quantity')));
 }
+
+/*
+ * Implements hook_library().
+ */
+function commerce_kickstart_product_ui_library() {
+  $libraries['jquery_ui_spinner'] = array(
+      'title' => 'jQuery Spinner',
+      'website' => 'http://github.com/btburnett3/jquery.ui.spinner/',
+      'version' => '1.8',
+      'js' => array(
+        libraries_get_path('jquery_ui_spinner') . '/ui.spinner.min.js' => array(),
+      ),
+  );
+return $libraries;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id) {
+  if (strstr($form_id, 'commerce_cart_add_to_cart_form')) {
+    // Add quantity spinner widget
+    drupal_add_library('commerce_kickstart_product_ui', 'jquery_ui_spinner');
+    drupal_add_css(libraries_get_path('jquery_ui_spinner') . '/ui.spinner.css');
+    drupal_add_js('jQuery().ready(function($) {$(\'#edit-quantity\').spinner({ min: 1, max: 20, increment: \'fast\' });});', array('type' => 'inline'));
+
+    // Rename add-to-cart form fields label (quantity, color, size)
+    $form['quantity']['#title'] = "Enter Quantity";
+    $form['attributes']['field_color']['#title'] = "Select Color";
+
+    foreach(array_keys($form['attributes']) as $field_name) {
+      if (strstr($field_name, 'size')) {
+        $form['attributes'][$field_name]['#title'] = "Select Size";
+        break;
+      }
+    }
+  }
+}

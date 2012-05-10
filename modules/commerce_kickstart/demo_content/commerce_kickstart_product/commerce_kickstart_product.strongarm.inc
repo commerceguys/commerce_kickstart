@@ -354,8 +354,8 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'node_product_list' => array(
-            'weight' => '-10',
-            'visible' => TRUE,
+            'weight' => '2',
+            'visible' => FALSE,
           ),
           'node_full' => array(
             'weight' => '0',
@@ -368,8 +368,8 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'node_product_list' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
+            'weight' => '4',
+            'visible' => FALSE,
           ),
           'node_full' => array(
             'weight' => '3',
@@ -704,8 +704,8 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'node_product_list' => array(
-            'weight' => '-10',
-            'visible' => TRUE,
+            'weight' => '3',
+            'visible' => FALSE,
           ),
           'node_full' => array(
             'weight' => '0',
@@ -718,8 +718,8 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'node_product_list' => array(
-            'weight' => '-5',
-            'visible' => TRUE,
+            'weight' => '2',
+            'visible' => FALSE,
           ),
           'node_full' => array(
             'weight' => '3',
@@ -768,6 +768,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'product_list' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -775,7 +779,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => FALSE,
           ),
           'full' => array(
-            'weight' => '5',
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '9',
             'visible' => FALSE,
           ),
         ),
@@ -785,6 +793,10 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
             'weight' => '1',
             'visible' => TRUE,
           ),
@@ -798,6 +810,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '13',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_color' => array(
           'default' => array(
@@ -805,7 +821,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '6',
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
@@ -815,7 +835,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '4',
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
+            'weight' => '0',
             'visible' => TRUE,
           ),
         ),
@@ -828,6 +852,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '14',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_shoe_size' => array(
           'default' => array(
@@ -838,6 +866,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '15',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_storage_capacity' => array(
           'default' => array(
@@ -845,7 +877,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '7',
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -856,6 +892,10 @@ function commerce_kickstart_product_strongarm() {
           ),
           'full' => array(
             'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
@@ -901,6 +941,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'product_list' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -908,7 +952,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => FALSE,
           ),
           'full' => array(
-            'weight' => '5',
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '9',
             'visible' => FALSE,
           ),
         ),
@@ -918,6 +966,10 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
             'weight' => '1',
             'visible' => TRUE,
           ),
@@ -931,6 +983,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '13',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_color' => array(
           'default' => array(
@@ -941,6 +997,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '8',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_images' => array(
           'default' => array(
@@ -948,7 +1008,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '4',
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
+            'weight' => '0',
             'visible' => TRUE,
           ),
         ),
@@ -961,6 +1025,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '14',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_shoe_size' => array(
           'default' => array(
@@ -969,6 +1037,10 @@ function commerce_kickstart_product_strongarm() {
           ),
           'full' => array(
             'weight' => '15',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -981,6 +1053,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '11',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_top_size' => array(
           'default' => array(
@@ -989,6 +1065,10 @@ function commerce_kickstart_product_strongarm() {
           ),
           'full' => array(
             'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
@@ -1034,6 +1114,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'product_list' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -1044,6 +1128,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '9',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
         ),
         'product:commerce_price' => array(
           'default' => array(
@@ -1051,6 +1139,10 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
             'weight' => '1',
             'visible' => TRUE,
           ),
@@ -1064,6 +1156,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '10',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_color' => array(
           'default' => array(
@@ -1074,6 +1170,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '15',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_images' => array(
           'default' => array(
@@ -1081,7 +1181,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '4',
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
+            'weight' => '0',
             'visible' => TRUE,
           ),
         ),
@@ -1094,6 +1198,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '13',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_shoe_size' => array(
           'default' => array(
@@ -1102,6 +1210,10 @@ function commerce_kickstart_product_strongarm() {
           ),
           'full' => array(
             'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '8',
             'visible' => FALSE,
           ),
         ),
@@ -1114,6 +1226,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '14',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_top_size' => array(
           'default' => array(
@@ -1122,6 +1238,10 @@ function commerce_kickstart_product_strongarm() {
           ),
           'full' => array(
             'weight' => '11',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
@@ -1167,6 +1287,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'product_list' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -1174,7 +1298,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => FALSE,
           ),
           'full' => array(
-            'weight' => '7',
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '9',
             'visible' => FALSE,
           ),
         ),
@@ -1184,6 +1312,10 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
             'weight' => '1',
             'visible' => TRUE,
           ),
@@ -1194,7 +1326,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '9',
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
@@ -1204,7 +1340,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '10',
+            'weight' => '11',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
@@ -1214,7 +1354,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '4',
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
+            'weight' => '0',
             'visible' => TRUE,
           ),
         ),
@@ -1224,7 +1368,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '6',
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
@@ -1234,7 +1382,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '5',
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '8',
             'visible' => FALSE,
           ),
         ),
@@ -1244,7 +1396,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '11',
+            'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -1254,7 +1410,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '8',
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
@@ -1300,6 +1460,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'product_list' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -1307,7 +1471,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => FALSE,
           ),
           'full' => array(
-            'weight' => '6',
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '9',
             'visible' => FALSE,
           ),
         ),
@@ -1317,6 +1485,10 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
             'weight' => '1',
             'visible' => TRUE,
           ),
@@ -1327,6 +1499,10 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
             'weight' => '7',
             'visible' => FALSE,
           ),
@@ -1340,6 +1516,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '14',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_images' => array(
           'default' => array(
@@ -1347,7 +1527,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '4',
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
+            'weight' => '0',
             'visible' => TRUE,
           ),
         ),
@@ -1360,6 +1544,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '13',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_shoe_size' => array(
           'default' => array(
@@ -1367,7 +1555,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '5',
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
@@ -1380,6 +1572,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '15',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_top_size' => array(
           'default' => array(
@@ -1387,7 +1583,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '8',
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
@@ -1433,6 +1633,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
+          'product_list' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
         ),
         'product:title' => array(
           'default' => array(
@@ -1440,7 +1644,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => FALSE,
           ),
           'full' => array(
-            'weight' => '5',
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
@@ -1450,6 +1658,10 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
+            'weight' => '2',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
             'weight' => '1',
             'visible' => TRUE,
           ),
@@ -1463,6 +1675,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '13',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_color' => array(
           'default' => array(
@@ -1470,7 +1686,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '6',
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
@@ -1480,7 +1700,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '4',
+            'weight' => '5',
+            'visible' => TRUE,
+          ),
+          'product_list' => array(
+            'weight' => '0',
             'visible' => TRUE,
           ),
         ),
@@ -1493,6 +1717,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '14',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_shoe_size' => array(
           'default' => array(
@@ -1503,6 +1731,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '15',
             'visible' => FALSE,
           ),
+          'product_list' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
         ),
         'product:field_storage_capacity' => array(
           'default' => array(
@@ -1510,7 +1742,11 @@ function commerce_kickstart_product_strongarm() {
             'visible' => TRUE,
           ),
           'full' => array(
-            'weight' => '8',
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
@@ -1521,6 +1757,10 @@ function commerce_kickstart_product_strongarm() {
           ),
           'full' => array(
             'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'product_list' => array(
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
