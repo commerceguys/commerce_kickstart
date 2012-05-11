@@ -106,12 +106,12 @@ function commerce_kickstart_product_ui_preprocess_commerce_line_item_summary(&$v
  */
 function commerce_kickstart_product_ui_library() {
   $libraries['jquery_ui_spinner'] = array(
-      'title' => 'jQuery Spinner',
-      'website' => 'http://github.com/btburnett3/jquery.ui.spinner/',
-      'version' => '1.8',
-      'js' => array(
-        libraries_get_path('jquery_ui_spinner') . '/ui.spinner.min.js' => array(),
-      ),
+    'title' => 'jQuery Spinner',
+    'website' => 'http://github.com/btburnett3/jquery.ui.spinner/',
+    'version' => '1.8',
+    'js' => array(
+      libraries_get_path('jquery_ui_spinner') . '/ui.spinner.min.js' => array(),
+    ),
   );
 return $libraries;
 }
