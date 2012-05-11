@@ -74,8 +74,8 @@ function commerce_kickstart_content_enable() {
     ->fields(array(
     'region' => 'footer2_first',
     'status' => '1',
-    'visibility' => '1',
-    'pages' => '<front>',
+    'visibility' => '0',
+    'pages' => '',
   ))
     ->condition('module', 'commerce_kickstart_content')
     ->condition('delta', 'powered_drupal_commerce')
