@@ -13,21 +13,14 @@ function commerce_kickstart_product_ui_enable() {
     ->condition('name', 'commerce_kickstart_product_ui')
     ->execute();
 
-  // Make sure any new files are included now that a new module is enabled.
+  // Rebuild the features static caches.
   features_include(TRUE);
-  // Make sure the statics are reset.
-  features_get_components($component = NULL, $key = NULL, $reset = TRUE);
 
   $module = 'commerce_kickstart_product_ui';
   $feature = feature_load($module);
   $items[$module] = array_keys($feature->info['features']);
   _features_restore('enable', $items);
   _features_restore('rebuild', $items);
-
-  // Make sure any new files are included now that a new module is enabled.
-  features_include(TRUE);
-  // Make sure the statics are reset.
-  features_get_components($component = NULL, $key = NULL, $reset = TRUE);
 
   drupal_static_reset();
   _block_rehash('commerce_kickstart_theme');
