@@ -214,11 +214,7 @@ function commerce_kickstart_content_contents($which_block) {
       }
       return $block;
     case 'powered_drupal_commerce':
-      $block = variable_get('powered_drupal_commerce');
-      if (empty($block)) {
-        $block = "<a id=\"powered_by_drupal_commerce\" href=\"http://www.drupalcommerce.org\" '>Powered by Drupal Commerce</a>\n";
-        variable_set('powered_drupal_commerce', $block);
-      }
+      $block = "\t<span id=\"powered_by_drupal_commerce\">Powered by <a href=\"http://www.drupalcommerce.org\" '>Drupal Commerce</a></span>\n";
       return $block;
     default:
       // It is possible that a block not have any content, since it is
