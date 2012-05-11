@@ -400,7 +400,7 @@ function commerce_kickstart_install() {
 function _commerce_kickstart_install() {
 
   // Set homepage.
-  variable_set('site_frontpage', 'home');
+  variable_set('site_frontpage', 'node/1');
 
   // Give checkout access to anonymous and authenticated users.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access checkout'));

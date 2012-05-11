@@ -227,3 +227,13 @@ function commerce_kickstart_content_contents($which_block) {
       return;
   }
 }
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function commerce_kickstart_content_preprocess_page(&$variables) {
+  if (drupal_is_front_page()) {
+    // Remove the title from this page.
+    $variables['title'] = '';
+  }
+}
