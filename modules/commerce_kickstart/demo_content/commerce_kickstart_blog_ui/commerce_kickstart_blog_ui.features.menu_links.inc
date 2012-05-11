@@ -29,7 +29,6 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'weight' => '-46',
     'parent_path' => 'node/1',
   );
-  //@TODO Set it back to about-us (node/3) when issue "Menu links do not support 2+ links with same menu_name/link_path":http://drupal.org/node/927566 is resolved.
   // Exported menu link: menu-footer-navigation:node/1
   $menu_links['menu-footer-navigation:node/1'] = array(
     'menu_name' => 'menu-footer-navigation',
@@ -281,7 +280,6 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
   t('Blog');
   t('Company info');
   t('Contact');
-  t('Contact us');
   t('Create account');
   t('Log in');
   t('Log out');

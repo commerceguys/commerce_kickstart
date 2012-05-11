@@ -88,15 +88,16 @@ function _commerce_kickstart_example_nodes() {
   }
 
   $contents = array(
-    array('Ad push 1', $body1, '', '', 'ad_push', 'ad-push-1.jpg', array($terms['tag1']->tid)),
-    array('Ad push 2', $body1, '', '', 'ad_push', 'ad-push-2.jpg', array($terms['tag2']->tid)),
+    array('Ad push 1', "<p>Exclusive Limited Edition Print from Zoo York Available NOW!</p>", '', '', 'ad_push', 'ad-push-1.jpg', array($terms['tag1']->tid)),
+    array('Ad push 2', "<p>Guess Who's been Rocking our Tees at Winbleton ?</p>", '', '', 'ad_push', 'ad-push-2.jpg', array($terms['tag2']->tid)),
     array('Ad push 3', $body1, '', '', 'ad_push', 'ad-push-3.jpg', array($terms['tag3']->tid)),
-    array('Blog post 1', $body1, '', '', 'blog_post', 'blog-1.jpg', array()),
+    array('Blog post 1', "<p>Forget the Trees...
+    Hug a Super Model.</p>", '', '', 'blog_post', 'blog-1.jpg', array()),
     array('Blog post 2', $body1, '', '', 'blog_post', 'blog-2.jpg', array()),
     array('Blog post 3', $body1, '', '', 'blog_post', 'blog-3.jpg', array()),
-    array('Slideshow 1', $body1, '', '', 'slideshow', 'slideshow-1.jpg', array()),
-    array('Slideshow 2', $body1, '', '', 'slideshow', 'slideshow-2.jpg', array()),
-    array('Slideshow 3', $body1, '', '', 'slideshow', 'slideshow-3.jpg', array()),
+    array('The latest & greatest what\'s new', $body1, '', '', 'slideshow', 'slideshow-1.jpg', array()),
+    array('get it quick because... it\'s hot', $body1, '', '', 'slideshow', 'slideshow-2.jpg', array()),
+    array('Go with one of our staff picks', $body1, '', '', 'slideshow', 'slideshow-3.jpg', array()),
   );
 
   foreach ($contents as &$content) {

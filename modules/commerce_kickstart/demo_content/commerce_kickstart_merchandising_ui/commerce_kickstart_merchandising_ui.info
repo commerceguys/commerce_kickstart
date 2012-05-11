@@ -12,6 +12,7 @@ dependencies[] = views
 dependencies[] = views_slideshow
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
+features[image][] = hp_blocks
 features[image][] = hp_slideshow
 features[views_view][] = collection_taxonomy_term
 features[views_view][] = demo_content

@@ -18,7 +18,6 @@ features[menu_custom][] = menu-kickstart-user-menu
 features[menu_custom][] = secondary-navigation
 features[menu_links][] = menu-footer-navigation:blog
 features[menu_links][] = menu-footer-navigation:node/1
-features[menu_links][] = menu-footer-navigation:node/2
 features[menu_links][] = menu-footer-navigation:node/3
 features[menu_links][] = menu-footer-navigation:node/4
 features[menu_links][] = menu-footer-navigation:node/6
