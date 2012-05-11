@@ -92,6 +92,23 @@ h2.site-name:after {
 /**
  * HP Blocks
  */
+/* Shipping */
+#shipping {
+  border: 6px solid white;
+  background-color: black;
+  border-radius: 80px 80px 80px 80px;
+  color: white;
+  display: block;
+  font-weight: bold;
+  height: 90px;
+  left: -50px;
+  text-align: center;
+  top: 210px;
+  position: absolute;
+  padding: 10px;
+  width: 90px;
+  z-index: 500;
+}
 .view-display-id-block_1 .views-row,
 .view-display-id-block_3 .views-row,
 .block-blog-block .block-inner {
