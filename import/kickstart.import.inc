@@ -83,7 +83,7 @@ function _commerce_kickstart_example_nodes() {
     'name' => 'Tag 3',
     'vid' => $vocabulary->vid,
   );
-  foreach($terms as &$term) {
+  foreach($terms as $term) {
     taxonomy_term_save($term);
   }
 
@@ -175,15 +175,19 @@ function _commerce_kickstart_example_taxes() {
  * @see commerce_kickstart_import_product.
  */
 function _commerce_kickstart_example_bags() {
-  $taxonomy = taxonomy_vocabulary_machine_name_load('color');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
   $terms = array('Natural', 'Red', 'Black');
-  _commerce_kickstart_add_term($terms, $taxonomy->vid);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('bag_size');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('bag_size');
   // Add our terms
   $terms = array('One size', '13"', '15"', '17"');
-  _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary, FALSE);
+  }
 
   $created_products = array();
 
@@ -218,10 +222,12 @@ function _commerce_kickstart_example_bags() {
  */
 function _commerce_kickstart_example_drinks() {
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('color');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
   $terms = array('White', 'Black', 'Red', 'Blue');
-  _commerce_kickstart_add_term($terms, $taxonomy->vid);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
   $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('drinks.csv');
@@ -252,15 +258,19 @@ function _commerce_kickstart_example_drinks() {
  */
 function _commerce_kickstart_example_hats() {
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('hat_size');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('hat_size');
   // Add our terms
   $terms = array('Small', 'Medium', 'Large', 'One Size');
-  _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('color');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
   $terms = array('Black', 'White', 'Navy');
-  _commerce_kickstart_add_term($terms, $taxonomy->vid);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
   $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('hats.csv');
@@ -292,15 +302,19 @@ function _commerce_kickstart_example_hats() {
  */
 function _commerce_kickstart_example_shoes() {
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('color');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
   $terms = array('White', 'Black', 'Red', 'Blue', 'Purple');
-  _commerce_kickstart_add_term($terms, $taxonomy->vid);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('shoe_size');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('shoe_size');
   // Add our terms
   $terms = array('5', '6', '7', '8', '9', '10', '11');
-  _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
   $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('shoes.csv');
@@ -332,7 +346,7 @@ function _commerce_kickstart_example_shoes() {
  */
 function _commerce_kickstart_example_tops() {
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('color');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
   $terms = array(
     'White',
@@ -345,12 +359,16 @@ function _commerce_kickstart_example_tops() {
     'Navy',
     'Tan'
   );
-  _commerce_kickstart_add_term($terms, $taxonomy->vid);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('top_size');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('top_size');
   // Add our terms
   $terms = array('Small', 'Medium', 'Large');
-  _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
   $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('tops.csv');
@@ -382,7 +400,7 @@ function _commerce_kickstart_example_tops() {
  */
 function _commerce_kickstart_example_storage_device() {
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('storage_capacity');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('storage_capacity');
   // Add our terms
   $terms = array('8MB', '16MB', '32MB');
 
@@ -390,7 +408,7 @@ function _commerce_kickstart_example_storage_device() {
   foreach ($terms as $term) {
     taxonomy_term_save((object) array(
       'name' => $term,
-      'vid' => $taxonomy->vid,
+      'vid' => $vocabulary->vid,
     ));
   }
 
@@ -426,44 +444,50 @@ function _commerce_kickstart_example_storage_device() {
  */
 function _commerce_kickstart_example_display() {
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('collection');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('collection');
   // Add our terms
   $terms = array(
-    'To wear',
-    'To carry',
-    'To Drink',
-    'To geek out'
+    array('To wear', 'collection-banner.jpg'),
+    array('To carry', 'collection-banner.jpg'),
+    array('To Drink', 'collection-banner.jpg'),
+    array('To geek out', 'collection-banner.jpg'),
   );
-  _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, NULL, $term[1]);
+  }
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('category');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('category');
   // Add our terms
   $terms = array(
-    'Tshirts',
-    'Sweatshirts',
-    'Hats',
-    'Shoes',
-    'Tote Bags',
-    'Messenger Bags',
-    'Laptop Bags',
-    'Coffee Mugs',
-    'Travel Mugs',
-    'Water Bottles',
-    'iPhone Cases',
-    'USB Keys',
+    array('Tshirts', '#A83512'),
+    array('Sweatshirts', '#A83512'),
+    array('Hats', '#A83512'),
+    array('Shoes', '#A83512'),
+    array('Tote Bags', '#A83512'),
+    array('Messenger Bags', '#A83512'),
+    array('Laptop Bags', '#A83512'),
+    array('Coffee Mugs', '#A83512'),
+    array('Travel Mugs', '#A83512'),
+    array('Water Bottles', '#A83512'),
+    array('iPhone Cases', '#A83512'),
+    array('USB Keys', '#A83512'),
   );
-  _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term[0], $vocabulary, FALSE, $term[1]);
+  }
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('gender');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('gender');
   // Add our terms
   $terms = array(
     'Men',
     'Unisex',
     'Women',
   );
-  _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
-  $taxonomy = taxonomy_vocabulary_machine_name_load('brand');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('brand');
   // Add our terms
   $terms = array(
     'Simple Threads',
@@ -475,7 +499,9 @@ function _commerce_kickstart_example_display() {
     'Bits & Bots',
     'Courtsides',
   );
-  _commerce_kickstart_add_term($terms, $taxonomy->vid, FALSE);
+  foreach($terms as $term) {
+    _commerce_kickstart_add_term($term, $vocabulary);
+  }
 
   $created_nodes = array();
   $product_display = _commerce_kickstart_parse_csv('product_display.csv');
@@ -587,27 +613,40 @@ function _commerce_kickstart_add_product_images(&$product, $images) {
 /**
  * Helper function to add terms to a vocabulary.
  *
- * @param $terms
- *   Terms to add.
- * @param $vid
- *   The vid of the vocabulary to add terms in.
+ * @param $name
+ *   Term name.
+ * @param $vocabulary
+ *   The vocabulary to add terms in.
  * @param bool $check
  *   Set it to FALSE to bypass term exist test. Default to TRUE.
+ * @param $color
+ *   Hexadecimal color code.
+ * @param $image
+ *   Name of the image file which should be localte in import/images.
  */
-function _commerce_kickstart_add_term($terms, $vid, $check = TRUE) {
-  foreach($terms as $term) {
-    $exist = FALSE;
-    if ($check) {
-      // Check if term already exist.
-      $exist = (bool) array_pop(taxonomy_get_term_by_name($term));
-    }
+function _commerce_kickstart_add_term($name, $vocabulary, $check = TRUE, $color = NULL, $image = NULL) {
+  $exist = FALSE;
+  if ($check) {
+    // Check if term already exist.
+    $exist = (bool) array_pop(taxonomy_get_term_by_name($name));
+  }
 
-    // Add term inside vocabulary.
-    if (!$exist) {
-      taxonomy_term_save((object) array(
-        'name' => $term,
-        'vid' => $vid,
-      ));
+  // Add term inside vocabulary.
+  if (!$exist) {
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $vocabulary->vid;
+
+    $instance = field_info_instance('taxonomy_term', 'field_category_color', $vocabulary->machine_name);
+    if(!empty($instance) && isset($color)) {
+      $term->field_category_color[LANGUAGE_NONE][]['value'] = $color;
     }
+   $instance = field_info_instance('taxonomy_term', 'field_image', $vocabulary->machine_name);
+    if(!empty($instance) && isset($image)) {
+      $file_temp = file_get_contents(drupal_get_path('profile', 'commerce_kickstart') . '/import/images/' . $image);
+      $file_temp = file_save_data($file_temp, 'public://' . $image, FILE_EXISTS_REPLACE);
+      $term->field_image[LANGUAGE_NONE][]['fid'] = $file_temp->fid;
+    }
+    taxonomy_term_save($term);
   }
 }
