@@ -208,7 +208,7 @@ function commerce_kickstart_content_contents($which_block) {
       $block = variable_get('block_promotional_banner_content');
       if (empty($block)) {
         $block = "<div id=\"promotional_banner\">\n";
-        $block .= "\t<span>SAVE 25% Purchases made between June 5 - 12 will be discounted Offer Details</span>\n";
+        $block .= "\t<span><span class='promotional_banner_saving'>SAVE 25%</span> Purchases made between June 5 - 12 will be discounted <span class='promotional_banner_special_offer'>Offer Details</span></span>\n";
         $block .= "</div>\n";
         variable_set('block_promotional_banner_content', $block);
       }

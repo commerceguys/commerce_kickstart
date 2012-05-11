@@ -109,6 +109,11 @@ h2.site-name:after {
   width: 90px;
   z-index: 500;
 }
+#promotional_banner .promotional_banner_special_offer {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
 .view-display-id-block_1 .views-row,
 .view-display-id-block_3 .views-row,
 .block-blog-block .block-inner {

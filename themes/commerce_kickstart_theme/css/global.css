@@ -309,6 +309,17 @@ h2.site-name:after {
   width: 100%;
   z-index: 10;
 }
+
+#promotional_banner .promotional_banner_saving {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+#promotional_banner .promotional_banner_special_offer {
+  background-color: #ffffff;
+  color: #fd9a00;
+  padding: 5px;
+}
+
 /* Slideshow */
 .view-display-id-block_4 {
   position: relative;
