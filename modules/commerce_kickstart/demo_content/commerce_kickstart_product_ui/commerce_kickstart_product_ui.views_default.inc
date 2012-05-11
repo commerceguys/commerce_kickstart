@@ -89,18 +89,15 @@ Check your spelling or try another term.';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Footer: Commerce Line Item: Line item summary */
   $handler->display->display_options['footer']['line_item_summary']['id'] = 'line_item_summary';
   $handler->display->display_options['footer']['line_item_summary']['table'] = 'commerce_line_item';
   $handler->display->display_options['footer']['line_item_summary']['field'] = 'line_item_summary';
-  $handler->display->display_options['footer']['line_item_summary']['links'] = array(
-    'view_cart' => 'view_cart',
-    'checkout' => 0,
-  );
   $handler->display->display_options['footer']['line_item_summary']['info'] = array(
     'quantity' => 'quantity',
     'total' => 'total',
@@ -176,32 +173,25 @@ Check your spelling or try another term.';
   $handler->display->display_options['arguments']['order_id']['id'] = 'order_id';
   $handler->display->display_options['arguments']['order_id']['table'] = 'commerce_order';
   $handler->display->display_options['arguments']['order_id']['field'] = 'order_id';
-  $handler->display->display_options['arguments']['order_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['order_id']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['order_id']['default_argument_options']['code'] = 'if ($order = commerce_cart_order_load($GLOBALS[\'user\']->uid)) {
+  return $order->order_id;
+}';
   $handler->display->display_options['arguments']['order_id']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['order_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['order_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['order_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['order_id']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['order_id']['validate']['type'] = 'php';
+  $handler->display->display_options['arguments']['order_id']['validate_options']['code'] = 'if ($order = commerce_cart_order_load($GLOBALS[\'user\']->uid)) {
+  return $order->order_id;
+}';
+  $handler->display->display_options['arguments']['order_id']['validate']['fail'] = 'empty';
   $handler->display->display_options['arguments']['order_id']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['order_id']['not'] = 0;
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'shopping-cart';
-
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
-  $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Commerce Line Item: Line item summary */
-  $handler->display->display_options['footer']['line_item_summary']['id'] = 'line_item_summary';
-  $handler->display->display_options['footer']['line_item_summary']['table'] = 'commerce_line_item';
-  $handler->display->display_options['footer']['line_item_summary']['field'] = 'line_item_summary';
-  $handler->display->display_options['footer']['line_item_summary']['info'] = array(
-    'quantity' => 'quantity',
-    'total' => 'total',
-  );
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
