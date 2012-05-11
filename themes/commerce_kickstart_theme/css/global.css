@@ -456,6 +456,27 @@ h2.site-name:after {
 }
 
 /**
+ * Search & Collection page
+ */
+
+.view-collection-taxonomy-term .products-per-collection li h2,
+.page-products .view-display-products li h2 {
+  font-size: 14px;
+  margin: 0;
+}
+.view-collection-taxonomy-term .products-per-collection li a,
+.view-collection-taxonomy-term .products-per-collection li .commerce-product-field,
+.page-products .view-display-products li a,
+.page-products .view-display-products li .commerce-product-field {
+  color: #000000;
+  font-size: 14px;
+  text-decoration: none;
+}
+.view-collection-taxonomy-term .products-per-collection li.views-row.last,
+.page-products .view-display-products li.views-row.last {
+  padding-right: 0;
+}
+/**
  * Collection page
  */
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list ul {
@@ -517,9 +538,7 @@ h2.site-name:after {
 #iPhone-Cases {
   background-color: #0ad7d4;
 }
-/**
- * Search page
- */
+/* All products */
 .page-products .view-display-products ul li.views-row {
   display: inline;
   float: left;
@@ -527,12 +546,6 @@ h2.site-name:after {
   padding-bottom: 30px;
   text-align: center;
 }
-
-.view-collection-taxonomy-term .products-per-collection li.views-row.last,
-.page-products .view-display-products li.views-row.last {
-  padding-right: 0;
-}
-/* All products */
 .page-products .commerce-product-extra-field-title {
   background: url('../images/bg_search_product_name.png') left top no-repeat;
   margin-top: 4px;
@@ -657,3 +670,23 @@ ul#payments li:first-child {
 #payments #payment_visa {
   background: url('../images/picto_visa.png') left top no-repeat;
 }
+
+/*
+* ==========================================================
+* Product page
+* ==========================================================
+*/
+.product-title {
+  font-size: 1.3em;
+}
+
+.commerce-product-sku {
+  color: #b1b1b1;
+}
+
+.commerce-product-field {
+  color: #f2a023;
+  font-size: 1.5em;
+}
+
+

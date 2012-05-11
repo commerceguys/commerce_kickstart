@@ -48,7 +48,16 @@ function commerce_kickstart_product_ui_theme(&$existing) {
     $existing['commerce_line_item_summary']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
     $existing['commerce_line_item_summary']['template'] = 'commerce-line-item-summary';
   }
-
+  $themes =  array(
+    'node__product__type' => array(
+      'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
+      'template' => 'node--product--type',
+    ),
+    'node__product__type__product__list' => array(
+      'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
+      'template' => 'node--product--type--product--list',
+    ),
+  );
   return $themes;
 }
 
@@ -77,6 +86,22 @@ function commerce_kickstart_product_ui_preprocess_block(&$variables) {
 }
 
 /**
+ * Override or insert variables into the page template.
+ */
+function commerce_kickstart_product_ui_preprocess_page(&$vars) {
+  $type = array(
+    'bags_cases',
+    'drinks',
+    'hats',
+    'shoes',
+    'storage_devices',
+    'tops',
+  );
+  if (!empty($vars['node']) && in_array($vars['node']->type, $type)) {
+    $vars['title'] = "";
+  }
+}
+/**
  * Override or insert variables into the node template.
  */
 function commerce_kickstart_product_ui_preprocess_node(&$vars) {
@@ -88,8 +113,11 @@ function commerce_kickstart_product_ui_preprocess_node(&$vars) {
     'storage_devices',
     'tops',
   );
-  if (in_array($vars['type'], $type)) {
-    $vars['title'] = FALSE;
+  if (isset($vars['type']) && in_array($vars['type'], $type)) {
+    $vars['theme_hook_suggestions'][] = 'node__product__type';
+    if ($vars['view_mode'] == 'product_list') {
+      $vars['theme_hook_suggestions'][] = 'node__product__type__product__list';
+    }
   }
 }
 
@@ -129,10 +157,14 @@ function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id
     // Rename add-to-cart form fields label (quantity, color, size)
     $form['quantity']['#title'] = "Enter Quantity";
     $form['attributes']['field_color']['#title'] = "Select Color";
+    $form['attributes']['field_color']['#prefix'] = '<div class="container-inline">';
+    $form['attributes']['field_color']['#suffix'] = '</div>';
 
     foreach(array_keys($form['attributes']) as $field_name) {
       if (strstr($field_name, 'size')) {
         $form['attributes'][$field_name]['#title'] = "Select Size";
+        $form['attributes'][$field_name]['#prefix'] = '<div class="container-inline">';
+        $form['attributes'][$field_name]['#suffix'] = '</div>';
         break;
       }
     }

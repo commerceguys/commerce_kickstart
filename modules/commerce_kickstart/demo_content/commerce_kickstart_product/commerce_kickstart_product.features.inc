@@ -165,6 +165,28 @@ function commerce_kickstart_product_ctools_plugin_api() {
 function commerce_kickstart_product_image_default_styles() {
   $styles = array();
 
+  // Exported image style: product_full
+  $styles['product_full'] = array(
+    'name' => 'product_full',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '400',
+          'height' => '550',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
   // Exported image style: product_medium
   $styles['product_medium'] = array(
     'name' => 'product_medium',
@@ -347,8 +369,7 @@ function commerce_kickstart_product_default_search_api_index() {
       }
     },
     "enabled" : "1",
-    "read_only" : "0",
-    "rdf_mapping" : []
+    "read_only" : "0"
   }');
   $items['search_commerce_product'] = entity_import('search_api_index', '{
     "name" : "Search Commerce Product",
@@ -376,8 +397,7 @@ function commerce_kickstart_product_default_search_api_index() {
       }
     },
     "enabled" : "1",
-    "read_only" : "0",
-    "rdf_mapping" : []
+    "read_only" : "0"
   }');
   return $items;
 }

@@ -386,7 +386,7 @@ function commerce_kickstart_product_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'product_full',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -723,7 +723,7 @@ function commerce_kickstart_product_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'product_full',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -1497,7 +1497,7 @@ function commerce_kickstart_product_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'product_full',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -1833,7 +1833,7 @@ function commerce_kickstart_product_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'product_full',
           ),
           'type' => 'image',
           'weight' => '2',
@@ -2261,7 +2261,7 @@ function commerce_kickstart_product_field_default_fields() {
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => '',
+            'image_style' => 'product_full',
           ),
           'type' => 'image',
           'weight' => '2',

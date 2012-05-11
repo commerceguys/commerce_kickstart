@@ -103,6 +103,7 @@ features[field][] = node-tops-field_gender
 features[field][] = node-tops-field_product
 features[field][] = taxonomy_term-category-field_category_color
 features[field][] = taxonomy_term-collection-field_image
+features[image][] = product_full
 features[image][] = product_medium
 features[node][] = bags_cases
 features[node][] = drinks
