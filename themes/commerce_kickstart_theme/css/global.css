@@ -245,7 +245,6 @@ h2.site-name:after {
   padding: 0 12px;
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total-label {
-  text-indent: -9999px;
   display: none;
 }
 /*
@@ -459,16 +458,36 @@ h2.site-name:after {
 /**
  * Collection page
  */
-
-.collection-terms {
-
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list ul {
+  display: none;
 }
-.view-collection-taxonomy-term .item-list {
-  clear: both;
-}
-.view-collection-taxonomy-term .item-list h3 {
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-header,
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list,
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 {
   display: inline;
 }
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-header p {
+  margin: 6px 15px 0 0;
+}
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a {
+  background-color: #cecece;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a:hover {
+  background-color: #ffffff;
+  color: #cecece;
+}
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-header {
+  float: left;
+}
+
+.view-collection-taxonomy-term .view-content .item-list {
+  clear: both;
+}
+
 .view-collection-taxonomy-term .item-list h3 .collection {
   background-color: #d3d3d3;
   float: left;
@@ -488,7 +507,6 @@ h2.site-name:after {
   display: inline;
   float: left;
   margin: 0;
-  padding-left: 10px;
   padding-bottom: 30px;
   text-align: center;
 }
@@ -502,24 +520,20 @@ h2.site-name:after {
 /**
  * Search page
  */
-.page-all-products .view-display-products li.views-row {
+.page-products .view-display-products ul li.views-row {
   display: inline;
   float: left;
   margin: 0;
-  padding-right: 30px;
   padding-bottom: 30px;
   text-align: center;
 }
 
 .view-collection-taxonomy-term .products-per-collection li.views-row.last,
-.page-all-products .view-display-products li.views-row.last {
+.page-products .view-display-products li.views-row.last {
   padding-right: 0;
 }
 /* All products */
-.page-all-products .view-display-products {
-
-}
-.page-all-products .commerce-product-extra-field-title {
+.page-products .commerce-product-extra-field-title {
   background: url('../images/bg_search_product_name.png') left top no-repeat;
   margin-top: 4px;
   padding-top: 17px;

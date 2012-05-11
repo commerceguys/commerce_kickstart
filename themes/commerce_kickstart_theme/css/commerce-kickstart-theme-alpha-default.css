@@ -178,8 +178,15 @@ h2.site-name:after {
 .view-display-id-block_1 .views-row .views-field-field-tags {
   font-family: Georgia, 'Times New Roman', serif;
 }
+/**
+ * Collection page
+ */
 
-
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
 
 
 /*
