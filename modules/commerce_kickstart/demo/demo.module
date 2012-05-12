@@ -83,7 +83,7 @@ function demo_disable_me_form() {
  */
 function  demo_disable_me_form_submit($form, &$form_state) {
   module_disable(array('demo'));
-  menu_rebuild();
+  variable_set('menu_rebuild_needed', TRUE);
   drupal_goto('');
 }
 

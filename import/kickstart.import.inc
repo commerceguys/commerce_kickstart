@@ -103,7 +103,7 @@ function _commerce_kickstart_example_nodes() {
     _commerce_kickstart_custom_create_content($content[0], $content[1], $content[2], $content[3], $content[4], $content[5], $content[6]);
   }
   features_rebuild();
-  menu_rebuild();
+  variable_set('menu_rebuild_needed', TRUE);
 }
 
 function _commerce_kickstart_post_enable_modules() {
