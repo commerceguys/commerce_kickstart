@@ -34,6 +34,8 @@ projects[tipsy][version] = 1.0-rc1
 projects[tipsy][subdir] = "contrib"
 projects[advanced_help][version] = 1.0
 projects[advanced_help][subdir] = "contrib"
+projects[mimemail][version] = 1.0-alpha1
+projects[mimemail][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.x-dev

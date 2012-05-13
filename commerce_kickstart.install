@@ -389,6 +389,9 @@ function commerce_kickstart_install() {
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
 
+  // Set Mimemail.
+  variable_set('mimemail_format', 'full_html');
+
   // Perform additional non-standard installation configuration of the Commerce
   // modules and components.
   _commerce_kickstart_install();
