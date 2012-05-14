@@ -34,6 +34,8 @@ projects[tipsy][version] = 1.0-rc1
 projects[tipsy][subdir] = "contrib"
 projects[advanced_help][version] = 1.0
 projects[advanced_help][subdir] = "contrib"
+projects[mailsystem][version] = 2.34
+projects[mailsystem][subdir] = "contrib"
 projects[mimemail][version] = 1.0-alpha1
 projects[mimemail][subdir] = "contrib"
 
