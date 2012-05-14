@@ -98,7 +98,7 @@ function commerce_kickstart_product_ui_preprocess_node(&$vars) {
  * Link cart block items to cart.
  */
 function commerce_kickstart_product_ui_preprocess_commerce_line_item_summary(&$variable) {
-  $variable['cart_items'] = l($variable['quantity'], 'cart', array('attributes' => array('class' => 'line-item-quantity')));
+  $variable['cart_items'] = l($variable['quantity'], 'cart', array('attributes' => array('class' => array('line-item-quantity'))));
 }
 
 /*
