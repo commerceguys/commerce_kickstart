@@ -473,9 +473,8 @@ h2.site-name:after {
   background-color: #d3d3d3;
   float: left;
   height: 260px;
-  margin-right: 10px;
   position: relative;
-  width: 470px;
+  width: 460px;
 }
 .view-collection-taxonomy-term .item-list h3 .collection a {
   color: #ffffff;
@@ -492,9 +491,6 @@ h2.site-name:after {
   padding-left: 10px;
   padding-bottom: 30px;
   text-align: center;
-}
-.view-collection-taxonomy-term .products-per-collection li.views-row:nth-child(4n+3) {
-  padding-left: 0;
 }
 .view-collection-taxonomy-term .products-per-collection li.last {
   padding-right: 0;
