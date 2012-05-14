@@ -74,6 +74,7 @@ dependencies[] = http_client
 dependencies[] = taxonomy_menu
 dependencies[] = link
 dependencies[] = mimemail_compress
+dependencies[] = demo
 
 ; Install Features
 dependencies[] = features
