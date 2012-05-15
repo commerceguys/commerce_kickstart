@@ -558,6 +558,41 @@ h2.site-name:after {
 /**
  * Collection page
  */
+.view-collection-taxonomy-term .view-header {
+  position: relative;
+}
+.view-collection-taxonomy-term .view-header h2 {
+  font-size: 98px;
+  line-height: 70px;
+  margin: 0;
+  position: absolute;
+  bottom: 0px;
+  left: 15px;
+}
+.view-collection-taxonomy-term .view-header h2 a {
+  color: #ffffff;
+
+  text-decoration: none;
+}
+.view-collection-taxonomy-term .view-header .collection-terms {
+  margin: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.view-collection-taxonomy-term .view-header .field-name-field-image {
+  border: 1px solid #d7d7d7;
+}
+.view-collection-taxonomy-term .view-header .collection-terms .view-header {
+  color: #ffffff;
+}
+.view-collection-taxonomy-term .view-header .collection-terms .view-header,
+.view-collection-taxonomy-term .view-header .collection-terms .view-content {
+  display: inline;
+  float: left;
+}
+
+
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list ul {
   display: none;
 }
@@ -579,9 +614,6 @@ h2.site-name:after {
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a:hover {
   background-color: #ffffff;
   color: #cecece;
-}
-.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-header {
-  float: left;
 }
 
 .view-collection-taxonomy-term .view-content .item-list {
