@@ -58,9 +58,8 @@ function commerce_kickstart_help_advanced_help_topic_alter(&$output, $popup) {
   preg_match_all('#\#\#(.*)\#\##', $output, $matches);
   array_shift($matches);
   foreach($matches[0] as $match) {
-    $output = str_replace('##' . $match . '##',
-      render(drupal_get_form('commerce_kickstart_help_form_ajax', $match)),
-      $output);
+    $form = drupal_get_form('commerce_kickstart_help_form_ajax', $match);
+    $output = str_replace('##' . $match . '##', render($form), $output);
   }
 }
 
