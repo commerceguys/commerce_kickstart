@@ -553,6 +553,59 @@ h2.site-name:after {
   font-size: 14px;
   text-decoration: none;
 }
+/**
+ * Product page
+ */
+.node-product-type .product-title {
+  font-size: 24px;
+}
+.node-product-type .commerce-product-sku {
+  color: #b1b1b1;
+  font-size: 13px;
+}
+.node-product-type .commerce-product-sku-label {
+  font-weight: normal;
+}
+.node-product-type .commerce-product-field {
+  color: #f2a023;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.node-product-type .field-name-body {
+  margin-bottom: 20px;
+}
+.commerce-add-to-cart {
+  background: url('../images/bg_product_attributes_top.png') center top no-repeat;
+  padding-top: 40px;
+}
+.node-product-type .field-name-field-product {
+  background: url('../images/bg_product_attributes_bottom.png') center bottom no-repeat;
+  padding-bottom: 50px;
+}
+
+.commerce-add-to-cart label {
+  margin-right: 5px;
+}
+.commerce-add-to-cart .form-item {
+  margin-top: 0;
+}
+.commerce-add-to-cart .form-item-quantity label {
+  display: inline;
+}
+.commerce-add-to-cart .form-submit {
+  background: #fd9a00 url('../images/bg_add_to_cart.png') 90% 50% no-repeat;
+  border: 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: normal;
+  margin-top: 40px;
+  margin-left: 5px;
+  padding: 5px 50px 5px 10px;
+}
 /*
  * ==========================================================
  * Footer
@@ -670,23 +723,3 @@ ul#payments li:first-child {
 #payments #payment_visa {
   background: url('../images/picto_visa.png') left top no-repeat;
 }
-
-/*
-* ==========================================================
-* Product page
-* ==========================================================
-*/
-.product-title {
-  font-size: 1.3em;
-}
-
-.commerce-product-sku {
-  color: #b1b1b1;
-}
-
-.commerce-product-field {
-  color: #f2a023;
-  font-size: 1.5em;
-}
-
-

@@ -115,8 +115,10 @@ function commerce_kickstart_product_ui_preprocess_node(&$vars) {
   );
   if (isset($vars['type']) && in_array($vars['type'], $type)) {
     $vars['theme_hook_suggestions'][] = 'node__product__type';
+    $vars['classes_array'][] = 'node-product-type';
     if ($vars['view_mode'] == 'product_list') {
       $vars['theme_hook_suggestions'][] = 'node__product__type__product__list';
+      $vars['classes_array'][] = 'node-product-type-product-list';
     }
   }
 }
@@ -152,18 +154,18 @@ function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id
     // Add quantity spinner widget
     drupal_add_library('commerce_kickstart_product_ui', 'jquery_ui_spinner');
     drupal_add_css(libraries_get_path('jquery_ui_spinner') . '/ui.spinner.css');
-    drupal_add_js('jQuery().ready(function($) {$(\'#edit-quantity\').spinner({ min: 1, max: 20, increment: \'fast\' });});', array('type' => 'inline'));
+    drupal_add_js('jQuery().ready(function($) {$(\'.form-item-quantity input\').spinner({ min: 1, max: 20, increment: \'fast\' });});', array('type' => 'inline'));
 
     // Rename add-to-cart form fields label (quantity, color, size)
-    $form['quantity']['#title'] = "Enter Quantity";
-    $form['attributes']['field_color']['#title'] = "Select Color";
-    $form['attributes']['field_color']['#prefix'] = '<div class="container-inline">';
+    $form['quantity']['#title'] = t('Enter Quantity :');
+    $form['attributes']['field_color']['#title'] = t('Select Color :');
+    $form['attributes']['field_color']['#prefix'] = '<div class="form-item container-inline">';
     $form['attributes']['field_color']['#suffix'] = '</div>';
 
     foreach(array_keys($form['attributes']) as $field_name) {
       if (strstr($field_name, 'size')) {
-        $form['attributes'][$field_name]['#title'] = "Select Size";
-        $form['attributes'][$field_name]['#prefix'] = '<div class="container-inline">';
+        $form['attributes'][$field_name]['#title'] = t('Select Size :');
+        $form['attributes'][$field_name]['#prefix'] = '<div class="form-item container-inline">';
         $form['attributes'][$field_name]['#suffix'] = '</div>';
         break;
       }
