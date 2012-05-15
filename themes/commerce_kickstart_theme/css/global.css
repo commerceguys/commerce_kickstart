@@ -489,7 +489,7 @@ h2.site-name:after {
 .block-blog-block img {
   border: 4px solid #ffffff;
 }
-.view-display-id-block_1 .views-row .views-field-field-tags,
+.view-display-id-block_1 .views-row .views-field-field-headline,
 .block-blog-block .block-title {
   background: url('../images/bg_block_homepage_title.png') left top no-repeat;
   color: #ffffff;
@@ -499,16 +499,16 @@ h2.site-name:after {
   padding-left: 25px;
   width: 112px;
 }
-.view-display-id-block_1 .views-row .views-field-field-headline {
+.view-display-id-block_1 .views-row .views-field-field-tagline {
   margin: 0 10px;
 }
-.view-display-id-block_1 .views-row .views-field-field-headline,
+.view-display-id-block_1 .views-row .views-field-field-tagline,
 .block-blog-block .views-field-body {
   margin-top: 5px;
 }
-.view-display-id-block_1 .views-row .views-field-field-headline,
+.view-display-id-block_1 .views-row .views-field-field-tagline,
 .block-blog-block .views-field-body,
-.view-display-id-block_1 .views-row .views-field-field-headline a,
+.view-display-id-block_1 .views-row .views-field-field-tagline a,
 .block-blog-block .views-field-body a {
   color: #ffffff;
   text-align: center;
@@ -527,10 +527,10 @@ h2.site-name:after {
 .view-display-id-block_1 .views-row-first {
   margin-bottom: 5px;
 }
-.view-display-id-block_1 .views-row .views-field-field-tags {
+.view-display-id-block_1 .views-row .views-field-field-headline {
   font-family: Georgia, 'Times New Roman', serif;
 }
-.view-display-id-block_1 .views-row .views-field-field-headline .field-content {
+.view-display-id-block_1 .views-row .views-field-field-tagline .field-content {
   border: 1px solid #5f5f5f;
   background: url('../images/bg_ad_push_headline.png') left top;
 }
