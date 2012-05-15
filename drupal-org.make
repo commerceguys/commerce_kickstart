@@ -75,6 +75,9 @@ projects[inline_entity_form][version] = 1.x-dev
 projects[inline_entity_form][subdir] = "contrib"
 projects[field_extractor][version] = 1.x-dev
 projects[field_extractor][subdir] = "contrib"
+projects[taxonomy_breadcrumb][version] = 1.x-dev
+projects[taxonomy_breadcrumb][subdir] = "contrib"
+projects[taxonomy_breadcrumb][patch][] = "http://drupal.org/files/taxonomy_breadcrumb_vocabulary_selection_bug-1220250-1_0.patch"
 
 ; Search related modules.
 projects[search_api][version] = 1.x-dev
