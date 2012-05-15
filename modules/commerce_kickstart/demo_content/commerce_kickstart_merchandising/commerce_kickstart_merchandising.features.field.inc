@@ -155,7 +155,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       ),
       'module' => 'text',
       'settings' => array(
-        'max_length' => '255',
+        'max_length' => '20',
       ),
       'translatable' => '0',
       'type' => 'text',
@@ -164,14 +164,14 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'bundle' => 'ad_push',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Short title',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => 4,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -198,7 +198,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'size' => '60',
+          'size' => '20',
         ),
         'type' => 'text_textfield',
         'weight' => '1',
@@ -273,6 +273,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'required' => 1,
       'settings' => array(
         'alt_field' => 1,
+        'default_image' => 0,
         'file_directory' => 'field/image/brand',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -289,7 +290,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -325,7 +326,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'bundle' => 'ad_push',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Link this content to a page',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -363,7 +364,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
-        'title' => 'optional',
+        'title' => 'none',
         'title_maxlength' => '128',
         'title_value' => '',
         'url' => 0,
@@ -375,100 +376,19 @@ function commerce_kickstart_merchandising_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '3',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-ad_push-field_tags'
-  $fields['node-ad_push-field_tags'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_tags',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'tags',
-            'parent' => 0,
-          ),
-        ),
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'ad_push',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Enter a comma-separated list of words to describe your content.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '1',
-        ),
-        'product_list' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_tags',
-      'label' => 'Tags',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'taxonomy',
-        'settings' => array(
-          'autocomplete_path' => 'taxonomy/autocomplete',
-          'size' => 60,
-        ),
-        'type' => 'taxonomy_autocomplete',
         'weight' => '4',
       ),
     ),
   );
 
-  // Exported field: 'node-slideshow-body'
-  $fields['node-slideshow-body'] = array(
+  // Exported field: 'node-ad_push-field_tagline'
+  $fields['node-ad_push-field_tagline'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
-      'entity_types' => array(
-        0 => 'node',
-      ),
-      'field_name' => 'body',
+      'entity_types' => array(),
+      'field_name' => 'field_tagline',
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -483,18 +403,94 @@ function commerce_kickstart_merchandising_field_default_fields() {
         ),
       ),
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'max_length' => '80',
+      ),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'ad_push',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Short description',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 3,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_tagline',
+      'label' => 'Tagline',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '80',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-slideshow-field_headline'
+  $fields['node-slideshow-field_headline'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_headline',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '20',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
     ),
     'field_instance' => array(
       'bundle' => 'slideshow',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Short title',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -507,32 +503,27 @@ function commerce_kickstart_merchandising_field_default_fields() {
           'weight' => 0,
         ),
         'teaser' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(
-            'trim_length' => 600,
-          ),
-          'type' => 'text_summary_or_trimmed',
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'body',
-      'label' => 'Body',
+      'field_name' => 'field_headline',
+      'label' => 'Headline',
       'required' => 0,
       'settings' => array(
-        'display_summary' => 1,
-        'text_processing' => '1',
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => '20',
-          'summary_rows' => 5,
+          'size' => '20',
         ),
-        'type' => 'text_textarea_with_summary',
+        'type' => 'text_textfield',
         'weight' => '1',
       ),
     ),
@@ -605,6 +596,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'required' => 1,
       'settings' => array(
         'alt_field' => 1,
+        'default_image' => 0,
         'file_directory' => 'field/image/slideshow',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -621,7 +613,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -657,7 +649,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'bundle' => 'slideshow',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Link this content to a page',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -695,7 +687,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
-        'title' => 'optional',
+        'title' => 'none',
         'title_maxlength' => '128',
         'title_value' => '',
         'url' => 0,
@@ -707,56 +699,51 @@ function commerce_kickstart_merchandising_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
 
-  // Exported field: 'node-slideshow-field_tags'
-  $fields['node-slideshow-field_tags'] = array(
+  // Exported field: 'node-slideshow-field_tagline'
+  $fields['node-slideshow-field_tagline'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_tags',
+      'field_name' => 'field_tagline',
       'foreign keys' => array(
-        'tid' => array(
+        'format' => array(
           'columns' => array(
-            'tid' => 'tid',
+            'format' => 'format',
           ),
-          'table' => 'taxonomy_term_data',
+          'table' => 'filter_format',
         ),
       ),
       'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
+        'format' => array(
+          0 => 'format',
         ),
       ),
-      'module' => 'taxonomy',
+      'module' => 'text',
       'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'tags',
-            'parent' => 0,
-          ),
-        ),
+        'max_length' => '80',
       ),
       'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
+      'type' => 'text',
     ),
     'field_instance' => array(
       'bundle' => 'slideshow',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Enter a comma-separated list of words to describe your content.',
+      'description' => 'Short description',
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
+          'module' => 'text',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 10,
+          'type' => 'text_default',
+          'weight' => 1,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -766,41 +753,41 @@ function commerce_kickstart_merchandising_field_default_fields() {
         ),
         'teaser' => array(
           'label' => 'above',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 10,
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_tags',
-      'label' => 'Tags',
+      'field_name' => 'field_tagline',
+      'label' => 'Tagline',
       'required' => 0,
       'settings' => array(
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
-        'active' => 0,
-        'module' => 'taxonomy',
+        'active' => 1,
+        'module' => 'text',
         'settings' => array(
-          'autocomplete_path' => 'taxonomy/autocomplete',
-          'size' => 60,
+          'size' => '20',
         ),
-        'type' => 'taxonomy_autocomplete',
-        'weight' => '4',
+        'type' => 'text_textfield',
+        'weight' => '2',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Body');
   t('Comment');
-  t('Enter a comma-separated list of words to describe your content.');
   t('Headline');
   t('Image');
   t('Link');
-  t('Tags');
+  t('Link this content to a page');
+  t('Short description');
+  t('Short title');
+  t('Tagline');
   t('Upload an image to go with this article.');
 
   return $fields;

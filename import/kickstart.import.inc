@@ -54,20 +54,71 @@ function _commerce_kickstart_example_nodes() {
   egestas vel, sodales ac, pretium ut, tellus. Aliquam erat volutpat. Curabitur nibh. Nulla facilisi. Proin erat.</p>";
 
   // Here we set nid to be able to rely on it when exporting menu links in features.
-  $contents = array(
-    array('Home', '', '1', 'home', 'page'),
-    array('Contact', $body1, '2', 'contact-us', 'page'),
-    array('About', $body1, '3', 'about-us', 'page'),
-    array('Terms of Use', $body2, '4', 'terms-of-use', 'page'),
-    array('Payment', $body2, '5', 'payment', 'page'),
-    array('Shipping', $body3, '6', 'shipping-return', 'page'),
-    array('Press links', $body1, '7', 'press-links', 'page'),
-    array('Service & support', $body2, '8', 'service-support', 'page'),
-    array('Security & privacy', $body3, '9', 'security-privacy-policy', 'page'),
+  $contents[] = array(
+    'title' => 'Home',
+    'body' => '',
+    'nid' => '1',
+    'path' => 'home',
+    'type' => 'page',
   );
-
+  $contents[] = array(
+    'title' => 'Contact',
+    'body' => $body1,
+    'nid' => '2',
+    'path' => 'contact-us',
+    'type' => 'page',
+  );
+  $contents[] = array(
+    'title' => 'About',
+    'body' => $body1,
+    'nid' => '3',
+    'path' => 'about-us',
+    'type' => 'page',
+  );
+  $contents[] = array(
+    'title' => 'Terms of Use',
+    'body' => $body2,
+    'nid' => '4',
+    'path' => 'terms-of-use',
+    'type' => 'page',
+  );
+  $contents[] = array(
+    'title' => 'Payment',
+    'body' => $body2,
+    'nid' => '5',
+    'path' => 'payment',
+    'type' => 'page',
+  );
+  $contents[] = array(
+    'title' => 'Shipping',
+    'body' => $body3,
+    'nid' => '6',
+    'path' => 'shipping-return',
+    'type' => 'page',
+  );
+  $contents[] = array(
+    'title' => 'Press links',
+    'body' => $body1,
+    'nid' => '7',
+    'path' => 'press-links',
+    'type' => 'page',
+  );
+  $contents[] = array(
+    'title' => 'Service & support',
+    'body' => $body2,
+    'nid' => '8',
+    'path' => 'service-support',
+    'type' => 'page',
+  );
+  $contents[] = array(
+    'title' => 'Security & privacy',
+    'body' => $body3,
+    'nid' => '9',
+    'path' => 'security-privacy-policy',
+    'type' => 'page',
+  );
   foreach ($contents as &$content) {
-    _commerce_kickstart_custom_create_content($content[0], $content[1], $content[2], $content[3], $content[4]);
+    _commerce_kickstart_custom_create_content($content);
   }
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('tags');
@@ -87,21 +138,74 @@ function _commerce_kickstart_example_nodes() {
     taxonomy_term_save($term);
   }
 
-  $contents = array(
-    array('Ad push 1', "<p>Exclusive Limited Edition Print from Zoo York Available NOW!</p>", '', '', 'ad_push', 'ad-push-1.jpg', array($terms['tag1']->tid)),
-    array('Ad push 2', "<p>Guess Who's been Rocking our Tees at Winbleton ?</p>", '', '', 'ad_push', 'ad-push-2.jpg', array($terms['tag2']->tid)),
-    array('Ad push 3', $body1, '', '', 'ad_push', 'ad-push-3.jpg', array($terms['tag3']->tid)),
-    array('Blog post 1', "<p>Forget the Trees...
-    Hug a Super Model.</p>", '', '', 'blog_post', 'blog-1.jpg', array()),
-    array('Blog post 2', $body1, '', '', 'blog_post', 'blog-2.jpg', array()),
-    array('Blog post 3', $body1, '', '', 'blog_post', 'blog-3.jpg', array()),
-    array('The latest & greatest what\'s new', $body1, '', '', 'slideshow', 'slideshow-1.jpg', array()),
-    array('get it quick because... it\'s hot', $body1, '', '', 'slideshow', 'slideshow-2.jpg', array()),
-    array('Go with one of our staff picks', $body1, '', '', 'slideshow', 'slideshow-3.jpg', array()),
+  $contents[] = array(
+    'title' => "Ad push 1",
+    'headline' => "Have a drink",
+    'tagline' => "Your going thirsty",
+    'link' => 'taxonomy/term/35',
+    'type' => 'ad_push',
+    'image' => 'ad-push-1.jpg',
   );
-
+  $contents[] = array(
+    'title' => "Ad push 2",
+    'headline' => "New Shirts",
+    'tagline' => 'Forget the Trees... Hug a Super Model.',
+    'link' => 'taxonomy/term/33',
+    'type' => 'ad_push',
+    'image' => 'ad-push-2.jpg',
+  );
+  $contents[] = array(
+    'title' => "Ad push 3",
+    'headline' => "News",
+    'tagline' => "Exclusive Limited Edition Print from Zoo York Available NOW!",
+    'link' => 'taxonomy/term/36',
+    'type' => 'ad_push',
+    'image' => 'ad-push-3.jpg',
+  );
+  $contents[] = array(
+    'title' => "Blog",
+    'body' => "Guess Who's been Rocking our Tees at Winbleton ?",
+    'type' => 'blog_post',
+    'image' => 'blog-1.jpg',
+  );
+  $contents[] = array(
+    'title' => "Blog post 2",
+    'body' => $body1,
+    'type' => 'blog_post',
+    'image' => 'blog-2.jpg',
+  );
+  $contents[] = array(
+    'title' => "Blog post 3",
+    'body' => $body1,
+    'type' => 'blog_post',
+    'image' => 'blog-3.jpg',
+  );
+  $contents[] = array(
+    'title' => "The latest & greatest what's new",
+    'headline' => "What's News",
+    'tagline' => "The latest & greatest",
+    'link' => 'taxonomy/term/33',
+    'type' => 'slideshow',
+    'image' => 'slideshow-1.jpg',
+  );
+  $contents[] = array(
+    'title' => "get it quick because... it's hot",
+    'headline' => "It's hot",
+    'tagline' => "get it quick beacause...",
+    'link' => 'products',
+    'type' => 'slideshow',
+    'image' => 'slideshow-2.jpg',
+  );
+  $contents[] = array(
+    'title' => "Go with one of our staff picks",
+    'headline' => "Staff Picks",
+    'tagline' => "Go with one of our",
+    'link' => 'about-us',
+    'type' => 'slideshow',
+    'image' => 'slideshow-3.jpg',
+  );
   foreach ($contents as &$content) {
-    _commerce_kickstart_custom_create_content($content[0], $content[1], $content[2], $content[3], $content[4], $content[5], $content[6]);
+    _commerce_kickstart_custom_create_content($content);
   }
   features_rebuild();
   variable_set('menu_rebuild_needed', TRUE);

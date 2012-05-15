@@ -275,33 +275,45 @@ function _commerce_kickstart_parse_csv($file) {
  * @param $tids
  *   An array of tid.
  */
-function _commerce_kickstart_custom_create_content($title, $body_text, $nid, $path, $content_type, $image_file = NULL, $tids = array()) {
-
+function _commerce_kickstart_custom_create_content($content) {
   $node = new stdClass();
-  $node->nid = $nid;
   $node->is_new = TRUE;
-  $node->type = $content_type;
-  $node->title    = $title;
   $node->language = LANGUAGE_NONE;
   $node->comment = '0';
-  $node->body[$node->language][0]['value']   = $body_text;
-  $node->body[$node->language][0]['format']  = 'filtered_html';
-  $node->path = array('alias' => $path);
-  if (!is_null($image_file)) {
-    $file_temp = file_get_contents(drupal_get_path('profile', 'commerce_kickstart') . '/import/images/' . $image_file);
-    $file_temp = file_save_data($file_temp, 'public://' . $image_file, FILE_EXISTS_REPLACE);
+  $node->title = $content['title'];
+  $node->type = $content['type'];
+
+  $instance = field_info_instance('node', 'body', $content['type']);
+  if (!empty($instance) && isset($content['body'])) {
+    $node->body[$node->language][0]['value']   = $content['body'];
+    $node->body[$node->language][0]['format']  = 'filtered_html';
+  }
+  if (isset($content['path'])) {
+    $node->path = array('alias' => $content['path']);
+  }
+  $instance = field_info_instance('node', 'field_image', $content['type']);
+  if (!empty($instance) && isset($content['image'])) {
+    $file_temp = file_get_contents(drupal_get_path('profile', 'commerce_kickstart') . '/import/images/' . $content['image']);
+    $file_temp = file_save_data($file_temp, 'public://' . $content['image'], FILE_EXISTS_REPLACE);
     $node->field_image[$node->language][]['fid'] = $file_temp->fid;
   }
-  foreach($tids as $tid) {
-    $node->field_tags[$node->language][] = array('tid' => $tid);
+  $instance = field_info_instance('node', 'field_tags', $content['type']);
+  if (!empty($instance) && isset($content['terms'])) {
+    foreach($content['terms'] as $tid) {
+      $node->field_tags[$node->language][] = array('tid' => $tid);
+    }
   }
-  $instance = field_info_instance('node', 'field_headline', $content_type);
-  if (!empty($instance)) {
-    $node->field_headline[$node->language][0] = array('value' => $title);
+  $instance = field_info_instance('node', 'field_headline', $content['type']);
+  if (!empty($instance) && isset($content['headline'])) {
+    $node->field_headline[$node->language][0] = array('value' => $content['headline']);
   }
-  $instance = field_info_instance('node', 'field_link', $content_type);
-  if (!empty($instance)) {
-    $node->field_link[$node->language][0] = array('url' => '<front>');
+  $instance = field_info_instance('node', 'field_tagline', $content['type']);
+  if (!empty($instance) && isset($content['tagline'])) {
+    $node->field_tagline[$node->language][0] = array('value' => $content['tagline']);
+  }
+  $instance = field_info_instance('node', 'field_link', $content['type']);
+  if (!empty($instance) && isset($content['link'])) {
+    $node->field_link[$node->language][0] = array('url' => $content['link']);
   }
   node_object_prepare($node);
   node_save($node);
