@@ -197,7 +197,7 @@ function commerce_kickstart_content_contents($which_block) {
       $message = variable_get('block_shipping_discount_message');
       if (empty($message)) {
         $message = "<div id=\"shipping\">\n";
-        $message .= "\t<span id=\"shipping_message\">Free shipping on order over</span>\n";
+        $message .= "\t<span id=\"shipping_message\"><span><em>Free</em> shipping</span> on orders over</span>\n";
         $message .= "\t<span id=\"shipping_currency\">@amount</span>\n";
         $message .= "</div>\n";
         variable_set('block_shipping_discount_message', $message);

@@ -92,25 +92,6 @@ h2.site-name:after {
 /**
  * HP Blocks
  */
-/* Shipping */
-#shipping {
-  border: 6px solid white;
-  background-color: black;
-  border-radius: 80px 80px 80px 80px;
-  color: white;
-  display: block;
-  font-weight: bold;
-  height: 90px;
-  text-align: center;
-  padding: 10px;
-  width: 90px;
-}
-#promotional_banner .promotional_banner_special_offer {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-
 /* Adverts blocks */
 .view-display-id-block_1 .views-row,
 .block-blog-block .block-inner {
