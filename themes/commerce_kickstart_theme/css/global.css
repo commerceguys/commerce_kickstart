@@ -95,11 +95,11 @@ h2.site-name:after {
   padding-top: 36px;
 }
 #block-views-exp-display-products-page .views-exposed-widget {
-  clear: both;
   padding: 0;
+  position: relative;
+  left: 25px;
 }
 #block-views-exp-display-products-page #edit-search-api-views-fulltext {
-  background: #ffffff url('../images/picto_magnifying_glass.png') 98% center no-repeat;
   border-color: #d7d7d7;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -107,11 +107,16 @@ h2.site-name:after {
   height: 28px;
   padding: 5px 28px 5px 5px;
 }
-#block-views-exp-display-products-page .views-submit-button {
-  float: right;
-}
 #block-views-exp-display-products-page .views-submit-button .form-submit {
-  margin-top: 5px;
+  background: url('../images/picto_magnifying_glass.png') 98% center no-repeat;
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  margin: 0;
+  position: relative;
+  left: -25px;
+  text-indent: -9999px;
 }
 /**
  * Breadcrumb
