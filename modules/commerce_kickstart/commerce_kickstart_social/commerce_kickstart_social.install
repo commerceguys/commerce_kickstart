@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Install, update, and uninstall functions for the Commerce Kiskcstart Social.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Note that we cannot set the permissions for the providers, as we
+ * don't have the consumer key and consumer secret, thus our exported
+ * providers still don't have a record in the permission page. The admin
+ * will need to manually set the permissions after completing the
+ * registration of the provider form via admin/structure/oauthconnector.
+ *
+ * @see commerce_kickstart_install()
+ */
+function commerce_kickstart_social_install() {
+  // Enable service links in content types.
+  variable_set('service_links_node_types', array_keys(commerce_product_reference_node_types()));
+  variable_set('service_links_show', array('twitter_widget' => 1, 'facebook_like' => 1, 'google_plus_one' => 1));
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * Add "email" field to OAuth connector.
+ */
+function commerce_kickstart_social_enable() {
+  $values = array(
+    'title' => 'email',
+    'required' => TRUE,
+    'description' => '',
+  );
+  oauthconnector_fields_save('email', $values);
+}
+

@@ -109,20 +109,19 @@ function commerce_kickstart_install() {
       'cache' => -1,
     ),
   );
-  $query = db_insert('block')->fields(array(
-    'module',
-    'delta',
-    'theme',
-    'status',
-    'weight',
-    'region',
-    'pages',
-    'cache'
-  ));
-  foreach ($blocks as $block) {
-    $query->values($block);
+  drupal_static_reset();
+  _block_rehash($admin_theme);
+  foreach ($blocks as $record) {
+    $module = array_shift($record);
+    $delta = array_shift($record);
+    $theme = array_shift($record);
+    db_update('block')
+      ->fields($record)
+      ->condition('module', $module)
+      ->condition('delta', $delta)
+      ->condition('theme', $theme)
+      ->execute();
   }
-  $query->execute();
 
   $values = array(
     array(
@@ -194,6 +193,18 @@ function commerce_kickstart_install() {
       'weight' => 10,
       'region' => 'content',
       'pages' => '',
+      'cache' => -1,
+    ),
+    // Connector.
+    array(
+      'module' => 'connector',
+      'delta' => 'one_click_block',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'sidebar_first',
+      'pages' => '',
+      'visibility' => 0,
       'cache' => -1,
     ),
   );
