@@ -26,9 +26,11 @@ h2.site-name:after {
 .zone-user {
   height: 100%;
 }
+.zone-branding .region-branding {
+  margin-right: 0;
+}
 .zone-menu .region-menu {
   margin: 0;
-  margin-right: 10px;
 }
 .zone-content-wrapper {
   height: 100%;
@@ -58,8 +60,15 @@ h2.site-name:after {
  * Regions
  * ==========================================================
  */
-#region-menu {
+#region-user-second {
+  margin-left: 20px;
+  margin-right: 0;
+}
+#region-branding {
   width: 99%;
+}
+#region-menu {
+  width: 100%;
 }
 .region-content-inner {
   padding: 10px 0;
@@ -140,7 +149,7 @@ h2.site-name:after {
 .secondary-menu a {
   display: block;
   margin: 7px 0;
-  padding: 12px;
+  padding: 12px 15px;
   text-decoration: none;
 }
 .navigation li a {
