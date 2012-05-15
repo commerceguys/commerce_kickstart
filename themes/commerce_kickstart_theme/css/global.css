@@ -563,10 +563,10 @@ h2.site-name:after {
 }
 .view-collection-taxonomy-term .view-header h2 {
   font-size: 98px;
-  line-height: 70px;
+  line-height: 100px;
   margin: 0;
   position: absolute;
-  bottom: 0px;
+  bottom: 18px;
   left: 15px;
 }
 .view-collection-taxonomy-term .view-header h2 a {
@@ -680,7 +680,6 @@ h2.site-name:after {
 .node-product-type .commerce-product-field {
   color: #f2a023;
   font-size: 30px;
-  font-weight: bold;
   margin-bottom: 20px;
 }
 .node-product-type .field-name-body {
@@ -696,13 +695,15 @@ h2.site-name:after {
 }
 
 .commerce-add-to-cart label {
+  float: left;
   margin-right: 5px;
+  width: 45%;
+}
+.commerce-add-to-cart label:after {
+  content: " :";
 }
 .commerce-add-to-cart .form-item {
   margin-top: 0;
-}
-.commerce-add-to-cart .form-item-quantity label {
-  display: inline;
 }
 .commerce-add-to-cart .form-submit {
   background: #fd9a00 url('../images/bg_add_to_cart.png') 90% 50% no-repeat;
