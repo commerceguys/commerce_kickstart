@@ -1,25 +1,16 @@
 <?php
 
 /**
+ * @file commerce_kickstart_profile.
+ */
+
+/**
  * BatchAPI callback.
  *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
+ * @see commerce_kickstart_import_product()
  */
-function _commerce_kickstart_taxonomy_menu() {
-  // Set up taxonomy main menu.
-  $collection = taxonomy_vocabulary_machine_name_load('collection');
-  $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
-  variable_set($variable_name, 'main-menu');
-  $variable_name = _taxonomy_menu_build_variable('vocab_parent', $collection->vid);
-  variable_set($variable_name, '0');
-  $variable_name = _taxonomy_menu_build_variable('path', $collection->vid);
-  variable_set($variable_name, 'taxonomy_menu_path_default');
-  $variable_name = _taxonomy_menu_build_variable('rebuild', $collection->vid);
-  variable_set($variable_name, 1);
-}
-
-function _commerce_kickstart_example_nodes() {
+function _commerce_kickstart_example_nodes($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
 
   $body1  = "<p>Nunc tempor, sapien sed rhoncus vulputate, lectus felis scelerisque dolor, vitae interdum ipsum quam vitae purus.
   Maecenas neque. Donec semper imperdiet libero. Nulla facilisi. Mauris in velit eu nisl dapibus interdum. Fusce vulputate tellus nec risus.</p>";
@@ -211,21 +202,14 @@ function _commerce_kickstart_example_nodes() {
   variable_set('menu_rebuild_needed', TRUE);
 }
 
-function _commerce_kickstart_post_enable_modules() {
-  module_enable(array(
-    'commerce_kickstart_content',
-  ));
-  features_rebuild();
-  drupal_static_reset();
-}
-
 /**
  * BatchAPI callback.
  *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
+ * @see commerce_kickstart_import_product()
  */
-function _commerce_kickstart_example_taxes() {
+function _commerce_kickstart_example_taxes($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
   $commerce_kickstart_choose_tax_country = variable_get('commerce_kickstart_choose_tax_country', NULL);
 
   // Create the choosen tax.
@@ -275,10 +259,75 @@ function _commerce_kickstart_example_taxes() {
 /**
  * BatchAPI callback.
  *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
+ * @see commerce_kickstart_import_product()
  */
-function _commerce_kickstart_example_bags() {
+function _commerce_kickstart_taxonomy_menu($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Set up taxonomy main menu.
+  $collection = taxonomy_vocabulary_machine_name_load('collection');
+  $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
+  variable_set($variable_name, 'main-menu');
+  $variable_name = _taxonomy_menu_build_variable('vocab_parent', $collection->vid);
+  variable_set($variable_name, '0');
+  $variable_name = _taxonomy_menu_build_variable('path', $collection->vid);
+  variable_set($variable_name, 'taxonomy_menu_path_default');
+  $variable_name = _taxonomy_menu_build_variable('rebuild', $collection->vid);
+  variable_set($variable_name, 1);
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_import_product()
+ */
+function _commerce_kickstart_example_storage_device($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
+  $vocabulary = taxonomy_vocabulary_machine_name_load('storage_capacity');
+  // Add our terms
+  $terms = array('8MB', '16MB', '32MB');
+
+  // Add terms inside.
+  foreach ($terms as $term) {
+    taxonomy_term_save((object) array(
+      'name' => $term,
+      'vid' => $vocabulary->vid,
+    ));
+  }
+
+  $created_products = array();
+  $created_nodes = array();
+
+  $product_names = _commerce_kickstart_parse_csv('storage_devices.csv');
+
+  foreach ($product_names as $item) {
+    $sku = $item['1'];
+    $images = $item[5];
+
+    $product = _commerce_kickstart_create_product('storage_devices', $sku, $item['0'], $item['4'] * 100);
+
+    // Add the image
+    _commerce_kickstart_add_product_images($product, $images);
+
+    // Add the taxonomy
+    $taxonomy_id = array_pop(taxonomy_get_term_by_name($item['3']));
+    $product->field_storage_capacity[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
+
+    // Save it and retain a copy.
+    commerce_product_save($product);
+    $created_products[] = $product;
+  }
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_import_product()
+ */
+function _commerce_kickstart_example_bags($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
   $terms = array('Natural', 'Red', 'Black');
@@ -326,10 +375,10 @@ function _commerce_kickstart_example_bags() {
 /**
  * BatchAPI callback.
  *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
+ * @see commerce_kickstart_import_product()
  */
-function _commerce_kickstart_example_drinks() {
+function _commerce_kickstart_example_drinks($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
@@ -355,17 +404,16 @@ function _commerce_kickstart_example_drinks() {
     // Save it and retain a copy.
     commerce_product_save($product);
     $created_products[] = $product;
-
   }
 }
 
 /**
  * BatchAPI callback.
  *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
+ * @see commerce_kickstart_import_product()
  */
-function _commerce_kickstart_example_hats() {
+function _commerce_kickstart_example_hats($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('hat_size');
   // Add our terms
@@ -411,10 +459,10 @@ function _commerce_kickstart_example_hats() {
 /**
  * BatchAPI callback.
  *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
+ * @see commerce_kickstart_import_product()
  */
-function _commerce_kickstart_example_shoes() {
+function _commerce_kickstart_example_shoes($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
@@ -463,10 +511,10 @@ function _commerce_kickstart_example_shoes() {
 /**
  * BatchAPI callback.
  *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
+ * @see commerce_kickstart_import_product()
  */
-function _commerce_kickstart_example_tops() {
+function _commerce_kickstart_example_tops($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
@@ -521,54 +569,10 @@ function _commerce_kickstart_example_tops() {
 /**
  * BatchAPI callback.
  *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
+ * @see commerce_kickstart_import_product()
  */
-function _commerce_kickstart_example_storage_device() {
-
-  $vocabulary = taxonomy_vocabulary_machine_name_load('storage_capacity');
-  // Add our terms
-  $terms = array('8MB', '16MB', '32MB');
-
-  // Add terms inside.
-  foreach ($terms as $term) {
-    taxonomy_term_save((object) array(
-      'name' => $term,
-      'vid' => $vocabulary->vid,
-    ));
-  }
-
-  $created_products = array();
-  $created_nodes = array();
-
-  $product_names = _commerce_kickstart_parse_csv('storage_devices.csv');
-
-  foreach ($product_names as $item) {
-    $sku = $item['1'];
-    $images = $item[5];
-
-    $product = _commerce_kickstart_create_product('storage_devices', $sku, $item['0'], $item['4'] * 100);
-
-    // Add the image
-    _commerce_kickstart_add_product_images($product, $images);
-
-    // Add the taxonomy
-    $taxonomy_id = array_pop(taxonomy_get_term_by_name($item['3']));
-    $product->field_storage_capacity[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
-
-    // Save it and retain a copy.
-    commerce_product_save($product);
-    $created_products[] = $product;
-  }
-}
-
-/**
- * BatchAPI callback.
- *
- * @file commerce_kickstart_profile.
- * @see commerce_kickstart_import_product.
- */
-function _commerce_kickstart_example_display() {
+function _commerce_kickstart_example_display($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('collection');
   // Add our terms
@@ -686,6 +690,19 @@ function _commerce_kickstart_example_display() {
     node_save($node);
     $created_nodes[] = $node;
   }
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_import_product()
+ */
+function _commerce_kickstart_post_enable_modules($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
+  module_enable(array('commerce_kickstart_content'));
+  features_rebuild();
+  drupal_static_reset();
 }
 
 /**
