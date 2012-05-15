@@ -142,6 +142,17 @@ function commerce_kickstart_product_ui_library() {
     'js' => array(
       libraries_get_path('jquery_ui_spinner') . '/ui.spinner.min.js' => array(),
     ),
+    'css' => array(
+      libraries_get_path('jquery_ui_spinner') . '/ui.spinner.css' => array(),
+    ),
+  );
+  $libraries['jquery_expander'] = array(
+    'title' => 'jQuery Expander',
+    'website' => 'http://plugins.learningjquery.com/expander/',
+    'version' => '1.4.2',
+    'js' => array(
+      libraries_get_path('jquery_expander') . '/jquery.expander.min.js' => array(),
+    ),
   );
 return $libraries;
 }
@@ -151,10 +162,10 @@ return $libraries;
  */
 function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id) {
   if (strstr($form_id, 'commerce_cart_add_to_cart_form')) {
-    // Add quantity spinner widget
-    drupal_add_library('commerce_kickstart_product_ui', 'jquery_ui_spinner');
-    drupal_add_css(libraries_get_path('jquery_ui_spinner') . '/ui.spinner.css');
-    drupal_add_js('jQuery().ready(function($) {$(\'.form-item-quantity input\').spinner({ min: 1, max: 20, increment: \'fast\' });});', array('type' => 'inline'));
+    // Add quantity spinner widget & read more link
+    $form['#attached']['library'][] = array('commerce_kickstart_product_ui', 'jquery_expander');
+    $form['#attached']['library'][] = array('commerce_kickstart_product_ui', 'jquery_ui_spinner');
+    $form['#attached']['js'][] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/commerce_kickstart_product_ui.js';
 
     // Rename add-to-cart form fields label (quantity, color, size)
     $form['quantity']['#title'] = t('Enter Quantity');

@@ -109,3 +109,6 @@ libraries[jquery_ui_spinner][download][url] = "https://github.com/btburnett3/jqu
 libraries[cloud-zoom][type] = "libraries"
 libraries[cloud-zoom][download][type] = "file"
 libraries[cloud-zoom][download][url] = "http://www.professorcloud.com/downloads/cloud-zoom.1.0.2.zip"
+libraries[jquery_expander][type] = "libraries"
+libraries[jquery_expander][download][type] = "git"
+libraries[jquery_expander][download][url] = "https://github.com/kswedberg/jquery-expander.git"
