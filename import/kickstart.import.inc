@@ -366,7 +366,7 @@ function _commerce_kickstart_example_hats() {
   // Add our terms
   $terms = array('Small', 'Medium', 'Large', 'One Size');
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term, $vocabulary, FALSE);
   }
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
@@ -417,7 +417,7 @@ function _commerce_kickstart_example_shoes() {
   // Add our terms
   $terms = array('5', '6', '7', '8', '9', '10', '11');
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term, $vocabulary, FALSE);
   }
 
   $created_products = array();
@@ -471,7 +471,7 @@ function _commerce_kickstart_example_tops() {
   // Add our terms
   $terms = array('Small', 'Medium', 'Large');
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term, $vocabulary, FALSE);
   }
 
   $created_products = array();
@@ -557,7 +557,7 @@ function _commerce_kickstart_example_display() {
     array('To geek out', 'collection-banner.jpg'),
   );
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, NULL, $term[1]);
+    _commerce_kickstart_add_term($term[0], $vocabulary, FALSE, NULL, $term[1]);
   }
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('category');
@@ -588,7 +588,7 @@ function _commerce_kickstart_example_display() {
     'Women',
   );
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term, $vocabulary, FALSE);
   }
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('brand');
@@ -604,7 +604,7 @@ function _commerce_kickstart_example_display() {
     'Courtsides',
   );
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term, $vocabulary, FALSE);
   }
 
   $created_nodes = array();
