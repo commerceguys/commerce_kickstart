@@ -38,6 +38,7 @@ projects[mailsystem][version] = 2.34
 projects[mailsystem][subdir] = "contrib"
 projects[mimemail][version] = 1.0-alpha1
 projects[mimemail][subdir] = "contrib"
+projects[mimemail][patch][] = "http://drupal.org/files/rules-1585546-1-moving_rules_actions.patch"
 projects[cloud_zoom][version] = 1.x-dev
 projects[cloud_zoom][subdir] = "contrib"
 projects[cloud_zoom][patch][] = "http://drupal.org/files/1579380-cloud-zoom-all-settings-integration-with-libraries-4.patch"
