@@ -182,7 +182,7 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
   $contents[] = array(
     'title' => "get it quick because... it's hot",
     'headline' => "It's hot",
-    'tagline' => "get it quick beacause...",
+    'tagline' => "get it quick because...",
     'link' => 'products',
     'type' => 'slideshow',
     'image' => 'slideshow-2.jpg',

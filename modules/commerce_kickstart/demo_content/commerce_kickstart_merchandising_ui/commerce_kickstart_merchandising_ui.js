@@ -11,22 +11,20 @@
           auto: true,
           autoHover: true,
           controls: true,
-          pause: 2000,
+          pause: 5000,
           hideControlOnEnd: false,
           mode: 'fade',
-          prevText: '<span>' + $('.event-slider .views-row:last .views-field-field-tagline').text() + '<em>' + $('.event-slider .views-row:last .views-field-field-headline').text() + '</em></span>',
-          nextText: '<span>' + $('.event-slider .views-row-2 .views-field-field-tagline').text() + '<em>' + $('.event-slider .views-row-2 .views-field-field-headline').text() + '</em></span>',
+          prevText: '<span class="control">' + $('.event-slider .views-row:last .views-field-nothing').html() + '</span>',
+          nextText: '<span class="control">' + $('.event-slider .views-row-2 .views-field-nothing').html() + '</span>',
           onBeforeSlide: function(currentSlideNumber, totalSlideQty, currentSlideHtmlObject){
             var leftSlideNumber = currentSlideNumber == 0 ? (totalSlideQty - 1) : (currentSlideNumber - 1);
             var rightSlideNumber = currentSlideNumber == (totalSlideQty - 1) ? 0 : (currentSlideNumber + 1);
-            var leftSlideText = $(currentSlideHtmlObject).parents('.event-slider').find('.views-row-' + (leftSlideNumber + 1) + ':first .views-field-field-tagline').text() + '<em>' +
-              $(currentSlideHtmlObject).parents('.event-slider').find('.views-row-' + (leftSlideNumber + 1) + ':first .views-field-field-headline').text() + '</em>';
-            var rightSlideText = $(currentSlideHtmlObject).parents('.event-slider').find('.views-row-' + (rightSlideNumber + 1) + ':first .views-field-field-tagline').text() + '<em>' +
-              $(currentSlideHtmlObject).parents('.event-slider').find('.views-row-' + (rightSlideNumber + 1) + ':first .views-field-field-headline').text() + '</em>';
+            var leftSlideText = $(currentSlideHtmlObject).parents('.event-slider').find('.views-row-' + (leftSlideNumber + 1) + ':first .views-field-nothing').html();
+            var rightSlideText = $(currentSlideHtmlObject).parents('.event-slider').find('.views-row-' + (rightSlideNumber + 1) + ':first .views-field-nothing').html();
             $(currentSlideHtmlObject).parents('.bx-wrapper').find('a.bx-prev span').html(leftSlideText);
             $(currentSlideHtmlObject).parents('.bx-wrapper').find('a.bx-next span').html(rightSlideText);
           },
-          speed: 0
+          speed: 400
         });
         $('.event-slider', context).addClass('pager-processed')
       };
