@@ -90,6 +90,8 @@ projects[image_delta_formatter][version] = 1.x-dev
 projects[image_delta_formatter][subdir] = "contrib"
 projects[link][version] = 1.0
 projects[link][subdir] = "contrib"
+projects[pathauto][version] = 1.1
+projects[pathauto][subdir] = "contrib"
 
 ; Base theme
 projects[omega][version] = 3.1

@@ -76,6 +76,7 @@ dependencies[] = link
 dependencies[] = mimemail_compress
 dependencies[] = demo
 dependencies[] = cloud_zoom
+dependencies[] = pathauto
 
 ; Install Features
 dependencies[] = features
