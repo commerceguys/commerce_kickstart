@@ -22,7 +22,7 @@ function commerce_kickstart_merchandising_node_info() {
     'ad_push' => array(
       'name' => t('Ad Push'),
       'base' => 'node_content',
-      'description' => t('Use that content to promote a section of your site that will be displayed on the homepage.'),
+      'description' => t('Use <em>ad push</em> to promote content on the homepage.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -30,10 +30,10 @@ function commerce_kickstart_merchandising_node_info() {
     'slideshow' => array(
       'name' => t('Slideshow'),
       'base' => 'node_content',
-      'description' => t('Create one slideshow element'),
+      'description' => t('Use <em>slideshow</em> to promote content that will be displayed on the homepage.'),
       'has_title' => '1',
       'title_label' => t('Title'),
-      'help' => '',
+      'help' => t('Title field is for administrative purpose only and will not be displayed on the site, use Headline instead.'),
     ),
   );
   return $items;

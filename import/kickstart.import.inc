@@ -131,7 +131,6 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
 
   $contents[] = array(
     'title' => "Ad push 1",
-    'headline' => "Have a drink",
     'tagline' => "Your going thirsty",
     'link' => 'taxonomy/term/35',
     'type' => 'ad_push',
@@ -139,7 +138,6 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
   );
   $contents[] = array(
     'title' => "Ad push 2",
-    'headline' => "New Shirts",
     'tagline' => 'Forget the Trees... Hug a Super Model.',
     'link' => 'taxonomy/term/33',
     'type' => 'ad_push',
@@ -147,7 +145,6 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
   );
   $contents[] = array(
     'title' => "Ad push 3",
-    'headline' => "News",
     'tagline' => "Exclusive Limited Edition Print from Zoo York Available NOW!",
     'link' => 'taxonomy/term/36',
     'type' => 'ad_push',
