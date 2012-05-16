@@ -234,7 +234,7 @@ if(window.__noconflict){ jQuery.noConflict();}
       })
       .click(function(event) {
         $.fn.activebar.hide();
-        window.location.href = '/admin/demo/disable';
+        $.get('/admin/demo/disable');
         event.stopPropagation();
       });
     setOptionsOnContainer( closeButton );
