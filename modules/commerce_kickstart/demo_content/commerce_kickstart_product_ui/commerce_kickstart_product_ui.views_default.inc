@@ -172,19 +172,12 @@ Check your spelling or try another term.';
   $handler->display->display_options['arguments']['order_id']['id'] = 'order_id';
   $handler->display->display_options['arguments']['order_id']['table'] = 'commerce_order';
   $handler->display->display_options['arguments']['order_id']['field'] = 'order_id';
-  $handler->display->display_options['arguments']['order_id']['default_argument_type'] = 'php';
-  $handler->display->display_options['arguments']['order_id']['default_argument_options']['code'] = 'if ($order = commerce_cart_order_load($GLOBALS[\'user\']->uid)) {
-  return $order->order_id;
-}';
+  $handler->display->display_options['arguments']['order_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['order_id']['default_argument_type'] = 'commerce_cart_current_cart_order_id';
   $handler->display->display_options['arguments']['order_id']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['order_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['order_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['order_id']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['order_id']['specify_validation'] = 1;
-  $handler->display->display_options['arguments']['order_id']['validate']['type'] = 'php';
-  $handler->display->display_options['arguments']['order_id']['validate_options']['code'] = 'if ($order = commerce_cart_order_load($GLOBALS[\'user\']->uid)) {
-  return $order->order_id;
-}';
   $handler->display->display_options['arguments']['order_id']['validate']['fail'] = 'empty';
   $handler->display->display_options['arguments']['order_id']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['order_id']['not'] = 0;
