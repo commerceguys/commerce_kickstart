@@ -568,11 +568,8 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
   $handler = $view->new_display('block', 'HP Slideshow', 'block_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'mini';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['class'] = 'event-slider';
@@ -634,7 +631,7 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
     'image_style' => 'hp_slideshow',
-    'image_link' => 'content',
+    'image_link' => '',
   );
   $handler->display->display_options['fields']['field_image']['field_api_classes'] = 0;
   /* Field: Content: Headline */
