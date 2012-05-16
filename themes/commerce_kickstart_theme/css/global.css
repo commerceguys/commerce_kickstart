@@ -627,14 +627,17 @@ h2.site-name:after {
 }
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a {
   background-color: #cecece;
-  color: #ffffff;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  color: #000000;
   font-size: 16px;
   padding: 5px 15px;
   text-decoration: none;
 }
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a:hover {
   background-color: #ffffff;
-  color: #cecece;
+  color: #000000;
 }
 
 .view-collection-taxonomy-term .view-content .item-list {
@@ -645,8 +648,9 @@ h2.site-name:after {
   background-color: #d3d3d3;
   float: left;
   height: 260px;
+  margin-right: 5px;
   position: relative;
-  width: 460px;
+  width: 465px;
 }
 .view-collection-taxonomy-term .item-list h3 .collection a {
   color: #ffffff;
@@ -660,7 +664,8 @@ h2.site-name:after {
   display: inline;
   float: left;
   margin: 0;
-  padding-bottom: 30px;
+  padding-right: 5px;
+  padding-bottom:30px;
   text-align: center;
 }
 .view-collection-taxonomy-term .products-per-collection li.last {
@@ -675,8 +680,12 @@ h2.site-name:after {
   display: inline;
   float: left;
   margin: 0;
+  padding-right: 5px;
   padding-bottom: 30px;
   text-align: center;
+}
+.page-products .view-display-products ul li.views-row:nth-child(3n) {
+  padding-right: 0;
 }
 .page-products .commerce-product-extra-field-title {
   background: url('../images/bg_search_product_name.png') left top no-repeat;
