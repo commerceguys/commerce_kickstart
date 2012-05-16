@@ -75,6 +75,7 @@ dependencies[] = taxonomy_menu
 dependencies[] = link
 dependencies[] = mimemail_compress
 dependencies[] = demo
+dependencies[] = cloud_zoom
 
 ; Install Features
 dependencies[] = features

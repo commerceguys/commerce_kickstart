@@ -38,6 +38,9 @@ projects[mailsystem][version] = 2.34
 projects[mailsystem][subdir] = "contrib"
 projects[mimemail][version] = 1.0-alpha1
 projects[mimemail][subdir] = "contrib"
+projects[cloud_zoom][version] = 1.x-dev
+projects[cloud_zoom][subdir] = "contrib"
+projects[cloud_zoom][patch][] = "http://drupal.org/files/1579380-cloud-zoom-all-settings-integration-with-libraries-4.patch"
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.x-dev
@@ -100,3 +103,6 @@ libraries[jquery.bxSlider][download][url] = "https://github.com/wandoledzep/bxsl
 libraries[jquery_ui_spinner][type] = "libraries"
 libraries[jquery_ui_spinner][download][type] = "git"
 libraries[jquery_ui_spinner][download][url] = "https://github.com/btburnett3/jquery.ui.spinner.git"
+libraries[cloud-zoom][type] = "libraries"
+libraries[cloud-zoom][download][type] = "file"
+libraries[cloud-zoom][download][url] = "http://www.professorcloud.com/downloads/cloud-zoom.1.0.2.zip"
