@@ -84,8 +84,6 @@ projects[facetapi][subdir] = "contrib"
 ; UI improvement modules.
 projects[module_filter][version] = 1.6
 projects[module_filter][subdir] = "contrib"
-projects[flexslider][version] = 1.0-rc2
-projects[flexslider][subdir] = "contrib"
 projects[image_delta_formatter][version] = 1.x-dev
 projects[image_delta_formatter][subdir] = "contrib"
 projects[link][version] = 1.0
@@ -97,9 +95,6 @@ projects[pathauto][subdir] = "contrib"
 projects[omega][version] = 3.1
 
 ; Libraries
-libraries[flexslider][type] = "libraries"
-libraries[flexslider][download][type] = "git"
-libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider.git"
 libraries[jquery.bxSlider][type] = "libraries"
 libraries[jquery.bxSlider][download][type] = "git"
 libraries[jquery.bxSlider][download][url] = "https://github.com/wandoledzep/bxslider.git"
