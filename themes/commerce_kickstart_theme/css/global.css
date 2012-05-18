@@ -27,6 +27,7 @@ h2.site-name:after {
   height: 100%;
 }
 .zone-branding .region-branding {
+  margin-top: 15px;
   margin-right: 0;
 }
 .zone-menu .region-menu {
@@ -96,7 +97,7 @@ h2.site-name:after {
 #block-views-exp-display-products-page .views-exposed-widget {
   padding: 0;
   position: relative;
-  left: 25px;
+  left: 20px;
 }
 #block-views-exp-display-products-page #edit-search-api-views-fulltext {
   border-color: #d7d7d7;
@@ -372,7 +373,7 @@ h2.site-name:after {
 }
 .block-shipping-discount {
   left: -50px;
-  top: 210px;
+  top: 85px;
   position: absolute;
   z-index: 500;
 }
@@ -527,9 +528,12 @@ h2.site-name:after {
   text-decoration: none;
   text-transform: capitalize;
 }
-.view-display-id-block_1 .views-row .views-field-field-headline .field-content,
+.view-display-id-block_1 .views-row .views-field-field-tagline .field-content,
 .block-blog-block .views-field-body .field-content {
+  font-size: 20px;
   height: 90px;
+  line-height: 18px;
+
 }
 /* Adverts blocks */
 .view-display-id-block_1 .views-row-first,
@@ -747,6 +751,84 @@ h2.site-name:after {
   margin-top: 40px;
   margin-left: 5px;
   padding: 5px 50px 5px 10px;
+}
+/**
+ * Shopping cart page
+ * Checkout page
+ * Review order page
+ */
+.page-cart #views-form-commerce-cart-form-default table,
+.page-checkout #commerce-checkout-form-checkout .view-content table,
+.page-checkout #commerce-checkout-form-checkout .view-footer table,
+.page-checkout #commerce-checkout-form-review .view-content table,
+.page-checkout #commerce-checkout-form-review .view-footer table {
+  width: 100%;
+}
+.page-cart #views-form-commerce-cart-form-default table thead th,
+.page-checkout #commerce-checkout-form-checkout table thead th {
+  font-size: 16px;
+}
+.page-cart #views-form-commerce-cart-form-default table tbody tr td,
+.page-checkout #commerce-checkout-form-checkout table tbody tr td {
+  padding: 4px 10px;
+}
+.page-cart #views-form-commerce-cart-form-default table tbody tr.odd,
+.page-checkout #commerce-checkout-form-checkout table tbody tr.odd {
+
+}
+.page-cart #views-form-commerce-cart-form-default table tbody tr.even,
+.page-checkout #commerce-checkout-form-checkout table tbody tr.even {
+  background-color: #ffffff;
+}
+/**
+ * Checkout page
+ * Shipping page
+ */
+.page-checkout fieldset legend {
+  border-bottom: 1px solid #d7d7d7;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.page-checkout fieldset legend span {
+  font-size: 20px;
+  font-weight: bold;
+}
+.page-checkout fieldset .fieldset-wrapper {
+  padding-top: 10px;
+}
+.page-checkout #commerce-checkout-form-checkout table.commerce-price-formatted-components {
+  border-top: 1px solid #000000;
+}
+.page-checkout #commerce-checkout-form-checkout table thead th {
+  font-size: 16px;
+}
+.page-checkout #commerce-checkout-form-checkout table tbody tr.component-type-commerce-price-formatted-amount {
+  border-top: 2px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+.page-checkout fieldset.customer_profile_shipping,
+.page-checkout fieldset.customer_profile_billing {
+}
+
+.page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-name-line,
+.page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-country .form-item,
+.page-checkout fieldset.customer_profile_shipping .street-block .form-item,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-addressbook .form-item,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-commerce-customer-address-und-0-name-line,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-commerce-customer-address-und-0-country .form-item,
+.page-checkout fieldset.customer_profile_billing .street-block .form-item {
+  width: 100%;
+}
+.page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-name-line label,
+.page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-country label,
+.page-checkout fieldset.customer_profile_shipping .street-block label,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-addressbook label,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-commerce-customer-address-und-0-name-line label,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-commerce-customer-address-und-0-country label,
+.page-checkout fieldset.customer_profile_billing .street-block label {
+  display: block;
+  float: left;
+  width: 20%;
 }
 /*
  * ==========================================================

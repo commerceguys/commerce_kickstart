@@ -57,7 +57,12 @@ function commerce_kickstart_product_ui_theme(&$existing) {
       'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
       'template' => 'node--product--type--product--list',
     ),
+    'views_view_taxonomy_title__default' => array(
+      'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
+      'template' => 'views-view--taxonomy-title--default',
+    ),
   );
+
   return $themes;
 }
 
@@ -179,7 +184,7 @@ function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id
     }
   }
   if ($form_id == 'views_exposed_form') {
-    $form['search_api_views_fulltext']['#size'] = 40;
+    $form['search_api_views_fulltext']['#size'] = 34;
     $form['search_api_views_fulltext']['#attributes']['placeholder'] = t('Search');
   }
 }
