@@ -281,6 +281,10 @@ function _commerce_kickstart_taxonomy_menu($operation, &$context) {
 function _commerce_kickstart_example_storage_device($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
 
+  // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+  // in each node_insert invocation.
+  variable_set('menu_rebuild_needed', FALSE);
+
   $vocabulary = taxonomy_vocabulary_machine_name_load('storage_capacity');
   // Add our terms
   $terms = array('8MB', '16MB', '32MB');
@@ -324,6 +328,10 @@ function _commerce_kickstart_example_storage_device($operation, &$context) {
  */
 function _commerce_kickstart_example_bags($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+  // in each node_insert invocation.
+  variable_set('menu_rebuild_needed', FALSE);
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
@@ -377,6 +385,10 @@ function _commerce_kickstart_example_bags($operation, &$context) {
 function _commerce_kickstart_example_drinks($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
 
+  // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+  // in each node_insert invocation.
+  variable_set('menu_rebuild_needed', FALSE);
+
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
   $terms = array('White', 'Black', 'Red', 'Blue');
@@ -411,6 +423,10 @@ function _commerce_kickstart_example_drinks($operation, &$context) {
  */
 function _commerce_kickstart_example_hats($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+  // in each node_insert invocation.
+  variable_set('menu_rebuild_needed', FALSE);
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('hat_size');
   // Add our terms
@@ -460,6 +476,10 @@ function _commerce_kickstart_example_hats($operation, &$context) {
  */
 function _commerce_kickstart_example_shoes($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+  // in each node_insert invocation.
+  variable_set('menu_rebuild_needed', FALSE);
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
@@ -512,6 +532,10 @@ function _commerce_kickstart_example_shoes($operation, &$context) {
  */
 function _commerce_kickstart_example_tops($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+  // in each node_insert invocation.
+  variable_set('menu_rebuild_needed', FALSE);
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
@@ -570,6 +594,10 @@ function _commerce_kickstart_example_tops($operation, &$context) {
  */
 function _commerce_kickstart_example_display($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+  // in each node_insert invocation.
+  variable_set('menu_rebuild_needed', FALSE);
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('collection');
   // Add our terms
