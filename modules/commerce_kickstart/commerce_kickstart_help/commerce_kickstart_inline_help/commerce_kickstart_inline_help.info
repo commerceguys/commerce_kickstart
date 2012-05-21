@@ -1,0 +1,5 @@
+name = Commerce Kickstart inline help
+description = todo
+core = 7.x
+dependencies[] = advanced_help
+

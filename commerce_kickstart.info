@@ -88,6 +88,7 @@ dependencies[] = commerce_features
 dependencies[] = kickstart_order_manager
 dependencies[] = commerce_kickstart_content
 dependencies[] = commerce_kickstart_help
+dependencies[] = commerce_kickstart_inline_help
 dependencies[] = commerce_kickstart_search
 dependencies[] = commerce_kickstart_product
 dependencies[] = commerce_kickstart_product_ui
