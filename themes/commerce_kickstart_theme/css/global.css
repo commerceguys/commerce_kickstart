@@ -11,8 +11,47 @@ body {
   background-color: #ececec;
   font-size: 14px;
 }
-h2.site-name:after {
-  content: " global ";
+
+@font-face {
+  font-family: 'MuseoSlab300';
+  src: url('../fonts/Museo_Slab_300-webfont.eot');
+  src: url('../fonts/Museo_Slab_300-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Museo_Slab_300-webfont.woff') format('woff'),
+  url('../fonts/Museo_Slab_300-webfont.ttf') format('truetype'),
+  url('../fonts/Museo_Slab_300-webfont.svg#MuseoSlab300') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MuseoSlab500';
+  src: url('../fonts/Museo_Slab_500-webfont.eot');
+  src: url('../fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Museo_Slab_500-webfont.woff') format('woff'),
+  url('../fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
+  url('../fonts/Museo_Slab_500-webfont.svg#MuseoSlab100') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MuseoSlab700';
+  src: url('../fonts/Museo_Slab_700-webfont.eot');
+  src: url('../fonts/Museo_Slab_700-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Museo_Slab_700-webfont.woff') format('woff'),
+  url('../fonts/Museo_Slab_700-webfont.ttf') format('truetype'),
+  url('../fonts/Museo_Slab_700-webfont.svg#MuseoSlab100') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSlab1000';
+  src: url('../fonts/Museo_Slab_1000-webfont.eot');
+  src: url('../fonts/Museo_Slab_1000-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Museo_Slab_1000-webfont.woff') format('woff'),
+  url('../fonts/Museo_Slab_1000-webfont.ttf') format('truetype'),
+  url('../fonts/Museo_Slab_1000-webfont.svg#MuseoSlab1000') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 /*
  * ==========================================================
@@ -104,6 +143,7 @@ h2.site-name:after {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  font-family: 'MuseoSlab300';
   height: 28px;
   padding: 5px 28px 5px 5px;
 }
@@ -152,6 +192,7 @@ h2.site-name:after {
 }
 .main-menu a,
 .secondary-menu a {
+  font-family: 'MuseoSlab700';
   display: block;
   margin: 7px 0;
   padding: 12px 15px;
@@ -229,6 +270,7 @@ h2.site-name:after {
   padding-left: 7px;
 }
 .block-menu-kickstart-user-menu ul li a {
+  font-family: 'MuseoSlab300';
   color: #ffffff;
   text-decoration: none;
 }
@@ -247,8 +289,9 @@ h2.site-name:after {
 }
 .block-shopping-cart-block h2 {
   background: url('../images/picto_cart.png') right 5px no-repeat;
-  font-size: 14px;
   float: left;
+  font-family: 'MuseoSlab300';
+  font-size: 14px;
   line-height: 23px;
   padding-top: 5px;
   padding-right: 50px;
@@ -260,6 +303,7 @@ h2.site-name:after {
 .block-shopping-cart-block .content .view-shopping-cart .view-empty {
   display: inline;
   float: right;
+  font-family: 'MuseoSlab300';
 }
 .block-shopping-cart-block .content .view-shopping-cart .view-empty p {
   float: left;
@@ -290,6 +334,7 @@ h2.site-name:after {
   background-color: #fd9a00;
   color: #ffffff;
   float: right;
+  font-family: 'MuseoSlab700';
   height: 100%;
   line-height: 30px;
   padding: 0 12px;
@@ -317,12 +362,14 @@ h2.site-name:after {
   margin: 0;
 }
 .region-sidebar-first .block-facetapi h2 {
+  font-family: 'MuseoSlab700';
   font-size: 16px;
   line-height: 30px;
   padding-bottom: 10px;
 }
 .region-sidebar-first .block-facetapi a {
   color: #8e8e8e;
+  font-family: 'MuseoSlab700';
   text-decoration: none;
 }
 .region-sidebar-first .block-facetapi a:hover {
@@ -360,8 +407,17 @@ h2.site-name:after {
 }
 
 #promotional_banner .promotional_banner_saving {
-  font-size: 1.4em;
-  font-weight: bold;
+  display: block;
+  float: left;
+  font-family: 'MuseoSlab1000';
+  font-size: 28px;
+  margin: 0px 22px 0 12px;
+}
+#promotional_banner span {
+  font-family: 'MuseoSlab500';
+  font-size: 16px;
+  line-height: 38px;
+  text-transform: uppercase;
 }
 #promotional_banner .promotional_banner_special_offer {
   background-color: #ffffff;
@@ -369,7 +425,10 @@ h2.site-name:after {
   -moz-border-radius: 4px;
   border-radius: 4px;
   color: #fd9a00;
-  padding: 5px;
+  font-family: 'MuseoSlab500';
+  margin-left: 22px;
+  padding: 5px 28px;
+  text-transform: capitalize;
 }
 .block-shipping-discount {
   left: -50px;
@@ -389,7 +448,7 @@ h2.site-name:after {
   display: block;
   font-size: 13px;
   height: 120px;
-  line-height: 22px;
+  line-height: 24px;
   text-align: center;
   padding: 10px 5px;
   width: 130px;
@@ -409,6 +468,15 @@ h2.site-name:after {
 #shipping #shipping_currency {
   display: block;
   font-size: 27px;
+  margin-top: 2px;
+}
+#shipping #shipping_message {
+  font-family: 'MuseoSlab500';
+}
+#shipping #shipping_message span,
+#shipping #shipping_message span em,
+#shipping #shipping_currency {
+  font-family: 'MuseoSlab700';
 }
 /* Slideshow */
 .block-demo-content-block-4 {
@@ -456,6 +524,7 @@ h2.site-name:after {
 .view-display-id-block_4 .bx-prev span.control,
 .view-display-id-block_4 .bx-next span.control {
   display: block;
+  font-family: 'MuseoSlab300';
   font-size: 21px;
   height: 80px;
   line-height: 28px;
@@ -465,6 +534,7 @@ h2.site-name:after {
 .event-slider .views-field-nothing em,
 .view-display-id-block_4 .bx-prev span.control em,
 .view-display-id-block_4 .bx-next span.control em {
+  font-family: 'MuseoSlab1000';
   font-style: normal;
   font-size: 32px;
   text-decoration: none;
@@ -502,10 +572,10 @@ h2.site-name:after {
 .block-blog-block img {
   border: 4px solid #ffffff;
 }
-.view-display-id-block_1 .views-row .views-field-field-headline,
 .block-blog-block .block-title {
   background: url('../images/bg_block_homepage_title.png') left top no-repeat;
   color: #ffffff;
+  font-family: 'MuseoSlab700';
   font-size: 16px;
   height: 50px;
   padding-top: 11px;
@@ -515,8 +585,11 @@ h2.site-name:after {
 .view-display-id-block_1 .views-row .views-field-field-tagline {
   margin: 0 10px;
 }
+
+.view-display-id-block_1 .views-row .views-field-field-image,
 .view-display-id-block_1 .views-row .views-field-field-tagline,
 .block-blog-block .views-field-body {
+  display: inline;
   margin-top: 5px;
 }
 .view-display-id-block_1 .views-row .views-field-field-tagline,
@@ -524,16 +597,23 @@ h2.site-name:after {
 .view-display-id-block_1 .views-row .views-field-field-tagline a,
 .block-blog-block .views-field-body a {
   color: #ffffff;
+  font-family: 'MuseoSlab700';
   text-align: center;
   text-decoration: none;
   text-transform: capitalize;
 }
 .view-display-id-block_1 .views-row .views-field-field-tagline .field-content,
 .block-blog-block .views-field-body .field-content {
+  color: #ffffff;
   font-size: 20px;
   height: 90px;
   line-height: 18px;
-
+  padding: 0px;
+}
+.view-display-id-block_1 .views-row .views-field-field-tagline a,
+.block-blog-block .views-field-body a {
+  display: block;
+  padding: 15px 10px;
 }
 /* Adverts blocks */
 .view-display-id-block_1 .views-row-first,
@@ -573,8 +653,12 @@ h2.site-name:after {
 .page-products .view-display-products li a,
 .page-products .view-display-products li .commerce-product-field {
   color: #000000;
+  font-family: 'MuseoSlab300';
   font-size: 14px;
   text-decoration: none;
+}
+.page-products .view-display-products li .commerce-product-field-commerce-price {
+  font-family: 'MuseoSlab700';
 }
 .view-collection-taxonomy-term .products-per-collection li.views-row.last,
 .page-products .view-display-products li.views-row.last {
@@ -596,8 +680,10 @@ h2.site-name:after {
 }
 .view-collection-taxonomy-term .view-header h2 a {
   color: #ffffff;
-
+  font-family: 'MuseoSlab700';
+  font-weight: normal;
   text-decoration: none;
+  text-transform: capitalize;
 }
 .view-collection-taxonomy-term .view-header .collection-terms {
   margin: 5px;
@@ -635,6 +721,7 @@ h2.site-name:after {
   -moz-border-radius: 8px;
   border-radius: 8px;
   color: #000000;
+  font-family: 'MuseoSlab300';
   font-size: 16px;
   padding: 5px 15px;
   text-decoration: none;
@@ -658,7 +745,8 @@ h2.site-name:after {
 }
 .view-collection-taxonomy-term .item-list h3 .collection a {
   color: #ffffff;
-  font-size: 50px;
+  font-family: 'MuseoSlab500';
+  font-size: 68px;
   margin-bottom : 15px;
   margin-left: 15px;
   position: absolute;
@@ -702,10 +790,12 @@ h2.site-name:after {
  * Product page
  */
 .node-product-type .product-title {
+  font-family: 'MuseoSlab700';
   font-size: 24px;
 }
 .node-product-type .commerce-product-sku {
   color: #b1b1b1;
+  font-family: 'MuseoSlab300';
   font-size: 13px;
 }
 .node-product-type .commerce-product-sku-label {
@@ -713,10 +803,12 @@ h2.site-name:after {
 }
 .node-product-type .commerce-product-field {
   color: #f2a023;
+  font-family: 'MuseoSlab700';
   font-size: 30px;
   margin-bottom: 20px;
 }
 .node-product-type .field-name-body {
+  font-family: 'MuseoSlab300';
   margin-bottom: 20px;
 }
 .commerce-add-to-cart {
@@ -730,6 +822,7 @@ h2.site-name:after {
 
 .commerce-add-to-cart label {
   float: left;
+  font-family: 'MuseoSlab500';
   margin-right: 5px;
   width: 45%;
 }
@@ -746,6 +839,7 @@ h2.site-name:after {
   -moz-border-radius: 8px;
   border-radius: 8px;
   color: #ffffff;
+  font-family: 'MuseoSlab500';
   font-size: 17px;
   font-weight: normal;
   margin-top: 40px;
@@ -854,6 +948,7 @@ h2.site-name:after {
 }
 .section-footer ul.menu li a {
   color: #ffffff;
+  font-family: 'MuseoSlab700';
   font-weight: bold;
   text-decoration: none;
 }
@@ -870,6 +965,7 @@ h2.site-name:after {
 }
 .section-footer ul.menu .expanded ul.menu li a {
   color: #c1c1c1;
+  font-family: 'MuseoSlab300';
   font-weight: normal;
 }
 /**
@@ -885,6 +981,7 @@ h2.site-name:after {
 .block-social h2 {
   background: url('../images/bg_block_footer_title.png') left top no-repeat;
   color: #eeeeee;
+  font-family: 'MuseoSlab700';
   padding-bottom: 22px;
   padding-left: 25px;
 }
@@ -892,6 +989,7 @@ h2.site-name:after {
 .block-social #twitter,
 .block-social #pinterest {
   color: #eeeeee;
+  font-family: 'MuseoSlab500';
   display: block;
   height: 35px;
   line-height: 15px;
@@ -905,11 +1003,11 @@ h2.site-name:after {
 }
 .block-social #twitter {
   background: url('../images/icon_twitter.png') left top no-repeat;
-  padding-right: 40px;
+  padding-right: 80px;
 }
 .block-social #pinterest {
   background: url('../images/icon_pinterest.png') left top no-repeat;
-  padding-right: 80px;
+  padding-right: 60px;
 }
 
 .block-payment {
