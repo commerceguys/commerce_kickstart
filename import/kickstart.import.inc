@@ -335,9 +335,13 @@ function _commerce_kickstart_example_bags($operation, &$context) {
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
-  $terms = array('Natural', 'Red', 'Black');
+  $terms = array(
+    array('Natural', '#FFFFFF'),
+    array('Red', '#FF0000'),
+    array('Black', '#000000'),
+  );
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, $term[1]);
   }
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('bag_size');
@@ -391,9 +395,14 @@ function _commerce_kickstart_example_drinks($operation, &$context) {
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
-  $terms = array('White', 'Black', 'Red', 'Blue');
+  $terms = array(
+    array('White', '#FFFFFF'),
+    array('Black', '#000000'),
+    array('Red', '#FF0000'),
+    array('Blue', '#0000FF'),
+  );
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, $term[1]);
   }
 
   $created_products = array();
@@ -442,9 +451,13 @@ function _commerce_kickstart_example_hats($operation, &$context) {
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
-  $terms = array('Black', 'White', 'Navy');
+  $terms = array(
+    array('Black', '#000000'),
+    array('White', '#FFFFFF'),
+    array('Navy', '#000080'),
+  );
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, $term[1]);
   }
 
   $created_products = array();
@@ -483,9 +496,15 @@ function _commerce_kickstart_example_shoes($operation, &$context) {
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
-  $terms = array('White', 'Black', 'Red', 'Blue', 'Purple');
+  $terms = array(
+    array('White', '#FFFFFF'),
+    array('Black', '#000000'),
+    array('Red', '#FF0000'),
+    array('Blue', '#0000FF'),
+    array('Purple', '#551A8B'),
+  );
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, $term[1]);
   }
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('shoe_size');
@@ -540,18 +559,18 @@ function _commerce_kickstart_example_tops($operation, &$context) {
   $vocabulary = taxonomy_vocabulary_machine_name_load('color');
   // Add our terms
   $terms = array(
-    'White',
-    'Black',
-    'Gray',
-    'Green',
-    'Brown',
-    'Heather Gray',
-    'Purple',
-    'Navy',
-    'Tan'
+    array('White', '#FFFFFF'),
+    array('Black', '#000000'),
+    array('Gray', '#CCCCCC'),
+    array('Green', '#008000'),
+    array('Brown', '#5C4033'),
+    array('Heather Gray', '#B7C3D0'),
+    array('Purple', '#551A8B'),
+    array('Navy', '#000080'),
+    array('Tan', '#D2B48C'),
   );
   foreach($terms as $term) {
-    _commerce_kickstart_add_term($term, $vocabulary);
+    _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, $term[1]);
   }
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('top_size');

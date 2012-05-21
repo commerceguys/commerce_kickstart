@@ -846,6 +846,19 @@ body {
   margin-left: 5px;
   padding: 5px 50px 5px 10px;
 }
+/* Clearfix */
+.form-type-commerce-fancy-attributes-ajax:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* Styling for the color attributes. */
+.form-type-commerce-fancy-attributes-ajax .form-item-attributes-field-color {
+  float: left;
+}
+
 /**
  * Shopping cart page
  * Checkout page

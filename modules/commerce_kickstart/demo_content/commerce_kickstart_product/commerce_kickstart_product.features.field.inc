@@ -276,7 +276,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'bags_cases',
       'commerce_cart_settings' => array(
         'attribute_field' => 1,
-        'attribute_widget' => 'select',
+        'attribute_widget' => 'commerce_fancy_attributes',
       ),
       'default_value' => NULL,
       'deleted' => '0',
@@ -632,7 +632,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'drinks',
       'commerce_cart_settings' => array(
         'attribute_field' => 1,
-        'attribute_widget' => 'select',
+        'attribute_widget' => 'commerce_fancy_attributes',
       ),
       'default_value' => NULL,
       'deleted' => '0',
@@ -989,7 +989,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'hats',
       'commerce_cart_settings' => array(
         'attribute_field' => 1,
-        'attribute_widget' => 'select',
+        'attribute_widget' => 'commerce_fancy_attributes',
       ),
       'default_value' => NULL,
       'deleted' => '0',
@@ -1446,7 +1446,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'shoes',
       'commerce_cart_settings' => array(
         'attribute_field' => 1,
-        'attribute_widget' => 'select',
+        'attribute_widget' => 'commerce_fancy_attributes',
       ),
       'default_value' => NULL,
       'deleted' => '0',
@@ -2251,7 +2251,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'tops',
       'commerce_cart_settings' => array(
         'attribute_field' => 1,
-        'attribute_widget' => 'select',
+        'attribute_widget' => 'commerce_fancy_attributes',
       ),
       'default_value' => NULL,
       'deleted' => '0',
@@ -6137,6 +6137,12 @@ function commerce_kickstart_product_field_default_fields() {
       'deleted' => '0',
       'description' => 'Hexadecimal color code',
       'display' => array(
+        'add_to_cart_form' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'default' => array(
           'label' => 'above',
           'module' => 'text',
@@ -6199,6 +6205,12 @@ function commerce_kickstart_product_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'add_to_cart_form' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'default' => array(
           'label' => 'hidden',
           'module' => 'image',
@@ -6242,6 +6254,74 @@ function commerce_kickstart_product_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'taxonomy_term-color-field_category_color'
+  $fields['taxonomy_term-color-field_category_color'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_category_color',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '7',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'color',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'add_to_cart_form' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_fancy_attributes',
+          'settings' => array(),
+          'type' => 'commerce_fancy_attributes_color',
+          'weight' => '0',
+        ),
+        'default' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '1',
+        ),
+      ),
+      'entity_type' => 'taxonomy_term',
+      'field_name' => 'field_category_color',
+      'label' => 'Color',
+      'required' => 1,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
         'weight' => '2',
       ),
     ),

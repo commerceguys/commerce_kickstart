@@ -77,6 +77,8 @@ dependencies[] = mimemail_compress
 dependencies[] = demo
 dependencies[] = cloud_zoom
 dependencies[] = pathauto
+dependencies[] = entityreference
+dependencies[] = commerce_fancy_attributes
 
 ; Install Features
 dependencies[] = features
