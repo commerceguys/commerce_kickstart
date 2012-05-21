@@ -694,6 +694,14 @@ ul.primary li a {
 .page-products .view-display-products li.views-row.last {
   padding-right: 0;
 }
+/* The colors display */
+.views-field-field-extractor-field-product {
+  margin-top: -15px;
+}
+.views-field-field-extractor-field-product li {
+  float: left;
+  margin-left: 0.3em !important;
+}
 /**
  * Collection page
  */

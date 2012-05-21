@@ -325,6 +325,35 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'product_list';
+  /* Field: Node: Field extracted from entity referenced through field Product */
+  $handler->display->display_options['fields']['field_extractor_field_product']['id'] = 'field_extractor_field_product';
+  $handler->display->display_options['fields']['field_extractor_field_product']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['field_extractor_field_product']['field'] = 'field_extractor_field_product';
+  $handler->display->display_options['fields']['field_extractor_field_product']['label'] = '';
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_extractor_field_product']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_extractor_field_product']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_extractor_field_product']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_extractor_field_product']['type'] = 'ul';
+  $handler->display->display_options['fields']['field_extractor_field_product']['field_name'] = 'field_color';
+  $handler->display->display_options['fields']['field_extractor_field_product']['formatter'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['field_extractor_field_product']['settings'] = array(
+    'view_mode' => 'add_to_cart_form',
+  );
   $handler->display->display_options['path'] = 'taxonomy/term/%';
   $export['collection_taxonomy_term'] = $view;
 
