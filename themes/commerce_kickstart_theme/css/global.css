@@ -288,11 +288,23 @@ ul.primary li a {
 }
 .block-menu-kickstart-user-menu .content ul li a {
   font-family: 'MuseoSlab300';
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
   color: #ffffff;
+  padding: 5px 6px;
   text-decoration: none;
 }
-.block-menu-kickstart-user-menu .content ul li a.active,
-.block-menu-kickstart-user-menu .content ul li a:hover {
+
+.block-menu-kickstart-user-menu ul li a.active {
+  background-color: #cecece;
+  color: #717171;
+  text-decoration: underline;
+}
+.block-menu-kickstart-user-menu ul li a.active:hover,
+.block-menu-kickstart-user-menu ul li a:hover {
+  background-color: #717171;
+  color: #ffffff;
   text-decoration: underline;
 }
 /* Cart block */
