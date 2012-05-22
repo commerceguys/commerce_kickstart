@@ -23,7 +23,8 @@
         $('.tipsy-link', $(this)).tipsy({
           trigger:'manual',
           gravity:'w',
-          html:true
+          html:true,
+          opacity: 1.0
         });
 
         var timer;
