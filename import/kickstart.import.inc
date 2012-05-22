@@ -132,21 +132,21 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
   $contents[] = array(
     'title' => "Ad push 1",
     'tagline' => "Your going thirsty",
-    'link' => 'taxonomy/term/35',
+    'link' => 'collection/drink',
     'type' => 'ad_push',
     'image' => 'ad-push-1.jpg',
   );
   $contents[] = array(
     'title' => "Ad push 2",
     'tagline' => 'Forget the Trees... Hug a Super Model.',
-    'link' => 'taxonomy/term/33',
+    'link' => 'collection/wear',
     'type' => 'ad_push',
     'image' => 'ad-push-2.jpg',
   );
   $contents[] = array(
     'title' => "Ad push 3",
     'tagline' => "Exclusive Limited Edition Print from Zoo York Available NOW!",
-    'link' => 'taxonomy/term/36',
+    'link' => 'collection/geek-out',
     'type' => 'ad_push',
     'image' => 'ad-push-3.jpg',
   );
@@ -172,7 +172,7 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
     'title' => "The latest & greatest what's new",
     'headline' => "What's News",
     'tagline' => "The latest & greatest",
-    'link' => 'taxonomy/term/33',
+    'link' => 'collection/wear',
     'type' => 'slideshow',
     'image' => 'slideshow-1.jpg',
   );
