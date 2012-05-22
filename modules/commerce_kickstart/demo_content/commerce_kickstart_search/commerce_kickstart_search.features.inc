@@ -169,8 +169,7 @@ function commerce_kickstart_search_default_search_api_server() {
         }
       }
     },
-    "enabled" : "1",
-    "rdf_mapping" : []
+    "enabled" : "1"
   }');
   return $items;
 }

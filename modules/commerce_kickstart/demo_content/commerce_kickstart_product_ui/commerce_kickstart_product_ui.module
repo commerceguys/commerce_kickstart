@@ -221,3 +221,14 @@ function theme_commerce_kickstart_product_ui_node_add_list($variables) {
   }
   return $output;
 }
+
+/**
+ * Implement hook_breadcrumb_alter().
+ */
+function commerce_kickstart_product_ui_page_alter(&$page) {
+  // The "all products" views URI.
+  if (current_path() == 'products') {
+    drupal_set_breadcrumb(array());
+  }
+}
+

@@ -175,6 +175,7 @@ ul.primary li a {
   left: -25px;
   text-indent: -9999px;
 }
+
 /**
  * Breadcrumb
  */
@@ -184,17 +185,41 @@ ul.primary li a {
   margin: 20px 0;
   padding: 13px 27px;
 }
+
+#region-breadcrumb .pseudo-breadcrumb {
+  background-color: #eeeeee;
+  border: 1px solid #d7d7d7;
+  margin: 20px 0;
+  padding: 10px 21px 35px 5px;
+}
+
+#region-breadcrumb li a,
+region-breadcrumb .pseudo-breadcrumb,
 .breadcrumb,
 .breadcrumb a {
   color: #898a8c;
 }
+
+#region-breadcrumb li a,
+region-breadcrumb .pseudo-breadcrumb,
 .breadcrumb a {
   font-weight: bold;
   text-decoration: none;
 }
+
+region-breadcrumb .pseudo-breadcrumb,
 .breadcrumb a:hover {
   text-decoration: underline;
 }
+
+#region-breadcrumb li {
+  color: #898a8c;
+  float: left;
+  font-weight: bold;
+  line-height: 23px;
+  text-decoration: none;
+}
+
 /**
  * Navigation
  */

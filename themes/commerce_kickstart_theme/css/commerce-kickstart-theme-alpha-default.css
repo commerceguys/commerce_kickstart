@@ -24,6 +24,7 @@ h2.site-name:after {
 /**
  * Breadcrumb
  */
+#region-breadcrumb .pseudo-breadcrumb,
 .breadcrumb {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
