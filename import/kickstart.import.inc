@@ -212,6 +212,23 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
   // Create the choosen tax.
   if (!empty($commerce_kickstart_choose_tax_country)) {
     if ($commerce_kickstart_choose_tax_country == 'us') {
+      $tax = array(
+        'name' => 'sample_californian_sales_tax',
+        'title' => 'Sample Californian Sales Tax 7,25%',
+        'display_title' => 'Sample Californian Sales Tax 7,25%',
+        'description' => '',
+        'rate' => 0.0725,
+        'type' => 'sales_tax', // vat
+        'rules_component' => '',
+        'default_rules_component' => FALSE,
+        'tax_component' => '',
+        'admin_list' => TRUE,
+        'calculation_callback' => 'commerce_tax_rate_calculate',
+        'module' => 'commerce_tax_ui',
+        'is_new' => TRUE,
+      );
+      commerce_tax_ui_tax_rate_save($tax);
+
       $rule = '{ "commerce_tax_rate_sample_californian_sales_tax" : {
         "LABEL" : "Calculate Sample Californian Sales Tax 7,25%",
         "PLUGIN" : "rule",
@@ -249,18 +266,8 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
 
       $tax = array(
         'name' => 'sample_californian_sales_tax',
-        'title' => 'Sample Californian Sales Tax 7,25%',
-        'display_title' => 'Sample Californian Sales Tax 7,25%',
-        'description' => '',
-        'rate' => 0.0725,
-        'type' => 'sales_tax', // vat
         'rules_component' => 'commerce_tax_rate_sample_californian_sales_tax',
-        'default_rules_component' => TRUE,
-        'tax_component' => '',
-        'admin_list' => TRUE,
-        'calculation_callback' => 'commerce_tax_rate_calculate',
-        'module' => 'commerce_tax_ui',
-        'is_new' => TRUE,
+        'is_new' => FALSE,
       );
       commerce_tax_ui_tax_rate_save($tax);
     }
