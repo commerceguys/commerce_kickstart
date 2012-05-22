@@ -77,6 +77,10 @@ body {
 }
 .zone-content {
   background-color: #ffffff;
+  margin-bottom: 40px;
+}
+.front .zone-content {
+  margin-bottom: 0;
 }
 .zone-postscript {
   margin-top: 20px;
@@ -111,7 +115,7 @@ body {
   width: 100%;
 }
 .region-content-inner {
-  padding: 10px 0;
+  padding: 10px 0 45px 0;
 }
 .front .region-content-inner {
   padding: 0;
@@ -819,7 +823,22 @@ body {
   background: url('../images/bg_product_attributes_bottom.png') center bottom no-repeat;
   padding-bottom: 50px;
 }
-
+/* Cloud zoom */
+.cloud-zoom-container #wrap {
+  z-index: 2 !important; /*fix overlay*/
+}
+.node-product-type #wrap {
+  float: right;
+}
+.node-product-type .cloud-zoom-gallery-thumbs {
+  float: left;
+}
+.node-product-type .cloud-zoom-gallery {
+  border: 1px solid #5b5b5b;
+  display: block;
+  margin: 5px 0;
+}
+/* Product details */
 .commerce-add-to-cart label {
   float: left;
   font-family: 'MuseoSlab500';
@@ -848,15 +867,23 @@ body {
 }
 /* Clearfix */
 .form-type-commerce-fancy-attributes-ajax:after {
+  clear: both;
   content: ".";
   display: block;
   height: 0;
-  clear: both;
   visibility: hidden;
 }
 /* Styling for the color attributes. */
 .form-type-commerce-fancy-attributes-ajax .form-item-attributes-field-color {
   float: left;
+}
+.form-type-commerce-fancy-attributes-ajax {
+  position: relative;
+}
+.form-type-commerce-fancy-attributes-ajax .ajax-progress-throbber {
+  position: absolute;
+  left: 0;
+  top: 15px;
 }
 
 /**
