@@ -340,9 +340,6 @@ function _commerce_kickstart_example_storage_device($operation, &$context) {
     ));
   }
 
-  $created_products = array();
-  $created_nodes = array();
-
   $product_names = _commerce_kickstart_parse_csv('storage_devices.csv');
 
   foreach ($product_names as $item) {
@@ -358,9 +355,8 @@ function _commerce_kickstart_example_storage_device($operation, &$context) {
     $taxonomy_id = array_pop(taxonomy_get_term_by_name($item['3']));
     $product->field_storage_capacity[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
 
-    // Save it and retain a copy.
+    // Save it
     commerce_product_save($product);
-    $created_products[] = $product;
   }
 }
 
@@ -399,8 +395,6 @@ function _commerce_kickstart_example_bags($operation, &$context) {
     _commerce_kickstart_add_term($term[0], $vocabulary, FALSE, NULL, NULL, $term[1]);
   }
 
-  $created_products = array();
-
   $product_names = _commerce_kickstart_parse_csv('bags_cases.csv');
   commerce_product_configure_product_type('bags_cases');
 
@@ -417,10 +411,8 @@ function _commerce_kickstart_example_bags($operation, &$context) {
     $taxonomy_id = array_pop(taxonomy_get_term_by_name($item[3]));
     $product->field_bag_size[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
 
-    // Save it and retain a copy.
+    // Save it
     commerce_product_save($product);
-    $created_products[] = $product;
-
   }
 }
 
@@ -448,7 +440,6 @@ function _commerce_kickstart_example_drinks($operation, &$context) {
     _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, $term[1]);
   }
 
-  $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('drinks.csv');
 
   foreach ($product_names as $sku => $item) {
@@ -462,9 +453,8 @@ function _commerce_kickstart_example_drinks($operation, &$context) {
     $taxonomy_id = array_pop(taxonomy_get_term_by_name($item[2]));
     $product->field_color[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
 
-    // Save it and retain a copy.
+    // Save it
     commerce_product_save($product);
-    $created_products[] = $product;
   }
 }
 
@@ -503,7 +493,6 @@ function _commerce_kickstart_example_hats($operation, &$context) {
     _commerce_kickstart_add_term($term[0], $vocabulary, TRUE, $term[1]);
   }
 
-  $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('hats.csv');
 
   foreach ($product_names as $sku => $item) {
@@ -519,9 +508,8 @@ function _commerce_kickstart_example_hats($operation, &$context) {
     $taxonomy_id = array_pop(taxonomy_get_term_by_name($item[3]));
     $product->field_hat_size[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
 
-    // Save it and retain a copy.
+    // Save it
     commerce_product_save($product);
-    $created_products[] = $product;
   }
 }
 
@@ -565,7 +553,6 @@ function _commerce_kickstart_example_shoes($operation, &$context) {
     _commerce_kickstart_add_term($term[0], $vocabulary, FALSE, NULL, NULL, $term[1]);
   }
 
-  $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('shoes.csv');
 
   foreach ($product_names as $sku => $item) {
@@ -576,14 +563,13 @@ function _commerce_kickstart_example_shoes($operation, &$context) {
     _commerce_kickstart_add_product_images($product, $images);
 
     // Add the taxonomy
-    $taxonomy_id = array_pop(taxonomy_get_term_by_name($item[2]));
-    $product->field_color[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
-    // Add the taxonomy
-    $taxonomy_id = array_pop(taxonomy_get_term_by_name($item[3]));
-    $product->field_shoe_size[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
-    // Save it and retain a copy.
+    $taxonomy_color = array_pop(taxonomy_get_term_by_name($item[2]));
+    $product->field_color[LANGUAGE_NONE][]['tid'] = $taxonomy_color->tid;
+    $taxonomy_size = array_pop(taxonomy_get_term_by_name($item[3]));
+    $product->field_shoe_size[LANGUAGE_NONE][]['tid'] = $taxonomy_size->tid;
+
+    // Save it
     commerce_product_save($product);
-    $created_products[] = $product;
   }
 }
 
@@ -627,7 +613,6 @@ function _commerce_kickstart_example_tops($operation, &$context) {
     _commerce_kickstart_add_term($term[0], $vocabulary, FALSE, NULL, NULL, $term[1]);
   }
 
-  $created_products = array();
   $product_names = _commerce_kickstart_parse_csv('tops.csv');
 
   foreach ($product_names as $item) {
@@ -638,14 +623,13 @@ function _commerce_kickstart_example_tops($operation, &$context) {
     _commerce_kickstart_add_product_images($product, $images);
 
     // Add the taxonomy
-    $taxonomy_id = array_pop(taxonomy_get_term_by_name($item[2]));
-    $product->field_color[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
-    $taxonomy_id = array_pop(taxonomy_get_term_by_name($item[3]));
-    $product->field_top_size[LANGUAGE_NONE][]['tid'] = $taxonomy_id->tid;
+    $taxonomy_color = array_pop(taxonomy_get_term_by_name($item[2]));
+    $product->field_color[LANGUAGE_NONE][]['tid'] = $taxonomy_color->tid;
+    $taxonomy_size = array_pop(taxonomy_get_term_by_name($item[3]));
+    $product->field_top_size[LANGUAGE_NONE][]['tid'] = $taxonomy_size->tid;
 
-    // Save it and retain a copy.
+    // Save it
     commerce_product_save($product);
-    $created_products[] = $product;
   }
 }
 
@@ -720,7 +704,6 @@ function _commerce_kickstart_example_display($operation, &$context) {
     _commerce_kickstart_add_term($term, $vocabulary, FALSE);
   }
 
-  $created_nodes = array();
   $product_display = _commerce_kickstart_parse_csv('product_display.csv');
 
   foreach ($product_display as $item) {
@@ -775,7 +758,6 @@ function _commerce_kickstart_example_display($operation, &$context) {
 
     // Save it and retain a copy.
     node_save($node);
-    $created_nodes[] = $node;
   }
 }
 
