@@ -392,7 +392,7 @@ function commerce_kickstart_product_field_default_fields() {
             'slide_style' => 'product_full',
             'zoom_position_fieldset' => array(
               'adjust_x' => '-5',
-              'adjust_x' => '-5',
+              'adjust_y' => '-5',
               'position' => 'inside',
               'zoom_height' => 'auto',
               'zoom_width' => 'auto',
@@ -749,7 +749,7 @@ function commerce_kickstart_product_field_default_fields() {
             'slide_style' => 'product_full',
             'zoom_position_fieldset' => array(
               'adjust_x' => '-5',
-              'adjust_x' => '-5',
+              'adjust_y' => '-5',
               'position' => 'inside',
               'zoom_height' => 'auto',
               'zoom_width' => 'auto',
@@ -1206,7 +1206,7 @@ function commerce_kickstart_product_field_default_fields() {
             'slide_style' => 'product_full',
             'zoom_position_fieldset' => array(
               'adjust_x' => '-5',
-              'adjust_x' => '-5',
+              'adjust_y' => '-5',
               'position' => 'inside',
               'zoom_height' => 'auto',
               'zoom_width' => 'auto',
@@ -1563,7 +1563,7 @@ function commerce_kickstart_product_field_default_fields() {
             'slide_style' => 'product_full',
             'zoom_position_fieldset' => array(
               'adjust_x' => '-5',
-              'adjust_x' => '-5',
+              'adjust_y' => '-5',
               'position' => 'inside',
               'zoom_height' => 'auto',
               'zoom_width' => 'auto',
@@ -1919,7 +1919,7 @@ function commerce_kickstart_product_field_default_fields() {
             'slide_style' => 'product_full',
             'zoom_position_fieldset' => array(
               'adjust_x' => '-5',
-              'adjust_x' => '-5',
+              'adjust_y' => '-5',
               'position' => 'inside',
               'zoom_height' => 'auto',
               'zoom_width' => 'auto',
