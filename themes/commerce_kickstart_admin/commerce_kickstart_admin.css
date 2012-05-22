@@ -1,0 +1,481 @@
+/* Import Font Families */
+@font-face {
+  font-family: "MuseoSlab";
+  src: url("fonts/Museo_Slab_100-webfont.eot");
+  src: url("fonts/Museo_Slab_100-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/Museo_Slab_100-webfont.woff") format("woff"), url("fonts/Museo_Slab_100-webfont.ttf") format("truetype"), url("fonts/Museo_Slab_100-webfont.svg#MuseoSans100") format("svg");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MuseoSlab";
+  src: url("fonts/Museo_Slab_300-webfont.eot");
+  src: url("fonts/Museo_Slab_300-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/Museo_Slab_300-webfont.woff") format("woff"), url("fonts/Museo_Slab_300-webfont.ttf") format("truetype"), url("fonts/Museo_Slab_300-webfont.svg#MuseoSans300") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MuseoSlab";
+  src: url("fonts/Museo_Slab_500-webfont.eot");
+  src: url("fonts/Museo_Slab_500-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/Museo_Slab_500-webfont.woff") format("woff"), url("fonts/Museo_Slab_500-webfont.ttf") format("truetype"), url("fonts/Museo_Slab_500-webfont.svg#MuseoSans500") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MuseoSlab";
+  src: url("fonts/Museo_Slab_500italic-webfont.eot");
+  src: url("fonts/Museo_Slab_500italic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/Museo_Slab_500italic-webfont.woff") format("woff"), url("fonts/Museo_Slab_500italic-webfont.ttf") format("truetype"), url("fonts/Museo_Slab_500italic-webfont.svg#MuseoSans500") format("svg");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "MuseoSlab";
+  src: url("fonts/Museo_Slab_700-webfont.eot");
+  src: url("fonts/Museo_Slab_700-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/Museo_Slab_700-webfont.woff") format("woff"), url("fonts/Museo_Slab_700-webfont.ttf") format("truetype"), url("fonts/Museo_Slab_700-webfont.svg#MuseoSans700") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Base Admin Theme Styles */
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  /*font-family: "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: "MuseoSlab", Arial, sans-serif;
+}
+a {
+  color: #36a2f6;
+}
+
+/* Installation/Maintenance Page */
+body.in-maintenance .body-wrapper {
+  background: #191818 url("images/bg-maintenance.png") repeat-x 0 0;
+  border-top: 12px solid #36a2f6;
+  padding-bottom: 30px;
+  min-height: 1220px;
+}
+body.in-maintenance #branding {
+  background: transparent;
+}
+body.in-maintenance #branding h1.page-title {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 52px;
+  line-height: 1em;
+  font-weight: 100;
+}
+body.in-maintenance #page {
+  width: 960px;
+  background: rgba(255,255,255,.5);
+  padding: 8px 6px;
+}
+body.in-maintenance .page-wrapper {
+  background: #ebebeb;
+  border: 1px solid #fff;
+  padding: 40px;
+}
+body.in-maintenance .logo-wrapper {
+  text-align: center;
+}
+body.in-maintenance #logo {
+  max-width: 100%;
+}
+body.in-maintenance #sidebar-first {
+  width: 270px;
+}
+body.in-maintenance ol.task-list li {
+  background: transparent url("images/tasks.png") no-repeat 0 0;
+  color: #999999;
+  padding: 2px 0 2px 30px;
+  margin: 0 0 17px 0;
+  font: normal 300 22px/22px "MuseoSlab", Arial, sans-serif;
+}
+body.in-maintenance ol.task-list li.active {
+  background-position: 0 -27px;
+  color: #585858;
+}
+body.in-maintenance ol.task-list li.done {
+  background-position: 0 -54px;
+  color: #75cd27;
+}
+
+/* Setting Museo Slab Family */
+h1, h2, h3, h4, h5, h6, ul.admin-list li a, div.breadcrumb, fieldset .fieldset-legend {
+  font-family: "MuseoSlab", Arial, sans-serif;
+}
+
+/* Form Overrides */
+
+fieldset.form-wrapper {
+  border: 0;
+  margin-bottom: 2em;
+}
+fieldset .fieldset-wrapper {
+  border: 1px solid #fff;
+  background: #fff url("images/bg-fieldset.jpg") repeat-y right top;
+  outline: 1px solid #ccc;
+  padding: 15px;
+}
+fieldset .fieldset-legend {
+  text-transform: none;
+  font-weight: 300;
+  margin-top: 0;
+  font-size: 28px;
+}
+fieldset.collapsible .fieldset-legend {
+  font-size: 15px;
+  font-weight: 500;
+}
+body.in-maintenance fieldset .fieldset-legend {
+  font-size: 28px;
+}
+.form-item, .form-item .form-item {
+  position: relative;
+}
+.form-item label {
+  font-size: 15px;
+  font-weight: 500;
+}
+.form-item div.description, fieldset p {
+  font-size: 13px;
+  font-weight: 100;
+}
+input.form-autocomplete,
+input.form-text,
+input.form-file,
+textarea.form-textarea {
+  background: #e6e6e6;
+  border: 1px solid #fff;
+  outline: 1px solid #e0e0e0;
+  font: normal 300 14px/14px "MuseoSlab", Arial, sans-serif;
+  padding: 5px 10px;
+  color: #4c4c4c;
+}
+input.form-autocomplete:focus,
+input.form-text:focus,
+input.form-file:focus,
+textarea.form-textarea:focus {
+  background-color: #fff;
+  color: #000;
+}
+.exposed-filters .form-item label {
+  float: none;
+}
+#edit-operation {
+  margin-top: 6px;
+}
+span.customStyleSelectBox {
+  font: normal 300 14px/14px "MuseoSlab", Arial, sans-serif;
+  color: #4c4c4c;
+  background: #f0eeee url("images/select.png") no-repeat right top;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: inset 0 0 2px #fff;
+  white-space: nowrap;
+}
+span.customStyleSelectBoxInner {
+  width: auto !important;
+  padding: 5px 25px 5px 10px;
+}
+body.in-maintenance .form-submit {
+  background: #60aa20 url("images/button.png") repeat-x 0 0;
+  font: normal 300 26px/26px "MuseoSlab", Arial, sans-serif;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 15px 12px;
+}
+body.in-maintenance .form-submit:hover {
+  background: #79d428 url("images/button-over.png") repeat-x 0 0;
+}
+#edit-account-commerce-kickstart-name label,
+#edit-account-commerce-kickstart-password label {
+  float: left;
+  margin-right: 10px;
+}
+
+/* Overlay Styles */
+
+ul.admin-list li {
+  padding-top: 11px;
+}
+ul.admin-list li a {
+  font-size: 16px;
+}
+a.tabledrag-handle .handle {
+  height: 25px;
+  width: 25px;
+}
+#overlay-container .overlay-modal-background {
+  background: transparent url("images/overlay.png") repeat 0 0 !important;
+}
+#overlay-close-wrapper {
+  height: 50px;
+  width: 45px;
+  right: -34px;
+  background: transparent url("images/bg-close.png") no-repeat right top;
+  margin-top: 15px;
+}
+#overlay-close, #overlay-close:hover {
+  background: transparent url("images/close.png") no-repeat 0 0;
+  height: 40px;
+  width: 40px;
+  top: 5px
+}
+
+h1#overlay-title {
+  font: normal 100 52px/52px "MuseoSlab", Arial, sans-serif;
+  text-shadow: 2px 2px 0 #5c5a5a;
+}
+#overlay {
+  width: 950px;
+  max-width: 88%;
+}
+#overlay-titlebar,
+#overlay-content {
+  width: 950px;
+  max-width: 100%;
+  white-space: normal;
+}
+#overlay #overlay-content {
+  background: rgba(255,255,255,.9);
+  padding: 4.2105%; /* 40px/950px */
+  margin-bottom: 200px;
+}
+#overlay #overlay-content #branding,
+#overlay #overlay-content #page {
+  background: transparent;
+  padding: 0;
+  width: auto;
+  max-width: 100%;
+}
+#overlay-titlebar .add-or-remove-shortcuts {
+  padding-bottom: .9em;
+}
+#credit {
+  width: 950px;
+  margin:  0 auto;
+  padding-top: 20px;
+  color: #fff;
+  font: normal 13px/13px "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#overlay #overlay-content #credit {
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+#credit .message {
+  margin-bottom: 20px;
+  float: right;
+  clear: right;
+}
+#credit .logo a {
+  float: right;
+  clear: right;
+  height: 0;
+  overflow: hidden;
+  background: transparent url("images/logo-cg.png") no-repeat 0 0;
+  padding: 50px 0 0;
+  width: 180px;
+}
+.breadcrumb {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  color: transparent;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.breadcrumb a,
+.breadcrumb span {
+  float: left;
+  margin: 0 5px 0 0;
+}
+.breadcrumb a {
+  color: #040404;
+  font-size: 13px;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  color: #36a2f6;
+}
+.breadcrumb span {
+  background: transparent url("images/breadcrumb.png") no-repeat 0 0;
+  height: 10px;
+  width: 10px;
+  margin-top: 5px;
+}
+.advanced-help-topic {
+  border: 1px solid #c1c1c1;
+  padding: 3px;
+  background: #fff;
+  margin-bottom: 30px;
+}
+.advanced-help-topic .ui-accordion h2.ui-accordion-header {
+  background: transparent url("images/incomplete.png") no-repeat 96.064814% center; /* 800 / 870 */
+  border-width: 0 0 1px 0;
+}
+.advanced-help-topic .ui-accordion h2.ui-accordion-header.checked {
+  background: transparent url("images/complete.png") no-repeat 96.064814% center; /* 800 / 870 */
+}
+.advanced-help-topic .ui-accordion h2.ui-accordion-header:nth-child(2n+2) {
+  background-color: #ccc !important;
+}
+.advanced-help-topic .ui-accordion h2.ui-accordion-header a {
+  font: normal 500 19px/19px "MuseoSlab", Arial, sans-serif;
+  color: #000;
+  padding: 20px 20px 20px 95px;
+}
+.advanced-help-topic .design a {
+  background: transparent url("images/design.png") no-repeat 30px 0;
+}
+.advanced-help-topic .design .ui-icon {
+  left: 180px;
+}
+.advanced-help-topic .products .ui-accordion-header a {
+  background: transparent url("images/products.png") no-repeat 30px 0;
+}
+.advanced-help-topic .products .ui-accordion-header .ui-icon {
+  left: 215px;
+}
+.advanced-help-topic .content .ui-accordion-header a {
+  background: transparent url("images/content.png") no-repeat 30px 0;
+}
+.advanced-help-topic .content .ui-accordion-header .ui-icon {
+  left: 200px;
+}
+.advanced-help-topic .configuration .ui-accordion-header a {
+  background: transparent url("images/store.png") no-repeat 30px 0;
+}
+.advanced-help-topic .configuration .ui-accordion-header .ui-icon {
+  left: 345px;
+}
+.advanced-help-topic .launch .ui-accordion-header a {
+  background: transparent url("images/launch.png") no-repeat 30px 0;
+}
+.advanced-help-topic .launch .ui-accordion-header .ui-icon {
+  left: 260px;
+}
+.advanced-help-topic h2.ui-state-active a,
+.advanced-help-topic .products h2.ui-state-active a,
+.advanced-help-topic .content h2.ui-state-active a,
+.advanced-help-topic .configuration h2.ui-state-active a,
+.advanced-help-topic .launch h2.ui-state-active a {
+  background-position: 30px -70px;
+}
+.ui-accordion .ui-accordion-header .ui-icon {
+  background: transparent url("images/expandable.png") no-repeat 0 0;
+  height: 12px;
+  margin-top: -5px;
+}
+.ui-accordion .ui-accordion-header .ui-icon-triangle-1-s {
+  background-position: 0 -12px;
+}
+.ui-accordion .ui-accordion-content {
+  border-width: 0 0 1px 0;
+}
+.help-section {
+  padding: 5px 4.86111% 5px 10.76388%; /* 42 / 864 and 93/864 */
+}
+.help-section h3,
+.help-section h3 a {
+  font-weight: 300;
+  font-size: 16px;
+}
+.help-section .tipsy-link {
+  float: left;
+  height: 0;
+  overflow: hidden;
+  padding: 26px 0 0;
+  background: transparent url("images/help.png") no-repeat 0 0;
+  width: 26px;
+  margin-top: 6px;
+}
+.tipsy-w .tipsy-arrow {
+  background: transparent url("images/tipsy-arrow2.png") no-repeat left center;
+  height: 30px;
+  width: 40px;
+  left: -25px;
+  top: 45%;
+}
+.tipsy-inner {
+  background: rgba(255,240,187,.86);
+  border: 1px solid #efb120;
+  border-radius: 18px;
+  box-shadow: inset 0 0 10px #fff;
+  opacity: 1!important;
+  padding: 0;
+  left: 35px;
+  font-size: 14px;
+}
+.tipsy-inner h4 {
+  border-bottom: 1px solid #efb120;
+  border-radius: 18px 18px 0 0;
+  background: rgba(255,240,187,1);
+  box-shadow: inset 0 0 10px #fff;
+  margin: 0;
+  padding: 15px 30px;
+  font: normal 500 16px/16px "MuseoSlab", Arial, sans-serif;
+}
+.tipsy-inner h4 a {
+  color: #000;
+}
+.tipsy-inner .content-wrapper {
+  padding: 10px 30px;
+  font-weight: 100;
+}
+.tipsy-inner .content-wrapper a {
+  color: #0d0d0d;
+  font-weight: 300;
+}
+.tipsy-inner .content-wrapper a.help {
+  background: transparent url("images/help2.png") no-repeat right top;
+  padding: 5px 30px 5px 0;
+}
+.tipsy-inner .content-wrapper a.more {
+  background: transparent url("images/more2.png") no-repeat right top;
+  padding: 5px 30px 5px 0;
+}
+#block-commerce-kickstart-help-commerce-kickstart-help {
+  border: 1px solid #efb120;
+  border-radius: 15px;
+  width: 48.27586%; /* 420px/870px */
+  margin: 0;
+  min-height: 210px;
+}
+.block-commerce-kickstart-help h2 {
+  font: normal 500 26px/26px "MuseoSlab", Arial, sans-serif;
+  color: #acacac;
+}
+#block-commerce-kickstart-help-commerce-kickstart-help {
+  padding-left: 30px;
+}
+#block-commerce-kickstart-help-commerce-kickstart-help h2 {
+  background: transparent url("images/help-lg.png") no-repeat 0 0;
+  padding: 5px 0 5px 40px;
+}
+#block-commerce-kickstart-help-commerce-kickstart-help .content {
+  padding-left: 40px;
+}
+input.form-submit, a.button {
+  font: normal 300 16px/16px "MuseoSlab", Arial, sans-serif;
+  border: 1px solid #fff;
+  box-shadow: 0 0 2px #999;
+  border-radius: 10px;
+  padding: 10px;
+}
+input.form-submit:hover, a.button:hover {
+
+}
+.form-actions #edit-submit {
+  background: #60aa20 url("images/button.png") repeat-x 0 0;
+  color: #fff;
+}

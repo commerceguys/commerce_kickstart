@@ -24,7 +24,8 @@
           trigger:'manual',
           gravity:'w',
           html:true,
-          opacity: 1.0
+          opacity: 1.0,
+          offset: 45
         });
 
         var timer;

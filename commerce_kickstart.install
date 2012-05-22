@@ -8,7 +8,7 @@
 
 // Define some Commerce Kickstart specific components.
 define('KICKSTART_DEFAULT_THEME', 'commerce_kickstart_theme');
-define('KICKSTART_ADMIN_THEME', 'seven');
+define('KICKSTART_ADMIN_THEME', 'commerce_kickstart_admin');
 
 /**
  * Implements hook_install().
@@ -296,9 +296,9 @@ function commerce_kickstart_install() {
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'seven')
+    ->condition('name', KICKSTART_ADMIN_THEME)
     ->execute();
-  variable_set('admin_theme', 'seven');
+  variable_set('admin_theme', KICKSTART_ADMIN_THEME);
   variable_set('node_admin_theme', '1');
 
   // Set Mimemail.
