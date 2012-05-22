@@ -72,10 +72,10 @@ function  demo_disable_me() {
  * Implements hook_page_alter().
  */
 function demo_page_alter(&$page) {
-  global $base_url, $base_path;
+  global $base_url;
   $message = 'You are in commerce kickstart demo mode';
   $url = '/admin/demo';
-  $icon_path = $base_url . $base_path . drupal_get_path('module', 'demo') . '/images/';
+  $icon_path = $base_url . '/' . drupal_get_path('module', 'demo') . '/images/';
   drupal_add_js(array('demo' => array('message' => filter_xss_admin($message), 'icons_path' => $icon_path, 'url' => $url)), 'setting');
   drupal_add_js(drupal_get_path('module', 'demo') . '/demo.js');
 }
