@@ -160,7 +160,7 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['alter_text'] = 1;
-  $handler->display->display_options['fields']['name']['alter']['text'] = '<a href="!1#[tid]">[name]</a>';
+  $handler->display->display_options['fields']['name']['alter']['text'] = '<a href="!2#[tid]">[name]</a>';
   $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['name']['alter']['external'] = 0;
