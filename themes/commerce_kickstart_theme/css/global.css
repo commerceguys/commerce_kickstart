@@ -251,31 +251,31 @@ body {
 }
 
 /* User menu */
-.block-menu-kickstart-user-menu ul,
-.block-menu-kickstart-user-menu ul li {
+.block-menu-kickstart-user-menu .content ul,
+.block-menu-kickstart-user-menu .content ul li {
   display: inline;
   float: left;
   margin: 0;
 }
-.block-menu-kickstart-user-menu ul {
+.block-menu-kickstart-user-menu .content ul {
   margin-top: 2px;
 }
-.block-menu-kickstart-user-menu ul li {
+.block-menu-kickstart-user-menu .content ul li {
   padding-bottom: 3px;
 }
-.block-menu-kickstart-user-menu ul li.first {
+.block-menu-kickstart-user-menu .content ul li.first {
   border-right: 1px solid #ffffff;
 }
-.block-menu-kickstart-user-menu ul li.last {
+.block-menu-kickstart-user-menu .content ul li.last {
   padding-left: 7px;
 }
-.block-menu-kickstart-user-menu ul li a {
+.block-menu-kickstart-user-menu .content ul li a {
   font-family: 'MuseoSlab300';
   color: #ffffff;
   text-decoration: none;
 }
-.block-menu-kickstart-user-menu ul li a.active,
-.block-menu-kickstart-user-menu ul li a:hover {
+.block-menu-kickstart-user-menu .content ul li a.active,
+.block-menu-kickstart-user-menu .content ul li a:hover {
   text-decoration: underline;
 }
 /* Cart block */
