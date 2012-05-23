@@ -24,6 +24,7 @@ projects[features][patch][] = "http://drupal.org/files/features_1537838_features
 projects[features][patch][] = "http://drupal.org/files/features-1530386-10-improve_installation_performance.patch"
 projects[features][patch][] = "http://drupal.org/files/1572578-part-one.patch"
 projects[features][patch][] = "http://drupal.org/files/1574716-avoid-field-cache-rebuilds.patch"
+projects[features][patch][] = "http://drupal.org/files/1597186-1-features-do-not-cache-includes.patch"
 projects[features][subdir] = "contrib"
 projects[strongarm][version] = 2.0-rc1
 projects[strongarm][subdir] = "contrib"
