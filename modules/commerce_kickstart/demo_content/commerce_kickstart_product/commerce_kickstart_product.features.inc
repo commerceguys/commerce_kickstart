@@ -224,7 +224,7 @@ function commerce_kickstart_product_image_default_styles() {
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => '110',
-          'height' => '110',
+          'height' => '130',
         ),
         'weight' => '1',
       ),
