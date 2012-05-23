@@ -96,9 +96,7 @@ function commerce_kickstart_inline_close_help_form_ajax($form, &$form_state, $id
 }
 
 /**
- * 'changed' callback.
- *
- * @see ajax_command_changed()
+ * Ajax form callback.
  */
 function commerce_kickstart_inline_ajax_open_callback($form, $form_state) {
   $id = $form_state['build_info']['args'][0];
@@ -107,15 +105,13 @@ function commerce_kickstart_inline_ajax_open_callback($form, $form_state) {
 
   $help_status[$id] = TRUE;
   variable_set('kickstart_inline_help', $help_status);
-
-  return array('#type' => 'ajax', '#commands' => array());
-
+  $commands = array();
+  $commands[] = commerce_kickstart_inline_help_command_ajax('open');
+  return array('#type' => 'ajax', '#commands' => $commands);
 }
 
 /**
- * 'changed' callback.
- *
- * @see ajax_command_changed()
+ * Ajax form callback.
  */
 function commerce_kickstart_inline_ajax_close_callback($form, $form_state) {
   $id = $form_state['build_info']['args'][0];
@@ -125,6 +121,25 @@ function commerce_kickstart_inline_ajax_close_callback($form, $form_state) {
   $help_status[$id] = FALSE;
   variable_set('kickstart_inline_help', $help_status);
 
-  return array('#type' => 'ajax', '#commands' => array());
+  $commands = array();
+  $commands[] = commerce_kickstart_inline_help_command_ajax('close');
+  return array('#type' => 'ajax', '#commands' => $commands);
+}
 
+
+function commerce_kickstart_inline_help_command_ajax($action) {
+  if ($action == 'open') {
+    return array(
+      'command' => 'commerce_kickstart_inline_help_open',
+      'title' => '',
+      'output' => '',
+    );
+  }
+  else {
+    return array(
+      'command' => 'commerce_kickstart_inline_help_close',
+      'title' => '',
+      'output' => '',
+    );
+  }
 }
