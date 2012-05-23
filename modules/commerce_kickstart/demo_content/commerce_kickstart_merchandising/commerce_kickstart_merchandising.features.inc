@@ -25,7 +25,7 @@ function commerce_kickstart_merchandising_node_info() {
       'description' => t('Use <em>ad push</em> to promote content on the homepage.'),
       'has_title' => '1',
       'title_label' => t('Title'),
-      'help' => '',
+      'help' => t('Title field is for administrative purpose only and will not be displayed on the site.'),
     ),
     'slideshow' => array(
       'name' => t('Slideshow'),

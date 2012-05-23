@@ -252,7 +252,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'bundle' => 'ad_push',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Link this content to a URL. It can either be relative to your site (<em>all-products</em>) or absolute.',
+      'description' => 'Link this content to a URL. It can either be relative to your site (for example : <em>all-products</em>) or an absolute path.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -575,7 +575,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'bundle' => 'slideshow',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Link this content to a URL. It can either be relative to your site (<em>all-products</em>) or absolute.',
+      'description' => 'Link this content to a URL. It can either be relative to your site (for example : <em>all-products</em>) or an absolute path.',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
