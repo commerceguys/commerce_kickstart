@@ -1,0 +1,7 @@
+name = Commerce Kickstart User UI
+description = "Provides custom user interface."
+core = 7.x
+package = Commerce Kickstart
+php = 5.2.4
+
+dependencies[] = user

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * Implementation of hook_menu_alter().
+ */
+function commerce_kickstart_user_ui_menu_alter(&$items) {
+  $items['user']['type'] = MENU_CALLBACK;
+  $items['user/register']['type'] = MENU_CALLBACK;
+  $items['user/password']['type'] = MENU_CALLBACK;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function commerce_kickstart_user_ui_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_login') {
+    $form['#attached']['css'][] = drupal_get_path('module', 'commerce_kickstart_user_ui') . '/theme/commerce_kickstart_user_ui.css';
+    $form['#attributes']['class'] = 'tooltip';
+    $form['name']['#attributes']['placeholder'] = $form['name']['#title'];
+    $form['pass']['#attributes']['placeholder'] = $form['pass']['#title'];
+    $form['pass']['#suffix'] = '<div>' . l(t('Request new password'), 'user/password', array('attributes' => array('class' => 'login-password', 'title' => t('Get a new password')))) . '</div>';
+  }
+  elseif ($form_id == 'user_pass') {
+    $form['#attached']['css'][] = drupal_get_path('module', 'commerce_kickstart_user_ui') . '/theme/commerce_kickstart_user_ui.css';
+    $form['#attributes']['class'] = 'tooltip';
+    $form['name']['#attributes']['placeholder'] = $form['name']['#title'];
+  }
+  elseif ($form_id == 'user_register_form' ||
+          $form_id == 'user_login_block') {
+    $form['#attached']['css'][] = drupal_get_path('module', 'commerce_kickstart_user_ui') . '/theme/commerce_kickstart_user_ui.css';
+    $form['#attributes']['class'] = 'tooltip';
+    $form['account']['name']['#attributes']['placeholder'] = $form['account']['name']['#title'];
+    $form['account']['mail']['#attributes']['placeholder'] = $form['account']['mail']['#title'];
+  }
+  elseif ($form_id == 'user_profile_form') {
+    $form['#attached']['css'][] = drupal_get_path('module', 'commerce_kickstart_user_ui') . '/theme/commerce_kickstart_user_ui.css';
+    $form['#attributes']['class'] = 'tooltip';
+  }
+}
