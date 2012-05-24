@@ -891,10 +891,10 @@ ul.primary li a {
 .form-type-commerce-fancy-attributes-ajax .form-item-attributes-field-color {
   float: left;
 }
-.form-type-commerce-fancy-attributes-ajax, .form-item-attributes-field-top-size {
+.form-type-commerce-fancy-attributes-ajax {
   position: relative;
 }
-.form-type-commerce-fancy-attributes-ajax .ajax-progress-throbber, .form-item-attributes-field-top-size .ajax-progress-throbber {
+.form-type-commerce-fancy-attributes-ajax .ajax-progress-throbber {
   position: absolute;
   left: 0;
   top: 15px;
