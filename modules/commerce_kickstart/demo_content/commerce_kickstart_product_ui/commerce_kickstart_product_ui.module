@@ -67,6 +67,14 @@ function commerce_kickstart_product_ui_theme(&$existing) {
 }
 
 /**
+ * Implements hook_theme_registry_alter().
+ */
+function commerce_kickstart_product_ui_theme_registry_alter(&$theme_registry) {
+  // Split node add list in two columns.
+  $theme_registry['node_add_list']['function'] = 'theme_commerce_kickstart_product_ui_node_add_list';
+}
+
+/**
  * Override facetapi default title.
  */
 function theme_commerce_kickstart_product_ui_facetapi_title($variables) {
@@ -187,4 +195,43 @@ function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id
     $form['search_api_views_fulltext']['#size'] = 34;
     $form['search_api_views_fulltext']['#attributes']['placeholder'] = t('Search');
   }
+}
+
+/**
+ * Override node_add_list theme.
+ *
+ * Split node add list in two columns : regular node types & product display.
+ */
+function theme_commerce_kickstart_product_ui_node_add_list($variables) {
+  drupal_add_css(drupal_get_path('module', 'commerce_kickstart_product_ui') . '/css/node-add-list-columns.css');
+  $product_display = commerce_product_reference_node_types();
+  $product_display = array_keys($product_display);
+  $content = $variables['content'];
+  $output = '';
+  if ($content) {
+    $output_content = '<ul class="admin-list columns"><p>'. t('Add content') . '</p>';
+    $output_product_display = '<ul class="admin-list columns"><p>' . t('Add product') . '</p>';
+    foreach ($content as $item) {
+      $item_output = '<li class="clearfix">';
+      $item_output .= '<span class="label">' . l($item['title'], $item['href'], $item['localized_options']) . '</span>';
+      $item_output .= '<div class="description">' . filter_xss_admin($item['description']) . '</div>';
+      $item_output .= '</li>';
+
+      $node_type = unserialize($item['page_arguments']);
+      $node_type = $node_type[0];
+      if (in_array($node_type, $product_display)) {
+        $output_product_display .= $item_output;
+      }
+      else {
+        $output_content .= $item_output;
+      }
+    }
+    $output_content .= '</ul>';
+    $output_product_display .= '</ul>';
+    $output = $output_content . $output_product_display;
+  }
+  else {
+    $output = '<p>' . t('You have not created any content types yet. Go to the <a href="@create-content">content type creation page</a> to add a new content type.', array('@create-content' => url('admin/structure/types/add'))) . '</p>';
+  }
+  return $output;
 }

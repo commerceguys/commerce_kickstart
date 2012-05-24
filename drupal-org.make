@@ -54,6 +54,7 @@ projects[cloud_zoom][patch][] = "http://drupal.org/files/1579380-cloud-zoom-all-
 projects[commerce][version] = 1.x-dev
 projects[commerce][subdir] = "contrib"
 projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
+projects[commerce][patch][] = "http://drupal.org/files/commerce_product_reference_node_types.diff"
 projects[commerce_features][version] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"

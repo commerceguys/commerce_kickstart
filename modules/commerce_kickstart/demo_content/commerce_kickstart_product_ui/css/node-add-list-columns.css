@@ -1,0 +1,8 @@
+/*
+ * Node add page, two columns layout.
+ */
+ul.admin-list.columns {
+    width: 45%;
+    float: left;
+    margin: 0 20px;
+}
