@@ -19,6 +19,25 @@ confirm () {
   esac
 }
 
+# Figure out directory real path.
+realpath () {
+  TARGET_FILE=$1
+
+  cd `dirname $TARGET_FILE`
+  TARGET_FILE=`basename $TARGET_FILE`
+
+  while [ -L "$TARGET_FILE" ]
+  do
+    TARGET_FILE=`readlink $TARGET_FILE`
+    cd `dirname $TARGET_FILE`
+    TARGET_FILE=`basename $TARGET_FILE`
+  done
+
+  PHYS_DIR=`pwd -P`
+  RESULT=$PHYS_DIR/$TARGET_FILE
+  echo $RESULT
+}
+
 usage() {
   echo "Usage: build.sh [-y] <DESTINATION_PATH>" >&2
   echo "Use -y to skip deletion confirmation" >&2
@@ -50,14 +69,7 @@ if [ ! -f drupal-org.make ]; then
   exit 1
 fi
 
-# Debian realpath package needs existing parameter.
-if [ ! -d $DESTINATION ]; then
-  mkdir $DESTINATION
-  DESTINATION=$(/usr/bin/realpath $DESTINATION)
-  rmdir $DESTINATION
-else
-  DESTINATION=$(/usr/bin/realpath $DESTINATION)
-fi
+DESTINATION=$(realpath $DESTINATION)
 
 case $OSTYPE in
   darwin*)
