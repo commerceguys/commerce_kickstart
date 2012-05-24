@@ -35,16 +35,15 @@ if(window.__noconflict){ jQuery.noConflict();}
 
     // Show the activebar
     if(options.preload){
-    var load = {a:0, b:0}
+      var load = {a:0}
 
-    function preloadInit(){
-      if(load.a && load.b){
-        $.fn.activebar.show();
+      function preloadInit(){
+        if(load.a){
+          $.fn.activebar.show();
+        }
       }
-    }
 
-    $('<img src="'+options.icons_path+'question.png" class="normal">').load(function(){load.a=1; preloadInit()});
-    $('<img src="'+options.icons_path+'question.png" class="normal">').load(function(){load.b=1; preloadInit()});
+      $('<img src="'+options.icons_path+'question.png" class="normal">').load(function(){load.a=1; preloadInit()});
 
     }else{
       $.fn.activebar.show();
@@ -86,13 +85,8 @@ if(window.__noconflict){ jQuery.noConflict();}
       return;
     }
 
-    $.fn.activebar.state = 2;
-    $.fn.activebar.container.css( 'display', 'block' );
-
-    var height = $.fn.activebar.container.height();
-    $.fn.activebar.container.animate({'bottom': '+=' + height + 'px'}, height * 20, 'linear', function() {
-      $.fn.activebar.state = 3;
-    });
+    $.fn.activebar.container.css({ 'display': 'block', 'bottom': '0' });
+    $.fn.activebar.state = 3;
   };
 
   /**
@@ -210,7 +204,7 @@ if(window.__noconflict){ jQuery.noConflict();}
         'border-radius': '4px'
       })
       .click(function(event) {
-        window.location.href = '/admin/demo';
+        window.location.href = options.kill_url;
         event.stopPropagation();
       });
     setOptionsOnContainer( killbutton );
@@ -234,7 +228,7 @@ if(window.__noconflict){ jQuery.noConflict();}
       })
       .click(function(event) {
         $.fn.activebar.hide();
-        $.get('/admin/demo/disable');
+        $.get(options.disable_url);
         event.stopPropagation();
       });
     setOptionsOnContainer( closeButton );
