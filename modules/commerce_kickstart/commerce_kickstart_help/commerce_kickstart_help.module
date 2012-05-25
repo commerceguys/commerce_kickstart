@@ -1,23 +1,27 @@
 <?php
 
 /**
- * Implementation of hook_menu().
+ * @file
+ * Provides a "Getting Started" screen, with main help topics for Kickstart.
  */
-function commerce_kickstart_help_menu() {
-  // A menu callback is required when using ajax outside of the Form API.
-  $items['admin/commerce_kickstart_help/ajax'] = array(
-    'page callback' => 'commerce_kickstart_help_ajax_callback',
-    'access callback' => 'user_access',
-    'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
-  );
-  return $items;
+
+/**
+ * Implements hook_menu_alter().
+ */
+function commerce_kickstart_help_menu_link_alter(&$link) {
+  // Alter the menu item that is displayed in the toolbar to redirect the user
+  // to the getting started page.
+  if ($link['link_path'] == 'admin/advanced_help') {
+    $link['link_path'] = 'help/commerce_kickstart_help/getting-started';
+  }
 }
 
 /**
- * Implementation of hook_admin_paths().
+ * Implements of hook_admin_paths().
  */
 function commerce_kickstart_admin_paths() {
+  // Register help's pages ad admin pages, so they will be displayed in the
+  // overlay.
   $paths = array(
     'help/commerce_kickstart_help' => TRUE,
     'help/commerce_kickstart_help/*' => TRUE,
@@ -57,12 +61,15 @@ function commerce_kickstart_help_ajax_callback($type = 'ajax', $var) {
 function commerce_kickstart_help_advanced_help_topic_alter(&$output, $popup) {
   preg_match_all('#\#\#(.*)\#\##', $output, $matches);
   array_shift($matches);
-  foreach($matches[0] as $match) {
+  foreach ($matches[0] as $match) {
     $form = drupal_get_form('commerce_kickstart_help_form_ajax', $match);
     $output = str_replace('##' . $match . '##', render($form), $output);
   }
 }
 
+/**
+ * Form callback.
+ */
 function commerce_kickstart_help_form_ajax($form, &$form_state, $id) {
   $values = variable_get('kickstart_help', array());
   $form['changed_command_example'] = array(
@@ -70,18 +77,16 @@ function commerce_kickstart_help_form_ajax($form, &$form_state, $id) {
     '#type' => 'checkbox',
     '#default_value' => isset($values[$id]) ? $values[$id] : FALSE,
     '#ajax' => array(
-      'callback' => 'commerce_kickstart_ajax_changed_callback',
+      'callback' => 'commerce_kickstart_ajax_help_checked_callback',
     ),
   );
   return $form;
 }
 
 /**
- * 'changed' callback.
- *
- * @see ajax_command_changed()
+ * Ajax callback.
  */
-function commerce_kickstart_ajax_changed_callback($form, $form_state) {
+function commerce_kickstart_ajax_help_checked_callback($form, $form_state) {
   $id = $form_state['build_info']['args'][0];
 
   $help = variable_get('kickstart_help', array());
