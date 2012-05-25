@@ -38,6 +38,7 @@ projects[tipsy][version] = 1.0-rc1
 projects[tipsy][subdir] = "contrib"
 projects[advanced_help][version] = 1.0
 projects[advanced_help][subdir] = "contrib"
+projects[advanced_help][patch][] = "http://drupal.org/files/advanced_help-invalid_argument_in_modules_alter-1086990-21.patch"
 projects[mailsystem][version] = 2.34
 projects[mailsystem][subdir] = "contrib"
 projects[mimemail][version] = 1.0-alpha1
