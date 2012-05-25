@@ -936,10 +936,10 @@ region-breadcrumb .pseudo-breadcrumb,
 .form-type-commerce-fancy-attributes-ajax .form-item-attributes-field-color {
   float: left;
 }
-.form-type-commerce-fancy-attributes-ajax {
+.commerce-add-to-cart .attribute-widgets > .form-item {
   position: relative;
 }
-.form-type-commerce-fancy-attributes-ajax .ajax-progress-throbber {
+.commerce-add-to-cart .attribute-widgets > .form-item .ajax-progress-throbber {
   position: absolute;
   left: 0;
   top: 15px;
