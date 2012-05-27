@@ -1,0 +1,346 @@
+<?php
+
+// Until Entity API can load this itself.
+require_once dirname(__FILE__) . '/commerce_order_manager.message.inc';
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * Adds a new order view mode, used to display the order in a megarow.
+ */
+function commerce_order_manager_entity_info_alter(&$entity_info) {
+  $entity_info['commerce_order']['view modes']['order_manager'] = array(
+    'label' => t('Order Manager'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_order_manager_theme(&$existing) {
+  $themes =  array(
+    'commerce_order__manager' => array(
+      'path' => drupal_get_path('module', 'commerce_order_manager') . '/theme',
+      'template' => 'commerce-order--manager',
+    ),
+  );
+
+  return $themes;
+}
+
+/**
+ * Add the template file for the order_manager view mode.
+ */
+function commerce_order_manager_preprocess_entity(&$vars) {
+  if ($vars['entity_type'] == 'commerce_order' && $vars['view_mode'] == 'order_manager') {
+    $vars['theme_hook_suggestions'][] = 'commerce_order__manager';
+    $vars['classes_array'][] = 'commerce-order-manager';
+
+    // Split content into two equal columns
+    $element_count = count($vars['content']);
+    $elements_per_column = ceil($element_count / 2);
+    $vars['content_left'] = array_slice($vars['content'], 0, $elements_per_column);
+    $vars['content_right'] = array_slice($vars['content'], $elements_per_column);
+  }
+}
+
+/**
+ * Implement hook_views_pre_render().
+ */
+function commerce_order_manager_views_pre_render(&$view) {
+  if ($view->name == 'commerce_orders') {
+    $element = array();
+    $element['content']['#attached']['css'][] = drupal_get_path('module', 'commerce_order_manager') . '/theme/commerce-order-manager.css';
+
+    $view->attachment_before = drupal_render($element);
+  }
+}
+
+/**
+ * Generate an array for rendering the given order, for display
+ * in the order manager view.
+ */
+function commerce_order_manager_order_view($order) {
+  module_load_include('inc', 'views_megarow', 'includes/megarow');
+
+  $view = entity_view('commerce_order', array($order->order_id => $order), 'order_manager', NULL, TRUE);
+  $output = drupal_render($view);
+  $title = 'Order';
+
+  return views_megarow_display($title, $output, $order->order_id);
+}
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function commerce_order_manager_field_extra_fields() {
+  $extra = array();
+  $extra['commerce_order']['commerce_order'] = array(
+    'display' => array(
+      'status' => array(
+        'label' => t('Status'),
+        'description' => t('Allows the user to edit the status.'),
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  return $extra;
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function commerce_order_manager_entity_view($entity, $entity_type, $view_mode, $langcode) {
+  if ($entity_type == 'commerce_order' && $view_mode = 'order_manager') {
+    $status_form = drupal_get_form('commerce_order_manager_status_form', $entity);
+
+    $markup = '<div class="field commerce-order-manager-status-form">';
+    $markup .= '<div class="commerce-order-manager-status-label">' . t('Order status') . '</div>';
+    $markup .= drupal_render($status_form);
+    $markup .= '</div>';
+
+    $entity->content['status'] = array(
+      '#weight' => 10,
+      '#markup' =>$markup,
+    );
+  }
+}
+
+/**
+ * Form callback: Returns the form for modifying the status column.
+ */
+function commerce_order_manager_status_form($form, &$form_state, $order) {
+  $form_state['order'] = $order;
+  $wrapper = drupal_html_id('commerce-order-manager-status-form');
+
+  $form = array(
+    '#prefix' => '<div id="' . $wrapper . '">',
+    '#suffix' => '</div>',
+  );
+  $form['status'] = array(
+    '#type' => 'select',
+    '#title' => t('Status'),
+    '#title_display' => 'invisible',
+    '#options' => commerce_order_status_options_list(),
+    '#default_value' => $order->status,
+  );
+  $form['save'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+    '#ajax' => array(
+      'callback' => 'commerce_order_manager_status_form_ajax',
+      'wrapper' => $wrapper,
+    ),
+  );
+
+  return $form;
+}
+
+function commerce_order_manager_status_form_ajax($form, &$form_state) {
+  return $form;
+}
+
+/**
+ * Submit callback for commerce_order_manager_status_form.
+ */
+function commerce_order_manager_status_form_submit($form, &$form_state) {
+  $order = $form_state['order'];
+  $order->status = $form_state['values']['status'];
+  commerce_order_save($order);
+
+  drupal_set_message(t('The order status has been updated.'));
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function commerce_order_manager_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'commerce_order_manager') . '/views',
+  );
+}
+
+/**
+ * Implements hook_commerce_order_update().
+ */
+function commerce_order_manager_commerce_order_update($order) {
+  commerce_order_manager_statistics_reset();
+}
+
+/**
+ * Implements hook_commerce_order_insert().
+ */
+function commerce_order_manager_commerce_order_insert($order) {
+  commerce_order_manager_statistics_reset();
+}
+
+/**
+ * Rebuild the statistics for orders.
+ */
+function commerce_order_manager_statistics_reset() {
+  drupal_static_reset('commerce_order_manager_statistics');
+  cache_clear_all('commerce_order_statistics', 'cache');
+}
+
+/**
+ * Get the statistics for orders.
+ */
+function commerce_order_manager_statistics() {
+  $statistics = &drupal_static(__FUNCTION__, array());
+
+  if (empty($statistics)) {
+    $cache = cache_get('commerce_order_statistics', 'cache');
+    if ($cache) {
+      $statistics = $cache->data;
+    }
+  }
+  if (empty($statistics)) {
+    foreach (commerce_order_states() as $state_name => $state_info) {
+      $statistics['by state'][$state_name] = 0;
+      foreach (commerce_order_statuses(array('state' => $state_name)) as $status_name => $status_info) {
+        $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'commerce_order');
+        $query->propertyCondition('status', $status_name);
+        $query->count();
+        $statistics['by status'][$status_name] = $query->execute();
+        $statistics['by state'][$state_name] += $statistics['by status'][$status_name];
+      }
+    }
+    cache_set('commerce_order_statistics', $statistics, 'cache');
+  }
+  return $statistics;
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function commerce_order_manager_module_implements_alter(&$implementations, $hook) {
+  if (in_array($hook, array('menu_alter', 'form_alter'))) {
+    // Move our hook implementation to the bottom.
+    $group = $implementations['commerce_order_manager'];
+    unset($implementations['commerce_order_manager']);
+    $implementations['commerce_order_manager'] = $group;
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_order_manager_menu() {
+  $items['admin/commerce/orders'] = array(
+    'title' => 'Orders',
+    'description' => 'Manage orders in the store.',
+    'page callback' => 'commerce_order_redirect',
+    'access arguments' => array('administer commerce_order entities'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  // Activity tab on orders.
+  $items['admin/commerce/orders/%commerce_order/activity'] = array(
+    'title' => 'Activity',
+    'page callback' => 'commerce_order_manager_order_activity',
+    'page arguments' => array(3),
+    'access callback' => 'commerce_order_access',
+    'access arguments' => array('view', 3),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 11,
+  );
+  $items['commerce_order_manager/view/%commerce_order'] = array(
+    'title callback' => 'commerce_order_ui_order_title',
+    'title arguments' => array(2),
+    'page callback' => 'commerce_order_manager_order_view',
+    'page arguments' => array(2),
+    'access callback' => 'commerce_order_access',
+    'access arguments' => array('view', 2),
+  );
+  return $items;
+}
+
+/**
+ * Redirect the user to the relevant page.
+ */
+function commerce_order_redirect() {
+  drupal_goto('admin/commerce/orders/pending');
+}
+
+function commerce_order_manager_order_activity($order) {
+  $arguments = array($order->order_id);
+  $view = views_get_view('commerce_order_manager_message');
+  $view->set_display('block_1');
+  $view->set_arguments($arguments);
+  $view->override_url = $_GET['q'];
+
+  return $view->preview();
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function commerce_order_manager_menu_alter(&$items) {
+  foreach ($items as $path => &$item) {
+    if (_commerce_order_manager_extract_from_path($path)) {
+      $item['options']['alter'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * Add counts to the order states tabs.
+ */
+function commerce_order_manager_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  foreach ($data['tabs'] as $level => &$tabs) {
+    foreach ($tabs['output'] as &$item) {
+      if ($states = _commerce_order_manager_extract_from_path($item['#link']['path'])) {
+        $statistics = commerce_order_manager_statistics();
+        if (empty($states['status']) && isset($statistics['by state'][$states['state']])) {
+          $item['#link']['title'] .= ' (' . $statistics['by state'][$states['state']] . ')';
+        }
+        elseif (isset($statistics['by status'][$states['status']])) {
+          $item['#link']['title'] .= ' (' . $statistics['by status'][$states['status']] . ')';
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Utility function: extract state and status from a order management path.
+ */
+function _commerce_order_manager_extract_from_path($path) {
+  if (preg_match('@^admin/commerce/orders/([^/]+)(?:/([^/]+)|)$@', $path, $matches)) {
+    return array('state' => $matches[1], 'status' => isset($matches[2]) ? $matches[2] : '');
+  }
+}
+
+/**
+ * Implements hook_form_views_form_alter().
+ */
+function commerce_order_manager_form_alter(&$form, &$form_state, $form_id) {
+  if (strpos($form_id, 'views_form_') === 0) {
+    $vbo = _views_bulk_operations_get_field($form_state['build_info']['args'][0]);
+  }
+  // Not a VBO-enabled views form.
+  if (empty($vbo)) {
+    return;
+  }
+
+  $view = $form_state['build_info']['args'][0];
+
+  if ($view->name == 'commerce_orders' && isset($form['select'])) {
+    $form['select']['#title'] = t('Bulk Updates');
+    $form['select']['#collapsible'] = TRUE;
+    $form['select']['#collapsed'] = TRUE;
+    $form['select']['submit']['#value'] = t('Update');
+  }
+}
+
+/**
+ * Implements hook_flush_caches().
+ */
+function commerce_order_manager_flush_caches() {
+  commerce_order_manager_message_field_refresh();
+}

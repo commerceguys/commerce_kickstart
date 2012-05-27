@@ -1,0 +1,8 @@
+name = Views megarow
+description = Open views links in a modal.
+core = 7.x
+
+dependencies[] = views
+
+files[] = includes/views/plugins/views_plugin_style_table_megarows.inc
+files[] = includes/views/handlers/views_handler_field_megarow_links.inc

@@ -71,6 +71,13 @@ projects[mimemail][subdir] = "contrib"
 projects[mimemail][patch][] = "http://drupal.org/files/rules-1585546-1-moving_rules_actions.patch"
 projects[token][version] = 1.1
 projects[token][subdir] = "contrib"
+projects[eva][version] = 1.1
+projects[eva][subdir] = "contrib"
+projects[eva][patch][] = "http://drupal.org/files/issues/eva-fix-entity-notice.patch"
+projects[message][version] = 1.3
+projects[message][subdir] = "contrib"
+projects[message_notify][version] = 1.x-dev
+projects[message_notify][subdir] = "contrib"
 
 ; Search related modules.
 projects[search_api][version] = 1.x-dev

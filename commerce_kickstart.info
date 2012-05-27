@@ -79,13 +79,13 @@ dependencies[] = cloud_zoom
 dependencies[] = pathauto
 dependencies[] = entityreference
 dependencies[] = commerce_fancy_attributes
+dependencies[] = commerce_order_manager
 
 ; Install Features
 dependencies[] = features
 dependencies[] = commerce_features
 
 ; Distribution modules.
-dependencies[] = kickstart_order_manager
 dependencies[] = commerce_kickstart_content
 dependencies[] = commerce_kickstart_help
 dependencies[] = commerce_kickstart_inline_help
