@@ -98,5 +98,6 @@ dependencies[] = commerce_kickstart_merchandising
 dependencies[] = commerce_kickstart_merchandising_ui
 dependencies[] = commerce_kickstart_menus
 dependencies[] = commerce_kickstart_user_ui
+dependencies[] = commerce_kickstart_content_admin
 
 files[] = commerce_kickstart.profile
