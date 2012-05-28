@@ -102,15 +102,8 @@ function commerce_kickstart_product_ui_preprocess_block(&$variables) {
  * Override or insert variables into the page template.
  */
 function commerce_kickstart_product_ui_preprocess_page(&$vars) {
-  $type = array(
-    'bags_cases',
-    'drinks',
-    'hats',
-    'shoes',
-    'storage_devices',
-    'tops',
-  );
-  if (!empty($vars['node']) && in_array($vars['node']->type, $type)) {
+  $product_display_types = commerce_product_reference_node_types();
+  if (!empty($vars['node']) && isset($product_display_types[$vars['node']->type])) {
     $vars['title'] = "";
   }
 }
@@ -118,15 +111,8 @@ function commerce_kickstart_product_ui_preprocess_page(&$vars) {
  * Override or insert variables into the node template.
  */
 function commerce_kickstart_product_ui_preprocess_node(&$vars) {
-  $type = array(
-    'bags_cases',
-    'drinks',
-    'hats',
-    'shoes',
-    'storage_devices',
-    'tops',
-  );
-  if (isset($vars['type']) && in_array($vars['type'], $type)) {
+  $product_display_types = commerce_product_reference_node_types();
+  if (isset($vars['type']) && isset($product_display_types[$vars['node']->type])) {
     $vars['theme_hook_suggestions'][] = 'node__product__type';
     $vars['classes_array'][] = 'node-product-type';
     if ($vars['view_mode'] == 'product_list') {
