@@ -324,7 +324,7 @@ ul.primary li a {
   line-height: 23px;
   padding-top: 5px;
   padding-right: 50px;
-  padding-left: 22px;
+  padding-left: 12px;
   text-transform: uppercase;
 }
 .block-shopping-cart-block .content .view-shopping-cart .view-content,
@@ -353,7 +353,7 @@ ul.primary li a {
 }
 .block-shopping-cart-block .content .view-shopping-cart .view-empty p,
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
-  padding-right: 25px;
+  padding-right: 10px;
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
   color: #fd9a00;
