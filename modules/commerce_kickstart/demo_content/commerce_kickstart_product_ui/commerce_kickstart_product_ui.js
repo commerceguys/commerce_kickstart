@@ -14,11 +14,15 @@
   // Add 'read more' link on description.
   Drupal.behaviors.bodyReadMore = {
     attach: function ( context, settings ) {
-      $('.field-name-body .field-item.even').expander({
-        slicePoint:       200,
-        expandPrefix:     ' ... ',
-        expandText:       'read more',
-        userCollapseText: 'Close'
+      $('.field-name-body .field-item p').expander({
+        slicePoint: 200,
+        expandPrefix: ' ... ',
+        expandText: 'read more',
+        userCollapseText: 'Close',
+        expandEffect: 'fadeIn',
+        expandSpeed: 250,
+        collapseEffect: 'fadeOut',
+        collapseSpeed: 200
       });
     }
   }
