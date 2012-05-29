@@ -39,7 +39,7 @@
         });
 
         $('.tipsy').live('mouseout', function (e) {
-          timer = setTimeout(hideTipsy, 1000);
+          timer = setTimeout(hideTipsy, 200);
         });
 
         $('.tipsy-link', $(this)).bind('mouseover', function (e) {
@@ -47,7 +47,7 @@
         });
 
         $('.tipsy-link', $(this)).bind('mouseout', function (e) {
-          timer = setTimeout(hideTipsy, 1000);
+          timer = setTimeout(hideTipsy, 200);
         });
 
       });
@@ -56,4 +56,3 @@
     }
   }
 })(jQuery);
-

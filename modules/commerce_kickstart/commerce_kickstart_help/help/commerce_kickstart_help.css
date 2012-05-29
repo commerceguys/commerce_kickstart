@@ -126,6 +126,11 @@
   margin: 5px 10px;
 }
 
+#getting-started-skip {
+  margin: 0 auto;
+  width: 134px;
+}
+
 #block-commerce-kickstart-help-commerce-kickstart-help div,
 #block-commerce-kickstart-help-commerce-kickstart-help h2 {
   padding: 0 10px;
