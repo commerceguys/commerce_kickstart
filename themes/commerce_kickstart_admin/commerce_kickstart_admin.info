@@ -10,8 +10,6 @@ stylesheets[screen][] = contrib.css
 ; Install and Maintenance Pages
 stylesheets[screen][] = commerce_kickstart_admin.css
 
-scripts[] = js/jquery.customSelect.js
-scripts[] = js/script.js
 settings[shortcut_module_link] = 1
 regions[content] = Content
 regions[help] = Help

@@ -172,18 +172,17 @@ textarea.form-textarea:focus {
 #edit-operation {
   margin-top: 6px;
 }
-span.customStyleSelectBox {
-  font: normal 300 14px/14px "MuseoSlab", Arial, sans-serif;
-  color: #4c4c4c;
-  background: #f0eeee url("images/select.png") no-repeat right top;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
+select.form-select {
+  background-color: #efeded;
+  background-image: url(images/select.png);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#efeded));
+  background-image: -webkit-linear-gradient(top, #fff, #efeded);
+  background-image: -moz-linear-gradient(top, #fff, #efeded);
+  background-image: -ms-linear-gradient(top, #fff, #efeded);
+  background-image: -o-linear-gradient(top, #fff, #efeded);
   box-shadow: inset 0 0 2px #fff;
-  white-space: nowrap;
-}
-span.customStyleSelectBoxInner {
-  width: auto !important;
-  padding: 5px 25px 5px 10px;
+  border: 1px solid #e0e0e0;
+  font: normal 300 1em/1em "MuseoSlab", Arial, sans-serif;
 }
 body.in-maintenance .form-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
