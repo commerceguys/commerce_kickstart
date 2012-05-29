@@ -4,7 +4,7 @@ package = Commerce Kickstart
 core = 7.x
 dependencies[] = views
 dependencies[] = views_bulk_operations
-dependencies[] = commerce_product
+dependencies[] = commerce_product_reference
 
 ; Views handlers
 files[] = includes/views/handlers/views_handler_filter_product_type.inc
