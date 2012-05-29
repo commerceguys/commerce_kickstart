@@ -60,3 +60,6 @@ features[variable][] = node_preview_ad_push
 features[variable][] = node_preview_slideshow
 features[variable][] = node_submitted_ad_push
 features[variable][] = node_submitted_slideshow
+features[variable][] = pathauto_node_ad_push_pattern
+features[variable][] = pathauto_node_slideshow_pattern
+features[variable][] = pathauto_taxonomy_term_tags_pattern

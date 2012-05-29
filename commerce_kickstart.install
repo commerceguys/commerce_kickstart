@@ -251,6 +251,10 @@ function commerce_kickstart_install() {
   // Don't display date and author information for "Basic page" nodes by default.
   variable_set('node_submitted_page', FALSE);
 
+  // Pathauto for article & page.
+  variable_set('pathauto_node_article_pattern', 'article/[node:title]');
+  variable_set('pathauto_node_page_pattern', '[node:title]');
+
   // Enable user picture support and set the default to a square thumbnail option.
   variable_set('user_pictures', '1');
   variable_set('user_picture_dimensions', '1024x1024');

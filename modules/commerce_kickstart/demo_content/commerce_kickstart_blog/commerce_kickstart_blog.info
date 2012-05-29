@@ -28,3 +28,4 @@ features[variable][] = menu_parent_blog_post
 features[variable][] = node_options_blog_post
 features[variable][] = node_preview_blog_post
 features[variable][] = node_submitted_blog_post
+features[variable][] = pathauto_node_blog_post_pattern
