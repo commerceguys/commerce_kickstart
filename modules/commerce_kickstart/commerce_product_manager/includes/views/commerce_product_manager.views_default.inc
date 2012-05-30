@@ -372,43 +372,6 @@ function commerce_product_manager_views_default_views_alter(&$views) {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['display_result'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['merge_single_action'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['force_single'] = 0;
-  /* Field: Commerce Product: Image */
-  $handler->display->display_options['fields']['field_images']['id'] = 'field_images';
-  $handler->display->display_options['fields']['field_images']['table'] = 'field_data_field_images';
-  $handler->display->display_options['fields']['field_images']['field'] = 'field_images';
-  $handler->display->display_options['fields']['field_images']['relationship'] = 'field_product_product_id';
-  $handler->display->display_options['fields']['field_images']['label'] = '';
-  $handler->display->display_options['fields']['field_images']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_images']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_images']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_images']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_images']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_images']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_images']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_images']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_images']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_images']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_images']['type'] = 'image_delta';
-  $handler->display->display_options['fields']['field_images']['settings'] = array(
-    'deltas' => '0',
-    'deltas_reversed' => 0,
-    'image_style' => 'thumbnail',
-    'image_link' => '',
-  );
-  $handler->display->display_options['fields']['field_images']['group_rows'] = 1;
-  $handler->display->display_options['fields']['field_images']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_images']['delta_reversed'] = 0;
-  $handler->display->display_options['fields']['field_images']['delta_first_last'] = 0;
-  $handler->display->display_options['fields']['field_images']['field_api_classes'] = 0;
   /* Field: Content: All taxonomy terms */
   $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
@@ -455,7 +418,7 @@ function commerce_product_manager_views_default_views_alter(&$views) {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = 1;
   $handler->display->display_options['fields']['title']['alter']['text'] = '[title] <br />
-    [term_node_tid]';
+      [term_node_tid]';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['title']['alter']['external'] = 0;
