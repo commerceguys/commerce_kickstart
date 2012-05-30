@@ -1,5 +1,0 @@
-name = "Commerce fancy attributes"
-core = "7.x"
-description = Provides better-looking attribute selectors for the add to cart form.
-dependencies[] = taxonomy
-dependencies[] = commerce_cart
