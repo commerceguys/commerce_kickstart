@@ -63,3 +63,5 @@ features[variable][] = node_submitted_slideshow
 features[variable][] = pathauto_node_ad_push_pattern
 features[variable][] = pathauto_node_slideshow_pattern
 features[variable][] = pathauto_taxonomy_term_tags_pattern
+features[variable][] = site_403
+features[variable][] = site_404

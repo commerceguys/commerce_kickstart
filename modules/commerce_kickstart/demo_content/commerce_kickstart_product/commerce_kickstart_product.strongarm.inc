@@ -244,13 +244,6 @@ function commerce_kickstart_product_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_product_display';
-  $strongarm->value = 0;
-  $export['comment_product_display'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_shoes';
   $strongarm->value = '1';
   $export['comment_shoes'] = $strongarm;
@@ -1895,15 +1888,6 @@ function commerce_kickstart_product_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_product_display';
-  $strongarm->value = array(
-    0 => 'status',
-  );
-  $export['node_options_product_display'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_shoes';
   $strongarm->value = array(
     0 => 'status',
@@ -1994,13 +1978,6 @@ function commerce_kickstart_product_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_product_display';
-  $strongarm->value = FALSE;
-  $export['node_submitted_product_display'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_shoes';
   $strongarm->value = 0;
   $export['node_submitted_shoes'] = $strongarm;
@@ -2046,13 +2023,6 @@ function commerce_kickstart_product_strongarm() {
   $strongarm->name = 'pathauto_node_pattern';
   $strongarm->value = '[node:content-type:machine-name]/[node:title]';
   $export['pathauto_node_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_product_display_pattern';
-  $strongarm->value = 'product/[node:title]';
-  $export['pathauto_node_product_display_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

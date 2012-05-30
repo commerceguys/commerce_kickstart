@@ -96,7 +96,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
     'bags_cases' => array(
       'type' => 'bags_cases',
       'name' => 'Bags & Cases',
-      'description' => '',
+      'description' => t('<em>Bags & Cases</em> are products which contains a size and a color.'),
       'help' => '',
       'revision' => '1',
       'module' => 'commerce_product_ui',
@@ -104,7 +104,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
     'drinks' => array(
       'type' => 'drinks',
       'name' => 'Drinks',
-      'description' => '',
+      'description' => t('<em>Drinks</em> are products which contains a color.'),
       'help' => '',
       'revision' => '1',
       'module' => 'commerce_product_ui',
@@ -112,7 +112,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
     'hats' => array(
       'type' => 'hats',
       'name' => 'Hats',
-      'description' => '',
+      'description' => t('<em>Hats</em> are products which contains a size and a color.'),
       'help' => '',
       'revision' => '1',
       'module' => 'commerce_product_ui',
@@ -120,7 +120,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
     'shoes' => array(
       'type' => 'shoes',
       'name' => 'Shoes',
-      'description' => '',
+      'description' => t('<em>Shoes</em> are products which contains a size and a color.'),
       'help' => '',
       'revision' => '1',
       'module' => 'commerce_product_ui',
@@ -128,7 +128,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
     'storage_devices' => array(
       'type' => 'storage_devices',
       'name' => 'Storage Devices',
-      'description' => '',
+      'description' => t('<em>Storage devices</em> are products which contains a capacity.'),
       'help' => '',
       'revision' => '1',
       'module' => 'commerce_product_ui',
@@ -136,7 +136,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
     'tops' => array(
       'type' => 'tops',
       'name' => 'Tops',
-      'description' => '',
+      'description' => t('<em>Tops</em> are products which contains a size and a color.'),
       'help' => '',
       'revision' => '1',
       'module' => 'commerce_product_ui',
@@ -242,7 +242,7 @@ function commerce_kickstart_product_node_info() {
     'bags_cases' => array(
       'name' => t('Bags & Cases'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A <em>Bags & Cases</em> is a content type which contains product variations.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -250,7 +250,7 @@ function commerce_kickstart_product_node_info() {
     'drinks' => array(
       'name' => t('Drinks'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A <em>Drinks</em> is a content type which contains product variations.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -258,15 +258,7 @@ function commerce_kickstart_product_node_info() {
     'hats' => array(
       'name' => t('Hats'),
       'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'product_display' => array(
-      'name' => t('Product display'),
-      'base' => 'node_content',
-      'description' => t('Use <em>product displays</em> to present Add to Cart form for products to your customers.'),
+      'description' => t('A <em>Hats</em> is a content type which contains product variations.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -274,7 +266,7 @@ function commerce_kickstart_product_node_info() {
     'shoes' => array(
       'name' => t('Shoes'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A <em>Shoes</em> is a content type which contains product variations.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -282,7 +274,7 @@ function commerce_kickstart_product_node_info() {
     'storage_devices' => array(
       'name' => t('Storage Devices'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A <em>Storage Devices</em> is a content type which contains product variations.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
@@ -290,7 +282,7 @@ function commerce_kickstart_product_node_info() {
     'tops' => array(
       'name' => t('Tops'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A <em>Tops</em> is a content type which contains product variations.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

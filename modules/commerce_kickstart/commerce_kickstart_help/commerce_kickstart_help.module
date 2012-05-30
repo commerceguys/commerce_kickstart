@@ -11,6 +11,7 @@ function commerce_kickstart_help_menu() {
   // View help topic.
   $items['admin/getting-started'] = array(
     'title' => 'Getting Started',
+    'description' => 'Find all the help you need to start using your store.',
     'page callback' => 'advanced_help_topic_page',
     'page arguments' => array('commerce_kickstart_help', 'getting-started'),
     'access arguments' => array('view advanced help topic'),

@@ -108,6 +108,20 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
     'path' => 'security-privacy-policy',
     'type' => 'page',
   );
+  $contents[] = array(
+    'title' => '403 error',
+    'body' => 'Access denied',
+    'nid' => '10',
+    'path' => '403-error',
+    'type' => 'page',
+  );
+  $contents[] = array(
+    'title' => '404 error',
+    'body' => 'Not found',
+    'nid' => '11',
+    'path' => '404-error',
+    'type' => 'page',
+  );
   foreach ($contents as &$content) {
     _commerce_kickstart_custom_create_content($content);
   }

@@ -279,5 +279,19 @@ function commerce_kickstart_merchandising_strongarm() {
   $strongarm->value = 'tags/[term:name]';
   $export['pathauto_taxonomy_term_tags_pattern'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_403';
+  $strongarm->value = 'node/10';
+  $export['site_403'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_404';
+  $strongarm->value = 'node/11';
+  $export['site_404'] = $strongarm;
+
   return $export;
 }

@@ -46,7 +46,6 @@ function commerce_kickstart_product_ui_strongarm() {
     'article' => 0,
     'page' => 0,
     'blog_post' => 0,
-    'product_display' => 0,
     'slideshow' => 0,
   );
   $export['taxonomy_breadcrumb_node_types'] = $strongarm;

@@ -22,7 +22,7 @@ function commerce_kickstart_blog_node_info() {
     'blog_post' => array(
       'name' => t('Blog Post'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Use <em>blog post</em> to write regular content.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
