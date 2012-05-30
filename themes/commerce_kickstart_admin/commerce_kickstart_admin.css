@@ -260,16 +260,18 @@ h1#overlay-title {
   padding-bottom: .9em;
 }
 #credit {
-  width: 950px;
-  margin:  0 auto;
-  padding-top: 20px;
-  color: #fff;
+  margin:  0 40px;
+  padding: 20px 0 40px;
+  color: #000;
   font: normal 13px/13px "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 #overlay #overlay-content #credit {
   position: absolute;
   right: 0;
   top: 100%;
+  color: #fff;
+  width: 950px;
+  margin: 0 auto;
 }
 #credit .message {
   margin-bottom: 20px;
@@ -281,9 +283,12 @@ h1#overlay-title {
   clear: right;
   height: 0;
   overflow: hidden;
-  background: transparent url("images/logo-cg.png") no-repeat 0 0;
+  background: transparent url("images/logo-cg2.png") no-repeat 0 0;
   padding: 50px 0 0;
   width: 180px;
+}
+#overlay #overlay-content #credit .logo a {
+  background: transparent url("images/logo-cg.png") no-repeat 0 0;
 }
 .breadcrumb {
   background: #fff;

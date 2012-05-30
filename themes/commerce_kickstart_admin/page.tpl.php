@@ -34,7 +34,7 @@
 
   </div>
 
-  <div id="credit">
+  <div id="credit" class="clearfix">
     <div class="message">Proudly built by Commerce Guys</div>
     <div class="logo"><a href="http://commerceguys.com">Commerce Guys</a></div>
   </div>
