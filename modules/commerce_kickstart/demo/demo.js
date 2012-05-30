@@ -30,24 +30,57 @@ if(window.__noconflict){ jQuery.noConflict();}
     });
 
     // Update the position based on the new content data height
-    console.log($.fn.activebar.container.height());
     $.fn.activebar.container.css('bottom', '-' + $.fn.activebar.container.height() + 'px' );
 
     // Show the activebar
     if(options.preload){
-      var load = {a:0}
+      var load = {a:0, b:0}
 
       function preloadInit(){
-        if(load.a){
+        if(load.a && load.b){
           $.fn.activebar.show();
         }
       }
 
       $('<img src="'+options.icons_path+'question.png" class="normal">').load(function(){load.a=1; preloadInit()});
+      $('<img src="'+options.icons_path+'tipsy-arrow-s.png" class="normal">').load(function(){load.b=1; preloadInit()});
 
     }else{
       $.fn.activebar.show();
     }
+
+    // Tipsy
+    var help = $('#activebar-container .help-section');
+
+    $('.tipsy-link', help).attr('title', ($('.child', help).html()));
+    $('.tipsy-link', help).tipsy({
+      trigger:'manual',
+      gravity:'s',
+      html:true,
+      opacity: 1.0,
+      offset: 45
+    });
+
+    var timer;
+    var hideTipsy = function () {
+      $('.tipsy-link', help).tipsy('hide');
+    };
+
+    $('.tipsy').live('mouseover', function (e) {
+      clearTimeout(timer);
+    });
+
+    $('.tipsy').live('mouseout', function (e) {
+      timer = setTimeout(hideTipsy, 100);
+    });
+
+    $('.tipsy-link', help).bind('mouseover', function (e) {
+      $(this).tipsy('show');
+    });
+
+    $('.tipsy-link', help).bind('mouseout', function (e) {
+      timer = setTimeout(hideTipsy, 500);
+    });
   };
 
   /**
@@ -183,8 +216,11 @@ if(window.__noconflict){ jQuery.noConflict();}
           'height': '15px',
           'margin': '8px 0'
         })
-        .append('<img src="'+options.icons_path+'question.png" class="normal">')
-        .append('<img src="'+options.icons_path+'question.png" class="hover">')
+        .append('<div><div class="help-section">' +
+        '<a href="#" class="tipsy-link" title=""><img src="' + options.icons_path + 'question.png" class="normal"/></a>' +
+        '<div class="child">' +
+          options.tooltip +
+        '</div></div></div>')
     );
 
     // Add the icon container

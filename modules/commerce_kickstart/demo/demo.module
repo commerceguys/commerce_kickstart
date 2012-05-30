@@ -78,10 +78,12 @@ function demo_page_alter(&$page) {
   $kill_url = url('admin/demo', array('absolute' => TRUE));
   $disable_url = url('admin/demo/disable', array('absolute' => TRUE));
   $icon_path = url(drupal_get_path('module', 'demo') . '/images/', array('absolute' => TRUE));
+  $tooltip = advanced_help_view_topic('demo', 'tooltip');
 
   $settings = array(
     'demo' => array(
       'message' => filter_xss_admin($message),
+      'tooltip' => filter_xss_admin($tooltip),
       'icons_path' => $icon_path,
       'kill_url' => $kill_url,
       'disable_url' => $disable_url,
