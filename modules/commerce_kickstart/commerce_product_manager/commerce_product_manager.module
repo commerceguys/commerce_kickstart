@@ -1,0 +1,85 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_product_manager_menu() {
+  $items['commerce_product_manager/variations/%node'] = array(
+    'page callback' => 'commerce_product_manager_variations_view',
+    'page arguments' => array(2),
+    'access arguments' => array('administer products'),
+  );
+  return $items;
+}
+
+/**
+ * Page callback.
+ */
+function commerce_product_manager_variations_view($node) {
+  module_load_include('inc', 'views_megarow', 'includes/megarow');
+
+  $title = t('Variations for product %title', array('%title' => $node->title));
+  $output = views_embed_view('commerce_product_variations', 'default', $node->nid);
+
+  return views_megarow_display($title, $output, $node->nid);
+}
+
+/**
+ * Implement hook_views_pre_render().
+ */
+function commerce_product_manager_views_pre_render(&$view) {
+  if ($view->name == 'commerce_products') {
+    $element = array();
+    $element['content']['#attached']['css'][] = drupal_get_path('module', 'commerce_product_manager') . '/theme/commerce-product-manager.css';
+
+    $view->attachment_before = drupal_render($element);
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * Remove once VBO is updated to 7.x-3.0 and hook_form_views_form_alter()
+ * replaced with hook_views_bulk_operations_form_alter().
+ */
+function commerce_product_manager_module_implements_alter(&$implementations, $hook) {
+  if (in_array($hook, array('form_alter'))) {
+    // Move our hook implementation to the bottom.
+    $group = $implementations['commerce_product_manager'];
+    unset($implementations['commerce_product_manager']);
+    $implementations['commerce_product_manager'] = $group;
+  }
+}
+
+
+/**
+ * Implements hook_form_views_form_alter().
+ */
+function commerce_product_manager_form_alter(&$form, &$form_state, $form_id) {
+  if (strpos($form_id, 'views_form_') === 0) {
+    $vbo = _views_bulk_operations_get_field($form_state['build_info']['args'][0]);
+  }
+  // Not a VBO-enabled views form.
+  if (empty($vbo)) {
+    return;
+  }
+
+  $view = $form_state['build_info']['args'][0];
+
+  if ($view->name == 'commerce_products' && isset($form['select'])) {
+    $form['select']['#title'] = t('Bulk Updates');
+    $form['select']['#collapsible'] = TRUE;
+    $form['select']['#collapsed'] = TRUE;
+    $form['select']['submit']['#value'] = t('Update');
+  }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function commerce_product_manager_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'commerce_product_manager') . '/includes/views',
+  );
+}

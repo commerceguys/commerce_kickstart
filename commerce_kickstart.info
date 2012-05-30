@@ -81,6 +81,7 @@ dependencies[] = entityreference
 dependencies[] = commerce_fancy_attributes
 dependencies[] = views_megarow
 dependencies[] = commerce_order_manager
+dependencies[] = commerce_product_manager
 
 ; Install Features
 dependencies[] = features

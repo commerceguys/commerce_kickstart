@@ -216,9 +216,12 @@ function commerce_order_manager_statistics() {
 
 /**
  * Implements hook_module_implements_alter().
+ *
+ * Remove once VBO is updated to 7.x-3.0 and hook_form_views_form_alter()
+ * replaced with hook_views_bulk_operations_form_alter().
  */
 function commerce_order_manager_module_implements_alter(&$implementations, $hook) {
-  if (in_array($hook, array('menu_alter', 'form_alter'))) {
+  if (in_array($hook, array('form_alter'))) {
     // Move our hook implementation to the bottom.
     $group = $implementations['commerce_order_manager'];
     unset($implementations['commerce_order_manager']);
@@ -284,47 +287,6 @@ function commerce_order_manager_order_activity($order) {
   $view->override_url = $_GET['q'];
 
   return $view->preview();
-}
-
-/**
- * Implements hook_menu_alter().
- */
-function commerce_order_manager_menu_alter(&$items) {
-  foreach ($items as $path => &$item) {
-    if (_commerce_order_manager_extract_from_path($path)) {
-      $item['options']['alter'] = TRUE;
-    }
-  }
-}
-
-/**
- * Implements hook_menu_local_tasks_alter().
- *
- * Add counts to the order states tabs.
- */
-function commerce_order_manager_menu_local_tasks_alter(&$data, $router_item, $root_path) {
-  foreach ($data['tabs'] as $level => &$tabs) {
-    foreach ($tabs['output'] as &$item) {
-      if ($states = _commerce_order_manager_extract_from_path($item['#link']['path'])) {
-        $statistics = commerce_order_manager_statistics();
-        if (empty($states['status']) && isset($statistics['by state'][$states['state']])) {
-          $item['#link']['title'] .= ' (' . $statistics['by state'][$states['state']] . ')';
-        }
-        elseif (isset($statistics['by status'][$states['status']])) {
-          $item['#link']['title'] .= ' (' . $statistics['by status'][$states['status']] . ')';
-        }
-      }
-    }
-  }
-}
-
-/**
- * Utility function: extract state and status from a order management path.
- */
-function _commerce_order_manager_extract_from_path($path) {
-  if (preg_match('@^admin/commerce/orders/([^/]+)(?:/([^/]+)|)$@', $path, $matches)) {
-    return array('state' => $matches[1], 'status' => isset($matches[2]) ? $matches[2] : '');
-  }
 }
 
 /**
