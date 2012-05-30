@@ -45,8 +45,8 @@
   background-color: #D5E9F2;
   float: right !important;
   width: 220px !important;
-  height: 30px;
-  padding: 10px 10px 0 5px;
+  line-height: 30px;
+  padding: 0 10px 0 5px;
 }
 .field-name-commerce-order-total .field-label {
   display: block;
