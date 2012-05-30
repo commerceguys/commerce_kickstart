@@ -28,7 +28,7 @@ function commerce_kickstart_product_ui_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_breadcrumb_include_node_title';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['taxonomy_breadcrumb_include_node_title'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -37,7 +37,6 @@ function commerce_kickstart_product_ui_strongarm() {
   $strongarm->name = 'taxonomy_breadcrumb_node_types';
   $strongarm->value = array(
     'bags_cases' => 'bags_cases',
-    'blog_post' => 'blog_post',
     'drinks' => 'drinks',
     'hats' => 'hats',
     'shoes' => 'shoes',
@@ -46,6 +45,7 @@ function commerce_kickstart_product_ui_strongarm() {
     'ad_push' => 0,
     'article' => 0,
     'page' => 0,
+    'blog_post' => 0,
     'product_display' => 0,
     'slideshow' => 0,
   );

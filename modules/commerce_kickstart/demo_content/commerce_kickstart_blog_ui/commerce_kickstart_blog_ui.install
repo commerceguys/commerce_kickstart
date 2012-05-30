@@ -52,4 +52,30 @@ function commerce_kickstart_blog_ui_install() {
     watchdog_exception('block', $e);
     throw $e;
   }
+
+  if (function_exists('_custom_breadcrumbs_save_breadcrumb')) {
+    $breadcrumb = new stdClass();
+    $breadcrumb->views_path = 'blog';
+    $breadcrumb->name = 'blog';
+    $breadcrumb->visibility_php = '';
+    $breadcrumb->titles = 'Blog';
+    $breadcrumb->paths = 'blog';
+    _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs_views', 'views', $breadcrumb);
+
+    $breadcrumb = new stdClass();
+    $breadcrumb->node_type = 'blog_post';
+    $breadcrumb->name = 'blog_post';
+    $breadcrumb->visibility_php = '';
+    $breadcrumb->titles = "Blog\n[node:title]";
+    $breadcrumb->paths = "blog\n[node:field-link:url]";
+    _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs', 'node', $breadcrumb);
+
+    $breadcrumb = new stdClass();
+    $breadcrumb->node_type = 'page';
+    $breadcrumb->name = 'page';
+    $breadcrumb->visibility_php = '';
+    $breadcrumb->titles = '[node:title]';
+    $breadcrumb->paths = '[node:field-link:url]';
+    _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs', 'node', $breadcrumb);
+  }
 }
