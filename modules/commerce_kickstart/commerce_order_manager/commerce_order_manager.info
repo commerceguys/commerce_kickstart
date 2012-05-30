@@ -1,5 +1,5 @@
 name = Commerce order manager
-description = "Provides support for order management."
+description = Provides advanced order management.
 core = 7.x
 package = Commerce Contrib
 
@@ -9,6 +9,7 @@ dependencies[] = entity_token
 dependencies[] = message
 dependencies[] = message_notify
 dependencies[] = views_bulk_operations
+dependencies[] = views_megarow
 
 dependencies[] = commerce_cart
 dependencies[] = commerce_order

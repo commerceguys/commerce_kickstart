@@ -71,4 +71,60 @@ function commerce_order_manager_install() {
     );
     filter_format_save($format);
   }
+
+  // Update order field instances to show up in the "Order manager" view mode.
+  $line_items = field_info_instance('commerce_order', 'commerce_line_items', 'commerce_order');
+  $line_items['display']['order_manager'] = array(
+    'label' => 'hidden',
+    'type' => 'commerce_line_item_reference_view',
+    'weight' => 0,
+    'settings' => array(
+      'view' => 'commerce_line_item_table|default',
+    ),
+  );
+  field_update_instance($line_items);
+
+  $order_total = field_info_instance('commerce_order', 'commerce_order_total', 'commerce_order');
+  $order_total['display']['order_manager'] = array(
+    'label' => 'above',
+    'type' => 'commerce_price_formatted_amount',
+    'weight' => 1,
+    'settings' => array(
+      'calculation' => FALSE,
+    ),
+  );
+  field_update_instance($order_total);
+
+  $billing = field_info_instance('commerce_order', 'commerce_customer_billing', 'commerce_order');
+  $billing['display']['order_manager'] = array(
+    'label' => 'above',
+    'type' => 'commerce_customer_profile_reference_display',
+    'weight' => 4,
+    'settings' => array(),
+  );
+  field_update_instance($billing);
+
+  $shipping = field_info_instance('commerce_order', 'commerce_customer_shipping', 'commerce_order');
+  if ($shipping) {
+    $shipping['display']['order_manager'] = array(
+      'label' => 'above',
+      'type' => 'commerce_customer_profile_reference_display',
+      'weight' => 5,
+      'settings' => array(),
+    );
+    field_update_instance($shipping);
+  }
+
+  // Update the extra fields (Activity view added by EVA, Status field provided
+  // by this module).
+  $bundle_settings = field_bundle_settings('commerce_order', 'commerce_order');
+  $bundle_settings['extra_fields']['display']['commerce_order_manager_message_order_view']['order_manager'] = array(
+    'weight' => 2,
+    'visible' => TRUE,
+  );
+  $bundle_settings['extra_fields']['display']['status']['order_manager'] = array(
+    'weight' => 3,
+    'visible' => TRUE,
+  );
+  field_bundle_settings('commerce_order', 'commerce_order', $bundle_settings);
 }
