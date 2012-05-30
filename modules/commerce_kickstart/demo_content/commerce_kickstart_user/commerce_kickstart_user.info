@@ -1,0 +1,10 @@
+name = Commerce Kickstart User
+description = Provides user related functionality.
+core = 7.x
+package = Commerce Kickstart
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[variable][] = user_email_verification
+features[variable][] = user_register
