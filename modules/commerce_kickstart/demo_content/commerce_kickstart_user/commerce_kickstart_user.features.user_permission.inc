@@ -2212,6 +2212,16 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
+  // Exported permission: view demo bar.
+  $permissions['view demo bar'] = array(
+    'name' => 'view demo bar',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'store administrator',
+    ),
+    'module' => 'demo',
+  );
+
   // Exported permission: view own commerce_customer_profile entities.
   $permissions['view own commerce_customer_profile entities'] = array(
     'name' => 'view own commerce_customer_profile entities',

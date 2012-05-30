@@ -224,7 +224,7 @@ if(window.__noconflict){ jQuery.noConflict();}
     );
 
     // Add the icon container
-    var killbutton = $( '<span>Start over</span>' ).attr( 'class', 'kill' )
+    var killbutton = $( '<span>' + options.kill.message + '</span>' ).attr( 'class', 'kill' )
       .css({
         'float': 'right',
         'margin': '3px 10% 3px 0',
@@ -240,14 +240,14 @@ if(window.__noconflict){ jQuery.noConflict();}
         'border-radius': '4px'
       })
       .click(function(event) {
-        window.location.href = options.kill_url;
+        window.location.href = options.kill.url;
         event.stopPropagation();
       });
     setOptionsOnContainer( killbutton );
     container.append( killbutton );
 
     // Add the close button
-    var closeButton = $( '<span>Keep changes</span>' ).attr( 'class', 'close' )
+    var closeButton = $( '<span>' + options.disable.message + '</span>' ).attr( 'class', 'close' )
       .css({
         'float': 'right',
         'margin': '3px 10px 3px 0',
@@ -264,7 +264,7 @@ if(window.__noconflict){ jQuery.noConflict();}
       })
       .click(function(event) {
         $.fn.activebar.hide();
-        $.get(options.disable_url);
+        $.get(options.disable.url);
         event.stopPropagation();
       });
     setOptionsOnContainer( closeButton );

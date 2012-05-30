@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Implements hook_permission().
+ */
+function demo_permission() {
+  return array(
+    'view demo bar' => array(
+      'title' => t('View demo bar'),
+    ),
+  );
+}
+
+/**
  * Implements hook_menu().
  */
 function demo_menu() {
@@ -10,16 +21,14 @@ function demo_menu() {
     'description' => 'todo.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('demo_kill_me_form'),
-    'access callback' => TRUE,
-    //'access callback' => 'commerce_product_ui_product_add_any_access',
+    'access arguments' => 'view demo bar',
     'weight' => 10,
   );
   $items['admin/demo/disable'] = array(
     'title' => 'Manage demo',
     'description' => 'todo.',
     'page callback' => 'demo_disable_me',
-    'access callback' => TRUE,
-    //'access callback' => 'commerce_product_ui_product_add_any_access',
+    'access arguments' => 'view demo bar',
     'weight' => 10,
   );
   return $items;
@@ -31,7 +40,7 @@ function demo_menu() {
 function demo_kill_me_form() {
   $form['message'] = array(
     '#type' => 'item',
-    '#markup' => 'Warning : Your are going to wipe all content from this site',
+    '#markup' => t('Warning : Your are going to wipe all content from this site'),
   );
   $form['buttons']['submit'] = array(
     '#type' => 'submit',
@@ -74,22 +83,32 @@ function  demo_disable_me() {
  * Implements hook_page_alter().
  */
 function demo_page_alter(&$page) {
-  $message = 'You are in commerce kickstart demo mode';
-  $kill_url = url('admin/demo', array('absolute' => TRUE));
-  $disable_url = url('admin/demo/disable', array('absolute' => TRUE));
-  $icon_path = url(drupal_get_path('module', 'demo') . '/images/', array('absolute' => TRUE));
-  $tooltip = advanced_help_view_topic('demo', 'tooltip');
+  if (user_access('view demo bar')) {
+    $message = t('You are in commerce kickstart demo mode');
+    $kill_message = t('Start over');
+    $disable_message = t('Keep changes');
+    $kill_url = url('admin/demo', array('absolute' => TRUE));
+    $disable_url = url('admin/demo/disable', array('absolute' => TRUE));
+    $icon_path = url(drupal_get_path('module', 'demo') . '/images/', array('absolute' => TRUE));
+    $tooltip = advanced_help_view_topic('demo', 'tooltip');
 
-  $settings = array(
-    'demo' => array(
-      'message' => filter_xss_admin($message),
-      'tooltip' => filter_xss_admin($tooltip),
-      'icons_path' => $icon_path,
-      'kill_url' => $kill_url,
-      'disable_url' => $disable_url,
-    )
-  );
-  drupal_add_js($settings, 'setting');
-  drupal_add_js(drupal_get_path('module', 'demo') . '/demo.js');
+    $settings = array(
+      'demo' => array(
+        'message' => filter_xss_admin($message),
+        'tooltip' => filter_xss_admin($tooltip),
+        'icons_path' => $icon_path,
+        'kill' => array(
+          'message' => $kill_message,
+          'url' => $kill_url,
+        ),
+        'disable' => array(
+          'message' => $disable_message,
+          'url' => $disable_url,
+        ),
+      )
+    );
+    drupal_add_js($settings, 'setting');
+    drupal_add_js(drupal_get_path('module', 'demo') . '/demo.js');
+  }
 }
 
