@@ -35,10 +35,42 @@ function commerce_order_manager_views_default_views() {
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
+    'type' => 'type',
+    'message_order_display_name' => 'message_order_display_name',
+    'timestamp' => 'timestamp',
+    'name' => 'name',
     'message_render' => 'message_render',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'type' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'message_order_display_name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'timestamp' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'message_render' => array(
       'align' => '',
       'separator' => '',
@@ -47,7 +79,7 @@ function commerce_order_manager_views_default_views() {
   );
   $handler->display->display_options['style_options']['override'] = 1;
   $handler->display->display_options['style_options']['sticky'] = 0;
-  $handler->display->display_options['style_options']['empty_table'] = 0;
+  $handler->display->display_options['style_options']['empty_table'] = 1;
   /* Footer: Message: Add new message */
   $handler->display->display_options['footer']['add']['id'] = 'add';
   $handler->display->display_options['footer']['add']['table'] = 'message';
@@ -61,7 +93,7 @@ function commerce_order_manager_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = FALSE;
-  $handler->display->display_options['empty']['area']['content'] = 'Test';
+  $handler->display->display_options['empty']['area']['content'] = 'No activity has been recorded for this order.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['empty']['area']['tokenize'] = 0;
   /* Relationship: Message: User uid */
@@ -98,7 +130,6 @@ function commerce_order_manager_views_default_views() {
   $handler->display->display_options['fields']['type']['hide_empty'] = 0;
   $handler->display->display_options['fields']['type']['empty_zero'] = 0;
   $handler->display->display_options['fields']['type']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['type']['machine_name'] = 0;
   /* Field: Message type: Display name */
   $handler->display->display_options['fields']['message_order_display_name']['id'] = 'message_order_display_name';
   $handler->display->display_options['fields']['message_order_display_name']['table'] = 'field_data_message_order_display_name';

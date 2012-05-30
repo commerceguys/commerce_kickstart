@@ -259,6 +259,17 @@ function commerce_order_manager_menu() {
 }
 
 /**
+ * Implements hook_admin_paths().
+ */
+function commerce_order_manager_admin_paths() {
+  // The order view should use the admin theme.
+  $paths = array(
+    'commerce_order_manager/view/*' => TRUE,
+  );
+  return $paths;
+}
+
+/**
  * Redirect the user to the relevant page.
  */
 function commerce_order_redirect() {
