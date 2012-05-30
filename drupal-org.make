@@ -30,25 +30,8 @@ projects[strongarm][version] = 2.0-rc1
 projects[strongarm][subdir] = "contrib"
 projects[taxonomy_menu][version] = 1.2
 projects[taxonomy_menu][subdir] = "contrib"
-projects[views_slideshow][version] = 3.0
-projects[views_slideshow][subdir] = "contrib"
 projects[libraries][version] = 1.0
 projects[libraries][subdir] = "contrib"
-projects[tipsy][version] = 1.0-rc1
-projects[tipsy][subdir] = "contrib"
-projects[advanced_help][version] = 1.0
-projects[advanced_help][subdir] = "contrib"
-projects[advanced_help][patch][] = "http://drupal.org/files/advanced_help-invalid_argument_in_modules_alter-1086990-21.patch"
-projects[mailsystem][version] = 2.34
-projects[mailsystem][subdir] = "contrib"
-projects[mimemail][version] = 1.0-alpha1
-projects[mimemail][subdir] = "contrib"
-projects[mimemail][patch][] = "http://drupal.org/files/rules-1585546-1-moving_rules_actions.patch"
-projects[token][version] = 1.1
-projects[token][subdir] = "contrib"
-projects[cloud_zoom][version] = 1.x-dev
-projects[cloud_zoom][subdir] = "contrib"
-projects[cloud_zoom][patch][] = "http://drupal.org/files/1579380-cloud-zoom-all-settings-integration-with-libraries-4.patch"
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.x-dev
@@ -78,6 +61,16 @@ projects[field_extractor][subdir] = "contrib"
 projects[taxonomy_breadcrumb][version] = 1.x-dev
 projects[taxonomy_breadcrumb][subdir] = "contrib"
 projects[taxonomy_breadcrumb][patch][] = "http://drupal.org/files/taxonomy_breadcrumb_vocabulary_selection_bug-1220250-1_0.patch"
+projects[advanced_help][version] = 1.0
+projects[advanced_help][subdir] = "contrib"
+projects[advanced_help][patch][] = "http://drupal.org/files/advanced_help-invalid_argument_in_modules_alter-1086990-21.patch"
+projects[mailsystem][version] = 2.34
+projects[mailsystem][subdir] = "contrib"
+projects[mimemail][version] = 1.0-alpha1
+projects[mimemail][subdir] = "contrib"
+projects[mimemail][patch][] = "http://drupal.org/files/rules-1585546-1-moving_rules_actions.patch"
+projects[token][version] = 1.1
+projects[token][subdir] = "contrib"
 
 ; Search related modules.
 projects[search_api][version] = 1.x-dev
@@ -101,11 +94,18 @@ projects[link][version] = 1.0
 projects[link][subdir] = "contrib"
 projects[pathauto][version] = 1.1
 projects[pathauto][subdir] = "contrib"
+projects[tipsy][version] = 1.0-rc1
+projects[tipsy][subdir] = "contrib"
+projects[cloud_zoom][version] = 1.x-dev
+projects[cloud_zoom][subdir] = "contrib"
+projects[cloud_zoom][patch][] = "http://drupal.org/files/1579380-cloud-zoom-all-settings-integration-with-libraries-4.patch"
+projects[views_slideshow][version] = 3.0
+projects[views_slideshow][subdir] = "contrib"
 
-; Base theme
+; Base theme.
 projects[omega][version] = 3.1
 
-; Libraries
+; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
 libraries[jquery.bxSlider][download][type] = "git"
 libraries[jquery.bxSlider][download][url] = "https://github.com/wandoledzep/bxslider.git"
