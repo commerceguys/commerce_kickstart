@@ -820,6 +820,16 @@ region-breadcrumb .pseudo-breadcrumb,
   clear: both;
 }
 
+.view-collection-taxonomy-term .item-list h3 {
+  position: relative;
+}
+
+.view-collection-taxonomy-term .item-list h3 span {
+  display: block;
+  position: absolute;
+  top: -40px;
+}
+
 .view-collection-taxonomy-term .item-list h3 .collection {
   background-color: #d3d3d3;
   float: left;
