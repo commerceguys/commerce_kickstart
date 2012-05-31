@@ -651,14 +651,14 @@ region-breadcrumb .pseudo-breadcrumb,
 
 .view-display-id-block_1 .views-row .views-field-field-image,
 .view-display-id-block_1 .views-row .views-field-field-tagline,
-.block-blog-block .views-field-body {
+.block-blog-block .views-field-title {
   display: inline;
   margin-top: 5px;
 }
 .view-display-id-block_1 .views-row .views-field-field-tagline,
-.block-blog-block .views-field-body,
+.block-blog-block .views-field-title,
 .view-display-id-block_1 .views-row .views-field-field-tagline a,
-.block-blog-block .views-field-body a {
+.block-blog-block .views-field-title a {
   color: #ffffff;
   font-family: 'MuseoSlab700';
   text-align: center;
@@ -666,7 +666,7 @@ region-breadcrumb .pseudo-breadcrumb,
   text-transform: capitalize;
 }
 .view-display-id-block_1 .views-row .views-field-field-tagline .field-content,
-.block-blog-block .views-field-body .field-content {
+.block-blog-block .views-field-title .field-content {
   color: #ffffff;
   font-size: 20px;
   height: 90px;
@@ -674,7 +674,7 @@ region-breadcrumb .pseudo-breadcrumb,
   padding: 0px;
 }
 .view-display-id-block_1 .views-row .views-field-field-tagline a,
-.block-blog-block .views-field-body a {
+.block-blog-block .views-field-title a {
   display: block;
   padding: 15px 10px;
 }
@@ -703,7 +703,7 @@ region-breadcrumb .pseudo-breadcrumb,
 }
 
 /* Blog block */
-.block-blog-block .views-field-body .field-content p {
+.block-blog-block .views-field-title .field-content p {
   margin-bottom: 0;
 }
 

@@ -120,7 +120,7 @@ h2.site-name:after {
   z-index: 1;
 }
 .view-display-id-block_1 .views-row .views-field-field-tagline,
-.block-blog-block .views-field-body {
+.block-blog-block .views-field-title {
   margin: 5px 10px;
   position: absolute;
   bottom: 30px;
@@ -128,7 +128,8 @@ h2.site-name:after {
 }
 
 .view-display-id-block_1 .views-row .views-field-field-tagline,
-.block-blog-block .views-field-body .field-content {
+.block-blog-block .views-field-title .field-content {
+  display: block;
   width: 260px;
 }
 /* Adverts blocks */
