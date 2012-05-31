@@ -237,8 +237,11 @@ region-breadcrumb .pseudo-breadcrumb,
   font-family: 'MuseoSlab700';
   display: block;
   margin: 7px 0;
-  padding: 12px 15px;
+  padding: 12px 18px;
   text-decoration: none;
+}
+.secondary-menu a {
+  padding: 12px 18px;
 }
 .navigation li a {
   -webkit-transition:background .2s ease-in;
@@ -293,6 +296,9 @@ region-breadcrumb .pseudo-breadcrumb,
 }
 
 /* User menu */
+.block-menu-kickstart-user-menu .block-inner {
+  float: right;
+}
 .block-menu-kickstart-user-menu .content ul,
 .block-menu-kickstart-user-menu .content ul li {
   display: inline;
@@ -348,7 +354,7 @@ region-breadcrumb .pseudo-breadcrumb,
   font-size: 14px;
   line-height: 23px;
   padding-top: 5px;
-  padding-right: 50px;
+  padding-right: 45px;
   padding-left: 12px;
   text-transform: uppercase;
 }
@@ -376,7 +382,9 @@ region-breadcrumb .pseudo-breadcrumb,
   margin: 0;
   position: relative;
 }
-.block-shopping-cart-block .content .view-shopping-cart .view-empty p,
+.block-shopping-cart-block .content .view-shopping-cart .view-empty p {
+  padding-right: 25px;
+}
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
   padding-right: 10px;
 }
