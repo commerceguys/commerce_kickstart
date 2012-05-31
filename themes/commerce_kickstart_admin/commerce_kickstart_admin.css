@@ -48,7 +48,7 @@
 }
 body {
   /*font-family: "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-  font-family: "MuseoSlab", Arial, sans-serif;
+  font: normal 300 100%/1.5em "MuseoSlab", Arial, sans-serif;
 }
 a {
   color: #36a2f6;
@@ -118,24 +118,40 @@ fieldset.form-wrapper {
   border: 0;
   margin-bottom: 2em;
 }
-fieldset .fieldset-wrapper {
+fieldset .fieldset-wrapper, fieldset.collapsible, .view-filters {
   border: 1px solid #fff;
   background: #fff url("images/bg-fieldset.jpg") repeat-y right top;
   outline: 1px solid #ccc;
   padding: 15px;
 }
+fieldset.collapsed {
+  padding: 25px 15px;
+  min-height: 50px;
+}
 fieldset .fieldset-legend {
   text-transform: none;
   font-weight: 300;
   margin-top: 0;
-  font-size: 28px;
+  font-size: 22px;
 }
 fieldset.collapsible .fieldset-legend {
   font-size: 15px;
   font-weight: 500;
+  margin-top: 15px;
+  color: #585858;
+}
+fieldset.collapsible .fieldset-legend a {
+  color: #000;
+}
+fieldset.collapsible  .fieldset-wrapper {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 15px 0 0;
 }
 body.in-maintenance fieldset .fieldset-legend {
   font-size: 28px;
+  color: #000;
 }
 .form-item, .form-item .form-item {
   position: relative;
@@ -152,7 +168,7 @@ input.form-autocomplete,
 input.form-text,
 input.form-file,
 textarea.form-textarea {
-  background: #e6e6e6;
+  background: #f3f3f3;
   border: 1px solid #fff;
   outline: 1px solid #e0e0e0;
   font: normal 300 14px/14px "MuseoSlab", Arial, sans-serif;
@@ -198,7 +214,7 @@ body.in-maintenance .form-submit:hover {
 #edit-account-commerce-kickstart-name label,
 #edit-account-commerce-kickstart-password label {
   float: left;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 /* Overlay Styles */
@@ -219,9 +235,9 @@ a.tabledrag-handle .handle {
 #overlay-close-wrapper {
   height: 50px;
   width: 45px;
-  right: -34px;
+  right: -26px;
   background: transparent url("images/bg-close.png") no-repeat right top;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 #overlay-close, #overlay-close:hover {
   background: transparent url("images/close.png") no-repeat 0 0;
@@ -234,27 +250,67 @@ h1#overlay-title {
   font: normal 100 52px/52px "MuseoSlab", Arial, sans-serif;
   text-shadow: 2px 2px 0 #5c5a5a;
 }
-#overlay {
-  width: 950px;
-  max-width: 88%;
-}
 #overlay-titlebar,
 #overlay-content {
-  width: 950px;
   max-width: 100%;
   white-space: normal;
 }
 #overlay #overlay-content {
-  background: rgba(255,255,255,.9);
-  padding: 4.2105%; /* 40px/950px */
+  background: transparent url("images/bg-opac-wht.png") repeat 0 0;
+  padding: 8px; /* was  4.2105%  40px/950px */
   margin-bottom: 200px;
 }
 #overlay #overlay-content #branding,
 #overlay #overlay-content #page {
-  background: transparent;
-  padding: 0;
+  background: transparent url("images/bg-light-wht.png") repeat 0 0;
   width: auto;
   max-width: 100%;
+}
+#overlay-tabs-wrapper {
+  height: 30px;
+}
+#overlay-tabs {
+  background: transparent url("images/bg-opac-wht.png") repeat-x 0 0;
+  padding: 8px 8px 0;
+  margin: 0;
+  bottom: -8px;
+  right: 0
+}
+#overlay-tabs li {
+  margin: 0;
+  padding: 0;
+}
+#overlay-tabs li a, #overlay-tabs li a:active, #overlay-tabs li a:visited, #overlay-tabs li a:hover {
+  background: #868686;
+  border-radius: 0;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 300 !important;
+  margin: 0 5px 0 0;
+  color: #fff;
+  text-transform: none;
+  float: left;
+}
+#overlay-tabs li a:hover {
+  background: #666;
+}
+#overlay-tabs li.active a, #overlay-tabs li.active a.active, #overlay-tabs li.active a:active, #overlay-tabs li.active a:visited {
+  color: #000;
+  background: transparent url("images/bg-light-wht.png") repeat 0 0;
+  padding-bottom: 7px;
+  margin: 0 5px 0 0;
+}
+#overlay-tabs li:last-child a, #overlay-tabs li.active:last-child a {
+  margin: 0;
+}
+.overlay ul.secondary {
+  margin-top: 0;
+}
+#overlay #overlay-content #branding {
+  padding: 30px 30px 0;
+}
+#overlay #overlay-content #page {
+  padding: 0 30px 30px;
 }
 #overlay-titlebar .add-or-remove-shortcuts {
   padding-bottom: .9em;
@@ -483,3 +539,30 @@ input.form-submit:hover, a.button:hover {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
   color: #fff;
 }
+#overlay-container .overlay-modal-background {
+  background: #ccc;
+}
+.overlay-modal-background {
+  /* Using a transparent png renders faster than using opacity */
+  background: transparent url(images/overlay.png) repeat !important;
+}
+
+ul.action-links a {
+  padding: 4px 0 4px 30px;
+}
+
+/* Table Styles */
+table th {
+  border: 1px solid #a8a8a8;
+  background: #a8a8a8;
+  box-shadow: inset 0 0 1px #fff;
+  color: #fff;
+  font-weight: 300;
+  font-size: 15px;
+  text-transform: none;
+}
+table th,
+table td {
+  padding: 15px;
+}
+
