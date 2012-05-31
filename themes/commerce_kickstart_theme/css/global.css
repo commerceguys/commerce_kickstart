@@ -681,15 +681,20 @@ region-breadcrumb .pseudo-breadcrumb,
 .view-display-id-block_1 .views-row .views-field-field-headline {
   font-family: Georgia, 'Times New Roman', serif;
 }
-.view-display-id-block_1 .views-row .views-field-field-tagline .field-content {
+.view-display-id-block_1 .views-row .views-field-field-tagline .field-content,
+.block-blog-block .views-field-body .field-content {
   border: 1px solid #5f5f5f;
   background: url('../images/bg_ad_push_headline.png') left top;
 }
-/* Blog block */
-.block-blog-block .views-field-body .field-content {
+.view-display-id-block_1 .views-row:hover .views-field-field-tagline .field-content,
+.block-blog-block .view-content:hover .views-field-body .field-content,
+.view-display-id-block_1 .views-row .views-field-field-tagline .field-content:hover,
+.block-blog-block .views-field-body .field-content:hover {
   border: 1px solid #585655;
   background: url('../images/bg_blog_headline.png') left top;
 }
+
+/* Blog block */
 .block-blog-block .views-field-body .field-content p {
   margin-bottom: 0;
 }
@@ -697,6 +702,15 @@ region-breadcrumb .pseudo-breadcrumb,
 /**
  * Search & Collection page
  */
+.view-collection-taxonomy-term .products-per-collection li .commerce-product-field,
+.page-products .view-display-products li .commerce-product-field {
+  margin-bottom: 5px;
+}
+.view-collection-taxonomy-term .products-per-collection li header,
+.page-products .view-display-products li header {
+  background: url('../images/bg_product_attributes_top.png') center top no-repeat;
+  padding-top: 20px;
+}
 
 .view-collection-taxonomy-term .products-per-collection li h2,
 .page-products .view-display-products li h2 {
@@ -712,7 +726,7 @@ region-breadcrumb .pseudo-breadcrumb,
   font-size: 14px;
   text-decoration: none;
 }
-.page-products .view-display-products li .commerce-product-field-commerce-price {
+.page-products .view-display-products li .content .commerce-product-field-commerce-price {
   font-family: 'MuseoSlab700';
 }
 .view-collection-taxonomy-term .products-per-collection li.views-row.last,
