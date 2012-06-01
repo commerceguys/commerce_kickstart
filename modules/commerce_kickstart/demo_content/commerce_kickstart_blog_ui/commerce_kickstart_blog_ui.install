@@ -59,7 +59,7 @@ function commerce_kickstart_blog_ui_install() {
     $breadcrumb->name = 'blog';
     $breadcrumb->visibility_php = '';
     $breadcrumb->titles = 'Blog';
-    $breadcrumb->paths = 'blog';
+    $breadcrumb->paths = '<none>';
     _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs_views', 'views', $breadcrumb);
 
     $breadcrumb = new stdClass();
@@ -67,7 +67,7 @@ function commerce_kickstart_blog_ui_install() {
     $breadcrumb->name = 'blog_post';
     $breadcrumb->visibility_php = '';
     $breadcrumb->titles = "Blog\n[node:title]";
-    $breadcrumb->paths = "blog\n[node:field-link:url]";
+    $breadcrumb->paths = "blog\n<none>";
     _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs', 'node', $breadcrumb);
 
     $breadcrumb = new stdClass();
@@ -75,7 +75,7 @@ function commerce_kickstart_blog_ui_install() {
     $breadcrumb->name = 'page';
     $breadcrumb->visibility_php = '';
     $breadcrumb->titles = '[node:title]';
-    $breadcrumb->paths = '[node:field-link:url]';
+    $breadcrumb->paths = '<none>';
     _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs', 'node', $breadcrumb);
   }
 }
