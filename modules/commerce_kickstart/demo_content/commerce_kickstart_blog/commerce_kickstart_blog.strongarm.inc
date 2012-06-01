@@ -21,7 +21,7 @@ function commerce_kickstart_blog_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_blog_post';
-  $strongarm->value = '0';
+  $strongarm->value = '2';
   $export['comment_blog_post'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -95,9 +95,7 @@ function commerce_kickstart_blog_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_blog_post';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
+  $strongarm->value = array();
   $export['menu_options_blog_post'] = $strongarm;
 
   $strongarm = new stdClass();

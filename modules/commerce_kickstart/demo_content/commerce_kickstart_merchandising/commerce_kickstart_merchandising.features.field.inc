@@ -710,7 +710,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
   t('Headline');
   t('Image');
   t('Link');
-  t('Link this content to a URL. It can either be relative to your site (<em>all-products</em>) or absolute.');
+  t('Link this content to a URL. It can either be relative to your site (for example : <em>all-products</em>) or an absolute path.');
   t('Short description of the content that you promote.');
   t('Tagline');
   t('This field will be displayed as a pager description under the slideshow.');
