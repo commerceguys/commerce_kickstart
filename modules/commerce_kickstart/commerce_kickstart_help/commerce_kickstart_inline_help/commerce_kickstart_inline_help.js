@@ -21,7 +21,6 @@
     textArea.show('slow');
     openButtonContainer.hide();
     closeButton.show();
-    Drupal.KickstartHelp.show();
     Drupal.attachBehaviors();
   }
   /**
