@@ -918,7 +918,27 @@ ul.primary li a {
 }
 .node-product-type .field-name-body {
   font-family: 'MuseoSlab300';
+  line-height: 20px;
   margin-bottom: 20px;
+}
+.node-product-type .field-name-body .read-more a,
+.node-product-type .field-name-body .read-less a {
+  background: url('../images/btn_read_more.png') 0 1px no-repeat;
+  color: #898a8c;
+  display: block;
+  font-family: 'MuseoSlab300';
+  margin-top: 10px;
+  text-indent: 25px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.node-product-type .field-name-body .read-less a {
+  background-position: 0 -20px;
+}
+.node-product-type .field-name-body .read-more a:hover,
+.node-product-type .field-name-body .read-less a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 .commerce-add-to-cart {
   background: url('../images/bg_product_attributes_top.png') center top no-repeat;

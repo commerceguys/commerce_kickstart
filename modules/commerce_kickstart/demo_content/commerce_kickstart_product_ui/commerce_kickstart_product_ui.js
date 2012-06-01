@@ -16,9 +16,9 @@
     attach: function ( context, settings ) {
       $('.field-name-body .field-item p').expander({
         slicePoint: 200,
-        expandPrefix: ' ... ',
+        expandPrefix: '...<br />',
         expandText: 'read more',
-        userCollapseText: 'Close',
+        userCollapseText: 'read less',
         expandEffect: 'fadeIn',
         expandSpeed: 250,
         collapseEffect: 'fadeOut',
