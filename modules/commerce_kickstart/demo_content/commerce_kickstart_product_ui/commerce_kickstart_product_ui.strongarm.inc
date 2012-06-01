@@ -43,7 +43,6 @@ function commerce_kickstart_product_ui_strongarm() {
     'storage_devices' => 'storage_devices',
     'tops' => 'tops',
     'ad_push' => 0,
-    'article' => 0,
     'page' => 0,
     'blog_post' => 0,
     'slideshow' => 0,
