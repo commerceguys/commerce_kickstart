@@ -167,9 +167,9 @@ function commerce_kickstart_content_contents($which_block) {
       $block = variable_get('block_social_content');
       if (empty($block)) {
         $block = "<ul id=\"social\">\n";
-        $block .= "\t<li id=\"facebook\">" . t('Like us on Facebook') . "</li>\n";
-        $block .= "\t<li id=\"twitter\">" . t('Follow Us on Twitter') . "</li>\n";
-        $block .= "\t<li id=\"pinterest\">" . t('What We Like on Pinterest') . "</li>\n";
+        $block .= "\t<li><a href=\"https://www.facebook.com/commerceguys\" id=\"facebook\">Like us on Facebook</a></li>\n";
+        $block .= "\t<li><a href=\"https://twitter.com/commerceguys\" id=\"twitter\">Follow Us on Twitter</a></li>\n";
+        $block .= "\t<li><span id=\"pinterest\">What We Like on Pinterest</span></li>\n";
         $block .= "</ul>\n";
         variable_set('block_social_content', $block);
       }

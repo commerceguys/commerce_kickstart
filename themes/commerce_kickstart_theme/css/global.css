@@ -1196,31 +1196,15 @@ ul.primary li a {
   padding-bottom: 22px;
   padding-left: 25px;
 }
-.block-social #facebook:hover,
-.block-social #twitter:hover,
-.block-social #pinterest:hover {
-  background-color: #cecece;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  color: #717171;
-  cursor: pointer;
+.block-social .content ul#social {
+  list-style: none;
 }
-.block-social #facebook,
-.block-social #twitter,
-.block-social #pinterest,
-.block-social #facebook a,
-.block-social #twitter a,
-.block-social #pinterest a {
+.block-social .content #social li {
   color: #eeeeee;
   font-family: 'MuseoSlab500';
-  display: block;
-  height: 35px;
   line-height: 15px;
   margin-top: 2px;
   margin-bottom: 15px;
-  padding-top: 5px;
-  padding-left: 50px;
 }
 .block-social #facebook {
   background: url('../images/icon_facebook.png') 2% 50% no-repeat;
@@ -1234,7 +1218,26 @@ ul.primary li a {
   background: url('../images/icon_pinterest.png') 2% 50% no-repeat;
   padding-right: 60px;
 }
-
+.block-social .content li a,
+.block-social .content li span {
+  color: #eeeeee;
+  font-family: 'MuseoSlab500';
+  display: block;
+  height: 35px;
+  padding-top: 5px;
+  padding-left: 50px;
+  text-decoration: none;
+}
+.block-social #social li:hover {
+  background-color: #cecece;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.block-social .content a:hover {
+  color: #717171;
+  cursor: pointer;
+}
 .block-payment {
   background-color: #ffffff;
   color: #3f3f3f;
