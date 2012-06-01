@@ -48,6 +48,9 @@ function commerce_kickstart_product_ui_theme(&$existing) {
     $existing['commerce_line_item_summary']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
     $existing['commerce_line_item_summary']['template'] = 'commerce-line-item-summary';
   }
+  if ($existing['current_search_text']) {
+    $existing['current_search_text']['function'] = 'theme_commerce_kickstart_product_ui_current_search_text';
+  }
   $themes =  array(
     'node__product__type' => array(
       'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
@@ -56,10 +59,6 @@ function commerce_kickstart_product_ui_theme(&$existing) {
     'node__product__type__product__list' => array(
       'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
       'template' => 'node--product--type--product--list',
-    ),
-    'views_view_taxonomy_title__default' => array(
-      'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
-      'template' => 'views-view--taxonomy-title--default',
     ),
   );
 
@@ -232,3 +231,21 @@ function commerce_kickstart_product_ui_page_alter(&$page) {
   }
 }
 
+/**
+ * Override current_search_text theme.
+ *
+ * Allow HTML.
+ */
+function theme_commerce_kickstart_product_ui_current_search_text(array $variables) {
+  // Initializes output, don't sanitizes text.
+  $output = $variables['text'];
+
+  // Adds wrapper markup and CSS classes.
+  if ($variables['wrapper'] && $variables['element']) {
+    $attributes = array('class' => $variables['class']);
+    $element = check_plain($variables['element']);
+    $output = '<' . $element . drupal_attributes($attributes) . '>' . $output . '</' . $element . '>';
+  }
+
+  return $output;
+}

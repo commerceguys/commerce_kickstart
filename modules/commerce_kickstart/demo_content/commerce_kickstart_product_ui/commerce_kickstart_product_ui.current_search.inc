@@ -20,9 +20,9 @@ function commerce_kickstart_product_ui_current_search_default_items() {
       'results' => array(
         'id' => 'text',
         'label' => 'Results',
-        'text' => 'There are [facetapi_results:result-count] search result',
+        'text' => 'There are <em>[facetapi_results:result-count]</em> search result',
         'plural' => 1,
-        'text_plural' => 'There are [facetapi_results:result-count] search results',
+        'text_plural' => 'There are <em>[facetapi_results:result-count]</em> search results',
         'plural_condition' => 'facetapi_results:result-count',
         'wrapper' => 1,
         'element' => 'h3',

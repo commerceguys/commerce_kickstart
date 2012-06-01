@@ -185,33 +185,42 @@ ul.primary li a {
   margin: 20px 0;
   padding: 13px 27px;
 }
-
+#region-breadcrumb {
+  margin: 0px 10px;
+  padding-top: 20px;
+}
 #region-breadcrumb .pseudo-breadcrumb {
   background-color: #eeeeee;
   border: 1px solid #d7d7d7;
   margin: 20px 0;
   padding: 10px 21px 35px 5px;
 }
-
+#region-breadcrumb .pseudo-breadcrumb-total-results {
+  font-family: 'MuseoSlab300';
+  margin: 0 20px;
+}
+#region-breadcrumb .pseudo-breadcrumb-total-results em {
+  color: #FD9A00;
+  font-style: normal;
+}
+#region-breadcrumb .pseudo-breadcrumb
 #region-breadcrumb li a,
-region-breadcrumb .pseudo-breadcrumb,
+#region-breadcrumb .pseudo-breadcrumb,
 .breadcrumb,
 .breadcrumb a {
   color: #898a8c;
 }
-
 #region-breadcrumb li a,
-region-breadcrumb .pseudo-breadcrumb,
+#region-breadcrumb .pseudo-breadcrumb,
 .breadcrumb a {
   font-weight: bold;
   text-decoration: none;
 }
 
-region-breadcrumb .pseudo-breadcrumb,
+#region-breadcrumb .pseudo-breadcrumb,
 .breadcrumb a:hover {
   text-decoration: underline;
 }
-
 #region-breadcrumb li {
   color: #898a8c;
   float: left;
@@ -776,8 +785,13 @@ region-breadcrumb .pseudo-breadcrumb,
   top: 0;
   right: 0;
 }
-.view-collection-taxonomy-term .view-header .field-name-field-image {
+.view-collection-taxonomy-term .view-header .views-row {
   border: 1px solid #d7d7d7;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.view-collection-taxonomy-term .view-header .field-name-field-image {
+
 }
 .view-collection-taxonomy-term .view-header .collection-terms .view-header {
   color: #ffffff;
