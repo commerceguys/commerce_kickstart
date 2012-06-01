@@ -699,14 +699,14 @@ ul.primary li a {
   font-family: Georgia, 'Times New Roman', serif;
 }
 .view-display-id-block_1 .views-row .views-field-field-tagline .field-content,
-.block-blog-block .views-field-body .field-content {
+.block-blog-block .views-field-title .field-content {
   border: 1px solid #5f5f5f;
   background: url('../images/bg_ad_push_headline.png') left top;
 }
 .view-display-id-block_1 .views-row:hover .views-field-field-tagline .field-content,
-.block-blog-block .view-content:hover .views-field-body .field-content,
+.block-blog-block .view-content:hover .views-field-title .field-content,
 .view-display-id-block_1 .views-row .views-field-field-tagline .field-content:hover,
-.block-blog-block .views-field-body .field-content:hover {
+.block-blog-block .views-field-title .field-content:hover {
   border: 1px solid #585655;
   background: url('../images/bg_blog_headline.png') left top;
 }
