@@ -62,6 +62,7 @@ dependencies[] = commerce_product_pricing_ui
 dependencies[] = commerce_product_reference
 dependencies[] = commerce_tax
 dependencies[] = commerce_tax_ui
+dependencies[] = commerce_autosku
 
 ; Install contribs.
 dependencies[] = commerce_addressbook

@@ -5857,13 +5857,11 @@ function commerce_kickstart_product_field_default_fields() {
   t('Category');
   t('Collection');
   t('Color');
-  t('Description');
   t('Gender');
   t('Hexadecimal color code');
   t('Image');
   t('Price');
   t('Product');
-  t('Product variations');
   t('Size');
 
   return $fields;

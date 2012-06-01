@@ -49,6 +49,8 @@ projects[commerce_flat_rate][version] = 1.x-dev
 projects[commerce_flat_rate][subdir] = "contrib"
 projects[commerce_fancy_attributes][version] = 1.0-beta1
 projects[commerce_fancy_attributes][subdir] = "contrib"
+projects[commerce_autosku][version] = 1.0
+projects[commerce_autosku][subdir] = "contrib"
 
 ; Other contribs.
 projects[http_client][version] = 2.3
