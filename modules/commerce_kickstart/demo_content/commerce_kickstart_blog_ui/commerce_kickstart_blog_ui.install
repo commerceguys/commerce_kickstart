@@ -26,7 +26,7 @@ function commerce_kickstart_blog_ui_install() {
   try {
     db_update('block')
       ->fields(array(
-      'region' => 'postscript_second',
+      'region' => 'postscript_third',
       'status' => (int) '1',
       'visibility' => '1',
       'pages' => '<front>',
