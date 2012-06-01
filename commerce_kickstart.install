@@ -328,10 +328,6 @@ function commerce_kickstart_install() {
  * Performs additional configuration for Drupal Commerce modules and components.
  */
 function _commerce_kickstart_install() {
-
-  // Set homepage.
-  variable_set('site_frontpage', 'node/1');
-
   // Give checkout access to anonymous and authenticated users.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access checkout'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access checkout'));

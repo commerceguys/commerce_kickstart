@@ -25,7 +25,7 @@ function commerce_kickstart_merchandising_ui_library() {
  * Implements hook_preprocess_page().
  */
 function commerce_kickstart_merchandising_ui_preprocess_page(&$vars) {
-  if (arg(0) == 'node' && arg(1) == '1') {
+  if ($vars['is_front']) {
     drupal_add_library('commerce_kickstart_merchandising_ui', 'bxslider');
   }
 }
