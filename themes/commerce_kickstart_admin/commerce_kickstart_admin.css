@@ -155,6 +155,7 @@ body.in-maintenance fieldset .fieldset-legend {
 }
 .form-item, .form-item .form-item {
   position: relative;
+  clear: both;
 }
 .form-item label {
   font-size: 15px;
@@ -378,6 +379,7 @@ h1#overlay-title {
   padding: 3px;
   background: #fff;
   margin-bottom: 30px;
+  padding: 15px;
 }
 .advanced-help-topic .ui-accordion h2.ui-accordion-header {
   background: transparent url("images/incomplete.png") no-repeat 96.064814% center; /* 800 / 870 */
@@ -531,6 +533,8 @@ input.form-submit, a.button {
   box-shadow: 0 0 2px #999;
   border-radius: 10px;
   padding: 10px;
+  margin-top: 1px;
+  margin-left: 1px;
 }
 input.form-submit:hover, a.button:hover {
 
@@ -561,8 +565,31 @@ table th {
   font-size: 15px;
   text-transform: none;
 }
+table th a {
+  color: #fff;
+}
 table th,
 table td {
   padding: 15px;
 }
+table.sticky-header {
+  z-index: 99;
+}
+#edit-actions {
+  padding-top: 30px;
+}
 
+table td.views-field-edit-node a {
+  margin-right: 10px;
+}
+.form-item-changed-command-example .ajax-progress,
+#commerce-kickstart-inline-help-form-ajax .ajax-progress {
+  float: left;
+  margin-right: 10px;
+}
+#commerce-kickstart-inline-help-form-ajax .ajax-progress {
+  padding-top: 10px;
+}
+#commerce-kickstart-inline-help-form-ajax #edit-commerce-kickstart-inline-help-button {
+  float: right;
+}
