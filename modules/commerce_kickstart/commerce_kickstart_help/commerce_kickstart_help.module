@@ -38,7 +38,7 @@ function commerce_kickstart_help_preprocess_page(&$vars) {
       variable_set('getting_started_seen', TRUE);
       $vars['page']['content']['system_main']['help_button'] = array(
         '#weight' => -11,
-        '#markup' => "<div id='getting-started-skip' class='form-actions'><a class='overlay-close'><input type='submit' value='". t('Go to my store') . "class='form-submit' id='edit-submit'></a></div>",
+        '#markup' => "<div id='getting-started-skip' class='form-actions'><a class='overlay-close'><input type='submit' value='". t('Go to my store') . "' class='form-submit' id='edit-submit'></a></div>",
       );
     }
   }
