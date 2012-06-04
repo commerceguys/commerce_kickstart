@@ -2219,7 +2219,7 @@ function commerce_kickstart_user_user_default_permissions() {
       0 => 'administrator',
       1 => 'store administrator',
     ),
-    'module' => 'demo',
+    'module' => 'commerce_kickstart_reset',
   );
 
   // Exported permission: view own commerce_customer_profile entities.

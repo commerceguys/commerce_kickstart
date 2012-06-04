@@ -1,0 +1,7 @@
+name = Commerce Kickstart Reset
+core = 7.x
+dependencies[] = "entity"
+package = Commerce Kickstart
+
+; Tests
+files[] = test/commerce_kickstart_reset.test

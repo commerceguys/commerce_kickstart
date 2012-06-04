@@ -79,7 +79,7 @@ class Demo_other_TestCase extends DrupalWebTestCase {
     $nodes[] = $this->drupalCreateNode(array('type' => 'article', 'status' => NODE_NOT_PUBLISHED));
 
     // Enable the demo module
-    module_enable(array('demo'));
+    module_enable(array('commerce_kickstart_reset'));
     drupal_flush_all_caches();
     // Create some nodes now the demo is enable
 
