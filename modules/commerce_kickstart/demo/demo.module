@@ -21,14 +21,14 @@ function demo_menu() {
     'description' => 'todo.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('demo_kill_me_form'),
-    'access arguments' => 'view demo bar',
+    'access arguments' => array('view demo bar'),
     'weight' => 10,
   );
   $items['admin/demo/disable'] = array(
     'title' => 'Manage demo',
     'description' => 'todo.',
     'page callback' => 'demo_disable_me',
-    'access arguments' => 'view demo bar',
+    'access arguments' => array('view demo bar'),
     'weight' => 10,
   );
   return $items;
