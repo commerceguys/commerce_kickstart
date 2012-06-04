@@ -107,6 +107,7 @@ projects[search_api_ranges][patch][] = "patches/search_api_ranges-add-support-fo
 projects[search_api_ranges][subdir] = "contrib"
 projects[facetapi][version] = 1.0-rc4
 projects[facetapi][subdir] = "contrib"
+projects[facetapi][patch][] = "http://drupal.org/files/facetapi-1616518-1_show-active-term.patch"
 
 ; UI improvement modules.
 projects[module_filter][version] = 1.6

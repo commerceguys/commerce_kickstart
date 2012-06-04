@@ -222,11 +222,25 @@ function theme_commerce_kickstart_product_ui_node_add_list($variables) {
 }
 
 /**
- * Implement hook_breadcrumb_alter().
+ * Implements hook_search_api_facetapi_keys_alter().
+ *
+ * We do not want to see [all items] in breadcrumbs when browsing all
+ * products, but only if search term is empty and no facets are used.
+ *
+ * @see SearchApiFacetapiAdapter::getSearchKeys()
  */
-function commerce_kickstart_product_ui_page_alter(&$page) {
-  // The "all products" views URI.
-  if (current_path() == 'products') {
+function commerce_kickstart_product_ui_search_api_facetapi_keys_alter(&$keys, $query) {
+  if ($keys == '[all items]' && !isset($_GET['f'])) {
+    // All products without facets.
+    $keys = '';
+    drupal_set_breadcrumb(array(l('Home', '<front>'), 'All Products'));
+  }
+  else if ($keys == '[all items]' && isset($_GET['f'])) {
+    // All products with facets.
+    drupal_set_breadcrumb(array());
+  }
+  else if ($keys != '[all items]') {
+    // Search result by key with or without facets.
     drupal_set_breadcrumb(array());
   }
 }
