@@ -70,15 +70,21 @@ ul.primary li a {
  * Zones
  * ==========================================================
  */
+.section-header {
+}
 .zone-user-wrapper {
   background-color: #8e8e8e;
   height: 34px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
 }
+
 .zone-user {
   height: 100%;
 }
 .zone-branding .region-branding {
-  margin-top: 15px;
+  margin-top: 50px;
   margin-right: 0;
 }
 .zone-menu .region-menu {
@@ -861,21 +867,20 @@ ul.primary li a {
 }
 
 .view-collection-taxonomy-term .item-list h3 .collection {
-  background-color: #d3d3d3;
-  float: left;
-  height: 260px;
+  border-bottom: 2px dotted #1fa7d4;
+  height: 75px;
   margin-right: 5px;
-  position: relative;
-  width: 465px;
 }
 .view-collection-taxonomy-term .item-list h3 .collection a {
-  color: #ffffff;
+  background-color: #1fa7d4;
+  color: #f5f5f5;
   font-family: 'MuseoSlab500';
   font-size: 68px;
-  margin-bottom : 15px;
-  margin-left: 15px;
-  position: absolute;
-  bottom: 0;
+  line-height: 66px;
+  padding: 0 15px;
+  text-shadow: 0px 1px 2px #555;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color='#555', Direction=135, Strength=3);
+  zoom: 1;
 }
 .view-collection-taxonomy-term .products-per-collection li.views-row {
   display: inline;
@@ -1324,30 +1329,90 @@ ul#payments li:first-child {
 .node-page {
   margin: 0 10px;
 }
+.page-blog .view-content .views-row {
+  display: inline;
+  clear: left;
+  float: left;
+  padding: 0;
+  width: 49%;
+}
+.page-blog .view-content .views-row-even {
+  clear: right;
+  float: right;
+}
 .page-blog .views-row {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-  margin: 5px 0;
+  background-color: #e2e4e7;
+  border: 1px solid #c0c2c5;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  margin: 15px 0 0px 0;
   padding: 10px;
 }
-.page-blog .views-row h2 {
-  margin-bottom: 0;
+.page-blog .views-row:hover {
+
 }
-.page-blog .views-row h2 a {
-  color: #fd9a00;
+.page-blog .view-content .views-row .node-blog-post {
+  padding: 10px 15px;
+  position: relative;
+}
+.page-blog .view-content .views-row h2 {
+  margin-bottom: 3px;
+}
+.page-blog .view-content .views-row h2 a {
+  color: #73c5e3;
   text-decoration: none;
 }
-.page-blog .views-row .submitted {
-  color: #fd9a00;
+.page-blog .view-content .views-row .submitted {
+  background-color: #7ec2df;
+  border-left: 1px solid #c0c2c5;
+  border-bottom: 1px solid #c0c2c5;
+  display: block;
   font-size: 10px;
-  margin-bottom: 5px;
+  margin-top: -2px;
+  padding: 4px 7px;
+  position: absolute;
+  right: -1px;
   text-transform: uppercase;
 }
-.page-blog .views-row-even {
-  background-color: #d4d3d3;
+.page-blog .view-content .views-row .submitted,
+.page-blog .view-content .views-row .submitted a {
+  color: #000000;
 }
-.page-blog .views-row-even .field-name-field-image {
+
+.page-blog .view-content .views-row .content .field-name-field-image {
+  border: 1px solid #ffffff;
+}
+.page-blog .view-content .views-row .content .field-name-body {
+  font-family: 'MuseoSlab700';
+  margin-top: 5px;
+}
+
+.page-blog .view-content .views-row .content .field-name-field-tags {
+  border-top: 1px dotted #777777;
+  font-size: 11px;
+  margin: 5px 0;
+  padding: 3px;
+}
+.page-blog .view-content .views-row .node-links ul li {
+  margin: 0;
+  padding: 3px 8px;
+}
+.page-blog .view-content .views-row .node-links,
+.page-blog .view-content .views-row .node-links a {
+  font-size: 12px;
+}
+.page-blog .view-content .views-row .node-links a {
+  text-decoration: none;
+}
+.page-blog .view-content .views-row .node-links li.node-readmore {
+  background-color: #6e9ac4;
+}
+.page-blog .view-content .views-row .node-links li.comment-comments {}
+.page-blog .view-content .views-row .node-links li.comment-new-comments {}
+.page-blog .view-content .views-row .node-links li.comment-comments span,
+.page-blog .view-content .views-row .node-links li.comment-new-comments span {
+  text-indent: -9999px;
 }
 /*
  * ==========================================================
