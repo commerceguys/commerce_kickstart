@@ -263,3 +263,11 @@ function theme_commerce_kickstart_product_ui_current_search_text(array $variable
 
   return $output;
 }
+
+/**
+ * Implements hook_commerce_checkout_pane_info_alter().
+ */
+function commerce_kickstart_product_ui_commerce_checkout_pane_info_alter(&$checkout_panes) {
+  $checkout_panes['customer_profile_billing']['weight'] = -18;
+  $checkout_panes['customer_profile_shipping']['weight'] = -17;
+}
