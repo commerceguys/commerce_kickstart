@@ -2068,7 +2068,8 @@ function commerce_kickstart_user_user_default_permissions() {
     'name' => 'view any commerce_product entity',
     'roles' => array(
       0 => 'administrator',
-      1 => 'store administrator',
+      1 => 'anonymous user',
+      2 => 'store administrator',
     ),
     'module' => 'commerce_product',
   );

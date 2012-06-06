@@ -19,6 +19,10 @@ function commerce_kickstart_product_ui_entity_info_alter(&$entity_info) {
     'label' => t('Node: Product list'),
     'custom settings' => TRUE,
   );
+  $entity_info['commerce_product']['view modes']['product_in_cart'] = array(
+    'label' => t('Product in cart'),
+    'custom settings' => TRUE,
+  );
 }
 
 /**
@@ -308,5 +312,15 @@ function commerce_kickstart_product_ui_menu_local_tasks_alter(&$data, $router_it
       '#theme' => 'menu_local_action',
       '#link' => $link,
     );
+  }
+}
+
+/*
+ * Process variables for entity.tpl.php.
+ */
+function commerce_kickstart_product_ui_preprocess_entity(&$variables) {
+  if ($variables['elements']['#view_mode'] == 'product_in_cart') {
+    $variables['title'] = "";
+    $variables['url'] = "";
   }
 }

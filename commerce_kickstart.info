@@ -92,6 +92,7 @@ dependencies[] = commerce_kickstart_inline_help
 dependencies[] = commerce_kickstart_search
 dependencies[] = commerce_kickstart_product
 dependencies[] = commerce_kickstart_product_ui
+dependencies[] = commerce_kickstart_cart_ui
 dependencies[] = commerce_kickstart_blog
 dependencies[] = commerce_kickstart_blog_ui
 dependencies[] = commerce_kickstart_merchandising

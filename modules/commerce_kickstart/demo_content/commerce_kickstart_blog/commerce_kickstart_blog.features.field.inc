@@ -51,6 +51,12 @@ function commerce_kickstart_blog_field_default_fields() {
           'type' => 'text_default',
           'weight' => '0',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -132,6 +138,12 @@ function commerce_kickstart_blog_field_default_fields() {
           ),
           'type' => 'image',
           'weight' => '-1',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -223,6 +235,12 @@ function commerce_kickstart_blog_field_default_fields() {
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
           'weight' => '10',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',

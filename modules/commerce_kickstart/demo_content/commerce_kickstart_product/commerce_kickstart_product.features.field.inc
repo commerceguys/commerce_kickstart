@@ -83,6 +83,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'commerce_price',
@@ -209,6 +215,13 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '5',
         ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
+        ),
         'node_product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -299,6 +312,13 @@ function commerce_kickstart_product_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
+          'weight' => '4',
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
           'weight' => '4',
         ),
         'node_product_list' => array(
@@ -410,6 +430,18 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'cloud_zoom',
           'weight' => '2',
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -530,6 +562,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -657,6 +695,13 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -767,6 +812,18 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'cloud_zoom',
           'weight' => '2',
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -887,6 +944,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -1018,6 +1081,13 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '3',
         ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '4',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -1114,6 +1184,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '5',
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
         ),
         'node_product_list' => array(
           'label' => 'above',
@@ -1224,6 +1301,18 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'cloud_zoom',
           'weight' => '2',
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -1344,6 +1433,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -1471,6 +1566,13 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '4',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -1582,6 +1684,18 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
+        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -1691,6 +1805,13 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '5',
         ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -1793,6 +1914,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -1938,6 +2065,18 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
+        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -2047,6 +2186,13 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -2149,6 +2295,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -2276,6 +2428,13 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '4',
+        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -2386,6 +2545,18 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
+        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -2495,6 +2666,13 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '5',
         ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
+        ),
         'node_product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2574,6 +2752,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'text_summary_or_trimmed',
           'weight' => '3',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -2665,6 +2849,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '1',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2746,6 +2936,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '11',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -2829,6 +3025,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '10',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2910,6 +3112,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '9',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -2995,6 +3203,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -3091,6 +3305,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'text_summary_or_trimmed',
           'weight' => '3',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -3181,6 +3401,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '1',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -3262,6 +3488,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '10',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -3345,6 +3577,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '9',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -3426,6 +3664,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '7',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -3511,6 +3755,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -3607,6 +3857,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'text_summary_or_trimmed',
           'weight' => '3',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -3697,6 +3953,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '1',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -3778,6 +4040,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '8',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -3861,6 +4129,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '6',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -3942,6 +4216,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '7',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -4027,6 +4307,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -4123,6 +4409,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'text_summary_or_trimmed',
           'weight' => '3',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -4213,6 +4505,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '1',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -4294,6 +4592,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '15',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -4377,6 +4681,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '13',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -4458,6 +4768,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '14',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -4543,6 +4859,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -4639,6 +4961,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'text_summary_or_trimmed',
           'weight' => '3',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -4729,6 +5057,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '1',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -4810,6 +5144,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '12',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -4893,6 +5233,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '10',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -4974,6 +5320,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '11',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -5059,6 +5411,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -5155,6 +5513,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'text_summary_or_trimmed',
           'weight' => '3',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -5245,6 +5609,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'taxonomy_term_reference_plain',
           'weight' => '1',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -5326,6 +5696,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '8',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -5409,6 +5785,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '10',
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -5490,6 +5872,12 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => '11',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',
@@ -5575,6 +5963,12 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'product_list' => array(
           'label' => 'above',

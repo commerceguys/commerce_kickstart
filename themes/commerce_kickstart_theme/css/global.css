@@ -770,7 +770,7 @@ ul.primary li a {
 }
 .view-collection-taxonomy-term .products-per-collection li .field-type-commerce-price,
 .page-products .view-display-products li .field-type-commerce-price {
-  color: #858787; 
+  color: #858787;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -983,11 +983,10 @@ ul.primary li a {
   text-decoration: none;
 }
 .block-search-api-sorts .content li .search-api-sort-active .search-api-sort-remove {
-  background: url('../images/btn_close.png') left center no-repeat;
-  width: 20px;
   display: block;
   float: left;
   text-indent: -9999px;
+  width: 0;
 }
 .block-search-api-sorts .content li .search-api-sort-active .sort-asc,
 .block-search-api-sorts .content li .search-api-sort-active .sort-desc {
@@ -1210,7 +1209,6 @@ ul.primary li a {
   text-align: right;
 }
 .page-cart #views-form-commerce-cart-form-default .line-item-summary {
-
 }
 .page-cart #views-form-commerce-cart-form-default table tbody tr.odd,
 .page-checkout #commerce-checkout-form-checkout table tbody tr.odd {
@@ -1286,6 +1284,44 @@ ul.primary li a {
   font-weight: normal;
   padding: 5px 10px;
 }
+.page-cart .views-field-nothing {
+  position: relative;
+}
+.page-cart .entity-commerce-product {
+  display: inline;
+}
+.page-cart .entity-commerce-product h2 {
+  display: none;
+  font-size: 0;
+  text-indent: -9999px;
+
+}
+.page-cart .entity-commerce-product .content .field-name-field-images {
+  float: left;
+  margin-right: 8px;
+}
+.page-cart a.view_product_details {
+  color: #7d7d7d;
+  font-size: 11px;
+  margin-top: 5px;
+}
+.page-cart .entity-commerce-product .content .commerce-product-sku-label,
+.page-cart .entity-commerce-product .content .field-label {
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 20px;
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+.page-cart .entity-commerce-product .content .field-label-inline .field-items {
+  float: inherit;
+}
+.page-cart .entity-commerce-product .content .field {
+  display: inline;
+}
+.page-cart .entity-commerce-product .content .commerce-product-title {
+  font-weight: bold;
+}
 /* Review order page */
 .page-checkout #commerce-checkout-form-review .checkout-help {
   margin-bottom: 15px;
@@ -1343,7 +1379,6 @@ ul.primary li a {
 .page-checkout fieldset.customer_profile_shipping,
 .page-checkout fieldset.customer_profile_billing {
 }
-
 .page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-name-line,
 .page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-country .form-item,
 .page-checkout fieldset.customer_profile_shipping .street-block .form-item,
