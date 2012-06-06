@@ -81,10 +81,10 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
     'type' => 'page',
   );
   $contents[] = array(
-    'title' => 'Shipping',
+    'title' => 'Shipping fees',
     'body' => $body3,
     'nid' => '6',
-    'path' => 'shipping-return',
+    'path' => 'shipping-fees',
     'type' => 'page',
   );
   $contents[] = array(
@@ -95,17 +95,17 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
     'type' => 'page',
   );
   $contents[] = array(
-    'title' => 'Service & support',
+    'title' => 'Service agreements',
     'body' => $body2,
     'nid' => '8',
-    'path' => 'service-support',
+    'path' => 'service-agreements',
     'type' => 'page',
   );
   $contents[] = array(
-    'title' => 'Security & privacy',
+    'title' => 'Our security policy',
     'body' => $body3,
     'nid' => '9',
-    'path' => 'security-privacy-policy',
+    'path' => 'our-security-policy',
     'type' => 'page',
   );
   $contents[] = array(

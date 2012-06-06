@@ -25,6 +25,7 @@ projects[features][patch][] = "http://drupal.org/files/features-1530386-10-impro
 projects[features][patch][] = "http://drupal.org/files/1572578-part-one.patch"
 projects[features][patch][] = "http://drupal.org/files/1574716-avoid-field-cache-rebuilds.patch"
 projects[features][patch][] = "http://drupal.org/files/1597186-1-features-do-not-cache-includes.patch"
+projects[features][patch][] = "http://drupal.org/files/927566-multiple-link_path.patch"
 projects[features][subdir] = "contrib"
 projects[strongarm][version] = 2.0-rc1
 projects[strongarm][subdir] = "contrib"
@@ -130,6 +131,8 @@ projects[views_slideshow][version] = 3.0
 projects[views_slideshow][subdir] = "contrib"
 projects[custom_breadcrumbs][version] = 2.x-dev
 projects[custom_breadcrumbs][subdir] = "contrib"
+projects[special_menu_items][version] = 1.0
+projects[special_menu_items][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
