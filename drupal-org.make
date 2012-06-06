@@ -52,7 +52,7 @@ projects[commerce_fancy_attributes][version] = 1.x-dev
 projects[commerce_fancy_attributes][subdir] = "contrib"
 projects[commerce_autosku][version] = 1.0
 projects[commerce_autosku][subdir] = "contrib"
-projects[commerce_autosku][patch][] = "http://drupal.org/files/commerce_autosku-1616370-3_fixed_features_support.patch"
+projects[commerce_autosku][patch][] = "http://drupal.org/files/commerce_autosku-1616370-4_fixed_features_support.patch"
 
 ; Other contribs.
 projects[http_client][version] = 2.3
