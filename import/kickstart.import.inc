@@ -46,79 +46,72 @@ function _commerce_kickstart_example_nodes($operation, &$context) {
 
   // Here we set nid to be able to rely on it when exporting menu links in features.
   $contents[] = array(
-    'title' => 'Home',
-    'body' => '',
-    'nid' => '1',
-    'path' => 'home',
-    'type' => 'page',
-  );
-  $contents[] = array(
     'title' => 'Contact',
     'body' => $body1,
-    'nid' => '2',
+    'nid' => '1',
     'path' => 'contact-us',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => 'About',
     'body' => $body1,
-    'nid' => '3',
+    'nid' => '2',
     'path' => 'about-us',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => 'Terms of Use',
     'body' => $body2,
-    'nid' => '4',
+    'nid' => '3',
     'path' => 'terms-of-use',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => 'Payment',
     'body' => $body2,
-    'nid' => '5',
+    'nid' => '4',
     'path' => 'payment',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => 'Shipping fees',
     'body' => $body3,
-    'nid' => '6',
+    'nid' => '5',
     'path' => 'shipping-fees',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => 'Press links',
     'body' => $body1,
-    'nid' => '7',
+    'nid' => '6',
     'path' => 'press-links',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => 'Service agreements',
     'body' => $body2,
-    'nid' => '8',
+    'nid' => '7',
     'path' => 'service-agreements',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => 'Our security policy',
     'body' => $body3,
-    'nid' => '9',
+    'nid' => '8',
     'path' => 'our-security-policy',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => '403 error',
     'body' => 'Access denied',
-    'nid' => '10',
+    'nid' => '9',
     'path' => '403-error',
     'type' => 'page',
   );
   $contents[] = array(
     'title' => '404 error',
     'body' => 'Not found',
-    'nid' => '11',
+    'nid' => '10',
     'path' => '404-error',
     'type' => 'page',
   );

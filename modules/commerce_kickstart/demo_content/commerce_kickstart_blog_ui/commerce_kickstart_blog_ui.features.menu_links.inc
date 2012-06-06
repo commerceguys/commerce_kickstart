@@ -10,17 +10,17 @@
 function commerce_kickstart_blog_ui_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: menu-footer-navigation_about-us:node/3
-  $menu_links['menu-footer-navigation_about-us:node/3'] = array(
+  // Exported menu link: menu-footer-navigation_about-us:node/2
+  $menu_links['menu-footer-navigation_about-us:node/2'] = array(
     'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/3',
+    'link_path' => 'node/2',
     'router_path' => 'node/%',
     'link_title' => 'About us',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-navigation_about-us:node/3',
+      'identifier' => 'menu-footer-navigation_about-us:node/2',
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -71,10 +71,10 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '1',
     'weight' => '-50',
   );
-  // Exported menu link: menu-footer-navigation_our-security-policy:node/9
-  $menu_links['menu-footer-navigation_our-security-policy:node/9'] = array(
+  // Exported menu link: menu-footer-navigation_our-security-policy:node/8
+  $menu_links['menu-footer-navigation_our-security-policy:node/8'] = array(
     'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/9',
+    'link_path' => 'node/8',
     'router_path' => 'node/%',
     'link_title' => 'Our security policy',
     'options' => array(
@@ -83,7 +83,7 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-navigation_our-security-policy:node/9',
+      'identifier' => 'menu-footer-navigation_our-security-policy:node/8',
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -93,17 +93,17 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'weight' => '0',
     'parent_identifier' => 'menu-footer-navigation_security--privacy:<nolink>',
   );
-  // Exported menu link: menu-footer-navigation_press-links:node/7
-  $menu_links['menu-footer-navigation_press-links:node/7'] = array(
+  // Exported menu link: menu-footer-navigation_press-links:node/6
+  $menu_links['menu-footer-navigation_press-links:node/6'] = array(
     'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/7',
+    'link_path' => 'node/6',
     'router_path' => 'node/%',
     'link_title' => 'Press links',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-navigation_press-links:node/7',
+      'identifier' => 'menu-footer-navigation_press-links:node/6',
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -155,10 +155,10 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '1',
     'weight' => '-49',
   );
-  // Exported menu link: menu-footer-navigation_service-agreements:node/8
-  $menu_links['menu-footer-navigation_service-agreements:node/8'] = array(
+  // Exported menu link: menu-footer-navigation_service-agreements:node/7
+  $menu_links['menu-footer-navigation_service-agreements:node/7'] = array(
     'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/8',
+    'link_path' => 'node/7',
     'router_path' => 'node/%',
     'link_title' => 'Service agreements',
     'options' => array(
@@ -167,7 +167,7 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-navigation_service-agreements:node/8',
+      'identifier' => 'menu-footer-navigation_service-agreements:node/7',
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -198,10 +198,10 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '1',
     'weight' => '-47',
   );
-  // Exported menu link: menu-footer-navigation_shipping-fees:node/6
-  $menu_links['menu-footer-navigation_shipping-fees:node/6'] = array(
+  // Exported menu link: menu-footer-navigation_shipping-fees:node/5
+  $menu_links['menu-footer-navigation_shipping-fees:node/5'] = array(
     'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/6',
+    'link_path' => 'node/5',
     'router_path' => 'node/%',
     'link_title' => 'Shipping fees',
     'options' => array(
@@ -210,7 +210,7 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-navigation_shipping-fees:node/6',
+      'identifier' => 'menu-footer-navigation_shipping-fees:node/5',
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -220,17 +220,17 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'weight' => '0',
     'parent_identifier' => 'menu-footer-navigation_shipping--returns:<nolink>',
   );
-  // Exported menu link: menu-footer-navigation_terms-of-use:node/4
-  $menu_links['menu-footer-navigation_terms-of-use:node/4'] = array(
+  // Exported menu link: menu-footer-navigation_terms-of-use:node/3
+  $menu_links['menu-footer-navigation_terms-of-use:node/3'] = array(
     'menu_name' => 'menu-footer-navigation',
-    'link_path' => 'node/4',
+    'link_path' => 'node/3',
     'router_path' => 'node/%',
     'link_title' => 'Terms of use',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-footer-navigation_terms-of-use:node/4',
+      'identifier' => 'menu-footer-navigation_terms-of-use:node/3',
     ),
     'module' => 'menu',
     'hidden' => '0',
@@ -317,14 +317,14 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-48',
   );
-  // Exported menu link: secondary-navigation_about:node/3
-  $menu_links['secondary-navigation_about:node/3'] = array(
+  // Exported menu link: secondary-navigation_about:node/2
+  $menu_links['secondary-navigation_about:node/2'] = array(
     'menu_name' => 'secondary-navigation',
-    'link_path' => 'node/3',
+    'link_path' => 'node/2',
     'router_path' => 'node/%',
     'link_title' => 'About',
     'options' => array(
-      'identifier' => 'secondary-navigation_about:node/3',
+      'identifier' => 'secondary-navigation_about:node/2',
     ),
     'module' => 'system',
     'hidden' => '0',
@@ -349,14 +349,14 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '0',
   );
-  // Exported menu link: secondary-navigation_contact:node/2
+  // Exported menu link: secondary-navigation_contact:node/1
   $menu_links['secondary-navigation_contact:node/2'] = array(
     'menu_name' => 'secondary-navigation',
-    'link_path' => 'node/2',
+    'link_path' => 'node/1',
     'router_path' => 'node/%',
     'link_title' => 'Contact',
     'options' => array(
-      'identifier' => 'secondary-navigation_contact:node/2',
+      'identifier' => 'secondary-navigation_contact:node/1',
     ),
     'module' => 'system',
     'hidden' => '0',
