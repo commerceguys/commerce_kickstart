@@ -21,7 +21,7 @@ function commerce_kickstart_search_default_search_api_server() {
         "search_commerce_display" : {
           "title" : {
             "table" : "search_api_db_search_commerce_display_title",
-            "type" : "text",
+            "type" : "string",
             "boost" : "1.0"
           },
           "search_api_language" : {
@@ -32,11 +32,6 @@ function commerce_kickstart_search_default_search_api_server() {
           "body:value" : {
             "table" : "search_api_db_search_commerce_display_body_value",
             "type" : "text",
-            "boost" : "1.0"
-          },
-          "field_product:commerce_price:amount" : {
-            "table" : "search_api_db_search_commerce_display_field_product_commerce_pr",
-            "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
           "field_brand" : {
@@ -98,14 +93,14 @@ function commerce_kickstart_search_default_search_api_server() {
             "table" : "search_api_db_search_commerce_display_field_product_field_col_2",
             "type" : "list\\u003Ctext\\u003E",
             "boost" : "1.0"
+          },
+          "created" : {
+            "table" : "search_api_db_search_commerce_display_created",
+            "type" : "date",
+            "boost" : "1.0"
           }
         },
         "search_commerce_product" : {
-          "field_product_node" : {
-            "table" : "search_api_db_search_commerce_product_field_product_node",
-            "type" : "list\\u003Cinteger\\u003E",
-            "boost" : "1.0"
-          },
           "search_api_language" : {
             "table" : "search_api_db_search_commerce_product_search_api_language",
             "type" : "string",
@@ -114,6 +109,11 @@ function commerce_kickstart_search_default_search_api_server() {
           "commerce_price:amount" : {
             "table" : "search_api_db_search_commerce_product_commerce_price_amount",
             "type" : "decimal",
+            "boost" : "1.0"
+          },
+          "field_product_node" : {
+            "table" : "search_api_db_search_commerce_product_field_product_node",
+            "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
           "field_bag_size" : {
@@ -170,6 +170,36 @@ function commerce_kickstart_search_default_search_api_server() {
       }
     },
     "enabled" : "1"
+  }');
+  return $items;
+}
+
+/**
+ * Implements hook_default_search_api_sort().
+ */
+function commerce_kickstart_search_default_search_api_sort() {
+  $items = array();
+  $items['search_commerce_display__created'] = entity_import('search_api_sort', '{
+    "index_id" : "search_commerce_display",
+    "field" : "created",
+    "name" : "Latest",
+    "enabled" : "1",
+    "weight" : "0",
+    "identifier" : "search_commerce_display__created",
+    "default_sort" : "0",
+    "default_order" : "asc",
+    "options" : { "field_name" : "Date created" }
+  }');
+  $items['search_commerce_display__title'] = entity_import('search_api_sort', '{
+    "index_id" : "search_commerce_display",
+    "field" : "title",
+    "name" : "Title",
+    "enabled" : "1",
+    "weight" : "0",
+    "identifier" : "search_commerce_display__title",
+    "default_sort" : "0",
+    "default_order" : "asc",
+    "options" : { "field_name" : "Title" }
   }');
   return $items;
 }

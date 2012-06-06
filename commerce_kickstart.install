@@ -207,6 +207,18 @@ function commerce_kickstart_install() {
       'visibility' => 0,
       'cache' => -1,
     ),
+    // Search sorting.
+    array(
+      'module' => 'search_api_sorts',
+      'delta' => 'search-sorts',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 4,
+      'region' => 'breadcrumb',
+      'pages' => '',
+      'visibility' => 0,
+      'cache' => -1,
+    ),
   );
   drupal_static_reset();
   _block_rehash('commerce_kickstart_theme');

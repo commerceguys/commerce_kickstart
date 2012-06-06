@@ -109,6 +109,8 @@ projects[search_api_ranges][subdir] = "contrib"
 projects[facetapi][version] = 1.0-rc4
 projects[facetapi][subdir] = "contrib"
 projects[facetapi][patch][] = "http://drupal.org/files/facetapi-1616518-1_show-active-term.patch"
+projects[search_api_sorts][version] = 1.x-dev
+projects[search_api_sorts][subdir] = "contrib"
 
 ; UI improvement modules.
 projects[module_filter][version] = 1.6

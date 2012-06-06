@@ -360,7 +360,8 @@ function commerce_kickstart_product_default_search_api_index() {
       "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
-        "title" : { "type" : "text" },
+        "title" : { "type" : "string" },
+        "created" : { "type" : "date" },
         "field_brand" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_collection" : { "type" : "integer", "entity_type" : "taxonomy_term" },
@@ -373,7 +374,6 @@ function commerce_kickstart_product_default_search_api_index() {
         "field_product:field_shoe_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_storage_capacity" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_top_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product:commerce_price:amount" : { "type" : "list\\u003Cinteger\\u003E" },
         "field_product:field_color:name" : { "type" : "list\\u003Ctext\\u003E" },
         "field_product:field_color:description" : { "type" : "list\\u003Ctext\\u003E" }
       },

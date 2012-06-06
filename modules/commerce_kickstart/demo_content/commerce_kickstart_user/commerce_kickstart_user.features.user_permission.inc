@@ -1970,6 +1970,17 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'custom_breadcrumbs',
   );
 
+  // Exported permission: use search_api_sorts.
+  $permissions['use search_api_sorts'] = array(
+    'name' => 'use search_api_sorts',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
+    ),
+    'module' => 'search_api_sorts',
+  );
+
   // Exported permission: use text format commerce_order_message.
   $permissions['use text format commerce_order_message'] = array(
     'name' => 'use text format commerce_order_message',
