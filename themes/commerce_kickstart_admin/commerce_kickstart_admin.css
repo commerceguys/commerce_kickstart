@@ -175,6 +175,7 @@ textarea.form-textarea {
   font: normal 300 14px/14px "MuseoSlab", Arial, sans-serif;
   padding: 5px 10px;
   color: #4c4c4c;
+  margin: 1px;
 }
 input.form-autocomplete:focus,
 input.form-text:focus,
@@ -334,6 +335,7 @@ h1#overlay-title {
   margin-bottom: 20px;
   float: right;
   clear: right;
+  width: 180px;
 }
 #credit .logo a {
   float: right;
@@ -420,11 +422,20 @@ h1#overlay-title {
 .advanced-help-topic .configuration .ui-accordion-header .ui-icon {
   left: 345px;
 }
-.advanced-help-topic .launch .ui-accordion-header a {
+.advanced-help-topic .store-launch .ui-accordion-header a {
   background: transparent url("images/launch.png") no-repeat 30px 0;
 }
-.advanced-help-topic .launch .ui-accordion-header .ui-icon {
+.advanced-help-topic .store-launch .ui-accordion-header .ui-icon {
   left: 260px;
+}
+.advanced-help-topic .store-settings .ui-accordion-header .ui-icon {
+  left: 270px;
+}
+.advanced-help-topic .account .ui-accordion-header .ui-icon {
+  left: 380px;
+}
+.advanced-help-topic .other .ui-accordion-header .ui-icon {
+  left: 175px;
 }
 .advanced-help-topic h2.ui-state-active a,
 .advanced-help-topic .products h2.ui-state-active a,
@@ -575,6 +586,11 @@ table td {
 table.sticky-header {
   z-index: 99;
 }
+#views-form-commerce-orders-admin-page table td.views-field-commerce-order-total,
+#views-form-commerce-orders-admin-page table td.views-field-status {
+  font-weight: 500;
+}
+
 #edit-actions {
   padding-top: 30px;
 }
@@ -592,4 +608,45 @@ table td.views-field-edit-node a {
 }
 #commerce-kickstart-inline-help-form-ajax #edit-commerce-kickstart-inline-help-button {
   float: right;
+}
+.item-list ul.pager li {
+  padding: 0;
+}
+.item-list ul.pager {
+  text-align: right;
+}
+ul.pager li a,
+ul.pager li.pager-current {
+  border: 1px solid #949494;
+  border-radius: 5px;
+  font-weight: 100;
+  padding: 2px 8px;
+}
+ul.pager li.pager-current {
+  background: #36a2f6;
+  box-shadow: inset 0 0 1px #fff;
+  color: #fff;
+}
+ul.pager li.pager-previous a,
+ul.pager li.pager-next a {
+  font: 0/0 a;
+  color: transparent;
+  padding: 14px 10px;
+  border: 0;
+}
+ul.pager li.pager-previous a {
+  background: transparent url("images/prev.png") no-repeat 0 0;
+}
+ul.pager li.pager-next a {
+  background: transparent url("images/next.png") no-repeat 0 0;
+}
+ul.pager li.pager-first,
+ul.pager li.pager-last {
+  display: none;
+}
+html.js input.form-autocomplete {
+  background-position: 100% 5px;
+}
+html.js input.throbbing {
+  background-position: 100% -15px;
 }
