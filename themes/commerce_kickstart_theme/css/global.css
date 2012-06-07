@@ -1044,6 +1044,7 @@ ul.primary li a {
 }
 .node-product-type .field-name-field-product {
   background: url('../images/bg_product_attributes_bottom.png') center bottom no-repeat;
+  margin-bottom: 15px;
   padding-bottom: 50px;
 }
 /* Cloud zoom */
@@ -1088,6 +1089,12 @@ ul.primary li a {
   margin-left: 5px;
   padding: 5px 50px 5px 10px;
 }
+.service-links ul li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 90px;
+}
 /* Clearfix */
 .form-type-commerce-fancy-attributes-ajax:after {
   clear: both;
@@ -1117,6 +1124,7 @@ ul.primary li a {
   height: 17px;
   position: absolute;
   top: -2px;
+  left: -2px;
   width: 17px;
 }
 /**
@@ -1285,6 +1293,7 @@ ul.primary li a {
   margin: 0;
   padding: 10px;
 }
+.section-footer ul.menu .expanded span,
 .section-footer ul.menu li a {
   color: #ffffff;
   font-family: 'MuseoSlab700';

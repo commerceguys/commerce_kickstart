@@ -153,3 +153,13 @@ function commerce_kickstart_social_default_oauthconnector_provider() {
 
   return $providers;
 }
+
+/**
+ * Preprocess theme variables for service_links blocks.
+ * Add same grid class as column right to the images.
+ */
+function commerce_kickstart_social_preprocess_block(&$variables) {
+  if ($variables['block']->module == 'service_links') {
+    $variables['classes_array'][] = 'grid-8 prefix-15';
+  }
+}
