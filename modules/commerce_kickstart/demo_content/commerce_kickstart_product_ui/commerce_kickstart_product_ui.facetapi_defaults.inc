@@ -55,7 +55,20 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
@@ -89,7 +102,20 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
@@ -134,7 +160,20 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
@@ -168,7 +207,24 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'hide_search_start' => array(
+        'status' => 1,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
@@ -202,7 +258,24 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'hide_search_start' => array(
+        'status' => 1,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
@@ -236,7 +309,24 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'hide_search_start' => array(
+        'status' => 1,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
@@ -270,7 +360,24 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'hide_search_start' => array(
+        'status' => 1,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
@@ -315,7 +422,24 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'hide_search_start' => array(
+        'status' => 1,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
@@ -360,7 +484,24 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_checkbox_links',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'useless_searches' => array(
+        'status' => 1,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'hide_search_start' => array(
+        'status' => 1,
+        'weight' => '-49',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',

@@ -53,3 +53,25 @@ function commerce_kickstart_search_backreference_getter($entity, array $options,
   }
   return $entities_ids;
 }
+
+/**
+ * Implements hook_facetapi_filters().
+ */
+function commerce_kickstart_search_facetapi_filters() {
+  $filters = array(
+    'useless_searches' => array(
+      'handler' => array(
+        'label' => t('Hide items that do not change search result.'),
+        'class' => 'CommerceKickstartSameSearch',
+      ),
+    ),
+    'hide_search_start' => array(
+      'handler' => array(
+        'label' => t('Hide if no search is performed.'),
+        'class' => 'CommerceKickstartSearchStart',
+      ),
+    ),
+  );
+
+  return $filters;
+}
