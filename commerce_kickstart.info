@@ -81,8 +81,7 @@ dependencies[] = pathauto
 dependencies[] = entityreference
 dependencies[] = commerce_fancy_attributes
 dependencies[] = views_megarow
-dependencies[] = commerce_order_manager
-dependencies[] = commerce_product_manager
+dependencies[] = commerce_backoffice
 
 ; Install Features
 dependencies[] = features

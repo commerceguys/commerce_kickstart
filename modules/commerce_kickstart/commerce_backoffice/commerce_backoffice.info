@@ -1,0 +1,24 @@
+name = Commerce Backoffice
+description = Provides advanced order and product management.
+core = 7.x
+package = Commerce Contrib
+
+dependencies[] = commerce_product
+dependencies[] = commerce_line_item
+dependencies[] = commerce_order
+dependencies[] = commerce_order_ui
+dependencies[] = commerce_cart
+dependencies[] = commerce_payment
+
+dependencies[] = entityreference
+dependencies[] = eva
+dependencies[] = entity_token
+dependencies[] = message
+dependencies[] = message_notify
+dependencies[] = views_bulk_operations
+dependencies[] = views_megarow
+
+files[] = views/handlers/commerce_backoffice_handler_area_add_message.inc
+files[] = views/handlers/commerce_backoffice_handler_field_order_operations.inc
+files[] = views/handlers/commerce_backoffice_handler_field_node_operations.inc
+files[] = views/handlers/commerce_backoffice_handler_filter_message_type.inc

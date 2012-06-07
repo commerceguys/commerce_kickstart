@@ -1,0 +1,327 @@
+<?php
+
+// Until Entity API can load this itself.
+require_once dirname(__FILE__) . '/commerce_backoffice.message.inc';
+
+/**
+ * Implements hook_views_api().
+ */
+function commerce_backoffice_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'commerce_backoffice') . '/views',
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_backoffice_menu() {
+  // Activity tab on orders.
+  $items['admin/commerce/orders/%commerce_order/activity'] = array(
+    'title' => 'Activity',
+    'page callback' => 'commerce_backoffice_order_activity',
+    'page arguments' => array(3),
+    'access callback' => 'commerce_order_access',
+    'access arguments' => array('view', 3),
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 11,
+  );
+  // Megarow callbacks.
+  $items['commerce_backoffice/order/%commerce_order'] = array(
+    'title callback' => 'commerce_order_ui_order_title',
+    'title arguments' => array(2),
+    'page callback' => 'commerce_backoffice_order_view',
+    'page arguments' => array(2),
+    'delivery callback' => 'ajax_deliver',
+    'access callback' => 'commerce_order_access',
+    'access arguments' => array('view', 2),
+  );
+  $items['commerce_backoffice/variations/%node'] = array(
+    'page callback' => 'commerce_backoffice_product_variations_view',
+    'page arguments' => array(2),
+    'delivery callback' => 'ajax_deliver',
+    'access arguments' => array('administer products'),
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_admin_paths().
+ */
+function commerce_backoffice_admin_paths() {
+  // The order view should use the admin theme.
+  $paths = array(
+    'commerce_backoffice/view/*' => TRUE,
+  );
+  return $paths;
+}
+
+/**
+ * Displays the complete activity for the given order.
+ */
+function commerce_backoffice_order_activity($order) {
+  $arguments = array($order->order_id);
+  $view = views_get_view('commerce_backoffice_message');
+  $view->set_display('block_1');
+  $view->set_arguments($arguments);
+  $view->override_url = $_GET['q'];
+
+  return $view->preview();
+}
+
+/**
+ * Displays the given order using the backoffice view mode, in a megarow.
+ */
+function commerce_backoffice_order_view($order) {
+  $title = commerce_order_ui_order_title($order);
+  $view = entity_view('commerce_order', array($order->order_id => $order), 'backoffice');
+  $output = drupal_render($view);
+
+  return views_megarow_display($title, $output, $order->order_id);
+}
+
+/**
+ * Displays a view of products referenced from the given node, in a megarow.
+ */
+function commerce_backoffice_product_variations_view($node) {
+  $title = t('Variations for product %title', array('%title' => $node->title));
+  $output = views_embed_view('commerce_backoffice_product_variations', 'default', $node->nid);
+
+  return views_megarow_display($title, $output, $node->nid);
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * @todo
+ * Remove once VBO is updated to 7.x-3.0 and hook_form_views_form_alter() is
+ * replaced with hook_views_bulk_operations_form_alter().
+ */
+function commerce_backoffice_module_implements_alter(&$implementations, $hook) {
+  if (in_array($hook, array('form_alter'))) {
+    // Move our hook implementation to the bottom.
+    $group = $implementations['commerce_backoffice'];
+    unset($implementations['commerce_backoffice']);
+    $implementations['commerce_backoffice'] = $group;
+  }
+}
+
+/**
+ * Implements hook_form_views_form_alter().
+ */
+function commerce_backoffice_form_alter(&$form, &$form_state, $form_id) {
+  if (strpos($form_id, 'views_form_') === 0) {
+    $vbo = _views_bulk_operations_get_field($form_state['build_info']['args'][0]);
+  }
+  // Not a VBO-enabled views form.
+  if (empty($vbo)) {
+    return;
+  }
+
+  $view = $form_state['build_info']['args'][0];
+
+  if (isset($form['select']) && in_array($view->name, array('commerce_backoffice_orders', 'commerce_backoffice_products'))) {
+    $form['select']['#title'] = t('Bulk Updates');
+    $form['select']['#collapsible'] = TRUE;
+    $form['select']['#collapsed'] = TRUE;
+    $form['select']['submit']['#value'] = t('Update');
+  }
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * Adds a new order view mode, used to display the order in a megarow.
+ */
+function commerce_backoffice_entity_info_alter(&$entity_info) {
+  $entity_info['commerce_order']['view modes']['backoffice'] = array(
+    'label' => t('Backoffice'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_backoffice_theme(&$existing) {
+  $themes =  array(
+    'commerce_order__backoffice' => array(
+      'path' => drupal_get_path('module', 'commerce_backoffice') . '/theme',
+      'template' => 'commerce-order--backoffice',
+    ),
+  );
+
+  return $themes;
+}
+
+/**
+ * Add the template file for the backoffice view mode.
+ */
+function commerce_backoffice_preprocess_entity(&$vars) {
+  if ($vars['entity_type'] == 'commerce_order' && $vars['view_mode'] == 'backoffice') {
+    $vars['theme_hook_suggestions'][] = 'commerce_order__backoffice';
+    $vars['classes_array'][] = 'commerce-order-backofffice';
+  }
+}
+
+/**
+ * Implement hook_views_pre_render().
+ */
+function commerce_backoffice_views_pre_render(&$view) {
+  if ($view->name == 'commerce_backoffice_orders') {
+    drupal_add_css(drupal_get_path('module', 'commerce_backoffice') . '/theme/commerce-backoffice-order.css');
+  }
+  if ($view->name == 'commerce_backoffice_products') {
+    drupal_add_css(drupal_get_path('module', 'commerce_backoffice') . '/theme/commerce-backoffice-products.css');
+  }
+}
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function commerce_backoffice_field_extra_fields() {
+  $extra = array();
+  $extra['commerce_order']['commerce_order'] = array(
+    'display' => array(
+      'status' => array(
+        'label' => t('Status'),
+        'description' => t('Allows the user to edit the status.'),
+        'weight' => 0,
+      ),
+    ),
+  );
+
+  return $extra;
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function commerce_backoffice_entity_view($entity, $entity_type, $view_mode, $langcode) {
+  if ($entity_type == 'commerce_order' && $view_mode = 'backoffice') {
+    $status_form = drupal_get_form('commerce_backoffice_status_form', $entity);
+
+    $markup = '<div class="field commerce-backoffice-order-status-form">';
+    $markup .= '<div class="commerce-backoffice-order-status-label">' . t('Order status') . '</div>';
+    $markup .= drupal_render($status_form);
+    $markup .= '</div>';
+
+    $entity->content['status'] = array(
+      '#weight' => 10,
+      '#markup' =>$markup,
+    );
+  }
+}
+
+/**
+ * Form callback: Returns the form for modifying the status column.
+ */
+function commerce_backoffice_status_form($form, &$form_state, $order) {
+  $form_state['order'] = $order;
+  $wrapper = drupal_html_id('commerce-backoffice-order-status-form');
+
+  $form = array(
+    '#prefix' => '<div id="' . $wrapper . '">',
+    '#suffix' => '</div>',
+  );
+  $form['status'] = array(
+    '#type' => 'select',
+    '#title' => t('Status'),
+    '#title_display' => 'invisible',
+    '#options' => commerce_order_status_options_list(),
+    '#default_value' => $order->status,
+  );
+  $form['save'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+    '#ajax' => array(
+      'callback' => 'commerce_backoffice_status_form_ajax',
+      'wrapper' => $wrapper,
+    ),
+  );
+
+  return $form;
+}
+
+/**
+ * Ajax callback for commerce_backoffice_status_form.
+ */
+function commerce_backoffice_status_form_ajax($form, &$form_state) {
+  $commands = array();
+  $commands[] = ajax_command_insert(NULL, drupal_render($form));
+  $commands[] = ajax_command_prepend(NULL, theme('status_messages'));
+  $commands[] = views_megarow_command_refresh_parent($form_state['order']->order_id);
+
+  return array('#type' => 'ajax', '#commands' => $commands);
+}
+
+/**
+ * Submit callback for commerce_backoffice_status_form.
+ */
+function commerce_backoffice_status_form_submit($form, &$form_state) {
+  $order = $form_state['order'];
+  $order->status = $form_state['values']['status'];
+  commerce_order_save($order);
+
+  drupal_set_message(t('The order status has been updated.'));
+}
+
+/**
+ * Implements hook_commerce_order_update().
+ */
+function commerce_backoffice_commerce_order_update($order) {
+  commerce_backoffice_statistics_reset();
+}
+
+/**
+ * Implements hook_commerce_order_insert().
+ */
+function commerce_backoffice_commerce_order_insert($order) {
+  commerce_backoffice_statistics_reset();
+}
+
+/**
+ * Rebuild the statistics for orders.
+ */
+function commerce_backoffice_statistics_reset() {
+  drupal_static_reset('commerce_backoffice_statistics');
+  cache_clear_all('commerce_order_statistics', 'cache');
+}
+
+/**
+ * Get the statistics for orders.
+ */
+function commerce_backoffice_statistics() {
+  $statistics = &drupal_static(__FUNCTION__, array());
+
+  if (empty($statistics)) {
+    $cache = cache_get('commerce_order_statistics', 'cache');
+    if ($cache) {
+      $statistics = $cache->data;
+    }
+  }
+  if (empty($statistics)) {
+    foreach (commerce_order_states() as $state_name => $state_info) {
+      $statistics['by state'][$state_name] = 0;
+      foreach (commerce_order_statuses(array('state' => $state_name)) as $status_name => $status_info) {
+        $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'commerce_order');
+        $query->propertyCondition('status', $status_name);
+        $query->count();
+        $statistics['by status'][$status_name] = $query->execute();
+        $statistics['by state'][$state_name] += $statistics['by status'][$status_name];
+      }
+    }
+    cache_set('commerce_order_statistics', $statistics, 'cache');
+  }
+  return $statistics;
+}
+
+/**
+ * Implements hook_flush_caches().
+ */
+function commerce_backoffice_flush_caches() {
+  commerce_backoffice_message_field_refresh();
+}

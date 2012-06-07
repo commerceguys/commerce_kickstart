@@ -3,7 +3,7 @@
 /**
  * Implements hook_default_rules_configuration().
  */
-function commerce_order_manager_default_rules_configuration() {
+function commerce_backoffice_default_rules_configuration() {
   $rules['rules_rules_commerce_order_message_create_order'] = entity_import('rules_config', '{ "rules_rules_commerce_order_message_create_order" : {
       "LABEL" : "Commerce order message: creating order",
       "PLUGIN" : "reaction rule",
@@ -223,6 +223,6 @@ function commerce_order_manager_default_rules_configuration() {
  * Remove Commerce's default order confirmation rule, as we provide a
  * superior version of it.
  */
-function commerce_order_manager_default_rules_configuration_alter(&$configs) {
+function commerce_backoffice_default_rules_configuration_alter(&$configs) {
   unset($configs['commerce_checkout_order_email']);
 }

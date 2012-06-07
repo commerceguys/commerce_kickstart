@@ -20,7 +20,7 @@
   margin-bottom: 15px;
 }
 
-.content-right .field-label, .commerce-order-manager-status-label {
+.content-right .field-label, .commerce-backoffice-order-status-label {
   line-height: 20px;
   background-color: #E1E2DC;
   padding: 3px 10px;
@@ -31,13 +31,13 @@
   padding: 3px 10px;
 }
 
-.commerce-order-manager-status-form .messages {
+.commerce-backoffice-order-status-form .messages {
   margin-top: 0;
 }
-.commerce-order-manager-status-form form {
+.commerce-backoffice-order-status-form form {
   padding: 3px 10px;
 }
-.commerce-order-manager-status-form .form-item {
+.commerce-backoffice-order-status-form .form-item {
   margin-bottom: 0;
 }
 
@@ -56,6 +56,6 @@
   float: right;
 }
 
-.view-commerce-order-manager-message h2 {
+.view-commerce-backoffice-order-messages h2 {
   font-size: 1em;
 }

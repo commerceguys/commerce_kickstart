@@ -1,6 +1,6 @@
 <?php
 
-class commerce_order_manager_views_filter_type extends views_handler_filter_in_operator {
+class commerce_backoffice_handler_filter_message_type extends views_handler_filter_in_operator {
   function get_value_options() {
     if (!isset($this->value_options)) {
       $this->value_title = t('Message type category');

@@ -1,6 +1,6 @@
 <?php
 
-function commerce_order_manager_install() {
+function commerce_backoffice_install() {
   // Create the message text field for our message type category.
   $instance = array(
     'field_name' => MESSAGE_FIELD_MESSAGE_TEXT,
@@ -55,7 +55,7 @@ function commerce_order_manager_install() {
     field_create_instance($instance);
   }
 
-  // Add text format if it doens't exist.
+  // Add text format if it doesn't exist.
   if (!filter_format_load('commerce_order_message')) {
     $format = (object) array(
       'format' => 'commerce_order_message',
@@ -72,9 +72,9 @@ function commerce_order_manager_install() {
     filter_format_save($format);
   }
 
-  // Update order field instances to show up in the "Order manager" view mode.
+  // Update order field instances to show up in the "Backoffice" view mode.
   $line_items = field_info_instance('commerce_order', 'commerce_line_items', 'commerce_order');
-  $line_items['display']['order_manager'] = array(
+  $line_items['display']['backoffice'] = array(
     'label' => 'hidden',
     'type' => 'commerce_line_item_reference_view',
     'weight' => 0,
@@ -85,7 +85,7 @@ function commerce_order_manager_install() {
   field_update_instance($line_items);
 
   $order_total = field_info_instance('commerce_order', 'commerce_order_total', 'commerce_order');
-  $order_total['display']['order_manager'] = array(
+  $order_total['display']['backoffice'] = array(
     'label' => 'above',
     'type' => 'commerce_price_formatted_amount',
     'weight' => 1,
@@ -96,7 +96,7 @@ function commerce_order_manager_install() {
   field_update_instance($order_total);
 
   $billing = field_info_instance('commerce_order', 'commerce_customer_billing', 'commerce_order');
-  $billing['display']['order_manager'] = array(
+  $billing['display']['backoffice'] = array(
     'label' => 'above',
     'type' => 'commerce_customer_profile_reference_display',
     'weight' => 4,
@@ -106,7 +106,7 @@ function commerce_order_manager_install() {
 
   $shipping = field_info_instance('commerce_order', 'commerce_customer_shipping', 'commerce_order');
   if ($shipping) {
-    $shipping['display']['order_manager'] = array(
+    $shipping['display']['backoffice'] = array(
       'label' => 'above',
       'type' => 'commerce_customer_profile_reference_display',
       'weight' => 5,
@@ -118,11 +118,11 @@ function commerce_order_manager_install() {
   // Update the extra fields (Activity view added by EVA, Status field provided
   // by this module).
   $bundle_settings = field_bundle_settings('commerce_order', 'commerce_order');
-  $bundle_settings['extra_fields']['display']['commerce_order_manager_message_order_view']['order_manager'] = array(
+  $bundle_settings['extra_fields']['display']['commerce_backoffice_order_messages_order_view']['backoffice'] = array(
     'weight' => 2,
     'visible' => TRUE,
   );
-  $bundle_settings['extra_fields']['display']['status']['order_manager'] = array(
+  $bundle_settings['extra_fields']['display']['status']['backoffice'] = array(
     'weight' => 3,
     'visible' => TRUE,
   );
