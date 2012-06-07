@@ -579,7 +579,9 @@ table th {
 table th a {
   color: #fff;
 }
-table th,
+table th {
+  padding: 10px 15px;
+}
 table td {
   padding: 15px;
 }
