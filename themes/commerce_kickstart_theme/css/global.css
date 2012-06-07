@@ -558,26 +558,26 @@ ul.primary li a {
   font-family: 'MuseoSlab700';
 }
 /* Slideshow */
-.block-demo-content-block-4 {
+.block-demo-content-block-3 {
   position: relative;
   top: -10px;
 }
-.view-display-id-block_4 {
+.view-display-id-block_3 {
   position: relative;
 }
-.view-display-id-block_4 .bx-window {
+.view-display-id-block_3 .bx-window {
   overflow: visible !important;
 }
 .event-slider,
-.view-display-id-block_4 .item-list .event-slider li {
+.view-display-id-block_3 .item-list .event-slider li {
   margin: 0;
 }
 .event-slider .views-field-body {
   text-indent: -9999px;
 }
 .event-slider .views-field-nothing,
-.view-display-id-block_4 .bx-prev,
-.view-display-id-block_4 .bx-next {
+.view-display-id-block_3 .bx-prev,
+.view-display-id-block_3 .bx-next {
   height: 80px;
   text-align: center;
   width: 320px;
@@ -591,8 +591,8 @@ ul.primary li a {
   bottom: -100px;
   left: 32.5%;
 }
-.view-display-id-block_4 .bx-prev,
-.view-display-id-block_4 .bx-next {
+.view-display-id-block_3 .bx-prev,
+.view-display-id-block_3 .bx-next {
   color: #000000;
   text-decoration: none;
   display: block;
@@ -600,8 +600,8 @@ ul.primary li a {
   padding-bottom: 5px;
 }
 .event-slider .views-field-nothing span,
-.view-display-id-block_4 .bx-prev span.control,
-.view-display-id-block_4 .bx-next span.control {
+.view-display-id-block_3 .bx-prev span.control,
+.view-display-id-block_3 .bx-next span.control {
   display: block;
   font-family: 'MuseoSlab300';
   font-size: 21px;
@@ -611,19 +611,19 @@ ul.primary li a {
   overflow: hidden;
 }
 .event-slider .views-field-nothing em,
-.view-display-id-block_4 .bx-prev span.control em,
-.view-display-id-block_4 .bx-next span.control em {
+.view-display-id-block_3 .bx-prev span.control em,
+.view-display-id-block_3 .bx-next span.control em {
   font-family: 'MuseoSlab1000';
   font-style: normal;
   font-size: 32px;
   text-decoration: none;
   text-transform: uppercase;
 }
-.view-display-id-block_4 .bx-prev {
+.view-display-id-block_3 .bx-prev {
   background: url('../images/bg_title_slideshow_previous.png') left top no-repeat;
   float: left;
 }
-.view-display-id-block_4 .bx-next {
+.view-display-id-block_3 .bx-next {
   background: url('../images/bg_title_slideshow_next.png') left top no-repeat;
   float: right;
   margin-right: 5px;

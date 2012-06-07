@@ -186,7 +186,7 @@ function commerce_kickstart_configure_store_form() {
 
   // Prepare all the options for example content.
   $options = array(
-    'us' => st('US - Exclusive tax rates'),
+    'us' => st('US - Sales taxes displayed in checkout'),
     'europe' => st('European - Inclusive tax rates (VAT)'),
   );
   $form['commerce_kickstart_choose_tax_country'] = array(

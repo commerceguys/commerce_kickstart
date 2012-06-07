@@ -68,7 +68,7 @@ function commerce_kickstart_merchandising_ui_install() {
       'title' => '<none>',
     ))
       ->condition('module', 'views')
-      ->condition('delta', 'demo_content-block_4')
+      ->condition('delta', 'demo_content-block_3')
       ->condition('theme', 'commerce_kickstart_theme')
       ->execute();
   }

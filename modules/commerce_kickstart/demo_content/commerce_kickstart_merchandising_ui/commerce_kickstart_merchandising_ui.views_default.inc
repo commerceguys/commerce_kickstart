@@ -619,7 +619,7 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
   $handler->display->display_options['block_description'] = 'Last products ad push';
 
   /* Display: HP Slideshow */
-  $handler = $view->new_display('block', 'HP Slideshow', 'block_4');
+  $handler = $view->new_display('block', 'HP Slideshow', 'block_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
@@ -779,8 +779,8 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
     'slideshow' => 'slideshow',
   );
 
-  /* Display: Last ad push block */
-  $handler = $view->new_display('block', 'Last ad push block', 'block_2');
+  /* Display: Next last ad push block */
+  $handler = $view->new_display('block', 'Next last ad push block', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Block showing the latest ad push.';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
