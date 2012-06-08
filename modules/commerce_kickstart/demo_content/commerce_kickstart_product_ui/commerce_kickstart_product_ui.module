@@ -57,9 +57,8 @@ function commerce_kickstart_product_ui_theme(&$existing) {
     $existing['search_api_sorts_sort']['file'] = 'commerce_kickstart_product_ui.theme.inc';
     $existing['search_api_sorts_sort']['function'] = 'theme_commerce_kickstart_product_ui_sorts_sort';
     $existing['search_api_sorts_sort']['includes'] = array($existing['search_api_sorts_sort']['path'] . '/' . $existing['search_api_sorts_sort']['file']);
-
   }
-  $themes =  array(
+  $themes = array(
     'node__product__type' => array(
       'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
       'template' => 'node--product--type',
@@ -292,5 +291,22 @@ function commerce_kickstart_product_ui_page_alter(&$page) {
   $match = drupal_match_path(drupal_strtolower($current_path), drupal_strtolower($exclude_path));
   if ($match) {
     drupal_set_breadcrumb(array());
+  }
+}
+
+/*
+ * Implements hook_menu_local_tasks_alter().
+ */
+function commerce_kickstart_product_ui_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // Replace add-product action link with add-content.
+  if ($root_path == 'admin/commerce/products') {
+    unset($data['actions']['output']);
+    $link = menu_get_item('node/add');
+    $link['title'] = t('Add product');
+
+    $data['actions']['output'][] = array(
+      '#theme' => 'menu_local_action',
+      '#link' => $link,
+    );
   }
 }
