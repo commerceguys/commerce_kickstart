@@ -1,7 +1,7 @@
 name = Commerce Backoffice
 description = Provides advanced order and product management.
 core = 7.x
-package = Commerce Contrib
+package = Commerce (contrib)
 
 dependencies[] = commerce_product
 dependencies[] = commerce_line_item
