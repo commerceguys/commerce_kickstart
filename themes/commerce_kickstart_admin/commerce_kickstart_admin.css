@@ -383,9 +383,26 @@ h1#overlay-title {
   margin-bottom: 30px;
   padding: 15px;
 }
+.page-admin-getting-started .advanced-help-topic {
+  padding: 5px;
+  border-width: 2px;
+}
+.page-admin-getting-started #commerce-kickstart-help {
+  width: 100%;
+  font-size: 28px;
+  font-weight: 300;
+}
+.page-admin-getting-started #commerce-kickstart-help-button {
+  position: absolute;
+  top: -55px;
+  right: 30px;
+}
 .advanced-help-topic .ui-accordion h2.ui-accordion-header {
   background: transparent url("images/incomplete.png") no-repeat 96.064814% center; /* 800 / 870 */
   border-width: 0 0 1px 0;
+}
+.advanced-help-topic .ui-accordion .other h2.ui-accordion-header {
+  border-bottom: 0;
 }
 .advanced-help-topic .ui-accordion h2.ui-accordion-header.checked {
   background: transparent url("images/complete.png") no-repeat 96.064814% center; /* 800 / 870 */
@@ -416,20 +433,17 @@ h1#overlay-title {
 .advanced-help-topic .content .ui-accordion-header .ui-icon {
   left: 200px;
 }
-.advanced-help-topic .configuration .ui-accordion-header a {
+.advanced-help-topic .store-settings .ui-accordion-header a {
   background: transparent url("images/store.png") no-repeat 30px 0;
 }
-.advanced-help-topic .configuration .ui-accordion-header .ui-icon {
-  left: 345px;
+.advanced-help-topic .store-settings .ui-accordion-header .ui-icon {
+  left: 270px;
 }
 .advanced-help-topic .store-launch .ui-accordion-header a {
   background: transparent url("images/launch.png") no-repeat 30px 0;
 }
 .advanced-help-topic .store-launch .ui-accordion-header .ui-icon {
   left: 260px;
-}
-.advanced-help-topic .store-settings .ui-accordion-header .ui-icon {
-  left: 270px;
 }
 .advanced-help-topic .account .ui-accordion-header .ui-icon {
   left: 380px;
@@ -440,8 +454,10 @@ h1#overlay-title {
 .advanced-help-topic h2.ui-state-active a,
 .advanced-help-topic .products h2.ui-state-active a,
 .advanced-help-topic .content h2.ui-state-active a,
-.advanced-help-topic .configuration h2.ui-state-active a,
-.advanced-help-topic .launch h2.ui-state-active a {
+.advanced-help-topic .store-launch h2.ui-state-active a,
+.advanced-help-topic .launch h2.ui-state-active a,
+.advanced-help-topic .account h2.ui-state-active a,
+.advanced-help-topic .other h2.ui-state-active a {
   background-position: 30px -70px;
 }
 .ui-accordion .ui-accordion-header .ui-icon {
@@ -454,6 +470,11 @@ h1#overlay-title {
 }
 .ui-accordion .ui-accordion-content {
   border-width: 0 0 1px 0;
+  overflow: hidden !important;
+  background: #fbfbfb;
+}
+.ui-accordion .ui-accordion-content .form-type-checkbox .ajax-progress {
+  display: none;
 }
 .help-section {
   padding: 5px 4.86111% 5px 10.76388%; /* 42 / 864 and 93/864 */
@@ -523,6 +544,7 @@ h1#overlay-title {
   width: 48.27586%; /* 420px/870px */
   margin: 0;
   min-height: 210px;
+  background: #fefefe;
 }
 .block-commerce-kickstart-help h2 {
   font: normal 500 26px/26px "MuseoSlab", Arial, sans-serif;
@@ -652,3 +674,4 @@ html.js input.form-autocomplete {
 html.js input.throbbing {
   background-position: 100% -15px;
 }
+
