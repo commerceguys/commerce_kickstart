@@ -53,7 +53,6 @@ dependencies[] = commerce_order
 dependencies[] = commerce_order_ui
 dependencies[] = commerce_payment
 dependencies[] = commerce_payment_ui
-dependencies[] = commerce_payment_example
 dependencies[] = commerce_price
 dependencies[] = commerce_product
 dependencies[] = commerce_product_ui
@@ -104,5 +103,6 @@ dependencies[] = commerce_kickstart_social
 dependencies[] = commerce_kickstart_menus
 dependencies[] = commerce_kickstart_content_ui
 dependencies[] = commerce_kickstart_user
+dependencies[] = commerce_kickstart_payment
 
 files[] = commerce_kickstart.profile
