@@ -12,8 +12,8 @@ function commerce_kickstart_product_commerce_flat_rate_default_services() {
     'express_shipping' => array(
       'name' => 'express_shipping',
       'base' => 'express_shipping',
-      'display_title' => 'Express Shipping',
-      'description' => 'An express shipping service for a 2 days shipping.',
+      'display_title' => 'Express shipping: 1 business day',
+      'description' => 'An express shipping service with additional fee.',
       'shipping_method' => 'flat_rate',
       'rules_component' => TRUE,
       'price_component' => 'flat_rate_express_shipping',
@@ -37,8 +37,8 @@ function commerce_kickstart_product_commerce_flat_rate_default_services() {
     'free_shipping' => array(
       'name' => 'free_shipping',
       'base' => 'free_shipping',
-      'display_title' => 'Free Shipping',
-      'description' => 'A free shipping service for order over a certain amount.',
+      'display_title' => 'Free shipping: 5 - 8 business days',
+      'description' => 'A free shipping service for an order over a certain amount.',
       'shipping_method' => 'flat_rate',
       'rules_component' => TRUE,
       'price_component' => 'flat_rate_free_shipping',
@@ -62,8 +62,8 @@ function commerce_kickstart_product_commerce_flat_rate_default_services() {
     'standard_shipping' => array(
       'name' => 'standard_shipping',
       'base' => 'standard_shipping',
-      'display_title' => 'Standard Shipping',
-      'description' => 'A standard shipping service for order under a certain amount.',
+      'display_title' => 'Standard shipping: 3 - 5 business days',
+      'description' => 'A standard shipping service.',
       'shipping_method' => 'flat_rate',
       'rules_component' => TRUE,
       'price_component' => 'flat_rate_standard_shipping',
