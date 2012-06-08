@@ -3,7 +3,11 @@
   Drupal.behaviors.kickstarthelp = {
     attach:function () {
 
-      $("#accordion").accordion({ header:'h2', autoHeight: false });
+      $("#accordion").accordion({
+        header: 'h2',
+        autoHeight: false,
+        collapsible: true
+      });
 
       $('.accordion-section').each(function () {
 
