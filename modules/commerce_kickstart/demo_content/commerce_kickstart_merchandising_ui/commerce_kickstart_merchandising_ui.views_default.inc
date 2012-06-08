@@ -471,8 +471,8 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
     'slideshow' => 'slideshow',
   );
 
-  /* Display: Last ad push block */
-  $handler = $view->new_display('block', 'Last ad push block', 'block_1');
+  /* Display: First ad push block */
+  $handler = $view->new_display('block', 'First ad push block', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Block showing the latest ad push.';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
@@ -779,8 +779,8 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
     'slideshow' => 'slideshow',
   );
 
-  /* Display: Next last ad push block */
-  $handler = $view->new_display('block', 'Next last ad push block', 'block_2');
+  /* Display: Second ad push block */
+  $handler = $view->new_display('block', 'Second ad push block', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Block showing the latest ad push.';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
