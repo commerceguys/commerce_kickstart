@@ -3,7 +3,7 @@ tr.views-row-active {
   background-color: #D5E9F2 !important;
 }
 .megarow > td {
-  padding-top: 0;
+  padding: 0;
 }
 .megarow-content > .messages {
   border: 0;
@@ -15,10 +15,7 @@ tr.views-row-active {
 div.views-megarow-content {
   background: white;
   color: black;
-  padding: 0;
-  margin: 2px;
-  width: 100%;
-  text-align: left;
+  padding: 15px;
 }
 
 div.views-megarow-content .megarow-title {
