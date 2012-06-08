@@ -229,7 +229,7 @@ function commerce_kickstart_import_product() {
       array('_commerce_kickstart_example_nodes', array(t('Setting up example nodes.'))),
       array('_commerce_kickstart_example_taxes', array(t('Setting up example taxes.'))),
       array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menu.'))),
-      array('_commerce_kickstart_example_storage_device', array(t('Setting up storage device.'))),
+      array('_commerce_kickstart_example_storage_device', array(t('Setting up example storage devices.'))),
       array('_commerce_kickstart_example_bags', array(t('Setting up example bags.'))),
       array('_commerce_kickstart_example_drinks', array(t('Setting up example drinks.'))),
       array('_commerce_kickstart_example_hats', array(t('Setting up example hats.'))),
