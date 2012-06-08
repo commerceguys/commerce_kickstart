@@ -8,6 +8,9 @@
         autoHeight: false,
         collapsible: true
       });
+      $("#accordion").bind("accordionchange", function(event, ui) {
+          $("html, body").animate({scrollTop: $(ui.newHeader).offset().top - 40}, 500);
+      });
 
       $('.accordion-section').each(function () {
 
