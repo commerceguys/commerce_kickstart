@@ -39,7 +39,6 @@ projects[commerce][version] = 1.x-dev
 projects[commerce][subdir] = "contrib"
 projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
 projects[commerce][patch][] = "http://drupal.org/files/commerce_product_reference_node_types.diff"
-projects[commerce][patch][] = "http://drupal.org/files/copy-profile-1410022-20.patch"
 projects[commerce][patch][] = "http://drupal.org/files/1620014-fix-title-status.patch"
 projects[commerce_features][version] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
