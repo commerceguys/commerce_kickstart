@@ -594,6 +594,9 @@ table th {
 .field-widget-inline-entity-form fieldset {
   padding-top: 10px;
 }
+#edit-field-product-und {
+  padding-top: 2em;
+}
 .field-widget-inline-entity-form fieldset.ief-entity-fieldset {
   background: transparent;
   padding-top: 2em;
@@ -674,8 +677,8 @@ tr.even {
   background: transparent url("images/add.png") no-repeat 0 0;
   padding: 4px 0 4px 30px;
 }
-.ief-product-attributes .form-item,
-.ief-product-details .form-item {
+.ief-product-attributes .form-wrapper,
+.ief-product-details .form-wrapper {
   float: left;
   margin-right: 25px;
 }
@@ -686,9 +689,15 @@ tr.even {
 }
 #edit-field-product-und-add-form .fieldset-legend {
   margin-top: 10px;
-  padding: 0;
+  padding: 0 10px;
 }
-
+.ief-product-details .fieldset-wrapper {
+  width: 33%
+}
+.ief-product-details .form-item label {
+  float: left;
+  margin-right: 10px;
+}
 #module-filter-squeeze .form-item-module-filter-name {
   clear: none;
 }
@@ -716,7 +725,8 @@ tr.even {
   border: 1px solid #ffcb69;
   box-shadow: inset 0 0 5px #fff;
 }
-.entity-commerce-order .commerce-backoffice-order-status-form .form-submit {
+.entity-commerce-order .commerce-backoffice-order-status-form .form-submit,
+.view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit {
   background: #77d227;
   color: #fff;
   padding: 5px 15px;
@@ -780,7 +790,13 @@ tr td:last-child {
   border: 1px solid #d8d8d8;
   border-radius: 8px;
 }
-
+.view-commerce-backoffice-order-messages #message-commerce-body-add-more-wrapper .resizable-textarea {
+  margin: 0 2px 30px 0;
+}
+.view-commerce-backoffice-order-messages #message-commerce-body-add-more-wrapper .filter-wrapper {
+  border: 1px solid #eee;
+  padding: 0 15px 10px;
+}
 .view-commerce-backoffice-orders tr.views-row-active {
   background: #d7f8fd !important;
   border: 1px solid #71e1f2;
