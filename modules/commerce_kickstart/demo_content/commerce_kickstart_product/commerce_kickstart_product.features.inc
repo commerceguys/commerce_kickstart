@@ -367,8 +367,6 @@ function commerce_kickstart_product_default_search_api_index() {
         "field_collection" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_gender" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" },
-        "field_product_commerce_price_amount_float_asc" : { "type" : "decimal" },
-        "field_product_commerce_price_amount_float_desc" : { "type" : "decimal" },
         "body:value" : { "type" : "text" },
         "field_product:field_bag_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_color" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
@@ -376,16 +374,10 @@ function commerce_kickstart_product_default_search_api_index() {
         "field_product:field_shoe_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_storage_capacity" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_top_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product:commerce_price:amount_float" : { "type" : "list\\u003Cdecimal\\u003E" },
         "field_product:field_color:name" : { "type" : "list\\u003Ctext\\u003E" },
         "field_product:field_color:description" : { "type" : "list\\u003Ctext\\u003E" }
       },
       "data_alter_callbacks" : {
-        "search_api_ranges_alter" : {
-          "status" : 1,
-          "weight" : "-50",
-          "settings" : { "fields" : { "field_product:commerce_price:amount_float" : "field_product:commerce_price:amount_float" } }
-        },
         "search_api_alter_bundle_filter" : {
           "status" : 1,
           "weight" : "-10",
@@ -403,11 +395,12 @@ function commerce_kickstart_product_default_search_api_index() {
         },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
-        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } }
       },
       "processors" : {
+        "search_api_ranges_processor" : { "status" : 0, "weight" : "-1", "settings" : { "fields" : [] } },
         "search_api_case_ignore" : {
           "status" : 0,
           "weight" : "0",

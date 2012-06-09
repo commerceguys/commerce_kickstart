@@ -17,6 +17,4 @@ dependencies[] = search_api_views
 features[features_api][] = api:1
 features[search_api_server][] = database_search_engine
 features[search_api_sort][] = search_commerce_display__created
-features[search_api_sort][] = search_commerce_display__field_product_commerce_price_amount_float_asc
-features[search_api_sort][] = search_commerce_display__field_product_commerce_price_amount_float_desc
 features[search_api_sort][] = search_commerce_display__title
