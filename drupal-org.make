@@ -32,6 +32,8 @@ projects[taxonomy_menu][version] = 1.2
 projects[taxonomy_menu][subdir] = "contrib"
 projects[libraries][version] = 1.0
 projects[libraries][subdir] = "contrib"
+projects[views_megarow][version] = 1.x-dev
+projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.x-dev
