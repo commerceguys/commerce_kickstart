@@ -7,56 +7,17 @@
  * General
  * ==========================================================
  */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
 body {
   background: #ececec url('../images/bg.png') left top;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   margin: 0 10px;
 }
-@font-face {
-  font-family: 'MuseoSlab300';
-  src: url('../fonts/Museo_Slab_300-webfont.eot');
-  src: url('../fonts/Museo_Slab_300-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Museo_Slab_300-webfont.woff') format('woff'),
-  url('../fonts/Museo_Slab_300-webfont.ttf') format('truetype'),
-  url('../fonts/Museo_Slab_300-webfont.svg#MuseoSlab300') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'MuseoSlab500';
-  src: url('../fonts/Museo_Slab_500-webfont.eot');
-  src: url('../fonts/Museo_Slab_500-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Museo_Slab_500-webfont.woff') format('woff'),
-  url('../fonts/Museo_Slab_500-webfont.ttf') format('truetype'),
-  url('../fonts/Museo_Slab_500-webfont.svg#MuseoSlab100') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'MuseoSlab700';
-  src: url('../fonts/Museo_Slab_700-webfont.eot');
-  src: url('../fonts/Museo_Slab_700-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Museo_Slab_700-webfont.woff') format('woff'),
-  url('../fonts/Museo_Slab_700-webfont.ttf') format('truetype'),
-  url('../fonts/Museo_Slab_700-webfont.svg#MuseoSlab100') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'MuseoSlab1000';
-  src: url('../fonts/Museo_Slab_1000-webfont.eot');
-  src: url('../fonts/Museo_Slab_1000-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Museo_Slab_1000-webfont.woff') format('woff'),
-  url('../fonts/Museo_Slab_1000-webfont.ttf') format('truetype'),
-  url('../fonts/Museo_Slab_1000-webfont.svg#MuseoSlab1000') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'MuseoSlab700';
-  font-weight: normal;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   letter-spacing: 0;
 }
 ul.primary li a {
@@ -172,7 +133,8 @@ ul.primary li a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   height: 28px;
   padding: 5px 28px 5px 5px;
 }
@@ -208,7 +170,8 @@ ul.primary li a {
   padding: 10px 21px 35px 5px;
 }
 #region-breadcrumb .pseudo-breadcrumb-total-results {
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   margin: 0 20px;
 }
 #region-breadcrumb .pseudo-breadcrumb-total-results em {
@@ -259,7 +222,8 @@ ul.primary li a {
 }
 .main-menu a,
 .secondary-menu a {
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   display: block;
   margin: 7px 0;
   padding: 12px 18px;
@@ -354,7 +318,8 @@ ul.primary li a {
 }
 .block-menu-kickstart-user-menu .content ul li a {
   display: block;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -385,7 +350,8 @@ ul.primary li a {
 .block-shopping-cart-block h2 {
   background: url('../images/picto_cart.png') right 5px no-repeat;
   float: left;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-size: 14px;
   line-height: 23px;
   padding-top: 5px;
@@ -398,7 +364,8 @@ ul.primary li a {
 .block-shopping-cart-block .content .view-shopping-cart .view-empty {
   display: inline;
   float: right;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 .block-shopping-cart-block .content .view-shopping-cart .view-empty p {
   float: left;
@@ -432,7 +399,8 @@ ul.primary li a {
   background-color: #fd9a00;
   color: #ffffff;
   float: right;
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   height: 100%;
   line-height: 30px;
   padding: 0 12px;
@@ -460,14 +428,16 @@ ul.primary li a {
   margin: 0;
 }
 .region-sidebar-first .block-facetapi h2 {
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   font-size: 16px;
   line-height: 30px;
   padding-bottom: 10px;
 }
 .region-sidebar-first .block-facetapi a {
   color: #8e8e8e;
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   text-decoration: none;
 }
 .region-sidebar-first .block-facetapi a:hover {
@@ -495,7 +465,6 @@ ul.primary li a {
   background-color: #fd9a00;
   color: #ffffff;
   font-size: 16px;
-  height: 33px;
   padding: 5px 10px;
   position: relative;
   top: 0px;
@@ -507,12 +476,14 @@ ul.primary li a {
 #promotional_banner .promotional_banner_saving {
   display: block;
   float: left;
-  font-family: 'MuseoSlab1000';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
   font-size: 28px;
   margin: 0px 22px 0 12px;
 }
 #promotional_banner span {
-  font-family: 'MuseoSlab500';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 38px;
   text-transform: uppercase;
@@ -523,7 +494,8 @@ ul.primary li a {
   -moz-border-radius: 4px;
   border-radius: 4px;
   color: #fd9a00;
-  font-family: 'MuseoSlab500';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   margin-left: 22px;
   padding: 5px 28px;
   text-transform: capitalize;
@@ -569,12 +541,14 @@ ul.primary li a {
   margin-top: 2px;
 }
 #shipping #shipping_message {
-  font-family: 'MuseoSlab500';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
 }
 #shipping #shipping_message span,
 #shipping #shipping_message span em,
 #shipping #shipping_currency {
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
 }
 /* Slideshow */
 .block-demo-content-block-3 {
@@ -627,7 +601,8 @@ ul.primary li a {
 .view-display-id-block_3 .bx-prev span.control,
 .view-display-id-block_3 .bx-next span.control {
   display: block;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-size: 21px;
   height: 80px;
   line-height: 28px;
@@ -637,7 +612,8 @@ ul.primary li a {
 .event-slider .views-field-nothing em,
 .view-display-id-block_3 .bx-prev span.control em,
 .view-display-id-block_3 .bx-next span.control em {
-  font-family: 'MuseoSlab1000';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
   font-style: normal;
   font-size: 32px;
   text-decoration: none;
@@ -684,7 +660,8 @@ ul.primary li a {
 .block-blog-block .block-title {
   background: url('../images/bg_block_homepage_title.png') left top no-repeat;
   color: #ffffff;
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   font-size: 16px;
   height: 50px;
   padding-top: 11px;
@@ -711,7 +688,8 @@ ul.primary li a {
 .view-display-id-block_2 .views-row .views-field-field-tagline a,
 .block-blog-block .views-field-title a {
   color: #ffffff;
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
   text-transform: capitalize;
@@ -792,11 +770,13 @@ ul.primary li a {
 }
 .view-collection-taxonomy-term .products-per-collection li .field-type-commerce-price,
 .page-products .view-display-products li .field-type-commerce-price {
-  color: #858787;
-  font-family: 'MuseoSlab500';
+  color: #858787; 
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
 }
 .page-products .view-display-products li .content .commerce-product-field-commerce-price {
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
 }
 .view-collection-taxonomy-term .products-per-collection li.views-row.last,
 .page-products .view-display-products li.views-row.last {
@@ -832,8 +812,8 @@ ul.primary li a {
 }
 .view-collection-taxonomy-term .view-header h2 a {
   color: #ffffff;
-  font-family: 'MuseoSlab700';
-  font-weight: normal;
+  ffont-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   text-decoration: none;
   text-transform: capitalize;
 }
@@ -866,7 +846,7 @@ ul.primary li a {
 }
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-header,
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list {
-  display: inline;
+  margin-bottom:7px;
 }
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content {
 
@@ -883,7 +863,8 @@ ul.primary li a {
   -moz-border-radius: 8px;
   border-radius: 8px;
   color: #000000;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   padding: 5px 15px;
   text-decoration: none;
@@ -925,7 +906,6 @@ ul.primary li a {
   margin: 0;
   padding-right: 5px;
   padding-bottom:30px;
- /* text-align: center; */ /*REMOVE*/
 }
 
 /* All products */
@@ -935,7 +915,6 @@ ul.primary li a {
   margin: 0;
   padding-right: 5px;
   padding-bottom: 30px;
-  text-align: center;
 }
 .page-products .view-display-products ul li.views-row:nth-child(3n) {
   padding-right: 0;
@@ -1048,12 +1027,14 @@ ul.primary li a {
   padding-left: 35px;
 }
 .node-product-type .product-title {
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   font-size: 24px;
 }
 .node-product-type .commerce-product-sku {
   color: #b1b1b1;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-size: 13px;
 }
 .node-product-type .commerce-product-sku-label {
@@ -1061,12 +1042,14 @@ ul.primary li a {
 }
 .node-product-type .commerce-product-field {
   color: #f2a023;
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   font-size: 30px;
   margin-bottom: 20px;
 }
 .node-product-type .field-name-body {
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   line-height: 20px;
   margin-bottom: 20px;
 }
@@ -1075,7 +1058,8 @@ ul.primary li a {
   background: url('../images/btn_read_more.png') 0 1px no-repeat;
   color: #898a8c;
   display: block;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   margin-top: 10px;
   text-indent: 25px;
   text-decoration: none;
@@ -1116,7 +1100,8 @@ ul.primary li a {
 /* Product details */
 .commerce-add-to-cart label {
   float: left;
-  font-family: 'MuseoSlab500';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   margin-right: 5px;
   width: 45%;
 }
@@ -1133,7 +1118,8 @@ ul.primary li a {
   -moz-border-radius: 8px;
   border-radius: 8px;
   color: #ffffff;
-  font-family: 'MuseoSlab500';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   font-size: 17px;
   font-weight: normal;
   margin-top: 40px;
@@ -1214,8 +1200,7 @@ ul.primary li a {
   padding: 0 10px 10px 10px;
   text-transform: uppercase;
 }
-#views-form-commerce-cart-form-default table tbody tr td,
-#commerce-checkout-form-checkout table tbody tr td {
+.view-commerce-line-item-table table tbody tr td {
   padding: 25px 10px;
 }
 .page-cart #views-form-commerce-cart-form-default .views-field-line-item-title {
@@ -1250,23 +1235,38 @@ ul.primary li a {
 .commerce-line-item-actions input[value="Update cart"] {
   margin-right:20px;
 }
-/* Order summary */
-.commerce-order-handler-area-order-total {
+/* Order summary for checkout & order history page*/
+.commerce-order-handler-area-order-total .field-items,
+.field-name-commerce-order-total .field-items {
   background-color:#E5E5E5;
   float: right;
   margin-bottom: 15px;
   padding: 10px 15px;
   width: 25%;
 }
-#views-form-commerce-cart-form-default .commerce-order-handler-area-order-total td,
-#commerce-checkout-form-checkout .commerce-order-handler-area-order-total td {
+.field-name-commerce-order-total:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* IE7 
+*:first-child + html .field-name-commerce-order-total {
+  min-height: 1%;
+}*/
+.field-name-commerce-order-total .commerce-price-formatted-components {
+  width: 100%;	
+}
+.commerce-price-formatted-components td {
   padding: 5px;
 }
-.commerce-order-handler-area-order-total .component-title {
-  color:#767676;
+.commerce-price-formatted-components .component-title {
+  color: #767676;
   font-size: 13px;
 }
-.commerce-order-handler-area-order-total .component-type-commerce-price-formatted-amount .component-title {
+.component-type-commerce-price-formatted-amount .component-title {
   color: #000000;
 }
 .commerce-line-item-actions {
@@ -1280,7 +1280,8 @@ ul.primary li a {
   -moz-border-radius: 8px;
   border-radius: 8px;
   color: #ffffff;
-  font-family: 'MuseoSlab500';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
   font-size: 17px;
   font-weight: normal;
   padding: 5px 10px;
@@ -1417,8 +1418,8 @@ ul.primary li a {
 .section-footer ul.menu .expanded span,
 .section-footer ul.menu li a {
   color: #ffffff;
-  font-family: 'MuseoSlab700';
-  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   text-decoration: none;
 }
 .section-footer ul.menu .expanded a.active {
@@ -1434,7 +1435,8 @@ ul.primary li a {
 }
 .section-footer ul.menu .expanded ul.menu li a {
   color: #c1c1c1;
-  font-family: 'MuseoSlab300';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-weight: normal;
 }
 /**
@@ -1450,7 +1452,8 @@ ul.primary li a {
 .block-social h2 {
   background-color: #262626;
   color: #eeeeee;
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   line-height: 16px;
   padding: 8px 15px;
 }
@@ -1459,7 +1462,8 @@ ul.primary li a {
 }
 .block-social .content #social li {
   color: #eeeeee;
-  font-family: 'MuseoSlab500';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   line-height: 15px;
   margin-top: 2px;
   margin-bottom: 15px;
@@ -1479,7 +1483,8 @@ ul.primary li a {
 .block-social .content li a,
 .block-social .content li span {
   color: #eeeeee;
-  font-family: 'MuseoSlab500';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   display: block;
   height: 35px;
   padding-top: 5px;
@@ -1602,7 +1607,8 @@ ul#payments li:first-child {
   border: 1px solid #ffffff;
 }
 .page-blog .view-content .views-row .content .field-name-body {
-  font-family: 'MuseoSlab700';
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
   margin-top: 5px;
 }
 
@@ -1643,7 +1649,7 @@ ul#payments li:first-child {
   border-bottom: 1px solid #D8D8D8;
   border-top: 1px solid #D8D8D8;
   padding: 10px 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 30px 0;
 }
 .page-user ul.primary li a {
   background-color: transparent;
@@ -1702,18 +1708,60 @@ ul#payments li:first-child {
   text-decoration: none;
   text-shadow: 0 1px 1px #FFFFFF;
 }
+.page-user-addressbook .view-commerce-addressbook .views-field {
+  border: 1px solid #D8D8D8;
+  margin-right: 15px;
+  padding: 20px;
+}
+.page-user-addressbook .field-name-commerce-customer-address {
+  color: #5F6061;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+.page-user-addressbook .view-commerce-addressbook-defaults .views-field {
+  background-color: #F0F0F0;
+  border: 1px solid #D8D8D8;
+  float: left;
+  margin: 0 15px 20px 0;
+  padding: 20px;	
+}
+.page-user #commerce-addressbook-billing-list {
+  clear: both;
+}
 /* Orders */
-.page-user-orders .view-commerce-line-item-table table {
+.page-user-orders .view-commerce-line-item-table table,
+.page-user-orders .view-commerce-user-orders table {
   width: 100%;
 }
-.page-user-orders .view-commerce-line-item-table table thead th {
-  font-size: 16px;
+.page-user-orders .view-commerce-line-item-table table thead th,
+.page-user-orders .view-commerce-user-orders table thead th {
+  color: #777777;
+  font-size: 13px;
+  padding: 0 10px 10px;
+  text-align: left;
+  text-transform: uppercase;
 }
-.page-user-orders .view-commerce-line-item-table table tbody tr td {
-  padding: 4px 10px;
+.page-user-orders .view-commerce-user-orders table thead th a {
+  color: #777777;
+  text-decoration: none;
 }
-.page-user-orders .view-commerce-line-item-table table tbody tr.even {
-  background-color: #ffffff;
+.page-user-orders .view-commerce-line-item-table table tbody tr td,
+.commerce-line-item-views-form table.views-table tbody tr td,
+.view-commerce-user-orders td {
+  background-color: transparent;
+  padding: 25px 10px;
+}
+.page-user-orders .view-commerce-line-item-table table tbody tr.even,
+.page-user-orders .view-commerce-line-item-table table tbody tr.odd,
+.page-user-orders .view-commerce-user-orders table tbody tr.even,
+.page-user-orders .view-commerce-user-orders table tbody tr.odd {
+	
+  background-color: transparent;
+}
+.page-user-orders td.views-field-created,
+.page-user-orders td.views-field-changed {
+  color: #898A8C;
+  font-size: 13px;
 }
 .page-user-orders .field-name-commerce-customer-billing {
   margin-left: 10px;
@@ -1721,13 +1769,39 @@ ul#payments li:first-child {
 }
 .page-user-orders .field-name-commerce-customer-billing,
 .page-user-orders .field-name-commerce-customer-shipping {
-  background-color: #f8f3f3;
-  border: 1px solid #717171;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
   float: left;
-  margin-top: 5px;
-  padding: 10px;
-  width: 420px;
+  margin: 5px 5% 0 0;
+  width: 45%;
 }
+.page-user-orders .field-name-commerce-customer-billing .field-label,
+.page-user-orders .field-name-commerce-customer-shipping .field-label {
+  background-color: #E5E5E5;
+  padding:5px 10px;
+}
+.field-name-commerce-customer-billing .field-items,
+.field-name-commerce-customer-shipping .field-items {
+  padding:5px;	
+}
+.field-name-commerce-order-total .commerce-price-formatted-components {
+  padding: 10px 15px;	
+}
+.field-name-commerce-order-total tr.even, 
+.field-name-commerce-order-total tr.odd {
+  background-color: transparent;	
+}
+.field-name-commerce-order-total .commerce-price-formatted-components tr.component-type-commerce-price-formatted-amount {
+  background-color: transparent;
+  color: #000000;	
+}
+.page-user-orders .commerce-backoffice-order-status-form {
+  clear: both;
+}
+.page-user-orders .commerce-backoffice-order-status-form {
+  padding: 20px 0;
+}
+.page-user-orders .commerce-backoffice-order-status-form .form-type-select,
+.page-user-orders .commerce-backoffice-order-status-form .form-submit {
+  display: inline;
+}
+/* Order Activity Stream */
+
