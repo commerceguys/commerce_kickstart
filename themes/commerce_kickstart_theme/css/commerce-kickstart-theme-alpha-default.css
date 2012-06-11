@@ -1,0 +1,179 @@
+/* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
+/*
+ * ==========================================================
+ * General
+ * ==========================================================
+ */
+
+/*
+ * ==========================================================
+ * Zones
+ * ==========================================================
+ */
+.section-header {
+}
+.zone-user-wrapper {
+  position: fixed;
+  z-index: 100;
+}
+/*
+ * ==========================================================
+ * Regions
+ * ==========================================================
+ */
+/* Homepage Regions */
+.front #zone-postscript .grid-8 {
+  width: 313px;
+}
+.front #region-postscript-first,
+.front #region-postscript-second,
+.front #region-postscript-third {
+  margin: 0;
+}
+.front #region-postscript-first,
+.front #region-postscript-second {
+  margin-right: 10px;
+}
+#block-views-shopping-cart-block {
+  float: right;
+  margin: 0;
+}
+/*
+ * ==========================================================
+ * Header
+ * ==========================================================
+ */
+/**
+ * Breadcrumb
+ */
+#region-breadcrumb .pseudo-breadcrumb,
+.breadcrumb {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+/**
+ * Navigation
+ */
+.main-menu a,
+.secondary-menu a {
+  display: inline;
+}
+.navigation .primary-menu li a,
+.navigation .primary-menu li a.active,
+.navigation .primary-menu li a:hover,
+.navigation .second-menu li a,
+.navigation .second-menu li a.active,
+.navigation .second-menu li a:hover {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+/* Main menu */
+.navigation li.first a {
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.navigation li.first a,
+.navigation li.first a.active,
+.navigation li.first a:hover {
+  border-left: 1px solid #d7d7d7;
+}
+.navigation li.last a {
+  -webkit-border-top-right-radius: 8px;
+  -webkit-border-bottom-right-radius: 8px;
+  -moz-border-radius-topright: 8px;
+  -moz-border-radius-bottomright: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.navigation li.last a,
+.navigation li.last a.active,
+.navigation li.last a:hover {
+  border-right: 1px solid #d7d7d7;
+}
+/* Secondary menu */
+.navigation .second-menu li.first a,
+.navigation .second-menu li.first a.active,
+.navigation .second-menu li.first a:hover {
+  border-left: 1px solid #d7d7d7;
+}
+.navigation .second-menu li.last a,
+.navigation .second-menu li.last a.active,
+.navigation .second-menu li.last a:hover {
+  border-right: 1px solid #d7d7d7;
+}
+
+/*
+ * ==========================================================
+ * Content
+ * ==========================================================
+ */
+/**
+ * HP Blocks
+ */
+/* Adverts blocks */
+.view-display-id-block_1 .views-row,
+.view-display-id-block_2 .views-row,
+.block-blog-block .block-inner {
+  background-color: #cccccc;
+  border: 1px solid #b1b1b1;
+  padding: 10px 0px 25px 0px;
+  position: relative;
+}
+.view-display-id-block_1 .views-row img,
+.view-display-id-block_2 .views-row img,
+.block-blog-block img {
+  border: 4px solid #ffffff;
+}
+.block-blog-block .block-title {
+  background: url('../images/bg_block_homepage_title.png') left top no-repeat;
+  color: #ffffff;
+  font-size: 16px;
+  height: 50px;
+  margin-top: 25px;
+  padding-top: 11px;
+  padding-left: 25px;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 112px;
+  z-index: 1;
+}
+.view-display-id-block_1 .views-row .views-field-field-tagline,
+.view-display-id-block_2 .views-row .views-field-field-tagline,
+.block-blog-block .views-field-title {
+  margin: 5px 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 14px;
+}
+.view-display-id-block_1 .views-row .views-field-field-tagline,
+.view-display-id-block_2 .views-row .views-field-field-tagline,
+.block-blog-block .views-field-title .field-content {
+  display: block;
+  width: 260px;
+}
+/* Adverts blocks */
+.view-display-id-block_1 .views-row,
+.view-display-id-block_2 .views-row {
+  margin: 0;
+}
+/**
+ * Collection page
+ */
+
+
+/*
+ * ==========================================================
+ * Footer
+ * ==========================================================
+ */
+ .block-payment {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}

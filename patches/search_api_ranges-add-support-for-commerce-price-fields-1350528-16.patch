@@ -1,0 +1,177 @@
+diff --git a/includes/processor_search_api_ranges.inc b/includes/processor_search_api_ranges.inc
+new file mode 100644
+index 0000000..f6b1422
+--- /dev/null
++++ b/includes/processor_search_api_ranges.inc
+@@ -0,0 +1,101 @@
++<?php
++
++/**
++ * Processor which allows indexing of min and max values for choosen fields.
++ */
++class SearchApiRangesProcessor extends SearchApiAbstractProcessor {
++
++  protected $min_suffix = '_asc';
++  protected $max_suffix = '_desc';
++
++  public function configurationForm() {
++    $form['#attached']['css'][] = drupal_get_path('module', 'search_api') . '/search_api.admin.css';
++
++    $fields = $this->index->getFields();
++    $field_options = array();
++    $default_fields = array();
++    if (isset($this->options['fields'])) {
++      $default_fields = drupal_map_assoc(array_keys($this->options['fields']));
++    }
++    $eligible_types = array('integer', 'decimal');
++    foreach ($fields as $name => $field) {
++      if (search_api_is_list_type($field['type']) && in_array(search_api_extract_inner_type($field['type']), $eligible_types))  {
++        $field_options[$name] = $field['name'];
++        if (!empty($default_fields[$name]) || (!isset($this->options['fields']) && $this->testField($name, $field))) {
++          $default_fields[$name] = $name;
++        }
++      }
++    }
++
++    $form['fields'] = array(
++      '#type' => 'checkboxes',
++      '#title' => t('Fields to run on'),
++      '#options' => $field_options,
++      '#default_value' => $default_fields,
++      '#attributes' => array('class' => array('search-api-checkboxes-list')),
++    );
++    return $form;
++  }
++
++  /**
++   * Submit callback for configuration form, create new fields + save the index.
++   */
++  public function configurationFormSubmit(array $form, array &$values, array &$form_state) {
++    if (!empty($values)) {
++      foreach ($values['fields'] as $key => $value) {
++        $field = $this->index->options['fields'][$key];
++        $field['type'] = search_api_extract_inner_type($field['type']);
++        $this->index->options['fields'][$key . $this->min_suffix] = $field;
++        $this->index->options['fields'][$key . $this->max_suffix] = $field;
++      }
++      $this->index->save();
++    }
++    // Remove previously added min and max fields.
++    if (isset($this->options['fields'])) {
++      $fields_to_remove = array_diff_key($this->options['fields'], $values['fields']);
++      $save_index = FALSE;
++      foreach ($fields_to_remove as $key => $value) {
++        if (isset($this->index->options['fields'][$key . $this->min_suffix])) {
++          unset($this->index->options['fields'][$key . $this->min_suffix]);
++          unset($this->index->options['fields'][$key . $this->max_suffix]);
++          $save_index = TRUE;
++        }
++      }
++      if ($save_index) {
++        $this->index->save();
++      }
++    }
++    return parent::configurationFormSubmit($form, $values, $form_state);
++  }
++
++  /**
++   * Add min and max fields into the index.
++   */
++  public function preprocessIndexItems(array &$items) {
++    if (!empty($this->options['fields'])) {
++      foreach ($items as &$item) {
++        foreach ($item as $name => &$field) {
++          if ($this->testField($name, $field) && !empty($field['value'])) {
++            $type = search_api_extract_inner_type($field['type']);
++            $item[$name . $this->min_suffix] = array_merge($field, array(
++              'value' => min($field['value']),
++              'type' => $type,
++            ));
++            $item[$name . $this->max_suffix] = array_merge($field, array(
++              'value' => max($field['value']),
++              'type' => $type,
++            ));
++          }
++        }
++      }
++    }
++  }
++
++  /**
++   * Override the default testField, we don't need to test the field type here.
++   */
++  protected function testField($name, array $field) {
++    return !empty($this->options['fields'][$name]);
++  }
++
++}
+diff --git a/search_api_ranges.info b/search_api_ranges.info
+index 9367e29..154dc3b 100644
+--- a/search_api_ranges.info
++++ b/search_api_ranges.info
+@@ -3,6 +3,7 @@ description = "Provides range widgets and a min/max slider for Search API."
+ dependencies[] = facetapi
+ dependencies[] = search_api
+ dependencies[] = search_api_facetapi
++files[] = includes/processor_search_api_ranges.inc
+ core = 7.x
+ package = Search
+ 
+diff --git a/search_api_ranges.module b/search_api_ranges.module
+index ef36bdc..2b1875e 100644
+--- a/search_api_ranges.module
++++ b/search_api_ranges.module
+@@ -73,6 +73,12 @@ function search_api_ranges_facetapi_widgets() {
+   */
+ function search_api_ranges_minmax($variables, $order = 'ASC') {
+   $query = $variables['query'];
++  $index = $variables['index'];
++  $order_lower = strtolower($order);
++  // Check if min or max values are indexed.
++  if (isset($index->options['fields'][$variables['range_field'] . '_' . $order_lower])) {
++    $variables['range_field'] = $variables['range_field'] . '_' . $order_lower;
++  }
+ 
+   // Alter sort
+   $sort = &$query->getSort();
+@@ -106,12 +112,10 @@ function search_api_ranges_minmax($variables, $order = 'ASC') {
+     $entity = entity_load($variables['index']->item_type, array($result['id']));
+     $variables['index']->dataAlter($entity);
+     $wrapper = $variables['index']->entityWrapper($entity[$result['id']]);
++    $return = $result['fields'][$variables['range_field']];
+   }
+-  $fields[$variables['range_field']]['type'] = 'integer';
+-  $fields = search_api_extract_fields($wrapper, $fields);
+ 
+-  // For max queries, pad the result +1 to avoid empty selections 
+-  $return = $fields[$variables['range_field']]['value'];
++  // For max queries, pad the result +1 to avoid empty selections
+   if ($order == 'DESC') {
+     ++$return;
+   }
+@@ -264,7 +268,7 @@ function search_api_ranges_block_view_form_submit($form, &$form_state) {
+   // Prepare new range query (override existing key or add new)
+   $query = $range_field . ':' . '[' . $values['range-from'] . ' TO ' . $values['range-to'] . ']';
+   // @todo Facet API can have different '?f=' for query, how to detect?
+-  
++
+   $pos = -1;
+   if (isset($params['f'])) {
+     foreach ($params['f'] as $key => $param) {
+@@ -283,3 +287,16 @@ function search_api_ranges_block_view_form_submit($form, &$form_state) {
+ 
+   drupal_goto($_GET['q'], array('query' => array($params)));
+ }
++
++/**
++ * Implements hook_search_api_processor_info().
++ */
++function search_api_ranges_search_api_processor_info() {
++  $callbacks['search_api_ranges_processor'] = array(
++    'name' => t('Search api ranges processor'),
++    'description' => t('Preprocess items to index min & max'),
++    'class' => 'SearchApiRangesProcessor',
++    'weight' => -1,
++  );
++  return $callbacks;
++}

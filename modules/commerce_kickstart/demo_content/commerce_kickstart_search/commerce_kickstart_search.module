@@ -1,0 +1,77 @@
+<?php
+/**
+ * @file
+ * Code for the Commerce Kickstart Search feature.
+ */
+
+include_once 'commerce_kickstart_search.features.inc';
+
+/**
+ * Implements hook_entity_property_info_alter().
+ */
+function commerce_kickstart_search_entity_property_info_alter(&$info) {
+  $properties = &$info['commerce_product']['properties'];
+  foreach (field_info_fields() as $field) {
+    if ($field['module'] != 'commerce_product_reference') {
+      continue;
+    }
+    $field_name = $field['field_name'];
+    foreach ($field['bundles'] as $entity_type => $bundles) {
+      $properties[$field_name . '_' . $entity_type] = array(
+        'description' => t('A bridge to @entity_type referenced by @field_name', array(
+          '@entity_type' => $entity_type,
+          '@field_name' => $field_name
+        )),
+        'getter callback' => 'commerce_kickstart_search_backreference_getter',
+        'field' => $field,
+        'label' => t('A bridge to @entity_type referenced by @field_name', array(
+          '@entity_type' => $entity_type,
+          '@field_name' => $field_name
+        )),
+        'target type' => $entity_type,
+        'type' => 'list<' . $entity_type . '>',
+      );
+    }
+  }
+}
+
+/**
+ * Getter callback for retrieving related entities.
+ */
+function commerce_kickstart_search_backreference_getter($entity, array $options, $name, $type, $info) {
+  $entities_ids = array();
+  // Retrieve the field.
+  $field = $info['field'];
+  $entity_target_type = $info['target type'];
+  $entity_wrapper = entity_metadata_wrapper($type, $entity);
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', $entity_target_type, '=')
+    ->fieldCondition($field['field_name'], 'product_id', $entity_wrapper->getIdentifier(), '=');
+  $result = $query->execute();
+  if (isset($result[$entity_target_type])) {
+    $entities_ids = array_keys($result[$entity_target_type]);
+  }
+  return $entities_ids;
+}
+
+/**
+ * Implements hook_facetapi_filters().
+ */
+function commerce_kickstart_search_facetapi_filters() {
+  $filters = array(
+    'useless_searches' => array(
+      'handler' => array(
+        'label' => t('Hide items that do not change search result.'),
+        'class' => 'CommerceKickstartSameSearch',
+      ),
+    ),
+    'hide_search_start' => array(
+      'handler' => array(
+        'label' => t('Hide if no search is performed.'),
+        'class' => 'CommerceKickstartSearchStart',
+      ),
+    ),
+  );
+
+  return $filters;
+}

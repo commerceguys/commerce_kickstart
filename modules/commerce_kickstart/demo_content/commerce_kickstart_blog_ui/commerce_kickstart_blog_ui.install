@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ *
+ * Rebuilds the feature immediately after it's enabled.
+ */
+function commerce_kickstart_blog_ui_enable() {
+  // Rebuild the features static caches.
+  features_include(TRUE);
+
+  $module = 'commerce_kickstart_blog_ui';
+  $feature = feature_load($module);
+  $items[$module] = array_keys($feature->info['features']);
+  _features_restore('enable', $items);
+  _features_restore('rebuild', $items);
+}
+
+/*
+ * Implements hook_install().
+ */
+function commerce_kickstart_blog_ui_install() {
+  drupal_flush_all_caches();
+  drupal_static_reset();
+  _block_rehash('commerce_kickstart_theme');
+  try {
+    db_update('block')
+      ->fields(array(
+      'region' => 'postscript_third',
+      'status' => (int) '1',
+      'visibility' => '1',
+      'pages' => '<front>',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', 'blog-block')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+    db_update('block')
+      ->fields(array(
+      'region' => 'user_first',
+      'status' => (int) '1',
+      'visibility' => '0',
+      'pages' => '',
+      'title' => '<none>',
+    ))
+      ->condition('module', 'menu')
+      ->condition('delta', 'menu-kickstart-user-menu')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+  }
+  catch (Exception $e) {
+    watchdog_exception('block', $e);
+    throw $e;
+  }
+
+  // Custom breadcrumbs is not currently integrated with features.
+  if (function_exists('_custom_breadcrumbs_save_breadcrumb')) {
+    $breadcrumb = new stdClass();
+    $breadcrumb->views_path = 'blog';
+    $breadcrumb->name = 'blog';
+    $breadcrumb->visibility_php = '';
+    $breadcrumb->titles = 'Blog';
+    $breadcrumb->paths = '<none>';
+    _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs_views', 'views', $breadcrumb);
+
+    $breadcrumb = new stdClass();
+    $breadcrumb->node_type = 'blog_post';
+    $breadcrumb->name = 'blog_post';
+    $breadcrumb->visibility_php = '';
+    $breadcrumb->titles = "Blog\n[node:title]";
+    $breadcrumb->paths = "blog\n<none>";
+    _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs', 'node', $breadcrumb);
+
+    $breadcrumb = new stdClass();
+    $breadcrumb->node_type = 'page';
+    $breadcrumb->name = 'page';
+    $breadcrumb->visibility_php = '';
+    $breadcrumb->titles = '[node:title]';
+    $breadcrumb->paths = '<none>';
+    _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs', 'node', $breadcrumb);
+  }
+}

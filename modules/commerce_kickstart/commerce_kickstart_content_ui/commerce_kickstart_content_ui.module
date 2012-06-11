@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_views_api().
+ */
+function commerce_kickstart_content_ui_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'commerce_kickstart_content_ui') . '/includes/views',
+  );
+}

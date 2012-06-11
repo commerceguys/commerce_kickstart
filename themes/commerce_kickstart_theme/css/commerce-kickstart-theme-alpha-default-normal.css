@@ -1,0 +1,64 @@
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+/* If you are using the default media queries provided by body {
+  background-color: #b3e4fd;
+}Omega, these styles will also
+ *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
+
+/*
+ * ==========================================================
+ * Header
+ * ==========================================================
+ */
+/**
+ * Navigation
+ */
+.navigation .primary-menu,
+.navigation .second-menu {
+  display: inline;
+}
+.navigation .primary-menu {
+  float: left;
+  margin-right: 12px;
+}
+.navigation .second-menu {
+  float: right;
+}
+
+.bx-wrapper {
+  height: 580px;
+}
+.view-display-id-block_3 {
+  position: relative;
+}
+.view-display-id-block_3 .bx-prev,
+.view-display-id-block_3 .bx-next {
+  position: absolute;
+  bottom: 0;
+}
+.view-display-id-block_3 .bx-next {
+  right: 0;
+}
+
+.block-menu-kickstart-user-menu .block-inner {
+  float: right;
+}
+
+/**
+ * Social links block
+ */
+.block-social h2 {
+  background: url('../images/bg_block_footer_title.png') left top no-repeat;
+  color: #eeeeee;
+  font-family: 'MuseoSlab700';
+  line-height: inherit;
+  padding: 0 0 22px 25px;
+}
+.block-social #facebook {
+   padding-right: 60px;
+}
+.block-social #twitter {
+   padding-right: 80px;
+}
+.block-social #pinterest {
+   padding-right: 60px;
+}

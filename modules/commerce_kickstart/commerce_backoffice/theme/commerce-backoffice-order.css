@@ -1,0 +1,61 @@
+.megarow-title {
+  display: none;
+}
+
+.content-left {
+  float: left;
+  width: 70%;
+}
+.content-left > div {
+  float: left;
+  width: 100%;
+}
+
+.content-right {
+  float: right;
+  width: 25%;
+}
+.content-right > div.field {
+  border: 1px solid #BEBFB9;
+  margin-bottom: 15px;
+}
+
+.content-right .field-label, .commerce-backoffice-order-status-label {
+  line-height: 20px;
+  background-color: #E1E2DC;
+  padding: 3px 10px;
+  border-bottom: 1px solid #BEBFB9;
+  font-weight: normal !important;
+}
+.content-right .field-items {
+  padding: 3px 10px;
+}
+
+.commerce-backoffice-order-status-form .messages {
+  margin-top: 0;
+}
+.commerce-backoffice-order-status-form form {
+  padding: 3px 10px;
+}
+.commerce-backoffice-order-status-form .form-item {
+  margin-bottom: 0;
+}
+
+.field-name-commerce-order-total {
+  background-color: #D5E9F2;
+  float: right !important;
+  width: 220px !important;
+  line-height: 30px;
+  padding: 0 10px 0 5px;
+}
+.field-name-commerce-order-total .field-label {
+  display: block;
+  float: left;
+}
+.field-name-commerce-order-total .field-items {
+  float: right;
+}
+
+.view-commerce-backoffice-order-messages h2 {
+  font-size: 1em;
+}

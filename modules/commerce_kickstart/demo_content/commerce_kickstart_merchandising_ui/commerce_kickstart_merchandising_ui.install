@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ *
+ * Rebuilds the feature immediately after it's enabled.
+ */
+function commerce_kickstart_merchandising_ui_enable() {
+  // Rebuild the features static caches.
+  features_include(TRUE);
+
+  $module = 'commerce_kickstart_merchandising_ui';
+  $feature = feature_load($module);
+  $items[$module] = array_keys($feature->info['features']);
+  _features_restore('enable', $items);
+  _features_restore('rebuild', $items);
+}
+
+/*
+ * Implements hook_install().
+ */
+function commerce_kickstart_merchandising_ui_install() {
+  drupal_static_reset();
+  _block_rehash('commerce_kickstart_theme');
+  try {
+    // Footer navigation.
+    db_update('block')
+      ->fields(array(
+      'region' => 'footer_first',
+      'status' => (int) '1',
+      'title' => '<none>',
+    ))
+      ->condition('module', 'menu')
+      ->condition('delta', 'menu-footer-navigation')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+    // HP push block 1.
+    db_update('block')
+      ->fields(array(
+      'region' => 'postscript_first',
+      'status' => (int) '1',
+      'visibility' => '1',
+      'pages' => '<front>',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', 'demo_content-block_1')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+    // HP push block 2.
+    db_update('block')
+      ->fields(array(
+      'region' => 'postscript_second',
+      'status' => (int) '1',
+      'visibility' => '1',
+      'pages' => '<front>',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', 'demo_content-block_2')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+    // HP Slideshow.
+    db_update('block')
+      ->fields(array(
+      'region' => 'content',
+      'status' => (int) '1',
+      'visibility' => '1',
+      'pages' => '<front>',
+      'title' => '<none>',
+    ))
+      ->condition('module', 'views')
+      ->condition('delta', 'demo_content-block_3')
+      ->condition('theme', 'commerce_kickstart_theme')
+      ->execute();
+  }
+  catch (Exception $e) {
+    watchdog_exception('block', $e);
+    throw $e;
+  }
+}

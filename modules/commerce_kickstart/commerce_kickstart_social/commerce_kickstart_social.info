@@ -1,0 +1,8 @@
+name = Commerce Kickstart Social
+description = Social features for Commerce kickstart.
+core = 7.x
+package = Commerce Kickstart
+dependencies[] = "connector_action_default_register_form"
+dependencies[] = "oauthconnector"
+dependencies[] = "service_links"
+dependencies[] = "widget_services"

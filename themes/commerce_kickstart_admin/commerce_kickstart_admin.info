@@ -1,0 +1,20 @@
+name = Commerce Kickstart Admin Theme
+description = A simple one-column, tableless, fluid width administration theme.
+package = Commerce Kickstart
+core = 7.x
+stylesheets[screen][] = reset.css
+stylesheets[screen][] = style.css
+; Contrib Module Admin Styles
+stylesheets[screen][] = contrib.css
+stylesheets[screen][] = toolbar.css
+; Install and Maintenance Pages
+stylesheets[screen][] = commerce_kickstart_admin.css
+
+settings[shortcut_module_link] = 1
+regions[content] = Content
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[sidebar_first] = First sidebar
+regions_hidden[] = sidebar_first
+

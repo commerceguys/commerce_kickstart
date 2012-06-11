@@ -1,0 +1,5 @@
+name = Commerce Kickstart inline help
+description = Injects inline help into various parts of Commerce Kickstart.
+core = 7.x
+dependencies[] = advanced_help
+dependencies[] = commerce_kickstart_help

@@ -1,0 +1,5 @@
+name = Commerce Kickstart help
+description = Provides in-distribution help for Commerce Kickstart.
+core = 7.x
+dependencies[] = advanced_help
+dependencies[] = tipsy

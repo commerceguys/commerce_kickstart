@@ -1,0 +1,6 @@
+name = Commerce Kickstart Menus
+description = Demonstrate how to customize the administrative menus.
+core = 7.x
+package = Commerce Kickstart
+
+dependencies[] = toolbar_megamenu

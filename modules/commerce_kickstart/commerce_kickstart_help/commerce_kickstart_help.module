@@ -1,0 +1,152 @@
+<?php
+
+/**
+ * @file
+ * Provides a "Getting Started" screen, with main help topics for Kickstart.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_kickstart_help_menu() {
+  $items = array();
+
+  // View help topic.
+  $items['admin/getting-started'] = array(
+    'title' => 'Getting Started',
+    'description' => 'Find all the help you need to start using your store.',
+    'page callback' => 'advanced_help_topic_page',
+    'page arguments' => array('commerce_kickstart_help', 'getting-started'),
+    'access arguments' => array('view advanced help topic'),
+    'file path' => drupal_get_path('module', 'advanced_help'),
+    'weight' => -200,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function commerce_kickstart_help_preprocess_page(&$vars) {
+  if ((arg(0) == 'help' && arg(1) == 'commerce_kickstart_help') ||
+    arg(0) == 'admin' && arg(1) == 'getting-started') {
+    // Add libraries
+    drupal_add_library('system', 'drupal.ajax');
+    drupal_add_library('system', 'jquery.form');
+    drupal_add_library('system', 'ui.accordion');
+    drupal_add_js(drupal_get_path('module', 'commerce_kickstart_help') . '/commerce_kickstart_help.js', 'file');
+    $vars['page']['content']['system_main']['help_text'] = array(
+      '#weight' => -12,
+      '#markup' => "<div id='commerce-kickstart-help'><p>Find all the help you need to start using your store.</p></div>",
+    );
+    // Add 'Go to my store' link, only once.
+    if (variable_get('getting_started_seen', FALSE) == FALSE) {
+      variable_set('getting_started_seen', TRUE);
+      $vars['page']['content']['system_main']['help_button'] = array(
+        '#weight' => -11,
+        '#markup' => "<div id='commerce-kickstart-help-button' class='form-actions'><a class='overlay-close'><input type='submit' value='". t('Go to my store') . "' class='form-submit' id='edit-submit'></a></div>",
+      );
+    }
+  }
+}
+
+/**
+ * Page callback.
+ */
+function commerce_kickstart_help_ajax_callback($type = 'ajax', $var) {
+  if ($type == 'ajax') {
+    $commands = array();
+    $help = variable_get('kickstart_help', array());
+    $help[$var] == TRUE ? $help[$var] = FALSE : $help[$var] = TRUE;
+    $help[$var] == TRUE ? $value = 'uncheck' : $value = 'check';
+    variable_set('kickstart_help', $help);
+  }
+}
+
+/**
+ * Implements hook_advanced_help_topic_alter().
+ */
+function commerce_kickstart_help_advanced_help_topic_alter(&$output, $popup) {
+  preg_match_all('#\#\#(.*)\#\##', $output, $matches);
+  array_shift($matches);
+  foreach ($matches[0] as $match) {
+    $form = drupal_get_form('commerce_kickstart_help_form_ajax', $match);
+    $output = str_replace('##' . $match . '##', render($form), $output);
+  }
+}
+
+/**
+ * Form callback.
+ */
+function commerce_kickstart_help_form_ajax($form, &$form_state, $id) {
+  $values = variable_get('kickstart_help', array());
+  $form['changed_command_example'] = array(
+    '#title' => t(''),
+    '#type' => 'checkbox',
+    '#default_value' => isset($values[$id]) ? $values[$id] : FALSE,
+    '#ajax' => array(
+      'callback' => 'commerce_kickstart_ajax_help_checked_callback',
+    ),
+  );
+  return $form;
+}
+
+/**
+ * Ajax callback.
+ */
+function commerce_kickstart_ajax_help_checked_callback($form, $form_state) {
+  $id = $form_state['build_info']['args'][0];
+
+  $help = variable_get('kickstart_help', array());
+  $help[$id] == TRUE ? $help[$id] = FALSE : $help[$id] = TRUE;
+  $help[$id] == TRUE ? $value = 'uncheck' : $value = 'check';
+  variable_set('kickstart_help', $help);
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function commerce_kickstart_help_block_info() {
+  $blocks['commerce_kickstart_help'] = array(
+    'info' => t('Kickstart Help'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => implode("\n", array(
+      'help/commerce_kickstart_help/getting-started',
+      'admin/getting-started'
+    )),
+    'region' => 'content',
+    'status' => TRUE,
+    'weight' => 50,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function commerce_kickstart_help_block_view($delta = '') {
+  switch ($delta) {
+    case 'commerce_kickstart_help':
+      $block['subject'] = t('Need help ?');
+      $block['content'] = commerce_kickstart_help_contents($delta);
+      break;
+  }
+  return $block;
+}
+
+/**
+ * A module-defined block content function.
+ */
+function commerce_kickstart_help_contents($which_block) {
+  switch ($which_block) {
+    case 'commerce_kickstart_help':
+      $markup = "Need more help ? Find it here :<br />
+        <a href='drupalcommerce.org'>Documentation on drupalcommerce.org</a><br />
+        <a href='drupalcommerce.org/faq'>Q&A on drupalcommerce.org</a>";
+      return array('#markup' => $markup);
+  }
+}
+

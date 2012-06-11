@@ -1,9 +1,7 @@
 name = Commerce Kickstart
 description = Install with Drupal Commerce pre-configured for use.
 core = 7.x
-distribution_name = Drupal Commerce
-project = commerce_kickstart
-version = 1.x-dev
+distribution_name = Commerce Kickstart
 
 ; Developers can feel free to invert the comments below to install modules that
 ; aid in module development.
@@ -13,14 +11,12 @@ dependencies[] = toolbar
 ; dependencies[] = devel
 ; dependencies[] = admin_menu
 ; dependencies[] = admin_menu_toolbar
+; dependencies[] = shortcut
 
 ; Install necessary core modules.
 dependencies[] = block
-dependencies[] = color
 dependencies[] = comment
 dependencies[] = contextual
-dependencies[] = dashboard
-dependencies[] = help
 dependencies[] = image
 dependencies[] = list
 dependencies[] = menu
@@ -29,12 +25,9 @@ dependencies[] = options
 dependencies[] = path
 dependencies[] = taxonomy
 dependencies[] = dblog
-dependencies[] = search
-dependencies[] = shortcut
 dependencies[] = overlay
 dependencies[] = field_ui
 dependencies[] = file
-dependencies[] = rdf
 
 ; Install Commerce dependencies.
 dependencies[] = addressfield
@@ -59,7 +52,6 @@ dependencies[] = commerce_order
 dependencies[] = commerce_order_ui
 dependencies[] = commerce_payment
 dependencies[] = commerce_payment_ui
-dependencies[] = commerce_payment_example
 dependencies[] = commerce_price
 dependencies[] = commerce_product
 dependencies[] = commerce_product_ui
@@ -68,5 +60,46 @@ dependencies[] = commerce_product_pricing_ui
 dependencies[] = commerce_product_reference
 dependencies[] = commerce_tax
 dependencies[] = commerce_tax_ui
+dependencies[] = commerce_autosku
 
-files[] = commerce_kickstart.profile
+; Install contribs.
+dependencies[] = commerce_addressbook
+dependencies[] = inline_entity_form
+dependencies[] = module_filter
+dependencies[] = field_extractor
+dependencies[] = image_delta_formatter
+dependencies[] = oauth_common
+dependencies[] = http_client
+dependencies[] = taxonomy_menu
+dependencies[] = link
+dependencies[] = mimemail_compress
+dependencies[] = commerce_kickstart_reset
+dependencies[] = cloud_zoom
+dependencies[] = pathauto
+dependencies[] = entityreference
+dependencies[] = commerce_fancy_attributes
+dependencies[] = views_megarow
+dependencies[] = commerce_backoffice
+
+; Install Features
+dependencies[] = features
+dependencies[] = commerce_features
+
+; Distribution modules.
+dependencies[] = commerce_kickstart_content
+dependencies[] = commerce_kickstart_help
+dependencies[] = commerce_kickstart_inline_help
+dependencies[] = commerce_kickstart_search
+dependencies[] = commerce_kickstart_product
+dependencies[] = commerce_kickstart_product_ui
+dependencies[] = commerce_kickstart_blog
+dependencies[] = commerce_kickstart_blog_ui
+dependencies[] = commerce_kickstart_merchandising
+dependencies[] = commerce_kickstart_merchandising_ui
+dependencies[] = commerce_kickstart_menus
+dependencies[] = commerce_kickstart_content_ui
+dependencies[] = commerce_kickstart_social
+dependencies[] = commerce_kickstart_menus
+dependencies[] = commerce_kickstart_content_ui
+dependencies[] = commerce_kickstart_user
+dependencies[] = commerce_kickstart_payment

@@ -1,0 +1,120 @@
+/* This file will hold styles that are loaded using the same media query as the narrow grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the normal and widescreen layouts. You may override these styles in the normal
+ *  and widescreen CSS files as appropriate. */
+body {
+  margin: 0;
+}
+
+
+#region-user-second {
+  margin: 0 10px;
+}
+#block-views-shopping-cart-block {
+  float: right;
+  margin: inherit;
+}
+/*
+ * ==========================================================
+ * Header
+ * ==========================================================
+ */
+.view-display-id-block_3 .item-list .event-slider li img {
+  min-width: 320px;
+  width: 100%;
+  height: auto;
+}
+/**
+ * Navigation
+ */
+.navigation .primary-menu,
+.navigation .second-menu {
+  margin: 26px 0px;
+}
+.main-menu a,
+.secondary-menu a {
+  display: inline;
+}
+/* User menu */
+/*
+.block-menu-kickstart-user-menu .content {
+  float: right;
+  width: 100%;
+  position: relative;
+}
+.block-menu-kickstart-user-menu .content ul {
+  clear: right;
+  float: right;
+  list-style: none;
+  margin-top: 2px;
+  position: relative;
+  left: 50%;
+  text-align: center;
+}
+.block-menu-kickstart-user-menu .content ul li {
+  display: inline;
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 3px;
+  position: relative;
+  right: 50%;
+}
+.block-menu-kickstart-user-menu .content ul li a {
+  display: block;
+  font-family: 'MuseoSlab300';
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 5px 6px;
+  text-decoration: none;
+}*/
+
+.block-menu-kickstart-user-menu .block-inner {
+  float: left;
+}
+.block-menu-kickstart-user-menu .content ul,
+.block-menu-kickstart-user-menu .content ul li,
+.block-menu-kickstart-user-menu .content ul li a {
+  display: inline;
+}
+.block-menu-kickstart-user-menu .content {
+  float: right;
+  margin: 0;
+  width: inherit;
+  overflow: inherit;
+  position: inherit;
+ }
+.block-menu-kickstart-user-menu .content ul {
+  text-align: right;
+  clear: inherit;
+  float: right;
+  margin-top: 2px;
+  position: inherit;
+  left: inherit;
+  text-align: inherit;
+}
+.block-menu-kickstart-user-menu .content ul li {
+  float: left;
+  padding-bottom: 3px;
+  position: inherit;
+  right: inherit;
+}
+
+/*
+ * ==========================================================
+ * Footer
+ * ==========================================================
+ */.view-display-id-block_3 .item-list .event-slider li img {
+     min-width: 310px;
+     height: auto;
+   }
+/**
+ * Menu footer navigation
+ */
+.section-footer ul.menu li {
+  display: inline;
+  float: left;
+}

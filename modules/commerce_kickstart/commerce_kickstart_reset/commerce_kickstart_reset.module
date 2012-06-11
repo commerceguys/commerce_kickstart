@@ -1,0 +1,114 @@
+<?php
+
+/**
+ * Implements hook_permission().
+ */
+function commerce_kickstart_reset_permission() {
+  return array(
+    'view demo bar' => array(
+      'title' => t('View demo bar'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_kickstart_reset_menu() {
+  $items = array();
+  $items['admin/demo'] = array(
+    'title' => 'Manage demo',
+    'description' => 'todo.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('commerce_kickstart_reset_kill_me_form'),
+    'access arguments' => array('view demo bar'),
+    'weight' => 10,
+  );
+  $items['admin/demo/disable'] = array(
+    'title' => 'Manage demo',
+    'description' => 'todo.',
+    'page callback' => 'commerce_kickstart_reset_disable_me',
+    'access arguments' => array('view demo bar'),
+    'weight' => 10,
+  );
+  return $items;
+}
+
+/**
+ * Menu callback.
+ */
+function commerce_kickstart_reset_kill_me_form() {
+  $form['message'] = array(
+    '#type' => 'item',
+    '#markup' => t('Warning : Your are going to wipe all content from this site'),
+  );
+  $form['buttons']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Kill me !'),
+  );
+  return $form;
+}
+
+/**
+ * Submit function for commerce_kickstart_reset_kill_me_form().
+ *
+ * @param $form
+ * @param $form_state
+ */
+function commerce_kickstart_reset_kill_me_form_submit($form, &$form_state) {
+  // Take care of database prefix if we use one.
+  $databases = Database::getConnectionInfo('default');
+  $database = $databases['default'];
+  $prefix = !empty($database['prefix']['default']) ? $database['prefix']['default'] : '';
+
+  $tables = db_find_tables($prefix . '%');
+
+  foreach($tables as $table) {
+    db_drop_table($table);
+  }
+  include_once DRUPAL_ROOT . '/includes/install.inc';
+  install_goto('install.php?profile=commerce_kickstart&locale=en');
+}
+
+
+/**
+ * Disable commerce_kickstart_reset module.
+ */
+function  commerce_kickstart_reset_disable_me() {
+  module_disable(array('commerce_kickstart_reset'));
+  variable_set('menu_rebuild_needed', TRUE);
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function commerce_kickstart_reset_page_alter(&$page) {
+  if (user_access('view demo bar')) {
+    $message = t('You are in commerce kickstart demo mode');
+    $kill_message = t('Start over');
+    $disable_message = t('Keep changes');
+    $kill_url = url('admin/demo', array('absolute' => TRUE));
+    $disable_url = url('admin/demo/disable', array('absolute' => TRUE));
+    $icon_path = url(drupal_get_path('module', 'commerce_kickstart_reset') . '/images/', array('absolute' => TRUE));
+    $tooltip = advanced_help_view_topic('commerce_kickstart_reset', 'tooltip');
+
+    $settings = array(
+      'demo' => array(
+        'message' => filter_xss_admin($message),
+        'tooltip' => filter_xss_admin($tooltip),
+        'icons_path' => $icon_path,
+        'kill' => array(
+          'message' => $kill_message,
+          'url' => $kill_url,
+        ),
+        'disable' => array(
+          'message' => $disable_message,
+          'url' => $disable_url,
+        ),
+      )
+    );
+    drupal_add_js($settings, 'setting');
+    drupal_add_js(drupal_get_path('module', 'commerce_kickstart_reset') . '/commerce_kickstart_reset.js');
+  }
+}
+
