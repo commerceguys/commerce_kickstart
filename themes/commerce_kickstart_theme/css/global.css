@@ -95,6 +95,7 @@ ul.primary li a {
 }
 .zone-content {
   background-color: #ffffff;
+  position: relative;
   margin-bottom: 40px;
 }
 .front .zone-content {
@@ -1000,6 +1001,28 @@ ul.primary li a {
 /**
  * Product page
  */
+.commerce-kickstart-add-to-cart {
+  background-color: #DFF2BF;
+  border-color: #be7;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  color: #4F8A10;
+  margin-left: -30% !important; /* width/2 */
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  text-align: center;
+  width: 60%;
+  z-index: 100;
+}
+.commerce-kickstart-add-to-cart .placeholder {
+  background: transparent url('../images/bg_add_to_cart.png') left center no-repeat;
+  font-style: normal;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-left: 35px;
+}
 .node-product-type .product-title {
   font-family: 'MuseoSlab700';
   font-size: 24px;
