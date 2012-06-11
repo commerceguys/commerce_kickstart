@@ -787,16 +787,6 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: create commerce_product entities of bundle product.
-  $permissions['create commerce_product entities of bundle product'] = array(
-    'name' => 'create commerce_product entities of bundle product',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'commerce_product',
-  );
-
   // Exported permission: create commerce_product entities of bundle shoes.
   $permissions['create commerce_product entities of bundle shoes'] = array(
     'name' => 'create commerce_product entities of bundle shoes',
@@ -1377,16 +1367,6 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: edit any commerce_product entity of bundle product.
-  $permissions['edit any commerce_product entity of bundle product'] = array(
-    'name' => 'edit any commerce_product entity of bundle product',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'commerce_product',
-  );
-
   // Exported permission: edit any commerce_product entity of bundle shoes.
   $permissions['edit any commerce_product entity of bundle shoes'] = array(
     'name' => 'edit any commerce_product entity of bundle shoes',
@@ -1621,16 +1601,6 @@ function commerce_kickstart_user_user_default_permissions() {
   // Exported permission: edit own commerce_product entities of bundle hats.
   $permissions['edit own commerce_product entities of bundle hats'] = array(
     'name' => 'edit own commerce_product entities of bundle hats',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'commerce_product',
-  );
-
-  // Exported permission: edit own commerce_product entities of bundle product.
-  $permissions['edit own commerce_product entities of bundle product'] = array(
-    'name' => 'edit own commerce_product entities of bundle product',
     'roles' => array(
       0 => 'administrator',
       1 => 'store administrator',
@@ -2133,16 +2103,6 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: view any commerce_product entity of bundle product.
-  $permissions['view any commerce_product entity of bundle product'] = array(
-    'name' => 'view any commerce_product entity of bundle product',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'commerce_product',
-  );
-
   // Exported permission: view any commerce_product entity of bundle shoes.
   $permissions['view any commerce_product entity of bundle shoes'] = array(
     'name' => 'view any commerce_product entity of bundle shoes',
@@ -2268,16 +2228,6 @@ function commerce_kickstart_user_user_default_permissions() {
   // Exported permission: view own commerce_product entities of bundle hats.
   $permissions['view own commerce_product entities of bundle hats'] = array(
     'name' => 'view own commerce_product entities of bundle hats',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'commerce_product',
-  );
-
-  // Exported permission: view own commerce_product entities of bundle product.
-  $permissions['view own commerce_product entities of bundle product'] = array(
-    'name' => 'view own commerce_product entities of bundle product',
     'roles' => array(
       0 => 'administrator',
       1 => 'store administrator',
