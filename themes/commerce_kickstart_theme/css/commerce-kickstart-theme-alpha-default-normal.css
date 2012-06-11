@@ -38,3 +38,27 @@
 .view-display-id-block_3 .bx-next {
   right: 0;
 }
+
+.block-menu-kickstart-user-menu .block-inner {
+  float: right;
+}
+
+/**
+ * Social links block
+ */
+.block-social h2 {
+  background: url('../images/bg_block_footer_title.png') left top no-repeat;
+  color: #eeeeee;
+  font-family: 'MuseoSlab700';
+  line-height: inherit;
+  padding: 0 0 22px 25px;
+}
+.block-social #facebook {
+   padding-right: 60px;
+}
+.block-social #twitter {
+   padding-right: 80px;
+}
+.block-social #pinterest {
+   padding-right: 60px;
+}

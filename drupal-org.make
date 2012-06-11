@@ -133,6 +133,8 @@ projects[custom_breadcrumbs][version] = 2.x-dev
 projects[custom_breadcrumbs][subdir] = "contrib"
 projects[special_menu_items][version] = 1.0
 projects[special_menu_items][subdir] = "contrib"
+projects[cs_adaptive_image][version] = 1.0-alpha2
+projects[cs_adaptive_image][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1

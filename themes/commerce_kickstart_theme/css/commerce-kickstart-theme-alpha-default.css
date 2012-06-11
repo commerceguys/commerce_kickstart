@@ -1,5 +1,4 @@
 /* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
-
 /*
  * ==========================================================
  * General
@@ -35,7 +34,10 @@
 .front #region-postscript-second {
   margin-right: 10px;
 }
-
+#block-views-shopping-cart-block {
+  float: right;
+  margin: 0;
+}
 /*
  * ==========================================================
  * Header

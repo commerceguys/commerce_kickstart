@@ -8,7 +8,7 @@
  * ==========================================================
  */
 body {
-  background: #004080 url('../images/bg.png') left top;
+  background: #ececec url('../images/bg.png') left top;
   font-size: 14px;
   margin: 0 10px;
 }
@@ -144,12 +144,9 @@ ul.primary li a {
 .region-user-second .region-user-second-inner {
   height: 100%;
 }
-#block-menu-menu-kickstart-user-menu {
-
-}
 #block-views-shopping-cart-block {
-  float: right;
-  width: 250px;
+  margin: 0 auto;
+  width: 260px;
 }
 
 /*
@@ -324,29 +321,39 @@ ul.primary li a {
 }
 
 /* User menu */
-.block-menu-kickstart-user-menu .block-inner {
+.block-menu-kickstart-user-menu .content {
   float: left;
-}
-.block-menu-kickstart-user-menu .content ul,
-.block-menu-kickstart-user-menu .content ul li {
-  display: inline;
-  float: left;
-  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 .block-menu-kickstart-user-menu .content ul {
-  text-align: right;
-  margin-top: 2px;
+  clear: left;
+  float: left;
+  list-style: none;
+  position: relative;
+  left: 50%;
+  text-align: center;
 }
 .block-menu-kickstart-user-menu .content ul li {
+  display: block;
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   padding-bottom: 3px;
+  position: relative;
+  right: 50%;
 }
 .block-menu-kickstart-user-menu .content ul li.first {
   border-right: 1px solid #ffffff;
+  padding-right: 7px;
 }
 .block-menu-kickstart-user-menu .content ul li.last {
   padding-left: 7px;
 }
 .block-menu-kickstart-user-menu .content ul li a {
+  display: block;
   font-family: 'MuseoSlab300';
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -355,7 +362,6 @@ ul.primary li a {
   padding: 5px 6px;
   text-decoration: none;
 }
-
 .block-menu-kickstart-user-menu ul li a.active {
   background-color: #cecece;
   color: #717171;
@@ -365,7 +371,7 @@ ul.primary li a {
 .block-menu-kickstart-user-menu ul li a:hover {
   background-color: #717171;
   color: #ffffff;
-  text-decoration: underline;
+  text-decoration: none;
 }
 /* Cart block */
 .block-shopping-cart-block,
@@ -671,6 +677,8 @@ ul.primary li a {
 .view-display-id-block_2 .views-row img,
 .block-blog-block img {
   border: 4px solid #ffffff;
+  display: block;
+  margin: auto;
 }
 .block-blog-block .block-title {
   background: url('../images/bg_block_homepage_title.png') left top no-repeat;
@@ -1439,11 +1447,11 @@ ul.primary li a {
  * Social links block
  */
 .block-social h2 {
-  background: url('../images/bg_block_footer_title.png') left top no-repeat;
+  background-color: #262626;
   color: #eeeeee;
   font-family: 'MuseoSlab700';
-  padding-bottom: 22px;
-  padding-left: 25px;
+  line-height: 16px;
+  padding: 8px 15px;
 }
 .block-social .content ul#social {
   list-style: none;
@@ -1457,15 +1465,15 @@ ul.primary li a {
 }
 .block-social #facebook {
   background: url('../images/icon_facebook.png') 2% 50% no-repeat;
-  padding-right: 60px;
+  line-height: 16px;
 }
 .block-social #twitter {
   background: url('../images/icon_twitter.png') 2% 50% no-repeat;
-  padding-right: 80px;
+  line-height: 16px;
 }
 .block-social #pinterest {
   background: url('../images/icon_pinterest.png') 2% 50% no-repeat;
-  padding-right: 60px;
+  line-height: 16px;
 }
 .block-social .content li a,
 .block-social .content li span {
@@ -1509,13 +1517,14 @@ ul#payments li:first-child {
 #payments #payment_visa {
   display: block;
   height: 30px;
-  margin-right: 12px;
+  margin: 5px 6px;
   text-indent: -9999px;
   width: 50px;
 }
 
 #payments #payment_visa_premier {
   background: url('../images/picto_visa_premier.png') left top no-repeat;
+  margin-left: 0;
 }
 #payments #payment_paypal {
   background: url('../images/picto_paypal.png') left top no-repeat;
