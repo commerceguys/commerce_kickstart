@@ -5,8 +5,10 @@
 if(window.__noconflict){ jQuery.noConflict();}
   Drupal.behaviors.demoActiveBar = {
     attach: function ( context, settings ) {
-      $('<div></div>').html(settings.demo.message)
-        .activebar(settings.demo);
+      $('body:not(.overlay)').once('demo', function() {
+        $('<div></div>').html(settings.demo.message)
+          .activebar(settings.demo);
+      });
     }
   }
 
