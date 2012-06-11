@@ -176,6 +176,7 @@ textarea.form-textarea {
   padding: 5px 10px;
   color: #4c4c4c;
   margin: 1px;
+  max-width: 100%;
 }
 input.form-autocomplete:focus,
 input.form-text:focus,
@@ -190,6 +191,9 @@ textarea.form-textarea:focus {
 #edit-operation {
   margin-top: 6px;
 }
+body.in-maintenance fieldset.form-wrapper {
+  max-width: 530px;
+}
 select.form-select {
   background-color: #efeded;
   background-image: url(images/select.png);
@@ -201,10 +205,11 @@ select.form-select {
   box-shadow: inset 0 0 2px #fff;
   border: 1px solid #e0e0e0;
   font: normal 300 1em/1em "MuseoSlab", Arial, sans-serif;
+  max-width: 100%;
 }
 body.in-maintenance .form-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
-  font: normal 300 26px/26px "MuseoSlab", Arial, sans-serif;
+  font: normal 300 24px/24px "MuseoSlab", Arial, sans-serif;
   color: #fff;
   border: 1px solid #fff;
   border-radius: 10px;
@@ -212,6 +217,12 @@ body.in-maintenance .form-submit {
 }
 body.in-maintenance .form-submit:hover {
   background: #79d428 url("images/button-over.png") repeat-x 0 0;
+}
+body.in-maintenance #install-settings-form fieldset .fieldset-legend {
+  font-size: 16px;
+}
+body.in-maintenance #install-settings-form fieldset .fieldset-wrapper {
+  padding-top: 25px;
 }
 #edit-account-commerce-kickstart-name label,
 #edit-account-commerce-kickstart-password label {
@@ -331,6 +342,11 @@ h1#overlay-title {
   width: 950px;
   margin: 0 auto;
 }
+body.in-maintenance #credit {
+  width: 960px;
+  margin: 0 auto;
+  color: #fff;
+}
 #credit .message {
   margin-bottom: 20px;
   float: right;
@@ -345,6 +361,9 @@ h1#overlay-title {
   background: transparent url("images/logo-cg2.png") no-repeat 0 0;
   padding: 50px 0 0;
   width: 180px;
+}
+body.in-maintenance #credit .logo a {
+  background: transparent url("images/logo-cg.png") no-repeat 0 0;
 }
 #overlay #overlay-content #credit .logo a {
   background: transparent url("images/logo-cg.png") no-repeat 0 0;
@@ -582,9 +601,6 @@ input.form-submit, a.button {
   padding: 10px;
   margin-top: 1px;
   margin-left: 1px;
-}
-input.form-submit:hover, a.button:hover {
-
 }
 .form-actions #edit-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
