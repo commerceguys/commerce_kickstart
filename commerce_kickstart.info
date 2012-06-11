@@ -1,7 +1,7 @@
-name = Commerce Kickstart
-description = Install with Drupal Commerce pre-configured for use.
+name = "Commerce Kickstart"
+description = "Install with Drupal Commerce pre-configured for use."
 core = 7.x
-distribution_name = Drupal Commerce
+distribution_name = "Commerce Kickstart"
 
 ; Developers can feel free to invert the comments below to install modules that
 ; aid in module development.
@@ -15,7 +15,6 @@ dependencies[] = toolbar
 
 ; Install necessary core modules.
 dependencies[] = block
-dependencies[] = color
 dependencies[] = comment
 dependencies[] = contextual
 dependencies[] = image
@@ -104,5 +103,3 @@ dependencies[] = commerce_kickstart_menus
 dependencies[] = commerce_kickstart_content_ui
 dependencies[] = commerce_kickstart_user
 dependencies[] = commerce_kickstart_payment
-
-files[] = commerce_kickstart.profile
