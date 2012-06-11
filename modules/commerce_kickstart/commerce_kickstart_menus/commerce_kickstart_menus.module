@@ -163,3 +163,14 @@ function commerce_kickstart_menus_module_implements_alter(&$implementations, $ho
     $implementations['commerce_kickstart_menus'] = $group;
   }
 }
+
+/**
+ * Implements hook_views_api().
+ */
+function commerce_kickstart_menus_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'commerce_kickstart_menus') . '/views',
+  );
+}
+
