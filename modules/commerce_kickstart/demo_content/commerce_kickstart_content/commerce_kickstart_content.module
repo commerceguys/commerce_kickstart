@@ -214,7 +214,7 @@ function commerce_kickstart_content_contents($which_block) {
       }
       return $block;
     case 'powered_drupal_commerce':
-      $block = "\t<span id=\"powered_by_drupal_commerce\">Powered by <a href=\"http://www.drupalcommerce.org\" '>Drupal Commerce</a></span>\n";
+      $block = "\t<span id=\"powered_by_drupal_commerce\">Powered by <a href=\"http://www.drupalcommerce.org\">Drupal Commerce</a></span>\n";
       return $block;
     default:
       // It is possible that a block not have any content, since it is
