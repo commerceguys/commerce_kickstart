@@ -6,10 +6,12 @@
       $("#accordion").accordion({
         header: 'h2',
         autoHeight: false,
-        collapsible: true
-      });
-      $("#accordion").bind("accordionchange", function(event, ui) {
-          $("html, body").animate({scrollTop: $(ui.newHeader).offset().top - 40}, 500);
+        collapsible: true,
+        change: function(event, ui) {
+          if (ui.newHeader.length > 0) {
+            $('html, body').animate({ scrollTop: $(ui.newHeader).offset().top - 40}, 300);
+          }
+        }
       });
 
       $('.accordion-section').each(function () {
