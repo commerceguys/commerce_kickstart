@@ -236,6 +236,12 @@ ul.primary li a {
   text-decoration: none;
 }
 
+.page-checkout #breadcrumb,
+.page-user #breadcrumb,
+.page-cart #breadcrumb {
+  display: none;
+}
+
 /**
  * Navigation
  */
