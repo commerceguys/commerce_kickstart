@@ -44,13 +44,13 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
     '#markup' => '<p>' . t('You can change the default username and password from the store administration page. This information will me emailed to the store email address') . '</p>'
   );
 
-  // add a custom validation that needs to be trigger before the original one,
+  // Add a custom validation that needs to be trigger before the original one,
   // where we can copy the site's mail as the admin account's mail.
   array_unshift($form['#validate'], 'commerce_kickstart_customset_admin_mail');
 }
 
 /**
- * Validate callback; Populate the admin account'mail with the site's mail.
+ * Validate callback; Populate the admin account mail with the site's mail.
  */
 function commerce_kickstart_customset_admin_mail(&$form, &$form_state) {
   $form_state['values']['account']['mail'] = $form_state['values']['site_mail'];
@@ -62,8 +62,6 @@ function commerce_kickstart_customset_admin_mail(&$form, &$form_state) {
 function commerce_kickstart_install_tasks() {
   $tasks = array();
   $commerce_kickstart_import_product = variable_get('commerce_kickstart_import_product', FALSE);
-  // Add a page allowing the user to indicate they'd like to install demo content.
-  $install_configure_seachapi = variable_get('install_configure_seachapi', FALSE);
   // Add a page allowing the user to indicate they'd like to install demo
   // content.
   $tasks['commerce_kickstart_configure_store_form'] = array(
@@ -88,8 +86,7 @@ function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
 }
 
 /**
- * Custom Installation task; perform final steps and redirect the user to the
- * new site if there are no errors.
+ * Custom installation task; perform final steps and redirect the user to the new site if there are no errors.
  *
  * @param $install_state
  *   An array of information about the current installation state.
@@ -142,8 +139,7 @@ function commerce_kickstart_install_finished(&$install_state) {
 }
 
 /**
- * Task callback: returns the form allowing the user to add example store
- * content on install.
+ * Task callback: returns the form allowing the user to add example store content on install.
  */
 function commerce_kickstart_configure_store_form() {
   drupal_set_title(st('Configure store content'));
@@ -264,16 +260,7 @@ function _commerce_kickstart_parse_csv($file) {
 /**
  * Helper function to create node.
  *
- * @param $title
- * @param $body_text
- * @param $nid
- *   Maybe sometime we want to fix a nid to rely on it. For example : export node menu link in features.
- * @param $path
- * @param $content_type
- * @param $image_file
- *   Name of the image file which should be localte in import/images.
- * @param $tids
- *   An array of tid.
+ * @param $content
  */
 function _commerce_kickstart_custom_create_content($content) {
   $node = new stdClass();
