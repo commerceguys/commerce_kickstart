@@ -416,6 +416,12 @@ body.in-maintenance #credit .logo a {
   color: #000;
   padding: 20px 20px 20px 95px;
 }
+.advanced-help-topic .design .ui-accordion-header a {
+  background: transparent url("images/design.png") no-repeat 30px 0;
+}
+.advanced-help-topic .design .ui-accordion-header .ui-icon {
+  left: 180px;
+}
 .advanced-help-topic .products .ui-accordion-header a {
   background: transparent url("images/products.png") no-repeat 30px 0;
 }
@@ -446,9 +452,10 @@ body.in-maintenance #credit .logo a {
 .advanced-help-topic .other .ui-accordion-header .ui-icon {
   left: 175px;
 }
-.advanced-help-topic h2.ui-state-active a,
+.advanced-help-topic .design h2.ui-state-active a,
 .advanced-help-topic .products h2.ui-state-active a,
 .advanced-help-topic .content h2.ui-state-active a,
+.advanced-help-topic .store-settings h2.ui-state-active a,
 .advanced-help-topic .store-launch h2.ui-state-active a,
 .advanced-help-topic .launch h2.ui-state-active a,
 .advanced-help-topic .account h2.ui-state-active a,
