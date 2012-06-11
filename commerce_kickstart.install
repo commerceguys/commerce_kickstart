@@ -163,7 +163,7 @@ function commerce_kickstart_install() {
   drupal_static_reset();
   _block_rehash($admin_theme);
   _block_rehash($default_theme);
-  foreach ($values as $record) {
+  foreach ($blocks as $record) {
     $module = array_shift($record);
     $delta = array_shift($record);
     $theme = array_shift($record);
