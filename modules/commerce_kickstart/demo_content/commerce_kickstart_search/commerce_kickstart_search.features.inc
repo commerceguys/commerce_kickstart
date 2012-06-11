@@ -24,6 +24,11 @@ function commerce_kickstart_search_default_search_api_server() {
             "type" : "string",
             "boost" : "1.0"
           },
+          "created" : {
+            "table" : "search_api_db_search_commerce_display_created",
+            "type" : "date",
+            "boost" : "1.0"
+          },
           "search_api_language" : {
             "table" : "search_api_db_search_commerce_display_search_api_language",
             "type" : "string",
@@ -52,6 +57,16 @@ function commerce_kickstart_search_default_search_api_server() {
           "field_gender" : {
             "table" : "search_api_db_search_commerce_display_field_gender",
             "type" : "integer",
+            "boost" : "1.0"
+          },
+          "field_product_commerce_price_amount_float_asc" : {
+            "table" : "search_api_db_search_commerce_display_field_product_commerce_pr",
+            "type" : "decimal",
+            "boost" : "1.0"
+          },
+          "field_product_commerce_price_amount_float_desc" : {
+            "table" : "search_api_db_search_commerce_display_field_product_commerce__1",
+            "type" : "decimal",
             "boost" : "1.0"
           },
           "field_product:field_bag_size" : {
@@ -84,6 +99,11 @@ function commerce_kickstart_search_default_search_api_server() {
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
+          "field_product:commerce_price:amount_float" : {
+            "table" : "search_api_db_search_commerce_display_field_product_commerce__2",
+            "type" : "list\\u003Cdecimal\\u003E",
+            "boost" : "1.0"
+          },
           "field_product:field_color:name" : {
             "table" : "search_api_db_search_commerce_display_field_product_field_col_1",
             "type" : "list\\u003Ctext\\u003E",
@@ -92,11 +112,6 @@ function commerce_kickstart_search_default_search_api_server() {
           "field_product:field_color:description" : {
             "table" : "search_api_db_search_commerce_display_field_product_field_col_2",
             "type" : "list\\u003Ctext\\u003E",
-            "boost" : "1.0"
-          },
-          "created" : {
-            "table" : "search_api_db_search_commerce_display_created",
-            "type" : "date",
             "boost" : "1.0"
           }
         },
@@ -179,12 +194,34 @@ function commerce_kickstart_search_default_search_api_server() {
  */
 function commerce_kickstart_search_default_search_api_sort() {
   $items = array();
+  $items['search_commerce_display__field_product_commerce_price_amount_float_asc'] = entity_import('search_api_sort', '{
+    "index_id" : "search_commerce_display",
+    "field" : "field_product_commerce_price_amount_float_asc",
+    "name" : "Lowest price",
+    "enabled" : "1",
+    "weight" : "0",
+    "identifier" : "search_commerce_display__field_product_commerce_price_amount_float_asc",
+    "default_sort" : "0",
+    "default_order" : "asc",
+    "options" : { "field_name" : "Product \\u00bb Price \\u00bb Amount (float) (Min)" }
+  }');
+  $items['search_commerce_display__field_product_commerce_price_amount_float_desc'] = entity_import('search_api_sort', '{
+    "index_id" : "search_commerce_display",
+    "field" : "field_product_commerce_price_amount_float_desc",
+    "name" : "Highest price",
+    "enabled" : "1",
+    "weight" : "10",
+    "identifier" : "search_commerce_display__field_product_commerce_price_amount_float_desc",
+    "default_sort" : "0",
+    "default_order" : "desc",
+    "options" : { "field_name" : "Product \\u00bb Price \\u00bb Amount (float) (Max)" }
+  }');
   $items['search_commerce_display__created'] = entity_import('search_api_sort', '{
     "index_id" : "search_commerce_display",
     "field" : "created",
     "name" : "Latest",
     "enabled" : "1",
-    "weight" : "0",
+    "weight" : "20",
     "identifier" : "search_commerce_display__created",
     "default_sort" : "0",
     "default_order" : "asc",
@@ -195,7 +232,7 @@ function commerce_kickstart_search_default_search_api_sort() {
     "field" : "title",
     "name" : "Title",
     "enabled" : "1",
-    "weight" : "0",
+    "weight" : "30",
     "identifier" : "search_commerce_display__title",
     "default_sort" : "0",
     "default_order" : "asc",
