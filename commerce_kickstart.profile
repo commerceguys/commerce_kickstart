@@ -83,6 +83,25 @@ function commerce_kickstart_install_tasks() {
  */
 function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
   $tasks['install_finished']['function'] = 'commerce_kickstart_install_finished';
+
+  _commerce_kickstart_set_theme('commerce_kickstart_admin');
+}
+
+/**
+ * Force-set a theme at any point during the execution of the request.
+ *
+ * Drupal doesn't give us the option to set the theme during the installation
+ * process and forces enable the maintenance theme too early in the request
+ * for us to modify it in a clean way.
+ */
+function _commerce_kickstart_set_theme($target_theme) {
+  if ($GLOBALS['theme'] != $target_theme) {
+    unset($GLOBALS['theme']);
+
+    drupal_static_reset();
+    $GLOBALS['conf']['maintenance_theme'] = $target_theme;
+    _drupal_maintenance_theme();
+  }
 }
 
 /**
