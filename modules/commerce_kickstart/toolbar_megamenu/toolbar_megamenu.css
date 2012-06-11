@@ -11,7 +11,6 @@
 
 }
 #toolbar > div.toolbar-menu > div.toolbar-menu-wrapper > ul.group {
-  margin-right: 1.5em;
   float: left;
 }
 #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
@@ -51,16 +50,16 @@
 }
 
 #toolbar div.toolbar-menu-wrapper > ul.menu > li > div.toolbar-menu-wrapper {
-  -webkit-transition: 1s all;
-  -webkit-transition-delay: 1s;
-  -moz-transition: 1s all;
-  -moz-transition-delay: 1s;
-  -ms-transition: 1s all;
-  -ms-transition-delay: 1s;
-  -o-transition: 1s all;
-  -o-transition-delay: 1s;
-  transition: 1s all;
-  transition-delay: 1s;
+  -webkit-transition: .5s all;
+  -webkit-transition-delay: .25s;
+  -moz-transition: .5s all;
+  -moz-transition-delay: .25s;
+  -ms-transition: .5s all;
+  -ms-transition-delay: .25s;
+  -o-transition: .5s all;
+  -o-transition-delay: .25s;
+  transition: .5s all;
+  transition-delay: .25s;
 }
 
 
