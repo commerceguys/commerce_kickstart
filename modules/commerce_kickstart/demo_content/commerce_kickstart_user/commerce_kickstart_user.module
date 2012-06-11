@@ -5,3 +5,17 @@
  */
 
 include_once 'commerce_kickstart_user.features.inc';
+
+/**
+ * Implements hook_menu_alter().
+ */
+function commerce_kickstart_user_menu_alter(&$items) {
+  $items['user/%user/connections']['access_callback'] = 'commerce_kickstart_user_access_callback';
+}
+
+/**
+ * Grant access only to administrators.
+ */
+function commerce_kickstart_user_access_callback($account) {
+  return user_access('administer site configuration', $account);
+}
