@@ -61,7 +61,6 @@ features[user_permission][] = access content overview
 features[user_permission][] = access contextual links
 features[user_permission][] = access overlay
 features[user_permission][] = access rules debug
-features[user_permission][] = access service links
 features[user_permission][] = access site in maintenance mode
 features[user_permission][] = access site reports
 features[user_permission][] = access toolbar

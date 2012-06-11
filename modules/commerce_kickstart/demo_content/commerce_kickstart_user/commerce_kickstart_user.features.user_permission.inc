@@ -115,16 +115,6 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'rules',
   );
 
-  // Exported permission: access service links.
-  $permissions['access service links'] = array(
-    'name' => 'access service links',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'service_links',
-  );
-
   // Exported permission: access site in maintenance mode.
   $permissions['access site in maintenance mode'] = array(
     'name' => 'access site in maintenance mode',
