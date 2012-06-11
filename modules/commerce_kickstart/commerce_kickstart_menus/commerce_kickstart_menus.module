@@ -4,7 +4,7 @@
  * Implements hook_menu().
  */
 function commerce_kickstart_menus_menu() {
-  $items['admin/commerce/layout'] = array(
+  $items['admin/site-config/layout'] = array(
     'title' => 'Visual & Layout',
     'description' => 'Administer the appearance and layout of your store.',
     'page callback' => 'system_admin_menu_block_page',
@@ -14,8 +14,18 @@ function commerce_kickstart_menus_menu() {
     'weight' => 150,
   );
 
-  $items['admin/commerce/site-config'] = array(
-    'title' => 'Site configuration',
+  $items['admin/site-config'] = array(
+    'title' => 'Configure site',
+    'description' => 'Administer the site configuration.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 100,
+  );
+
+  $items['admin/site-config/advanced'] = array(
+    'title' => 'Advanced settings',
     'description' => 'Administer the site configuration.',
     'page callback' => 'system_admin_menu_block_page',
     'access arguments' => array('access administration pages'),
@@ -43,26 +53,19 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     $items['admin/commerce/orders']['weight'] = -20;
   }
 
-  // Disable "Customers" entry point.
-  if (isset($items['admin/commerce/customer-profiles'])) {
-    $items['admin/commerce/customer-profiles']['title'] = 'Customers';
-    $items['admin/commerce/customer-profiles']['hidden'] = 1;
-  }
-
-  // "Store" becomes the new entry point "Configure store".
+  // Disable "Store" entry point.
   if (isset($items['admin/commerce'])) {
-    $items['admin/commerce']['title'] = 'Configure store';
-    $items['admin/commerce']['weight'] = 50;
-    $items['admin/commerce']['options'] = array(
-      'toolbar_expanded' => TRUE,
-    );
+    $items['admin/commerce']['hidden'] = TRUE;
   }
 
-  // - "Configure" becomes the "Store settings" subentry
+  // "Store settings" entry point.
   if (isset($items['admin/commerce/config'])) {
     $items['admin/commerce/config']['title'] = 'Store settings';
+    $items['admin/commerce/config']['parent'] = 'admin';
+    $items['admin/commerce/config']['weight'] = 10;
     $items['admin/commerce/config']['options'] = array(
       'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
     );
   }
 
@@ -72,32 +75,40 @@ function commerce_kickstart_menus_menu_alter(&$items) {
   }
 
   // - Visual & Layout subentry.
-  if (isset($items['admin/commerce/layout'])) {
-    $items['admin/commerce/layout']['options'] = array(
+  if (isset($items['admin/site-config/layout'])) {
+    $items['admin/site-config/layout']['options'] = array(
       'toolbar_expanded' => TRUE,
       'toolbar_break' => TRUE,
     );
   }
 
-  // Move the appearance and layout entries under admin/commerce/layout.
+  // Move the appearance and layout entries under admin/site-config/layout.
   foreach (array('admin/appearance', 'admin/structure/block', 'admin/structure/views') as $path) {
     if (isset($items[$path])) {
-      $items[$path]['parent'] = 'admin/commerce/layout';
+      $items[$path]['parent'] = 'admin/site-config/layout';
     }
   }
 
   // - Site configuration subentry.
-  if (isset($items['admin/commerce/site-config'])) {
-    $items['admin/commerce/site-config']['options'] = array(
+  if (isset($items['admin/site-config'])) {
+    $items['admin/site-config']['options'] = array(
       'toolbar_expanded' => TRUE,
       'toolbar_break' => TRUE,
     );
   }
 
-  // Move the main Drupal entry points below admin/commerce/site-config.
+  // - Advanced site configuration subentry.
+  if (isset($items['admin/site-config/advanced'])) {
+    $items['admin/site-config/advanced']['options'] = array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    );
+  }
+
+  // Move the main Drupal entry points below admin/site-config/advanced.
   foreach (array('admin/structure', 'admin/people', 'admin/modules', 'admin/config', 'admin/reports', 'admin/help', 'admin/advanced_help', 'admin/demo') as $path) {
     if (isset($items[$path])) {
-      $items[$path]['parent'] = 'admin/commerce/site-config';
+      $items[$path]['parent'] = 'admin/site-config/advanced';
     }
   }
 }
