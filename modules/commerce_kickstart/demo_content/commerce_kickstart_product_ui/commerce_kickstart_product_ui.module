@@ -273,3 +273,16 @@ function commerce_kickstart_product_ui_commerce_checkout_pane_info_alter(&$check
   $checkout_panes['customer_profile_billing']['weight'] = 2;
   $checkout_panes['customer_profile_shipping']['weight'] = 3;
 }
+
+/**
+ * Implements hook_page_alter().
+ */
+function commerce_kickstart_product_ui_page_alter(&$page) {
+  // Disable breadcumb on user, checkout and cart pages.
+  $current_path = current_path();
+  $exclude_path = "user/*\ncheckout/*\ncart";
+  $match = drupal_match_path(drupal_strtolower($current_path), drupal_strtolower($exclude_path));
+  if ($match) {
+    drupal_set_breadcrumb(array());
+  }
+}
