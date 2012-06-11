@@ -51,6 +51,14 @@ function commerce_kickstart_product_ui_theme(&$existing) {
   if ($existing['current_search_text']) {
     $existing['current_search_text']['function'] = 'theme_commerce_kickstart_product_ui_current_search_text';
   }
+  if ($existing['search_api_sorts_sort']) {
+    $existing['search_api_sorts_sort']['theme path'] = drupal_get_path('module', 'commerce_kickstart_product_ui');
+    $existing['search_api_sorts_sort']['path'] = $existing['search_api_sorts_sort']['theme path'];
+    $existing['search_api_sorts_sort']['file'] = 'commerce_kickstart_product_ui.theme.inc';
+    $existing['search_api_sorts_sort']['function'] = 'theme_commerce_kickstart_product_ui_sorts_sort';
+    $existing['search_api_sorts_sort']['includes'] = array($existing['search_api_sorts_sort']['path'] . '/' . $existing['search_api_sorts_sort']['file']);
+
+  }
   $themes =  array(
     'node__product__type' => array(
       'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
