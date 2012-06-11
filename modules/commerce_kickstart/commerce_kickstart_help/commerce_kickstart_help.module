@@ -5,6 +5,9 @@
  * Provides a "Getting Started" screen, with main help topics for Kickstart.
  */
 
+/**
+ * Implements hook_menu().
+ */
 function commerce_kickstart_help_menu() {
   $items = array();
 
@@ -103,7 +106,6 @@ function commerce_kickstart_ajax_help_checked_callback($form, $form_state) {
 
 /**
  * Implements hook_block_info().
- *
  */
 function commerce_kickstart_help_block_info() {
   $blocks['commerce_kickstart_help'] = array(

@@ -78,7 +78,7 @@ function commerce_kickstart_product_ui_theme_registry_alter(&$theme_registry) {
  */
 function theme_commerce_kickstart_product_ui_facetapi_title($variables) {
   $title = explode(' » ', $variables['title']);
-  return t(drupal_ucfirst(drupal_strtolower(array_pop($title))));
+  return drupal_ucfirst(drupal_strtolower(array_pop($title)));
 }
 
 /**
@@ -129,7 +129,7 @@ function commerce_kickstart_product_ui_preprocess_commerce_line_item_summary(&$v
   $variable['cart_items'] = l($variable['quantity'], 'cart', array('attributes' => array('class' => array('line-item-quantity'))));
 }
 
-/*
+/**
  * Implements hook_library().
  */
 function commerce_kickstart_product_ui_library() {
@@ -152,7 +152,7 @@ function commerce_kickstart_product_ui_library() {
       libraries_get_path('jquery_expander') . '/jquery.expander.min.js' => array(),
     ),
   );
-return $libraries;
+  return $libraries;
 }
 
 /**
@@ -185,7 +185,7 @@ function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id
 /**
  * Override node_add_list theme.
  *
- * Split node add list in two columns : regular node types & product display.
+ * Split node add list in two columns: regular node types & product display.
  */
 function theme_commerce_kickstart_product_ui_node_add_list($variables) {
   drupal_add_css(drupal_get_path('module', 'commerce_kickstart_product_ui') . '/css/node-add-list-columns.css');

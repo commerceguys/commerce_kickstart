@@ -53,6 +53,7 @@ function commerce_kickstart_blog_ui_install() {
     throw $e;
   }
 
+  // Custom breadcrumbs is not currently integrated with features.
   if (function_exists('_custom_breadcrumbs_save_breadcrumb')) {
     $breadcrumb = new stdClass();
     $breadcrumb->views_path = 'blog';

@@ -1,7 +1,6 @@
 name = Commerce Kickstart Admin Theme
 description = A simple one-column, tableless, fluid width administration theme.
-package = Core
-version = VERSION
+package = Commerce Kickstart
 core = 7.x
 stylesheets[screen][] = reset.css
 stylesheets[screen][] = style.css

@@ -28,9 +28,9 @@ function commerce_kickstart_product_ui_enable() {
     // Put the facets blocks in the right place.
     db_update('block')
       ->fields(array(
-      'region' => 'sidebar_first',
-      'status' => (int) '1',
-    ))
+        'region' => 'sidebar_first',
+        'status' => (int) '1',
+      ))
       ->condition('module', 'facetapi')
       ->condition('delta', '0', '<>')
       ->condition('theme', 'commerce_kickstart_theme')
@@ -52,9 +52,9 @@ function commerce_kickstart_product_ui_enable() {
     // Search block.
     db_update('block')
       ->fields(array(
-      'region' => 'branding',
-      'status' => (int) '1',
-    ))
+        'region' => 'branding',
+        'status' => (int) '1',
+      ))
       ->condition('module', 'views')
       ->condition('delta', '-exp-display_products-page')
       ->condition('theme', 'commerce_kickstart_theme')
@@ -62,9 +62,9 @@ function commerce_kickstart_product_ui_enable() {
 
     db_update('block')
       ->fields(array(
-      'region' => 'branding',
-      'status' => (int) '1',
-    ))
+        'region' => 'branding',
+        'status' => (int) '1',
+      ))
       ->condition('module', 'views')
       ->condition('delta', '-exp-display_products-page')
       ->condition('theme', 'commerce_kickstart_theme')
@@ -72,11 +72,11 @@ function commerce_kickstart_product_ui_enable() {
 
     db_update('block')
       ->fields(array(
-      'region' => 'breadcrumb',
-      'weight' => -10,
-      'status' => (int) '1',
-      'title' => '<none>'
-    ))
+        'region' => 'breadcrumb',
+        'weight' => -10,
+        'status' => (int) '1',
+        'title' => '<none>'
+      ))
       ->condition('module', 'current_search')
       ->condition('delta', 'kickstart_search')
       ->condition('theme', 'commerce_kickstart_theme')
