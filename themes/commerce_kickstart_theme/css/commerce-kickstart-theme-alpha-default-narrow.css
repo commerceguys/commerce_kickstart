@@ -2,14 +2,21 @@
 /* If you are using the default media queries provided by Omega, these styles will also
  *  apply to the normal and widescreen layouts. You may override these styles in the normal 
  *  and widescreen CSS files as appropriate. */
-h2.site-name:after {
-  content: " narrow";
+body {
+  background: #000000 url('../images/bg.png') left top;
+  font-size: 14px;
+  margin: 0;
 }
 /*
  * ==========================================================
  * Header
  * ==========================================================
  */
+.view-display-id-block_3 .item-list .event-slider li img {
+  min-width: 320px;
+  width: 100%;
+  height: 100%;
+}
 /**
  * Navigation
  */
@@ -25,7 +32,10 @@ h2.site-name:after {
  * ==========================================================
  * Footer
  * ==========================================================
- */
+ */.view-display-id-block_3 .item-list .event-slider li img {
+     min-width: 310px;
+     height: 100%;
+   }
 /**
  * Menu footer navigation
  */
@@ -33,4 +43,6 @@ h2.site-name:after {
   display: inline;
   float: left;
 }
+
+
 

@@ -8,8 +8,9 @@
  * ==========================================================
  */
 body {
-  background: #ececec url('../images/bg.png') left top;
+  background: #004080 url('../images/bg.png') left top;
   font-size: 14px;
+  margin: 0 10px;
 }
 @font-face {
   font-family: 'MuseoSlab300';
@@ -76,9 +77,7 @@ ul.primary li a {
 .zone-user-wrapper {
   background-color: #8e8e8e;
   height: 34px;
-  position: fixed;
   width: 100%;
-  z-index: 100;
 }
 .zone-user {
   height: 100%;
@@ -124,8 +123,8 @@ ul.primary li a {
  * ==========================================================
  */
 #region-user-second {
-  margin-left: 20px;
-  margin-right: 0;
+  background-color: #FFFFFF;
+  margin: 0;
 }
 #region-branding {
   width: 99%;
@@ -145,6 +144,14 @@ ul.primary li a {
 .region-user-second .region-user-second-inner {
   height: 100%;
 }
+#block-menu-menu-kickstart-user-menu {
+
+}
+#block-views-shopping-cart-block {
+  float: right;
+  width: 250px;
+}
+
 /*
  * ==========================================================
  * Header
@@ -155,6 +162,7 @@ ul.primary li a {
  */
 #block-views-exp-display-products-page {
   float: right;
+  margin-right: 10px;
   padding-top: 36px;
 }
 #block-views-exp-display-products-page .views-exposed-widget {
@@ -245,6 +253,8 @@ ul.primary li a {
 .navigation .second-menu {
   font-size: 1.142857142857143em;
 }
+.navigation .primary-menu .main-menu ul li,
+.navigation .second-menu .secondary-menu ul li,
 .navigation .primary-menu .main-menu li,
 .navigation .second-menu .secondary-menu li {
   margin: 0;
@@ -315,7 +325,7 @@ ul.primary li a {
 
 /* User menu */
 .block-menu-kickstart-user-menu .block-inner {
-  float: right;
+  float: left;
 }
 .block-menu-kickstart-user-menu .content ul,
 .block-menu-kickstart-user-menu .content ul li {
@@ -324,6 +334,7 @@ ul.primary li a {
   margin: 0;
 }
 .block-menu-kickstart-user-menu .content ul {
+  text-align: right;
   margin-top: 2px;
 }
 .block-menu-kickstart-user-menu .content ul li {
@@ -573,6 +584,10 @@ ul.primary li a {
 .event-slider,
 .view-display-id-block_3 .item-list .event-slider li {
   margin: 0;
+}
+.view-display-id-block_3 .item-list .event-slider li img {
+  width: 300px;
+  height: 100%;
 }
 .event-slider .views-field-body {
   text-indent: -9999px;

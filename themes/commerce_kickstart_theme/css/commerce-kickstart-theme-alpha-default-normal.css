@@ -3,9 +3,7 @@
   background-color: #b3e4fd;
 }Omega, these styles will also
  *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
-h2.site-name:after {
-  content: " normal";
-}
+
 /*
  * ==========================================================
  * Header
@@ -24,4 +22,19 @@ h2.site-name:after {
 }
 .navigation .second-menu {
   float: right;
+}
+
+.bx-wrapper {
+  height: 580px;
+}
+.view-display-id-block_3 {
+  position: relative;
+}
+.view-display-id-block_3 .bx-prev,
+.view-display-id-block_3 .bx-next {
+  position: absolute;
+  bottom: 0;
+}
+.view-display-id-block_3 .bx-next {
+  right: 0;
 }
