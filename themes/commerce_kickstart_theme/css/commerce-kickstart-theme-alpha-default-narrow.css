@@ -1,6 +1,6 @@
 /* This file will hold styles that are loaded using the same media query as the narrow grid. */
 /* If you are using the default media queries provided by Omega, these styles will also
- *  apply to the normal and widescreen layouts. You may override these styles in the normal 
+ *  apply to the normal and widescreen layouts. You may override these styles in the normal
  *  and widescreen CSS files as appropriate. */
 body {
   margin: 0;
@@ -22,7 +22,7 @@ body {
 .view-display-id-block_3 .item-list .event-slider li img {
   min-width: 320px;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 /**
  * Navigation
@@ -109,7 +109,7 @@ body {
  * ==========================================================
  */.view-display-id-block_3 .item-list .event-slider li img {
      min-width: 310px;
-     height: 100%;
+     height: auto;
    }
 /**
  * Menu footer navigation

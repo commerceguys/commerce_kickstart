@@ -590,10 +590,11 @@ ul.primary li a {
 .event-slider,
 .view-display-id-block_3 .item-list .event-slider li {
   margin: 0;
+  width: 100%;
 }
 .view-display-id-block_3 .item-list .event-slider li img {
   width: 300px;
-  height: 100%;
+  height: auto;
 }
 .event-slider .views-field-body {
   text-indent: -9999px;
