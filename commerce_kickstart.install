@@ -2,18 +2,11 @@
 
 /**
  * @file
- * Performs a standard Drupal installation with additional configuration of the
- * Drupal Commerce modules and components.
+ * Performs a standard Drupal installation with additional configuration of the Drupal Commerce modules and components.
  */
-
-// Define some Commerce Kickstart specific components.
-define('KICKSTART_DEFAULT_THEME', 'commerce_kickstart_theme');
-define('KICKSTART_ADMIN_THEME', 'commerce_kickstart_admin');
 
 /**
  * Implements hook_install().
- *
- * Perform actions to set up the site for this profile.
  */
 function commerce_kickstart_install() {
   // Add text formats.
@@ -72,58 +65,15 @@ function commerce_kickstart_install() {
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
 
-  // Enable some standard blocks.
-  theme_enable(array('commerce_kickstart_theme'));
-  variable_set('theme_default', 'commerce_kickstart_theme');
-  $default_theme = variable_get('theme_default', KICKSTART_DEFAULT_THEME);
-  $admin_theme = KICKSTART_ADMIN_THEME;
-  $blocks = array(
-    array(
-      'module' => 'system',
-      'delta' => 'main',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 10,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-  );
-  drupal_static_reset();
-  _block_rehash($admin_theme);
-  foreach ($blocks as $record) {
-    $module = array_shift($record);
-    $delta = array_shift($record);
-    $theme = array_shift($record);
-    db_update('block')
-      ->fields($record)
-      ->condition('module', $module)
-      ->condition('delta', $delta)
-      ->condition('theme', $theme)
-      ->execute();
-  }
+  // Enable themes and blocks.
+  $default_theme = 'commerce_kickstart_theme';
+  $admin_theme = 'commerce_kickstart_admin';
+  theme_enable(array($default_theme, $admin_theme));
+  variable_set('theme_default', $default_theme);
+  variable_set('admin_theme', $admin_theme);
+  variable_set('node_admin_theme', '1');
 
-  $values = array(
+  $blocks = array(
     array(
       'module' => 'system',
       'delta' => 'main',
@@ -133,16 +83,6 @@ function commerce_kickstart_install() {
       'region' => 'content',
       'pages' => '<front>', // Do not show the block on front.
       'visibility' => 0,
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'search',
-      'delta' => 'form',
-      'theme' => $default_theme,
-      'status' => 0, // Do not enable the search block.
-      'weight' => -1,
-      'region' => 'sidebar_first',
-      'pages' => '',
       'cache' => -1,
     ),
     array(
@@ -221,7 +161,8 @@ function commerce_kickstart_install() {
     ),
   );
   drupal_static_reset();
-  _block_rehash('commerce_kickstart_theme');
+  _block_rehash($admin_theme);
+  _block_rehash($default_theme);
   foreach ($values as $record) {
     $module = array_shift($record);
     $delta = array_shift($record);
@@ -234,9 +175,7 @@ function commerce_kickstart_install() {
       ->execute();
   }
 
-  // Insert default pre-defined node types into the database. For a complete
-  // list of available node type attributes, refer to the node type API
-  // documentation at: http://api.drupal.org/api/HEAD/function/hook_node_info.
+  // Insert default pre-defined node types into the database.
   $types = array(
     array(
       'type' => 'page',
@@ -255,14 +194,10 @@ function commerce_kickstart_install() {
     node_add_body_field($type);
   }
 
-  // Default "Basic page" to not be promoted and have comments disabled.
+  // "Basic page" configuration.
   variable_set('node_options_page', array('status'));
   variable_set('comment_page', COMMENT_NODE_HIDDEN);
-
-  // Don't display date and author information for "Basic page" nodes by default.
   variable_set('node_submitted_page', FALSE);
-
-  // Pathauto for page.
   variable_set('pathauto_node_page_pattern', '[node:title]');
 
   // Enable user picture support and set the default to a square thumbnail option.
@@ -271,13 +206,10 @@ function commerce_kickstart_install() {
   variable_set('user_picture_file_size', '800');
   variable_set('user_picture_style', 'thumbnail');
 
-  // Allow visitor account creation.
-  variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
-
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', 'access checkout', 'view own commerce_order entities', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'access checkout', 'view own commerce_order entities', 'post comments', 'skip comment approval', $filtered_html_permission));
 
   // Create a default role for site administrators, with all available permissions assigned.
   $admin_role = new stdClass();
@@ -293,55 +225,9 @@ function commerce_kickstart_install() {
     ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
     ->execute();
 
-
-  // Create a Home link in the main menu.
-  $item = array(
-    'link_title' => st('Home'),
-    'link_path' => '<front>',
-    'menu_name' => 'main-menu',
-  );
-  // Do not save this home menu item for now.
-  // menu_link_save($item);
-
   // Update the menu router information.
   menu_rebuild();
 
-  // Enable the admin theme.
-  db_update('system')
-    ->fields(array('status' => 1))
-    ->condition('type', 'theme')
-    ->condition('name', KICKSTART_ADMIN_THEME)
-    ->execute();
-  variable_set('admin_theme', KICKSTART_ADMIN_THEME);
-  variable_set('node_admin_theme', '1');
-
   // Set Mimemail.
   variable_set('mimemail_format', 'full_html');
-
-  // Perform additional non-standard installation configuration of the Commerce
-  // modules and components.
-  _commerce_kickstart_install();
 }
-
-/**
- * Performs additional configuration for Drupal Commerce modules and components.
- */
-function _commerce_kickstart_install() {
-  // Give checkout access to anonymous and authenticated users.
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access checkout'));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access checkout'));
-
-  // Allow users to view their own completed orders.
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('view own commerce_order entities'));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('view own commerce_order entities'));
-
-  // Disable Views' Advanced Help module nag message until it's production ready.
-  variable_set('views_hide_help_message', TRUE);
-
-  // If Admin Menu is installed, collapse the module fieldsets.
-  variable_set('admin_menu_tweak_modules', TRUE);
-
-  // Enable the addressbook on the "Billing information" checkout pane.
-  variable_set('commerce_customer_profile_billing_addressbook', TRUE);
-}
-
