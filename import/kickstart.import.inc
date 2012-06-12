@@ -220,11 +220,11 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
   if (!empty($commerce_kickstart_choose_tax_country)) {
     if ($commerce_kickstart_choose_tax_country == 'us') {
       $tax = array(
-        'name' => 'sample_californian_sales_tax',
-        'title' => 'Sample Californian Sales Tax 7,25%',
-        'display_title' => 'Sample Californian Sales Tax 7,25%',
+        'name' => 'sample_michigan_sales_tax',
+        'title' => 'Sample Michigan Sales Tax 6%',
+        'display_title' => 'Sample Michigan Sales Tax 6%',
         'description' => '',
-        'rate' => 0.0725,
+        'rate' => 0.06,
         'type' => 'sales_tax', // vat
         'rules_component' => '',
         'default_rules_component' => FALSE,
@@ -236,8 +236,8 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
       );
       commerce_tax_ui_tax_rate_save($tax);
 
-      $rule = '{ "commerce_tax_rate_sample_californian_sales_tax" : {
-        "LABEL" : "Calculate Sample Californian Sales Tax 7,25%",
+      $rule = '{ "commerce_tax_rate_sample_michigan_sales_tax" : {
+        "LABEL" : "Calculate Sample Michigan Sales Tax 6%",
         "PLUGIN" : "rule",
         "REQUIRES" : [ "commerce_order", "commerce_tax" ],
         "USES VARIABLES" : {
@@ -258,7 +258,7 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
           "commerce_tax_rate_apply" : {
             "USING" : {
               "commerce_line_item" : [ "commerce-line-item" ],
-              "tax_rate_name" : "sample_californian_sales_tax"},
+              "tax_rate_name" : "sample_michigan_sales_tax"},
               "PROVIDE" : {
                 "applied_tax" : {
                   "applied_tax" : "Applied tax"
@@ -272,8 +272,8 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
       $rules_config->save();
 
       $tax = array(
-        'name' => 'sample_californian_sales_tax',
-        'rules_component' => 'commerce_tax_rate_sample_californian_sales_tax',
+        'name' => 'sample_michigann_sales_tax',
+        'rules_component' => 'commerce_tax_rate_sample_michigan_sales_tax',
         'is_new' => FALSE,
       );
       commerce_tax_ui_tax_rate_save($tax);
