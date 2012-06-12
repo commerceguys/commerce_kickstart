@@ -559,9 +559,6 @@ ul.primary li a {
 .view-display-id-block_3 {
   position: relative;
 }
-.view-display-id-block_3 .bx-window {
-  /*overflow: visible !important;*/
-}
 .event-slider,
 .view-display-id-block_3 .item-list .event-slider li {
   margin: 0;
