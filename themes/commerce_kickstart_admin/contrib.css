@@ -594,12 +594,16 @@ table th {
 .field-widget-inline-entity-form fieldset {
   padding-top: 10px;
 }
-#edit-field-product-und {
+.page-node-add #edit-field-product-und {
   padding-top: 2em;
+}
+.field-type-commerce-product-reference .fieldset-legend {
+  padding-left: 0;
 }
 .field-widget-inline-entity-form fieldset.ief-entity-fieldset {
   background: transparent;
-  padding-top: 2em;
+  padding-top: 3em;
+  margin: 0;
 }
 .field-widget-inline-entity-form fieldset.ief-entity-fieldset .fieldset-legend {
   width: 100%;
@@ -608,7 +612,11 @@ table th {
   font-weight: 500;
 }
 .field-widget-inline-entity-form fieldset.ief-entity-fieldset .fieldset-wrapper {
-  padding: 20px;
+  padding: 15px;
+  display: inline-block;
+}
+.field-widget-inline-entity-form fieldset.ief-product-image .fieldset-wrapper {
+  padding-top: 5px;
 }
 .field-widget-inline-entity-form #ief-entity-table,
 .field-widget-inline-entity-form #ief-entity-table tr td:last-child,
@@ -688,8 +696,11 @@ tr.even {
   padding: 30px 15px 15px;
 }
 #edit-field-product-und-add-form .fieldset-legend {
+  padding: 10px 0 0;
+}
+#edit-field-product-und-add-form .fieldset-wrapper .fieldset-legend {
   margin-top: 10px;
-  padding: 0 10px;
+  padding: 3px 20px;
 }
 .ief-product-details .fieldset-wrapper {
   width: 33%
@@ -797,12 +808,15 @@ tr td:last-child {
   border: 1px solid #eee;
   padding: 0 15px 10px;
 }
-.view-commerce-backoffice-orders tr.views-row-active {
+.view-commerce-backoffice-orders tr.views-row-active,
+.view-commerce-backoffice-products tr.views-row-active {
   background: #d7f8fd !important;
   border: 1px solid #71e1f2;
+  border-width: 1px 1px 0;
   box-shadow: inset 0 0 5px #fff;
 }
-.view-commerce-backoffice-orders tr.views-row-active td {
+.view-commerce-backoffice-orders tr.views-row-active td,
+.view-commerce-backoffice-products tr.views-row-active td {
   background: transparent;
 }
 .view-commerce-backoffice-orders .view-filters,
@@ -812,6 +826,18 @@ tr td:last-child {
   padding: 0;
   outline: none;
   background: none;
+}
+
+div.views-megarow-content {
+  border-top: 1px solid #71e1f2;
+  padding-top: 0;
+}
+div.views-megarow-content .megarow-header {
+  background: transparent url("images/mega-arrow.png") no-repeat 50px 0;
+  margin-top: -1px;
+}
+div.views-megarow-content .megarow-header .megarow-title {
+  font-size: 0;
 }
 
 /* @end */

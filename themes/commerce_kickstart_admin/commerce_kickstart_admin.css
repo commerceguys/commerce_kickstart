@@ -130,7 +130,7 @@ body.in-maintenance fieldset .fieldset-legend {
 input.form-autocomplete,
 input.form-text,
 input.form-file,
-textarea.form-textarea {
+.resizable-textarea .grippie {
   background: #f3f3f3;
   border: 1px solid #fff;
   outline: 1px solid #e0e0e0;
@@ -139,6 +139,26 @@ textarea.form-textarea {
   color: #4c4c4c;
   margin: 1px;
   max-width: 100%;
+}
+textarea.form-textarea {
+  padding: 5px 10px;
+  border: 1px solid #e0e0e0;
+}
+.resizable-textarea .grippie {
+  background: #f3f3f3 url("images/grippie.png") no-repeat center center;
+  padding: 10px;
+}
+.resizable-textarea textarea.form-textarea {
+  border-bottom: none;
+}
+.text-format-wrapper fieldset,
+.text-format-wrapper fieldset .fieldset-wrapper {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.text-format-wrapper fieldset .fieldset-wrapper .form-item {
+  clear: left;
 }
 input.form-autocomplete:focus,
 input.form-text:focus,
@@ -168,6 +188,11 @@ select.form-select {
   border: 1px solid #e0e0e0;
   font: normal 400 1em/1em "Open Sans", Arial, sans-serif;
   max-width: 100%;
+}
+.form-required,
+.form-type-managed-file strong {
+  color: #ff7e00;
+  font-weight: 500;
 }
 body.in-maintenance .form-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
@@ -673,3 +698,4 @@ html.js input.form-autocomplete {
 html.js input.throbbing {
   background-position: 100% -15px;
 }
+
