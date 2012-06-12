@@ -54,18 +54,18 @@ body.in-maintenance #sidebar-first {
   width: 270px;
 }
 body.in-maintenance ol.task-list li {
-  background: transparent url("images/tasks.png") no-repeat 0 0;
+  background: transparent url("images/tasks-inactive.png") no-repeat 0 0;
   color: #999999;
   padding: 2px 0 2px 30px;
   margin: 0 0 17px 0;
   font: normal 400 22px/22px "Open Sans", Arial, sans-serif;
 }
 body.in-maintenance ol.task-list li.active {
-  background-position: 0 -27px;
+  background: transparent url("images/tasks-active.png") no-repeat 0 0;
   color: #585858;
 }
 body.in-maintenance ol.task-list li.done {
-  background-position: 0 -54px;
+  background: transparent url("images/tasks-complete.png") no-repeat 0 0;
   color: #75cd27;
 }
 
