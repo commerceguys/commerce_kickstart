@@ -1,0 +1,6 @@
+name = Commerce Kickstart Jirafe
+description = Provides configuration for Jirafe integration.
+core = 7.x
+package = Commerce Kickstart
+
+dependencies[] = commerce_product_reference

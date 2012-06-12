@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function commerce_kickstart_jirafe_uninstall() {
+  variable_del('kickstart_jirafe_terms');
+  variable_del('kickstart_jirafe_types');
+}

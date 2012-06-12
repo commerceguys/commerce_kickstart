@@ -1,0 +1,195 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_kickstart_jirafe_menu() {
+
+  $items['admin/commerce/config/jirafe/kickstart'] = array(
+    'title' => 'Jirafe for Kickstart configuration',
+    'description' => 'Kickstart specific Jirafe configuration.',
+    'page arguments' => array('commerce_kickstart_jirafe_form'),
+    'page callback' => 'drupal_get_form',
+    'access arguments' => array('administer jirafe dashboard'),
+    'type' => MENU_LOCAL_ACTION,
+  );
+
+  return $items;
+}
+
+/**
+ * Commerce Kickstart Jirafe configuration form.
+ *
+ * @see commerce_kickstart_jirafe_form_submit()
+ */
+function commerce_kickstart_jirafe_form($form, &$form_state) {
+  drupal_set_title(t('Jirafe for Kickstart configuration'));
+
+  $db_terms = variable_get('kickstart_jirafe_terms', array());
+  $db_node_types = variable_get('kickstart_jirafe_types', array());
+
+  $form['jirafe_group_voc'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Collections'),
+    '#description' => t('Please select taxonomy terms that represent Collections.'),
+  );
+
+  $form['jirafe_group_voc']['jirafe_collection'] = array(
+    '#type' => 'vertical_tabs',
+    '#attached' => array(
+      'js' => array(
+        'vertical-tabs' => drupal_get_path('module', 'commerce_kickstart_jirafe') . '/commerce_kickstart_jirafe.js',
+      ),
+    ),
+  );
+
+  $vocabs = array();
+  $term_groups = array();
+  foreach (taxonomy_get_vocabularies() as $vid => $vocab) {
+    $form['jirafe_group_voc']['jirafe_collection']['vocab' . $vid] = array(
+      '#type' => 'fieldset',
+      '#title' => $vocab->name,
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#group' => 'jirafe_collection',
+      '#weight' => 0,
+      '#attributes' => array('class' => array('jirafe-vocab')),
+    );
+
+    $terms = taxonomy_get_tree($vid);
+    if (!empty($terms)) {
+      $term_checkboxes = array();
+      $term_defaults = array();
+      foreach ($terms as $term) {
+        $term_checkboxes[$term->tid] = $term->name;
+        if (in_array($term->tid, $db_terms)) {
+          $term_defaults[] = $term->tid;
+        }
+      }
+
+      $form['jirafe_group_voc']['jirafe_collection']['vocab' . $vid]['description'] = array(
+        '#markup' => t('Terms in %vocab vocabulary.', array('%vocab' => $vocab->name)),
+        '#weight' => 0,
+      );
+
+      $term_groups[] = $term_group = 'term_' . $vid;
+      $form['jirafe_group_voc']['jirafe_collection']['vocab' . $vid][$term_group] = array(
+        '#type' => 'checkboxes',
+        '#options' => $term_checkboxes,
+        '#default_value' => $term_defaults,
+        '#weight' => 10,
+      );
+    }
+    else {
+      $form['jirafe_group_voc']['jirafe_collection']['vocab' . $vid]['terms'] = array(
+        '#markup' => t('Vocabulary is empty.'),
+      );
+    }
+  }
+  $form_state['#term_groups'] = $term_groups;
+
+  $form['jirafe_group_node'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Product displays'),
+    '#description' => t('Please select content types that have products attached to them. For your convenience detected product displays are displayed in bold.'),
+  );
+
+  $commerce_types = commerce_product_reference_node_types();
+  $node_types = node_type_get_types();
+  $node_checkboxes = array();
+  foreach ($node_types as $node_type) {
+    $form['jirafe_group_node']['jirafe_node']['node_' . $node_type->orig_type] = array(
+      '#type' => 'checkbox',
+      '#title' => $node_type->name,
+    );
+    if (in_array($node_type->orig_type, $db_node_types)) {
+      $form['jirafe_group_node']['jirafe_node']['node_' . $node_type->orig_type] += array(
+        '#default_value' => 1,
+      );
+    }
+    if (array_key_exists($node_type->orig_type, $commerce_types)) {
+      $form['jirafe_group_node']['jirafe_node']['node_' . $node_type->orig_type] += array(
+        '#prefix' => '<div class="jirafe-strong">',
+        '#suffix' => '</div>',
+      );
+    }
+  }
+
+  $form['#attached'] = array(
+    'css' => array(
+      'type' => 'file',
+      'data' => drupal_get_path('module', 'commerce_kickstart_jirafe') . '/commerce_kickstart_jirafe.css',
+    ),
+  );
+
+  $form['actions'] = array(
+    '#type' => 'actions',
+    '#weight' => 20,
+  );
+
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+  );
+
+  $form['#submit'][] = 'commerce_kickstart_jirafe_form_submit';
+
+  return $form;
+}
+
+/**
+ * Submit function for Commerce Kickstart Jirafe configuration form.
+ *
+ * @see commerce_kickstart_jirafe_form()
+ */
+function commerce_kickstart_jirafe_form_submit($form, &$form_state) {
+  $terms = array();
+  $node_types = array();
+  foreach ($form_state['values'] as $key => $values) {
+    if (strpos($key, 'term_') === 0) {
+      foreach ($values as $tid => $value) {
+        if ($value) {
+          $terms[] = $tid;
+        }
+      }
+    }
+    else if (strpos($key, 'node_') === 0) {
+      if ($values) {
+        $node_types[] = str_replace('node_', '', $key);
+      }
+    }
+  }
+  variable_set('kickstart_jirafe_terms', $terms);
+  variable_set('kickstart_jirafe_types', $node_types);
+}
+
+/**
+ * Implements hook_jirafe_tracking_data_alter().
+ */
+function commerce_kickstart_jirafe_jirafe_tracking_data_alter(&$data, $page) {
+  if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
+    $db_terms = variable_get('kickstart_jirafe_terms', array());
+    $term = taxonomy_term_load_multiple(array(arg(2)));
+    $term = array_shift($term);
+    if (in_array($term->tid, $db_terms)) {
+      $data['category'] = array(
+        'name' => $term->name,
+      );
+    }
+  }
+  else if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $db_node_types = variable_get('kickstart_jirafe_types', array());
+    $node = $page['content']['system_main']['nodes'][arg(1)]['#node'];
+    $product = commerce_product_load($node->field_product[LANGUAGE_NONE][0]['product_id']);
+    $price = entity_metadata_wrapper('commerce_product', $product)->commerce_price->value();
+    $ammount = commerce_currency_amount_to_decimal($price['amount'], '');
+    $currency = commerce_currency_load();
+    $clean_price = number_format(commerce_currency_round(abs($ammount), $currency), $currency['decimals'], $currency['decimal_separator'], $currency['thousands_separator']);
+
+    $data['product'] = array(
+      'sku' => $product->sku,
+      'name' => $node->title,
+      'price' => $clean_price,
+    );
+  }
+}

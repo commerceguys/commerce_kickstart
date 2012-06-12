@@ -1891,6 +1891,32 @@ function commerce_kickstart_product_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'kickstart_jirafe_terms';
+  $strongarm->value = array(
+    0 => 38,
+    1 => 39,
+    2 => 40,
+    3 => 37,
+  );
+  $export['kickstart_jirafe_terms'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'kickstart_jirafe_types';
+  $strongarm->value = array(
+    0 => 'bags_cases',
+    1 => 'drinks',
+    2 => 'hats',
+    3 => 'shoes',
+    4 => 'storage_devices',
+    5 => 'tops',
+  );
+  $export['kickstart_jirafe_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_bags_cases';
   $strongarm->value = array(
     0 => 'main-menu',
