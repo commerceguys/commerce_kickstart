@@ -152,7 +152,7 @@ function commerce_kickstart_install_finished(&$install_state) {
     // If we don't install drupal using Drush, redirect the user to the front
     // page.
     if (!drupal_is_cli()) {
-      drupal_goto('', array('fragment' => 'overlay=help/commerce_kickstart_help/getting-started'));
+      drupal_goto('', array('fragment' => 'overlay=admin/getting-started'));
     }
   }
 }
