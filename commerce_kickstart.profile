@@ -345,11 +345,18 @@ function commerce_kickstart_update_projects_alter(&$projects) {
  * issues if the distribution itself has not been updated.
  */
 function commerce_kickstart_update_status_alter(&$projects) {
-  $distribution_secure = !in_array($projects['commerce_kickstart']['status'], array(UPDATE_NOT_SECURE, UPDATE_REVOKED, UPDATE_NOT_SUPPORTED));
-  $make_filepath = drupal_get_path('module', 'commerce_kickstart') . '/drupal-org.make';
-  if (!file_exists($make_filepath)) {
+  if (!isset($projects['commerce_kickstart']['status'])) {
+    // We cannot proceed if we don't know the update status of the distribution.
     return;
   }
+  $distribution_secure = !in_array($projects['commerce_kickstart']['status'], array(UPDATE_NOT_SECURE, UPDATE_REVOKED, UPDATE_NOT_SUPPORTED));
+
+  $make_filepath = drupal_get_path('module', 'commerce_kickstart') . '/drupal-org.make';
+  if (!file_exists($make_filepath)) {
+    // We cannot proceed if we cannot find a proper makefile for the distribution.
+    return;
+  }
+
   $make_info = drupal_parse_info_file($make_filepath);
   foreach ($projects as $project_name => $project_info) {
     if (!isset($project_info['info']['version']) || !isset($make_info['projects'][$project_name])) {
@@ -361,7 +368,15 @@ function commerce_kickstart_update_status_alter(&$projects) {
       // is not in a security state.
       continue;
     }
-    $make_project_version = is_array($make_info['projects'][$project_name]) ? $make_info['projects'][$project_name]['version'] : $make_info['projects'][$project_name];
+    if (is_string($make_info['projects'][$project_name])) {
+      $make_project_version = $make_info['projects'][$project_name];
+    }
+    elseif (is_array($make_info['projects'][$project_name]) && isset($make_info['projects'][$project_name]['version'])) {
+      $make_project_version = $make_info['projects'][$project_name]['version'];
+    }
+    else {
+      break;
+    }
 
     // Current version matches the version we shipped, remove it from the list.
     if (DRUPAL_CORE_COMPATIBILITY . '-' . $make_project_version == $project_info['info']['version']) {
