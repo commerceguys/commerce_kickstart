@@ -805,6 +805,14 @@ tr td:last-child {
 .view-commerce-backoffice-orders tr.views-row-active td {
   background: transparent;
 }
+.view-commerce-backoffice-orders .view-filters,
+.view-commerce-backoffice-products .view-filters,
+.view-commerce-customer-profiles .view-filters {
+  border: none;
+  padding: 0;
+  outline: none;
+  background: none;
+}
 
 /* @end */
 
