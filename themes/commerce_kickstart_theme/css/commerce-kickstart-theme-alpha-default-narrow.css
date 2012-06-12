@@ -8,7 +8,10 @@ body {
 
 
 #region-user-second {
-  margin: 0 10px;
+  margin-left: 10px;
+}
+.region-user-second .region-user-second-inner {
+  margin-right: -10px;
 }
 #block-views-shopping-cart-block {
   float: right;
@@ -35,42 +38,6 @@ body {
 .secondary-menu a {
   display: inline;
 }
-/* User menu */
-/*
-.block-menu-kickstart-user-menu .content {
-  float: right;
-  width: 100%;
-  position: relative;
-}
-.block-menu-kickstart-user-menu .content ul {
-  clear: right;
-  float: right;
-  list-style: none;
-  margin-top: 2px;
-  position: relative;
-  left: 50%;
-  text-align: center;
-}
-.block-menu-kickstart-user-menu .content ul li {
-  display: inline;
-  float: left;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 3px;
-  position: relative;
-  right: 50%;
-}
-.block-menu-kickstart-user-menu .content ul li a {
-  display: block;
-  font-family: 'MuseoSlab300';
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  color: #ffffff;
-  padding: 5px 6px;
-  text-decoration: none;
-}*/
 
 .block-menu-kickstart-user-menu .block-inner {
   float: left;

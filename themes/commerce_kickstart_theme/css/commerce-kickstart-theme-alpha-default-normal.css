@@ -41,8 +41,15 @@
 
 .block-menu-kickstart-user-menu .block-inner {
   float: right;
+  margin-right: 10px;
 }
 
+.block-blog-block .block-title {
+  background-position: -18px 0;
+  padding-left: 25px;
+  text-align: left;
+  width: 112px;
+}
 /**
  * Social links block
  */
