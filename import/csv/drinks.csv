@@ -1,5 +1,5 @@
-Title,SKU,Color,Price,Images
-Coffee Mug 1,CMG-WHT-OS,White,8.00,"black-tshirt-001.jpg, black-tshirt-002.jpg, black-tshirt-003.jpg, black-tshirt-004.jpg"
-Coffee Mug 1,CMG-BLK-OS,Black,8.00,"black-tshirt-001.jpg, black-tshirt-002.jpg, black-tshirt-003.jpg, black-tshirt-004.jpg"
-Travel Mug 1,TMG-RED-OS,Red,12.00,"black-tshirt-001.jpg, black-tshirt-002.jpg, black-tshirt-003.jpg, black-tshirt-004.jpg"
-Water Bottle 1,WTR-BLU-OS,Blue,16.00,"black-tshirt-001.jpg, black-tshirt-002.jpg, black-tshirt-003.jpg, black-tshirt-004.jpg"
+"Title","SKU","Color","Price","Images"
+"Coffee Mug 1","CMG-WHT-OS","White","8.00","mug-1v1.jpg, mug-1v2.jpg, mug-1v3.jpg"
+"Coffee Mug 1","CMG-BLK-OS","Black","8.00","mug-2v1.jpg, mug-2v2.jpg, mug-2v3.jpg"
+"Travel Mug 1","TMG-RED-OS","Red","12.00","travel-mug-1v1.jpg, travel-mug-1v2.jpg, travel-mug-1v3.jpg"
+"Water Bottle 1","WTR-BLU-OS","Blue","16.00","water-bottle-1v1.jpg, water-bottle-1v2.jpg, water-bottle-1v3.jpg"

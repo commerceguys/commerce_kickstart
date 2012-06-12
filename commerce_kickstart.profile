@@ -150,6 +150,8 @@ function commerce_kickstart_install_finished(&$install_state) {
     // when we redirect him to the front page. For a better user experience,
     // remove all the message that are only "notifications" message.
     drupal_get_messages('status', TRUE);
+    drupal_get_messages('completed', TRUE);
+    
     // If we don't install drupal using Drush, redirect the user to the front
     // page.
     if (!drupal_is_cli()) {
@@ -252,26 +254,28 @@ function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
  */
 function commerce_kickstart_import_product() {
   drupal_set_title(st('Import products'));
+
+  $migrations = migrate_migrations();
+
+  $operations[] = array('_commerce_kickstart_example_nodes', array(t('Setting up example nodes.')));
+  $operations[] = array('_commerce_kickstart_example_taxes', array(t('Setting up example taxes.')));
+  $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menu.')));
+
+  foreach ($migrations as $machine_name => $migration) {
+    $operations[] =  array('_commerce_kickstart_import_example_products', array($machine_name, t('Setting up example display.')));
+  }
+
+  $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up example user.')));
+  $operations[] = array('_commerce_kickstart_post_enable_modules', array(t('Setting up example modules.')));
+
   // Batch api import products
   $batch = array(
     'title' => t('Importing Products'),
-    'operations' => array(
-      array('_commerce_kickstart_example_nodes', array(t('Setting up example nodes.'))),
-      array('_commerce_kickstart_example_taxes', array(t('Setting up example taxes.'))),
-      array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menu.'))),
-      array('_commerce_kickstart_example_storage_device', array(t('Setting up example storage devices.'))),
-      array('_commerce_kickstart_example_bags', array(t('Setting up example bags.'))),
-      array('_commerce_kickstart_example_drinks', array(t('Setting up example drinks.'))),
-      array('_commerce_kickstart_example_hats', array(t('Setting up example hats.'))),
-      array('_commerce_kickstart_example_shoes', array(t('Setting up example shoes.'))),
-      array('_commerce_kickstart_example_tops', array(t('Setting up example tops.'))),
-      array('_commerce_kickstart_example_display', array(t('Setting up example display.'))),
-      array('_commerce_kickstart_example_user', array(t('Setting up example user.'))),
-      array('_commerce_kickstart_post_enable_modules', array(t('Setting up example modules.'))),
-    ),
+    'operations' => $operations,
     'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',
   );
   variable_set('install_configure_seachapi', TRUE);
+
   return $batch;
 }
 

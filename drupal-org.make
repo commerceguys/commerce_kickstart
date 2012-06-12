@@ -10,6 +10,7 @@ projects[entity][subdir] = "contrib"
 projects[entityreference][version] = 1.0-rc2
 projects[entityreference][subdir] = "contrib"
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters.patch"
+projects[entityreference][patch][] = "http://drupal.org/files/1608358-selectionhandler-views-broken.patch"
 projects[rules][version] = 2.1
 projects[rules][subdir] = "contrib"
 projects[views][version] = 3.3
@@ -52,6 +53,8 @@ projects[commerce_fancy_attributes][subdir] = "contrib"
 projects[commerce_autosku][version] = 1.0
 projects[commerce_autosku][subdir] = "contrib"
 projects[commerce_autosku][patch][] = "http://drupal.org/files/commerce_autosku-1616370-4_fixed_features_support.patch"
+projects[commerce_migrate][version] = 1.x-dev
+projects[commerce_migrate][subdir] = "contrib"
 
 ; Other contribs.
 projects[http_client][version] = 2.3
@@ -93,6 +96,10 @@ projects[message][version] = 1.3
 projects[message][subdir] = "contrib"
 projects[message_notify][version] = 1.x-dev
 projects[message_notify][subdir] = "contrib"
+projects[migrate][version] = 2.4
+projects[migrate][subdir] = "contrib"
+projects[migrate_extras][version] = 2.4
+projects[migrate_extras][subdir] = "contrib"
 
 ; Search related modules.
 projects[search_api][version] = 1.x-dev

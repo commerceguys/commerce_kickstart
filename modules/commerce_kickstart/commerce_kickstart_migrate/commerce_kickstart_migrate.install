@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function commerce_kickstart_migrate_install() {
+
+  $types = array(
+    'bags_cases',
+    'drinks',
+    'hats',
+    'shoes',
+    'storage_devices',
+    'tops'
+  );
+  foreach ($types as $type) {
+    Migration::registerMigration('CommerceKickstartProductDisplay',
+      'CommerceKickstartProductDisplay' . $type,
+      array('type' => $type));
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function commerce_kickstart_migrate_uninstall() {
+
+  $types = array(
+    'bags_cases',
+    'drinks',
+    'hats',
+    'shoes',
+    'storage_devices',
+    'tops'
+  );
+  foreach ($types as $type) {
+    Migration::deregisterMigration('CommerceKickstartProductDisplay' . $type);
+  }
+}
