@@ -105,13 +105,6 @@ ul.primary li a {
   height: 100%;
 }
 
-
-
-#block-views-shopping-cart-block {
-  margin: 0 auto;
-  width: 260px;
-}
-
 /*
  * ==========================================================
  * Header
@@ -340,6 +333,10 @@ ul.primary li a {
   text-decoration: none;
 }
 /* Cart block */
+#block-views-shopping-cart-block {
+  margin: 0 auto;
+  width: 260px;
+}
 .block-shopping-cart-block,
 .block-shopping-cart-block .block-inner,
 .block-shopping-cart-block .content {
@@ -460,7 +457,6 @@ ul.primary li a {
   min-height: 500px;
   height: 100%;
 }
-/* Homepage blocks */
 /* Top advert */
 .block-promotional-banner {
   background-color: #fd9a00;
@@ -470,10 +466,10 @@ ul.primary li a {
   position: relative;
   top: 0px;
   left: -10px;
+  text-align: center;
   width: 100%;
-  z-index: 10;
+  z-index: 11;
 }
-
 #promotional_banner .promotional_banner_saving {
   display: block;
   float: left;
@@ -505,7 +501,7 @@ ul.primary li a {
   left: -50px;
   top: 85px;
   position: absolute;
-  z-index: 500;
+  z-index: 12;
 }
 
 /* Shipping */
@@ -552,6 +548,10 @@ ul.primary li a {
   font-weight: 700;
 }
 /* Slideshow */
+.bx-wrapper {
+  height: 320px;
+  overflow: hidden;
+}
 .block-demo-content-block-3 {
   position: relative;
   top: -10px;
@@ -560,75 +560,30 @@ ul.primary li a {
   position: relative;
 }
 .view-display-id-block_3 .bx-window {
-  overflow: visible !important;
+  /*overflow: visible !important;*/
 }
 .event-slider,
 .view-display-id-block_3 .item-list .event-slider li {
   margin: 0;
+  height: 100%;
   width: 100%;
+  z-index: 10 !important;
 }
 .view-display-id-block_3 .item-list .event-slider li img {
   width: 300px;
   height: auto;
 }
-.event-slider .views-field-body {
+.event-slider .views-field-nothing,
+.event-slider .views-field-nothing em,
+.view-display-id-block_3 .bx-prev,
+.view-display-id-block_3 .bx-prev em,
+.view-display-id-block_3 .bx-next,
+.view-display-id-block_3 .bx-next em {
+  display: block;
   text-indent: -9999px;
 }
-.event-slider .views-field-nothing,
-.view-display-id-block_3 .bx-prev,
-.view-display-id-block_3 .bx-next {
-  height: 80px;
-  text-align: center;
-  width: 320px;
-}
 
-.event-slider .views-field-nothing {
-  background: url('../images/bg_title_slideshow_current.png') left top no-repeat;
-  color: #ffffff;
-  padding-bottom: 5px;
-  position: absolute;
-  bottom: -100px;
-  left: 32.5%;
-}
-.view-display-id-block_3 .bx-prev,
-.view-display-id-block_3 .bx-next {
-  color: #000000;
-  text-decoration: none;
-  display: block;
-  margin-top: 15px;
-  padding-bottom: 5px;
-}
-.event-slider .views-field-nothing span,
-.view-display-id-block_3 .bx-prev span.control,
-.view-display-id-block_3 .bx-next span.control {
-  display: block;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  font-size: 21px;
-  height: 80px;
-  line-height: 28px;
-  padding: 10px 25px 0;
-  overflow: hidden;
-}
-.event-slider .views-field-nothing em,
-.view-display-id-block_3 .bx-prev span.control em,
-.view-display-id-block_3 .bx-next span.control em {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 900;
-  font-style: normal;
-  font-size: 32px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.view-display-id-block_3 .bx-prev {
-  background: url('../images/bg_title_slideshow_previous.png') left top no-repeat;
-  float: left;
-}
-.view-display-id-block_3 .bx-next {
-  background: url('../images/bg_title_slideshow_next.png') left top no-repeat;
-  float: right;
-  margin-right: 5px;
-}
+/* Homepage blocks */
 .region-postscript-first,
 .region-postscript-second {
   margin-bottom: 5px;
@@ -1295,15 +1250,27 @@ ul.primary li a {
 .page-cart .entity-commerce-product {
   display: inline;
 }
+.page-cart .entity-commerce-product:after {
+  clear: none;
+}
 .page-cart .entity-commerce-product h2 {
   display: none;
   font-size: 0;
   text-indent: -9999px;
-
+}
+.page-cart .entity-commerce-product .content .field {
+  display: inline;
+}
+.page-cart .entity-commerce-product .content .field:after {
+  clear: none;
 }
 .page-cart .entity-commerce-product .content .field-name-field-images {
+  display: inline;
   float: left;
   margin-right: 8px;
+}
+.page-cart .entity-commerce-product .content .field-name-field-images img {
+  border: 1px solid #9d9d9d;
 }
 .page-cart a.view_product_details {
   color: #7d7d7d;
@@ -1321,9 +1288,7 @@ ul.primary li a {
 .page-cart .entity-commerce-product .content .field-label-inline .field-items {
   float: inherit;
 }
-.page-cart .entity-commerce-product .content .field {
-  display: inline;
-}
+
 .page-cart .entity-commerce-product .content .commerce-product-title {
   font-weight: bold;
 }

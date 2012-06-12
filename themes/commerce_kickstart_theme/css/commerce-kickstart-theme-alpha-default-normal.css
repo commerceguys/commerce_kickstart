@@ -6,6 +6,21 @@
 
 /*
  * ==========================================================
+ * General
+ * ==========================================================
+ */
+/*
+ * ==========================================================
+ * Zones
+ * ==========================================================
+ */
+/*
+ * ==========================================================
+ * Regions
+ * ==========================================================
+ */
+/*
+ * ==========================================================
  * Header
  * ==========================================================
  */
@@ -23,6 +38,27 @@
 .navigation .second-menu {
   float: right;
 }
+/* User menu */
+.block-menu-kickstart-user-menu .block-inner {
+  float: right;
+  margin-right: 10px;
+}
+
+/*
+ * ==========================================================
+ * Content
+ * ==========================================================
+ */
+/* Top advert */
+#promotional_banner .promotional_banner_saving {
+  float: left;
+}
+#promotional_banner .promotional_banner_special_offer {
+  float: right;
+  line-height: 22px;
+  margin-top: 4px;
+}
+/* Slideshow */
 
 .bx-wrapper {
   height: 580px;
@@ -39,20 +75,77 @@
   right: 0;
 }
 
-.block-menu-kickstart-user-menu .block-inner {
+
+.event-slider .views-field-nothing,
+.view-display-id-block_3 .bx-prev,
+.view-display-id-block_3 .bx-next {
+  height: 80px;
+  text-align: center;
+  width: 320px;
+}
+.event-slider .views-field-nothing {
+  background: url('../images/bg_title_slideshow_current.png') left top no-repeat;
+  color: #ffffff;
+  padding-bottom: 5px;
+  position: absolute;
+  bottom: -100px;
+  left: 32.5%;
+}
+.view-display-id-block_3 .bx-prev,
+.view-display-id-block_3 .bx-next {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  margin-top: 15px;
+  padding-bottom: 5px;
+}
+.event-slider .views-field-nothing span,
+.view-display-id-block_3 .bx-prev span.control,
+.view-display-id-block_3 .bx-next span.control {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 21px;
+  height: 80px;
+  line-height: 28px;
+  padding: 10px 25px 0;
+  overflow: hidden;
+}
+.event-slider .views-field-nothing em,
+.view-display-id-block_3 .bx-prev span.control em,
+.view-display-id-block_3 .bx-next span.control em {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 32px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.view-display-id-block_3 .bx-prev {
+  background: url('../images/bg_title_slideshow_previous.png') left top no-repeat;
+  float: left;
+}
+.view-display-id-block_3 .bx-next {
+  background: url('../images/bg_title_slideshow_next.png') left top no-repeat;
   float: right;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
+/* Homepage blocks */
 .block-blog-block .block-title {
   background-position: -18px 0;
   padding-left: 25px;
   text-align: left;
   width: 112px;
 }
-/**
- * Social links block
+/*
+ * ==========================================================
+ * Footer
+ * ==========================================================
  */
+/**
+* Social links block
+*/
 .block-social h2 {
   background: url('../images/bg_block_footer_title.png') left top no-repeat;
   color: #eeeeee;
