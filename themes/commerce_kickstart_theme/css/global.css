@@ -1018,6 +1018,15 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
   padding-top: 5px;
   padding-left: 35px;
 }
+.commerce-kickstart-add-to-cart-close {
+  background: url('../images/btn_close.png') no-repeat 0 0;
+  width: 18px;
+  height: 17px;
+  display: block;
+  position: absolute;
+  top: -9px;
+  right: -9px;
+}
 .node-product-type .product-title {
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;

@@ -25,5 +25,5 @@ function commerce_kickstart_product_ui_rules_action_info() {
  * Rules action: displays a custom Add to Cart message.
  */
 function commerce_kickstart_product_ui_rules_add_to_cart_message($product) {
-  drupal_set_message(t('%title successfully added to <a href="!cart-url">your cart</a>.', array('%title' => $product->title, '!cart-url' => url('cart'))), 'commerce-kickstart-add-to-cart');
+  drupal_set_message(t('%title successfully added to <a href="!cart-url">your cart</a>.<a class="commerce-kickstart-add-to-cart-close" href="#"><span class="element-invisible">Close</span></a>', array('%title' => $product->title, '!cart-url' => url('cart'))), 'commerce-kickstart-add-to-cart');
 }

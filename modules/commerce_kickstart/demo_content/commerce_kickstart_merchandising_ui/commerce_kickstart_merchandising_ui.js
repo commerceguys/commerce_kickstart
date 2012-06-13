@@ -34,11 +34,9 @@
   // Fadeout add to cart message.
   Drupal.behaviors.addtocartMessage = {
     attach: function ( context, settings ) {
-      setTimeout(function(){
-        $("div.commerce-kickstart-add-to-cart").fadeOut("slow", function () {
-          $("div.commerce-kickstart-add-to-cart").remove();
-        });
-      }, 4000);
+      $('.commerce-kickstart-add-to-cart-close').live('click', function() {
+        $('div.commerce-kickstart-add-to-cart').remove();
+      });
     }
   }
 
