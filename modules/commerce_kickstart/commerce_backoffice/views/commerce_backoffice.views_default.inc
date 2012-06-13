@@ -9,6 +9,7 @@
  * Implements hook_views_default_views().
  */
 function commerce_backoffice_views_default_views() {
+
   $view = new view;
   $view->name = 'commerce_backoffice_orders';
   $view->description = '';
@@ -35,7 +36,8 @@ function commerce_backoffice_views_default_views() {
     'views_bulk_operations' => 'views_bulk_operations',
     'order_number' => 'order_number',
     'created' => 'created',
-    'mail' => 'mail',
+    'name' => 'name',
+    'mail' => 'name',
     'commerce_order_total' => 'commerce_order_total',
     'operations_dropbutton' => 'operations_dropbutton',
     'status' => 'status',
@@ -60,6 +62,13 @@ function commerce_backoffice_views_default_views() {
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
+      'empty_column' => 0,
+    ),
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '<br />',
       'empty_column' => 0,
     ),
     'mail' => array(
@@ -137,7 +146,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['order_number']['id'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['order_number']['field'] = 'order_number';
-  $handler->display->display_options['fields']['order_number']['label'] = '#';
+  $handler->display->display_options['fields']['order_number']['label'] = 'Order ID';
   $handler->display->display_options['fields']['order_number']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['order_number']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['order_number']['alter']['absolute'] = 0;
@@ -147,6 +156,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['order_number']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['order_number']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['order_number']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['order_number']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['order_number']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['order_number']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['order_number']['alter']['html'] = 0;
@@ -178,11 +188,39 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['created']['empty_zero'] = 0;
   $handler->display->display_options['fields']['created']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['created']['date_format'] = 'short';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = 'Name/Email';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['name']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['name']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['name']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['name']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['name']['link_to_user'] = 1;
+  $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
+  $handler->display->display_options['fields']['name']['format_username'] = 1;
   /* Field: User: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['mail']['label'] = 'Email';
   $handler->display->display_options['fields']['mail']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['mail']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['mail']['alter']['absolute'] = 0;
@@ -192,6 +230,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['mail']['alter']['nl2br'] = 0;
   $handler->display->display_options['fields']['mail']['alter']['word_boundary'] = 1;
   $handler->display->display_options['fields']['mail']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['mail']['alter']['more_link'] = 0;
   $handler->display->display_options['fields']['mail']['alter']['strip_tags'] = 0;
   $handler->display->display_options['fields']['mail']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['mail']['alter']['html'] = 0;
@@ -200,7 +239,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['mail']['hide_empty'] = 0;
   $handler->display->display_options['fields']['mail']['empty_zero'] = 0;
   $handler->display->display_options['fields']['mail']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['mail']['link_to_user'] = 'user';
+  $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
   /* Field: Commerce Order: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['table'] = 'field_data_commerce_order_total';
@@ -233,7 +272,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['operations_dropbutton']['id'] = 'operations_dropbutton';
   $handler->display->display_options['fields']['operations_dropbutton']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['operations_dropbutton']['field'] = 'operations_dropbutton';
-  $handler->display->display_options['fields']['operations_dropbutton']['label'] = 'Operations';
+  $handler->display->display_options['fields']['operations_dropbutton']['label'] = 'Actions';
   $handler->display->display_options['fields']['operations_dropbutton']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['operations_dropbutton']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['operations_dropbutton']['alter']['absolute'] = 0;
@@ -317,12 +356,62 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['exposed'] = TRUE;
   $handler->display->display_options['filters']['status']['expose']['operator_id'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['label'] = 'Order status';
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
   $handler->display->display_options['filters']['status']['expose']['reduce'] = 0;
+  /* Filter criterion: Commerce Order: Order ID */
+  $handler->display->display_options['filters']['order_id']['id'] = 'order_id';
+  $handler->display->display_options['filters']['order_id']['table'] = 'commerce_order';
+  $handler->display->display_options['filters']['order_id']['field'] = 'order_id';
+  $handler->display->display_options['filters']['order_id']['group'] = 1;
+  $handler->display->display_options['filters']['order_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['order_id']['expose']['operator_id'] = 'order_id_op';
+  $handler->display->display_options['filters']['order_id']['expose']['label'] = 'Order ID';
+  $handler->display->display_options['filters']['order_id']['expose']['operator'] = 'order_id_op';
+  $handler->display->display_options['filters']['order_id']['expose']['identifier'] = 'order_id';
+  $handler->display->display_options['filters']['order_id']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Commerce Order: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'commerce_order';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Name';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['multiple'] = FALSE;
+  $handler->display->display_options['filters']['uid']['expose']['reduce'] = 0;
+  /* Filter criterion: User: E-mail */
+  $handler->display->display_options['filters']['mail']['id'] = 'mail';
+  $handler->display->display_options['filters']['mail']['table'] = 'users';
+  $handler->display->display_options['filters']['mail']['field'] = 'mail';
+  $handler->display->display_options['filters']['mail']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['mail']['group'] = 1;
+  $handler->display->display_options['filters']['mail']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['mail']['expose']['operator_id'] = 'mail_op';
+  $handler->display->display_options['filters']['mail']['expose']['label'] = 'E-mail';
+  $handler->display->display_options['filters']['mail']['expose']['operator'] = 'mail_op';
+  $handler->display->display_options['filters']['mail']['expose']['identifier'] = 'mail';
+  $handler->display->display_options['filters']['mail']['expose']['required'] = 0;
+  $handler->display->display_options['filters']['mail']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Commerce Order: Updated date */
+  $handler->display->display_options['filters']['changed']['id'] = 'changed';
+  $handler->display->display_options['filters']['changed']['table'] = 'commerce_order';
+  $handler->display->display_options['filters']['changed']['field'] = 'changed';
+  $handler->display->display_options['filters']['changed']['operator'] = 'between';
+  $handler->display->display_options['filters']['changed']['group'] = 1;
+  $handler->display->display_options['filters']['changed']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['changed']['expose']['operator_id'] = 'changed_op';
+  $handler->display->display_options['filters']['changed']['expose']['label'] = 'Updated date';
+  $handler->display->display_options['filters']['changed']['expose']['operator'] = 'changed_op';
+  $handler->display->display_options['filters']['changed']['expose']['identifier'] = 'changed';
+  $handler->display->display_options['filters']['changed']['expose']['multiple'] = FALSE;
 
   /* Display: Admin page */
   $handler = $view->new_display('page', 'Admin page', 'admin_page');
