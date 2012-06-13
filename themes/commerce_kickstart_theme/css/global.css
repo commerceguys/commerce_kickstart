@@ -361,20 +361,13 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
 .block-shopping-cart-block .content {
   height: 100%;
 }
-.block-shopping-cart-block .block-inner {
-  background-color: #ffffff;
+.block-shopping-cart-block .content {
+  background: #ffffff url('../images/picto_cart.png') 5px 5px no-repeat;
+  float: right;
+  padding-left: 40px;
 }
-.block-shopping-cart-block h2 {
-  background: url('../images/picto_cart.png') right 5px no-repeat;
-  float: left;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 23px;
-  padding-top: 5px;
-  padding-right: 45px;
-  padding-left: 12px;
-  text-transform: uppercase;
+.block-shopping-cart-block .block-inner {
+
 }
 .block-shopping-cart-block .content .view-shopping-cart .view-content,
 .block-shopping-cart-block .content .view-shopping-cart .view-footer,
@@ -409,21 +402,37 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
   color: #2698F2;
-  font-weight: bold;
   text-decoration: none;
  }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
-  background-color: #2698F2;
-  color: #ffffff;
-  float: right;
+  color: #888888;
+  float: left;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
+  font-weight: 300;
   height: 100%;
   line-height: 30px;
   padding: 0 12px;
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total-label {
   display: none;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links {
+  background-color: #2698F2;
+  color: #ffffff;
+  clear: none;
+  float: right;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  height: 100%;
+  line-height: 30px;
+  margin: 0;
+  padding: 0 10px;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links a {
+  color: #ffffff;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links a:hover {
+  text-decoration: underline;
 }
 /*
  * ==========================================================

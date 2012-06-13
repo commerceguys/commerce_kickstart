@@ -21,6 +21,9 @@
  * Regions
  * ==========================================================
  */
+#region-user-second {
+  background-color: transparent;
+}
 /* Homepage Regions */
 .front #zone-postscript .grid-8 {
   width: 313px;
