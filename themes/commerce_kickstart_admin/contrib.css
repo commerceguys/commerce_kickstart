@@ -617,6 +617,7 @@ table th {
 }
 .field-widget-inline-entity-form fieldset.ief-product-image .fieldset-wrapper {
   padding-top: 5px;
+  width: 100%;
 }
 .field-widget-inline-entity-form #ief-entity-table,
 .field-widget-inline-entity-form #ief-entity-table tr td:last-child,
@@ -668,6 +669,12 @@ tr.even {
   background: #fff;
   border: 1px solid #e1e1e1;
 }
+.ief-row-form > td {
+  padding-top: 0;
+}
+.ief-row-form .inline-entity-form-title {
+  padding-top: 30px;
+}
 .field-widget-inline-entity-form #ief-entity-table tr.ief-row-form:hover {
   background: #fff;
 }
@@ -698,7 +705,8 @@ tr.even {
 #edit-field-product-und-add-form .fieldset-legend {
   padding: 10px 0 0;
 }
-#edit-field-product-und-add-form .fieldset-wrapper .fieldset-legend {
+#edit-field-product-und-add-form .fieldset-wrapper .fieldset-legend,
+.ief-row-form .inline-entity-form-title .fieldset-legend {
   margin-top: 10px;
   padding: 3px 20px;
 }
@@ -827,17 +835,37 @@ tr td:last-child {
   outline: none;
   background: none;
 }
-
 div.views-megarow-content {
   border-top: 1px solid #71e1f2;
   padding-top: 0;
 }
-div.views-megarow-content .megarow-header {
+div.views-megarow-content .megarow-header,
+.ief-row-form .inline-entity-form-title {
   background: transparent url("images/mega-arrow.png") no-repeat 50px 0;
   margin-top: -1px;
+  position: relative;
 }
 div.views-megarow-content .megarow-header .megarow-title {
   font-size: 0;
+}
+/* Inline product edit field styles */
+.ief-row-form .inline-entity-form-title input.form-submit,
+#edit-field-product-und-add-form-actions input.form-submit {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: #36A2F6;
+}
+.ief-row-form .inline-entity-form-title input.ief-entity-submit,
+#edit-field-product-und-add-form-actions input.ief-entity-submit {
+  background: #60aa20 url("images/button.png") repeat-x 0 0;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 2px #999;
+}
+.ief-row-form .inline-entity-form-title input.ief-entity-submit:hover,
+#edit-field-product-und-add-form-actions input.ief-entity-submit:hover {
+  background: #60aa20 url("images/button-over.png") repeat-x 0 0;
 }
 
 /* @end */
