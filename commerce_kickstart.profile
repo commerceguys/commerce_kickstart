@@ -169,7 +169,11 @@ function commerce_kickstart_configure_store_form() {
     '1' => st('Yes'),
     '0' => st('No'),
   );
-  $form['commerce_kickstart_example_content'] = array(
+  $form['commerce_kickstart_example_wrapper'] = array(
+    '#type' => 'fieldset',
+    '#title' => st('Example Content'),
+  );
+  $form['commerce_kickstart_example_wrapper']['commerce_kickstart_example_content'] = array(
     '#type' => 'radios',
     '#title' => st('Do you want to install example store content?'),
     '#description' => st('Recommended for new users. Demonstrates how you can set-up your Drupal Commerce site.'),
@@ -192,7 +196,11 @@ function commerce_kickstart_configure_store_form() {
     }
   }
 
-  $form['commerce_default_currency'] = array(
+  $form['commerce_default_currency_wrapper'] = array(
+    '#type' => 'fieldset',
+    '#title' => st('Currency'),
+  );
+  $form['commerce_default_currency_wrapper']['commerce_default_currency'] = array(
     '#type' => 'select',
     '#title' => t('Default store currency'),
     '#description' => t('The default store currency will be used as the default for all price fields.'),
@@ -205,7 +213,11 @@ function commerce_kickstart_configure_store_form() {
     'us' => st('US - Sales taxes displayed in checkout'),
     'europe' => st('European - Inclusive tax rates (VAT)'),
   );
-  $form['commerce_kickstart_choose_tax_country'] = array(
+  $form['commerce_kickstart_tax_wrapper'] = array(
+    '#type' => 'fieldset',
+    '#title' => st('Tax Rate'),
+  );
+  $form['commerce_kickstart_tax_wrapper']['commerce_kickstart_choose_tax_country'] = array(
     '#type' => 'radios',
     '#title' => st('Tax rate examples'),
     '#description' => st('Example tax rates will be created in this style.'),
