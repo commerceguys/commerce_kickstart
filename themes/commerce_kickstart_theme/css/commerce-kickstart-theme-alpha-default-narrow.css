@@ -90,12 +90,7 @@ body {
   float: inherit;
 }
 /* Slideshow */
-.view-display-id-block_3 .item-list .event-slider li img {
-  min-width: 320px;
-  width: 100%;
-  max-width: 959px;
-  height: auto;
-}
+
 /* Homepage blocks */
 .view-display-id-block_1 .views-row,
 .view-display-id-block_2 .views-row,

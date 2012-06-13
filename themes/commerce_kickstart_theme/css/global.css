@@ -8,6 +8,46 @@
  * ==========================================================
  */
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+
+/**
+ * Flexible Media and Cross browser improvements
+ * - This can cause issues in table cells where no width is set on the column,
+ *   only in some versions of webkit and IE 7/8.
+ * - Google maps break also, see below for fixes.
+ */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+figure {
+  margin: 0;
+  padding: 0;
+}
+object,
+embed,
+video {
+  max-width: 100%;
+}
+/* Kill flexible images in IE6-8 */
+.ie6-8 img {
+  max-width: none;
+}
+/* Override max-width 100% for map displays */
+.gmap img,
+.view-gmap img,
+.openlayers-map img,
+#getlocations_map_canvas img,
+#locationmap_map img {
+  max-width: none !important;
+}
+
+/* Improve IE's resizing of images */
+svg:not(:root) {
+  overflow: hidden;
+}
+
 body {
   background: #ececec url('../images/bg.png') left top;
   font-family: 'Open Sans', sans-serif;
@@ -588,11 +628,11 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
 .view-display-id-block_3 .item-list .event-slider li {
   margin: 0;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
   z-index: 10 !important;
 }
 .view-display-id-block_3 .item-list .event-slider li img {
-  width: 300px;
+  max-width: 100%;
   height: auto;
 }
 .event-slider .views-field-nothing,
