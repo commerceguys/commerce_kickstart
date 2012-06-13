@@ -1,16 +1,12 @@
 /* Toolbar Styles */
-#toolbar {
+body.toolbar #toolbar {
   background: #55b5ff;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 999;
 }
-#toolbar div.toolbar-menu {
+body.toolbar #toolbar div.toolbar-menu {
   width: 88%;
   margin: 0 auto;
   background: #55b5ff;
-  padding: 10px 0;
+  padding: 3px 0;
 }
 #toolbar a {
   color: #fff;
@@ -23,19 +19,23 @@
   position: relative;
 }
 /* Home Logo Link */
-#toolbar-home {
-  float: left;
+body.toolbar #toolbar-home li {
   margin-right: 30px;
 }
-#toolbar-home a span {
+body.toolbar #toolbar-home a span {
   background: transparent url("images/logo-menu.png") no-repeat 0 0;
   width: 130px;
   height: 40px;
   display: block;
   text-indent: -9999px;
 }
-#toolbar-home a:hover {
-  background: transparent;
+body.toolbar #toolbar-home a,
+body.toolbar #toolbar-home ul li a.active,
+body.toolbar #toolbar-home a:hover {
+  background: transparent !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 /* User Menu */
 #toolbar-user {
@@ -46,44 +46,54 @@
 }
 /* Main Menu */
 #toolbar div.toolbar-menu ul.menu {
-  padding-top: 20px;
+  padding-top: 15px;
 }
 #toolbar div.toolbar-menu ul li a {
-  font: normal 500 15px/1.75em "MuseoSlab", Arial, sans-serif;
+  font: normal 500 15px/1.75em "Open Sans",Arial,sans-serif;
   padding: 2px 10px;
 }
-#toolbar div.toolbar-menu ul li a:hover,
-#toolbar div.toolbar-menu ul li:hover a,
-#toolbar div.toolbar-menu ul li a.active:hover,
-#toolbar div.toolbar-menu ul li a.active:active,
-#toolbar div.toolbar-menu ul li a.active,
-#toolbar div.toolbar-menu ul li.active-trail a {
+body.toolbar #toolbar div.toolbar-menu ul li a:hover,
+body.toolbar #toolbar div.toolbar-menu ul li:hover a,
+body.toolbar #toolbar div.toolbar-menu ul li a.active:hover,
+body.toolbar #toolbar div.toolbar-menu ul li a.active:active,
+body.toolbar #toolbar div.toolbar-menu ul li a.active,
+body.toolbar #toolbar div.toolbar-menu ul li.active-trail a {
   background: #2f88cd;
+  -moz-box-shadow: inset 0 0 5px #1a6bdf;
+  -webkit-box-shadow: inset 0 0 5px #1a6bdf;
   box-shadow: inset 0 0 5px #1a6bdf;
   border-radius: 10px;
   text-decoration: none;
 }
 /* Dropdown Styles */
-#toolbar div.toolbar-menu ul li:hover ul a {
+body.toolbar #toolbar div.toolbar-menu ul li:hover ul a {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
-#toolbar div.toolbar-menu #toolbar-home li a:hover {
+body.toolbar #toolbar div.toolbar-menu #toolbar-home li a:hover,
+body.toolbar #toolbar div.toolbar-menu ul li:hover li a,
+body.toolbar #toolbar div.toolbar-menu ul.menu ul.menu a.active{
   background: transparent;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
-#toolbar div.toolbar-menu-wrapper ul.menu {
+body.toolbar #toolbar div.toolbar-menu-wrapper ul.menu {
   margin: 0;
 }
-#toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
+body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   background: transparent url("images/bg-dropdown.png") repeat 0 0;
   font-size: 14px;
   padding: 1px;
   width: 200px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 0;
   z-index: -1;
 }
-#toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu {
+body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu {
   padding: 20px 0;
   margin: 0;
   float: left;
@@ -102,7 +112,7 @@
   margin: 0;
   width: 100%;
 }
-#toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu li a {
+body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu li a {
   color: #fff;
   font-weight: 100;
   padding: 0 10px;
@@ -118,10 +128,13 @@
   font-weight: 100;
   color: #fff;
 }
-#toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu li a:hover {
+body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu li a:hover,
+body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li a:hover{
   color: #57b3fc;
 }
 #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper a:hover {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 div.toolbar-menu-wrapper ul.menu ul.menu {
@@ -141,9 +154,6 @@
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li a.active {
   font-weight: 700;
 }
-#toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.group-2 ul.menu li a {
-  color: #000;
-}
 #toolbar div.toolbar-menu-wrapper > ul.menu > li.open > div.toolbar-menu-wrapper,
 #toolbar div.toolbar-menu-wrapper > ul.menu > li:hover > div.toolbar-menu-wrapper {
   top: 30px;
@@ -154,5 +164,7 @@
 #toolbar div.toolbar-menu ul ul li a.active,
 #toolbar div.toolbar-menu ul ul li.active-trail a {
   font-weight: 700;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
   box-shadow: none;
 }

@@ -6,7 +6,6 @@ stylesheets[screen][] = reset.css
 stylesheets[screen][] = style.css
 ; Contrib Module Admin Styles
 stylesheets[screen][] = contrib.css
-stylesheets[screen][] = toolbar.css
 ; Install and Maintenance Pages
 stylesheets[screen][] = commerce_kickstart_admin.css
 

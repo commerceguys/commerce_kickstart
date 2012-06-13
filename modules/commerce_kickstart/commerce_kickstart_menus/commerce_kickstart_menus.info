@@ -4,3 +4,5 @@ core = 7.x
 package = Commerce Kickstart
 
 dependencies[] = toolbar_megamenu
+
+stylesheets[all][] = commerce_kickstart_menus.css
