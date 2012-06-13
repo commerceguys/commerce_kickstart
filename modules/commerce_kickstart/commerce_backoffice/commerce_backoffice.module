@@ -112,6 +112,39 @@ function commerce_backoffice_module_implements_alter(&$implementations, $hook) {
  * Implements hook_form_views_form_alter().
  */
 function commerce_backoffice_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#node_edit_form'])) {
+    if (function_exists('commerce_product_reference_node_types')) {
+      $product_node_types = commerce_product_reference_node_types();
+    }
+    // @todo Remove once http://drupal.org/node/1588226 lands.
+    elseif (isset($form['field_product'])) {
+      $product_node_types = array($form['#node']->type => TRUE);
+    }
+
+    if (in_array($form['#node']->type, array_keys($product_node_types))) {
+      // Enable the #fieldset key.
+      $form['#pre_render'][] = 'commerce_backoffice_pre_render_add_fieldset_markup';
+      // Add a new vertical tab.
+      $form['product_catalog'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Product catalog'),
+        '#group' => 'additional_settings',
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+        '#weight' => -10,
+      );
+
+      // Assign all taxonomy reference fields to the new vertical tab.
+      foreach (field_info_instances('node', $form['#node']->type) as $field_name => $instance) {
+        $field = field_info_field($field_name);
+
+        if ($field['type'] == 'taxonomy_term_reference') {
+          $form[$field_name]['#fieldset'] = 'product_catalog';
+        }
+      }
+    }
+  }
+
   if (strpos($form_id, 'views_form_') === 0) {
     $vbo = _views_bulk_operations_get_field($form_state['build_info']['args'][0]);
   }
