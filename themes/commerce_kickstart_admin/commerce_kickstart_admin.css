@@ -221,7 +221,15 @@ body.in-maintenance #install-settings-form fieldset .fieldset-wrapper {
   float: left;
   margin-right: 8px;
   font-weight: 500;
+  color:#333;
 }
+/* Make the Username & Password stand out from the label */
+#edit-account-commerce-kickstart-name,
+#edit-account-commerce-kickstart-password {
+  color: black;
+  font-weight: bold;
+}
+
 
 /* Overlay Styles */
 
