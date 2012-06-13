@@ -36,6 +36,7 @@ body.toolbar #toolbar-home a:hover {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
+  color: #fff;
 }
 /* User Menu */
 #toolbar-user {
@@ -119,7 +120,9 @@ body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu
   width: 100%;
 }
 /* Wider Mega Menu */
-#toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 div.toolbar-menu-wrapper ul.menu li a {
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 div.toolbar-menu-wrapper ul.menu li a,
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 div.toolbar-menu-wrapper ul.menu li:hover a,
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 li:hover div.toolbar-menu-wrapper ul.menu li a {
   font-size: 15px;
   color: #57b3fc;
   font-weight: 500;
@@ -131,6 +134,9 @@ body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu
 body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu li a:hover,
 body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li a:hover{
   color: #57b3fc;
+}
+body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
+  opacity: 1;
 }
 #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper a:hover {
   -moz-box-shadow: none;
