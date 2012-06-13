@@ -7,7 +7,7 @@ stylesheets[screen][] = style.css
 ; Contrib Module Admin Styles
 stylesheets[screen][] = contrib.css
 ; Install and Maintenance Pages
-stylesheets[screen][] = commerce_kickstart_admin.css
+stylesheets[all][] = commerce_kickstart_admin.css
 
 settings[shortcut_module_link] = 1
 regions[content] = Content

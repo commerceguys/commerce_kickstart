@@ -33,8 +33,12 @@
     </div>
 
   </div>
-
+  <div class="footer-messages clearfix">
   <div id="credit" class="clearfix">
     <div class="message">Proudly built by</div>
     <div class="logo"><a href="http://commerceguys.com">Commerce Guys</a></div>
+  </div>
+  <div id="powered">
+    Powered by <a href="http://drupalcommerce.org">Drupal Commerce</a>
+  </div>
   </div>

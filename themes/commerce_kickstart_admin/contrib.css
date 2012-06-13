@@ -868,6 +868,44 @@ div.views-megarow-content .megarow-header .megarow-title {
   background: #60aa20 url("images/button-over.png") repeat-x 0 0;
 }
 
+#commerce-kickstart-inline-help-button {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+}
+/* Customizing the View Filters */
+.view-filters fieldset.collapsible,
+.vbo-views-form fieldset.collapsible {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  height: auto;
+}
+.view-filters fieldset.collapsible .fieldset-wrapper,
+.vbo-views-form fieldset.collapsible .fieldset-wrapper {
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+html.js .view-filters fieldset.collapsible .fieldset-legend,
+html.js .vbo-views-form fieldset.collapsible .fieldset-legend {
+  background: transparent url("images/filter.png") no-repeat 0 0;
+  padding-left: 30px;
+  color: #36a2f6;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+html.js .view-filters fieldset.collapsible .fieldset-legend a,
+html.js .vbo-views-form fieldset.collapsible .fieldset-legend a{
+  color: #36a2f6;
+}
+html.js .view-filters fieldset.collapsible .fieldset-legend {
+  background: transparent url("images/filter.png") no-repeat 0 0;
+}
+html.js .vbo-views-form fieldset.collapsible .fieldset-legend {
+  background: transparent url("images/bulk-update.png") no-repeat 0 0;
+}
 /* @end */
 
 /* @end */

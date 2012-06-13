@@ -329,19 +329,27 @@ h1#overlay-title {
 #overlay-titlebar .add-or-remove-shortcuts {
   padding-bottom: .9em;
 }
-#credit {
-  margin:  0 40px;
-  padding: 20px 0 40px;
-  color: #000;
-  font: normal 13px/13px "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+.footer-messages {
+  clear: both;
+  font-size: 13px;
+  margin: 0 40px;
+  font: normal 13px/13px "Open Sans", Arial, sans-serif;
+  border-top: 1px solid #efefef;
 }
-#overlay #overlay-content #credit {
+#overlay #overlay-content .footer-messages {
   position: absolute;
-  right: 0;
   top: 100%;
   color: #fff;
-  width: 950px;
-  margin: 0 auto;
+  margin: 0;
+  width: 100%;
+  border-top: 0;
+}
+#credit {
+  padding: 20px 0 40px;
+  float: right;
+}
+#powered {
+  padding-top: 20px;
 }
 body.in-maintenance #credit {
   width: 960px;
@@ -369,6 +377,9 @@ body.in-maintenance #credit .logo a {
 #overlay #overlay-content #credit .logo a {
   background: transparent url("images/logo-cg.png") no-repeat 0 0;
 }
+#block-system-main {
+  position: relative;
+}
 .breadcrumb {
   background: #fff;
   border: 1px solid #ddd;
@@ -394,7 +405,7 @@ body.in-maintenance #credit .logo a {
   background: transparent url("images/breadcrumb.png") no-repeat 0 0;
   height: 10px;
   width: 10px;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 #commerce-kickstart-inline-help {
   position: relative;
@@ -518,7 +529,7 @@ body.in-maintenance #credit .logo a {
   display: none;
 }
 .help-section {
-  padding: 5px 4.86111% 5px 10.76388%; /* 42 / 864 and 93/864 */
+  padding: 5px 4.86111% 5px 95px; /* 42 / 864 */
 }
 .help-section h3,
 .help-section h3 a {
@@ -539,7 +550,7 @@ body.in-maintenance #credit .logo a {
   height: 30px;
   width: 40px;
   left: -25px;
-  top: 45%;
+  top: 47%;
 }
 .tipsy-inner {
   background: rgba(255,240,187,.86);
@@ -613,6 +624,12 @@ input.form-submit, a.button {
 .form-actions #edit-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
   color: #fff;
+}
+.form-actions #edit-submit:hover {
+  background: #60aa20 url("images/button-over.png") repeat-x 0 0;
+}
+input.form-submit:hover, a.button:hover {
+  background-position: 0 bottom;
 }
 .form-actions #edit-submit:hover {
   background: #60aa20 url("images/button-over.png") repeat-x 0 0;
@@ -708,6 +725,9 @@ ul.pager li.pager-next a {
 ul.pager li.pager-first,
 ul.pager li.pager-last {
   display: none;
+}
+html.js fieldset.collapsed {
+  height: 55px;
 }
 html.js input.form-autocomplete {
   background-position: 100% 5px;
