@@ -30,9 +30,10 @@ body.in-maintenance #branding h1.page-title {
   color: #fff;
   text-align: center;
   padding: 10px 0;
-  font-size: 52px;
+  font-size: 40px;
   line-height: 1em;
   font-weight: 100;
+  margin-bottom: 20px;
 }
 body.in-maintenance #page {
   width: 960px;
@@ -44,9 +45,6 @@ body.in-maintenance .page-wrapper {
   border: 1px solid #fff;
   padding: 40px;
 }
-body.in-maintenance .logo-wrapper {
-  text-align: center;
-}
 body.in-maintenance #logo {
   max-width: 100%;
 }
@@ -56,9 +54,9 @@ body.in-maintenance #sidebar-first {
 body.in-maintenance ol.task-list li {
   background: transparent url("images/tasks-inactive.png") no-repeat 0 0;
   color: #999999;
-  padding: 2px 0 2px 30px;
+  padding: 3px 0 3px 30px;
   margin: 0 0 17px 0;
-  font: normal 400 22px/22px "Open Sans", Arial, sans-serif;
+  font: normal 400 16px/18px "Open Sans", Arial, sans-serif;
 }
 body.in-maintenance ol.task-list li.active {
   background: transparent url("images/tasks-active.png") no-repeat 0 0;
@@ -189,6 +187,9 @@ select.form-select {
   font: normal 400 1em/1em "Open Sans", Arial, sans-serif;
   max-width: 100%;
 }
+body.in-maintenance select.form-select {
+  width: 500px;
+}
 .form-required,
 .form-type-managed-file strong {
   color: #ff7e00;
@@ -196,11 +197,11 @@ select.form-select {
 }
 body.in-maintenance .form-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
-  font: normal 400 24px/24px "Open Sans", Arial, sans-serif;
+  font: normal 400 16px/16px "Open Sans", Arial, sans-serif;
   color: #fff;
   border: 1px solid #fff;
   border-radius: 10px;
-  padding: 10px 12px;
+  padding: 8px 12px;
 }
 body.in-maintenance .form-submit:hover {
   background: #79d428 url("images/button-over.png") repeat-x 0 0;
@@ -211,10 +212,15 @@ body.in-maintenance #install-settings-form fieldset .fieldset-legend {
 body.in-maintenance #install-settings-form fieldset .fieldset-wrapper {
   padding-top: 25px;
 }
+#edit-account-commerce-kickstart-name,
+#edit-account-commerce-kickstart-password {
+  font-weight: 700;
+}
 #edit-account-commerce-kickstart-name label,
 #edit-account-commerce-kickstart-password label {
   float: left;
   margin-right: 8px;
+  font-weight: 500;
 }
 
 /* Overlay Styles */
@@ -599,6 +605,9 @@ input.form-submit, a.button {
 .form-actions #edit-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
   color: #fff;
+}
+.form-actions #edit-submit:hover {
+  background: #60aa20 url("images/button-over.png") repeat-x 0 0;
 }
 #overlay-container .overlay-modal-background {
   background: #ccc;
