@@ -55,6 +55,11 @@
 /**
  * Navigation
  */
+.navigation .primary-menu ul,
+.navigation .second-menu ul {
+  float: left;
+  width: 100%;
+}
 .main-menu a,
 .secondary-menu a {
   display: inline;
