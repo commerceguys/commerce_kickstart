@@ -82,6 +82,7 @@ function commerce_kickstart_install_tasks() {
  * Implements hook_install_tasks_alter().
  */
 function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
+  $tasks['install_select_profile']['display'] = FALSE;
   $tasks['install_finished']['function'] = 'commerce_kickstart_install_finished';
 
   _commerce_kickstart_set_theme('commerce_kickstart_admin');
