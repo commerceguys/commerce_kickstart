@@ -7,7 +7,7 @@
  * General
  * ==========================================================
  */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
 body {
   background: #ececec url('../images/bg.png') left top;
   font-family: 'Open Sans', sans-serif;
