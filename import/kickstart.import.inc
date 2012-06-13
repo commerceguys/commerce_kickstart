@@ -773,6 +773,59 @@ function _commerce_kickstart_example_display($operation, &$context) {
  *
  * @see commerce_kickstart_import_product()
  */
+function _commerce_kickstart_example_user($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Create a sample user.
+  $user = array(
+    'name' => 'Sample Customer',
+    'mail' => 'customer@example.com',
+    'pass' => 'customer',
+    'status' => 1,
+  );
+  $user = user_save(NULL, $user);
+
+  // Create a bIlling customer profile.
+  $billing_profile = commerce_customer_profile_new('billing', $user->uid);
+  $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample billing address 1';
+  $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['country'] = 'US';
+  $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['thoroughfare'] = '16 Hampton Ct';
+  $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['locality'] = 'Visalia';
+  $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['administrative_area'] = 'CA';
+  $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['postal_code'] = '93277-8329';
+  commerce_customer_profile_save($billing_profile);
+  commerce_addressbook_set_default_profile($billing_profile);
+
+  // Create two shipping customer profile samples.
+  $shipping_profile = commerce_customer_profile_new('shipping', $user->uid);
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample shipping address 1';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['country'] = 'US';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['thoroughfare'] = '2843 Sherman Ave';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['locality'] = 'Camden';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['administrative_area'] = 'NJ';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['postal_code'] = '08105-442';
+  commerce_customer_profile_save($shipping_profile);
+  commerce_addressbook_set_default_profile($shipping_profile);
+
+  $shipping_profile = commerce_customer_profile_new('shipping', $user->uid);
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample shipping address 2';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['country'] = 'FR';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['thoroughfare'] = '27 rue des sapins';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['locality'] = 'Paris';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['postal_code'] = '75004';
+  commerce_customer_profile_save($shipping_profile);
+
+  // Create 3 order samples.
+  _commerce_kickstart_create_order($user->uid, 'cart', 2);
+  _commerce_kickstart_create_order($user->uid, 'completed', 5);
+  _commerce_kickstart_create_order($user->uid, 'completed', 3);
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_import_product()
+ */
 function _commerce_kickstart_post_enable_modules($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
 
@@ -871,4 +924,30 @@ function _commerce_kickstart_add_term($name, $vocabulary, $check = TRUE, $color 
     }
     taxonomy_term_save($term);
   }
+}
+
+/*
+ * Helper function to create a sample order.
+ *
+ * @param $uid
+ * @param $order_state
+ * @param $items_number
+ */
+function _commerce_kickstart_create_order($uid, $order_state, $items_number) {
+  $order = commerce_order_new($uid, $order_state);
+  commerce_order_save($order);
+
+  $line_items = array();
+  $products = entity_load('commerce_product');
+  $products_key = array_keys($products);
+  $products_number = count($products_key);
+  $count = $products_number < $items_number ? $products_number: $items_number;
+  for($i = 0; $i < $count; $i++) {
+    $product = $products[$products_key[rand(1, $products_number)]];
+    $line_item = commerce_product_line_item_new($product, 1, $order->order_id);
+    commerce_line_item_save($line_item);
+    $line_items[] = array('line_item_id' => $line_item->line_item_id);
+  }
+  $order->commerce_line_items[LANGUAGE_NONE] = $line_items;
+  commerce_order_save($order);
 }

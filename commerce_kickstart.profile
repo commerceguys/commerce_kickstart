@@ -266,6 +266,7 @@ function commerce_kickstart_import_product() {
       array('_commerce_kickstart_example_shoes', array(t('Setting up example shoes.'))),
       array('_commerce_kickstart_example_tops', array(t('Setting up example tops.'))),
       array('_commerce_kickstart_example_display', array(t('Setting up example display.'))),
+      array('_commerce_kickstart_example_user', array(t('Setting up example user.'))),
       array('_commerce_kickstart_post_enable_modules', array(t('Setting up example modules.'))),
     ),
     'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',

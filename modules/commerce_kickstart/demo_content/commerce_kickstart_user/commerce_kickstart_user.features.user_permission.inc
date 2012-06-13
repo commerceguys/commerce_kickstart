@@ -1513,7 +1513,8 @@ function commerce_kickstart_user_user_default_permissions() {
     'name' => 'edit own commerce_customer_profile entities',
     'roles' => array(
       0 => 'administrator',
-      1 => 'store administrator',
+      1 => 'authenticated user',
+      2 => 'store administrator',
     ),
     'module' => 'commerce_customer',
   );
@@ -2139,7 +2140,8 @@ function commerce_kickstart_user_user_default_permissions() {
     'name' => 'view own commerce_customer_profile entities',
     'roles' => array(
       0 => 'administrator',
-      1 => 'store administrator',
+      1 => 'authenticated user',
+      2 => 'store administrator',
     ),
     'module' => 'commerce_customer',
   );
