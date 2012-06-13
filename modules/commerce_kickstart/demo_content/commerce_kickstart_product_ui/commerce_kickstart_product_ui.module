@@ -355,3 +355,14 @@ function commerce_kickstart_product_ui_preprocess_views_view(&$vars) {
     $vars['exposed'] = $matches[1] . theme('fieldset', $fieldset) . $matches[3];
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function commerce_kickstart_product_ui_form_views_form_alter(&$form, &$form_state, $form_id) {
+  // Adjust VBO text labels
+  if (isset($form['select']) && $form['select']['#title'] == 'Operations'){
+    $form['select']['#title'] = t('Bulk Updates');
+    $form['select']['#collapsed'] = TRUE;
+  }
+}
