@@ -354,7 +354,7 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
 /* Cart block */
 #block-views-shopping-cart-block {
   margin: 0 auto;
-  width: 260px;
+  width: 300px;
 }
 .block-shopping-cart-block,
 .block-shopping-cart-block .block-inner,
@@ -398,9 +398,6 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
   padding-right: 25px;
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
-  padding-right: 10px;
-}
-.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
   color: #2698F2;
   text-decoration: none;
  }
@@ -411,7 +408,7 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
   font-weight: 300;
   height: 100%;
   line-height: 30px;
-  padding: 0 12px;
+  padding: 0 12px 0 6px;
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total-label {
   display: none;
@@ -425,7 +422,7 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
   font-weight: 300;
   height: 100%;
   line-height: 30px;
-  margin: 0;
+  margin: 0 0 0 5px;
   padding: 0 10px;
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links a {
