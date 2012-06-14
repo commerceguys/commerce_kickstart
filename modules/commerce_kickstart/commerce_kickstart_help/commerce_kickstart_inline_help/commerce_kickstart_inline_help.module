@@ -63,7 +63,7 @@ function commerce_kickstart_inline_help_form_ajax($form, &$form_state, $id) {
     '#type' => 'hidden',
     );
   $form['commerce_kickstart_inline_help_button'] = array(
-    '#value' => t('Open'),
+    '#value' => t('Show help'),
     '#type' => 'button',
     '#name' => 'open',
     '#default_value' => 'open',
