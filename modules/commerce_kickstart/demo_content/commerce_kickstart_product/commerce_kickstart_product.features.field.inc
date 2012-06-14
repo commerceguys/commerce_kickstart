@@ -3227,7 +3227,7 @@ function commerce_kickstart_product_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_product',
-      'label' => 'Product',
+      'label' => 'Product variations',
       'required' => 1,
       'settings' => array(
         'field_injection' => 1,
@@ -3781,7 +3781,7 @@ function commerce_kickstart_product_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_product',
-      'label' => 'Product',
+      'label' => 'Product variations',
       'required' => 1,
       'settings' => array(
         'field_injection' => 1,
@@ -4335,7 +4335,7 @@ function commerce_kickstart_product_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_product',
-      'label' => 'Product',
+      'label' => 'Product variations',
       'required' => 1,
       'settings' => array(
         'field_injection' => 1,
@@ -4889,7 +4889,7 @@ function commerce_kickstart_product_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_product',
-      'label' => 'Product',
+      'label' => 'Product variations',
       'required' => 1,
       'settings' => array(
         'field_injection' => 1,
@@ -5443,7 +5443,7 @@ function commerce_kickstart_product_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_product',
-      'label' => 'Product',
+      'label' => 'Product variations',
       'required' => 1,
       'settings' => array(
         'field_injection' => 1,
@@ -5997,7 +5997,7 @@ function commerce_kickstart_product_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_product',
-      'label' => 'Product',
+      'label' => 'Product variations',
       'required' => 1,
       'settings' => array(
         'field_injection' => 1,
