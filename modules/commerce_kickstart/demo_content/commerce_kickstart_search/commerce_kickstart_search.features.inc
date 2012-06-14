@@ -194,28 +194,6 @@ function commerce_kickstart_search_default_search_api_server() {
  */
 function commerce_kickstart_search_default_search_api_sort() {
   $items = array();
-  $items['search_commerce_display__field_product_commerce_price_amount_float_asc'] = entity_import('search_api_sort', '{
-    "index_id" : "search_commerce_display",
-    "field" : "field_product_commerce_price_amount_float_asc",
-    "name" : "Lowest price",
-    "enabled" : "1",
-    "weight" : "0",
-    "identifier" : "search_commerce_display__field_product_commerce_price_amount_float_asc",
-    "default_sort" : "0",
-    "default_order" : "asc",
-    "options" : { "field_name" : "Product \\u00bb Price \\u00bb Amount (float) (Min)" }
-  }');
-  $items['search_commerce_display__field_product_commerce_price_amount_float_desc'] = entity_import('search_api_sort', '{
-    "index_id" : "search_commerce_display",
-    "field" : "field_product_commerce_price_amount_float_desc",
-    "name" : "Highest price",
-    "enabled" : "1",
-    "weight" : "10",
-    "identifier" : "search_commerce_display__field_product_commerce_price_amount_float_desc",
-    "default_sort" : "0",
-    "default_order" : "desc",
-    "options" : { "field_name" : "Product \\u00bb Price \\u00bb Amount (float) (Max)" }
-  }');
   $items['search_commerce_display__created'] = entity_import('search_api_sort', '{
     "index_id" : "search_commerce_display",
     "field" : "created",
@@ -226,6 +204,17 @@ function commerce_kickstart_search_default_search_api_sort() {
     "default_sort" : "0",
     "default_order" : "asc",
     "options" : { "field_name" : "Date created" }
+  }');
+  $items['search_commerce_display__field_product_commerce_price_amount_float_asc'] = entity_import('search_api_sort', '{
+    "index_id" : "search_commerce_display",
+    "field" : "field_product_commerce_price_amount_float_asc",
+    "name" : "Price",
+    "enabled" : "1",
+    "weight" : "0",
+    "identifier" : "search_commerce_display__field_product_commerce_price_amount_float_asc",
+    "default_sort" : "0",
+    "default_order" : "asc",
+    "options" : { "field_name" : "Product \\u00bb Price \\u00bb Amount (float) (Min)" }
   }');
   $items['search_commerce_display__title'] = entity_import('search_api_sort', '{
     "index_id" : "search_commerce_display",
