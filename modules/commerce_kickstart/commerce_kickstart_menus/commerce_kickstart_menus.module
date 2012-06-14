@@ -74,6 +74,11 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     $items['admin/commerce/config/product-pricing']['title'] = 'Pricing rules';
   }
 
+  if (isset($items['admin/commerce/products/types'])) {
+    // Hide "Product types" tab & show the link under "Store settings".
+    $items['admin/commerce/products/types']['parent'] = 'admin/commerce/config';
+    $items['admin/commerce/products/types']['type'] = MENU_NORMAL_ITEM;
+  }
   // - Visual & Layout subentry.
   if (isset($items['admin/site-config/layout'])) {
     $items['admin/site-config/layout']['options'] = array(
