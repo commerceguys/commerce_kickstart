@@ -137,7 +137,7 @@ function commerce_kickstart_social_default_oauthconnector_provider() {
         'method post' => 0,
         'field' => 'name',
         'querypath' => FALSE,
-        'sync_with_field' => '',
+        'sync_with_field' => 'name',
       ),
       'avatar' => array(
         'resource' => 'https://api.twitter.com/1/account/verify_credentials.json',

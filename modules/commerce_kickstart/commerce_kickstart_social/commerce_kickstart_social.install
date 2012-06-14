@@ -56,7 +56,6 @@ function commerce_kickstart_social_install() {
 function commerce_kickstart_social_enable() {
   $values = array(
     'title' => 'email',
-    'required' => TRUE,
     'description' => '',
   );
   oauthconnector_fields_save('email', $values);
