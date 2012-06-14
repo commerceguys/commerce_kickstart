@@ -179,6 +179,8 @@ function commerce_kickstart_configure_store_form() {
     '#description' => st('Recommended for new users. Demonstrates how you can set-up your Drupal Commerce site.'),
     '#options' => $options,
     '#default_value' => '1',
+     // This still needs some love
+    '#disabled' => TRUE,
   );
 
   // Build a currency options list from all defined currencies.
