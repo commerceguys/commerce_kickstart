@@ -70,6 +70,7 @@ projects[field_extractor][version] = 1.x-dev
 projects[field_extractor][subdir] = "contrib"
 projects[service_links][version] = 2.1
 projects[service_links][subdir] = "contrib"
+projects[service_links][patch][] = "http://drupal.org/files/twitter-share-button-ssl-page-1524562-5.patch"
 projects[taxonomy_breadcrumb][version] = 1.x-dev
 projects[taxonomy_breadcrumb][subdir] = "contrib"
 projects[taxonomy_breadcrumb][patch][] = "http://drupal.org/files/taxonomy_breadcrumb_vocabulary_selection_bug-1220250-1_0.patch"
