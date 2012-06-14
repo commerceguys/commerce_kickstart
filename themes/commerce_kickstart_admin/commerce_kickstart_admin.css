@@ -626,6 +626,9 @@ input.form-submit, a.button {
   margin-top: 1px;
   margin-left: 1px;
 }
+.form-managed-file input.form-file {
+  margin-right: 20px;
+}
 .form-actions #edit-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
   color: #fff;

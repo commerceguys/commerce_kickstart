@@ -592,18 +592,22 @@ table th {
   padding: 0;
 }
 .field-widget-inline-entity-form fieldset {
-  padding-top: 10px;
-}
-.page-node-add #edit-field-product-und {
-  padding-top: 2em;
+  padding-top: 40px;
 }
 .field-type-commerce-product-reference .fieldset-legend {
   padding-left: 0;
 }
+
+.field-widget-inline-entity-form fieldset fieldset{
+  background: #fff;
+  border: 1px solid #E1E1E1;
+  padding: 40px 15px 15px;
+}
 .field-widget-inline-entity-form fieldset.ief-entity-fieldset {
   background: transparent;
-  padding-top: 3em;
+  padding: 3em 0 0;
   margin: 0;
+  border: 0;
 }
 .field-widget-inline-entity-form fieldset.ief-entity-fieldset .fieldset-legend {
   width: 100%;
@@ -709,18 +713,13 @@ tr.even {
   float: left;
   margin-right: 25px;
 }
-#inline-entity-form-field-product-und > fieldset {
+.field-widget-inline-entity-form > fieldset {
   padding-top: 30px;
 }
-#edit-field-product-und-add-form {
-  background: #fff;
-  border: 1px solid #E1E1E1;
-  padding: 40px 15px 15px;
-}
-#edit-field-product-und-add-form .fieldset-legend {
+.field-widget-inline-entity-form .fieldset-legend {
   padding: 10px 0 0;
 }
-#edit-field-product-und-add-form .fieldset-wrapper .fieldset-legend,
+.field-widget-inline-entity-form .fieldset-wrapper .fieldset-wrapper .fieldset-legend,
 .ief-row-form .inline-entity-form-title .fieldset-legend {
   margin-top: 10px;
   padding: 3px 20px;
@@ -866,14 +865,14 @@ div.views-megarow-content .megarow-header .megarow-title {
 }
 /* Inline product edit field styles */
 .ief-row-form .inline-entity-form-title input.ief-entity-submit,
-#edit-field-product-und-add-form-actions input.ief-entity-submit {
+.field-widget-inline-entity-form input.ief-entity-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
   color: #fff;
   border: 1px solid #fff;
   box-shadow: 0 0 2px #999;
 }
 .ief-row-form .inline-entity-form-title input.ief-entity-submit:hover,
-#edit-field-product-und-add-form-actions input.ief-entity-submit:hover {
+.field-widget-inline-entity-form input.ief-entity-submit input.ief-entity-submit:hover {
   background: #60aa20 url("images/button-over.png") repeat-x 0 0;
 }
 
