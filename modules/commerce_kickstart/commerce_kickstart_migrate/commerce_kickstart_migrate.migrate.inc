@@ -414,7 +414,7 @@ class CommerceKickstartStorage extends Migration {
   }
 }
 
-class CommerceKickstartProductDisplay extends DynamicMigration {
+class CommerceKickstartNode extends DynamicMigration {
 
   public function __construct(array $arguments) {
     $this->arguments = $arguments;
@@ -458,7 +458,6 @@ class CommerceKickstartProductDisplay extends DynamicMigration {
     $this->addFieldMapping('field_gender', 'gender');
     $this->addFieldMapping('field_gender:create_term')
       ->defaultValue(TRUE);
-
     $this->addFieldMapping('field_product', 'skus');
   }
 
@@ -487,7 +486,7 @@ class CommerceKickstartProductDisplay extends DynamicMigration {
    * Construct the machine name from the source file name.
    */
   protected function generateMachineName($class_name = NULL) {
-    return drupal_strtolower('KickstartProductDisplay' . $this->arguments['type']);
+    return drupal_strtolower('CommerceKickstartNode' . $this->arguments['type']);
   }
 
 }
