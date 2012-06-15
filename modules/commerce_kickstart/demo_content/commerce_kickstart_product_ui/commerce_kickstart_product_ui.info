@@ -62,7 +62,6 @@ features[facetapi][] = search_api@search_commerce_product:block:search_api_langu
 features[features_api][] = api:1
 features[menu_custom][] = main-menu
 features[menu_links][] = main-menu_all-products:products
-features[menu_links][] = main-menu_home:<front>
 features[variable][] = taxonomy_breadcrumb_home
 features[variable][] = taxonomy_breadcrumb_include_node_title
 features[variable][] = taxonomy_breadcrumb_include_nodes
