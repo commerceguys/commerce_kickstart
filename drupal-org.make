@@ -7,7 +7,7 @@ projects[ctools][version] = 1.0
 projects[ctools][subdir] = "contrib"
 projects[entity][version] = 1.0-rc3
 projects[entity][subdir] = "contrib"
-projects[entityreference][version] = 1.0-rc2
+projects[entityreference][version] = 1.0-rc3
 projects[entityreference][subdir] = "contrib"
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters.patch"
 projects[entityreference][patch][] = "http://drupal.org/files/1608358-selectionhandler-views-broken.patch"
@@ -34,7 +34,7 @@ projects[views_megarow][version] = 1.x-dev
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
-projects[commerce][version] = 1.x-dev
+projects[commerce][version] = 1.3
 projects[commerce][subdir] = "contrib"
 projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
 projects[commerce][patch][] = "http://drupal.org/files/1620014-fix-title-status.patch"
