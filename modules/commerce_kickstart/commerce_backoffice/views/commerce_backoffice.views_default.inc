@@ -374,19 +374,6 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['filters']['order_id']['expose']['operator'] = 'order_id_op';
   $handler->display->display_options['filters']['order_id']['expose']['identifier'] = 'order_id';
   $handler->display->display_options['filters']['order_id']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Commerce Order: Name */
-  $handler->display->display_options['filters']['uid']['id'] = 'uid';
-  $handler->display->display_options['filters']['uid']['table'] = 'commerce_order';
-  $handler->display->display_options['filters']['uid']['field'] = 'uid';
-  $handler->display->display_options['filters']['uid']['value'] = '';
-  $handler->display->display_options['filters']['uid']['group'] = 1;
-  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
-  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Name';
-  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
-  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
-  $handler->display->display_options['filters']['uid']['expose']['multiple'] = FALSE;
-  $handler->display->display_options['filters']['uid']['expose']['reduce'] = 0;
   /* Filter criterion: User: E-mail */
   $handler->display->display_options['filters']['mail']['id'] = 'mail';
   $handler->display->display_options['filters']['mail']['table'] = 'users';
