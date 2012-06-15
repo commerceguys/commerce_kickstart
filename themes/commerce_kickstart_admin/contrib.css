@@ -770,8 +770,8 @@ tr.even {
   font-weight: 500;
 }
 .entity-commerce-order .field-name-commerce-order-total {
-  background: #d7f8fd;
-  border: 1px solid #71e1f2;
+  background: #DFF2FB;
+  border: 1px solid #AFDBE9;
   border-radius: 10px;
   padding: 8px 15px;
   margin-bottom: 30px;
@@ -786,6 +786,10 @@ tr.even {
 .entity-commerce-order tr,
 tr td:last-child {
   border: 0;
+}
+/* Blocks admin doesn't */
+#blocks tr td:last-child {
+  border-right: 1px solid #BEBFB9;
 }
 .content-right > div.field {
   border: 0;
@@ -832,8 +836,8 @@ tr td:last-child {
 }
 .view-commerce-backoffice-orders tr.views-row-active,
 .view-commerce-backoffice-products tr.views-row-active {
-  background: #d7f8fd !important;
-  border: 1px solid #71e1f2;
+  background: #DFF2FB !important;
+  border: 1px solid #AFDBE9;
 }
 .view-commerce-backoffice-orders tr.views-row-active td,
 .view-commerce-backoffice-products tr.views-row-active td {
@@ -853,10 +857,11 @@ tr.megarow > td {
 div.views-megarow-content {
   padding-top: 0;
   background: transparent;
+  border-bottom: 1px solid #BEBFB9;
 }
 div.views-megarow-content .megarow-header,
 .ief-row-form .inline-entity-form-title {
-  background: transparent url("images/mega-arrow.png") no-repeat 50px 0;
+  background: transparent url("images/mega-arrow.png") no-repeat 50px -1px;
   margin-top: -1px;
   position: relative;
 }
@@ -882,8 +887,8 @@ div.views-megarow-content .megarow-header .megarow-title {
   bottom: 100%;
 }
 /* Customizing the View Filters */
-.view-filters fieldset.collapsible,
-.vbo-views-form fieldset.collapsible {
+html.js .view-filters fieldset.collapsible,
+html.js .vbo-views-form fieldset.collapsible {
   border: 0;
   outline: 0;
   background: transparent;
@@ -891,8 +896,8 @@ div.views-megarow-content .megarow-header .megarow-title {
   margin: 0;
   height: auto;
 }
-.view-filters fieldset.collapsible .fieldset-wrapper,
-.vbo-views-form fieldset.collapsible .fieldset-wrapper {
+html.js .view-filters fieldset.collapsible .fieldset-wrapper,
+html.js .vbo-views-form fieldset.collapsible .fieldset-wrapper {
   padding-top: 30px;
   margin-bottom: 30px;
 }
@@ -914,6 +919,25 @@ html.js .view-filters fieldset.collapsible .fieldset-legend {
 html.js .vbo-views-form fieldset.collapsible .fieldset-legend {
   background: transparent url("images/bulk-update.png") no-repeat 0 0;
 }
+html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend {
+  background: transparent url("images/add.png") no-repeat 0 0;
+  text-transform: none;
+}
+
+/* Rules Pages */
+/* This fixes a firefox outline bug */
+#rules-ui-edit-element fieldset .fieldset-wrapper {
+  outline: 0;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 0 1px #fff;
+}
+#rules-ui-edit-element fieldset .fieldset-wrapper .fieldset-wrapper {
+  border: 0;
+}
+.rules-autocomplete-button {
+  top: 6px;
+}
+
 /* @end */
 
 /* @end */

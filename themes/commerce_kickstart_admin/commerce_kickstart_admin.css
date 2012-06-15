@@ -17,11 +17,12 @@ a {
 }
 
 /* Installation/Maintenance Page */
+body.in-maintenance {
+  background: #191818 url("images/bg-maintenance.png") repeat-x 0 12px;
+}
 body.in-maintenance .body-wrapper {
-  background: #191818 url("images/bg-maintenance.png") repeat-x 0 0;
   border-top: 12px solid #36a2f6;
   padding-bottom: 30px;
-  min-height: 1220px;
 }
 body.in-maintenance #branding {
   background: transparent;
@@ -107,7 +108,7 @@ fieldset.collapsible  .fieldset-wrapper {
   border: 0;
   outline: 0;
   background: transparent;
-  padding: 15px 0 0;
+  padding: 25px 0 0;
 }
 body.in-maintenance fieldset .fieldset-legend {
   font-size: 28px;
@@ -233,12 +234,6 @@ body.in-maintenance #install-settings-form fieldset .fieldset-wrapper {
 
 /* Overlay Styles */
 
-ul.admin-list li {
-  padding-top: 11px;
-}
-ul.admin-list li a {
-  font-size: 16px;
-}
 a.tabledrag-handle .handle {
   height: 25px;
   width: 25px;
@@ -401,6 +396,7 @@ body.in-maintenance #credit .logo a {
 .breadcrumb a {
   color: #040404;
   font-size: 13px;
+  line-height: 26px;
 }
 .breadcrumb a:hover {
   text-decoration: underline;
@@ -609,6 +605,7 @@ body.in-maintenance #credit .logo a {
 }
 #block-commerce-kickstart-help-commerce-kickstart-help {
   padding-left: 30px;
+  padding-top: 10px;
 }
 #block-commerce-kickstart-help-commerce-kickstart-help h2 {
   background: transparent url("images/help-lg.png") no-repeat 0 0;
