@@ -175,7 +175,7 @@ class CommerceKickstartHats extends Migration {
       ->defaultValue(TRUE);
 
     // Color
-    $this->addFieldMapping('field_color', 'size');
+    $this->addFieldMapping('field_color', 'color');
     $this->addFieldMapping('field_color:additional_field', 'hexadecimal');
     $this->addFieldMapping('field_color:create_term')
       ->defaultValue(TRUE);
@@ -313,7 +313,7 @@ class CommerceKickstartShoes extends Migration {
       ->defaultValue(TRUE);
 
     // Color
-    $this->addFieldMapping('field_color', 'size');
+    $this->addFieldMapping('field_color', 'color');
     $this->addFieldMapping('field_color:additional_field', 'hexadecimal');
     $this->addFieldMapping('field_color:create_term')
       ->defaultValue(TRUE);
