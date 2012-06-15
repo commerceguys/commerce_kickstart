@@ -388,18 +388,22 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['filters']['mail']['expose']['identifier'] = 'mail';
   $handler->display->display_options['filters']['mail']['expose']['required'] = 0;
   $handler->display->display_options['filters']['mail']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Commerce Order: Updated date */
-  $handler->display->display_options['filters']['changed']['id'] = 'changed';
-  $handler->display->display_options['filters']['changed']['table'] = 'commerce_order';
-  $handler->display->display_options['filters']['changed']['field'] = 'changed';
-  $handler->display->display_options['filters']['changed']['operator'] = 'between';
-  $handler->display->display_options['filters']['changed']['group'] = 1;
-  $handler->display->display_options['filters']['changed']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['changed']['expose']['operator_id'] = 'changed_op';
-  $handler->display->display_options['filters']['changed']['expose']['label'] = 'Updated date';
-  $handler->display->display_options['filters']['changed']['expose']['operator'] = 'changed_op';
-  $handler->display->display_options['filters']['changed']['expose']['identifier'] = 'changed';
-  $handler->display->display_options['filters']['changed']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Date: Date (commerce_order) */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'commerce_order';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
+  $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Updated date';
+  $handler->display->display_options['filters']['date_filter']['expose']['operator'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['identifier'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['expose']['multiple'] = FALSE;
+  $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
+  $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
+    'commerce_order.changed' => 'commerce_order.changed',
+  );
 
   /* Display: Admin page */
   $handler = $view->new_display('page', 'Admin page', 'admin_page');

@@ -98,6 +98,8 @@ projects[migrate][version] = 2.4
 projects[migrate][subdir] = "contrib"
 projects[migrate_extras][version] = 2.4
 projects[migrate_extras][subdir] = "contrib"
+projects[date][version] = 2.5
+projects[date][subdir] = "contrib"
 
 ; Search related modules.
 projects[search_api][version] = 1.x-dev
