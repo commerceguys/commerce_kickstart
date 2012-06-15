@@ -111,7 +111,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['empty']['empty_text']['id'] = 'empty_text';
   $handler->display->display_options['empty']['empty_text']['table'] = 'commerce_order';
   $handler->display->display_options['empty']['empty_text']['field'] = 'empty_text';
-  $handler->display->display_options['empty']['empty_text']['add_path'] = 'test';
+  $handler->display->display_options['empty']['empty_text']['add_path'] = 'admin/commerce/orders/add';
   /* Relationship: Commerce Order: Referenced customer profile */
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['id'] = 'commerce_customer_billing_profile_id';
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['table'] = 'field_data_commerce_customer_billing';
