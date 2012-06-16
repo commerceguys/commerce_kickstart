@@ -33,12 +33,14 @@ class CommerceKickstartBagsCases extends Migration {
     $this->addFieldMapping('commerce_price', 'price');
 
     // Size
-    $this->addFieldMapping('field_images', 'product_images');
     $this->addFieldMapping('field_bag_size', 'size');
     $this->addFieldMapping('field_bag_size:create_term')
       ->defaultValue(TRUE);
 
     // Images
+    $this->addFieldMapping('field_images', 'product_images');
+    $this->addFieldMapping('field_images:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_images:source_dir')
       ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
 
@@ -102,6 +104,8 @@ class CommerceKickstartDrinks extends Migration {
 
     // Images
     $this->addFieldMapping('field_images', 'product_images');
+    $this->addFieldMapping('field_images:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_images:source_dir')
       ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
 
@@ -166,6 +170,8 @@ class CommerceKickstartHats extends Migration {
 
     // Images
     $this->addFieldMapping('field_images', 'product_images');
+    $this->addFieldMapping('field_images:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_images:source_dir')
       ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
 
@@ -235,6 +241,8 @@ class CommerceKickstartTops extends Migration {
 
     // images
     $this->addFieldMapping('field_images', 'product_images');
+    $this->addFieldMapping('field_images:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_images:source_dir')
       ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
 
@@ -304,6 +312,8 @@ class CommerceKickstartShoes extends Migration {
 
     // Images
     $this->addFieldMapping('field_images', 'product_images');
+    $this->addFieldMapping('field_images:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_images:source_dir')
       ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
 
@@ -373,6 +383,8 @@ class CommerceKickstartStorage extends Migration {
 
     // Images
     $this->addFieldMapping('field_images', 'product_images');
+    $this->addFieldMapping('field_images:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
     $this->addFieldMapping('field_images:source_dir')
       ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
 
