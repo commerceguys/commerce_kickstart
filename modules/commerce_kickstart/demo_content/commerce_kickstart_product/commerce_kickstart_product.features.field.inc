@@ -3249,6 +3249,7 @@ function commerce_kickstart_product_field_default_fields() {
           'fields' => array(),
           'type_settings' => array(
             'autogenerate_title' => 1,
+            'use_variation_language' => 1,
           ),
         ),
         'type' => 'inline_entity_form',
@@ -3803,6 +3804,7 @@ function commerce_kickstart_product_field_default_fields() {
           'fields' => array(),
           'type_settings' => array(
             'autogenerate_title' => 1,
+            'use_variation_language' => 1,
           ),
         ),
         'type' => 'inline_entity_form',
@@ -4357,6 +4359,7 @@ function commerce_kickstart_product_field_default_fields() {
           'fields' => array(),
           'type_settings' => array(
             'autogenerate_title' => 1,
+            'use_variation_language' => 1,
           ),
         ),
         'type' => 'inline_entity_form',
@@ -4911,6 +4914,7 @@ function commerce_kickstart_product_field_default_fields() {
           'fields' => array(),
           'type_settings' => array(
             'autogenerate_title' => 1,
+            'use_variation_language' => 1,
           ),
         ),
         'type' => 'inline_entity_form',
@@ -5465,6 +5469,7 @@ function commerce_kickstart_product_field_default_fields() {
           'fields' => array(),
           'type_settings' => array(
             'autogenerate_title' => 1,
+            'use_variation_language' => 1,
           ),
         ),
         'type' => 'inline_entity_form',
@@ -6019,6 +6024,7 @@ function commerce_kickstart_product_field_default_fields() {
           'fields' => array(),
           'type_settings' => array(
             'autogenerate_title' => 1,
+            'use_variation_language' => 1,
           ),
         ),
         'type' => 'inline_entity_form',
