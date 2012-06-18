@@ -921,6 +921,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['filters']['sku']['table'] = 'commerce_product';
   $handler->display->display_options['filters']['sku']['field'] = 'sku';
   $handler->display->display_options['filters']['sku']['relationship'] = 'field_product_product_id';
+  $handler->display->display_options['filters']['sku']['operator'] = 'contains';
   $handler->display->display_options['filters']['sku']['group'] = 1;
   $handler->display->display_options['filters']['sku']['exposed'] = TRUE;
   $handler->display->display_options['filters']['sku']['expose']['operator_id'] = 'sku_op';
@@ -929,11 +930,11 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['filters']['sku']['expose']['identifier'] = 'sku';
   $handler->display->display_options['filters']['sku']['expose']['required'] = 0;
   $handler->display->display_options['filters']['sku']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Commerce Product: Title */
+  /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'commerce_product';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['relationship'] = 'field_product_product_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
   $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
