@@ -151,7 +151,7 @@ function commerce_kickstart_install_finished(&$install_state) {
     // remove all the message that are only "notifications" message.
     drupal_get_messages('status', TRUE);
     drupal_get_messages('completed', TRUE);
-    
+
     // If we don't install drupal using Drush, redirect the user to the front
     // page.
     if (!drupal_is_cli()) {
@@ -260,6 +260,10 @@ function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
  */
 function commerce_kickstart_import_product() {
   drupal_set_title(st('Import products'));
+
+  // Fixes problems when the CSV files used for importing have been created
+  // on a Mac, by forcing PHP to detect the appropriate line endings.
+  ini_set("auto_detect_line_endings", TRUE);
 
   $migrations = migrate_migrations();
 
