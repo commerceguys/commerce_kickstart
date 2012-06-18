@@ -136,6 +136,7 @@ projects[custom_breadcrumbs][version] = 2.x-dev
 projects[custom_breadcrumbs][subdir] = "contrib"
 projects[special_menu_items][version] = 1.0
 projects[special_menu_items][subdir] = "contrib"
+projects[special_menu_items][patch][] = "http://drupal.org/files/undefined-indexes-_over_v1.0_1407172-2.patch"
 projects[cs_adaptive_image][version] = 1.0-alpha2
 projects[cs_adaptive_image][subdir] = "contrib"
 
