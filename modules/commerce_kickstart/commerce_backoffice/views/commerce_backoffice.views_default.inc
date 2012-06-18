@@ -1281,6 +1281,10 @@ function commerce_backoffice_views_default_views() {
  */
 function commerce_backoffice_views_default_views_alter(&$views) {
   // Disable the default order and product listings.
-  $views['commerce_orders']->disabled = TRUE;
-  $views['commerce_products']->disabled = TRUE;
+  if (isset($views['commerce_orders'])) {
+    $views['commerce_orders']->disabled = TRUE;
+  }
+  if (isset($views['commerce_products'])) {
+    $views['commerce_products']->disabled = TRUE;
+  }
 }
