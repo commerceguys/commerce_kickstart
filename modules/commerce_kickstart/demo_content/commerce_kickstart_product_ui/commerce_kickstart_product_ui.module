@@ -188,7 +188,7 @@ function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id
     }
   }
   if ($form_id == 'views_exposed_form') {
-    $form['search_api_views_fulltext']['#size'] = 32;
+    $form['search_api_views_fulltext']['#size'] = 30;
     $form['search_api_views_fulltext']['#attributes']['placeholder'] = t('Search');
   }
 }

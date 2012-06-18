@@ -13,13 +13,6 @@ function commerce_kickstart_merchandising_ui_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'cs_adaptive_image_breakpoint_count';
-  $strongarm->value = '3';
-  $export['cs_adaptive_image_breakpoint_count'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_taxonomy_term__collection';
   $strongarm->value = array(
     'view_modes' => array(

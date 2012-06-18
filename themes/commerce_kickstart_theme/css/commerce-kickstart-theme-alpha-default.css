@@ -138,16 +138,13 @@
   border: 4px solid #ffffff;
 }
 .block-blog-block .block-title {
-  background: url('../images/bg_block_homepage_title.png') left top no-repeat;
-  color: #ffffff;
-  font-size: 16px;
-  height: 50px;
+  background: transparent url('../images/bg_block_homepage_title.png') -18px top no-repeat;
   margin-top: 25px;
-  padding-top: 11px;
   padding-left: 25px;
   position: absolute;
   top: 0;
   left: -1px;
+  text-align: left;
   width: 112px;
   z-index: 1;
 }
