@@ -279,23 +279,6 @@ function commerce_kickstart_import_product() {
   return $batch;
 }
 
-function _commerce_kickstart_parse_csv($file) {
-  $csv = array();
-  $path = drupal_get_path('profile', 'commerce_kickstart') . '/import/csv/';
-  $row = 1;
-  $file = fopen(DRUPAL_ROOT . '/' . $path . $file, 'r');
-  while (($result = fgetcsv($file, NULL, ',')) !== FALSE) {
-    if ($row == 1) {
-      $row++;
-      continue;
-    }
-    $row++;
-    $csv[] = $result;
-  }
-  fclose($file);
-  return $csv;
-}
-
 /**
  * Helper function to create node.
  *
