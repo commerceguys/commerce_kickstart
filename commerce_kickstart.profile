@@ -214,6 +214,7 @@ function commerce_kickstart_configure_store_form() {
 
   // Prepare all the options for example content.
   $options = array(
+    'none' => st("No sample tax rate."),
     'us' => st('US - Sales taxes displayed in checkout'),
     'europe' => st('European - Inclusive tax rates (VAT)'),
   );
