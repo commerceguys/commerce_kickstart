@@ -155,11 +155,8 @@ function commerce_kickstart_social_default_oauthconnector_provider() {
 }
 
 /**
- * Preprocess theme variables for service_links blocks.
- * Add same grid class as column right to the images.
+ * Implements hook_block_view_MODULE_DELTA_alter().
  */
-function commerce_kickstart_social_preprocess_block(&$variables) {
-  if ($variables['block']->module == 'service_links') {
-    $variables['classes_array'][] = 'grid-8 prefix-15';
-  }
+function commerce_kickstart_social_block_view_connector_one_click_block_alter(&$data) {
+  $data['subject'] = t('Log in with your account');
 }

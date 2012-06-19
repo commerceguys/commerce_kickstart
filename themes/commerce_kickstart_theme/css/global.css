@@ -1829,6 +1829,34 @@ input.checkout-continue {
 .page-user #commerce-addressbook-billing-list {
   clear: both;
 }
+
+
+/* Connector */
+.not-logged-in #block-connector-one-click-block {
+  margin-left: 10px; /* LTR */
+}
+
+.not-logged-in #block-connector-one-click-block .connector-button {
+  color: transparent;
+  cursor:pointer;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 0;
+}
+
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-facebook {
+  background:url('../images/btn_facebook.png') no-repeat;
+}
+
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-twitter {
+  background:url('../images/btn_twitter.png') no-repeat;
+}
+
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-google {
+  background:url('../images/btn_google.png') no-repeat;
+}
+
 /* Orders */
 /* Order table styles including - user order table, order page table & order activity stream */
 .page-user-orders .view-commerce-line-item-table table,
