@@ -57,12 +57,12 @@ function commerce_backoffice_default_rules_configuration() {
         },
         { "data_set" : {
             "data" : [ "message:arguments:order-status" ],
-            "value" : [ "commerce-order:status" ]
+            "value" : "[commerce-order:status-title]"
           }
         },
         { "data_set" : {
             "data" : [ "message:arguments:order-status-previous" ],
-            "value" : [ "commerce-order-unchanged:status" ]
+            "value" : "[commerce-order-unchanged:status-title]"
           }
         }
       ]

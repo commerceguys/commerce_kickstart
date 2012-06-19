@@ -50,7 +50,7 @@ function commerce_backoffice_default_message_type() {
     "message_order_display_name" : { "und" : [ { "value" : "Order", "format" : null } ] },
     "message_text" : { "und" : [
         {
-          "value" : "<p>Status has been set to [message:arguments:order-status] (previously: [message:arguments:order-status-previous]).</p>",
+          "value" : "<p>Status has been set to @order_status (previously: @order_status_previous).</p>",
           "format" : "commerce_order_message"
         }
       ]

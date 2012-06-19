@@ -200,9 +200,10 @@ function _commerce_kickstart_example_user($operation, &$context) {
   commerce_customer_profile_save($shipping_profile);
 
   // Create 3 order samples.
-  _commerce_kickstart_create_order($user->uid, 'cart', 2);
-  _commerce_kickstart_create_order($user->uid, 'completed', 5);
-  _commerce_kickstart_create_order($user->uid, 'completed', 3);
+  _commerce_kickstart_create_order($user->uid, 2 , TRUE);
+  _commerce_kickstart_create_order($user->uid, 5);
+  _commerce_kickstart_create_order($user->uid, 3);
+
 }
 
 /**
@@ -394,10 +395,17 @@ function _commerce_kickstart_setup_omega_theme() {
  * @param $order_state
  * @param $items_number
  */
-function _commerce_kickstart_create_order($uid, $order_state, $items_number) {
-  $order = commerce_order_new($uid, $order_state);
+function _commerce_kickstart_create_order($uid, $items_number, $is_cart = FALSE) {
+  // Create order as a cart.
+  $order = commerce_order_new($uid, 'cart');
   commerce_order_save($order);
 
+  $message = message_create('commerce_order_created', array('uid' => $uid));
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $wrapper->message_commerce_order->set($order);
+  $wrapper->save();
+
+  // Add products to the cart.
   $line_items = array();
   $products = entity_load('commerce_product');
   $products_key = array_keys($products);
@@ -408,7 +416,83 @@ function _commerce_kickstart_create_order($uid, $order_state, $items_number) {
     $line_item = commerce_product_line_item_new($product, 1, $order->order_id);
     commerce_line_item_save($line_item);
     $line_items[] = array('line_item_id' => $line_item->line_item_id);
+
+    $message = message_create('commerce_order_cart_add', array('uid' => $uid));
+    $wrapper = entity_metadata_wrapper('message', $message);
+    $wrapper->message_commerce_order->set($order);
+    $wrapper->message_commerce_line_item->set($line_item);
+    $wrapper->save();
   }
   $order->commerce_line_items[LANGUAGE_NONE] = $line_items;
+
+  // Stop here for cart creation.
+  if ($is_cart) {
+    commerce_order_save($order);
+    return;
+  }
+
+  // Attach customer profile.
+  _commerce_kickstart_update_order_status($order, 'checkout_checkout');
+  $billing_profile_id = commerce_addressbook_get_default_profile_id($uid, 'billing');
+  $shippin_profile_id = commerce_addressbook_get_default_profile_id($uid, 'shipping');
+  if (!empty($billing_profile_id)) {
+    $order->commerce_customer_billing[LANGUAGE_NONE][0]['profile_id'] = $billing_profile_id;
+  }
+  if (!empty($shippin_profile_id)) {
+    $order->commerce_customer_shipping[LANGUAGE_NONE][0]['profile_id'] = $shippin_profile_id;
+  }
+
+  //@TODO Add shipping service.
+  _commerce_kickstart_update_order_status($order, 'checkout_shipping');
+
+  // Proceed to payment.
+  _commerce_kickstart_update_order_status($order, 'checkout_review');
+  $order->data['payment_method'] = 'commerce_kickstart_payment|commerce_payment_commerce_kickstart_payment';
+  $order->data['commerce_kickstart_payment'] = array(
+    'credit_card' => array(
+      'type' => 'visa',
+      'number' => '4111111111111111',
+      'exp_month' => '06',
+      'exp_year' => '2012',
+
+    ),
+  );
   commerce_order_save($order);
+  $rule = rules_config_load('commerce_payment_commerce_kickstart_payment');
+  $payment_method = commerce_payment_method_load('commerce_kickstart_payment');
+  $method_instance_id = commerce_payment_method_instance_id('commerce_kickstart_payment', $rule);
+  $method_instance = commerce_payment_method_instance_load($method_instance_id);
+  $transaction = commerce_kickstart_payment_transaction($method_instance, $order, $order->commerce_order_total[LANGUAGE_NONE][0], '');
+
+  $message = message_create('commerce_order_payment_entered', array('uid' => $uid));
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $wrapper->message_commerce_order->set($order);
+  $wrapper->message_commerce_payment->set($transaction);
+  $wrapper->save();
+
+  _commerce_kickstart_update_order_status($order, 'checkout_payment');
+  _commerce_kickstart_update_order_status($order, 'checkout_complete');
+  _commerce_kickstart_update_order_status($order, 'pending');
+}
+
+/**
+ * Helper function to update the order status and set the message.
+ *
+ * @param $order
+ * @param $status
+ */
+function _commerce_kickstart_update_order_status($order, $status) {
+  // We need to harcode the previous state, as the entity will not
+  // have this value on run-time.
+  $statuses = commerce_order_statuses();
+  $arguments = array(
+    '@order_status_previous' => $statuses[$order->status]['title'],
+    '@order_status' => $statuses[$status]['title'],
+  );
+  $order = commerce_order_status_update($order, $status);
+
+  $message = message_create('commerce_order_state', array('uid' => $order->uid, 'arguments' => $arguments));
+  $wrapper = entity_metadata_wrapper('message', $message);
+  $wrapper->message_commerce_order->set($order);
+  $wrapper->save();
 }
