@@ -251,7 +251,7 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
             "commerce_order" : [ "commerce-line-item:order" ],
             "address_field" : "commerce_customer_shipping|commerce_customer_address",
             "address_component" : "administrative_area",
-            "value" : "CA"
+            "value" : "MI"
           }
         }],
         "DO" : [{
@@ -272,7 +272,7 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
       $rules_config->save();
 
       $tax = array(
-        'name' => 'sample_michigann_sales_tax',
+        'name' => 'sample_michigan_sales_tax',
         'rules_component' => 'commerce_tax_rate_sample_michigan_sales_tax',
         'is_new' => FALSE,
       );
