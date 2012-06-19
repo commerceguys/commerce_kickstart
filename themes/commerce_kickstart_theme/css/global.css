@@ -111,10 +111,15 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
 .zone-content-wrapper {
   height: 100%;
 }
+.zone-preface,
 .zone-content {
   background-color: #ffffff;
   position: relative;
   margin-bottom: 40px;
+}
+.zone-preface {
+  margin-bottom: 0;
+  padding-top: 20px;
 }
 .front .zone-content {
   margin-bottom: 0;
@@ -214,7 +219,11 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
 }
 #region-breadcrumb {
   margin: 0px 10px;
-  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.page-products #region-breadcrumb {
+  padding-bottom: 0;
 }
 #region-breadcrumb .pseudo-breadcrumb {
   background-color: #eeeeee;
@@ -935,23 +944,35 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
 .view-collection-taxonomy-term .products-per-collection li.views-row {
   display: inline;
   float: left;
+  height: 100%;
   margin: 0;
   padding-right: 5px;
   padding-bottom: 30px;
-  max-width: 230px;
+  width: 230px;
+}
+.view-collection-taxonomy-term .products-per-collection li.views-row:nth-child(4n+5) {
+  clear: left;
+  float: left;
 }
 
 /* All products */
+.page-products .view-display-products {
+  margin-top: 20px;
+}
 .page-products .view-display-products ul li.views-row {
   display: inline;
   float: left;
   margin: 0;
   padding-right: 5px;
   padding-bottom: 30px;
-  max-width: 230px;
+  width: 230px;
 }
 .page-products .view-display-products ul li.views-row:nth-child(3n) {
   padding-right: 0;
+}
+.page-products .view-display-products ul li.views-row:nth-child(3n+4) {
+  clear: left;
+  float: left;
 }
 .page-products .commerce-product-extra-field-title {
   background: url('../images/bg_search_product_name.png') left top no-repeat;
@@ -961,9 +982,6 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
   text-decoration: none;
 }
 /* Search sort block */
-#region-breadcrumb {
-  position: relative;
-}
 .block-search-api-sorts:after {
   clear: both;
   content: ".";
@@ -971,10 +989,10 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
   height: 0;
   visibility: hidden;
 }
-.block-search-api-sorts .block-inner {
+.block-search-sorts .block-inner {
 	float: right;
 }
-.block-search-api-sorts h2 {
+.block-search-sorts h2 {
   display: inline;
   float: left;
   font-size: 13px;
@@ -982,11 +1000,12 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
   margin-right: 5px;
   text-transform: uppercase;
 }
-.block-search-api-sorts .content {
+.block-search-sorts .content {
   float: left;
 }
-.block-search-api-sorts .content li {
+.block-search-sorts .content li {
   display: inline;
+  float: left;
   margin: 0;
   margin-left: 5px;
   text-align: center;
