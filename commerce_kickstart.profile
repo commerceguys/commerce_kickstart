@@ -151,6 +151,8 @@ function commerce_kickstart_install_finished(&$install_state) {
     // remove all the message that are only "notifications" message.
     drupal_get_messages('status', TRUE);
     drupal_get_messages('completed', TRUE);
+    // Migrate adds its messages under the wrong type, see #1659150.
+    drupal_get_messages('ok', TRUE);
 
     // If we don't install drupal using Drush, redirect the user to the front
     // page.
