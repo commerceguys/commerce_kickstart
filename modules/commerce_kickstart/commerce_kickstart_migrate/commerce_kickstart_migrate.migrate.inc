@@ -5,8 +5,32 @@
  *   Populate distribution with some content.
  */
 
+/**
+ * Common features for all the migrations.
+ */
+abstract class CommerceKickstartMigration extends Migration {
 
-class CommerceKickstartBagsCases extends Migration {
+  public function __construct() {
+    // Always call the parent constructor first for basic setup
+    parent::__construct();
+  }
+
+  public function processImport(array $options = array()) {
+    parent::processImport($options = array());
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
+  }
+
+  function fields() {
+    return array(
+      'product_images' => 'An array of images, populated during prepareRow().',
+    );
+  }
+}
+
+
+class CommerceKickstartBagsCases extends CommerceKickstartMigration {
   public function __construct() {
     parent::__construct();
     $this->description = t('Import bags cases from CSV file.');
@@ -68,15 +92,9 @@ class CommerceKickstartBagsCases extends Migration {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
   }
-
-  function fields() {
-    return array(
-      'product_images' => 'An array of images, populated during prepareRow().',
-    );
-  }
 }
 
-class CommerceKickstartDrinks extends Migration {
+class CommerceKickstartDrinks extends CommerceKickstartMigration {
   public function __construct() {
     parent::__construct();
     $this->description = t('Import drinks from CSV file.');
@@ -133,16 +151,10 @@ class CommerceKickstartDrinks extends Migration {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
   }
-
-  function fields() {
-    return array(
-      'product_images' => 'An array of images, populated during prepareRow().',
-    );
-  }
 }
 
 
-class CommerceKickstartHats extends Migration {
+class CommerceKickstartHats extends CommerceKickstartMigration {
   public function __construct() {
     parent::__construct();
     $this->description = t('Import hats from CSV file.');
@@ -205,16 +217,12 @@ class CommerceKickstartHats extends Migration {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
   }
-
-  function fields() {
-    return array(
-      'product_images' => 'An array of images, populated during prepareRow().',
-    );
-  }
 }
 
-class CommerceKickstartTops extends Migration {
+class CommerceKickstartTops extends CommerceKickstartMigration {
+
   public function __construct() {
+
     parent::__construct();
     $this->description = t('Import tops from CSV file.');
 
@@ -276,15 +284,9 @@ class CommerceKickstartTops extends Migration {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
   }
-
-  function fields() {
-    return array(
-      'product_images' => 'An array of images, populated during prepareRow().',
-    );
-  }
 }
 
-class CommerceKickstartShoes extends Migration {
+class CommerceKickstartShoes extends CommerceKickstartMigration {
   public function __construct() {
     parent::__construct();
     $this->description = t('Import shoes from CSV file.');
@@ -347,15 +349,9 @@ class CommerceKickstartShoes extends Migration {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
   }
-
-  function fields() {
-    return array(
-      'product_images' => 'An array of images, populated during prepareRow().',
-    );
-  }
 }
 
-class CommerceKickstartStorage extends Migration {
+class CommerceKickstartStorage extends CommerceKickstartMigration {
   public function __construct() {
     parent::__construct();
     $this->description = t('Import storage from CSV file.');
@@ -417,12 +413,6 @@ class CommerceKickstartStorage extends Migration {
   function prepareRow($row) {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
-  }
-
-  function fields() {
-    return array(
-      'product_images' => 'An array of images, populated during prepareRow().',
-    );
   }
 }
 
@@ -501,4 +491,10 @@ class CommerceKickstartNode extends DynamicMigration {
     return drupal_strtolower('CommerceKickstartNode' . $this->arguments['type']);
   }
 
+  public function processImport(array $options = array()) {
+    parent::processImport($options = array());
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
+  }
 }
