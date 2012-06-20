@@ -280,5 +280,7 @@ features[user_permission][] = view payments
 features[user_permission][] = view revisions
 features[user_permission][] = view the administration theme
 features[user_role][] = store administrator
+features[variable][] = configurable_timezones
 features[variable][] = user_email_verification
+features[variable][] = user_pictures
 features[variable][] = user_register

@@ -19,3 +19,26 @@ function commerce_kickstart_user_menu_alter(&$items) {
 function commerce_kickstart_user_access_callback($account) {
   return user_access('administer site configuration', $account);
 }
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function commerce_kickstart_user_module_implements_alter(&$implementations, $hook) {
+  if (in_array($hook, array('form_alter'))) {
+    // Move our hook implementation to the bottom.
+    $group = $implementations['commerce_kickstart_user'];
+    unset($implementations['commerce_kickstart_user']);
+    $implementations['commerce_kickstart_user'] = $group;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Hide the Mime Mail settings on the user settings page.
+ */
+function commerce_kickstart_user_form_user_profile_form_alter(&$form, &$form_state) {
+  if ($form['#user_category'] == 'account') {
+    $form['mimemail']['#access'] = FALSE;
+  }
+}

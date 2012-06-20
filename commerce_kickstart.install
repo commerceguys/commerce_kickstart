@@ -200,12 +200,6 @@ function commerce_kickstart_install() {
   variable_set('node_submitted_page', FALSE);
   variable_set('pathauto_node_page_pattern', '[node:title]');
 
-  // Enable user picture support and set the default to a square thumbnail option.
-  variable_set('user_pictures', '1');
-  variable_set('user_picture_dimensions', '1024x1024');
-  variable_set('user_picture_file_size', '800');
-  variable_set('user_picture_style', 'thumbnail');
-
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', 'access checkout', 'view own commerce_order entities', $filtered_html_permission));
