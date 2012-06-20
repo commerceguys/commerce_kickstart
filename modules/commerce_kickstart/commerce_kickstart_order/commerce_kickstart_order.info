@@ -1,11 +1,14 @@
-name = Commerce Kickstart Cart UI
+name = Commerce Kickstart Order
+description = Provides Kickstart-specific cart and order customizations.
 core = 7.x
 package = Commerce Kickstart
-php = 5.2.4
-dependencies[] = commerce_cart
+
+dependencies[] = views
+dependencies[] = message
+dependencies[] = message_notify
+ependencies[] = commerce_cart
 dependencies[] = commerce_kickstart_product_ui
 dependencies[] = ctools
-dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
 features[views_view][] = commerce_cart_form
