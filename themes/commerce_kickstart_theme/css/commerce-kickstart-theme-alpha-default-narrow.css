@@ -3,59 +3,20 @@
  *  apply to the normal and widescreen layouts. You may override these styles in the normal
  *  and widescreen CSS files as appropriate. */
 
-/*
- * ==========================================================
- * General
- * ==========================================================
- */
-body {
-  margin: 0;
-}
-/*
- * ==========================================================
- * Zones
- * ==========================================================
- */
-/*
- * ==========================================================
- * Regions
- * ==========================================================
- */
-#region-user-second {
-  margin-left: 10px;
-}
-.region-user-second .region-user-second-inner {
-  margin-right: -10px;
-}
-/*
- * ==========================================================
- * Header
- * ==========================================================
- */
-/* Cart block */
-#block-views-shopping-cart-block {
-  float: right;
-  margin: inherit;
-}
-/**
- * Navigation
- */
-.navigation .primary-menu ul,
-.navigation .second-menu ul {
-  margin: 26px 0px;
-}
-.main-menu a,
-.secondary-menu a {
-  display: inline;
-}
+/**************************************************
+* --
+* 2. Section header
+* --
+**************************************************/
+/**********************************************
+* 2.1. Zone user
+**********************************************/
 
+/*******************************************
+* 2.1.1. Region user first
+*******************************************/
 .block-menu-kickstart-user-menu .block-inner {
   float: left;
-}
-.block-menu-kickstart-user-menu .content ul,
-.block-menu-kickstart-user-menu .content ul li,
-.block-menu-kickstart-user-menu .content ul li a {
-  display: inline;
 }
 .block-menu-kickstart-user-menu .content {
   float: right;
@@ -63,7 +24,12 @@ body {
   width: inherit;
   overflow: inherit;
   position: inherit;
- }
+}
+.block-menu-kickstart-user-menu .content ul,
+.block-menu-kickstart-user-menu .content ul li,
+.block-menu-kickstart-user-menu .content ul li a {
+  display: inline;
+}
 .block-menu-kickstart-user-menu .content ul {
   text-align: right;
   clear: inherit;
@@ -79,17 +45,30 @@ body {
   position: inherit;
   right: inherit;
 }
+/*******************************************
+* 2.1.2. Region user second
+*******************************************/
+#block-views-shopping-cart-block {
+  float: right;
+  margin: inherit;
+}
+/**************************************************
+* --
+* 3. Section content
+* --
+**************************************************/
+/**********************************************
+* 3.2. Zone content
+**********************************************/
 
-/*
- * ==========================================================
- * Content
- * ==========================================================
- */
-/* Top advert */
+/*******************************************
+* 3.2.2. Content
+*******************************************/
+/* HP blocks: Top advert */
 #promotional_banner .promotional_banner_saving {
   float: inherit;
 }
-/* Slideshow */
+/* HP blocks: Slideshow */
 .bx-wrapper,
 .bx-wrapper .bx-window {
   height: 357px !important;
@@ -100,25 +79,25 @@ body {
   max-height: 357px;
 }
 .view-display-id-block_3 .item-list .event-slider li {
-  max-height: 168px;
-  min-width: 330px;
+  min-height: 168px;
   height: 357px;
-  width: 700px;
   max-height: 480px;
+  margin: 0;
+  width: 700px;
+  min-width: 330px;
   max-width: 940px;
 }
-/* Homepage blocks */
-.view-display-id-block_1 .views-row,
-.view-display-id-block_2 .views-row,
-.block-blog-block .block-inner {
-  margin: 5px;
-}
-/**
-* Product page
-*/
+/**************************************************
+* --
+* 5. Commerce specific
+* --
+**************************************************/
+/**********************************************
+* 5.3. Product page
+**********************************************/
 /* Cloud zoom */
 .cloud-zoom-container #wrap {
-  z-index: 2 !important; /*fix overlay*/
+  z-index: 2 !important; /* fix overlay */
 }
 .node-product-type #wrap {
   float: right;
@@ -131,16 +110,4 @@ body {
   display: block;
   float: left;
   margin: 5px;
-}
-/*
- * ==========================================================
- * Footer
- * ==========================================================
- */
-/**
- * Menu footer navigation
- */
-.section-footer ul.menu li {
-  display: inline;
-  float: left;
 }

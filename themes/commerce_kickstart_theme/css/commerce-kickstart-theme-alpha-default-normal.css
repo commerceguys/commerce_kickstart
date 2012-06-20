@@ -1,32 +1,26 @@
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
-/* If you are using the default media queries provided by body {
-  background-color: #b3e4fd;
-}Omega, these styles will also
+/* If you are using the default media queries provided by Omega, these styles will also
  *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
 
-/*
- * ==========================================================
- * General
- * ==========================================================
- */
-/*
- * ==========================================================
- * Zones
- * ==========================================================
- */
-/*
- * ==========================================================
- * Regions
- * ==========================================================
- */
-/*
- * ==========================================================
- * Header
- * ==========================================================
- */
-/**
- * Navigation
- */
+/**************************************************
+* --
+* 2. Section header
+* --
+**************************************************/
+/**********************************************
+* 2.1. Zone user
+**********************************************/
+
+/*******************************************
+* 2.1.1. Region user first
+*******************************************/
+.block-menu-kickstart-user-menu .block-inner {
+  float: right;
+  margin-right: 10px;
+}
+/**********************************************
+* 2.4. Zone header
+**********************************************/
 .navigation .primary-menu,
 .navigation .second-menu {
   display: inline;
@@ -38,18 +32,15 @@
 .navigation .second-menu {
   float: right;
 }
-/* User menu */
-.block-menu-kickstart-user-menu .block-inner {
-  float: right;
-  margin-right: 10px;
-}
-
-/*
- * ==========================================================
- * Content
- * ==========================================================
- */
-/* Top advert */
+/**************************************************
+* --
+* 3. Section content
+* --
+**************************************************/
+/**********************************************
+* 3.2. Zone content
+**********************************************/
+/* HP blocks: Top advert */
 #promotional_banner .promotional_banner_saving {
   float: left;
 }
@@ -58,18 +49,15 @@
   line-height: 22px;
   margin-top: 4px;
 }
-/* Slideshow */
+/* HP blocks: Slideshow */
 .view-display-id-block_3 .bx-window {
-  overflox: visible !important;
+  overflow: visible !important;
 }
 .bx-wrapper,
 .bx-wrapper .bx-window {
   height: 580px !important;
   max-height: 580px;
   min-width: 940px;
-}
-.view-display-id-block_3 {
-  position: relative;
 }
 .event-slider .views-field-nothing,
 .event-slider .views-field-nothing em,
@@ -88,7 +76,6 @@
 .view-display-id-block_3 .bx-next {
   right: 0;
 }
-
 .view-display-id-block_3 .bx-window {
   overflow: visible !important;
 }
@@ -150,37 +137,27 @@
   float: right;
   margin-right: 5px;
 }
-
-/* Homepage blocks */
+/**********************************************
+* 3.3. Zone postscript
+**********************************************/
+.view-display-id-block_1 .views-row,
+.view-display-id-block_2 .views-row,
+.block-blog-block .block-inner {
+  margin : 0;
+}
 .block-blog-block .block-title {
   background-position: -18px 0;
   padding-left: 25px;
   text-align: left;
   width: 112px;
 }
-.view-display-id-block_1 .views-row, .view-display-id-block_2 .views-row, .block-blog-block .block-inner {
-  margin : 0;
-}
+/**************************************************
+* --
+* 4. Section footer
+* --
+**************************************************/
 /**
-/* Product page
-*/
-/* Cloud zoom */
-.node-product-type .cloud-zoom-gallery {
-  display: block;
-  float: none;
-  margin: 5px 0;
-}
-.node-product-type .cloud-zoom-gallery-thumbs {
-  clear: none;
-}
-
-/*
- * ==========================================================
- * Footer
- * ==========================================================
- */
-/**
-* Social links block
+* Connect with us
 */
 .block-social h2 {
   background: url('../images/bg_block_footer_title.png') left top no-repeat;
@@ -189,4 +166,21 @@
   font-weight: 600;
   line-height: inherit;
   padding: 0 0 22px 25px;
+}
+/**************************************************
+* --
+* 5. Commerce specific
+* --
+**************************************************/
+/**********************************************
+* 5.3. Product page
+**********************************************/
+/* Cloud zoom */
+.node-product-type .cloud-zoom-gallery-thumbs {
+  clear: none;
+}
+.node-product-type .cloud-zoom-gallery {
+  display: block;
+  float: none;
+  margin: 5px 0;
 }
