@@ -155,7 +155,6 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li {
   padding: 0;
-  border-bottom: 1px solid #383838;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li a.active {
   font-weight: 700;

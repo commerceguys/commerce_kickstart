@@ -67,6 +67,14 @@ body.in-maintenance ol.task-list li.done {
   background: transparent url("images/tasks-complete.png") no-repeat 0 0;
   color: #75cd27;
 }
+body.in-maintenance .form-item-commerce-kickstart-example-content .form-radios {
+  float: left;
+}
+body.in-maintenance .form-item-commerce-kickstart-example-content .description {
+  margin-left: 80px;
+  padding: 3px 5px 5px 23px;
+  background: transparent url("images/small-pointer.png") no-repeat 0 3px;
+}
 
 /* Setting Museo Slab Family */
 h1, h2, h3, h4, h5, h6, ul.admin-list li a, div.breadcrumb, fieldset .fieldset-legend {
@@ -531,6 +539,7 @@ body.in-maintenance #credit .logo a {
 }
 .help-section {
   padding: 5px 4.86111% 5px 95px; /* 42 / 864 */
+  clear: both;
 }
 .help-section h3,
 .help-section h3 a {
@@ -619,7 +628,7 @@ input.form-submit, a.button {
   border: 1px solid #fff;
   box-shadow: 0 0 2px #999;
   border-radius: 10px;
-  padding: 5px;
+  padding: 5px 10px;
   margin-top: 1px;
   margin-left: 1px;
 }
@@ -649,9 +658,29 @@ input.form-submit:hover, a.button:hover {
 ul.action-links {
   padding: 0;
 }
-ul.action-links a {
-  padding: 4px 0 4px 30px;
+ul.action-links li {
+  padding: 6px 0;
 }
+ul.action-links a,
+html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend a,
+.field-widget-inline-entity-form .container-inline input.form-submit {
+  padding: 4px 10px 4px 30px; /* LTR */
+  background: #36A2F6 url(images/add2.png) no-repeat 3px 3px;
+  line-height: 30px;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+  border-radius: 15px;
+  font: normal 16px/21px "Open Sans", Arial, sans-serif;
+}
+ul.action-links a:hover,
+html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend a:hover,
+.field-widget-inline-entity-form .container-inline input.form-submit:hover {
+  text-decoration: none;
+  box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+  background-color: #55B5FF;
+}
+
 
 /* Table Styles */
 table th {
@@ -747,4 +776,3 @@ html.js input.form-autocomplete {
 html.js input.throbbing {
   background-position: 100% -15px;
 }
-

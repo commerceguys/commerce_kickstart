@@ -695,18 +695,13 @@ tr.even {
   background: #fff;
 }
 .field-widget-inline-entity-form .ief-entity-operations input.form-submit,
-.field-widget-inline-entity-form .field-type-image table input.form-submit,
-.field-widget-inline-entity-form .container-inline input.form-submit {
+.field-widget-inline-entity-form .field-type-image table input.form-submit {
   border: 0;
   background: transparent;
   padding: 0;
   border-radius: 0;
   box-shadow: none;
   color: #36a2f6;
-}
-.field-widget-inline-entity-form .container-inline input.form-submit {
-  background: transparent url("images/add.png") no-repeat 0 0;
-  padding: 4px 0 4px 30px;
 }
 .ief-product-attributes .form-wrapper,
 .ief-product-details .form-wrapper {
@@ -869,18 +864,6 @@ div.views-megarow-content .megarow-header .megarow-title {
   font-size: 0;
 }
 /* Inline product edit field styles */
-.ief-row-form .inline-entity-form-title input.ief-entity-submit,
-.field-widget-inline-entity-form input.ief-entity-submit {
-  background: #60aa20 url("images/button.png") repeat-x 0 0;
-  color: #fff;
-  border: 1px solid #fff;
-  box-shadow: 0 0 2px #999;
-}
-.ief-row-form .inline-entity-form-title input.ief-entity-submit:hover,
-.field-widget-inline-entity-form input.ief-entity-submit input.ief-entity-submit:hover {
-  background: #60aa20 url("images/button-over.png") repeat-x 0 0;
-}
-
 #commerce-kickstart-inline-help-button {
   position: absolute;
   right: 0;
@@ -920,8 +903,9 @@ html.js .vbo-views-form fieldset.collapsible .fieldset-legend {
   background: transparent url("images/bulk-update.png") no-repeat 0 0;
 }
 html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend {
-  background: transparent url("images/add.png") no-repeat 0 0;
+  background: transparent;
   text-transform: none;
+  padding-left: 0;
 }
 
 /* Rules Pages */
