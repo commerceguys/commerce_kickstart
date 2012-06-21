@@ -60,11 +60,8 @@ dependencies[] = commerce_product_pricing_ui
 dependencies[] = commerce_product_reference
 dependencies[] = commerce_tax
 dependencies[] = commerce_tax_ui
-dependencies[] = commerce_autosku
 
 ; Install contribs.
-dependencies[] = commerce_addressbook
-dependencies[] = inline_entity_form
 dependencies[] = module_filter
 dependencies[] = field_extractor
 dependencies[] = image_delta_formatter
@@ -76,9 +73,15 @@ dependencies[] = mimemail_compress
 dependencies[] = commerce_kickstart_reset
 dependencies[] = cloud_zoom
 dependencies[] = pathauto
+dependencies[] = inline_entity_form
 dependencies[] = entityreference
-dependencies[] = commerce_fancy_attributes
 dependencies[] = views_megarow
+dependencies[] = commerce_autosku
+dependencies[] = commerce_addressbook
+dependencies[] = commerce_discount
+dependencies[] = commerce_discount_date
+dependencies[] = commerce_discount_usage
+dependencies[] = commerce_fancy_attributes
 dependencies[] = commerce_backoffice
 
 ; Install Features

@@ -1,0 +1,12 @@
+name = Commerce Discount Usage
+description = Provides fields for tracking the discount usage.
+core = 7.x
+package = Commerce
+
+dependencies[] = commerce_discount
+
+; Views files
+files[] = includes/views/handlers/commerce_discount_usage_handler_field_commerce_discount_usage.inc
+
+; Simple tests
+files[] = commerce_discount_usage.test

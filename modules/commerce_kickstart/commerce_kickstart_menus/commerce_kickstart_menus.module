@@ -79,6 +79,11 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     $items['admin/commerce/products/types']['parent'] = 'admin/commerce/config';
     $items['admin/commerce/products/types']['type'] = MENU_NORMAL_ITEM;
   }
+  // Show the Discounts link under "Store settings".
+  if (isset($items['admin/commerce/store/discounts'])) {
+    $items['admin/commerce/store/discounts']['parent'] = 'admin/commerce/config';
+  }
+
   // - Visual & Layout subentry.
   if (isset($items['admin/site-config/layout'])) {
     $items['admin/site-config/layout']['options'] = array(
@@ -101,7 +106,6 @@ function commerce_kickstart_menus_menu_alter(&$items) {
       'toolbar_break' => TRUE,
     );
   }
-
   // - Advanced site configuration subentry.
   if (isset($items['admin/site-config/advanced'])) {
     $items['admin/site-config/advanced']['options'] = array(

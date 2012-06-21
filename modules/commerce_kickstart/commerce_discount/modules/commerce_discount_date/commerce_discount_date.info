@@ -1,0 +1,11 @@
+name = Commerce Discount Date
+description = Provides date fields for the Commerce discount entity.
+core = 7.x
+package = Commerce
+
+dependencies[] = commerce_discount
+dependencies[] = date
+dependencies[] = date_popup
+
+; Simple tests
+files[] = commerce_discount_date.test
