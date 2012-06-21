@@ -938,6 +938,13 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   top: 6px;
 }
 
+/* Commerce discout. */
+.view-commerce-discount-overview td.views-field-enable-disable * {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
 /* @end */
 
 /* @end */
