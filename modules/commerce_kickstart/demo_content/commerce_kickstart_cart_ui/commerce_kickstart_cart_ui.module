@@ -5,3 +5,13 @@
  */
 
 include_once 'commerce_kickstart_cart_ui.features.inc';
+
+/**
+ * Implements hook_commerce_line_item_summary_link_info_alter().
+ */
+function commerce_kickstart_cart_ui_commerce_line_item_summary_link_info_alter(&$links) {
+  // Link checkout button to the cart.
+  if (isset($links['checkout'])) {
+    $links['checkout']['href'] = 'cart';
+  }
+}

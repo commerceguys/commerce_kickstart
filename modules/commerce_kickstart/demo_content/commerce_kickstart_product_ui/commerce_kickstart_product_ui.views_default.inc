@@ -259,6 +259,10 @@ function commerce_kickstart_product_ui_views_default_views() {
   $handler->display->display_options['empty']['line_item_summary']['id'] = 'line_item_summary';
   $handler->display->display_options['empty']['line_item_summary']['table'] = 'commerce_line_item';
   $handler->display->display_options['empty']['line_item_summary']['field'] = 'line_item_summary';
+  $handler->display->display_options['empty']['line_item_summary']['links'] = array(
+    'view_cart' => 0,
+    'checkout' => 'checkout',
+  );
   $handler->display->display_options['empty']['line_item_summary']['info'] = array(
     'quantity' => 'quantity',
     'total' => 'total',
