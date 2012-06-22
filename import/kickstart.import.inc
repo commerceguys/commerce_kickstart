@@ -521,7 +521,7 @@ function _commerce_kickstart_create_order($uid, $order_state, $items_number) {
   $products_number = count($products_key);
   $count = $products_number < $items_number ? $products_number: $items_number;
   for($i = 0; $i < $count; $i++) {
-    $product = $products[$products_key[rand(1, $products_number)]];
+    $product = $products[$products_key[rand(0, $products_number - 1)]];
     $line_item = commerce_product_line_item_new($product, 1, $order->order_id);
     commerce_line_item_save($line_item);
     $line_items[] = array('line_item_id' => $line_item->line_item_id);
