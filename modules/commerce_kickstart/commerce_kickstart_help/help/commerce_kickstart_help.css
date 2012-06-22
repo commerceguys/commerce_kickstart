@@ -1,32 +1,118 @@
 /* Accordion */
-.ui-accordion h2.ui-accordion-header {
-  background: url('../images/uncheck.png') no-repeat right;
-}
-
-.ui-accordion h2.ui-accordion-header.checked {
-  background: url('../images/check.png') no-repeat right;
-}
-
 #accordion .accordion-section form {
   float: right;
 }
-
 #accordion .help-section h3 {
   float: left;
   margin-right: 15px;
   color: #3333ee;
   font-size: 14px;
+  padding-top: 3px;
 }
-
 .ui-accordion .ui-accordion-content {
   padding: 0 !important;
 }
-
-.help-section {
+.ui-accordion .help-section {
   border-top: 1px solid #cccccc;
-  padding: 5px 25px;
+  padding: 5px 4.86111% 5px 95px; /* 42 / 864 */
+  clear: both;
 }
-
+.advanced-help-topic .ui-accordion {
+  padding: 5px;
+  border: 1px solid #c1c1c1;
+  border-width: 2px;
+  background: #fff;
+  width: auto;
+  max-width: 100%;
+}
+.advanced-help-topic .ui-accordion h2.ui-accordion-header {
+  background: transparent url("../images/incomplete.png") no-repeat 96.064814% center; /* 800 / 870 */
+  border-width: 0 0 1px 0;
+}
+.advanced-help-topic .ui-accordion .other h2.ui-accordion-header {
+  border-bottom: 0;
+}
+.advanced-help-topic .ui-accordion h2.ui-accordion-header.checked {
+  background: transparent url("../images/complete.png") no-repeat 96.064814% center; /* 800 / 870 */
+}
+.advanced-help-topic .ui-accordion h2.ui-accordion-header:nth-child(2n+2) {
+  background-color: #ccc !important;
+}
+.advanced-help-topic .ui-accordion h2.ui-accordion-header a {
+  font: normal 600 19px/19px "Open Sans", Arial, sans-serif;
+  color: #000;
+  padding: 20px 20px 20px 95px;
+}
+.advanced-help-topic .design .ui-accordion-header a {
+  background: transparent url("../images/design.png") no-repeat 30px 0;
+}
+.advanced-help-topic .design .ui-accordion-header .ui-icon {
+  left: 180px;
+}
+.advanced-help-topic .products .ui-accordion-header a {
+  background: transparent url("../images/products.png") no-repeat 30px 0;
+}
+.advanced-help-topic .products .ui-accordion-header .ui-icon {
+  left: 215px;
+}
+.advanced-help-topic .content .ui-accordion-header a {
+  background: transparent url("../images/content.png") no-repeat 30px 0;
+}
+.advanced-help-topic .content .ui-accordion-header .ui-icon {
+  left: 200px;
+}
+.advanced-help-topic .store-settings .ui-accordion-header a {
+  background: transparent url("../images/store.png") no-repeat 30px 0;
+}
+.advanced-help-topic .store-settings .ui-accordion-header .ui-icon {
+  left: 270px;
+}
+.advanced-help-topic .store-launch .ui-accordion-header a {
+  background: transparent url("../images/launch.png") no-repeat 30px 0;
+}
+.advanced-help-topic .store-launch .ui-accordion-header .ui-icon {
+  left: 260px;
+}
+.advanced-help-topic .account .ui-accordion-header .ui-icon {
+  left: 270px;
+}
+.advanced-help-topic .other .ui-accordion-header .ui-icon {
+  left: 175px;
+}
+.advanced-help-topic .design h2.ui-state-active a,
+.advanced-help-topic .products h2.ui-state-active a,
+.advanced-help-topic .content h2.ui-state-active a,
+.advanced-help-topic .store-settings h2.ui-state-active a,
+.advanced-help-topic .store-launch h2.ui-state-active a,
+.advanced-help-topic .launch h2.ui-state-active a,
+.advanced-help-topic .account h2.ui-state-active a,
+.advanced-help-topic .other h2.ui-state-active a {
+  background-position: 30px -70px;
+}
+.ui-accordion .ui-accordion-header .ui-icon {
+  background: transparent url("../images/expandable.png") no-repeat 0 0;
+  height: 12px;
+  margin-top: -5px;
+}
+.ui-accordion .ui-accordion-header .ui-icon-triangle-1-s {
+  background-position: 0 -12px;
+}
+.ui-accordion .ui-accordion-content {
+  border-width: 0 0 1px 0;
+  overflow: hidden !important;
+  background: #fbfbfb;
+}
+.ui-accordion .ui-accordion-content .form-type-checkbox .ajax-progress {
+  display: none;
+}
+.ui-accordion .help-section .tipsy-link {
+  float: left;
+  height: 0;
+  overflow: hidden;
+  padding: 26px 0 0;
+  background: transparent url("../images/help.png") no-repeat 0 0;
+  width: 26px;
+}
 .child {
   text-align: left;
   display: none;
@@ -39,67 +125,55 @@
   position: absolute;
   z-index: 100000;
 }
-
-.tipsy-inner h4 {
-  background-color: #bdbeb9;
-}
 .tipsy-inner {
   padding: 5px 8px 4px 8px;
   background-color: #ffffea;
   color: black;
   max-width: 500px;
   text-align: left;
-}
-
-.tipsy-inner {
   border: 2px solid #bdbeb9;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
 }
-
+.tipsy-inner h4 {
+  background-color: #bdbeb9;
+}
 .tipsy-arrow {
   position: absolute;
   background: url('../images/tipsy.gif') no-repeat top left;
   width: 9px;
   height: 5px;
 }
-
 .tipsy-n .tipsy-arrow {
   top: 0;
   left: 50%;
   margin-left: -4px;
 }
-
 .tipsy-nw .tipsy-arrow {
   top: 0;
   left: 10px;
 }
-
 .tipsy-ne .tipsy-arrow {
   top: 0;
   right: 10px;
 }
-
 .tipsy-s .tipsy-arrow {
   bottom: 0;
   left: 50%;
   margin-left: -4px;
   background-position: bottom left;
 }
-
 .tipsy-sw .tipsy-arrow {
   bottom: 0;
   left: 10px;
   background-position: bottom left;
 }
-
 .tipsy-se .tipsy-arrow {
   bottom: 0;
   right: 10px;
   background-position: bottom left;
 }
-
 .tipsy-e .tipsy-arrow {
   top: 50%;
   margin-top: -4px;
@@ -108,15 +182,22 @@
   height: 9px;
   background-position: top right;
 }
-
 .tipsy-w .tipsy-arrow {
-  top: 50%;
-  margin-top: -4px;
-  left: 0;
-  width: 5px;
-  height: 9px;
+  background: transparent url("../images/tipsy-arrow.png") no-repeat left center;
+  height: 30px;
+  width: 40px;
+  left: -25px;
+  top: 47%;
 }
-
+#commerce-kickstart-help {
+  margin: 0 auto;
+  width: 400px;
+}
+#commerce-kickstart-help-button {
+  margin: 0 auto;
+  width: 134px;
+}
+/* Help Block */
 #block-commerce-kickstart-help-commerce-kickstart-help {
   float: left;
   width: 47%;
@@ -124,20 +205,13 @@
   background-color: #fafafa;
   min-height: 150px;
   margin: 5px 10px;
+  padding-left: 30px;
+  padding-top: 10px;
 }
-
-#commerce-kickstart-help {
-  margin: 0 auto;
-  width: 400px;
-}
-
-#commerce-kickstart-help-button {
-  margin: 0 auto;
-  width: 134px;
-}
-
-#block-commerce-kickstart-help-commerce-kickstart-help div,
 #block-commerce-kickstart-help-commerce-kickstart-help h2 {
-  padding: 0 10px;
+  background: transparent url("../images/help-lg.png") no-repeat 0 0;
+  padding: 5px 0 5px 40px;
 }
-
+#block-commerce-kickstart-help-commerce-kickstart-help .content {
+  padding-left: 40px;
+}
