@@ -234,7 +234,7 @@ h1#page-title {
 .block-shopping-cart-block .content .view-shopping-cart .view-footer,
 .block-shopping-cart-block .content .view-shopping-cart .view-empty {
   display: inline;
-  float: right;
+  float: left;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
@@ -244,13 +244,14 @@ h1#page-title {
 .block-shopping-cart-block .content .view-shopping-cart .view-empty p,
 .block-shopping-cart-block .content .view-shopping-cart .line-item-quantity {
   display: inline;
+  float: left;
   line-height: 30px;
   margin: 0;
   margin-left: 5px;
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary {
   display: inline;
-  float: right;
+  float: left;
   height: 34px;
   margin: 0;
   position: relative;
@@ -309,6 +310,9 @@ h1#page-title {
   float: right;
   padding-top: 28px;
 }
+#block-views-exp-display-products-page .views-exposed-widgets {
+  position: relative;
+}
 #block-views-exp-display-products-page .views-exposed-widget {
   padding: 0;
   position: relative;
@@ -325,7 +329,7 @@ h1#page-title {
   padding: 5px 28px 5px 5px;
 }
 #block-views-exp-display-products-page .views-submit-button .form-submit {
-  background: url('../images/picto_magnifying_glass.png') 98% center no-repeat;
+  background: transparent url('../images/picto_magnifying_glass.png') 98% center no-repeat;
   border: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -506,10 +510,15 @@ h1#page-title {
   margin-left: 15px;
   padding-left: 15px;
 }
+.region-sidebar-first .block-facetapi ul {
+  list-style: none;
+  list-style-image: none;
+}
 .region-sidebar-first .block-facetapi li  {
   background: none;
   line-height: 22px;
   list-style: none;
+  list-style-image: none;
   margin: 0;
 }
 .region-sidebar-first .block-facetapi h2 {
@@ -550,17 +559,14 @@ h1#page-title {
   position: relative;
   top: 0px;
   left: -10px;
-  text-align: center;
   width: 100%;
   z-index: 11;
 }
 #promotional_banner .promotional_banner_saving {
-  display: block;
-  float: left;
   font-family: 'Open Sans', sans-serif;
   font-weight: 900;
   font-size: 28px;
-  margin: 0px 22px 0 12px;
+  padding: 0px 22px 0 12px;
 }
 #promotional_banner span {
   font-family: 'Open Sans', sans-serif;
@@ -577,7 +583,7 @@ h1#page-title {
   color: #2698F2;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-  margin-left: 22px;
+
   padding: 5px 28px;
   text-transform: capitalize;
 }
@@ -833,8 +839,10 @@ h1#page-title {
 .section-footer ul.menu ul.menu {
   margin: 10px 0 0;
 }
+.section-footer ul.menu,
 .section-footer ul.menu li {
   list-style: none;
+  list-style-image: none;
   margin: 0;
   padding: 0 40px 0 0;
 }
@@ -1000,6 +1008,8 @@ ul#payments li:first-child {
 .view-collection-taxonomy-term .products-per-collection li h2,
 .page-products .view-display-products li h2 {
   font-size: 14px;
+  height: 35px;
+  line-height: 16px;
   margin: 0 4px;
 }
 .view-collection-taxonomy-term .products-per-collection li a,
@@ -1007,8 +1017,8 @@ ul#payments li:first-child {
 .page-products .view-display-products li a,
 .page-products .view-display-products li .commerce-product-field {
   color: #000000;
-  text-decoration: none;
   font-size: 14px;
+  text-decoration: none;
 }
 .view-collection-taxonomy-term .products-per-collection li .field-type-commerce-price,
 .page-products .view-display-products li .field-type-commerce-price {
@@ -1081,9 +1091,6 @@ ul#payments li:first-child {
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list {
   margin-bottom:7px;
 }
-.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content {
-
-}
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-header p {
   margin: 6px 15px 0 0;
 }
@@ -1132,7 +1139,7 @@ ul#payments li:first-child {
 .view-collection-taxonomy-term .products-per-collection li.views-row {
   display: inline;
   float: left;
-  height: 100%;
+  height: auto;
   margin: 0;
   padding-right: 5px;
   padding-bottom: 30px;
@@ -1151,6 +1158,7 @@ ul#payments li:first-child {
 .page-products .view-display-products ul li.views-row {
   display: inline;
   float: left;
+  height: auto;
   margin: 0;
   padding-right: 5px;
   padding-bottom: 30px;
@@ -1182,6 +1190,7 @@ ul#payments li:first-child {
 }
 .block-search-sorts .block-inner {
   float: right;
+  clear: right;
 }
 .block-search-sorts h2 {
   display: inline;
@@ -1379,6 +1388,7 @@ ul#payments li:first-child {
   padding: 5px 50px 5px 10px;
 }
 .service-links ul li {
+  display: inline;
   float: left;
   margin: 0;
   padding: 0;

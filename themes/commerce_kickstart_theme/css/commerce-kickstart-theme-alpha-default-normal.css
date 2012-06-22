@@ -21,10 +21,6 @@
 /**********************************************
 * 2.4. Zone header
 **********************************************/
-.navigation .primary-menu,
-.navigation .second-menu {
-  display: inline;
-}
 .navigation .primary-menu {
   float: left;
   margin-right: 12px;
@@ -41,9 +37,6 @@
 * 3.2. Zone content
 **********************************************/
 /* HP blocks: Top advert */
-#promotional_banner .promotional_banner_saving {
-  float: left;
-}
 #promotional_banner .promotional_banner_special_offer {
   float: right;
   line-height: 22px;
@@ -162,7 +155,7 @@
 .block-social h2 {
   background: url('../images/bg_block_footer_title.png') left top no-repeat;
   color: #eeeeee;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   line-height: inherit;
   padding: 0 0 22px 25px;

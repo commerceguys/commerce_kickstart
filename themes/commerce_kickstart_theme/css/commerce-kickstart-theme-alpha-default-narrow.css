@@ -64,10 +64,6 @@
 /*******************************************
 * 3.2.2. Content
 *******************************************/
-/* HP blocks: Top advert */
-#promotional_banner .promotional_banner_saving {
-  float: inherit;
-}
 /* HP blocks: Slideshow */
 .bx-wrapper,
 .bx-wrapper .bx-window {

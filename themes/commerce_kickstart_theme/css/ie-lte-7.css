@@ -1,0 +1,223 @@
+/**************************************************
+* --
+* 2. Section header
+* --
+**************************************************/
+/**********************************************
+* 2.1. Zone user
+**********************************************/
+.zone-user-wrapper {
+  width: inherit !important;
+}
+/*******************************************
+* 2.1.1. Region user first
+*******************************************/
+/* User menu */
+.block-menu-kickstart-user-menu .content {
+  width: auto;
+}
+/*******************************************
+* 2.1.2. Region user second
+*******************************************/
+/**
+* Cart block
+*/
+#block-views-shopping-cart-block {
+  margin: 0;
+  width: 235px;
+}
+.block-shopping-cart-block {
+  width: 200px;
+}
+.block-shopping-cart-block .content {
+  float: left;
+  padding-left: 40px;
+  width: 200px;
+}
+.block-shopping-cart-block .content .view-shopping-cart .view-content,
+.block-shopping-cart-block .content .view-shopping-cart .view-footer,
+.block-shopping-cart-block .content .view-shopping-cart .view-empty {
+  display: inline;
+  float: left;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+.block-shopping-cart-block .content .view-shopping-cart .view-empty p {
+  float: left;
+}
+.block-shopping-cart-block .content .view-shopping-cart .view-empty p,
+.block-shopping-cart-block .content .view-shopping-cart .line-item-quantity {
+  display: inline;
+  line-height: 30px;
+  margin: 0;
+  margin-left: 5px;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary {
+  display: inline;
+  float: right;
+  height: 34px;
+  margin: 0;
+  position: relative;
+}
+.block-shopping-cart-block .content .view-shopping-cart .view-empty p {
+  padding-right: 25px;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
+  color: #2698F2;
+  text-decoration: none;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
+  color: #888888;
+  float: left;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  height: 100%;
+  line-height: 30px;
+  padding: 0 12px 0 6px;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total-label {
+  display: none;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links {
+  background-color: #2698F2;
+  color: #ffffff;
+  clear: none;
+  float: right;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  height: 100%;
+  line-height: 30px;
+  margin: 0 0 0 5px;
+  padding: 0 10px;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links a {
+  color: #ffffff;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links a:hover {
+  text-decoration: underline;
+}
+/**********************************************
+* 2.2. Zone branding
+**********************************************/
+.zone-branding .region-branding {
+  margin-top: 50px;
+  margin-right: inherit !important;
+}
+#region-branding {
+  width: inherit !important;
+}
+/**
+* Search block
+*/
+#block-views-exp-display-products-page .views-exposed-widgets {
+  position: relative;
+}
+#block-views-exp-display-products-page .views-exposed-widget {
+  padding: 0;
+  position: relative;
+  left: 0px;
+}
+#block-views-exp-display-products-page #edit-search-api-views-fulltext {
+  height: 18px;
+}
+#block-views-exp-display-products-page .views-submit-button .form-submit {
+  float: left;
+  width: 24px;
+  height: 24px;
+}
+/**********************************************
+* 2.3. Zone menu
+**********************************************/
+/**
+* Navigation
+*/
+.navigation .primary-menu,
+.navigation .second-menu {
+  padding-bottom: 25px;
+}
+.navigation .primary-menu .main-menu li a,
+.navigation .second-menu .secondary-menu li a {
+  height: 30px;
+}
+.main-menu a,
+.secondary-menu a {
+  display: block;
+  float: left;
+}
+
+/**************************************************
+* --
+* 3. Section content
+* --
+**************************************************/
+/*******************************************
+* 3.2.1. Sidebar first
+*******************************************/
+/* Search api facet blocks */
+.region-sidebar-first .block-facetapi {
+  margin-left: 5px;
+}
+/*******************************************
+* 3.2.2. Content
+*******************************************/
+/**
+* Blocks
+*/
+/* HP blocks: Top advert */
+#promotional_banner {
+}
+#promotional_banner .promotional_banner_special_offer {
+  position: absolute;
+  right: 10px;
+}
+/**************************************************
+* --
+* 4. Section footer
+* --
+**************************************************/
+/**********************************************
+* 4.1. Zone footer
+**********************************************/
+/**
+* Menu footer navigation
+*/
+.section-footer ul.menu li {
+  padding-right: 15px;
+}
+/**
+* Connect with us
+*/
+.block-social h2 {
+  line-height: 22px;
+}
+/**************************************************
+* --
+* 5. Commerce specific
+* --
+**************************************************/
+/**********************************************
+* 5.2. All products page
+**********************************************/
+.page-products .view-display-products {
+  clear: both;
+  width: 700px;
+  margin-top: 40px;
+}
+.page-products .view-display-products ul li.views-row {
+  display: block;
+  height: auto;
+  margin: 0;
+  padding-right: 5px;
+  width: 225px;
+}
+/**********************************************
+* 5.3. Product page
+**********************************************/
+/* Cloud zoom */
+.node-product-type .cloud-zoom-gallery-thumbs {
+  clear: none;
+  width: 120px;
+}
+.node-product-type .cloud-zoom-container .cloud-zoom {
+  float: right;
+}
