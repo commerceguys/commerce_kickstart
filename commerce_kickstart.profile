@@ -41,7 +41,7 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
     '#markup' => 'admin'
   );
   $form['admin_account']['account']['commerce_kickstart_informations'] = array(
-    '#markup' => '<p>' . t('You can change the default username and password from the store administration page. This information will me emailed to the store email address') . '</p>'
+    '#markup' => '<p>' . t('You can change the default username and password from the store administration page. This information will be emailed to the store email address.') . '</p>'
   );
 
   // Add a custom validation that needs to be trigger before the original one,
