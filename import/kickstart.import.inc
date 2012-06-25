@@ -365,7 +365,7 @@ function _commerce_kickstart_example_user($operation, &$context) {
 
   // Create a bIlling customer profile.
   $billing_profile = commerce_customer_profile_new('billing', $user->uid);
-  $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample billing address 1';
+  $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample Customer';
   $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['country'] = 'US';
   $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['thoroughfare'] = '16 Hampton Ct';
   $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['locality'] = 'Visalia';
@@ -376,7 +376,7 @@ function _commerce_kickstart_example_user($operation, &$context) {
 
   // Create two shipping customer profile samples.
   $shipping_profile = commerce_customer_profile_new('shipping', $user->uid);
-  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample shipping address 1';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample Customer';
   $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['country'] = 'US';
   $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['thoroughfare'] = '2843 Sherman Ave';
   $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['locality'] = 'Camden';
@@ -386,7 +386,7 @@ function _commerce_kickstart_example_user($operation, &$context) {
   commerce_addressbook_set_default_profile($shipping_profile);
 
   $shipping_profile = commerce_customer_profile_new('shipping', $user->uid);
-  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample shipping address 2';
+  $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'] = 'Sample Customer';
   $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['country'] = 'FR';
   $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['thoroughfare'] = '27 rue des sapins';
   $shipping_profile->commerce_customer_address[LANGUAGE_NONE][0]['locality'] = 'Paris';

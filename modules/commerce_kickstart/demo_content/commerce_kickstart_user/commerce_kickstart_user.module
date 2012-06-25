@@ -10,7 +10,34 @@ include_once 'commerce_kickstart_user.features.inc';
  * Implements hook_menu_alter().
  */
 function commerce_kickstart_user_menu_alter(&$items) {
+  $items['user/%user']['title callback'] = '_commerce_kickstart_user_page_title';
   $items['user/%user/connections']['access_callback'] = 'commerce_kickstart_user_access_callback';
+  $items['user/%user/view']['title'] = 'User account';
+  $items['user/%user/view']['title callback'] = '_commerce_kickstart_user_tab_title';
+  $items['user/%user/view']['title arguments'] = array(1);
+  $items['user/%user/edit']['title'] = 'Update email/password';
+}
+
+/**
+ * Helper function for user page title.
+ */
+function _commerce_kickstart_user_page_title($account) {
+  $title = t('Hello');
+  if (is_object($account)) {
+    $billing_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'billing');
+    if ($billing_profile_id) {
+      $billing_profile = commerce_customer_profile_load($billing_profile_id);
+      $title .= ', ' . check_plain($billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line']);
+    }
+  }
+  return $title;
+}
+
+/**
+ * Helper function for user menu tab title.
+ */
+function _commerce_kickstart_user_tab_title($account) {
+  return (is_object($account) && $GLOBALS['user']->uid == $account->uid) ? t('My account') : t('Account overview');
 }
 
 /**
@@ -40,5 +67,87 @@ function commerce_kickstart_user_module_implements_alter(&$implementations, $hoo
 function commerce_kickstart_user_form_user_profile_form_alter(&$form, &$form_state) {
   if ($form['#user_category'] == 'account') {
     $form['mimemail']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_user_view().
+ */
+function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
+
+  $account->content['information'] =  array(
+    '#type' => 'user_profile_category',
+    '#title' => t('Account information'),
+    '#markup' => '',
+    '#attributes' => array('class' => array('user-information')),
+  );
+
+  $shipping_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'shipping');
+  if ($shipping_profile_id) {
+    $shipping_profile = commerce_customer_profile_load($shipping_profile_id);
+    $shipping_profile_render = entity_view('commerce_customer_profile', array($shipping_profile), 'full');
+    $shipping_profile_render = reset($shipping_profile_render);
+    $shipping_profile_output = drupal_render($shipping_profile_render);
+  }
+  else {
+    $shipping_profile_output = '<p>' . t('No default shipping profile') . '</p>';
+  }
+  $account->content['information']['shipping_profile'] =  array(
+    '#type' => 'user_profile_item',
+    '#title' => t('Primary shipping address'),
+    '#markup' => $shipping_profile_output . l('Manage shipping address', 'user/' . $account->uid . '/addressbook/shipping'),
+    '#attributes' => array('class' => array('shipping-address')),
+  );
+
+  $billing_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'billing');
+  if ($billing_profile_id) {
+    $billing_profile = commerce_customer_profile_load($billing_profile_id);
+    $billing_profile_render = entity_view('commerce_customer_profile', array($billing_profile), 'full');
+    $billing_profile_render = reset($billing_profile_render);
+    $billing_profile_output = drupal_render($billing_profile_render);
+  }
+  else {
+    $billing_profile_output = '<p>' . t('No default billing profile') . '</p>';
+  }
+  $account->content['information']['billing_profile'] =  array(
+    '#type' => 'user_profile_item',
+    '#title' => t('Primary billing address'),
+    '#markup' => $billing_profile_output  . l('Manage billing address', 'user/' . $account->uid . '/addressbook/billing'),
+    '#attributes' => array('class' => array('billing-address')),
+  );
+
+  $account->content['information']['mail'] = array(
+    '#type' => 'user_profile_item',
+    '#title' => t('Email address'),
+    '#markup' => '<p>' . $account->mail . '</p>' . l('Update email/password', 'user/' . $account->uid . '/edit'),
+    '#attributes' => array('class' => array('mail')),
+  );
+
+  $account->content['recent_orders'] =  array(
+    '#type' => 'user_profile_category',
+    '#title' => t('Recent orders'),
+    '#markup' => '',
+    '#attributes' => array('class' => array('user-recent-orders')),
+  );
+
+  $account->content['recent_orders']['view'] = array(
+    '#type' => 'user_profile_item',
+    '#title' => '',
+    '#markup' => views_embed_view('commerce_backoffice_user_orders', 'block_1', $account->uid),
+    '#attributes' => array('class' => array('recent-orders')),
+  );
+}
+
+/**
+ * Implements hook_user_view_alter().
+ *
+ * Hide other infos.
+ */
+function commerce_kickstart_user_user_view_alter(&$build) {
+  if (isset($build['mimemail'])) {
+    unset($build['mimemail']);
+  }
+  if (isset($build['summary'])) {
+    unset($build['summary']);
   }
 }
