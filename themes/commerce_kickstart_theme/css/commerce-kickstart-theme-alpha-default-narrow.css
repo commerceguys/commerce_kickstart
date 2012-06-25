@@ -83,6 +83,14 @@
   min-width: 330px;
   max-width: 940px;
 }
+/**********************************************
+* 3.3. Zone postscript
+**********************************************/
+.view-display-id-block_1 .views-row .views-field-field-tagline,
+.view-display-id-block_2 .views-row .views-field-field-tagline,
+.block-blog-block .views-field-title {
+  left: 10px;
+}
 /**************************************************
 * --
 * 5. Commerce specific

@@ -26,6 +26,7 @@
   margin-right: 12px;
 }
 .navigation .second-menu {
+  clear: inherit;
   float: right;
 }
 /**************************************************

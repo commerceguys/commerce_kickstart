@@ -21,7 +21,7 @@
     3.2.1. Sidebar first
     3.2.2. Content
     3.2.3. Sidebar second
-  3.3 Zone postscript
+  3.3. Zone postscript
 4. Section footer
   4.1. Zone footer
   4.2. Zone footer2
@@ -354,13 +354,16 @@ h1#page-title {
 .navigation .primary-menu,
 .navigation .second-menu {
   font-size: 1.142857142857143em;
+  margin: 0 auto;
 }
 .navigation .primary-menu .main-menu ul li,
 .navigation .second-menu .secondary-menu ul li,
 .navigation .primary-menu .main-menu li,
 .navigation .second-menu .secondary-menu li {
+  float: left;
   margin: 0;
   padding: 0;
+  width: 33%;
 }
 .main-menu a,
 .secondary-menu a {
@@ -404,6 +407,9 @@ h1#page-title {
   color: #000000;
 }
 /* Secondary menu */
+.navigation .second-menu {
+  clear: left;
+}
 .secondary-menu a {
   color: #000000;
   padding: 12px 18px;
@@ -720,8 +726,7 @@ h1#page-title {
   padding: 5px 0px;
 }
 .view-display-id-block_1 .views-row img,
-.view-display-id-block_2 .views-row img,
-.block-blog-block .content {
+.view-display-id-block_2 .views-row img {
   margin: 0 15px;
 }
 .view-display-id-block_1 .views-row img,
@@ -732,7 +737,8 @@ h1#page-title {
   margin: auto;
 }
 .view-display-id-block_1 .views-row .views-field-field-tagline,
-.view-display-id-block_2 .views-row .views-field-field-tagline {
+.view-display-id-block_2 .views-row .views-field-field-tagline,
+.block-blog-block .views-field-title {
   margin: 0 10px;
 }
 .view-display-id-block_1 .views-row .views-field-field-image,
@@ -807,6 +813,7 @@ h1#page-title {
 }
 .block-blog-block .views-field-title .field-content {
   display: block;
+  width: 100%;
 }
 .block-blog-block .views-field-title .field-content p {
   margin-bottom: 0;
