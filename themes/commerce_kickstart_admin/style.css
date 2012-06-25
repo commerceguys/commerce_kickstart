@@ -385,7 +385,7 @@ ul.inline li {
 #secondary-links ul.links li a.active {
   background: #333;
 }
-ul.admin-list li {
+dl.node-type-list dt {
   position: relative;
   padding-left: 30px; /* LTR */
   padding-top: 9px;

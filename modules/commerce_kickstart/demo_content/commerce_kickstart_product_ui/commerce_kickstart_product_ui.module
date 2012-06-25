@@ -7,7 +7,34 @@
 include_once 'commerce_kickstart_product_ui.features.inc';
 
 /**
+ * Implements hook_menu().
+ */
+function commerce_kickstart_product_ui_menu() {
+  $items = array();
+
+  $base = array(
+    'page callback' => 'node_add_page',
+    'access callback' => '_node_add_access',
+    'file' => 'node.pages.inc',
+    'file path' => drupal_get_path('module', 'node'),
+  );
+
+  $items['node/add/add-content'] = array(
+    'title' => 'Add content',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  ) + $base;
+
+  $items['node/add/add-product'] = array(
+    'title' => 'Add product',
+    'type' => MENU_LOCAL_TASK,
+  ) + $base;
+
+  return $items;
+}
+
+/**
  * Implements hook_entity_info_alter().
+ *
  * Create new view mode for product display, commerce product.
  */
 function commerce_kickstart_product_ui_entity_info_alter(&$entity_info) {
@@ -199,37 +226,26 @@ function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id
  * Split node add list in two columns: regular node types & product display.
  */
 function theme_commerce_kickstart_product_ui_node_add_list($variables) {
+  $item = menu_get_item();
+
   drupal_add_css(drupal_get_path('module', 'commerce_kickstart_product_ui') . '/css/node-add-list-columns.css');
   $product_display = commerce_product_reference_node_types();
   $product_display = array_keys($product_display);
-  $content = $variables['content'];
-  $output = '';
-  if ($content) {
-    $output_content = '<ul class="admin-list columns"><p>'. t('Add content') . '</p>';
-    $output_product_display = '<ul class="admin-list columns"><p>' . t('Add product') . '</p>';
-    foreach ($content as $item) {
-      $item_output = '<li class="clearfix">';
-      $item_output .= '<span class="label">' . l($item['title'], $item['href'], $item['localized_options']) . '</span>';
-      $item_output .= '<div class="description">' . filter_xss_admin($item['description']) . '</div>';
-      $item_output .= '</li>';
+  $content = &$variables['content'];
 
-      $node_type = unserialize($item['page_arguments']);
-      $node_type = $node_type[0];
-      if (in_array($node_type, $product_display)) {
-        $output_product_display .= $item_output;
-      }
-      else {
-        $output_content .= $item_output;
-      }
+  foreach ($content as $key => $value) {
+    $node_type = unserialize($value['page_arguments']);
+    $node_type = $node_type[0];
+    $show_product = $item['path'] == 'node/add/add-product';
+    if (!in_array($node_type, $product_display) && $show_product) {
+      unset($content[$key]);
     }
-    $output_content .= '</ul>';
-    $output_product_display .= '</ul>';
-    $output = $output_content . $output_product_display;
+    elseif (in_array($node_type, $product_display) && !$show_product) {
+      unset($content[$key]);
+    }
   }
-  else {
-    $output = '<p>' . t('You have not created any content types yet. Go to the <a href="@create-content">content type creation page</a> to add a new content type.', array('@create-content' => url('admin/structure/types/add'))) . '</p>';
-  }
-  return $output;
+
+  return theme_node_add_list($variables);
 }
 
 /**
@@ -307,6 +323,7 @@ function commerce_kickstart_product_ui_menu_local_tasks_alter(&$data, $router_it
     unset($data['actions']['output']);
     $link = menu_get_item('node/add');
     $link['title'] = t('Add product');
+    $link['href'] = 'node/add/add-product';
 
     $data['actions']['output'][] = array(
       '#theme' => 'menu_local_action',
