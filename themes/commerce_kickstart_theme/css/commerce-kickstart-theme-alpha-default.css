@@ -1,66 +1,83 @@
 /* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
-/*
- * ==========================================================
- * General
- * ==========================================================
- */
 
-/*
- * ==========================================================
- * Zones
- * ==========================================================
- */
-.section-header {
+/*------------------------------------------------
+[Table of contents]
+0. Reset
+1. Global
+  1.1. Zones
+  1.2. Regions
+2. Section header
+  2.1. Zone user
+    2.1.1. Region user first
+    2.1.2. Region user second
+  2.2. Zone branding
+  2.3. Zone menu
+  2.4. Zone header
+3. Section content
+  3.1. Zone preface
+  3.2. Zone content
+    3.2.1. Sidebar first
+    3.2.2. Content
+    3.2.3. Sidebar second
+  3.3 Zone postscript
+4. Section footer
+  4.1. Zone footer
+  4.2. Zone footer2
+5. Commerce specific
+  5.1. Search & Collection page
+  5.2. All products page
+  5.3. Product page
+  5.4. Checkout process
+6. Kickstart specific
+  6.1. Homepage elements
+7. Blog
+8. User account
+------------------------------------------------*/
+
+/**************************************************
+* --
+* 1. Global
+* --
+**************************************************/
+body {
+  margin: 0;
 }
+/**************************************************
+* --
+* 2. Section header
+* --
+**************************************************/
+/**********************************************
+* 2.1. Zone user
+**********************************************/
 .zone-user-wrapper {
   position: fixed;
   z-index: 100;
 }
-/*
- * ==========================================================
- * Regions
- * ==========================================================
- */
+/*******************************************
+* 2.1.2. Region user second
+*******************************************/
 #region-user-second {
   background-color: transparent;
+  margin-left: 10px;
 }
-/* Homepage Regions */
-.front #zone-postscript .grid-8 {
-  width: 313px;
-}
-.front #region-postscript-first,
-.front #region-postscript-second,
-.front #region-postscript-third {
-  margin: 0;
-}
-.front #region-postscript-first,
-.front #region-postscript-second {
-  margin-right: 10px;
+.region-user-second .region-user-second-inner {
+  margin-right: -10px;
 }
 #block-views-shopping-cart-block {
   float: right;
   margin: 0;
 }
-/*
- * ==========================================================
- * Header
- * ==========================================================
- */
+/**********************************************
+* 2.3. Zone menu
+**********************************************/
 /**
- * Breadcrumb
- */
-#region-breadcrumb .pseudo-breadcrumb,
-.breadcrumb {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-}
-/**
- * Navigation
- */
+* Navigation
+*/
 .navigation .primary-menu ul,
 .navigation .second-menu ul {
   float: left;
+  margin: 26px 0px;
   width: 100%;
 }
 .main-menu a,
@@ -114,21 +131,30 @@
 .navigation .second-menu li.last a:hover {
   border-right: 1px solid #d7d7d7;
 }
-
-/*
- * ==========================================================
- * Content
- * ==========================================================
- */
-/**
- * HP Blocks
- */
+/**************************************************
+* --
+* 3. Section content
+* --
+**************************************************/
+/**********************************************
+* 3.1. Zone preface
+**********************************************/
+#region-breadcrumb .pseudo-breadcrumb,
+.breadcrumb {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+/**********************************************
+* 3.3. Zone postscript
+**********************************************/
 /* Adverts blocks */
 .view-display-id-block_1 .views-row,
 .view-display-id-block_2 .views-row,
 .block-blog-block .block-inner {
   background-color: #cccccc;
   border: 1px solid #b1b1b1;
+  margin: 5px;
   padding: 10px 0px 25px 0px;
   position: relative;
 }
@@ -162,23 +188,37 @@
   display: block;
   width: 260px;
 }
-/* Adverts blocks */
-.view-display-id-block_1 .views-row,
-.view-display-id-block_2 .views-row {
-  margin: 0;
+/**************************************************
+* --
+* 4. Section footer
+* --
+**************************************************/
+.section-footer ul.menu li {
+  display: inline;
+  float: left;
 }
-/**
- * Collection page
- */
-
-
-/*
- * ==========================================================
- * Footer
- * ==========================================================
- */
  .block-payment {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
+}
+/**************************************************
+* --
+* 6. Kickstart specific
+* --
+**************************************************/
+/**********************************************
+* 6.1. Homepage
+**********************************************/
+.front #zone-postscript .grid-8 {
+  width: 313px;
+}
+.front #region-postscript-first,
+.front #region-postscript-second,
+.front #region-postscript-third {
+  margin: 0;
+}
+.front #region-postscript-first,
+.front #region-postscript-second {
+  margin-right: 10px;
 }
