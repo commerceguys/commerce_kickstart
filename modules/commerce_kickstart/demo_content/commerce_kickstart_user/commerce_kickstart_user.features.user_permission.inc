@@ -95,16 +95,6 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'contextual',
   );
 
-  // Exported permission: access overlay.
-  $permissions['access overlay'] = array(
-    'name' => 'access overlay',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'overlay',
-  );
-
   // Exported permission: access rules debug.
   $permissions['access rules debug'] = array(
     'name' => 'access rules debug',
