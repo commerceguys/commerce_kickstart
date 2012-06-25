@@ -2009,3 +2009,23 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
   text-decoration: none;
   text-transform: uppercase;
 }
+
+/* Maintenance Page Styles */
+.in-maintenance {
+  margin: 0;
+}
+.in-maintenance .body-wrapper {
+  border-top: 5px solid #8E8E8E;
+}
+.in-maintenance #branding,
+.in-maintenance #page {
+  width: 960px;
+  margin: 0 auto;
+}
+.in-maintenance #branding {
+  padding: 20px 0 10px 0;
+}
+.in-maintenance #page .page-wrapper {
+  background: #fff;
+  padding: 10px 10px 20px 10px;
+}
