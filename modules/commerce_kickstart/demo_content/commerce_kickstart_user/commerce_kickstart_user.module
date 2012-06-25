@@ -24,7 +24,7 @@ function commerce_kickstart_user_access_callback($account) {
  * Implements hook_module_implements_alter().
  */
 function commerce_kickstart_user_module_implements_alter(&$implementations, $hook) {
-  if (in_array($hook, array('form_alter'))) {
+  if (in_array($hook, array('form_alter')) && isset($implementations['commerce_kickstart_user'])) {
     // Move our hook implementation to the bottom.
     $group = $implementations['commerce_kickstart_user'];
     unset($implementations['commerce_kickstart_user']);
