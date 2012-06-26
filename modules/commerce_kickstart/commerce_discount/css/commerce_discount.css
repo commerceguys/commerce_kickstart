@@ -22,18 +22,6 @@
   margin-top:10px;
   zoom:1;
 }
-.radio-buttons :before, .radio-buttons :after {
-  content:'\0020';
-  display:block;
-  overflow:hidden;
-  visibility:hidden;
-  width:0;
-  height:0;
-}
-.radio-buttons :after {
-  clear:both;
-  line-height:0;
-}
 .radio-buttons .form-item { float:left; }
 .radio-buttons .form-item input { display:none; }
 .radio-buttons .form-item label {
@@ -47,7 +35,9 @@
   background-color:#0089c9;
   color:white;
 }
-#commerce-discount-edit-order-discount-form label, #commerce-discount-form label {
+#commerce-discount-edit-order-discount-form label,
+#commerce-discount-edit-product-discount-form label,
+#commerce-discount-form label {
   display:inline;
   margin-right:15px;
 }
@@ -65,18 +55,6 @@
   zoom:1;
   zoom:1;
 }
-.form-item-commerce-discount-type.form-item #edit-commerce-discount-type :before, .form-item-commerce-discount-type.form-item #edit-commerce-discount-type :after {
-  content:'\0020';
-  display:block;
-  overflow:hidden;
-  visibility:hidden;
-  width:0;
-  height:0;
-}
-.form-item-commerce-discount-type.form-item #edit-commerce-discount-type :after {
-  clear:both;
-  line-height:0;
-}
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item { float:left; }
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item input { display:none; }
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item label {
@@ -90,19 +68,10 @@
   background-color:#0089c9;
   color:white;
 }
-.form-item-commerce-discount-type.form-item #edit-commerce-discount-type :before, .form-item-commerce-discount-type.form-item #edit-commerce-discount-type :after {
-  content:'\0020';
-  display:block;
-  overflow:hidden;
-  visibility:hidden;
-  width:0;
-  height:0;
+.field-name-commerce-discount-date .fieldset-wrapper {
+  display: inline-block;
+  width: 100%;
 }
-.form-item-commerce-discount-type.form-item #edit-commerce-discount-type :after {
-  clear:both;
-  line-height:0;
-}
-#edit-commerce-discount-fields-commerce-discount-date .fieldset-wrapper { height:25px; }
 .form-item-label.form-item {
   background:#f0f0f0;
   padding:15px;
@@ -125,18 +94,6 @@
   padding:25px 15px 25px 15px;
   margin-top:10px;
   zoom:1;
-}
-.field-name-commerce-discount-offer .form-type-radios > div :before, .field-name-commerce-discount-offer .form-type-radios > div :after {
-  content:'\0020';
-  display:block;
-  overflow:hidden;
-  visibility:hidden;
-  width:0;
-  height:0;
-}
-.field-name-commerce-discount-offer .form-type-radios > div :after {
-  clear:both;
-  line-height:0;
 }
 .field-name-commerce-discount-offer .form-type-radios > div .form-item { float:left; }
 .field-name-commerce-discount-offer .form-type-radios > div .form-item input { display:none; }
@@ -198,19 +155,6 @@ fieldset.form-wrapper .fieldset-legend {
 .field-name-commerce-discount-date .fieldset-wrapper {
   background:#f0f0f0;
   padding:15px;
-}
-.field-name-commerce-discount-date .fieldset-wrapper:after { zoom:1; }
-.field-name-commerce-discount-date .fieldset-wrapper:after :before, .field-name-commerce-discount-date .fieldset-wrapper:after :after {
-  content:'\0020';
-  display:block;
-  overflow:hidden;
-  visibility:hidden;
-  width:0;
-  height:0;
-}
-.field-name-commerce-discount-date .fieldset-wrapper:after :after {
-  clear:both;
-  line-height:0;
 }
 .field-name-commerce-discount-date .fieldset-wrapper .form-type-checkbox { display:none; }
 .field-name-commerce-discount-date .fieldset-wrapper .container-inline-date {

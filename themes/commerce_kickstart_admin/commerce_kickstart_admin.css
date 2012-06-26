@@ -87,7 +87,7 @@ fieldset.form-wrapper {
   border: 0;
   margin-bottom: 2em;
 }
-fieldset .fieldset-wrapper, fieldset.collapsible, .view-filters {
+fieldset .fieldset-wrapper, fieldset.collapsible {
   border: 1px solid #fff;
   background: #fff url("images/bg-fieldset.jpg") repeat-y right top;
   outline: 1px solid #ccc;
@@ -121,10 +121,6 @@ fieldset.collapsible  .fieldset-wrapper {
 body.in-maintenance fieldset .fieldset-legend {
   font-size: 28px;
   color: #000;
-}
-.form-item, .form-item .form-item {
-  position: relative;
-  clear: both;
 }
 .form-item label {
   font-size: 15px;

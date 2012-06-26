@@ -18,26 +18,6 @@
 }
 
 
-@clearfix {
-   zoom: 1;
-
-  :before,
-  :after {
-    content: '\0020';
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
-
-  :after {
-    clear: both;
-    line-height: 0;
-  }
-}
-
-
 .box {
   background: @gray;
   padding: 15px;
@@ -68,7 +48,6 @@
   .box;
   padding: 25px 15px 25px 15px;
   margin-top: 10px;
-  @clearfix;
 
   .form-item {
     float: left; // LTR
@@ -115,14 +94,14 @@
 
   #edit-commerce-discount-type {
     .radio-buttons;
-    @clearfix;
   }
 }
 
-#edit-commerce-discount-fields-commerce-discount-date {
+.field-name-commerce-discount-date {
 
   .fieldset-wrapper {
-    height: 25px;
+    display: inline-block;
+    width: 100%;
   }
 }
 
@@ -237,10 +216,6 @@ fieldset.form-wrapper {
 
 .field-name-commerce-discount-date .fieldset-wrapper {
   .box;
-
-  &:after {
-    @clearfix;
-  }
 
   .form-type-checkbox {
     display: none;
