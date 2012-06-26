@@ -2050,7 +2050,8 @@ function commerce_kickstart_user_user_default_permissions() {
     'roles' => array(
       0 => 'administrator',
       1 => 'anonymous user',
-      2 => 'store administrator',
+      2 => 'authenticated user',
+      3 => 'store administrator',
     ),
     'module' => 'commerce_product',
   );
