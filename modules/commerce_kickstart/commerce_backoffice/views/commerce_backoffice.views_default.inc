@@ -865,7 +865,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['operations_dropbutton']['field'] = 'operations_dropbutton';
   $handler->display->display_options['fields']['operations_dropbutton']['label'] = '';
   $handler->display->display_options['fields']['operations_dropbutton']['element_label_colon'] = FALSE;
-  /* Field: Node: Megarow links */
+  /* Field: Content: Megarow links */
   $handler->display->display_options['fields']['megarow_links']['id'] = 'megarow_links';
   $handler->display->display_options['fields']['megarow_links']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['megarow_links']['field'] = 'megarow_links';
@@ -994,6 +994,21 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['filters']['field_brand_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_brand_tid']['vocabulary'] = 'brand';
   $handler->display->display_options['filters']['field_brand_tid']['error_message'] = 1;
+  /* Filter criterion: Content: Category (field_category) */
+  $handler->display->display_options['filters']['field_category_tid']['id'] = 'field_category_tid';
+  $handler->display->display_options['filters']['field_category_tid']['table'] = 'field_data_field_category';
+  $handler->display->display_options['filters']['field_category_tid']['field'] = 'field_category_tid';
+  $handler->display->display_options['filters']['field_category_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_category_tid']['expose']['operator_id'] = 'field_category_tid_op';
+  $handler->display->display_options['filters']['field_category_tid']['expose']['label'] = 'Category';
+  $handler->display->display_options['filters']['field_category_tid']['expose']['operator'] = 'field_category_tid_op';
+  $handler->display->display_options['filters']['field_category_tid']['expose']['identifier'] = 'field_category_tid';
+  $handler->display->display_options['filters']['field_category_tid']['expose']['reduce'] = 0;
+  $handler->display->display_options['filters']['field_category_tid']['reduce_duplicates'] = 0;
+  $handler->display->display_options['filters']['field_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
+  $handler->display->display_options['filters']['field_category_tid']['error_message'] = 1;
   /* Filter criterion: Commerce Product: Status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'commerce_product';
