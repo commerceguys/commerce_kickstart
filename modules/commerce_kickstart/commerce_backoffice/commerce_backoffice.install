@@ -127,4 +127,10 @@ function commerce_backoffice_install() {
     'visible' => TRUE,
   );
   field_bundle_settings('commerce_order', 'commerce_order', $bundle_settings);
+
+  // Set the correct commerce order total formatter for the "backoffice"
+  // view mode.
+  $instance = field_info_instance('commerce_order', 'commerce_order_total', 'commerce_order');
+  $instance['display']['backoffice']['type'] = 'commerce_price_formatted_components';
+  field_update_instance($instance);
 }
