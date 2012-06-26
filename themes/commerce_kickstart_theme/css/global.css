@@ -245,9 +245,11 @@ h1#page-title {
 .block-shopping-cart-block .content .view-shopping-cart .line-item-quantity {
   display: inline;
   float: left;
-  line-height: 30px;
+  line-height: 13px;
   margin: 0;
   margin-left: 5px;
+  padding-top: 8px;
+  vertical-align: middle;
 }
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary {
   display: inline;
@@ -1526,11 +1528,9 @@ ul#payments li:first-child {
   font-size: 0;
   text-indent: -9999px;
 }
-.page-cart .entity-commerce-product .content .field {
-  display: inline;
-}
 .page-cart .entity-commerce-product .content .field:after {
   clear: none;
+  margin-bottom: 3px;
 }
 .page-cart .entity-commerce-product .content .field-name-field-images {
   display: inline;
@@ -1549,7 +1549,7 @@ ul#payments li:first-child {
 .page-cart .entity-commerce-product .content .field-label {
   font-size: 11px;
   font-weight: normal;
-  line-height: 20px;
+  line-height: 22px;
   text-transform: uppercase;
   vertical-align: bottom;
 }
