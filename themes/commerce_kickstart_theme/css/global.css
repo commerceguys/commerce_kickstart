@@ -1492,6 +1492,10 @@ div.messages.commerce-kickstart-add-to-cart {
   margin-left: 5px;
   padding: 5px 50px 5px 10px;
 }
+.service-links {
+  float: right;
+  width: 315px;
+}
 .service-links ul li {
   display: inline;
   float: left;
