@@ -934,6 +934,10 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 .rules-autocomplete-button {
   top: 6px;
 }
+.rules-elements-table ul.rules-operations a {
+  background: #36A2F6;
+  padding: 0 10px;
+}
 
 /* Commerce discount. */
 .view-commerce-discount-overview td.views-field-enable-disable * {
