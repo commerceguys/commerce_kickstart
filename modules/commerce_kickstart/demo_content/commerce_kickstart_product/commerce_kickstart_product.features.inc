@@ -102,7 +102,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'module' => 'commerce_product_ui',
       'autosku' => array(
         'product_type' => 'bags_cases',
-        'pattern' => '[commerce-product:title]-[commerce-product:field-bag-size]-[commerce-product:field_color]',
+        'pattern' => '[commerce-product:title]',
         'advanced' => array(
           'update_existing' => 0,
           'hide_sku' => 1,
@@ -119,7 +119,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'module' => 'commerce_product_ui',
       'autosku' => array(
         'product_type' => 'drinks',
-        'pattern' => '[commerce-product:title]-[commerce-product:field_color]',
+        'pattern' => '[commerce-product:title]',
         'advanced' => array(
           'update_existing' => 0,
           'hide_sku' => 1,
@@ -136,7 +136,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'module' => 'commerce_product_ui',
       'autosku' => array(
         'product_type' => 'hats',
-        'pattern' => '[commerce-product:title]-[commerce-product:field_hat_size]-[commerce-product:field_color]',
+        'pattern' => '[commerce-product:title]',
         'advanced' => array(
           'update_existing' => 0,
           'hide_sku' => 1,
@@ -153,7 +153,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'module' => 'commerce_product_ui',
       'autosku' => array(
         'product_type' => 'shoes',
-        'pattern' => '[commerce-product:title]-[commerce-product:field_shoe_size]-[commerce-product:field_color]',
+        'pattern' => '[commerce-product:title]',
         'advanced' => array(
           'update_existing' => 0,
           'hide_sku' => 1,
@@ -170,7 +170,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'module' => 'commerce_product_ui',
       'autosku' => array(
         'product_type' => 'storage_devices',
-        'pattern' => '[commerce-product:title]-[commerce-product:field_storage_capacity]',
+        'pattern' => '[commerce-product:title]',
         'advanced' => array(
           'update_existing' => 0,
           'hide_sku' => 1,
@@ -187,7 +187,7 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'module' => 'commerce_product_ui',
       'autosku' => array(
         'product_type' => 'tops',
-        'pattern' => '[commerce-product:title]-[commerce-product:field_top_size]-[commerce-product:field_color]',
+        'pattern' => '[commerce-product:title]',
         'advanced' => array(
           'update_existing' => 0,
           'hide_sku' => 1,
