@@ -33,6 +33,27 @@ function commerce_kickstart_menus_menu() {
     'file' => 'system.admin.inc',
     'weight' => 200,
   );
+  // Product types tab.
+  $items['admin/commerce/products/types/product-types'] = array(
+    'title' => 'Product types',
+    'description' => 'Manage products types for your store.',
+    'page callback' => 'commerce_product_ui_types_overview',
+    'access arguments' => array('administer product types'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 0,
+    'file' => 'includes/commerce_product_ui.types.inc',
+    'file path' => drupal_get_path('module', 'commerce_product_ui'),
+  );
+  // Content types tab.
+  $items['admin/commerce/products/types/content-types'] = array(
+    'title' => 'Content types',
+    'description' => 'Manage content types, including default status, front page promotion, comment settings, etc.',
+    'page callback' => 'node_overview_types',
+    'access arguments' => array('administer content types'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'content_types.inc',
+    'file path' => drupal_get_path('module', 'node'),
+  );
 
   return $items;
 }
@@ -46,6 +67,9 @@ function commerce_kickstart_menus_menu_alter(&$items) {
   if (isset($items['admin/commerce/products'])) {
     $items['admin/commerce/products']['parent'] = 'admin';
     $items['admin/commerce/products']['weight'] = -30;
+  }
+  if (isset($items['admin/commerce/products/types/add'])) {
+    $items['admin/commerce/products/types/add']['type'] = MENU_NORMAL_ITEM;
   }
   // "Orders" entry point.
   if (isset($items['admin/commerce/orders'])) {
@@ -73,9 +97,10 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     // Just because the default title 'Product pricing rules' is too long.
     $items['admin/commerce/config/product-pricing']['title'] = 'Pricing rules';
   }
-
+  // "Products types" entry point.
   if (isset($items['admin/commerce/products/types'])) {
-    // Hide "Product types" tab & show the link under "Store settings".
+    // Show the link under "Store settings".
+    $items['admin/commerce/products/types']['title'] = 'Product & content types';
     $items['admin/commerce/products/types']['parent'] = 'admin/commerce/config';
     $items['admin/commerce/products/types']['type'] = MENU_NORMAL_ITEM;
   }
@@ -182,4 +207,3 @@ function commerce_kickstart_menus_views_api() {
     'path' => drupal_get_path('module', 'commerce_kickstart_menus') . '/views',
   );
 }
-
