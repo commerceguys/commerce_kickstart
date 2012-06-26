@@ -79,7 +79,7 @@ function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
     '#type' => 'user_profile_category',
     '#title' => t('Account information'),
     '#markup' => '',
-    '#attributes' => array('class' => array('user-information')),
+    '#attributes' => array('class' => array('user-information', 'clearfix')),
   );
 
   $shipping_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'shipping');
@@ -127,7 +127,7 @@ function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
     '#type' => 'user_profile_category',
     '#title' => t('Recent orders'),
     '#markup' => '',
-    '#attributes' => array('class' => array('user-recent-orders')),
+    '#attributes' => array('class' => array('user-recent-orders', 'clearfix')),
   );
 
   $account->content['recent_orders']['view'] = array(
@@ -150,4 +150,32 @@ function commerce_kickstart_user_user_view_alter(&$build) {
   if (isset($build['summary'])) {
     unset($build['summary']);
   }
+}
+
+/**
+ * Implements hook_preprocess_user_profile_item().
+ */
+function commerce_kickstart_user_preprocess_user_profile_item(&$variables) {
+  // Append custom css classes.
+  if (!empty($variables['element']['#attributes']['class'])) {
+    $variables['classes_array'] = array_merge($variables['classes_array'], $variables['element']['#attributes']['class']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_user_profile_category().
+ */
+function commerce_kickstart_user_preprocess_user_profile_category(&$variables) {
+  // Append custom css classes.
+  if (!empty($variables['element']['#attributes']['class'])) {
+    $variables['classes_array'] = array_merge($variables['classes_array'], $variables['element']['#attributes']['class']);
+  }
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function commerce_kickstart_user_theme_registry_alter(&$theme_registry) {
+  $theme_registry['user_profile_category']['template'] = drupal_get_path('module', 'commerce_kickstart_user') . '/user-profile-category';
+  $theme_registry['user_profile_item']['template'] = drupal_get_path('module', 'commerce_kickstart_user') . '/user-profile-item';
 }

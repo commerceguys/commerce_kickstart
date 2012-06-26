@@ -1753,6 +1753,43 @@ input.checkout-continue {
 * 8. User account
 * --
 **************************************************/
+/* User home */
+.page-user .profile h3 {
+  clear: both;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.page-user .profile ul.user-information {
+  width: 100%;
+}
+.page-user .profile ul,
+.page-user .profile ul li {
+  list-style: none;
+  list-style-image: none;
+}
+.page-user .profile ul.user-information li {
+  float: left;
+  height: 150px;
+  min-height: 150px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 30px;
+  width: 300px;
+}
+.page-user .profile ul.user-information li h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.page-user .profile ul.user-information li a {
+  border: 1px solid #D8D8D8;
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 0;
+}
+.page-user .profile ul.user-recent-orders li .view-commerce-backoffice-user-orders td {
+  padding: 10px;
+}
+
 /* User primary menu/tabs */
 .page-user ul.primary {
   border-bottom: 1px solid #D8D8D8;
@@ -1868,11 +1905,13 @@ input.checkout-continue {
 /* Order table styles including - user order table, order page table & order activity stream */
 .page-user-orders .view-commerce-line-item-table table,
 .page-user-orders .view-commerce-user-orders table,
+.view-commerce-backoffice-user-orders table,
 .view-commerce-backoffice-order-messages table {
   width: 100%;
 }
 .page-user-orders .view-commerce-line-item-table th,
 .page-user-orders .view-commerce-user-orders th,
+.view-commerce-backoffice-user-orders th,
 .view-commerce-backoffice-order-messages th,
 .view-commerce-cart-summary th {
   color: #777777;
@@ -1881,13 +1920,15 @@ input.checkout-continue {
   text-align: left;
   text-transform: uppercase;
 }
-.page-user-orders .view-commerce-user-orders table thead th a {
+.page-user-orders .view-commerce-user-orders table thead th a,
+.view-commerce-backoffice-user-orders th a {
   color: #777777;
   text-decoration: none;
 }
 .page-user-orders .view-commerce-line-item-table table tbody tr td,
 .commerce-line-item-views-form table.views-table tbody tr td,
 .view-commerce-user-orders td,
+.view-commerce-backoffice-user-orders td,
 .view-commerce-backoffice-order-messages td,
 .view-commerce-cart-summary td {
   background-color: transparent;
@@ -1897,6 +1938,8 @@ input.checkout-continue {
 .page-user-orders .view-commerce-line-item-table tr.odd,
 .page-user-orders .view-commerce-user-orders tr.even,
 .page-user-orders .view-commerce-user-orders tr.odd,
+.view-commerce-backoffice-user-orders tr.even,
+.view-commerce-backoffice-user-orders tr.odd,
 .view-commerce-backoffice-order-messages tr.even,
 .view-commerce-backoffice-order-messages tr.odd,
 .view-commerce-cart-summary tr.even,
