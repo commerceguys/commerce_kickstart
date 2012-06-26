@@ -2729,7 +2729,7 @@ function commerce_kickstart_product_field_default_fields() {
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'text_long',
     ),
     'field_instance' => array(
       'bundle' => 'bags_cases',
@@ -2747,10 +2747,8 @@ function commerce_kickstart_product_field_default_fields() {
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'trim_length' => '300',
-          ),
-          'type' => 'text_summary_or_trimmed',
+          'settings' => array(),
+          'type' => 'text_default',
           'weight' => '3',
         ),
         'product_in_cart' => array(
@@ -2790,13 +2788,13 @@ function commerce_kickstart_product_field_default_fields() {
           'rows' => 20,
           'summary_rows' => 5,
         ),
-        'type' => 'text_textarea_with_summary',
+        'type' => 'text_textarea',
         'weight' => '1',
       ),
     ),
   );
 
-  // Exported field: 'node-bags_cases-field_brand'
+  // Exported field: 'node-bags_cases-field_brand'.
   $fields['node-bags_cases-field_brand'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3258,7 +3256,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-drinks-body'
+  // Exported field: 'node-drinks-body'.
   $fields['node-drinks-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3284,7 +3282,7 @@ function commerce_kickstart_product_field_default_fields() {
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'text_long',
     ),
     'field_instance' => array(
       'bundle' => 'drinks',
@@ -3302,10 +3300,8 @@ function commerce_kickstart_product_field_default_fields() {
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'trim_length' => '300',
-          ),
-          'type' => 'text_summary_or_trimmed',
+          'settings' => array(),
+          'type' => 'text_default',
           'weight' => '3',
         ),
         'product_in_cart' => array(
@@ -3345,13 +3341,13 @@ function commerce_kickstart_product_field_default_fields() {
           'rows' => 20,
           'summary_rows' => 5,
         ),
-        'type' => 'text_textarea_with_summary',
+        'type' => 'text_textarea',
         'weight' => '1',
       ),
     ),
   );
 
-  // Exported field: 'node-drinks-field_brand'
+  // Exported field: 'node-drinks-field_brand'.
   $fields['node-drinks-field_brand'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3813,7 +3809,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-hats-body'
+  // Exported field: 'node-hats-body'.
   $fields['node-hats-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3839,7 +3835,7 @@ function commerce_kickstart_product_field_default_fields() {
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'text_long',
     ),
     'field_instance' => array(
       'bundle' => 'hats',
@@ -3857,10 +3853,8 @@ function commerce_kickstart_product_field_default_fields() {
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'trim_length' => '300',
-          ),
-          'type' => 'text_summary_or_trimmed',
+          'settings' => array(),
+          'type' => 'text_default',
           'weight' => '3',
         ),
         'product_in_cart' => array(
@@ -3900,13 +3894,13 @@ function commerce_kickstart_product_field_default_fields() {
           'rows' => 20,
           'summary_rows' => 5,
         ),
-        'type' => 'text_textarea_with_summary',
+        'type' => 'text_textarea',
         'weight' => '1',
       ),
     ),
   );
 
-  // Exported field: 'node-hats-field_brand'
+  // Exported field: 'node-hats-field_brand'.
   $fields['node-hats-field_brand'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4368,7 +4362,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-shoes-body'
+  // Exported field: 'node-shoes-body'.
   $fields['node-shoes-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4394,7 +4388,7 @@ function commerce_kickstart_product_field_default_fields() {
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'text_long',
     ),
     'field_instance' => array(
       'bundle' => 'shoes',
@@ -4412,10 +4406,8 @@ function commerce_kickstart_product_field_default_fields() {
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'trim_length' => '300',
-          ),
-          'type' => 'text_summary_or_trimmed',
+          'settings' => array(),
+          'type' => 'text_default',
           'weight' => '3',
         ),
         'product_in_cart' => array(
@@ -4455,13 +4447,13 @@ function commerce_kickstart_product_field_default_fields() {
           'rows' => 20,
           'summary_rows' => 5,
         ),
-        'type' => 'text_textarea_with_summary',
+        'type' => 'text_textarea',
         'weight' => '1',
       ),
     ),
   );
 
-  // Exported field: 'node-shoes-field_brand'
+  // Exported field: 'node-shoes-field_brand'.
   $fields['node-shoes-field_brand'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4923,7 +4915,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-storage_devices-body'
+  // Exported field: 'node-storage_devices-body'.
   $fields['node-storage_devices-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4949,7 +4941,7 @@ function commerce_kickstart_product_field_default_fields() {
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'text_long',
     ),
     'field_instance' => array(
       'bundle' => 'storage_devices',
@@ -4967,10 +4959,8 @@ function commerce_kickstart_product_field_default_fields() {
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'trim_length' => '300',
-          ),
-          'type' => 'text_summary_or_trimmed',
+          'settings' => array(),
+          'type' => 'text_default',
           'weight' => '3',
         ),
         'product_in_cart' => array(
@@ -5010,13 +5000,13 @@ function commerce_kickstart_product_field_default_fields() {
           'rows' => 20,
           'summary_rows' => 5,
         ),
-        'type' => 'text_textarea_with_summary',
+        'type' => 'text_textarea',
         'weight' => '1',
       ),
     ),
   );
 
-  // Exported field: 'node-storage_devices-field_brand'
+  // Exported field: 'node-storage_devices-field_brand'.
   $fields['node-storage_devices-field_brand'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5478,7 +5468,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-tops-body'
+  // Exported field: 'node-tops-body'.
   $fields['node-tops-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5504,7 +5494,7 @@ function commerce_kickstart_product_field_default_fields() {
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'text_long',
     ),
     'field_instance' => array(
       'bundle' => 'tops',
@@ -5522,10 +5512,8 @@ function commerce_kickstart_product_field_default_fields() {
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'trim_length' => '300',
-          ),
-          'type' => 'text_summary_or_trimmed',
+          'settings' => array(),
+          'type' => 'text_default',
           'weight' => '3',
         ),
         'product_in_cart' => array(
@@ -5565,13 +5553,13 @@ function commerce_kickstart_product_field_default_fields() {
           'rows' => 20,
           'summary_rows' => 5,
         ),
-        'type' => 'text_textarea_with_summary',
+        'type' => 'text_textarea',
         'weight' => '1',
       ),
     ),
   );
 
-  // Exported field: 'node-tops-field_brand'
+  // Exported field: 'node-tops-field_brand'.
   $fields['node-tops-field_brand'] = array(
     'field_config' => array(
       'active' => '1',

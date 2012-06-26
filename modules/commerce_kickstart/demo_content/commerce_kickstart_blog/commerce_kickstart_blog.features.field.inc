@@ -36,7 +36,7 @@ function commerce_kickstart_blog_field_default_fields() {
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
-      'type' => 'text_with_summary',
+      'type' => 'text_long',
     ),
     'field_instance' => array(
       'bundle' => 'blog_post',
