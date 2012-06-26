@@ -21,3 +21,13 @@ function commerce_kickstart_product_enable() {
   $index = entity_load_single('search_api_index', 'search_commerce_product');
   $index->server()->fieldsUpdated($index);
 }
+
+/**
+ * Implementation of hook_install()
+ */
+function commerce_kickstart_product_install() {
+  db_update('system')
+    ->fields(array('weight' => 10))
+    ->condition('name', 'commerce_kickstart_product')
+    ->execute();
+}
