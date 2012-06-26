@@ -43,11 +43,11 @@
   color: #000;
   padding: 20px 20px 20px 95px;
 }
-.advanced-help-topic .design .ui-accordion-header a {
+.advanced-help-topic .first-steps .ui-accordion-header a {
   background: transparent url("../images/design.png") no-repeat 30px 0;
 }
-.advanced-help-topic .design .ui-accordion-header .ui-icon {
-  left: 180px;
+.advanced-help-topic .first-steps .ui-accordion-header .ui-icon {
+  left: 332px;
 }
 .advanced-help-topic .products .ui-accordion-header a {
   background: transparent url("../images/products.png") no-repeat 30px 0;
@@ -55,11 +55,11 @@
 .advanced-help-topic .products .ui-accordion-header .ui-icon {
   left: 215px;
 }
-.advanced-help-topic .content .ui-accordion-header a {
+.advanced-help-topic .checkout .ui-accordion-header a {
   background: transparent url("../images/content.png") no-repeat 30px 0;
 }
-.advanced-help-topic .content .ui-accordion-header .ui-icon {
-  left: 200px;
+.advanced-help-topic .checkout .ui-accordion-header .ui-icon {
+  left: 446px;
 }
 .advanced-help-topic .store-settings .ui-accordion-header a {
   background: transparent url("../images/store.png") no-repeat 30px 0;
@@ -73,19 +73,19 @@
 .advanced-help-topic .store-launch .ui-accordion-header .ui-icon {
   left: 260px;
 }
-.advanced-help-topic .account .ui-accordion-header .ui-icon {
+.advanced-help-topic .site-enrichment .ui-accordion-header .ui-icon {
   left: 270px;
 }
 .advanced-help-topic .other .ui-accordion-header .ui-icon {
   left: 175px;
 }
-.advanced-help-topic .design h2.ui-state-active a,
+.advanced-help-topic .first-steps h2.ui-state-active a,
 .advanced-help-topic .products h2.ui-state-active a,
-.advanced-help-topic .content h2.ui-state-active a,
+.advanced-help-topic .checkout h2.ui-state-active a,
 .advanced-help-topic .store-settings h2.ui-state-active a,
 .advanced-help-topic .store-launch h2.ui-state-active a,
 .advanced-help-topic .launch h2.ui-state-active a,
-.advanced-help-topic .account h2.ui-state-active a,
+.advanced-help-topic .site-enrichment h2.ui-state-active a,
 .advanced-help-topic .other h2.ui-state-active a {
   background-position: 30px -70px;
 }
@@ -198,8 +198,14 @@
   width: 134px;
 }
 /* Help Block */
-#block-commerce-kickstart-help-commerce-kickstart-help {
+#block-commerce-kickstart-help-commerce-kickstart-ressources {
   float: left;
+}
+#block-commerce-kickstart-help-commerce-kickstart-community {
+  float: right;
+}
+#block-commerce-kickstart-help-commerce-kickstart-ressources,
+#block-commerce-kickstart-help-commerce-kickstart-community {
   width: 47%;
   border: 1px solid #aaa;
   background-color: #fafafa;
@@ -208,10 +214,12 @@
   padding-left: 30px;
   padding-top: 10px;
 }
-#block-commerce-kickstart-help-commerce-kickstart-help h2 {
+#block-commerce-kickstart-help-commerce-kickstart-ressources h2,
+#block-commerce-kickstart-help-commerce-kickstart-community h2 {
   background: transparent url("../images/help-lg.png") no-repeat 0 0;
   padding: 5px 0 5px 40px;
 }
-#block-commerce-kickstart-help-commerce-kickstart-help .content {
+#block-commerce-kickstart-help-commerce-kickstart-ressources .content,
+#block-commerce-kickstart-help-commerce-kickstart-community .content {
   padding-left: 40px;
 }

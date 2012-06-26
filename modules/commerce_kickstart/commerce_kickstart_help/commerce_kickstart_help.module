@@ -36,6 +36,8 @@ function commerce_kickstart_help_preprocess_page(&$vars) {
     drupal_add_library('system', 'jquery.form');
     drupal_add_library('system', 'ui.accordion');
     drupal_add_js(drupal_get_path('module', 'commerce_kickstart_help') . '/commerce_kickstart_help.js', 'file');
+    drupal_set_breadcrumb(array(l(t('Home'), '<front>'), l(t('Help'), 'advanced_help'), l(t('Getting Started'), 'admin/getting-started')));
+
     $vars['page']['content']['system_main']['help_text'] = array(
       '#weight' => -12,
       '#markup' => "<div id='commerce-kickstart-help'><p>Find all the help you need to start using your store.</p></div>",
@@ -108,7 +110,7 @@ function commerce_kickstart_ajax_help_checked_callback($form, $form_state) {
  * Implements hook_block_info().
  */
 function commerce_kickstart_help_block_info() {
-  $blocks['commerce_kickstart_help'] = array(
+  $blocks['commerce_kickstart_ressources'] = array(
     'info' => t('Kickstart Help'),
     'visibility' => BLOCK_VISIBILITY_LISTED,
     'pages' => implode("\n", array(
@@ -119,6 +121,17 @@ function commerce_kickstart_help_block_info() {
     'status' => TRUE,
     'weight' => 50,
   );
+  $blocks['commerce_kickstart_community'] = array(
+    'info' => t('Kickstart community'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => implode("\n", array(
+      'help/commerce_kickstart_help/getting-started',
+      'admin/getting-started'
+    )),
+    'region' => 'content',
+    'status' => TRUE,
+    'weight' => 51,
+  );
   return $blocks;
 }
 
@@ -128,9 +141,14 @@ function commerce_kickstart_help_block_info() {
  * This hook generates the contents of the blocks themselves.
  */
 function commerce_kickstart_help_block_view($delta = '') {
+  $block = array();
   switch ($delta) {
-    case 'commerce_kickstart_help':
-      $block['subject'] = t('Need help ?');
+    case 'commerce_kickstart_ressources':
+      $block['subject'] = t('Additional Site Builder Resources');
+      $block['content'] = commerce_kickstart_help_contents($delta);
+      break;
+    case 'commerce_kickstart_community':
+      $block['subject'] = t('Connect with the Community');
       $block['content'] = commerce_kickstart_help_contents($delta);
       break;
   }
@@ -142,10 +160,20 @@ function commerce_kickstart_help_block_view($delta = '') {
  */
 function commerce_kickstart_help_contents($which_block) {
   switch ($which_block) {
-    case 'commerce_kickstart_help':
-      $markup = "Need more help ? Find it here :<br />
-        <a href='drupalcommerce.org'>Documentation on drupalcommerce.org</a><br />
-        <a href='drupalcommerce.org/faq'>Q&A on drupalcommerce.org</a>";
+    case 'commerce_kickstart_ressources':
+      $markup = "<a href='http://www.drupalcommerce.org/user-guide'>Drupal Commerce Site Builder Guide</a><br />
+      <a href='#'>Commerce Kickstart User Guide (Link TBD)</a><br />
+      <a href='https://vimeo.com/channels/commerceguys'>Commerce Guys Videos</a><br />
+      <a href='http://nodeone.se/en/taming-the-beast-learn-views-with-nodeone'>Learn Views</a><br />
+      <a href='http://nodeone.se/node/32'>Learn Rules</a><br />
+      <a href='http://drupal.org/books'>Books about Drupal</a><br />";
+      return array('#markup' => $markup);
+    case 'commerce_kickstart_community':
+      $markup = "IRC, freenode.net: #drupal-commerce (<a href='http://drupal.org/irc/setting-up'>Setting up and using IRC</a>)<br />
+      <a href='http://drupalcommerce.org'>DrupalCommerce.org</a><br />
+      <a href='http://drupal.org'>drupal.org</a><br />
+      <a href='http://www.drupalcommerce.org/discussions'>Drupal Commerce Discussions</a><br />
+      <a href='http://www.drupalcommerce.org/questions'>Drupal Commerce Q&A</a><br />";
       return array('#markup' => $markup);
   }
 }

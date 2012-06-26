@@ -473,7 +473,8 @@ body.in-maintenance #credit .logo a {
 .ui-accordion .help-section .tipsy-link {
   margin-top: 6px;
 }
-#block-commerce-kickstart-help-commerce-kickstart-help {
+#block-commerce-kickstart-help-commerce-kickstart-ressources,
+#block-commerce-kickstart-help-commerce-kickstart-community {
   background: #fefefe;
   border: 1px solid #efb120;
   -moz-border-radius: 15px;
