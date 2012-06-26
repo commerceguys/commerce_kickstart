@@ -260,7 +260,7 @@ function commerce_kickstart_product_ui_search_api_facetapi_keys_alter(&$keys, $q
   if ($keys == '[all items]' && !isset($_GET['f'])) {
     // All products without facets.
     $keys = '';
-    drupal_set_breadcrumb(array(l('Home', '<front>'), 'All Products'));
+    drupal_set_breadcrumb(array(l(t('Home'), '<front>'), 'All Products'));
   }
   else if ($keys == '[all items]' && isset($_GET['f'])) {
     // All products with facets.

@@ -95,7 +95,7 @@ function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
   $account->content['information']['shipping_profile'] =  array(
     '#type' => 'user_profile_item',
     '#title' => t('Primary shipping address'),
-    '#markup' => $shipping_profile_output . l('Manage shipping address', 'user/' . $account->uid . '/addressbook/shipping'),
+    '#markup' => $shipping_profile_output . l(t('Manage shipping address'), 'user/' . $account->uid . '/addressbook/shipping'),
     '#attributes' => array('class' => array('shipping-address')),
   );
 
@@ -112,14 +112,14 @@ function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
   $account->content['information']['billing_profile'] =  array(
     '#type' => 'user_profile_item',
     '#title' => t('Primary billing address'),
-    '#markup' => $billing_profile_output  . l('Manage billing address', 'user/' . $account->uid . '/addressbook/billing'),
+    '#markup' => $billing_profile_output  . l(t('Manage billing address'), 'user/' . $account->uid . '/addressbook/billing'),
     '#attributes' => array('class' => array('billing-address')),
   );
 
   $account->content['information']['mail'] = array(
     '#type' => 'user_profile_item',
     '#title' => t('Email address'),
-    '#markup' => '<p>' . $account->mail . '</p>' . l('Update email/password', 'user/' . $account->uid . '/edit'),
+    '#markup' => '<p>' . $account->mail . '</p>' . l(t('Update email/password'), 'user/' . $account->uid . '/edit'),
     '#attributes' => array('class' => array('mail')),
   );
 
