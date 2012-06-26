@@ -29,17 +29,17 @@ body.in-maintenance #branding {
 }
 body.in-maintenance #branding h1.page-title {
   color: #fff;
-  text-align: center;
-  padding: 10px 0;
   font-size: 40px;
-  line-height: 1em;
   font-weight: 100;
+  line-height: 1em;
   margin-bottom: 20px;
+  padding: 10px 0;
+  text-align: center;
 }
 body.in-maintenance #page {
-  width: 960px;
   background: rgba(255,255,255,.5);
   padding: 8px 6px;
+  width: 960px;
 }
 body.in-maintenance .page-wrapper {
   background: #ebebeb;
@@ -55,9 +55,9 @@ body.in-maintenance #sidebar-first {
 body.in-maintenance ol.task-list li {
   background: transparent url("images/tasks-inactive.png") no-repeat 0 0;
   color: #999999;
+  font: normal 400 16px/18px "Open Sans", Arial, sans-serif;
   padding: 3px 0 3px 30px;
   margin: 0 0 17px 0;
-  font: normal 400 16px/18px "Open Sans", Arial, sans-serif;
 }
 body.in-maintenance ol.task-list li.active {
   background: transparent url("images/tasks-active.png") no-repeat 0 0;
@@ -68,12 +68,12 @@ body.in-maintenance ol.task-list li.done {
   color: #75cd27;
 }
 body.in-maintenance .form-item-commerce-kickstart-example-content .form-radios {
-  float: left;
+  float: left; /* LTR */
 }
 body.in-maintenance .form-item-commerce-kickstart-example-content .description {
-  margin-left: 80px;
-  padding: 3px 5px 5px 23px;
   background: transparent url("images/small-pointer.png") no-repeat 0 3px;
+  margin-left: 80px; /* LTR */
+  padding: 3px 5px 5px 23px;
 }
 
 /* Setting Museo Slab Family */
@@ -88,39 +88,39 @@ fieldset.form-wrapper {
   margin-bottom: 2em;
 }
 fieldset .fieldset-wrapper, fieldset.collapsible {
-  border: 1px solid #fff;
   background: #fff url("images/bg-fieldset.jpg") repeat-y right top;
+  border: 1px solid #fff;
   outline: 1px solid #ccc;
   padding: 15px;
 }
 fieldset.collapsed {
-  padding: 25px 15px;
   min-height: 50px;
+  padding: 25px 15px;
 }
 fieldset .fieldset-legend {
-  text-transform: none;
+  font-size: 22px;
   font-weight: 400;
   margin-top: 0;
-  font-size: 22px;
+  text-transform: none;
 }
 fieldset.collapsible .fieldset-legend {
+  color: #585858;
   font-size: 15px;
   font-weight: 500;
   margin-top: 15px;
-  color: #585858;
 }
 fieldset.collapsible .fieldset-legend a {
   color: #000;
 }
 fieldset.collapsible  .fieldset-wrapper {
+  background: transparent;
   border: 0;
   outline: 0;
-  background: transparent;
   padding: 25px 0 0;
 }
 body.in-maintenance fieldset .fieldset-legend {
-  font-size: 28px;
   color: #000;
+  font-size: 28px;
 }
 .form-item label {
   font-size: 15px;
@@ -136,16 +136,16 @@ input.form-file,
 .resizable-textarea .grippie {
   background: #f3f3f3;
   border: 1px solid #fff;
-  outline: 1px solid #e0e0e0;
-  font: normal 400 14px/14px "Open Sans", Arial, sans-serif;
-  padding: 5px 10px;
   color: #4c4c4c;
+  font: normal 400 14px/14px "Open Sans", Arial, sans-serif;
   margin: 1px;
   max-width: 100%;
+  outline: 1px solid #e0e0e0;
+  padding: 5px 10px;
 }
 textarea.form-textarea {
-  padding: 5px 10px;
   border: 1px solid #e0e0e0;
+  padding: 5px 10px;
 }
 .resizable-textarea .grippie {
   background: #f3f3f3 url("images/grippie.png") no-repeat center center;
@@ -156,12 +156,12 @@ textarea.form-textarea {
 }
 .text-format-wrapper fieldset,
 .text-format-wrapper fieldset .fieldset-wrapper {
+  background: transparent;
   border: none;
   outline: none;
-  background: transparent;
 }
 .text-format-wrapper fieldset .fieldset-wrapper .form-item {
-  clear: left;
+  clear: left; /* LTR */
 }
 input.form-autocomplete:focus,
 input.form-text:focus,
@@ -187,8 +187,11 @@ select.form-select {
   background-image: -moz-linear-gradient(top, #fff, #efeded);
   background-image: -ms-linear-gradient(top, #fff, #efeded);
   background-image: -o-linear-gradient(top, #fff, #efeded);
-  box-shadow: inset 0 0 2px #fff;
+  background-image: linear-gradient(to bottom, #fff, #efeded);
   border: 1px solid #e0e0e0;
+  -moz-box-shadow: inset 0 0 2px #fff;
+  -webkit-box-shadow: inset 0 0 2px #fff;
+  box-shadow: inset 0 0 2px #fff;
   font: normal 400 1em/1em "Open Sans", Arial, sans-serif;
   max-width: 100%;
 }
@@ -202,10 +205,12 @@ body.in-maintenance select.form-select {
 }
 body.in-maintenance .form-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
-  font: normal 400 16px/16px "Open Sans", Arial, sans-serif;
-  color: #fff;
   border: 1px solid #fff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   border-radius: 10px;
+  color: #fff;
+  font: normal 400 16px/16px "Open Sans", Arial, sans-serif;
   padding: 8px 12px;
 }
 body.in-maintenance .form-submit:hover {
@@ -223,10 +228,10 @@ body.in-maintenance #install-settings-form fieldset .fieldset-wrapper {
 }
 #edit-account-commerce-kickstart-name label,
 #edit-account-commerce-kickstart-password label {
-  float: left;
-  margin-right: 8px;
-  font-weight: 500;
   color:#333;
+  float: left; /* LTR */
+  margin-right: 8px; /* LTR */
+  font-weight: 500;
 }
 /* Make the Username & Password stand out from the label */
 #edit-account-commerce-kickstart-name,
@@ -246,17 +251,17 @@ a.tabledrag-handle .handle {
   background: transparent url("images/overlay.png") repeat 0 0 !important;
 }
 #overlay-close-wrapper {
-  height: 50px;
-  width: 45px;
-  right: -26px;
   background: transparent url("images/bg-close.png") no-repeat right top;
+  height: 50px;
   margin-top: 20px;
+  right: -26px; /* LTR */
+  width: 45px;
 }
 #overlay-close, #overlay-close:hover {
   background: transparent url("images/close.png") no-repeat 0 0;
   height: 40px;
+  top: 5px;
   width: 40px;
-  top: 5px
 }
 
 h1#overlay-title {
@@ -276,17 +281,17 @@ h1#overlay-title {
 #overlay #overlay-content #branding,
 #overlay #overlay-content #page {
   background: transparent url("images/bg-light-wht.png") repeat 0 0;
-  width: auto;
   max-width: 100%;
+  width: auto;
 }
 #overlay-tabs-wrapper {
   height: 30px;
 }
 #overlay-tabs {
   background: transparent url("images/bg-opac-wht.png") repeat-x 0 0;
-  padding: 8px 8px 0;
-  margin: 0;
   bottom: -8px;
+  margin: 0;
+  padding: 8px 8px 0;
   right: 0
 }
 #overlay-tabs li {
@@ -295,23 +300,25 @@ h1#overlay-title {
 }
 #overlay-tabs li a, #overlay-tabs li a:active, #overlay-tabs li a:visited, #overlay-tabs li a:hover {
   background: #868686;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
   border-radius: 0;
-  font-size: 15px;
-  line-height: 30px;
-  font-weight: 400 !important;
-  margin: 0 5px 0 0;
   color: #fff;
+  float: left; /* LTR */
+  font-size: 15px;
+  font-weight: 400 !important;
+  line-height: 30px;
+  margin: 0 5px 0 0;
   text-transform: none;
-  float: left;
 }
 #overlay-tabs li a:hover {
   background: #666;
 }
 #overlay-tabs li.active a, #overlay-tabs li.active a.active, #overlay-tabs li.active a:active, #overlay-tabs li.active a:visited {
-  color: #000;
   background: transparent url("images/bg-light-wht.png") repeat 0 0;
-  padding-bottom: 7px;
+  color: #000;
   margin: 0 5px 0 0;
+  padding-bottom: 7px;
 }
 #overlay-tabs li:last-child a, #overlay-tabs li.active:last-child a {
   margin: 0;
@@ -329,49 +336,48 @@ h1#overlay-title {
   padding-bottom: .9em;
 }
 .footer-messages {
-  clear: both;
-  font-size: 13px;
-  margin: 0 40px;
-  font: normal 13px/13px "Open Sans", Arial, sans-serif;
   border-top: 1px solid #efefef;
+  clear: both;
+  font: normal 13px/13px "Open Sans", Arial, sans-serif;
+  margin: 0 40px;
 }
 body.in-maintenance .footer-messages {
-  width: 960px;
   border: 0;
   margin: 0 auto;
+  width: 960px;
 }
 #overlay #overlay-content .footer-messages {
-  position: absolute;
-  top: 100%;
+  border-top: 0;
   color: #fff;
   margin: 0;
+  position: absolute;
+  top: 100%;
   width: 100%;
-  border-top: 0;
 }
 #credit {
+  float: right; /* LTR */
   padding: 20px 0 40px;
-  float: right;
 }
 #powered {
   padding-top: 20px;
 }
 body.in-maintenance #credit {
-  width: 960px;
-  margin: 0 auto;
   color: #fff;
+  margin: 0 auto;
+  width: 960px;
 }
 #credit .message {
+  clear: right; /* LTR */
+  float: right; /* LTR */
   margin-bottom: 20px;
-  float: right;
-  clear: right;
   width: 180px;
 }
 #credit .logo a {
-  float: right;
-  clear: right;
+  background: transparent url("images/logo-cg2.png") no-repeat 0 0;
+  clear: right; /* LTR */
+  float: right; /* LTR */
   height: 0;
   overflow: hidden;
-  background: transparent url("images/logo-cg2.png") no-repeat 0 0;
   padding: 50px 0 0;
   width: 180px;
 }
@@ -387,14 +393,16 @@ body.in-maintenance #credit .logo a {
 .breadcrumb {
   background: #fff;
   border: 1px solid #ddd;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   border-radius: 10px;
   color: transparent;
-  padding: 5px;
   margin-bottom: 20px;
+  padding: 5px;
 }
 .breadcrumb a,
 .breadcrumb span {
-  float: left;
+  float: left; /* LTR */
   margin: 0 5px 0 0;
 }
 .breadcrumb a {
@@ -403,14 +411,14 @@ body.in-maintenance #credit .logo a {
   line-height: 26px;
 }
 .breadcrumb a:hover {
-  text-decoration: underline;
   color: #36a2f6;
+  text-decoration: underline;
 }
 .breadcrumb span {
   background: transparent url("images/breadcrumb.png") no-repeat 0 0;
   height: 10px;
-  width: 10px;
   margin-top: 8px;
+  width: 10px;
 }
 #commerce-kickstart-inline-help {
   position: relative;
@@ -419,22 +427,24 @@ body.in-maintenance #credit .logo a {
   padding: 5px 15px;
 }
 #commerce-kickstart-inline-help #edit-commerce-kickstart-inline-help-close-button {
-  position: absolute;
-  top: 10px;
-  right: 0;
   padding: 5px 15px;
+  position: absolute;
+  right: 0; /* LTR */
+  top: 10px;
 }
 .advanced-help-topic {
-  margin-bottom: 30px;
-  padding: 15px;
   background: #fef2c4;
   border: 1px solid #efb120;
+  -moz-box-shadow: inset 0 0 10px #fff;
+  -webkit-box-shadow: inset 0 0 10px #fff;
   box-shadow: inset 0 0 10px #fff;
+  margin-bottom: 30px;
+  padding: 15px;
 }
 .page-admin-getting-started .advanced-help-topic {
   background: transparent;
-  padding: 0;
   border: 0;
+  padding: 0;
 }
 .page-admin-getting-started #accordion .help-section h3 {
   padding-top: 0;
@@ -443,49 +453,55 @@ body.in-maintenance #credit .logo a {
   color: #36A2F6;
 }
 .page-admin-getting-started #commerce-kickstart-help {
-  width: 100%;
   font-size: 28px;
   font-weight: 400;
+  width: 100%;
 }
 .page-admin-getting-started #commerce-kickstart-help-button {
   position: absolute;
+  right: 30px; /* LTR */
   top: -55px;
-  right: 30px;
 }
 .advanced-help-topic a {
   color: #000;
 }
 .help-section h3,
 .help-section h3 a {
-  font-weight: 400;
   font-size: 16px;
+  font-weight: 400;
 }
 .ui-accordion .help-section .tipsy-link {
   margin-top: 6px;
 }
 #block-commerce-kickstart-help-commerce-kickstart-help {
+  background: #fefefe;
   border: 1px solid #efb120;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
   border-radius: 15px;
-  width: 48.27586%; /* 420px/870px */
   margin: 0;
   min-height: 210px;
-  background: #fefefe;
+  width: 48.27586%; /* 420px/870px */
 }
 .block-commerce-kickstart-help h2 {
-  font: normal 600 26px/26px "Open Sans", Arial, sans-serif;
   color: #acacac;
+  font: normal 600 26px/26px "Open Sans", Arial, sans-serif;
 }
 input.form-submit, a.button {
-  font: normal 400 16px/16px "Open Sans", Arial, sans-serif;
   border: 1px solid #fff;
-  box-shadow: 0 0 2px #999;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
   border-radius: 10px;
-  padding: 5px 10px;
-  margin-top: 1px;
+  -moz-box-shadow: 0 0 2px #999;
+  -webkit-box-shadow: 0 0 2px #999;
+  box-shadow: 0 0 2px #999;
+  font: normal 400 16px/16px "Open Sans", Arial, sans-serif;
   margin-left: 1px;
+  margin-top: 1px;
+  padding: 5px 10px;
 }
 .form-managed-file input.form-file {
-  margin-right: 20px;
+  margin-right: 20px; /* LTR */
 }
 .form-actions #edit-submit {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
@@ -516,27 +532,33 @@ ul.action-links li {
 ul.action-links a,
 html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend a,
 .field-widget-inline-entity-form .container-inline input.form-submit {
-  padding: 4px 10px 4px 30px; /* LTR */
   background: #36A2F6 url(images/add2.png) no-repeat 3px 3px;
-  line-height: 30px;
-  color: #fff;
   border: 1px solid #fff;
-  box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
   border-radius: 15px;
+  -moz-box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+  -webkit-box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+  box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+  color: #fff;
   font: normal 16px/21px "Open Sans", Arial, sans-serif;
+  line-height: 30px;
+  padding: 4px 10px 4px 30px; /* LTR */
 }
 ul.action-links a:hover,
 html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend a:hover,
 .field-widget-inline-entity-form .container-inline input.form-submit:hover {
-  text-decoration: none;
-  box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
   background-color: #55B5FF;
+  box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+  text-decoration: none;
 }
 
 /* Table Styles */
 table th {
-  border: 1px solid #a8a8a8;
   background: #a8a8a8;
+  border: 1px solid #a8a8a8;
+  -moz-box-shadow: inset 0 0 1px #fff;
+  -webkit-box-shadow: inset 0 0 1px #fff;
   box-shadow: inset 0 0 1px #fff;
   color: #fff;
   font-weight: 400;
@@ -565,48 +587,52 @@ table.sticky-header {
 }
 
 table td.views-field-edit-node a {
-  margin-right: 10px;
+  margin-right: 10px; /* LTR */
 }
 .form-item-changed-command-example .ajax-progress,
 #commerce-kickstart-inline-help-form-ajax .ajax-progress {
-  float: left;
-  margin-right: 10px;
+  float: left; /* LTR */
+  margin-right: 10px; /* LTR */
 }
 #commerce-kickstart-inline-help-form-ajax .ajax-progress {
   padding-top: 10px;
 }
 #commerce-kickstart-inline-close-help-form-ajax .ajax-progress {
   position: absolute;
+  right: 100px; /* LTR */
   top: 10px;
-  right: 100px;
 }
 #commerce-kickstart-inline-help-form-ajax #edit-commerce-kickstart-inline-help-button {
-  float: right;
+  float: right; /* LTR */
 }
 .item-list ul.pager li {
   padding: 0;
 }
 .item-list ul.pager {
-  text-align: right;
+  text-align: right; /* LTR */
 }
 ul.pager li a,
 ul.pager li.pager-current {
   border: 1px solid #949494;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border-radius: 5px;
   font-weight: 100;
   padding: 2px 8px;
 }
 ul.pager li.pager-current {
   background: #36a2f6;
+  -moz-box-shadow: inset 0 0 1px #fff;
+  -webkit-box-shadow: inset 0 0 1px #fff;
   box-shadow: inset 0 0 1px #fff;
   color: #fff;
 }
 ul.pager li.pager-previous a,
 ul.pager li.pager-next a {
-  font: 0/0 a;
-  color: transparent;
-  padding: 14px 10px;
   border: 0;
+  color: transparent;
+  font: 0/0 a;
+  padding: 14px 10px;
 }
 ul.pager li.pager-previous a {
   background: transparent url("images/prev.png") no-repeat 0 0;
