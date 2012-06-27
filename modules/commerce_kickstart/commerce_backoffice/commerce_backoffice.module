@@ -63,7 +63,7 @@ function commerce_backoffice_admin_paths() {
  */
 function commerce_backoffice_order_activity($order) {
   $arguments = array($order->order_id);
-  $view = views_get_view('commerce_backoffice_message');
+  $view = views_get_view('commerce_backoffice_order_messages');
   $view->set_display('block_1');
   $view->set_arguments($arguments);
   $view->override_url = $_GET['q'];
