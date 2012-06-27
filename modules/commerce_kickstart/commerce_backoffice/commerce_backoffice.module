@@ -303,6 +303,69 @@ function commerce_backoffice_status_form_submit($form, &$form_state) {
 }
 
 /**
+ * Form callback: Returns the form for modifying the product price and status.
+ */
+function commerce_backoffice_product_quick_edit_form($form, &$form_state, $product) {
+  $form_state['product'] = $product;
+
+  $price_array = $product->commerce_price[LANGUAGE_NONE][0];
+  $price = commerce_currency_amount_to_decimal($price_array['amount'], $price_array['currency_code']);
+
+  $wrapper = drupal_html_id('commerce-backoffice-product-quick-edit-form');
+  $form['#prefix'] = '<div class="container-inline" id="' . $wrapper . '">';
+  $form['#suffix'] = '</div>';
+
+  $form['price'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Price'),
+    '#title_display' => 'invisible',
+    '#default_value' => sprintf("%.2f", $price),
+    '#size' => 5,
+  );
+  $form['status'] = array(
+    '#type' => 'select',
+    '#title' => t('Status'),
+    '#title_display' => 'invisible',
+    '#options' => array(0 => t('Inactive'), 1 => t('Active')),
+    '#default_value' => $product->status,
+  );
+  $form['save'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+    '#ajax' => array(
+      'callback' => 'commerce_backoffice_product_quick_edit_form_ajax',
+      'wrapper' => $wrapper,
+    ),
+  );
+  if (!empty($form_state['product_saved'])) {
+    $form['save']['#suffix'] = t('Saved');
+  }
+
+  return $form;
+}
+
+/**
+ * Ajax callback for commerce_backoffice_product_quick_edit_form.
+ */
+function commerce_backoffice_product_quick_edit_form_ajax($form, &$form_state) {
+  return $form;
+}
+
+/**
+ * Submit callback for commerce_backoffice_product_quick_edit_form.
+ */
+function commerce_backoffice_product_quick_edit_form_submit($form, &$form_state) {
+  $product = $form_state['product'];
+  $currency_code = $product->commerce_price[LANGUAGE_NONE][0]['currency_code'];
+  $product->commerce_price[LANGUAGE_NONE][0]['amount'] = commerce_currency_decimal_to_amount($form_state['values']['price'], $currency_code);
+  $product->status = $form_state['values']['status'];
+  commerce_product_save($product);
+
+  $form_state['rebuild'] = TRUE;
+  $form_state['product_saved'] = TRUE;
+}
+
+/**
  * Implements hook_commerce_order_update().
  */
 function commerce_backoffice_commerce_order_update($order) {

@@ -21,6 +21,14 @@ function commerce_backoffice_views_data_alter(&$data) {
     ),
   );
 
+  $data['commerce_product']['quick_edit_form'] = array(
+    'field' => array(
+      'title' => t('Quick Edit Form'),
+      'help' => t('Display a form for editing the price and status of a variation.'),
+      'handler' => 'commerce_backoffice_handler_field_product_quick_edit_form',
+    ),
+  );
+
   $data['commerce_order']['operations_dropbutton'] = array(
     'field' => array(
       'title' => t('Operations links (Dropbutton)'),

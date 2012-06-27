@@ -24,6 +24,7 @@ dependencies[] = views_megarow
 dependencies[] = commerce_kickstart_product
 
 files[] = views/handlers/commerce_backoffice_handler_area_add_message.inc
+files[] = views/handlers/commerce_backoffice_handler_field_product_quick_edit_form.inc
 files[] = views/handlers/commerce_backoffice_handler_field_order_operations.inc
 files[] = views/handlers/commerce_backoffice_handler_field_node_operations.inc
 files[] = views/handlers/commerce_backoffice_handler_filter_message_type.inc
