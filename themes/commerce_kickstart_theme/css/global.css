@@ -1272,8 +1272,9 @@ ul#payments li:first-child {
 
 }
 div.messages.commerce-kickstart-add-to-cart {
-  padding: 5px 10px 25px 30px;
+  background-color: #E4F5FE;
   border-color: #D7D7D7;
+  padding: 5px 10px 25px 30px;
 }
 .commerce-kickstart-add-to-cart {
   background-color: white;
@@ -1357,7 +1358,6 @@ div.messages.commerce-kickstart-add-to-cart {
 }
 .commerce-kickstart-add-to-cart .field-name-field-images img {
   border: #D7D7D7 solid 1px;
-  padding: 0px 5px 0px 5px;
 }
 .commerce-kickstart-add-to-cart .views-field-title,
 .commerce-kickstart-add-to-cart .views-field-field-images {
