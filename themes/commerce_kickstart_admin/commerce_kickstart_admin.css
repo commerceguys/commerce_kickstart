@@ -242,7 +242,6 @@ body.in-maintenance #install-settings-form fieldset .fieldset-wrapper {
 
 
 /* Overlay Styles */
-
 a.tabledrag-handle .handle {
   height: 25px;
   width: 25px;
@@ -543,7 +542,6 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
   color: #fff;
   font: normal 16px/21px "Open Sans", Arial, sans-serif;
-  line-height: 30px;
   padding: 4px 10px 4px 30px; /* LTR */
 }
 ul.action-links a:hover,
