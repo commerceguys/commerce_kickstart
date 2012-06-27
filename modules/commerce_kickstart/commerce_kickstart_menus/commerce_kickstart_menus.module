@@ -55,6 +55,26 @@ function commerce_kickstart_menus_menu() {
     'file path' => drupal_get_path('module', 'node'),
   );
 
+  $items['admin/commerce/config/products-categories'] = array(
+    'title' => 'Product categories',
+    'description' => 'Manage tagging, categorization, and classification of your products.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('taxonomy_overview_vocabularies'),
+    'access arguments' => array('administer taxonomy'),
+    'file' => 'taxonomy.admin.inc',
+    'file path' => drupal_get_path('module', 'taxonomy'),
+  );
+
+  $items['admin/commerce/config/products-categories/add'] = array(
+    'title' => 'Add categories',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('taxonomy_form_vocabulary'),
+    'access arguments' => array('administer taxonomy'),
+    'type' => MENU_LOCAL_ACTION,
+    'file' => 'taxonomy.admin.inc',
+    'file path' => drupal_get_path('module', 'taxonomy'),
+  );
+
   return $items;
 }
 

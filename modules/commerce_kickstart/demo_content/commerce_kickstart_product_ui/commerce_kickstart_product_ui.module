@@ -312,16 +312,23 @@ function commerce_kickstart_product_ui_page_alter(&$page) {
   if ($match) {
     drupal_set_breadcrumb(array());
   }
+  else if ($current_path == 'admin/commerce/config/products-categories' ||
+    $current_path == 'admin/commerce/products/types' ||
+    $current_path == 'admin/commerce/products/types/product-types') {
+    drupal_set_breadcrumb(array(
+      l(t('Home'), '<front>'),
+      l(t('Administration'), 'admin'),
+      l(t('Store settings'), 'admin/commerce/config'),
+    ));
+  }
   else if ($current_path == 'admin/commerce/products/types/content-types') {
     drupal_set_breadcrumb(array(
       l(t('Home'), '<front>'),
       l(t('Administration'), 'admin'),
-      l(t('Configure site'), 'admin/site-config'),
-      l(t('Advanced settings'), 'admin/site-config/advanced'),
-      l(t('Structure'), 'admin/structure'),
+      l(t('Store settings'), 'admin/commerce/config'),
+      l(t('Product & content types'), 'admin/commerce/products/types'),
     ));
   }
-
 }
 
 /*
