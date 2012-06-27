@@ -53,6 +53,11 @@ projects[commerce_autosku][subdir] = "contrib"
 projects[commerce_autosku][patch][] = "http://drupal.org/files/commerce_autosku-1616370-4_fixed_features_support.patch"
 projects[commerce_migrate][version] = 1.x-dev
 projects[commerce_migrate][subdir] = "contrib"
+projects[commerce_discount][type] = module
+projects[commerce_discount][subdir] = "contrib"
+projects[commerce_discount][download][type] = git
+projects[commerce_discount][download][revision] = 6e933cb8c6c58b2c833809239ba8468dd66c9f9e
+projects[commerce_discount][download][branch] = 7.x-1.x
 
 ; Other contribs.
 projects[http_client][version] = 2.3
