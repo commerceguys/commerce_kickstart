@@ -143,15 +143,6 @@ body {
 * 3. Section content
 * --
 **************************************************/
-/**********************************************
-* 3.1. Zone preface
-**********************************************/
-#region-breadcrumb .pseudo-breadcrumb,
-.breadcrumb {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-}
 /*******************************************
 * 3.2.2. Content
 *******************************************/
@@ -336,6 +327,38 @@ body {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
+}
+/**************************************************
+* --
+* 5. Commerce specific
+* --
+**************************************************/
+/**********************************************
+* 5.1. Search & Collection page
+**********************************************/
+/**
+* Collection page
+*/
+.view-collection-taxonomy-term .view-header h2 {
+  font-size: 98px;
+  line-height: 100px;
+  margin: 0;
+  position: absolute;
+  bottom: 18px;
+  left: 15px;
+}
+.view-collection-taxonomy-term .view-header .collection-terms {
+  margin: 5px;
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+}
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list {
+  clear: both;
+  margin: 0;
+}
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a:hover {
+  border: 0;
 }
 /**************************************************
 * --

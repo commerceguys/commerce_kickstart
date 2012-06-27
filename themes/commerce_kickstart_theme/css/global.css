@@ -464,6 +464,15 @@ h1#page-title {
   margin: 20px 0;
   padding: 10px 21px 35px 5px;
 }
+#region-breadcrumb .pseudo-breadcrumb,
+.breadcrumb {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+#breadcrumb {
+  padding-top: 1px;
+}
 #region-breadcrumb .pseudo-breadcrumb-total-results {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
@@ -1051,11 +1060,10 @@ ul#payments li:first-child {
   position: relative;
 }
 .view-collection-taxonomy-term .view-header h2 {
-  font-size: 98px;
-  line-height: 100px;
+  font-size: 48px;
   margin: 0;
   position: absolute;
-  bottom: 18px;
+  bottom: 0px;
   left: 15px;
 }
 .view-collection-taxonomy-term .view-header h2 a {
@@ -1067,10 +1075,7 @@ ul#payments li:first-child {
   text-transform: capitalize;
 }
 .view-collection-taxonomy-term .view-header .collection-terms {
-  margin: 5px;
-  position: absolute;
-  right: 0;
-  bottom: 5px;
+
 }
 .view-collection-taxonomy-term .view-header .views-row {
   border: 1px solid #d7d7d7;
@@ -1092,6 +1097,12 @@ ul#payments li:first-child {
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list {
   margin-bottom:7px;
 }
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list {
+  clear: none;
+  display: inline;
+  float: left;
+  margin-right: 6px;
+}
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-header p {
   margin: 6px 15px 0 0;
 }
@@ -1100,6 +1111,7 @@ ul#payments li:first-child {
 }
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a {
   background-color: #cecece;
+  border: 1px solid #cecece;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -1112,6 +1124,7 @@ ul#payments li:first-child {
 }
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a:hover {
   background-color: #ffffff;
+  border: 1px solid #cecece;
   color: #000000;
 }
 .view-collection-taxonomy-term .view-content .item-list {
