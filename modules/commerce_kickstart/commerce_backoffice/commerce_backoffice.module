@@ -99,34 +99,11 @@ function commerce_backoffice_product_variations_view($node) {
 }
 
 /**
- * Implements hook_module_implements_alter().
- *
- * @todo
- * Remove once VBO is updated to 7.x-3.0 and hook_form_views_form_alter() is
- * replaced with hook_views_bulk_operations_form_alter().
- */
-function commerce_backoffice_module_implements_alter(&$implementations, $hook) {
-  if (in_array($hook, array('form_alter'))) {
-    // Move our hook implementation to the bottom.
-    $group = $implementations['commerce_backoffice'];
-    unset($implementations['commerce_backoffice']);
-    $implementations['commerce_backoffice'] = $group;
-  }
-}
-
-/**
  * Implements hook_form_views_form_alter().
  */
 function commerce_backoffice_form_alter(&$form, &$form_state, $form_id) {
   if (isset($form['#node_edit_form'])) {
-    if (function_exists('commerce_product_reference_node_types')) {
-      $product_node_types = commerce_product_reference_node_types();
-    }
-    // @todo Remove once http://drupal.org/node/1588226 lands.
-    elseif (isset($form['field_product'])) {
-      $product_node_types = array($form['#node']->type => TRUE);
-    }
-
+    $product_node_types = commerce_product_reference_node_types();
     if (in_array($form['#node']->type, array_keys($product_node_types))) {
       // Enable the #fieldset key.
       $form['#pre_render'][] = 'commerce_backoffice_pre_render_add_fieldset_markup';
@@ -150,18 +127,13 @@ function commerce_backoffice_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
+}
 
-  if (strpos($form_id, 'views_form_') === 0) {
-    $vbo = _views_bulk_operations_get_field($form_state['build_info']['args'][0]);
-  }
-  // Not a VBO-enabled views form.
-  if (empty($vbo)) {
-    return;
-  }
-
-  $view = $form_state['build_info']['args'][0];
-
-  if (isset($form['select']) && in_array($view->name, array('commerce_backoffice_orders', 'commerce_backoffice_products'))) {
+/**
+ * Implements hook_views_bulk_operations_form_alter().
+ */
+function commerce_backoffice_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
+  if ($form_state['step'] == 'views_form_views_form') {
     $form['select']['#title'] = t('Bulk Updates');
     $form['select']['#collapsible'] = TRUE;
     $form['select']['#collapsed'] = TRUE;
