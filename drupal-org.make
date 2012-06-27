@@ -85,6 +85,7 @@ projects[mailsystem][subdir] = "contrib"
 projects[mimemail][version] = 1.0-alpha1
 projects[mimemail][subdir] = "contrib"
 projects[mimemail][patch][] = "http://drupal.org/files/rules-1585546-1-moving_rules_actions.patch"
+projects[mimemail][patch][] = "http://drupal.org/files/compress_install_missing_value.patch"
 projects[token][version] = 1.1
 projects[token][subdir] = "contrib"
 projects[eva][version] = 1.1
