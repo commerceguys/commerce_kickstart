@@ -396,6 +396,7 @@ h1#page-title {
 .navigation .primary-menu li a {
   background-color: #000000;
   border: 1px solid #d7d7d7;
+  min-height: 50px;
 }
 .navigation .primary-menu li a.active,
 .navigation .primary-menu li a:hover {
@@ -633,25 +634,16 @@ h1#page-title {
 }
 /* HP blocks: Side advert */
 .block-shipping-discount {
-  left: -50px;
-  top: 85px;
-  position: absolute;
-  z-index: 12;
 }
 #shipping {
   border: 6px solid #ffffff;
   background-color: #000000;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  border-radius: 80px;
   color: #2698F2;
   display: block;
   font-size: 13px;
-  height: 120px;
   line-height: 24px;
   text-align: center;
   padding: 10px 5px;
-  width: 130px;
 }
 #shipping #shipping_message span {
   border-bottom: 1px solid #ffffff;

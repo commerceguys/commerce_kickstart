@@ -152,6 +152,134 @@ body {
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
+/*******************************************
+* 3.2.2. Content
+*******************************************/
+/**
+* Blocks
+*/
+/* HP blocks: Top advert */
+.block-promotional-banner {
+  background-color: #2698F2;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 5px 10px;
+  position: relative;
+  top: 0px;
+  left: -10px;
+  width: 100%;
+  z-index: 11;
+}
+#promotional_banner .promotional_banner_saving {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  padding: 0px 22px 0 12px;
+}
+#promotional_banner span {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 38px;
+  text-transform: uppercase;
+}
+#promotional_banner .promotional_banner_special_offer {
+  background-color: #ffffff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #2698F2;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+
+  padding: 5px 28px;
+  text-transform: capitalize;
+}
+/* HP blocks: Slideshow */
+.block-demo-content-block-3 {
+  position: relative;
+  top: -10px;
+}
+.bx-wrapper,
+.bx-wrapper .bx-window {
+  max-height: 168px;
+  padding-bottom: 0;
+  width: 100% !important;
+}
+.bx-wrapper ul {
+  max-height: 165px;
+  width: 100%;
+  min-width: 344px;
+  max-width: 344px;
+}
+.view-display-id-block_3 .item-list .event-slider li {
+  height: 168px;
+  margin: 0 auto;
+  width: 344px;
+  z-index: 10 !important;
+}
+.view-display-id-block_3 .item-list .event-slider li img {
+  width: 100%;
+  height: auto;
+}
+.event-slider .views-field-nothing,
+.event-slider .views-field-nothing em,
+.view-display-id-block_3 .bx-prev,
+.view-display-id-block_3 .bx-prev em,
+.view-display-id-block_3 .bx-next,
+.view-display-id-block_3 .bx-next em {
+  display: none;
+  text-indent: -9999px;
+}
+/* HP blocks: Side advert */
+.block-shipping-discount {
+  left: -50px;
+  top: 85px;
+  position: absolute;
+  z-index: 12;
+}
+#shipping {
+  border: 6px solid #ffffff;
+  background-color: #000000;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  border-radius: 80px;
+  color: #2698F2;
+  display: block;
+  font-size: 13px;
+  height: 120px;
+  line-height: 24px;
+  text-align: center;
+  padding: 10px 5px;
+  width: 130px;
+}
+#shipping #shipping_message span {
+  border-bottom: 1px solid #ffffff;
+  display: block;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 0 4px 0;
+  text-transform: uppercase;
+}
+#shipping #shipping_message span em {
+  font-size: 27px;
+  font-style: normal;
+}
+#shipping #shipping_currency {
+  display: block;
+  font-size: 27px;
+  margin-top: 2px;
+}
+#shipping #shipping_message {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+#shipping #shipping_message span,
+#shipping #shipping_message span em,
+#shipping #shipping_currency {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
 /**********************************************
 * 3.3. Zone postscript
 **********************************************/
