@@ -993,6 +993,7 @@ select[multiple] {
   line-height: 15px;
   margin-top: 2px;
   margin-bottom: 15px;
+  margin-left: 0; /* LTR */
 }
 .block-social #facebook {
   background: url('../images/icon_facebook.png') 2% 50% no-repeat;
@@ -1059,6 +1060,7 @@ ul#payments {
 ul#payments li {
   display: inline;
   float: left;
+  margin-left: 0; /* LTR */
 }
 ul#payments li:first-child {
   margin-left: 10px;

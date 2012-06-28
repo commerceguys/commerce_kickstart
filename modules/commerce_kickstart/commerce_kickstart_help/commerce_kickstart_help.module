@@ -161,20 +161,26 @@ function commerce_kickstart_help_block_view($delta = '') {
 function commerce_kickstart_help_contents($which_block) {
   switch ($which_block) {
     case 'commerce_kickstart_ressources':
-      $markup = "<a href='http://www.drupalcommerce.org/user-guide'>Drupal Commerce Site Builder Guide</a><br />
-      <a href='#'>Commerce Kickstart User Guide (Link TBD)</a><br />
-      <a href='https://vimeo.com/channels/commerceguys'>Commerce Guys Videos</a><br />
-      <a href='http://nodeone.se/en/taming-the-beast-learn-views-with-nodeone'>Learn Views</a><br />
-      <a href='http://nodeone.se/node/32'>Learn Rules</a><br />
-      <a href='http://drupal.org/books'>Books about Drupal</a><br />";
-      return array('#markup' => $markup);
+      $links = array(
+        l(t('Drupal Commerce Site Builder Guide'), 'http://www.drupalcommerce.org/user-guide'),
+        l(t('Commerce Kickstart User Guide (Link TBD)'), ''),
+        l(t('Commerce Guys Videos'), 'https://vimeo.com/channels/commerceguys'),
+        l(t('Learn Views'), 'http://nodeone.se/en/taming-the-beast-learn-views-with-nodeone'),
+        l(t('Learn Rules'), 'http://nodeone.se/node/32'),
+        l(t('Books about Drupal'), 'http://drupal.org/books'),
+      );
+      break;
+
     case 'commerce_kickstart_community':
-      $markup = "IRC, freenode.net: #drupal-commerce (<a href='http://drupal.org/irc/setting-up'>Setting up and using IRC</a>)<br />
-      <a href='http://drupalcommerce.org'>DrupalCommerce.org</a><br />
-      <a href='http://drupal.org'>drupal.org</a><br />
-      <a href='http://www.drupalcommerce.org/discussions'>Drupal Commerce Discussions</a><br />
-      <a href='http://www.drupalcommerce.org/questions'>Drupal Commerce Q&A</a><br />";
-      return array('#markup' => $markup);
+      $links = array(
+        t('IRC, freenode.net: #drupal-commerce (<a href="@url">Setting up and using IRC</a>)', array('@url' => 'http://drupal.org/irc/setting-up')),
+        l(t('DrupalCommerce.org'), 'http://drupalcommerce.org'),
+        l(t('drupal.org'), 'http://drupal.org'),
+        l(t('Drupal Commerce Discussions'), 'http://www.drupalcommerce.org/discussions'),
+        l(t('Drupal Commerce Q&A'), 'http://www.drupalcommerce.org/questions'),
+      );
+      break;
   }
+  return array('#markup' => implode('<br />', $links) . '<br />');
 }
 
