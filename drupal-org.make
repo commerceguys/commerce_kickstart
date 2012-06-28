@@ -116,7 +116,6 @@ projects[search_api_db][subdir] = "contrib"
 projects[search_api_ranges][type] = module
 projects[search_api_ranges][download][type] = git
 projects[search_api_ranges][download][branch] = 7.x-1.x
-projects[search_api_ranges][patch][] = "http://drupal.org/files/search_api_ranges-1350528-34-commerce_support_0.patch"
 projects[search_api_ranges][subdir] = "contrib"
 projects[facetapi][version] = 1.0-rc4
 projects[facetapi][subdir] = "contrib"
