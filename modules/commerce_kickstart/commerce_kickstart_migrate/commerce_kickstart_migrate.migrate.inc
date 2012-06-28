@@ -424,7 +424,7 @@ class CommerceKickstartNode extends DynamicMigration {
 
     $this->description = t('Import product nodes.');
 
-    $this->dependencies = array('CommerceKickstartBagsCases', 'CommerceKickstartDrinks', 'CommerceKickstartHats', 'CommerceKickstartShoes', 'CommerceKickstartStorage', 'CommerceKickstartTops');
+    $this->dependencies = array('CommerceKickstartBagsCases', 'CommerceKickstartDrinks', 'CommerceKickstartHats', 'CommerceKickstartShoes', 'CommerceKickstartStorage', 'CommerceKickstartTops', 'CommerceKickstartPages');
 
     // Create a map object for tracking the relationships between source rows
     $this->map = new MigrateSQLMap($this->machineName,
@@ -496,5 +496,267 @@ class CommerceKickstartNode extends DynamicMigration {
     // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
     // in each node_insert invocation.
     variable_set('menu_rebuild_needed', FALSE);
+  }
+}
+
+class CommerceKickstartPages extends Migration {
+  public function __construct() {
+    parent::__construct();
+
+    $this->description = t('Import pages nodes.');
+
+    // Create a map object for tracking the relationships between source rows
+    $this->map = new MigrateSQLMap($this->machineName,
+      array(
+        'title' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+      ),
+      MigrateDestinationNode::getKeySchema()
+    );
+
+    // Create a MigrateSource object.
+    $this->source = new MigrateSourceCSV(drupal_get_path('module', 'commerce_kickstart_migrate') . '/csv/pages.csv', $this->csvcolumns(), array('header_rows' => 1));
+
+    $this->destination = new MigrateDestinationNode('page');
+
+    $this->addFieldMapping('nid', 'nid');
+    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('path', 'path');
+    $this->addFieldMapping('body', 'body');
+
+    $this->addFieldMapping('uid', 'uid')->defaultValue(1);
+    $this->addFieldMapping('is_new', 'is_new')->defaultValue(TRUE);
+  }
+
+  function csvcolumns() {
+    // "nid", "Title", "Path", "Body"
+    $columns[0] = array('nid', 'nid');
+    $columns[1] = array('title', 'Title');
+    $columns[2] = array('path', 'Path');
+    $columns[3] = array('body', 'Body');
+    return $columns;
+  }
+
+  public function processImport(array $options = array()) {
+    parent::processImport($options = array());
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
+  }
+}
+
+class CommerceKickstartAdPush extends Migration {
+  public function __construct() {
+    parent::__construct();
+
+    $this->description = t('Import ad-push nodes.');
+
+    $this->dependencies = array('CommerceKickstartPages');
+
+    // Create a map object for tracking the relationships between source rows
+    $this->map = new MigrateSQLMap($this->machineName,
+      array(
+        'title' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+      ),
+      MigrateDestinationNode::getKeySchema()
+    );
+
+    // Create a MigrateSource object.
+    $this->source = new MigrateSourceCSV(drupal_get_path('module', 'commerce_kickstart_migrate') . '/csv/ad_push.csv', $this->csvcolumns(), array('header_rows' => 1));
+
+    $this->destination = new MigrateDestinationNode('ad_push');
+
+    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('field_tagline', 'tagline');
+    $this->addFieldMapping('field_link', 'link');
+    // Images
+    $this->addFieldMapping('field_image', 'images');
+    $this->addFieldMapping('field_image:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
+    $this->addFieldMapping('field_image:source_dir')
+      ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
+
+    $this->addFieldMapping('uid', 'uid')->defaultValue(1);
+  }
+
+  function csvcolumns() {
+    // "Title", "Tagline", "Link", "Images"
+    $columns[0] = array('title', 'Title');
+    $columns[1] = array('tagline', 'Tagline');
+    $columns[2] = array('link', 'Link');
+    $columns[3] = array('images', 'Images');
+    return $columns;
+  }
+
+  public function processImport(array $options = array()) {
+    parent::processImport($options = array());
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
+  }
+}
+
+class CommerceKickstartBlogPost extends Migration {
+  public function __construct() {
+    parent::__construct();
+
+    $this->description = t('Import blog-post nodes.');
+
+    $this->dependencies = array('CommerceKickstartPages');
+
+    // Create a map object for tracking the relationships between source rows
+    $this->map = new MigrateSQLMap($this->machineName,
+      array(
+        'title' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+      ),
+      MigrateDestinationNode::getKeySchema()
+    );
+
+    // Create a MigrateSource object.
+    $this->source = new MigrateSourceCSV(drupal_get_path('module', 'commerce_kickstart_migrate') . '/csv/blog_post.csv', $this->csvcolumns(), array('header_rows' => 1));
+
+    $this->destination = new MigrateDestinationNode('blog_post');
+
+    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('body', 'body');
+    $this->addFieldMapping('field_tags', 'tags')->separator(', ');
+    $this->addFieldMapping('field_tags:create_term')
+      ->defaultValue(TRUE);
+    $this->addFieldMapping('field_blog_category', 'category')->separator(', ');
+    $this->addFieldMapping('field_blog_category:create_term')
+      ->defaultValue(TRUE);
+    // Images
+    $this->addFieldMapping('field_image', 'images');
+    $this->addFieldMapping('field_image:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
+    $this->addFieldMapping('field_image:source_dir')
+      ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
+
+    $this->addFieldMapping('uid', 'uid')->defaultValue(1);
+  }
+
+  function csvcolumns() {
+    // "Title", "Images", "Tags", "Body"
+    $columns[0] = array('title', 'Title');
+    $columns[1] = array('images', 'Images');
+    $columns[2] = array('tags', 'Tags');
+    $columns[3] = array('category', 'Category');
+    $columns[4] = array('body', 'Body');
+    return $columns;
+  }
+
+  public function processImport(array $options = array()) {
+    parent::processImport($options = array());
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
+  }
+}
+
+class CommerceKickstartSlideshow extends Migration {
+  public function __construct() {
+    parent::__construct();
+
+    $this->description = t('Import slideshow nodes.');
+
+    $this->dependencies = array('CommerceKickstartPages');
+
+    // Create a map object for tracking the relationships between source rows
+    $this->map = new MigrateSQLMap($this->machineName,
+      array(
+        'title' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+      ),
+      MigrateDestinationNode::getKeySchema()
+    );
+
+    // Create a MigrateSource object.
+    $this->source = new MigrateSourceCSV(drupal_get_path('module', 'commerce_kickstart_migrate') . '/csv/slideshow.csv', $this->csvcolumns(), array('header_rows' => 1));
+
+    $this->destination = new MigrateDestinationNode('slideshow');
+
+    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('field_headline', 'headline');
+    $this->addFieldMapping('field_tagline', 'tagline');
+    $this->addFieldMapping('field_link', 'link');
+    // Images
+    $this->addFieldMapping('field_image', 'images');
+    $this->addFieldMapping('field_image:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
+    $this->addFieldMapping('field_image:source_dir')
+      ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
+
+    $this->addFieldMapping('uid', 'uid')->defaultValue(1);
+  }
+
+  function csvcolumns() {
+    // "Title", "Headline", "Tagline", "Link", "Images"
+    $columns[0] = array('title', 'Title');
+    $columns[1] = array('headline', 'Headline');
+    $columns[2] = array('tagline', 'Tagline');
+    $columns[3] = array('link', 'Link');
+    $columns[4] = array('images', 'Images');
+    return $columns;
+  }
+
+  public function processImport(array $options = array()) {
+    parent::processImport($options = array());
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
+  }
+}
+
+class CommerceKickstartCollection extends Migration {
+  public function __construct() {
+    parent::__construct();
+
+    $this->description = t('Import collections terms.');
+
+    // Create a map object for tracking the relationships between source rows
+    $this->map = new MigrateSQLMap($this->machineName,
+      array(
+        'name' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+      ),
+      MigrateDestinationTerm::getKeySchema()
+    );
+
+    // Create a MigrateSource object.
+    $this->source = new MigrateSourceCSV(drupal_get_path('module', 'commerce_kickstart_migrate') . '/csv/collections.csv', $this->csvcolumns(), array('header_rows' => 1));
+
+    $this->destination = new MigrateDestinationTerm('collection');
+
+    $this->addFieldMapping('name', 'name');
+    // Images
+    $this->addFieldMapping('field_image', 'images');
+    $this->addFieldMapping('field_image:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
+    $this->addFieldMapping('field_image:source_dir')
+      ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
+  }
+
+  function csvcolumns() {
+    // "Name", "Images"
+    $columns[0] = array('name', 'Name');
+    $columns[1] = array('images', 'Images');
+    return $columns;
   }
 }

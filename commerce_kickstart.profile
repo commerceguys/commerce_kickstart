@@ -61,7 +61,7 @@ function commerce_kickstart_customset_admin_mail(&$form, &$form_state) {
  */
 function commerce_kickstart_install_tasks() {
   $tasks = array();
-  $commerce_kickstart_import_product = variable_get('commerce_kickstart_import_product', FALSE);
+  $commerce_kickstart_import_sample_content = variable_get('commerce_kickstart_import_sample_content', FALSE);
   // Add a page allowing the user to indicate they'd like to install demo
   // content.
   $tasks['commerce_kickstart_configure_store_form'] = array(
@@ -69,11 +69,11 @@ function commerce_kickstart_install_tasks() {
     'type' => 'form',
   );
   // And let the user choose an example tax to be set up by default.
-  $tasks['commerce_kickstart_import_product'] = array(
-    'display_name' => st('Import products'),
-    'display' => $commerce_kickstart_import_product,
+  $tasks['commerce_kickstart_import_sample_content'] = array(
+    'display_name' => st('Import sample content'),
+    'display' => $commerce_kickstart_import_sample_content,
     'type' => 'batch',
-    'run' => $commerce_kickstart_import_product ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
+    'run' => $commerce_kickstart_import_sample_content ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
   );
   return $tasks;
 }
@@ -184,7 +184,7 @@ function commerce_kickstart_configure_store_form() {
   );
   $form['commerce_kickstart_example_wrapper']['commerce_kickstart_example_content'] = array(
     '#type' => 'radios',
-    '#title' => st('Do you want to install example store content?'),
+    '#title' => st('Do you want to install sample store content?'),
     '#description' => st('Recommended for new users. Demonstrates how you can set-up your Drupal Commerce site.'),
     '#options' => $options,
     '#default_value' => '1',
@@ -253,91 +253,36 @@ function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
   variable_set('commerce_kickstart_choose_tax_country', $form_state['values']['commerce_kickstart_choose_tax_country']);
   variable_set('commerce_default_currency', $form_state['values']['commerce_default_currency']);
   if ($form_state['values']['commerce_kickstart_example_content'] == 1) {
-    variable_set('commerce_kickstart_import_product', TRUE);
+    variable_set('commerce_kickstart_import_sample_content', TRUE);
   }
 }
 
 /**
  * Task callback: return a batch API array with the products to be imported.
  */
-function commerce_kickstart_import_product() {
-  drupal_set_title(st('Import products'));
+function commerce_kickstart_import_sample_content() {
+  drupal_set_title(st('Import sample store content'));
 
   // Fixes problems when the CSV files used for importing have been created
   // on a Mac, by forcing PHP to detect the appropriate line endings.
   ini_set("auto_detect_line_endings", TRUE);
 
   $migrations = migrate_migrations();
-
-  $operations[] = array('_commerce_kickstart_example_nodes', array(t('Setting up example nodes.')));
-  $operations[] = array('_commerce_kickstart_example_taxes', array(t('Setting up example taxes.')));
-  $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menu.')));
-
   foreach ($migrations as $machine_name => $migration) {
-    $operations[] =  array('_commerce_kickstart_import_example_products', array($machine_name, t('Setting up example display.')));
+    $operations[] =  array('_commerce_kickstart_import_example_content', array($machine_name, t('Importing content.')));
   }
+  $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up users.')));
+  $operations[] = array('_commerce_kickstart_example_taxes', array(t('Setting up taxes.')));
+  $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menus.')));
 
-  $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up example user.')));
-  $operations[] = array('_commerce_kickstart_post_enable_modules', array(t('Setting up example modules.')));
-
-  // Batch api import products
   $batch = array(
-    'title' => t('Importing Products'),
+    'title' => t('Importing sample store content'),
     'operations' => $operations,
     'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',
   );
   variable_set('install_configure_seachapi', TRUE);
 
   return $batch;
-}
-
-/**
- * Helper function to create node.
- *
- * @param $content
- */
-function _commerce_kickstart_custom_create_content($content) {
-  $node = new stdClass();
-  $node->is_new = TRUE;
-  $node->language = LANGUAGE_NONE;
-  $node->comment = '0';
-  $node->title = $content['title'];
-  $node->type = $content['type'];
-
-  $instance = field_info_instance('node', 'body', $content['type']);
-  if (!empty($instance) && isset($content['body'])) {
-    $node->body[$node->language][0]['value']   = $content['body'];
-    $node->body[$node->language][0]['format']  = 'filtered_html';
-  }
-  if (isset($content['path'])) {
-    $node->path = array('alias' => $content['path']);
-  }
-  $instance = field_info_instance('node', 'field_image', $content['type']);
-  if (!empty($instance) && isset($content['image'])) {
-    $file_temp = file_get_contents(drupal_get_path('profile', 'commerce_kickstart') . '/import/images/' . $content['image']);
-    $file_temp = file_save_data($file_temp, 'public://' . $content['image'], FILE_EXISTS_REPLACE);
-    $node->field_image[$node->language][]['fid'] = $file_temp->fid;
-  }
-  $instance = field_info_instance('node', 'field_tags', $content['type']);
-  if (!empty($instance) && isset($content['terms'])) {
-    foreach($content['terms'] as $tid) {
-      $node->field_tags[$node->language][] = array('tid' => $tid);
-    }
-  }
-  $instance = field_info_instance('node', 'field_headline', $content['type']);
-  if (!empty($instance) && isset($content['headline'])) {
-    $node->field_headline[$node->language][0] = array('value' => $content['headline']);
-  }
-  $instance = field_info_instance('node', 'field_tagline', $content['type']);
-  if (!empty($instance) && isset($content['tagline'])) {
-    $node->field_tagline[$node->language][0] = array('value' => $content['tagline']);
-  }
-  $instance = field_info_instance('node', 'field_link', $content['type']);
-  if (!empty($instance) && isset($content['link'])) {
-    $node->field_link[$node->language][0] = array('url' => $content['link']);
-  }
-  node_object_prepare($node);
-  node_save($node);
 }
 
 /**
