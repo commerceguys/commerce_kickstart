@@ -33,6 +33,7 @@
 6. Kickstart specific
   6.1. Homepage elements
 7. Blog
+  7.1. Blog comments
 8. User account
 ------------------------------------------------*/
 
@@ -700,6 +701,19 @@ h1#page-title {
 }
 .breadcrumb a:hover {
   text-decoration: underline;
+}
+/*******************************************
+* 3.2.3. Sidebar second
+*******************************************/
+#block-views-blog-category-list-block,
+#block-views-blog-blog-archives {
+
+}
+#block-views-blog-category-list-block table {
+  width: 100%;
+}
+#block-views-blog-category-list-block td {
+  width: 50%;
 }
 /**********************************************
 * 3.3. Zone postscript
@@ -1817,27 +1831,51 @@ input.checkout-continue {
   color: #656565;
   text-decoration: none;
 }
-.page-blog .view-content .views-row .submitted {
+.node-type-blog-post h1#page-title,
+.node-type-blog-post .comment-wrapper .title {
+  color: #656565;
+  font-weight: 400;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.page-blog .view-content .views-row .submitted,
+.node-type-blog-post .submitted {
   font-size: 12px;
   margin: 5px 0;
   text-transform: uppercase;
 }
 .page-blog .view-content .views-row .submitted,
-.page-blog .view-content .views-row .submitted a {
+.page-blog .view-content .views-row .submitted a,
+.node-type-blog-post .submitted,
+.node-type-blog-post .submitted a {
   color: #A0A0A0;
 }
-.page-blog .view-content .views-row .content .field-name-field-image {
+.page-blog .view-content .views-row .content .field-name-field-image,
+.node-type-blog-post .content .field-name-field-image {
   margin: 0 0 15px;
 }
-.page-blog .view-content .views-row .content .field-name-field-tags {
+.page-blog .view-content .views-row .content .field-name-field-tags,
+.node-type-blog-post .content .field-name-field-tags {
   border-top: 1px dotted #777777;
   font-size: 11px;
-  margin: 5px 0;
+  margin-bottom: 5px;
   padding: 3px;
 }
+.page-blog .view-content .views-row .content .field-name-field-blog-category,
+.node-type-blog-post .content .field-name-field-blog-category {
+  font-size: 11px;
+  padding: 3px;
+}
+.page-blog .view-content .views-row .content .field-type-taxonomy-term-reference .field-items .field-item,
+.node-type-blog-post .content .field-type-taxonomy-term-reference .field-items .field-item {
+  padding-right: 3px;
+
+}
+/* Teaser links */
 .page-blog .view-content .views-row .node-links ul li {
   margin: 0;
   padding: 0;
+  margin-right: 5px;
 }
 .page-blog .view-content .views-row .node-links,
 .page-blog .view-content .views-row .node-links a {
@@ -1847,11 +1885,65 @@ input.checkout-continue {
   font-weight: 600;
   text-decoration: none;
 }
-.page-blog .view-content .views-row .node-links li.comment-comments {}
-.page-blog .view-content .views-row .node-links li.comment-new-comments {}
-.page-blog .view-content .views-row .node-links li.comment-comments span,
-.page-blog .view-content .views-row .node-links li.comment-new-comments span {
+/**********************************************
+* 7.1. Blog comments
+**********************************************/
+.node-type-blog-post .comment-wrapper {
+  padding: 0px 12px;
+}
+.node-type-blog-post .comment-wrapper h2.comment-form {
+  border-bottom: 1px solid #E0E3E6;
+  margin-top: 20px;
+}
+.node-type-blog-post .comment-wrapper .comment-form {
+  background-color: #ececec;
+  padding: 15px;
+}
 
+.node-type-blog-post .comment-wrapper .comment-form .form-item label {
+  float: left;
+  padding-right: 8px;
+  text-align: right;
+  width: 110px;
+}
+.node-type-blog-post .comment-wrapper .comment-form .form-item label:after {
+  clear: both;
+  content: ":";
+}
+.node-type-blog-post .comment-wrapper .comment-form #edit-author--2 {
+  margin: 0;
+}
+.node-type-blog-post .comment-wrapper .comment-form #edit-author--2 label {
+  display: inline;
+}
+
+.node-type-blog-post .comment-wrapper .comment-form .form-textarea-wrapper {
+  float: left;
+  width: 65%;
+}
+.node-type-blog-post .comment-wrapper .comment-form .filter-wrapper {
+  clear: both;
+}
+.node-type-blog-post .comment-wrapper .comment-form .filter-wrapper .fieldset-wrapper {
+  font-size: 11px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.node-type-blog-post .comment-wrapper .comment-form .filter-wrapper .form-item {
+  margin-top: 0;
+}
+.node-type-blog-post .comment-wrapper .comment-form .filter-wrapper .form-item label {
+  float: inherit;
+  text-align: inherit;
+  width: inherit;
+}
+.node-type-blog-post .comment-wrapper .comment-form #edit-actions {
+}
+.node-type-blog-post .comment-wrapper .comment-form .form-submit {
+  font: normal 16px/21px "Open Sans", Arial, sans-serif;
+  line-height: 30px;
+  padding: 4px 15px;
 }
 /**************************************************
 * --

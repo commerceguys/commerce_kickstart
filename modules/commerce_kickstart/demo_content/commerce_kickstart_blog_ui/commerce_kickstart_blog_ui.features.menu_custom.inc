@@ -10,19 +10,19 @@
 function commerce_kickstart_blog_ui_menu_default_menu_custom() {
   $menus = array();
 
-  // Exported menu: menu-footer-navigation
+  // Exported menu: menu-footer-navigation.
   $menus['menu-footer-navigation'] = array(
     'menu_name' => 'menu-footer-navigation',
     'title' => 'Footer navigation',
     'description' => '',
   );
-  // Exported menu: menu-kickstart-user-menu
+  // Exported menu: menu-kickstart-user-menu.
   $menus['menu-kickstart-user-menu'] = array(
     'menu_name' => 'menu-kickstart-user-menu',
     'title' => 'Kickstart user menu',
     'description' => '',
   );
-  // Exported menu: secondary-navigation
+  // Exported menu: secondary-navigation.
   $menus['secondary-navigation'] = array(
     'menu_name' => 'secondary-navigation',
     'title' => 'Secondary navigation',

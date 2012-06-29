@@ -27,7 +27,7 @@ function commerce_kickstart_blog_ui_views_api() {
 function commerce_kickstart_blog_ui_image_default_styles() {
   $styles = array();
 
-  // Exported image style: blog_full
+  // Exported image style: blog_full.
   $styles['blog_full'] = array(
     'name' => 'blog_full',
     'effects' => array(
@@ -49,7 +49,7 @@ function commerce_kickstart_blog_ui_image_default_styles() {
     ),
   );
 
-  // Exported image style: blog_medium
+  // Exported image style: blog_medium.
   $styles['blog_medium'] = array(
     'name' => 'blog_medium',
     'effects' => array(

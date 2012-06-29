@@ -83,9 +83,19 @@ function commerce_kickstart_blog_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'title' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '5',
+        ),
+      ),
       'display' => array(),
     ),
   );

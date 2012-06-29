@@ -8,9 +8,9 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
   <?php if ($display_submitted): ?>
-  <footer class="submitted"><?php print $date; ?> - <?php print $name; ?></footer>
-  <?php endif; ?>  
-  
+  <footer class="submitted"><?php print t('By'); ?> <?php print $name; ?>, <?php print $date; ?></footer>
+  <?php endif; ?>
+
   <div<?php print $content_attributes; ?>>
     <?php
       // We hide the comments and links now so that we can render them later.
@@ -19,7 +19,7 @@
       print render($content);
     ?>
   </div>
-  
+
   <div class="clearfix">
     <?php if (!empty($content['links'])): ?>
       <nav class="links node-links clearfix"><?php print render($content['links']); ?></nav>

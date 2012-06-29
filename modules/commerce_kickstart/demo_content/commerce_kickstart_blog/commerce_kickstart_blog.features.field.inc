@@ -10,7 +10,7 @@
 function commerce_kickstart_blog_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'node-blog_post-body'
+  // Exported field: 'node-blog_post-body'.
   $fields['node-blog_post-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +33,7 @@ function commerce_kickstart_blog_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -49,7 +50,7 @@ function commerce_kickstart_blog_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'product_in_cart' => array(
           'label' => 'above',
@@ -66,11 +67,9 @@ function commerce_kickstart_blog_field_default_fields() {
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(
-            'trim_length' => 600,
-          ),
-          'type' => 'text_summary_or_trimmed',
-          'weight' => '0',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '1',
         ),
       ),
       'entity_type' => 'node',
@@ -95,7 +94,88 @@ function commerce_kickstart_blog_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-blog_post-field_image'
+  // Exported field: 'node-blog_post-field_blog_category'.
+  $fields['node-blog_post-field_blog_category'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_blog_category',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'blog_category',
+            'parent' => '0',
+          ),
+        ),
+      ),
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'blog_post',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '2',
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '2',
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_blog_category',
+      'label' => 'Category',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'taxonomy',
+        'settings' => array(
+          'autocomplete_path' => 'taxonomy/autocomplete',
+          'size' => 60,
+        ),
+        'type' => 'taxonomy_autocomplete',
+        'weight' => '3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-blog_post-field_image'.
   $fields['node-blog_post-field_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -116,6 +196,7 @@ function commerce_kickstart_blog_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -137,7 +218,7 @@ function commerce_kickstart_blog_field_default_fields() {
             'image_style' => 'blog_full',
           ),
           'type' => 'image',
-          'weight' => '-1',
+          'weight' => '0',
         ),
         'product_in_cart' => array(
           'label' => 'above',
@@ -159,7 +240,7 @@ function commerce_kickstart_blog_field_default_fields() {
             'image_style' => 'blog_medium',
           ),
           'type' => 'image',
-          'weight' => '-1',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'node',
@@ -190,7 +271,7 @@ function commerce_kickstart_blog_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-blog_post-field_tags'
+  // Exported field: 'node-blog_post-field_tags'.
   $fields['node-blog_post-field_tags'] = array(
     'field_config' => array(
       'active' => '1',
@@ -211,6 +292,7 @@ function commerce_kickstart_blog_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -230,11 +312,11 @@ function commerce_kickstart_blog_field_default_fields() {
       'description' => 'Enter a comma-separated list of words to describe your content.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '10',
+          'weight' => '3',
         ),
         'product_in_cart' => array(
           'label' => 'above',
@@ -249,11 +331,11 @@ function commerce_kickstart_blog_field_default_fields() {
           'weight' => 0,
         ),
         'teaser' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '10',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'node',
@@ -270,13 +352,14 @@ function commerce_kickstart_blog_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Category');
   t('Description');
   t('Enter a comma-separated list of words to describe your content.');
   t('Image');

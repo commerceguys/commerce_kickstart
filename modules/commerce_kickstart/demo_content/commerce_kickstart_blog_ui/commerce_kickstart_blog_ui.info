@@ -46,3 +46,4 @@ features[variable][] = custom_breadcrumbs_force_active_trail
 features[variable][] = custom_breadcrumbs_use_exclude_list
 features[variable][] = menu_secondary_links_source
 features[views_view][] = blog
+features[views_view][] = blog_category_list
