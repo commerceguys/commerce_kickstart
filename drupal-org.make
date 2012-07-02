@@ -115,6 +115,7 @@ projects[search_api_db][version] = 1.x-dev
 projects[search_api_db][subdir] = "contrib"
 projects[search_api_ranges][type] = module
 projects[search_api_ranges][download][type] = git
+projects[search_api_ranges][download][revision] = 8b4ac77411fbfa7346ff637de94a64a97e4b4656
 projects[search_api_ranges][download][branch] = 7.x-1.x
 projects[search_api_ranges][subdir] = "contrib"
 projects[facetapi][version] = 1.0-rc4
