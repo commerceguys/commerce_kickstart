@@ -266,13 +266,17 @@ function commerce_kickstart_product_ui_search_api_facetapi_keys_alter(&$keys, $q
     $keys = '';
     drupal_set_breadcrumb(array(l(t('Home'), '<front>'), 'All Products'));
   }
-  else if ($keys == '[all items]' && isset($_GET['f'])) {
-    // All products with facets.
-    drupal_set_breadcrumb(array());
-  }
-  else if ($keys != '[all items]') {
-    // Search result by key with or without facets.
-    drupal_set_breadcrumb(array());
+  else {
+    if ($keys == '[all items]' && isset($_GET['f'])) {
+      // All products with facets.
+      drupal_set_breadcrumb(array());
+    }
+    else {
+      if ($keys != '[all items]') {
+        // Search result by key with or without facets.
+        drupal_set_breadcrumb(array());
+      }
+    }
   }
 }
 
@@ -316,23 +320,6 @@ function commerce_kickstart_product_ui_page_alter(&$page) {
   if ($match) {
     drupal_set_breadcrumb(array());
   }
-  else if ($current_path == 'admin/commerce/config/products-categories' ||
-    $current_path == 'admin/commerce/products/types' ||
-    $current_path == 'admin/commerce/products/types/product-types') {
-    drupal_set_breadcrumb(array(
-      l(t('Home'), '<front>'),
-      l(t('Administration'), 'admin'),
-      l(t('Store settings'), 'admin/commerce/config'),
-    ));
-  }
-  else if ($current_path == 'admin/commerce/products/types/content-types') {
-    drupal_set_breadcrumb(array(
-      l(t('Home'), '<front>'),
-      l(t('Administration'), 'admin'),
-      l(t('Store settings'), 'admin/commerce/config'),
-      l(t('Product & content types'), 'admin/commerce/products/types'),
-    ));
-  }
 }
 
 /*
@@ -352,26 +339,6 @@ function commerce_kickstart_product_ui_menu_local_tasks_alter(&$data, $router_it
         );
       }
     }
-  }
-  else if ($root_path == 'admin/commerce/products/types' || $root_path == 'admin/commerce/products/types/product-types') {
-    $link = menu_get_item('admin/commerce/products/types/add');
-    $link['title'] = t('Add product type');
-    $link['href'] = 'admin/commerce/products/types/add';
-
-    $data['actions']['output'][] = array(
-      '#theme' => 'menu_local_action',
-      '#link' => $link,
-    );
-  }
-  else if ($root_path == 'admin/commerce/products/types/content-types') {
-    $link = menu_get_item('admin/structure/types/add');
-    $link['title'] = t('Add content type');
-    $link['href'] = 'admin/structure/types/add';
-
-    $data['actions']['output'][] = array(
-      '#theme' => 'menu_local_action',
-      '#link' => $link,
-    );
   }
 }
 
