@@ -617,7 +617,7 @@ select[multiple] {
   top: 0px;
   left: -10px;
   width: 100%;
-  z-index: 11;
+  z-index: 100;
 }
 #promotional_banner .promotional_banner_saving {
   font-family: 'Open Sans', sans-serif;
@@ -665,7 +665,6 @@ select[multiple] {
   height: 168px;
   margin: 0 auto;
   width: 344px;
-  z-index: 10 !important;
 }
 .view-display-id-block_3 .item-list .event-slider li img {
   width: 100%;

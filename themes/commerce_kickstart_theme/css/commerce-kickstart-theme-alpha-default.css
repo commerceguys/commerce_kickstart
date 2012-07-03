@@ -159,7 +159,6 @@ body {
   top: 0px;
   left: -10px;
   width: 100%;
-  z-index: 11;
 }
 #promotional_banner .promotional_banner_saving {
   font-family: 'Open Sans', sans-serif;
@@ -182,7 +181,6 @@ body {
   color: #2698F2;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
-
   padding: 5px 28px;
   text-transform: capitalize;
 }
@@ -207,7 +205,6 @@ body {
   height: 168px;
   margin: 0 auto;
   width: 344px;
-  z-index: 10 !important;
 }
 .view-display-id-block_3 .item-list .event-slider li img {
   width: 100%;
@@ -227,7 +224,7 @@ body {
   left: -50px;
   top: 85px;
   position: absolute;
-  z-index: 12;
+  z-index: 100;
 }
 #shipping {
   border: 6px solid #ffffff;
