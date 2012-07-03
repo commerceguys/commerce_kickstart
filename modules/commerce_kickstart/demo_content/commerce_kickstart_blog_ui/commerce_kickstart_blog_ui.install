@@ -14,13 +14,7 @@ function commerce_kickstart_blog_ui_enable() {
   $items[$module] = array_keys($feature->info['features']);
   _features_restore('enable', $items);
   _features_restore('rebuild', $items);
-}
 
-/*
- * Implements hook_install().
- */
-function commerce_kickstart_blog_ui_install() {
-  drupal_flush_all_caches();
   drupal_static_reset();
   _block_rehash('commerce_kickstart_theme');
   try {
