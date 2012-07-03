@@ -357,6 +357,7 @@ body {
   clear: both;
   margin: 0;
 }
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a,
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a:hover {
   border: 0;
 }
