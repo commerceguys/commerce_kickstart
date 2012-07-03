@@ -9,6 +9,3 @@ dependencies[] = message_notify
 dependencies[] = commerce_cart
 dependencies[] = commerce_kickstart_product_ui
 dependencies[] = ctools
-features[ctools][] = views:views_default:3.0
-features[features_api][] = api:1
-features[views_view][] = commerce_cart_form

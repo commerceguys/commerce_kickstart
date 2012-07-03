@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Code for the Commerce Kickstart order feature.
+ * Provides Kickstart-specific cart and order customizations.
  */
 
 /**
