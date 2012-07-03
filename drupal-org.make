@@ -83,6 +83,7 @@ projects[taxonomy_breadcrumb][subdir] = "contrib"
 projects[taxonomy_breadcrumb][patch][] = "http://drupal.org/files/taxonomy_breadcrumb_vocabulary_selection_bug-1220250-1_0.patch"
 projects[taxonomy_breadcrumb][patch][] = "http://drupal.org/files/taxonomy_breadcrumb-view_mode_bug-1280434-2.patch"
 projects[taxonomy_breadcrumb][patch][] = "http://drupal.org/files/taxonomy_term-1608070-1_views_support.patch"
+projects[taxonomy_breadcrumb][patch][] = "http://drupal.org/files/empty-vid-form-alter-1292774-2.patch"
 projects[advanced_help][version] = 1.0
 projects[advanced_help][subdir] = "contrib"
 projects[advanced_help][patch][] = "http://drupal.org/files/advanced_help-invalid_argument_in_modules_alter-1086990-21.patch"
