@@ -386,7 +386,7 @@ function commerce_kickstart_blog_ui_views_default_views() {
   $handler->display->display_options['relationships']['tid_representative']['field'] = 'tid_representative';
   $handler->display->display_options['relationships']['tid_representative']['required'] = 1;
   $handler->display->display_options['relationships']['tid_representative']['subquery_sort'] = 'node.nid';
-  $handler->display->display_options['relationships']['tid_representative']['subquery_regenerate'] = 0;
+  $handler->display->display_options['relationships']['tid_representative']['subquery_regenerate'] = 1;
   $handler->display->display_options['relationships']['tid_representative']['subquery_view'] = '';
   $handler->display->display_options['relationships']['tid_representative']['subquery_namespace'] = '';
   /* Field: Taxonomy term: Term ID */
