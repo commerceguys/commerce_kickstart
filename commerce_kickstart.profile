@@ -8,8 +8,8 @@
 function commerce_kickstart_form_install_configure_form_alter(&$form, $form_state) {
   // Since any module can add a drupal_set_message, this can bug the user
   // when we display this page. For a better user experience,
-  // remove all the message that are only "notifications" message.
-  drupal_get_messages('status', TRUE);
+  // remove all the messages.
+  drupal_get_messages(NULL, TRUE);
 
   // Set a default name for the dev site and change title's label.
   $form['site_information']['site_name']['#title'] = 'Store name';
@@ -96,21 +96,31 @@ function commerce_kickstart_custom_setting(&$form, &$form_state) {
  * Implements hook_install_tasks().
  */
 function commerce_kickstart_install_tasks() {
+  // Since any module can add a drupal_set_message, this can bug the user
+  // when we display this page. For a better user experience,
+  // remove all the messages.
+  drupal_get_messages(NULL, TRUE);
   $tasks = array();
-  $commerce_kickstart_import_sample_content = variable_get('commerce_kickstart_import_sample_content', FALSE);
-  // Add a page allowing the user to indicate they'd like to install demo
-  // content.
+  $current_task = variable_get('install_task', 'done');
+  $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
+
   $tasks['commerce_kickstart_configure_store_form'] = array(
     'display_name' => st('Configure store'),
     'type' => 'form',
   );
-  // And let the user choose an example tax to be set up by default.
-  $tasks['commerce_kickstart_import_sample_content'] = array(
-    'display_name' => st('Import sample content'),
-    'display' => $commerce_kickstart_import_sample_content,
+  $tasks['commerce_kickstart_install_additional_modules'] = array(
+    'display_name' => $install_demo_store ? st('Install demo store') : st('Install additional functionality'),
     'type' => 'batch',
-    'run' => $commerce_kickstart_import_sample_content ? INSTALL_TASK_RUN_IF_NOT_COMPLETED : INSTALL_TASK_SKIP,
+    // Show this task only after the Kickstart steps have bene reached.
+    'display' => strpos($current_task, 'commerce_kickstart_') !== FALSE,
   );
+  $tasks['commerce_kickstart_import_content'] = array(
+    'display_name' => st('Import content'),
+    'type' => 'batch',
+    // Show this task only after the Kickstart steps have bene reached.
+    'display' => strpos($current_task, 'commerce_kickstart_') !== FALSE,
+  );
+
   return $tasks;
 }
 
@@ -207,30 +217,45 @@ function commerce_kickstart_install_finished(&$install_state) {
  * Task callback: returns the form allowing the user to add example store content on install.
  */
 function commerce_kickstart_configure_store_form() {
-  drupal_set_title(st('Configure store content'));
+  drupal_set_title(st('Configure store'));
 
   // Prepare all the options for sample content.
   $options = array(
     '1' => st('Yes'),
     '0' => st('No'),
   );
-  $form['commerce_kickstart_example_wrapper'] = array(
+  $form['functionality'] = array(
     '#type' => 'fieldset',
-    '#title' => st('Sample Content'),
+    '#title' => st('Functionality'),
   );
-  $form['commerce_kickstart_example_wrapper']['commerce_kickstart_example_content'] = array(
+  $form['functionality']['install_demo_store'] = array(
     '#type' => 'radios',
-    '#title' => st('Do you want to install sample store content?'),
-    '#description' => st('Recommended for new users. Demonstrates how you can set-up your Drupal Commerce site.'),
+    '#title' => st('Do you want to install the demo store?'),
+    '#description' => st('Shows you everything Commerce Kickstart can do. Includes a custom theme, sample content and products.'),
     '#options' => $options,
     '#default_value' => '1',
-     // This still needs some love
-    '#disabled' => TRUE,
+  );
+
+  $options_selection = array(
+    'merchandising' => 'Frontpage <strong>slideshow</strong> and additional <strong>blocks</strong> for featuring specific content.',
+    'menus' => 'Custom <strong>admin menu</strong> designed for store owners.',
+    'blog' => '<strong>Blog</strong> functionality.',
+    'social' => '<strong>Social</strong> logins and links for sharing products via social networks.',
+    'zoom_cloud' => '<strong>Zoom & Gallery</strong> mode for products.',
+  );
+  $form['functionality']['extras'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $options_selection,
+    '#title' => t("Install additional functionality"),
+    '#states' => array(
+      'visible' => array(
+        ':input[name="install_demo_store"]' => array('value' => '0'),
+      ),
+    ),
   );
 
   // Build a currency options list from all defined currencies.
   $options = array();
-
   foreach (commerce_currencies(FALSE, TRUE) as $currency_code => $currency) {
     $options[$currency_code] = t('@code - !name', array(
       '@code' => $currency['code'],
@@ -250,7 +275,6 @@ function commerce_kickstart_configure_store_form() {
   $form['commerce_default_currency_wrapper']['commerce_default_currency'] = array(
     '#type' => 'select',
     '#title' => t('Default store currency'),
-    '#description' => t('The default store currency will be used as the default for all price fields.'),
     '#options' => $options,
     '#default_value' => commerce_default_currency(),
   );
@@ -285,38 +309,139 @@ function commerce_kickstart_configure_store_form() {
  * Submit callback: creates the requested sample content.
  */
 function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
-  variable_set('commerce_kickstart_example_content', $form_state['values']['commerce_kickstart_example_content']);
+  variable_set('commerce_kickstart_demo_store', $form_state['values']['install_demo_store']);
+  variable_set('commerce_kickstart_selected_extras', $form_state['values']['extras']);
   variable_set('commerce_kickstart_choose_tax_country', $form_state['values']['commerce_kickstart_choose_tax_country']);
   variable_set('commerce_default_currency', $form_state['values']['commerce_default_currency']);
-  if ($form_state['values']['commerce_kickstart_example_content'] == 1) {
-    variable_set('commerce_kickstart_import_sample_content', TRUE);
+}
+
+/**
+ * Task callback: uses Batch API to import modules based on user selection.
+ * Installs all demo store modules if requested, or any modules providing
+ * additional functionality to the base install.
+ */
+function commerce_kickstart_install_additional_modules() {
+  $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
+  if ($install_demo_store) {
+    $modules = array(
+      'commerce_kickstart_social',
+      'commerce_kickstart_content',
+      'commerce_kickstart_search',
+      'commerce_kickstart_product',
+      'commerce_kickstart_product_ui',
+      'commerce_kickstart_blog',
+      'commerce_kickstart_blog_ui',
+      'commerce_kickstart_merchandising',
+      'commerce_kickstart_merchandising_ui',
+      'commerce_kickstart_menus',
+      'commerce_kickstart_user',
+      'commerce_kickstart_migrate',
+    );
   }
+  else {
+    $modules = array(
+      'commerce_kickstart_content',
+      'commerce_kickstart_lite_search',
+      'commerce_kickstart_lite_product',
+      'commerce_kickstart_lite_product_ui',
+      'commerce_kickstart_migrate',
+    );
+    $selected_extras = variable_get('commerce_kickstart_selected_extras', array());
+    if (!empty($selected_extras['merchandising'])) {
+      $modules[] = 'commerce_kickstart_merchandising';
+      $modules[] = 'commerce_kickstart_merchandising_ui';
+    }
+    if (!empty($selected_extras['menus'])) {
+      $modules[] = 'commerce_kickstart_menus';
+    }
+    if (!empty($selected_extras['blog'])) {
+      $modules[] = 'commerce_kickstart_blog';
+      $modules[] = 'commerce_kickstart_blog_ui';
+    }
+    if (!empty($selected_extras['social'])) {
+      $modules[] = 'commerce_kickstart_social';
+    }
+    if (!empty($selected_extras['zoom_cloud'])) {
+      $modules[] = 'commerce_kickstart_lite_product_zoom';
+    }
+  }
+
+  // Resolve the dependencies now, so that module_enable() doesn't need
+  // to do it later for each individual module (which kills performance).
+  $files = system_rebuild_module_data();
+  $modules_sorted = array();
+  foreach ($modules as $module) {
+    if ($files[$module]->requires) {
+      // Create a list of dependencies that haven't been installed yet.
+      $dependencies = array_keys($files[$module]->requires);
+      $dependencies = array_filter($dependencies, '_commerce_kickstart_filter_dependencies');
+      // Add them to the module list.
+      $modules = array_merge($modules, $dependencies);
+    }
+  }
+  $modules = array_unique($modules);
+  foreach ($modules as $module) {
+    $modules_sorted[$module] = $files[$module]->sort;
+  }
+  arsort($modules_sorted);
+
+  $operations = array();
+  foreach ($modules_sorted as $module => $weight) {
+    $operations[] = array('_commerce_kickstart_enable_module', array($module, $files[$module]->info['name']));
+  }
+  $operations[] = array('_commerce_kickstart_flush_caches', array(t('Flushed caches.')));
+
+  $batch = array(
+    'title' => $install_demo_store ? t('Installing demo store') : t('Installing additional functionality'),
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',
+  );
+
+  return $batch;
+}
+
+/**
+ * array_filter() callback used to filter out already installed dependencies.
+ */
+function _commerce_kickstart_filter_dependencies($dependency) {
+  return !module_exists($dependency);
 }
 
 /**
  * Task callback: return a batch API array with the products to be imported.
  */
-function commerce_kickstart_import_sample_content() {
-  drupal_set_title(st('Import sample store content'));
-
+function commerce_kickstart_import_content() {
   // Fixes problems when the CSV files used for importing have been created
   // on a Mac, by forcing PHP to detect the appropriate line endings.
   ini_set("auto_detect_line_endings", TRUE);
 
-  $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menus.')));
-  $migrations = migrate_migrations();
-  foreach ($migrations as $machine_name => $migration) {
-    $operations[] =  array('_commerce_kickstart_import_example_content', array($machine_name, t('Importing content.')));
-  }
-  $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up users.')));
+  $operations = array();
   $operations[] = array('_commerce_kickstart_example_taxes', array(t('Setting up taxes.')));
 
+  $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
+  if ($install_demo_store) {
+    $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menus.')));
+    $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up users.')));
+  }
+
+  // Run the migrations matching the install mode (demo store or not).
+  $migrations = migrate_migrations();
+  foreach ($migrations as $machine_name => $migration) {
+    $migration_group = $migration->getGroup()->getName();
+    $expected_group = $install_demo_store ? 'demo_store' : 'default';
+    if ($migration_group == $expected_group) {
+      $operations[] = array('_commerce_kickstart_import', array($machine_name, t('Importing content.')));
+    }
+  }
+
+  // Perform post-import tasks.
+  $operations[] = array('_commerce_kickstart_post_import', array(t('Completing setup.')));
+
   $batch = array(
-    'title' => t('Importing sample store content'),
+    'title' => t('Importing content'),
     'operations' => $operations,
     'file' => drupal_get_path('profile', 'commerce_kickstart') . '/import/kickstart.import.inc',
   );
-  variable_set('install_configure_seachapi', TRUE);
 
   return $batch;
 }
@@ -345,7 +470,11 @@ function commerce_kickstart_update_status_alter(&$projects) {
     // We cannot proceed if we don't know the update status of the distribution.
     return;
   }
-  $distribution_secure = !in_array($projects['commerce_kickstart']['status'], array(UPDATE_NOT_SECURE, UPDATE_REVOKED, UPDATE_NOT_SUPPORTED));
+  $distribution_secure = !in_array($projects['commerce_kickstart']['status'], array(
+    UPDATE_NOT_SECURE,
+    UPDATE_REVOKED,
+    UPDATE_NOT_SUPPORTED
+  ));
 
   $make_filepath = drupal_get_path('module', 'commerce_kickstart') . '/drupal-org.make';
   if (!file_exists($make_filepath)) {
@@ -359,7 +488,12 @@ function commerce_kickstart_update_status_alter(&$projects) {
       // Don't hide a project that is not shipped with the distribution.
       continue;
     }
-    if ($distribution_secure && in_array($project_info['status'], array(UPDATE_NOT_SECURE, UPDATE_REVOKED, UPDATE_NOT_SUPPORTED))) {
+    if ($distribution_secure && in_array($project_info['status'], array(
+      UPDATE_NOT_SECURE,
+      UPDATE_REVOKED,
+      UPDATE_NOT_SUPPORTED
+    ))
+    ) {
       // Don't hide a project that is in a security state if the distribution
       // is not in a security state.
       continue;

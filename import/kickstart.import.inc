@@ -1,13 +1,34 @@
 <?php
 
 /**
- * @file commerce_kickstart_profile.
+ * @file
+ * Contains Batch API callbacks used during installation.
  */
 
 /**
  * BatchAPI callback.
  *
- * @see commerce_kickstart_import_product()
+ * @see commerce_kickstart_install_additional_modules()
+ */
+function _commerce_kickstart_enable_module($module, $module_name, &$context) {
+  module_enable(array($module), FALSE);
+  $context['message'] = st('Installed %module module.', array('%module' => $module_name));
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_install_additional_modules()
+ */
+function _commerce_kickstart_flush_caches($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+  drupal_flush_all_caches();
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_import_content()
  */
 function _commerce_kickstart_example_taxes($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
@@ -97,14 +118,13 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
     }
   }
   // delete the variables we used during this task.
-  variable_del('commerce_kickstart_example_content');
   variable_del('commerce_kickstart_choose_tax_country');
 }
 
 /**
  * BatchAPI callback.
  *
- * @see commerce_kickstart_import_product()
+ * @see commerce_kickstart_import_content()
  */
 function _commerce_kickstart_taxonomy_menu($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
@@ -124,9 +144,9 @@ function _commerce_kickstart_taxonomy_menu($operation, &$context) {
 /**
  * BatchAPI callback.
  *
- * @see commerce_kickstart_import_product()
+ * @see commerce_kickstart_import_content()
  */
-function _commerce_kickstart_import_example_content($operation, $type, &$context) {
+function _commerce_kickstart_import($operation, $type, &$context) {
   $context['message'] = t('@operation', array('@operation' => $type));
   $migration =  Migration::getInstance($operation);
   $migration->processImport();
@@ -135,7 +155,7 @@ function _commerce_kickstart_import_example_content($operation, $type, &$context
 /**
  * BatchAPI callback.
  *
- * @see commerce_kickstart_import_product()
+ * @see commerce_kickstart_import_content()
  */
 function _commerce_kickstart_example_user($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
@@ -183,6 +203,143 @@ function _commerce_kickstart_example_user($operation, &$context) {
   _commerce_kickstart_create_order($user->uid, 'cart', 2);
   _commerce_kickstart_create_order($user->uid, 'completed', 5);
   _commerce_kickstart_create_order($user->uid, 'completed', 3);
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_import_content()
+ */
+function _commerce_kickstart_post_import($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
+  $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
+  if (!$install_demo_store) {
+    _commerce_kickstart_setup_omega_theme();
+  }
+
+  features_rebuild();
+  drupal_static_reset();
+}
+
+/**
+ * Configures blocks for the theme during base install (no demo store).
+ */
+function _commerce_kickstart_setup_omega_theme() {
+  $default_theme = 'omega';
+  $admin_theme = 'commerce_kickstart_admin';
+  theme_enable(array($default_theme, $admin_theme));
+  variable_set('theme_default', $default_theme);
+  variable_set('admin_theme', $admin_theme);
+  variable_set('node_admin_theme', '1');
+  // Don't show the grid by default.
+  $omega_settings = array(
+    'alpha_debug_grid_active' => FALSE,
+  );
+  variable_set('theme_omega_settings', $omega_settings);
+
+  $blocks = array(
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '<front>', // Do not show the block on front.
+      'visibility' => 0,
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'navigation',
+      'theme' => $default_theme,
+      'status' => 0, // Do not enable the navigation menu block.
+      'weight' => 0,
+      'region' => 'sidebar_first',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'preface_first',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'login',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'content',
+      'pages' => '',
+      'cache' => -1,
+    ),
+    // Connector.
+    array(
+      'module' => 'connector',
+      'delta' => 'one_click_block',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 1,
+      'region' => 'content',
+      'pages' => "user\r\nuser/login",
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'cache' => -1,
+    ),
+    // Search sorting.
+    array(
+      'module' => 'search_api_sorts',
+      'delta' => 'search-sorts',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => -30,
+      'region' => 'content',
+      'pages' => '',
+      'visibility' => 0,
+      'cache' => -1,
+    ),
+  );
+
+  drupal_static_reset();
+  _block_rehash($admin_theme);
+  _block_rehash($default_theme);
+  foreach ($blocks as $record) {
+    $module = array_shift($record);
+    $delta = array_shift($record);
+    $theme = array_shift($record);
+    db_update('block')
+      ->fields($record)
+      ->condition('module', $module)
+      ->condition('delta', $delta)
+      ->condition('theme', $theme)
+      ->execute();
+  }
 }
 
 /*

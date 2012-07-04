@@ -65,10 +65,10 @@ dependencies[] = commerce_tax_ui
 dependencies[] = module_filter
 dependencies[] = field_extractor
 dependencies[] = image_delta_formatter
-dependencies[] = oauth_common
 dependencies[] = http_client
 dependencies[] = taxonomy_menu
 dependencies[] = link
+dependencies[] = libraries
 dependencies[] = mimemail_compress
 dependencies[] = commerce_kickstart_reset
 dependencies[] = cloud_zoom
@@ -88,23 +88,13 @@ dependencies[] = commerce_backoffice
 dependencies[] = features
 dependencies[] = commerce_features
 
+; Install Migrate
+dependencies[] = migrate
+dependencies[] = commerce_migrate
+
 ; Distribution modules.
-dependencies[] = commerce_kickstart_content
 dependencies[] = commerce_kickstart_help
 dependencies[] = commerce_kickstart_inline_help
-dependencies[] = commerce_kickstart_search
-dependencies[] = commerce_kickstart_product
-dependencies[] = commerce_kickstart_product_ui
 dependencies[] = commerce_kickstart_order
-dependencies[] = commerce_kickstart_blog
-dependencies[] = commerce_kickstart_blog_ui
-dependencies[] = commerce_kickstart_merchandising
-dependencies[] = commerce_kickstart_merchandising_ui
-dependencies[] = commerce_kickstart_menus
 dependencies[] = commerce_kickstart_content_ui
-dependencies[] = commerce_kickstart_social
-dependencies[] = commerce_kickstart_menus
-dependencies[] = commerce_kickstart_content_ui
-dependencies[] = commerce_kickstart_user
 dependencies[] = commerce_kickstart_payment
-dependencies[] = commerce_kickstart_migrate

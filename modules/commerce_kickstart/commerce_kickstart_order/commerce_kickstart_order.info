@@ -7,5 +7,4 @@ dependencies[] = views
 dependencies[] = message
 dependencies[] = message_notify
 dependencies[] = commerce_cart
-dependencies[] = commerce_kickstart_product_ui
 dependencies[] = ctools

@@ -10,7 +10,7 @@
 function commerce_kickstart_product_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'commerce_product-bags_cases-commerce_price'
+  // Exported field: 'commerce_product-bags_cases-commerce_price'.
   $fields['commerce_product-bags_cases-commerce_price'] = array(
     'field_config' => array(
       'active' => '1',
@@ -27,6 +27,7 @@ function commerce_kickstart_product_field_default_fields() {
           1 => 'currency_code',
         ),
       ),
+      'locked' => '1',
       'module' => 'commerce_price',
       'settings' => array(),
       'translatable' => '0',
@@ -82,12 +83,6 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
-        ),
-        'product_in_cart' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '5',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -134,6 +129,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
       ),
       'entity_type' => 'commerce_product',
       'field_name' => 'commerce_price',
@@ -153,7 +154,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-bags_cases-field_bag_size'
+  // Exported field: 'commerce_product-bags_cases-field_bag_size'.
   $fields['commerce_product-bags_cases-field_bag_size'] = array(
     'field_config' => array(
       'active' => '1',
@@ -174,6 +175,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -215,13 +217,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '5',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '3',
-        ),
         'node_product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -233,6 +228,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -252,7 +254,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-bags_cases-field_color'
+  // Exported field: 'commerce_product-bags_cases-field_color'.
   $fields['commerce_product-bags_cases-field_color'] = array(
     'field_config' => array(
       'active' => '1',
@@ -273,6 +275,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -314,13 +317,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '4',
-        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -332,6 +328,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '4',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -351,7 +354,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-bags_cases-field_images'
+  // Exported field: 'commerce_product-bags_cases-field_images'.
   $fields['commerce_product-bags_cases-field_images'] = array(
     'field_config' => array(
       'active' => '1',
@@ -372,6 +375,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -431,18 +435,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
-        'product_in_cart' => array(
-          'label' => 'hidden',
-          'module' => 'image_delta_formatter',
-          'settings' => array(
-            'deltas' => '0',
-            'deltas_reversed' => 0,
-            'image_link' => '',
-            'image_style' => 'product_thumbnail',
-          ),
-          'type' => 'image_delta',
-          'weight' => '0',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -460,6 +452,18 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -490,7 +494,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-drinks-commerce_price'
+  // Exported field: 'commerce_product-drinks-commerce_price'.
   $fields['commerce_product-drinks-commerce_price'] = array(
     'field_config' => array(
       'active' => '1',
@@ -507,6 +511,7 @@ function commerce_kickstart_product_field_default_fields() {
           1 => 'currency_code',
         ),
       ),
+      'locked' => '1',
       'module' => 'commerce_price',
       'settings' => array(),
       'translatable' => '0',
@@ -563,12 +568,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
         ),
-        'product_in_cart' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '5',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'commerce_price',
@@ -614,6 +613,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
       ),
       'entity_type' => 'commerce_product',
       'field_name' => 'commerce_price',
@@ -633,7 +638,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-drinks-field_color'
+  // Exported field: 'commerce_product-drinks-field_color'.
   $fields['commerce_product-drinks-field_color'] = array(
     'field_config' => array(
       'active' => '1',
@@ -654,6 +659,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -695,13 +701,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '3',
-        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -714,6 +713,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -733,7 +739,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-drinks-field_images'
+  // Exported field: 'commerce_product-drinks-field_images'.
   $fields['commerce_product-drinks-field_images'] = array(
     'field_config' => array(
       'active' => '1',
@@ -754,6 +760,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -813,18 +820,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
-        'product_in_cart' => array(
-          'label' => 'hidden',
-          'module' => 'image_delta_formatter',
-          'settings' => array(
-            'deltas' => '0',
-            'deltas_reversed' => 0,
-            'image_link' => '',
-            'image_style' => 'product_thumbnail',
-          ),
-          'type' => 'image_delta',
-          'weight' => '0',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -842,6 +837,18 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -872,7 +879,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-hats-commerce_price'
+  // Exported field: 'commerce_product-hats-commerce_price'.
   $fields['commerce_product-hats-commerce_price'] = array(
     'field_config' => array(
       'active' => '1',
@@ -889,6 +896,7 @@ function commerce_kickstart_product_field_default_fields() {
           1 => 'currency_code',
         ),
       ),
+      'locked' => '1',
       'module' => 'commerce_price',
       'settings' => array(),
       'translatable' => '0',
@@ -945,12 +953,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
         ),
-        'product_in_cart' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '6',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'commerce_price',
@@ -996,6 +998,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
+        ),
       ),
       'entity_type' => 'commerce_product',
       'field_name' => 'commerce_price',
@@ -1015,7 +1023,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-hats-field_color'
+  // Exported field: 'commerce_product-hats-field_color'.
   $fields['commerce_product-hats-field_color'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1036,6 +1044,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1081,13 +1090,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '3',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '4',
-        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -1100,6 +1102,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '4',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -1119,7 +1128,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-hats-field_hat_size'
+  // Exported field: 'commerce_product-hats-field_hat_size'.
   $fields['commerce_product-hats-field_hat_size'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1140,6 +1149,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1185,13 +1195,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '5',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '3',
-        ),
         'node_product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1203,6 +1206,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -1222,7 +1232,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-hats-field_images'
+  // Exported field: 'commerce_product-hats-field_images'.
   $fields['commerce_product-hats-field_images'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1243,6 +1253,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -1302,18 +1313,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
-        'product_in_cart' => array(
-          'label' => 'hidden',
-          'module' => 'image_delta_formatter',
-          'settings' => array(
-            'deltas' => '0',
-            'deltas_reversed' => 0,
-            'image_link' => '',
-            'image_style' => 'product_thumbnail',
-          ),
-          'type' => 'image_delta',
-          'weight' => '0',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -1331,6 +1330,18 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -1361,7 +1372,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-shoes-commerce_price'
+  // Exported field: 'commerce_product-shoes-commerce_price'.
   $fields['commerce_product-shoes-commerce_price'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1378,6 +1389,7 @@ function commerce_kickstart_product_field_default_fields() {
           1 => 'currency_code',
         ),
       ),
+      'locked' => '1',
       'module' => 'commerce_price',
       'settings' => array(),
       'translatable' => '0',
@@ -1434,12 +1446,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
         ),
-        'product_in_cart' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '6',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'commerce_price',
@@ -1485,6 +1491,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '6',
+        ),
       ),
       'entity_type' => 'commerce_product',
       'field_name' => 'commerce_price',
@@ -1504,7 +1516,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-shoes-field_color'
+  // Exported field: 'commerce_product-shoes-field_color'.
   $fields['commerce_product-shoes-field_color'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1525,6 +1537,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1566,13 +1579,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '4',
-        ),
         'node_product_list' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
@@ -1585,6 +1591,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '4',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -1604,7 +1617,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-shoes-field_images'
+  // Exported field: 'commerce_product-shoes-field_images'.
   $fields['commerce_product-shoes-field_images'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1625,6 +1638,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -1684,18 +1698,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
-        'product_in_cart' => array(
-          'label' => 'hidden',
-          'module' => 'image_delta_formatter',
-          'settings' => array(
-            'deltas' => '0',
-            'deltas_reversed' => 0,
-            'image_link' => '',
-            'image_style' => 'product_thumbnail',
-          ),
-          'type' => 'image_delta',
-          'weight' => '0',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -1713,6 +1715,18 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -1743,7 +1757,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-shoes-field_shoe_size'
+  // Exported field: 'commerce_product-shoes-field_shoe_size'.
   $fields['commerce_product-shoes-field_shoe_size'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1764,6 +1778,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -1805,13 +1820,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '5',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '3',
-        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -1823,6 +1831,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -1842,7 +1857,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-storage_devices-commerce_price'
+  // Exported field: 'commerce_product-storage_devices-commerce_price'.
   $fields['commerce_product-storage_devices-commerce_price'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1859,6 +1874,7 @@ function commerce_kickstart_product_field_default_fields() {
           1 => 'currency_code',
         ),
       ),
+      'locked' => '1',
       'module' => 'commerce_price',
       'settings' => array(),
       'translatable' => '0',
@@ -1915,12 +1931,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
         ),
-        'product_in_cart' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '5',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'commerce_price',
@@ -1966,6 +1976,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
       ),
       'entity_type' => 'commerce_product',
       'field_name' => 'commerce_price',
@@ -1985,7 +2001,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-storage_devices-field_images'
+  // Exported field: 'commerce_product-storage_devices-field_images'.
   $fields['commerce_product-storage_devices-field_images'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2006,6 +2022,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -2065,18 +2082,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
-        'product_in_cart' => array(
-          'label' => 'hidden',
-          'module' => 'image_delta_formatter',
-          'settings' => array(
-            'deltas' => '0',
-            'deltas_reversed' => 0,
-            'image_link' => '',
-            'image_style' => 'product_thumbnail',
-          ),
-          'type' => 'image_delta',
-          'weight' => '0',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -2094,6 +2099,18 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -2124,7 +2141,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-storage_devices-field_storage_capacity'
+  // Exported field: 'commerce_product-storage_devices-field_storage_capacity'.
   $fields['commerce_product-storage_devices-field_storage_capacity'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2145,6 +2162,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -2186,13 +2204,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '3',
-        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -2204,6 +2215,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -2223,7 +2241,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-tops-commerce_price'
+  // Exported field: 'commerce_product-tops-commerce_price'.
   $fields['commerce_product-tops-commerce_price'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2240,6 +2258,7 @@ function commerce_kickstart_product_field_default_fields() {
           1 => 'currency_code',
         ),
       ),
+      'locked' => '1',
       'module' => 'commerce_price',
       'settings' => array(),
       'translatable' => '0',
@@ -2295,12 +2314,6 @@ function commerce_kickstart_product_field_default_fields() {
           ),
           'type' => 'commerce_price_formatted_amount',
           'weight' => '1',
-        ),
-        'product_in_cart' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '5',
         ),
         'node_product_list' => array(
           'label' => 'hidden',
@@ -2347,6 +2360,12 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'commerce_price_formatted_amount',
           'weight' => 0,
         ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '5',
+        ),
       ),
       'entity_type' => 'commerce_product',
       'field_name' => 'commerce_price',
@@ -2366,7 +2385,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-tops-field_color'
+  // Exported field: 'commerce_product-tops-field_color'.
   $fields['commerce_product-tops-field_color'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2387,6 +2406,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -2428,13 +2448,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '4',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '4',
-        ),
         'node_product_list' => array(
           'label' => 'inline',
           'settings' => array(),
@@ -2446,6 +2459,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '4',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -2465,7 +2485,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-tops-field_images'
+  // Exported field: 'commerce_product-tops-field_images'.
   $fields['commerce_product-tops-field_images'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2486,6 +2506,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -2545,18 +2566,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'cloud_zoom',
           'weight' => '2',
         ),
-        'product_in_cart' => array(
-          'label' => 'hidden',
-          'module' => 'image_delta_formatter',
-          'settings' => array(
-            'deltas' => '0',
-            'deltas_reversed' => 0,
-            'image_link' => '',
-            'image_style' => 'product_thumbnail',
-          ),
-          'type' => 'image_delta',
-          'weight' => '0',
-        ),
         'node_product_list' => array(
           'label' => 'hidden',
           'module' => 'image_delta_formatter',
@@ -2574,6 +2583,18 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -2604,7 +2625,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-tops-field_top_size'
+  // Exported field: 'commerce_product-tops-field_top_size'.
   $fields['commerce_product-tops-field_top_size'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2625,6 +2646,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -2666,13 +2688,6 @@ function commerce_kickstart_product_field_default_fields() {
           'type' => 'hidden',
           'weight' => '5',
         ),
-        'product_in_cart' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_plain',
-          'weight' => '3',
-        ),
         'node_product_list' => array(
           'label' => 'above',
           'settings' => array(),
@@ -2684,6 +2699,13 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(),
           'type' => 'hidden',
           'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'inline',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_plain',
+          'weight' => '3',
         ),
       ),
       'entity_type' => 'commerce_product',
@@ -2703,7 +2725,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-bags_cases-body'
+  // Exported field: 'node-bags_cases-body'.
   $fields['node-bags_cases-body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2726,6 +2748,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -2815,6 +2838,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -2883,7 +2907,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-bags_cases-field_category'
+  // Exported field: 'node-bags_cases-field_category'.
   $fields['node-bags_cases-field_category'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2904,6 +2928,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -2971,7 +2996,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-bags_cases-field_collection'
+  // Exported field: 'node-bags_cases-field_collection'.
   $fields['node-bags_cases-field_collection'] = array(
     'field_config' => array(
       'active' => '1',
@@ -2992,6 +3017,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -3059,7 +3085,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-bags_cases-field_gender'
+  // Exported field: 'node-bags_cases-field_gender'.
   $fields['node-bags_cases-field_gender'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3080,6 +3106,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -3147,7 +3174,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-bags_cases-field_product'
+  // Exported field: 'node-bags_cases-field_product'.
   $fields['node-bags_cases-field_product'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3168,6 +3195,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'product_id',
         ),
       ),
+      'locked' => '0',
       'module' => 'commerce_product_reference',
       'settings' => array(),
       'translatable' => '0',
@@ -3187,6 +3215,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '3',
@@ -3200,6 +3229,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
@@ -3279,6 +3309,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -3368,6 +3399,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -3436,7 +3468,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-drinks-field_category'
+  // Exported field: 'node-drinks-field_category'.
   $fields['node-drinks-field_category'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3457,6 +3489,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -3524,7 +3557,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-drinks-field_collection'
+  // Exported field: 'node-drinks-field_collection'.
   $fields['node-drinks-field_collection'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3545,6 +3578,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -3612,7 +3646,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-drinks-field_gender'
+  // Exported field: 'node-drinks-field_gender'.
   $fields['node-drinks-field_gender'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3633,6 +3667,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -3700,7 +3735,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-drinks-field_product'
+  // Exported field: 'node-drinks-field_product'.
   $fields['node-drinks-field_product'] = array(
     'field_config' => array(
       'active' => '1',
@@ -3721,6 +3756,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'product_id',
         ),
       ),
+      'locked' => '0',
       'module' => 'commerce_product_reference',
       'settings' => array(),
       'translatable' => '0',
@@ -3740,6 +3776,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '3',
@@ -3753,6 +3790,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
@@ -3832,6 +3870,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -3921,6 +3960,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -3989,7 +4029,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-hats-field_category'
+  // Exported field: 'node-hats-field_category'.
   $fields['node-hats-field_category'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4010,6 +4050,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -4077,7 +4118,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-hats-field_collection'
+  // Exported field: 'node-hats-field_collection'.
   $fields['node-hats-field_collection'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4098,6 +4139,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -4165,7 +4207,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-hats-field_gender'
+  // Exported field: 'node-hats-field_gender'.
   $fields['node-hats-field_gender'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4186,6 +4228,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -4253,7 +4296,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-hats-field_product'
+  // Exported field: 'node-hats-field_product'.
   $fields['node-hats-field_product'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4274,6 +4317,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'product_id',
         ),
       ),
+      'locked' => '0',
       'module' => 'commerce_product_reference',
       'settings' => array(),
       'translatable' => '0',
@@ -4293,6 +4337,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '2',
@@ -4306,6 +4351,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
@@ -4385,6 +4431,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -4474,6 +4521,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -4542,7 +4590,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-shoes-field_category'
+  // Exported field: 'node-shoes-field_category'.
   $fields['node-shoes-field_category'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4563,6 +4611,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -4630,7 +4679,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-shoes-field_collection'
+  // Exported field: 'node-shoes-field_collection'.
   $fields['node-shoes-field_collection'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4651,6 +4700,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -4718,7 +4768,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-shoes-field_gender'
+  // Exported field: 'node-shoes-field_gender'.
   $fields['node-shoes-field_gender'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4739,6 +4789,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -4806,7 +4857,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-shoes-field_product'
+  // Exported field: 'node-shoes-field_product'.
   $fields['node-shoes-field_product'] = array(
     'field_config' => array(
       'active' => '1',
@@ -4827,6 +4878,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'product_id',
         ),
       ),
+      'locked' => '0',
       'module' => 'commerce_product_reference',
       'settings' => array(),
       'translatable' => '0',
@@ -4846,6 +4898,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '3',
@@ -4859,6 +4912,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
@@ -4938,6 +4992,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -5027,6 +5082,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -5095,7 +5151,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-storage_devices-field_category'
+  // Exported field: 'node-storage_devices-field_category'.
   $fields['node-storage_devices-field_category'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5116,6 +5172,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -5183,7 +5240,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-storage_devices-field_collection'
+  // Exported field: 'node-storage_devices-field_collection'.
   $fields['node-storage_devices-field_collection'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5204,6 +5261,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -5271,7 +5329,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-storage_devices-field_gender'
+  // Exported field: 'node-storage_devices-field_gender'.
   $fields['node-storage_devices-field_gender'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5292,6 +5350,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -5359,7 +5418,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-storage_devices-field_product'
+  // Exported field: 'node-storage_devices-field_product'.
   $fields['node-storage_devices-field_product'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5380,6 +5439,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'product_id',
         ),
       ),
+      'locked' => '0',
       'module' => 'commerce_product_reference',
       'settings' => array(),
       'translatable' => '0',
@@ -5399,6 +5459,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 0,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '3',
@@ -5412,6 +5473,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
@@ -5491,6 +5553,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -5580,6 +5643,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -5648,7 +5712,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-tops-field_category'
+  // Exported field: 'node-tops-field_category'.
   $fields['node-tops-field_category'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5669,6 +5733,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -5736,7 +5801,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-tops-field_collection'
+  // Exported field: 'node-tops-field_collection'.
   $fields['node-tops-field_collection'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5757,6 +5822,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -5824,7 +5890,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-tops-field_gender'
+  // Exported field: 'node-tops-field_gender'.
   $fields['node-tops-field_gender'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5845,6 +5911,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'tid',
         ),
       ),
+      'locked' => '0',
       'module' => 'taxonomy',
       'settings' => array(
         'allowed_values' => array(
@@ -5912,7 +5979,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-tops-field_product'
+  // Exported field: 'node-tops-field_product'.
   $fields['node-tops-field_product'] = array(
     'field_config' => array(
       'active' => '1',
@@ -5933,6 +6000,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'product_id',
         ),
       ),
+      'locked' => '0',
       'module' => 'commerce_product_reference',
       'settings' => array(),
       'translatable' => '0',
@@ -5952,6 +6020,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 0,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '3',
@@ -5965,6 +6034,7 @@ function commerce_kickstart_product_field_default_fields() {
             'default_quantity' => '1',
             'line_item_type' => 0,
             'show_quantity' => 1,
+            'show_single_product_attributes' => FALSE,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
           'weight' => '4',
@@ -6021,7 +6091,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-category-field_category_color'
+  // Exported field: 'taxonomy_term-category-field_category_color'.
   $fields['taxonomy_term-category-field_category_color'] = array(
     'field_config' => array(
       'active' => '1',
@@ -6042,6 +6112,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '7',
@@ -6093,7 +6164,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-collection-field_image'
+  // Exported field: 'taxonomy_term-collection-field_image'.
   $fields['taxonomy_term-collection-field_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -6114,6 +6185,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -6181,7 +6253,7 @@ function commerce_kickstart_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-color-field_category_color'
+  // Exported field: 'taxonomy_term-color-field_category_color'.
   $fields['taxonomy_term-color-field_category_color'] = array(
     'field_config' => array(
       'active' => '1',
@@ -6202,6 +6274,7 @@ function commerce_kickstart_product_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '7',
@@ -6261,7 +6334,7 @@ function commerce_kickstart_product_field_default_fields() {
   t('Hexadecimal color code');
   t('Image');
   t('Price');
-  t('Product');
+  t('Product variations');
   t('Size');
 
   return $fields;

@@ -8,7 +8,13 @@
  * Implements hook_enable().
  */
 function commerce_kickstart_content_enable() {
-  $default_theme = 'commerce_kickstart_theme';
+  $default_theme = variable_get('theme_default', 'commerce_kickstart_theme');
+  $footer1 = 'footer2_first';
+  $footer2 = 'footer2_second';
+  if ($default_theme == 'omega') {
+    $footer1 = 'footer_first';
+    $footer2  = 'footer_second';
+  }
   // Make sure that the region list is populated for our theme.
   drupal_static_reset();
   _block_rehash($default_theme);
@@ -26,7 +32,7 @@ function commerce_kickstart_content_enable() {
   // Payment block.
   db_update('block')
     ->fields(array(
-    'region' => 'footer2_second',
+    'region' => $footer2,
     'status' => (int) '1',
     'title' => '<none>',
   ))
@@ -44,7 +50,7 @@ function commerce_kickstart_content_enable() {
   ))
     ->condition('module', 'commerce_kickstart_content')
     ->condition('delta', 'shipping_discount')
-    ->condition('theme', 'commerce_kickstart_theme')
+    ->condition('theme', $default_theme)
     ->execute();
   db_update('block')
     ->fields(array(
@@ -56,7 +62,7 @@ function commerce_kickstart_content_enable() {
   ))
     ->condition('module', 'commerce_kickstart_content')
     ->condition('delta', 'promotional_banner')
-    ->condition('theme', 'commerce_kickstart_theme')
+    ->condition('theme', $default_theme)
     ->execute();
   db_update('block')
     ->fields(array(
@@ -68,17 +74,17 @@ function commerce_kickstart_content_enable() {
   ))
     ->condition('module', 'commerce_kickstart_content')
     ->condition('delta', 'shipping_discount')
-    ->condition('theme', 'commerce_kickstart_theme')
+    ->condition('theme', $default_theme)
     ->execute();
   db_update('block')
     ->fields(array(
-    'region' => 'footer2_first',
+    'region' => $footer1,
     'status' => '1',
     'visibility' => '0',
     'pages' => '',
   ))
     ->condition('module', 'commerce_kickstart_content')
     ->condition('delta', 'powered_drupal_commerce')
-    ->condition('theme', 'commerce_kickstart_theme')
+    ->condition('theme', $default_theme)
     ->execute();
 }

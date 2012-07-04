@@ -4,14 +4,13 @@
  * Implements hook_install().
  */
 function commerce_kickstart_migrate_install() {
-
   $types = array(
     'bags_cases',
     'drinks',
     'hats',
     'shoes',
     'storage_devices',
-    'tops'
+    'tops',
   );
   foreach ($types as $type) {
     Migration::registerMigration('CommerceKickstartNode',
@@ -24,7 +23,6 @@ function commerce_kickstart_migrate_install() {
  * Implements hook_uninstall().
  */
 function commerce_kickstart_migrate_uninstall() {
-
   $types = array(
     'bags_cases',
     'drinks',

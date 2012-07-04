@@ -10,11 +10,6 @@
  */
 abstract class CommerceKickstartMigration extends Migration {
 
-  public function __construct() {
-    // Always call the parent constructor first for basic setup
-    parent::__construct();
-  }
-
   public function processImport(array $options = array()) {
     parent::processImport($options = array());
     // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
@@ -32,7 +27,7 @@ abstract class CommerceKickstartMigration extends Migration {
 
 class CommerceKickstartBagsCases extends CommerceKickstartMigration {
   public function __construct() {
-    parent::__construct();
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import bags cases from CSV file.');
 
     // Create a map object for tracking the relationships between source rows
@@ -96,7 +91,7 @@ class CommerceKickstartBagsCases extends CommerceKickstartMigration {
 
 class CommerceKickstartDrinks extends CommerceKickstartMigration {
   public function __construct() {
-    parent::__construct();
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import drinks from CSV file.');
 
     // Create a map object for tracking the relationships between source rows
@@ -156,7 +151,7 @@ class CommerceKickstartDrinks extends CommerceKickstartMigration {
 
 class CommerceKickstartHats extends CommerceKickstartMigration {
   public function __construct() {
-    parent::__construct();
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import hats from CSV file.');
 
     // Create a map object for tracking the relationships between source rows
@@ -222,8 +217,7 @@ class CommerceKickstartHats extends CommerceKickstartMigration {
 class CommerceKickstartTops extends CommerceKickstartMigration {
 
   public function __construct() {
-
-    parent::__construct();
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import tops from CSV file.');
 
     // Create a map object for tracking the relationships between source rows
@@ -288,7 +282,7 @@ class CommerceKickstartTops extends CommerceKickstartMigration {
 
 class CommerceKickstartShoes extends CommerceKickstartMigration {
   public function __construct() {
-    parent::__construct();
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import shoes from CSV file.');
 
     // Create a map object for tracking the relationships between source rows
@@ -353,7 +347,7 @@ class CommerceKickstartShoes extends CommerceKickstartMigration {
 
 class CommerceKickstartStorage extends CommerceKickstartMigration {
   public function __construct() {
-    parent::__construct();
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import storage from CSV file.');
 
     // Create a map object for tracking the relationships between source rows
@@ -419,11 +413,9 @@ class CommerceKickstartStorage extends CommerceKickstartMigration {
 class CommerceKickstartNode extends DynamicMigration {
 
   public function __construct(array $arguments) {
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->arguments = $arguments;
-    parent::__construct();
-
     $this->description = t('Import product nodes.');
-
     $this->dependencies = array('CommerceKickstartBagsCases', 'CommerceKickstartDrinks', 'CommerceKickstartHats', 'CommerceKickstartShoes', 'CommerceKickstartStorage', 'CommerceKickstartTops', 'CommerceKickstartPages');
 
     // Create a map object for tracking the relationships between source rows
@@ -499,10 +491,10 @@ class CommerceKickstartNode extends DynamicMigration {
   }
 }
 
+
 class CommerceKickstartPages extends Migration {
   public function __construct() {
-    parent::__construct();
-
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import pages nodes.');
 
     // Create a map object for tracking the relationships between source rows
@@ -550,10 +542,8 @@ class CommerceKickstartPages extends Migration {
 
 class CommerceKickstartAdPush extends Migration {
   public function __construct() {
-    parent::__construct();
-
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import ad-push nodes.');
-
     $this->dependencies = array('CommerceKickstartPages');
 
     // Create a map object for tracking the relationships between source rows
@@ -605,10 +595,8 @@ class CommerceKickstartAdPush extends Migration {
 
 class CommerceKickstartBlogPost extends Migration {
   public function __construct() {
-    parent::__construct();
-
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import blog-post nodes.');
-
     $this->dependencies = array('CommerceKickstartPages');
 
     // Create a map object for tracking the relationships between source rows
@@ -666,10 +654,8 @@ class CommerceKickstartBlogPost extends Migration {
 
 class CommerceKickstartSlideshow extends Migration {
   public function __construct() {
-    parent::__construct();
-
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import slideshow nodes.');
-
     $this->dependencies = array('CommerceKickstartPages');
 
     // Create a map object for tracking the relationships between source rows
@@ -723,8 +709,7 @@ class CommerceKickstartSlideshow extends Migration {
 
 class CommerceKickstartCollection extends Migration {
   public function __construct() {
-    parent::__construct();
-
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import collections terms.');
 
     // Create a map object for tracking the relationships between source rows
@@ -758,5 +743,139 @@ class CommerceKickstartCollection extends Migration {
     $columns[0] = array('name', 'Name');
     $columns[1] = array('images', 'Images');
     return $columns;
+  }
+}
+
+/**
+ * Migration below are the migration used when using kickstart without the demo
+ * content.
+ */
+
+
+class CommerceKickstartSampleProduct extends CommerceKickstartMigration {
+  public function __construct() {
+    parent::__construct();
+    $this->description = t('Import bags cases from CSV file.');
+
+    // Create a map object for tracking the relationships between source rows
+    $this->map = new MigrateSQLMap($this->machineName,
+      array(
+        'sku' => array(
+          'type' => 'varchar',
+          'length' => 32,
+          'not null' => TRUE,
+        ),
+      ),
+      MigrateDestinationEntityAPI::getKeySchema('commerce_product', 'product')
+    );
+
+    // Create a MigrateSource object.
+    $this->source = new MigrateSourceCSV(drupal_get_path('module', 'commerce_kickstart_migrate') . '/csv/sample_product.csv', $this->csvcolumns(), array('header_rows' => 1), $this->fields());
+
+    $this->destination = new MigrateDestinationEntityAPI('commerce_product', 'product');
+
+    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('sku', 'sku');
+    $this->addFieldMapping('commerce_price', 'price');
+
+    // Images
+    $this->addFieldMapping('field_images', 'product_images');
+    $this->addFieldMapping('field_images:file_replace')
+      ->defaultValue(FILE_EXISTS_REPLACE);
+    $this->addFieldMapping('field_images:source_dir')
+      ->defaultValue(drupal_get_path('module', 'commerce_kickstart_migrate') . '/images');
+
+    // Size
+    $this->addFieldMapping('field_size', 'size');
+    $this->addFieldMapping('field_size:create_term')
+      ->defaultValue(TRUE);
+
+    // Color
+    $this->addFieldMapping('field_color', 'color');
+    $this->addFieldMapping('field_color:additional_field', 'hexadecimal');
+    $this->addFieldMapping('field_color:create_term')
+      ->defaultValue(TRUE);
+
+    $this->addFieldMapping('uid', 'uid');
+  }
+
+  function csvcolumns() {
+    $columns[0] = array('title', 'Title');
+    $columns[1] = array('sku', 'SKU');
+    $columns[2] = array('color', 'Color');
+    $columns[3] = array('size', 'Size');
+    $columns[4] = array('price', 'Price');
+    $columns[5] = array('images', 'Images');
+    $columns[6] = array('category', 'Category');
+    $columns[7] = array('hexadecimal', 'Hexadecimal');
+    return $columns;
+  }
+
+  function prepareRow($row) {
+    $row->product_images = explode(', ', $row->images);
+    $row->uid = 1;
+  }
+}
+
+
+class CommerceKickstartSampleNode extends CommerceKickstartMigration {
+
+  public function __construct() {
+    parent::__construct();
+    $this->description = t('Import product nodes.');
+
+    $this->dependencies = array(
+      'CommerceKickstartSampleProduct',
+    );
+
+    // Create a map object for tracking the relationships between source rows
+    $this->map = new MigrateSQLMap($this->machineName,
+      array(
+        'title' => array(
+          'type' => 'varchar',
+          'length' => 255,
+          'not null' => TRUE,
+        ),
+      ),
+      MigrateDestinationNode::getKeySchema()
+    );
+
+    // Create a MigrateSource object.
+    $this->source = new MigrateSourceCSV(drupal_get_path('module', 'commerce_kickstart_migrate') . '/csv/sample_nodes.csv', $this->csvcolumns(), array('header_rows' => 1));
+
+    $this->destination = new MigrateDestinationNode('product_display');
+
+    $this->addFieldMapping('uid', 'uid')->defaultValue(1);
+
+    $this->addFieldMapping('title', 'title');
+    $this->addFieldMapping('body', 'description');
+    $this->addFieldMapping('field_product_category', 'category');
+    $this->addFieldMapping('field_product_category:create_term')
+      ->defaultValue(TRUE);
+    $this->addFieldMapping('field_product_variations', 'skus');
+  }
+
+  public function prepareRow($row) {
+    $products = array();
+    foreach (explode(', ', $row->sku) as $sku) {
+      $product = commerce_product_load_by_sku($sku);
+      $products[] = $product->product_id;
+    }
+    $row->skus = $products;
+  }
+
+  function csvcolumns() {
+    $columns[0] = array('title', 'Title');
+    $columns[1] = array('description', 'Description');
+    $columns[2] = array('category', 'Category');
+    $columns[3] = array('sku', 'SKU');
+    return $columns;
+  }
+
+  public function processImport(array $options = array()) {
+    parent::processImport($options = array());
+    // Do not force menu rebuilding. Otherwise pathauto will try to rebuild
+    // in each node_insert invocation.
+    variable_set('menu_rebuild_needed', FALSE);
   }
 }

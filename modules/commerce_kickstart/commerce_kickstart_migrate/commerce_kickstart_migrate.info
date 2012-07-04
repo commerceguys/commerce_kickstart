@@ -1,10 +1,9 @@
-name = "Commerce kickstart migration"
+name = Commerce Kickstart Migrate
 description = "Populate the distribution with some content."
-package = "Commerce kickstart"
+package = Commerce Kickstart
 core = 7.x
 dependencies[] = migrate
 dependencies[] = commerce_migrate
+
 files[] = commerce_kickstart_migrate.migrate.inc
-
-
 files[] = plugins/destinations/fields.inc

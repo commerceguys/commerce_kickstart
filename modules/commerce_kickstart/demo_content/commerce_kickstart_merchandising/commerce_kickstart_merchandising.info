@@ -6,7 +6,6 @@ php = 5.2.4
 version = 7.x-1.0
 project = commerce_kickstart_merchandising
 dependencies[] = block
-dependencies[] = commerce_kickstart_search
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = field_sql_storage

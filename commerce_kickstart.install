@@ -187,6 +187,12 @@ function commerce_kickstart_install() {
       'locked' => 0,
     ),
   );
+  $field = array(
+    'field_name' => 'body',
+    'type' => 'text_long',
+    'entity_types' => array('node'),
+  );
+  $field = field_create_field($field);
 
   foreach ($types as $type) {
     $type = node_type_set_defaults($type);

@@ -219,7 +219,7 @@ function commerce_kickstart_product_ctools_plugin_api() {
 function commerce_kickstart_product_image_default_styles() {
   $styles = array();
 
-  // Exported image style: product_full
+  // Exported image style: product_full.
   $styles['product_full'] = array(
     'name' => 'product_full',
     'effects' => array(
@@ -241,7 +241,7 @@ function commerce_kickstart_product_image_default_styles() {
     ),
   );
 
-  // Exported image style: product_medium
+  // Exported image style: product_medium.
   $styles['product_medium'] = array(
     'name' => 'product_medium',
     'effects' => array(
@@ -263,7 +263,7 @@ function commerce_kickstart_product_image_default_styles() {
     ),
   );
 
-  // Exported image style: product_thumbnail
+  // Exported image style: product_thumbnail.
   $styles['product_thumbnail'] = array(
     'name' => 'product_thumbnail',
     'effects' => array(

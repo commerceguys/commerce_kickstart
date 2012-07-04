@@ -1,0 +1,411 @@
+<?php
+/**
+ * @file
+ * Code for the Demo Store Content architecture feature.
+ */
+
+include_once 'commerce_kickstart_lite_product_ui.features.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_kickstart_lite_product_ui_menu() {
+  $items = array();
+
+  $base = array(
+    'page callback' => 'node_add_page',
+    'access callback' => '_node_add_access',
+    'file' => 'node.pages.inc',
+    'file path' => drupal_get_path('module', 'node'),
+  );
+
+  $items['node/add/add-content'] = array(
+    'title' => 'Add content',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  ) + $base;
+
+  $items['node/add/add-product'] = array(
+    'title' => 'Add product',
+    'type' => MENU_LOCAL_TASK,
+  ) + $base;
+
+  return $items;
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * Create new view mode for product display, commerce product.
+ */
+function commerce_kickstart_lite_product_ui_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['product_list'] = array(
+    'label' => t('Product list'),
+    'custom settings' => TRUE,
+  );
+  $entity_info['commerce_product']['view modes']['node_product_list'] = array(
+    'label' => t('Node: Product list'),
+    'custom settings' => TRUE,
+  );
+  $entity_info['commerce_product']['view modes']['product_in_cart'] = array(
+    'label' => t('Product in cart'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_kickstart_lite_product_ui_theme(&$existing) {
+  $themes = array();
+  foreach (entity_get_info() as $entity_type => $entity_info) {
+    foreach ($entity_info['bundles'] as $bundle => $bundle_info) {
+      foreach ($entity_info['view modes'] as $view_mode => $view_mode_info) {
+        $themes["{$entity_type}__{$bundle}__{$view_mode}"] = array(
+          'render element' => 'elements',
+        );
+      }
+    }
+  }
+  if (!empty($existing['facetapi_title']) && $existing['facetapi_title']['function']) {
+    $existing['facetapi_title']['function'] = 'theme_commerce_kickstart_lite_product_ui_facetapi_title';
+  }
+  // Remove commerce product label.
+  if ($existing['commerce_product_title']) {
+    $existing['commerce_product_title']['path'] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme';
+    $existing['commerce_product_title']['template'] = 'commerce-product-title';
+  }
+  // Remove cart block total label & add cart link on item.
+  if ($existing['commerce_line_item_summary']) {
+    $existing['commerce_line_item_summary']['path'] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme';
+    $existing['commerce_line_item_summary']['template'] = 'commerce-line-item-summary';
+  }
+  if ($existing['current_search_text']) {
+    $existing['current_search_text']['function'] = 'theme_commerce_kickstart_lite_product_ui_current_search_text';
+  }
+  if ($existing['search_api_sorts_sort']) {
+    $existing['search_api_sorts_sort']['theme path'] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui');
+    $existing['search_api_sorts_sort']['path'] = $existing['search_api_sorts_sort']['theme path'];
+    $existing['search_api_sorts_sort']['file'] = 'commerce_kickstart_lite_product_ui.theme.inc';
+    $existing['search_api_sorts_sort']['function'] = 'theme_commerce_kickstart_lite_product_ui_sorts_sort';
+    $existing['search_api_sorts_sort']['includes'] = array($existing['search_api_sorts_sort']['path'] . '/' . $existing['search_api_sorts_sort']['file']);
+  }
+  $themes = array(
+    'node__product__type' => array(
+      'path' => drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme',
+      'template' => 'node--product--type',
+    ),
+    'node__product__type__product__list' => array(
+      'path' => drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme',
+      'template' => 'node--product--type--product--list',
+    ),
+  );
+
+  return $themes;
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function commerce_kickstart_lite_product_ui_theme_registry_alter(&$theme_registry) {
+  // Split node add list in two columns.
+  $theme_registry['node_add_list']['function'] = 'theme_commerce_kickstart_lite_product_ui_node_add_list';
+}
+
+/**
+ * Override facetapi default title.
+ */
+function theme_commerce_kickstart_lite_product_ui_facetapi_title($variables) {
+  $title = explode(' » ', $variables['title']);
+  return drupal_ucfirst(drupal_strtolower(array_pop($title)));
+}
+
+/**
+ * Preprocess theme variables for facetapi blocks.
+ * Add facet field machine name to block class, make it easier to theme.
+ */
+function commerce_kickstart_lite_product_ui_preprocess_block(&$variables) {
+  if ($variables['block']->module == 'facetapi') {
+    $delta = $variables['block']->delta;
+    $map = facetapi_get_delta_map();
+    $name = $map[$delta];
+    $name = explode(':', $name);
+    $name = array_pop($name);
+    $name = str_replace('%3A', '_', $name);
+    $variables['classes_array'][] = $name;
+  }
+}
+
+/**
+ * Override or insert variables into the page template.
+ */
+function commerce_kickstart_lite_product_ui_preprocess_page(&$vars) {
+  $product_display_types = commerce_product_reference_node_types();
+  if (!empty($vars['node']) && isset($product_display_types[$vars['node']->type])) {
+    $vars['title'] = "";
+  }
+}
+/**
+ * Override or insert variables into the node template.
+ */
+function commerce_kickstart_lite_product_ui_preprocess_node(&$vars) {
+  $product_display_types = commerce_product_reference_node_types();
+  if (isset($vars['type']) && isset($product_display_types[$vars['node']->type])) {
+    $vars['theme_hook_suggestions'][] = 'node__product__type';
+    $vars['classes_array'][] = 'node-product-type';
+    if ($vars['view_mode'] == 'product_list') {
+      $vars['theme_hook_suggestions'][] = 'node__product__type__product__list';
+      $vars['classes_array'][] = 'node-product-type-product-list';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ * Link cart block items to cart.
+ */
+function commerce_kickstart_lite_product_ui_preprocess_commerce_line_item_summary(&$variable) {
+  $variable['cart_items'] = l($variable['quantity'], 'cart', array('attributes' => array('class' => array('line-item-quantity'))));
+}
+
+/**
+ * Implements hook_library().
+ */
+function commerce_kickstart_lite_product_ui_library() {
+  $libraries['jquery_ui_spinner'] = array(
+    'title' => 'jQuery Spinner',
+    'website' => 'http://github.com/btburnett3/jquery.ui.spinner/',
+    'version' => '1.8',
+    'js' => array(
+      libraries_get_path('jquery_ui_spinner') . '/ui.spinner.min.js' => array(),
+    ),
+    'css' => array(
+      libraries_get_path('jquery_ui_spinner') . '/ui.spinner.css' => array(),
+    ),
+  );
+  $libraries['jquery_expander'] = array(
+    'title' => 'jQuery Expander',
+    'website' => 'http://plugins.learningjquery.com/expander/',
+    'version' => '1.4.2',
+    'js' => array(
+      libraries_get_path('jquery_expander') . '/jquery.expander.min.js' => array(),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function commerce_kickstart_lite_product_ui_form_alter(&$form, &$form_state, $form_id) {
+  if (strstr($form_id, 'commerce_cart_add_to_cart_form')) {
+    // Add quantity spinner widget & read more link
+    $form['#attached']['library'][] = array('commerce_kickstart_lite_product_ui', 'jquery_expander');
+    $form['#attached']['library'][] = array('commerce_kickstart_lite_product_ui', 'jquery_ui_spinner');
+    $form['#attached']['js'][] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/commerce_kickstart_lite_product_ui.js';
+
+    // Rename add-to-cart form fields label (quantity, color, size)
+    $form['quantity']['#title'] = t('Enter Quantity');
+    $form['attributes']['field_color']['#title'] = t('Select Color');
+
+    foreach(array_keys($form['attributes']) as $field_name) {
+      if (strstr($field_name, 'size')) {
+        $form['attributes'][$field_name]['#title'] = t('Select Size');
+        break;
+      }
+    }
+  }
+  if ($form_id == 'views_exposed_form') {
+    $form['search_api_views_fulltext']['#size'] = 26;
+    $form['search_api_views_fulltext']['#attributes']['placeholder'] = t('Search');
+  }
+}
+
+/**
+ * Override node_add_list theme.
+ *
+ * Split node add list in two columns: regular node types & product display.
+ */
+function theme_commerce_kickstart_lite_product_ui_node_add_list($variables) {
+  $item = menu_get_item();
+
+  drupal_add_css(drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/css/node-add-list-columns.css');
+  $product_display = commerce_product_reference_node_types();
+  $product_display = array_keys($product_display);
+  $content = &$variables['content'];
+
+  foreach ($content as $key => $value) {
+    $node_type = unserialize($value['page_arguments']);
+    $node_type = $node_type[0];
+    $show_product = $item['path'] == 'node/add/add-product';
+    if (!in_array($node_type, $product_display) && $show_product) {
+      unset($content[$key]);
+    }
+    elseif (in_array($node_type, $product_display) && !$show_product) {
+      unset($content[$key]);
+    }
+  }
+
+  return theme_node_add_list($variables);
+}
+
+/**
+ * Implements hook_search_api_facetapi_keys_alter().
+ *
+ * We do not want to see [all items] in breadcrumbs when browsing all
+ * products, but only if search term is empty and no facets are used.
+ *
+ * @see SearchApiFacetapiAdapter::getSearchKeys()
+ */
+function commerce_kickstart_lite_product_ui_search_api_facetapi_keys_alter(&$keys, $query) {
+  if ($keys == '[all items]' && !isset($_GET['f'])) {
+    // All products without facets.
+    $keys = '';
+    drupal_set_breadcrumb(array(l(t('Home'), '<front>'), 'All Products'));
+  }
+  else if ($keys == '[all items]' && isset($_GET['f'])) {
+    // All products with facets.
+    drupal_set_breadcrumb(array());
+  }
+  else if ($keys != '[all items]') {
+    // Search result by key with or without facets.
+    drupal_set_breadcrumb(array());
+  }
+}
+
+/**
+ * Override current_search_text theme.
+ *
+ * Allow HTML.
+ */
+function theme_commerce_kickstart_lite_product_ui_current_search_text(array $variables) {
+  // Initializes output, don't sanitizes text.
+  $output = $variables['text'];
+
+  // Adds wrapper markup and CSS classes.
+  if ($variables['wrapper'] && $variables['element']) {
+    $attributes = array('class' => $variables['class']);
+    $element = check_plain($variables['element']);
+    $output = '<' . $element . drupal_attributes($attributes) . '>' . $output . '</' . $element . '>';
+  }
+
+  return $output;
+}
+
+/**
+ * Implements hook_commerce_checkout_pane_info_alter().
+ */
+function commerce_kickstart_lite_product_ui_commerce_checkout_pane_info_alter(&$checkout_panes) {
+  $checkout_panes['cart_contents']['weight'] = 0;
+  $checkout_panes['account']['weight'] = 1;
+  $checkout_panes['customer_profile_billing']['weight'] = 2;
+  $checkout_panes['customer_profile_shipping']['weight'] = 3;
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function commerce_kickstart_lite_product_ui_page_alter(&$page) {
+  // Disable breadcumb on user, checkout and cart pages.
+  $current_path = current_path();
+  $exclude_path = "user*\ncheckout/*\ncart";
+  $match = drupal_match_path(drupal_strtolower($current_path), drupal_strtolower($exclude_path));
+  if ($match) {
+    drupal_set_breadcrumb(array());
+  }
+  else if ($current_path == 'admin/commerce/config/products-categories' ||
+    $current_path == 'admin/commerce/products/types' ||
+    $current_path == 'admin/commerce/products/types/product-types') {
+    drupal_set_breadcrumb(array(
+      l(t('Home'), '<front>'),
+      l(t('Administration'), 'admin'),
+      l(t('Store settings'), 'admin/commerce/config'),
+    ));
+  }
+  else if ($current_path == 'admin/commerce/products/types/content-types') {
+    drupal_set_breadcrumb(array(
+      l(t('Home'), '<front>'),
+      l(t('Administration'), 'admin'),
+      l(t('Store settings'), 'admin/commerce/config'),
+      l(t('Product & content types'), 'admin/commerce/products/types'),
+    ));
+  }
+}
+
+/*
+ * Implements hook_menu_local_tasks_alter().
+ */
+function commerce_kickstart_lite_product_ui_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // Replace add-product action link with add-content.
+  if ($root_path == 'admin/commerce/products') {
+    unset($data['actions']['output']);
+    $link = menu_get_item('node/add');
+    $link['title'] = t('Add product');
+    $link['href'] = 'node/add/add-product';
+
+    $data['actions']['output'][] = array(
+      '#theme' => 'menu_local_action',
+      '#link' => $link,
+    );
+  }
+  else if ($root_path == 'admin/commerce/products/types' || $root_path == 'admin/commerce/products/types/product-types') {
+    $link = menu_get_item('admin/commerce/products/types/add');
+    $link['title'] = t('Add product type');
+    $link['href'] = 'admin/commerce/products/types/add';
+
+    $data['actions']['output'][] = array(
+      '#theme' => 'menu_local_action',
+      '#link' => $link,
+    );
+  }
+  else if ($root_path == 'admin/commerce/products/types/content-types') {
+    $link = menu_get_item('admin/structure/types/add');
+    $link['title'] = t('Add content type');
+    $link['href'] = 'admin/structure/types/add';
+
+    $data['actions']['output'][] = array(
+      '#theme' => 'menu_local_action',
+      '#link' => $link,
+    );
+  }
+}
+
+/*
+ * Process variables for entity.tpl.php.
+ */
+function commerce_kickstart_lite_product_ui_preprocess_entity(&$variables) {
+  if ($variables['elements']['#view_mode'] == 'product_in_cart') {
+    $variables['title'] = "";
+    $variables['url'] = "";
+  }
+}
+
+/**
+ * hook_preprocess_views_view
+ */
+function commerce_kickstart_lite_product_ui_preprocess_views_view(&$vars) {
+  // Wrap exposed filters in a fieldset.
+  if ($vars['exposed']) {
+    drupal_add_js('misc/form.js');
+    drupal_add_js('misc/collapse.js');
+    // Default collapsed
+    $collapsed = TRUE;
+    $class = array('collapsible', 'collapsed');
+    if (count($_GET) > 1){
+      // assume other get vars are exposed filters, so expand fieldset
+      // to show applied filters
+      $collapsed = FALSE;
+      $class = array('collapsible');
+    }
+
+    $pattern = "#(<form.*?>)(.*)(</form>)#s";
+    preg_match($pattern, $vars['exposed'], $matches);
+    $fieldset['element'] = array(
+      '#title' => t('Filter'),
+      '#collapsible' => TRUE,
+      '#collapsed' => $collapsed,
+      '#attributes' => array('class' => $class),
+      '#children' => $matches[2],
+    );
+    $vars['exposed'] = $matches[1] . theme('fieldset', $fieldset) . $matches[3];
+  }
+}

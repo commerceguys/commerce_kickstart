@@ -1,0 +1,98 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ */
+function commerce_kickstart_lite_product_ui_enable() {
+  // New module weights in core.
+  db_update('system')
+    ->fields(array(
+      'weight' => 50,
+    ))
+    ->condition('type', 'module')
+    ->condition('name', 'commerce_kickstart_lite_product_ui')
+    ->execute();
+
+  // Rebuild the features static caches.
+  features_include(TRUE);
+
+  $module = 'commerce_kickstart_lite_product_ui';
+  $feature = feature_load($module);
+  $items[$module] = array_keys($feature->info['features']);
+  _features_restore('enable', $items);
+  _features_restore('rebuild', $items);
+
+  drupal_static_reset();
+  $default_theme = variable_get('theme_default', 'omega');
+  _block_rehash($default_theme);
+  try {
+    // Put the facets blocks in the right place.
+    db_update('block')
+      ->fields(array(
+        'region' => 'sidebar_first',
+        'status' => (int) '1',
+      ))
+      ->condition('module', 'facetapi')
+      ->condition('delta', '0', '<>')
+      ->condition('theme', $default_theme)
+      ->execute();
+    // HP push shopping_cart.
+    db_update('block')
+      ->fields(array(
+        'region' => 'user_second',
+        'status' => '1',
+        'visibility' => '0',
+        'pages' => 'cart\ncheckout/*',
+        'title' => '<none>',
+        'cache' => '-1',
+      ))
+      ->condition('module', 'views')
+      ->condition('delta', 'shopping_cart-block')
+      ->condition('theme', $default_theme)
+      ->execute();
+    // Search block.
+    db_update('block')
+      ->fields(array(
+        'region' => 'branding',
+        'status' => (int) '1',
+      ))
+      ->condition('module', 'views')
+      ->condition('delta', '-exp-display_products-page')
+      ->condition('theme', $default_theme)
+      ->execute();
+
+    db_update('block')
+      ->fields(array(
+        'region' => 'branding',
+        'status' => (int) '1',
+      ))
+      ->condition('module', 'views')
+      ->condition('delta', '-exp-display_products-page')
+      ->condition('theme', $default_theme)
+      ->execute();
+
+    db_update('block')
+      ->fields(array(
+        'region' => 'breadcrumb',
+        'weight' => -10,
+        'status' => (int) '1',
+        'title' => '<none>'
+      ))
+      ->condition('module', 'current_search')
+      ->condition('delta', 'kickstart_search')
+      ->condition('theme', $default_theme)
+      ->execute();
+
+  }
+  catch (Exception $e) {
+    watchdog_exception('block', $e);
+    throw $e;
+  }
+
+  // Fill menus
+  // Set up taxonomy main menu.
+  $collection = taxonomy_vocabulary_machine_name_load('product_category');
+  $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
+  variable_set($variable_name, 'main-menu');
+
+}

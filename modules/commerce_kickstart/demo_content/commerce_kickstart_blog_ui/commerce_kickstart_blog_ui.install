@@ -15,6 +15,11 @@ function commerce_kickstart_blog_ui_enable() {
   _features_restore('enable', $items);
   _features_restore('rebuild', $items);
 
+  // For some unknown reason, we need to manually trigger the rebuild of the
+  // menu links, in features otherwise they won't appear.
+  // @todo Investigate.
+  features_revert(array($module => array('menu_links')));
+
   drupal_static_reset();
   _block_rehash('commerce_kickstart_theme');
   try {

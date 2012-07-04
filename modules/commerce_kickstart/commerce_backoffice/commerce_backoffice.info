@@ -20,9 +20,6 @@ dependencies[] = message_notify
 dependencies[] = views_bulk_operations
 dependencies[] = views_megarow
 
-; Commerce Kickstart specific dependencies.
-dependencies[] = commerce_kickstart_product
-
 files[] = views/handlers/commerce_backoffice_handler_area_add_message.inc
 files[] = views/handlers/commerce_backoffice_handler_field_product_quick_edit_form.inc
 files[] = views/handlers/commerce_backoffice_handler_field_order_operations.inc

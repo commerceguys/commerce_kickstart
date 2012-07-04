@@ -350,7 +350,7 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'weight' => '0',
   );
   // Exported menu link: secondary-navigation_contact:node/1
-  $menu_links['secondary-navigation_contact:node/2'] = array(
+  $menu_links['secondary-navigation_contact:node/1'] = array(
     'menu_name' => 'secondary-navigation',
     'link_path' => 'node/1',
     'router_path' => 'node/%',

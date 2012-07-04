@@ -67,10 +67,10 @@ body.in-maintenance ol.task-list li.done {
   background: transparent url("images/tasks-complete.png") no-repeat 0 0;
   color: #75cd27;
 }
-body.in-maintenance .form-item-commerce-kickstart-example-content .form-radios {
+body.in-maintenance .form-item-install-demo-store .form-radios {
   float: left; /* LTR */
 }
-body.in-maintenance .form-item-commerce-kickstart-example-content .description {
+body.in-maintenance .form-item-install-demo-store .description {
   background: transparent url("images/small-pointer.png") no-repeat 0 3px;
   margin-left: 80px; /* LTR */
   padding: 3px 5px 5px 23px;
@@ -82,6 +82,10 @@ body.in-maintenance div.form-type-password {
 
 body.in-maintenance .password-strength {
   width: 15em;
+}
+
+body.in-maintenance .form-item-extras label[for=edit-extras] {
+  clear: both;
 }
 
 /* Setting Museo Slab Family */

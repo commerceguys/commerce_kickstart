@@ -214,16 +214,6 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: administer consumers.
-  $permissions['administer consumers'] = array(
-    'name' => 'administer consumers',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'oauth_common',
-  );
-
   // Exported permission: administer content types.
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
@@ -381,26 +371,6 @@ function commerce_kickstart_user_user_default_permissions() {
       1 => 'store administrator',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: administer oauth.
-  $permissions['administer oauth'] = array(
-    'name' => 'administer oauth',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'oauth_common',
-  );
-
-  // Exported permission: administer oauth connector.
-  $permissions['administer oauth connector'] = array(
-    'name' => 'administer oauth connector',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'oauthconnector',
   );
 
   // Exported permission: administer pathauto.
@@ -1818,26 +1788,6 @@ function commerce_kickstart_user_user_default_permissions() {
       1 => 'store administrator',
     ),
     'module' => 'pathauto',
-  );
-
-  // Exported permission: oauth authorize any consumers.
-  $permissions['oauth authorize any consumers'] = array(
-    'name' => 'oauth authorize any consumers',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'oauth_common',
-  );
-
-  // Exported permission: oauth register any consumers.
-  $permissions['oauth register any consumers'] = array(
-    'name' => 'oauth register any consumers',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'oauth_common',
   );
 
   // Exported permission: post comments.

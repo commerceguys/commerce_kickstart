@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ *
+ * Rebuilds the feature immediately after it's enabled.
+ */
+function commerce_kickstart_lite_product_enable() {
+  // Rebuild the features static caches.
+  features_include(TRUE);
+
+  $module = 'commerce_kickstart_lite_product';
+  $feature = feature_load($module);
+  $items[$module] = array_keys($feature->info['features']);
+  _features_restore('enable', $items);
+  _features_restore('rebuild', $items);
+
+  entity_defaults_rebuild();
+  $index = entity_load_single('search_api_index', 'kickstart_product_display');
+  $index->server()->fieldsUpdated($index);
+//  $index = entity_load_single('search_api_index', 'search_commerce_product');
+//  $index->server()->fieldsUpdated($index);
+}
+
+/**
+ * Implementation of hook_install()
+ */
+function commerce_kickstart_lite_product_install() {
+  db_update('system')
+    ->fields(array('weight' => 10))
+    ->condition('name', 'commerce_kickstart_lite_product')
+    ->execute();
+}

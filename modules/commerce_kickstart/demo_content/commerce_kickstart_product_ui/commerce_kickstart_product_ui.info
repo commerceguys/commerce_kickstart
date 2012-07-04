@@ -72,3 +72,4 @@ features[variable][] = taxonomy_breadcrumb_show_current_term
 features[views_view][] = display_products
 features[views_view][] = shopping_cart
 features[views_view][] = confirm_message_product_display
+features[views_view][] = collection_taxonomy_term

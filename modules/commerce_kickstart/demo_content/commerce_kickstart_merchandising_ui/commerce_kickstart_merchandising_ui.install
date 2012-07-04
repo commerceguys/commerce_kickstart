@@ -21,7 +21,8 @@ function commerce_kickstart_merchandising_ui_enable() {
  */
 function commerce_kickstart_merchandising_ui_install() {
   drupal_static_reset();
-  _block_rehash('commerce_kickstart_theme');
+  $default_theme = variable_get('theme_default', 'omega');
+  _block_rehash($default_theme);
   try {
     // Footer navigation.
     db_update('block')
@@ -32,7 +33,7 @@ function commerce_kickstart_merchandising_ui_install() {
     ))
       ->condition('module', 'menu')
       ->condition('delta', 'menu-footer-navigation')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
     // HP push block 1.
     db_update('block')
@@ -44,7 +45,7 @@ function commerce_kickstart_merchandising_ui_install() {
     ))
       ->condition('module', 'views')
       ->condition('delta', 'demo_content-block_1')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
     // HP push block 2.
     db_update('block')
@@ -56,7 +57,7 @@ function commerce_kickstart_merchandising_ui_install() {
     ))
       ->condition('module', 'views')
       ->condition('delta', 'demo_content-block_2')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
     // HP Slideshow.
     db_update('block')
@@ -69,7 +70,7 @@ function commerce_kickstart_merchandising_ui_install() {
     ))
       ->condition('module', 'views')
       ->condition('delta', 'demo_content-block_3')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
   }
   catch (Exception $e) {
