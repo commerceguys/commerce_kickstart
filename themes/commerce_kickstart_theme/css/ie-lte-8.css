@@ -41,6 +41,12 @@
 /**********************************************
 * 5.3. Product page
 **********************************************/
+.commerce-kickstart-add-to-cart .field-type-taxonomy-term-reference:after {
+  clear: none !important;
+}
+.commerce-kickstart-add-to-cart .field-name-field-images img {
+  max-width: none;
+}
 /* Cloud zoom */
 .node-product-type .cloud-zoom-gallery-thumbs {
   position: absolute;

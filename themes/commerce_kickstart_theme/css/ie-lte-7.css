@@ -1,5 +1,13 @@
 /**************************************************
 * --
+* 1. Global
+* --
+**************************************************/
+#messages {
+  z-index: 1000; /*Fix for z-index stacking*/
+}
+/**************************************************
+* --
 * 2. Section header
 * --
 **************************************************/
@@ -142,6 +150,7 @@
 }
 .navigation .primary-menu .main-menu li a,
 .navigation .second-menu .secondary-menu li a {
+  min-height: 100%;
   height: 30px;
 }
 .main-menu a,
@@ -200,6 +209,17 @@
 * 5. Commerce specific
 * --
 **************************************************/
+/**********************************************
+* 5.1. Search & Collection page
+**********************************************/
+.view-collection-taxonomy-term .view-header .collection-terms {
+  padding-bottom: 5px;
+}
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list {
+}
+.view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 {
+  margin-bottom: 10px;
+}
 /**********************************************
 * 5.2. All products page
 **********************************************/

@@ -1089,7 +1089,6 @@ ul#payments li:first-child {
   text-transform: capitalize;
 }
 .view-collection-taxonomy-term .view-header .collection-terms {
-
 }
 .view-collection-taxonomy-term .view-header .views-row {
   border: 1px solid #d7d7d7;
@@ -1404,7 +1403,6 @@ div.messages.commerce-kickstart-add-to-cart {
   color: #2698F2;
   font-weight: bold;
 }
-
 .commerce-kickstart-add-to-cart .field:after,
 .entity-commerce-product:after {
   content: initial;
