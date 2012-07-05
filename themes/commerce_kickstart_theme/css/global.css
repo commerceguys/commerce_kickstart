@@ -128,6 +128,43 @@ h1#page-title {
 .node-page {
   margin: 0 10px;
 }
+textarea,
+select,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+  background: #fbfafa;
+  border: 1px solid #e0e0e0;
+  color: #4c4c4c;
+  height: 25px;
+  margin: 1px;
+  max-width: 100%;
+  padding: 5px;
+}
+/* Tweaks for Safari + Chrome. */
+@media (-webkit-min-device-pixel-ratio: 0) {
+  select[size],
+  select[multiple] {
+    background-image: url(../images/select-arrow.gif);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding: 5px;
+  }
+}
+select[size],
+select[multiple] {
+  height: 25px;
+}
 /**************************************************
 * --
 * 2. Section header
@@ -209,6 +246,7 @@ h1#page-title {
 *******************************************/
 #region-user-second {
   background-color: #FFFFFF;
+  margin: 0;
 }
 .region-user-second,
 .region-user-second .region-user-second-inner {
@@ -863,12 +901,15 @@ h1#page-title {
 .section-footer ul.menu ul.menu {
   margin: 10px 0 0;
 }
+.section-footer ul.menu .expanded {
+  padding-bottom: 10px;
+}
 .section-footer ul.menu,
 .section-footer ul.menu li {
   list-style: none;
   list-style-image: none;
   margin: 0;
-  padding: 0 40px 0 0;
+  padding: 0px 30px 0 0;
 }
 .section-footer ul.menu .expanded span,
 .section-footer ul.menu li a {
@@ -1714,14 +1755,18 @@ table.checkout-review td.pane-data-full {
 * Checkout page
 * Shipping page
 */
+.page-checkout fieldset {
+  padding: 10px;
+}
 .page-checkout fieldset legend {
   border-bottom: 1px solid #d7d7d7;
   margin: 0 0 10px 0;
-  padding: 10px;
+  padding: 0px;
   width: 100%;
 }
 .page-checkout fieldset legend span {
   font-weight: 600;
+  padding-left: 10px;
   text-transform: uppercase;
 }
 .page-checkout #commerce-checkout-form-checkout table thead th {
@@ -1948,6 +1993,27 @@ input.checkout-continue {
 * 8. User account
 * --
 **************************************************/
+/* User login/registration */
+#user-login {
+  margin: 0 auto;
+  width: 80%;
+}
+#user-login label {
+  display: inline;
+  float: left;
+  line-height: 30px;
+  margin-right: 10px;
+}
+#user-login .form-text {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-bottom: 1px solid #000;
+  float: left;
+}
+#user-login .description {
+  clear: left;
+}
 /* User home */
 .page-user .profile h3 {
   clear: both;
@@ -2199,12 +2265,11 @@ input.checkout-continue {
   width: 25%;
 }
 .field-name-commerce-order-total:after {
-  clear: both;
   content: ".";
   display: block;
   height: 0;
-  clear: both;
-  visibility: hidden;
+  clear: both;
+  visibility: hidden;
 }
 /* IE7
 *:first-child + html .field-name-commerce-order-total {
