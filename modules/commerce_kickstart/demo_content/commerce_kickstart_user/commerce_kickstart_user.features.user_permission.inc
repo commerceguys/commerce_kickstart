@@ -682,7 +682,8 @@ function commerce_kickstart_user_user_default_permissions() {
     'name' => 'create commerce_customer_profile entities',
     'roles' => array(
       0 => 'administrator',
-      1 => 'store administrator',
+      1 => 'authenticated user',
+      2 => 'store administrator',
     ),
     'module' => 'commerce_customer',
   );
