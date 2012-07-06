@@ -189,6 +189,15 @@ function commerce_backoffice_preprocess_entity(&$vars) {
 }
 
 /**
+ * Implements hook_views_pre_build().
+ */
+function commerce_backoffice_views_pre_build(&$view) {
+  if ($view->name == 'commerce_backoffice_user_orders' && $view->current_display == 'order_page') {
+    $view->display['order_page']->handler->options['title'] = _commerce_kickstart_user_page_title();
+  }
+}
+
+/**
  * Implement hook_views_pre_render().
  */
 function commerce_backoffice_views_pre_render(&$view) {
