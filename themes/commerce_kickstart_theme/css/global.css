@@ -595,6 +595,43 @@ select[multiple] {
 .region-sidebar-first .block-facetapi a:hover {
   text-decoration: underline;
 }
+/* Price range */
+#search-api-ranges-block-view-form .text-range {
+  font-size: 12px;
+  margin: 5px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+#search-api-ranges-block-view-form .range-slider-box {
+  margin: 0 auto;
+  width: 90%;
+}
+#search-api-ranges-block-view-form label {
+  float: left;
+  line-height: 24px;
+  margin-right: 5px;
+  text-align: right;
+  white-space: nowrap;
+  width: 25%;
+}
+#search-api-ranges-block-view-form label:after {
+  content: ":";
+}
+#search-api-ranges-block-view-form #edit-range-from,
+#search-api-ranges-block-view-form #edit-range-to {
+  width: 80px;
+}
+#search-api-ranges-block-view-form #edit-submit {
+  background: #cecece;
+  border: 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 5px 12px;
+}
 /* Category */
 .region-sidebar-first .block-facetapi.field_category .item-list {
   border: 1px solid #d9d9d9;
