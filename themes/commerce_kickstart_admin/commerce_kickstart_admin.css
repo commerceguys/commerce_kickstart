@@ -647,8 +647,8 @@ html.js fieldset.collapsed {
   height: 55px;
 }
 html.js input.form-autocomplete {
-  background-position: 100% 5px;
+  background-position: 100% 9px;
 }
 html.js input.throbbing {
-  background-position: 100% -15px;
+  background-position: 100% -12px;
 }
