@@ -570,6 +570,9 @@ table th a {
 table th {
   padding: 10px 15px;
 }
+table th.views-field-operations-dropbutton {
+  width: 175px;
+}
 table td {
   padding: 15px;
 }
