@@ -26,7 +26,7 @@ function commerce_kickstart_user_menu_alter(&$items) {
  */
 function _commerce_kickstart_user_page_title($account) {
   $title = t('Hello');
-  if (is_object($account)) {
+  if (is_object($account) && module_exists('commerce_addressbook')) {
     $billing_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'billing');
     if ($billing_profile_id) {
       $billing_profile = commerce_customer_profile_load($billing_profile_id);
@@ -112,8 +112,10 @@ function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
     '#markup' => '',
     '#attributes' => array('class' => array('user-information', 'clearfix')),
   );
-
-  $shipping_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'shipping');
+  $shipping_profile_id = $billing_profile_id = NULL;
+  if (module_exists('commerce_addressbook')) {
+    $shipping_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'shipping');
+  }
   if ($shipping_profile_id) {
     $shipping_profile = commerce_customer_profile_load($shipping_profile_id);
     $shipping_profile_render = entity_view('commerce_customer_profile', array($shipping_profile), 'full');
@@ -130,7 +132,9 @@ function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
     '#attributes' => array('class' => array('shipping-address')),
   );
 
-  $billing_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'billing');
+  if (module_exists('commerce_addressbook')) {
+    $billing_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'billing');
+  }
   if ($billing_profile_id) {
     $billing_profile = commerce_customer_profile_load($billing_profile_id);
     $billing_profile_render = entity_view('commerce_customer_profile', array($billing_profile), 'full');
