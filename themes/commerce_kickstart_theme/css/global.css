@@ -153,6 +153,7 @@ input[type="week"] {
 }
 /* Tweaks for Safari + Chrome. */
 @media (-webkit-min-device-pixel-ratio: 0) {
+  select,
   select[size],
   select[multiple] {
     background-image: url(../images/select-arrow.gif);
@@ -1536,6 +1537,7 @@ div.messages.commerce-kickstart-add-to-cart {
   font-weight: 600;
   margin-right: 5px;
   width: 45%;
+  white-space: nowrap;
 }
 .commerce-add-to-cart label:after {
   content: " :";

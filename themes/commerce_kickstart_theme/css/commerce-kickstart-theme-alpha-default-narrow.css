@@ -123,3 +123,7 @@
   float: left;
   margin: 5px;
 }
+/* Product details */
+.commerce-add-to-cart label {
+  float: none;
+}

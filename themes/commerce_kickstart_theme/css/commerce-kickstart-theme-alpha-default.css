@@ -358,6 +358,13 @@ body {
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list h3 a:hover {
   border: 0;
 }
+/**********************************************
+* 5.3. Product page
+**********************************************/
+/* Product details */
+.commerce-add-to-cart label {
+  float: left;
+}
 /**************************************************
 * --
 * 6. Kickstart specific
