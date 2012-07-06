@@ -1937,6 +1937,27 @@ input.checkout-continue {
   border-bottom: 1px solid #E0E3E6;
   margin-top: 20px;
 }
+/* Comment */
+.node-type-blog-post .comment {
+  padding: 10px 0 5px 0;
+}
+.node-type-blog-post .comment header {
+  float: right;
+}
+.node-type-blog-post .comment footer.comment-submitted {
+  border-bottom: 1px dotted #E0E3E6;
+  font-size: 12px;
+  margin: 5px 0;
+  text-transform: uppercase;
+}
+.node-type-blog-post .comment .comment-links {
+  border-top: 1px solid #E0E3E6;
+  border-bottom: 1px solid #E0E3E6;
+  font-size: 13px;
+  padding: 5px;
+  text-transform: uppercase;
+}
+/* Comment form */
 .node-type-blog-post .comment-wrapper .comment-form {
   background-color: #ececec;
   padding: 15px;
