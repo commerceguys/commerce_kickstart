@@ -21,7 +21,7 @@ function commerce_kickstart_search_default_search_api_server() {
         "search_commerce_display" : {
           "title" : {
             "table" : "search_api_db_search_commerce_display_title",
-            "type" : "string",
+            "type" : "text",
             "boost" : "1.0"
           },
           "created" : {
