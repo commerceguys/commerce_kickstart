@@ -652,3 +652,17 @@ html.js input.form-autocomplete {
 html.js input.throbbing {
   background-position: 100% -12px;
 }
+/**
+* admin/modules
+*/
+#system-modules #module-filter-submit #edit-actions {
+  padding: 0;
+}
+#system-modules #module-filter-submit .form-actions #edit-submit {
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  font: normal 16px/21px "Open Sans", Arial, sans-serif;
+  margin: 1em 0;
+  padding: 4px 10px;
+}
