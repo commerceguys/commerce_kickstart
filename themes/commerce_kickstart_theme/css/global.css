@@ -1475,20 +1475,29 @@ div.messages.commerce-kickstart-add-to-cart {
   line-height: 20px;
   margin-bottom: 20px;
 }
+.node-product-type .field-name-body .read-more,
+.node-product-type .field-name-body .read-less,
 .node-product-type .field-name-body .read-more a,
 .node-product-type .field-name-body .read-less a {
-  background: url('../images/btn_read_more.png') 0 1px no-repeat;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+.node-product-type .field-name-body .read-more a,
+.node-product-type .field-name-body .read-less a {
   color: #898a8c;
   display: block;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+  height: 18px;
   margin-top: 10px;
   text-indent: 25px;
   text-decoration: none;
   text-transform: capitalize;
 }
+.node-product-type .field-name-body .read-more a {
+  background: url('../images/btn_read_more.png') left top no-repeat;
+}
 .node-product-type .field-name-body .read-less a {
-  background-position: 0 -20px;
+  background: url('../images/btn_read_less.png') left top no-repeat;
 }
 .node-product-type .field-name-body .read-more a:hover,
 .node-product-type .field-name-body .read-less a:hover {
