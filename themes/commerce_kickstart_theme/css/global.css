@@ -160,6 +160,7 @@ input[type="week"] {
     background-repeat: no-repeat;
     background-position: right center;
     padding: 5px;
+    padding-right: 20px;
   }
 }
 select[size],
@@ -1389,6 +1390,7 @@ div.messages.commerce-kickstart-add-to-cart {
   float: left;
 }
 .commerce-kickstart-add-to-cart .commerce-product-title {
+  clear: both;
   margin-bottom: 10px;
   text-transform: uppercase;
   font-weight: bold;
@@ -1457,11 +1459,9 @@ div.messages.commerce-kickstart-add-to-cart {
 .commerce-product-sku .commerce-product-sku-label,
 .commerce-kickstart-add-to-cart .views-label-quantity,
 .commerce-kickstart-add-to-cart .views-label-commerce-price {
+    float: left; /* LTR */
   font-weight: bold;
-  float: left; /* LTR */
 }
-
-.commerce-kickstart-add-to-cart .field-items,
 .commerce-kickstart-add-to-cart .field-items  {
   float: none;
 }
@@ -1470,10 +1470,11 @@ div.messages.commerce-kickstart-add-to-cart {
 .commerce-kickstart-add-to-cart .views-label-quantity,
 .commerce-kickstart-add-to-cart .field-label {
   color: #878380;
-
 }
 .commerce-kickstart-add-to-cart .field,
 .commerce-kickstart-add-to-cart .commerce-product-sku {
+  clear: both;
+  float: left;
   text-align: right; /* LTR */
   margin-right: 20px; /* LTR */
 }

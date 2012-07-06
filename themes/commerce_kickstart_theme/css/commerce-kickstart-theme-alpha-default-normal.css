@@ -169,6 +169,19 @@
 /**********************************************
 * 5.3. Product page
 **********************************************/
+.commerce-kickstart-add-to-cart .commerce-product-title,
+.commerce-kickstart-add-to-cart .field,
+.commerce-kickstart-add-to-cart .commerce-product-sku {
+  clear: none;
+}
+.commerce-kickstart-add-to-cart .field,
+.commerce-kickstart-add-to-cart .commerce-product-sku {
+  clear: none;
+  float: none;
+}
+.commerce-kickstart-add-to-cart .field-name-field-images {
+  float: left;
+}
 /* Cloud zoom */
 .node-product-type .cloud-zoom-gallery-thumbs {
   clear: none;

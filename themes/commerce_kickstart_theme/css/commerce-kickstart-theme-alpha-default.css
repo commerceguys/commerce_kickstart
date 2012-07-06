@@ -375,6 +375,10 @@ body {
 .commerce-add-to-cart label {
   float: left;
 }
+.commerce-kickstart-add-to-cart .field-name-field-images {
+  clear: left;
+  float: left;
+}
 /**************************************************
 * --
 * 6. Kickstart specific
