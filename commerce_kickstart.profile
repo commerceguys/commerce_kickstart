@@ -173,14 +173,14 @@ function commerce_kickstart_install_finished(&$install_state) {
 function commerce_kickstart_configure_store_form() {
   drupal_set_title(st('Configure store content'));
 
-  // Prepare all the options for example content.
+  // Prepare all the options for sample content.
   $options = array(
     '1' => st('Yes'),
     '0' => st('No'),
   );
   $form['commerce_kickstart_example_wrapper'] = array(
     '#type' => 'fieldset',
-    '#title' => st('Example Content'),
+    '#title' => st('Sample Content'),
   );
   $form['commerce_kickstart_example_wrapper']['commerce_kickstart_example_content'] = array(
     '#type' => 'radios',
@@ -219,7 +219,7 @@ function commerce_kickstart_configure_store_form() {
     '#default_value' => commerce_default_currency(),
   );
 
-  // Prepare all the options for example content.
+  // Prepare all the options for sample content.
   $options = array(
     'none' => st("No sample tax rate."),
     'us' => st('US - Sales taxes displayed in checkout'),
@@ -246,7 +246,7 @@ function commerce_kickstart_configure_store_form() {
 }
 
 /**
- * Submit callback: creates the requested example content.
+ * Submit callback: creates the requested sample content.
  */
 function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
   variable_set('commerce_kickstart_example_content', $form_state['values']['commerce_kickstart_example_content']);
@@ -267,13 +267,13 @@ function commerce_kickstart_import_sample_content() {
   // on a Mac, by forcing PHP to detect the appropriate line endings.
   ini_set("auto_detect_line_endings", TRUE);
 
+  $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menus.')));
   $migrations = migrate_migrations();
   foreach ($migrations as $machine_name => $migration) {
     $operations[] =  array('_commerce_kickstart_import_example_content', array($machine_name, t('Importing content.')));
   }
   $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up users.')));
   $operations[] = array('_commerce_kickstart_example_taxes', array(t('Setting up taxes.')));
-  $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menus.')));
 
   $batch = array(
     'title' => t('Importing sample store content'),
