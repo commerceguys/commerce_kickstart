@@ -378,3 +378,33 @@ body {
 .front #region-postscript-second {
   margin-right: 10px;
 }
+/**************************************************
+* --
+* 8. User account
+* --
+**************************************************/
+/* User login, registration, lost password */
+#user_login_form,
+#user_pass_form,
+#user_register_form,
+.create-account {
+  clear: none;
+  float: left;
+  width: 45%;
+}
+#user_pass_form {
+  width: auto;
+}
+a.login-register {
+  margin-left: 25px;
+}
+/* User/login */
+#user_login_form {
+  border: 0;
+  border-right: 1px solid #2989D8;
+  padding-right: 20px;
+}
+.create-account {
+  margin: 0;
+  padding: 0 20px 20px 20px;
+}

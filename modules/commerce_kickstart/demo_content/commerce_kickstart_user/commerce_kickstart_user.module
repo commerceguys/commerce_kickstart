@@ -16,6 +16,9 @@ function commerce_kickstart_user_menu_alter(&$items) {
   $items['user/%user/view']['title callback'] = '_commerce_kickstart_user_tab_title';
   $items['user/%user/view']['title arguments'] = array(1);
   $items['user/%user/edit']['title'] = 'Update email/password';
+  $items['user']['type'] = MENU_CALLBACK;
+  $items['user/register']['type'] = MENU_CALLBACK;
+  $items['user/password']['type'] = MENU_CALLBACK;
 }
 
 /**
@@ -67,6 +70,34 @@ function commerce_kickstart_user_module_implements_alter(&$implementations, $hoo
 function commerce_kickstart_user_form_user_profile_form_alter(&$form, &$form_state) {
   if ($form['#user_category'] == 'account') {
     $form['mimemail']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function commerce_kickstart_user_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_login') {
+    $form['name']['#prefix']  = '<div id="' . $form_id . '_form">';
+    $form['name']['#prefix'] .= '<h1>' . t('Login') . '</h1>';
+    $form['pass']['#suffix'] = l(t('Forgot your password?'), 'user/password', array('attributes' => array('class' => 'login-password', 'title' => t('Get a new password'))));
+    $form['actions']['#suffix']  = '</div>';
+    $form['actions']['#suffix'] .= '<div class="create-account clearfix">';
+    $form['actions']['#suffix'] .= "\r<h2>" . t('I don\'t have an account') . "</h2>";
+    $form['actions']['#suffix'] .= "\r" . l(t('Create an account'), 'user/register', array('attributes' => array('class' => 'login-register', 'title' => t('Create a new account'))));
+    $form['actions']['#suffix'] .= '</div>';
+  }
+  if ($form_id == 'user_pass') {
+    $form['name']['#prefix'] = '<div id="' . $form_id . '_form">';
+    $form['name']['#prefix'] .= '<h1>' . t('Request a new password') . '</h1>';
+    $form['actions']['#suffix'] = '<div class="back-to-login clearfix">' . l(t('Back to login'), 'user/login', array('attributes' => array('class' => 'login-account', 'title' => t('Sign in')))) . '</div>';
+    $form['actions']['#suffix'] .= '</div>';
+  }
+  if ($form_id == 'user_register_form') {
+    $form['account']['name']['#prefix'] = '<div id="' . $form_id . '">';
+    $form['account']['name']['#prefix'] .= '<h1>' . t('Register') . '</h1>';
+    $form['actions']['submit']['#suffix'] = '</div>';
+    $form['actions']['submit']['#suffix'] = '<div class="back-to-login clearfix">' . l(t('Back to login'), 'user/login', array('attributes' => array('class' => 'login-account', 'title' => t('Sign in')))) . '</div>';
   }
 }
 
@@ -178,4 +209,17 @@ function commerce_kickstart_user_preprocess_user_profile_category(&$variables) {
 function commerce_kickstart_user_theme_registry_alter(&$theme_registry) {
   $theme_registry['user_profile_category']['template'] = drupal_get_path('module', 'commerce_kickstart_user') . '/user-profile-category';
   $theme_registry['user_profile_item']['template'] = drupal_get_path('module', 'commerce_kickstart_user') . '/user-profile-item';
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function commerce_kickstart_user_preprocess_page(&$variables) {
+  switch (current_path()) {
+    case 'user':
+    case 'user/login':
+    case 'user/register':
+    case 'user/password':
+      $variables['title'] = '';
+  }
 }
