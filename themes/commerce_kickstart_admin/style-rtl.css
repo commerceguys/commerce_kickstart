@@ -15,6 +15,18 @@ ol {
   margin: 0.25em 2em 0.25em 0;
 }
 
+.breadcrumb a, .breadcrumb span {
+  float: right;
+}
+
+.breadcrumb span {
+  background: transparent url("images/breadcrumb-rtl.png") no-repeat 0 0;
+}
+
+#powered {
+  float: left;
+}
+
 /**
  * Skip link.
  */
@@ -171,9 +183,9 @@ ul.action-links li {
   margin: 0 0 0 1em;
 }
 ul.action-links a {
-  padding-left: 0;
-  padding-right: 15px;
-  background-position: right center;
+  padding-left: 10px;
+  padding-right: 30px;
+  background-position: 97% center;
 }
 
 /* Update options. */
