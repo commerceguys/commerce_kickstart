@@ -226,6 +226,7 @@ function commerce_backoffice_entity_view($entity, $entity_type, $view_mode, $lan
     $entity->content['status'] = array(
       '#weight' => 10,
       '#markup' =>$markup,
+      '#access' => commerce_order_access('update', $entity),
     );
   }
 }
