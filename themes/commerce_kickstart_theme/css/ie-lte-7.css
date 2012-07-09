@@ -31,84 +31,24 @@
 * Cart block
 */
 #block-views-shopping-cart-block {
-  margin: 0;
-  width: 235px;
+  max-width: 280px;
 }
-.block-shopping-cart-block {
-  width: 200px;
-}
+.block-shopping-cart-block,
+.block-shopping-cart-block .block-inner,
 .block-shopping-cart-block .content {
-  float: left;
-  padding-left: 30px;
-  width: 210px;
+  white-space: normal;
 }
-.block-shopping-cart-block .content .view-shopping-cart .view-content,
-.block-shopping-cart-block .content .view-shopping-cart .view-footer,
-.block-shopping-cart-block .content .view-shopping-cart .view-empty {
-  display: inline;
-  float: left;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-}
-.block-shopping-cart-block .content .view-shopping-cart .view-empty p {
-  float: left;
-  padding-left: 5px;
-}
-.block-shopping-cart-block .content .view-shopping-cart .view-empty p,
-.block-shopping-cart-block .content .view-shopping-cart .line-item-quantity {
-  display: inline;
-  float: left;
-  line-height: 30px;
-  margin: 0;
-  margin-left: 5px;
-  padding-top: 0px;
-  vertical-align: middle;
-}
-.block-shopping-cart-block .content .view-shopping-cart .line-item-summary {
-  display: inline;
-  float: left;
-  height: 34px;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-.block-shopping-cart-block .content .view-shopping-cart .view-empty p {
-  padding-right: 10px;
-}
-.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
-  color: #2698F2;
-  text-decoration: none;
-}
-.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
-  color: #888888;
-  float: left;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  height: 100%;
-  line-height: 30px;
-  padding: 0 12px 0 6px;
-}
-.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total-label {
+.block-shopping-cart-block .content .view-shopping-cart .view-content {
   display: none;
 }
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
+  float: left;
+}
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links {
-  background-color: #2698F2;
-  color: #ffffff;
-  clear: none;
   float: right;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
   height: 100%;
-  line-height: 30px;
-  margin: 0 0 0 5px;
-  padding: 0 8px;
 }
-.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links a {
-  color: #ffffff;
-}
-.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links a:hover {
-  text-decoration: underline;
-}
+
 /**********************************************
 * 2.2. Zone branding
 **********************************************/

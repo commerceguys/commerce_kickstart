@@ -65,8 +65,7 @@ body {
   margin-right: -10px;
 }
 #block-views-shopping-cart-block {
-  float: right;
-  margin: 0;
+  margin: inherit;
 }
 /**********************************************
 * 2.3. Zone menu
