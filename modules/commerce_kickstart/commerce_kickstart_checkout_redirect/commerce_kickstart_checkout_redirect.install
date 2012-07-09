@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function commerce_kickstart_checkout_redirect_install() {
+  // We want commerce_kickstart_checkout_redirect_form_alter to happen after
+  // commerce_kickstart_user_form_alter to be able to rewrite links on use form.
+  $result = db_query('SELECT weight FROM {system} WHERE name = :name', array(':name' => 'commerce_kickstart_user'))->fetchField();
+  if ($result !== FALSE) {
+    db_update('system')
+      ->fields(array('weight' => $result + 1))
+      ->condition('name', 'commerce_kickstart_checkout_redirect')
+      ->execute();
+  }
+}

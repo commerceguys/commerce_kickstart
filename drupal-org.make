@@ -73,6 +73,10 @@ projects[commerce_checkout_progress][version] = 1.2
 projects[commerce_checkout_progress][subdir] = "contrib"
 projects[commerce_extra_price_formatters][version] = 1.1
 projects[commerce_extra_price_formatters][subdir] = "contrib"
+projects[commerce_checkout_redirect][version] = 1.x-dev
+projects[commerce_checkout_redirect][subdir] = "contrib"
+projects[commerce_checkout_redirect][patch][] = "http://drupal.org/files/1275330-commerce_checkout_redirect-user_register.patch"
+projects[commerce_checkout_redirect][patch][] = "http://drupal.org/files/1677106-commerce_checkout_redirect-user_pass-2.patch"
 
 ; Other contribs.
 projects[http_client][version] = 2.3

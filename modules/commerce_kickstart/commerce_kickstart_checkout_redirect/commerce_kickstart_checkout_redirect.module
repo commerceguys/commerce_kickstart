@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function commerce_kickstart_checkout_redirect_module_implements_alter(&$implementations, $hook) {
+  if (in_array($hook, array('form_alter')) && isset($implementations['commerce_kickstart_checkout_redirect'])) {
+    // Move our hook implementation to the bottom.
+    $group = $implementations['commerce_kickstart_checkout_redirect'];
+    unset($implementations['commerce_kickstart_checkout_redirect']);
+    $implementations['commerce_kickstart_checkout_redirect'] = $group;
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function commerce_kickstart_checkout_redirect_menu_alter(&$items) {
+  if (isset($items['checkout/%/user/login'])) {
+    $items['checkout/%/user/login']['title'] = '';
+    $items['checkout/%/user/login']['type'] = MENU_NORMAL_ITEM;
+  }
+  if (isset($items['checkout/%/user/register'])) {
+    $items['checkout/%/user/register']['type'] = MENU_NORMAL_ITEM;
+  }
+  if (isset($items['checkout/%/user/password'])) {
+    $items['checkout/%/user/password']['title'] = '';
+    $items['checkout/%/user/password']['type'] = MENU_NORMAL_ITEM;
+  }
+}
+
+/**
+ * Implements hook_drupal_goto_alter().
+ */
+function commerce_kickstart_checkout_redirect_drupal_goto_alter(&$path, &$options, &$http_response_code) {
+  if (drupal_match_path($path, 'checkout/*/user/register')) {
+    // Redirect user to the login instead of the register form.
+    $path = substr_replace($path, 'login', stripos($path, 'register'));
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function commerce_kickstart_checkout_redirect_form_alter(&$form, &$form_state, $form_id) {
+  // Rewrite path to point to checkout user urls.
+  if (drupal_match_path($form['#action'], '*/checkout/*/user/*')) {
+    $order_id = commerce_cart_order_id();
+    $register_url = 'checkout/' . $order_id . '/user/register';
+    $login_url = 'checkout/' . $order_id . '/user/login';
+    $pass_url = 'checkout/' . $order_id . '/user/password';
+
+    if ($form_id == 'user_login') {
+      $form['name']['#prefix']  = '<div id="' . $form_id . '_form">';
+      $form['name']['#prefix'] .= '<h1>' . t('Login') . '</h1>';
+      $form['pass']['#suffix'] = l(t('Forgot your password?'), $pass_url, array('attributes' => array('class' => array('login-password'), 'title' => t('Get a new password'))));
+
+      $form['actions']['#suffix']  = '</div>';
+      $form['actions']['#suffix'] .= '<div class="create-account clearfix">';
+      $form['actions']['#suffix'] .= "\r<h2>" . t('I don\'t have an account') . "</h2>";
+      $form['actions']['#suffix'] .= "\r" . l(t('Create an account'), $register_url, array('attributes' => array('class' => array('login-register'), 'title' => t('Create a new account'))));
+      $form['actions']['#suffix'] .= '</div>';
+    }
+    if ($form_id == 'user_pass') {
+      $form['name']['#prefix'] = '<div id="' . $form_id . '_form">';
+      $form['name']['#prefix'] .= '<h1>' . t('Request a new password') . '</h1>';
+      $form['actions']['#suffix'] = '<div class="back-to-login clearfix">' . l(t('Back to login'), $login_url, array('attributes' => array('class' => array('login-account'), 'title' => t('Sign in')))) . '</div>';
+      $form['actions']['#suffix'] .= '</div>';
+    }
+    if ($form_id == 'user_register_form') {
+      $form['account']['name']['#prefix'] = '<div id="' . $form_id . '">';
+      $form['account']['name']['#prefix'] .= '<h1>' . t('Register') . '</h1>';
+      $form['actions']['submit']['#suffix'] = '</div>';
+      $form['actions']['submit']['#suffix'] = '<div class="back-to-login clearfix">' . l(t('Back to login'), $login_url, array('attributes' => array('class' => array('login-account'), 'title' => t('Sign in')))) . '</div>';
+    }
+  }
+}
