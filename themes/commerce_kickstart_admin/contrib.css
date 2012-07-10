@@ -1,4 +1,4 @@
-/**
+/wwww**
  * The .seven.css file is intended to contain styles that override declarations
  * in the Seven admin theme.
  */
@@ -964,70 +964,58 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
-#commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper {
+.commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper {
   height: 70px;
 }
-#commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper input {
-  background-position: 100px 3px;
+.commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper input {
+  background-position: 100px 3px !important;
   height: 25px;
-  width: 120px;
+  width: 120px !important;
 }
 /* Discounts Admin Fixes */
-.field-name-commerce-discount-date .fieldset-wrapper {
-  display: inline-block;
-  width: 100%;
+.form-item-commerce-discount-type.form-item #edit-commerce-discount-type,
+.field-name-commerce-discount-offer .form-type-radios > div {
+  background: none;
 }
-#commerce-discount-fields-wrapper {
-  margin-bottom: 30px;
+.form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item input,
+.field-name-commerce-discount-offer .form-type-radios > div .form-item input {
+  display: inline;
 }
+.form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item.selected label,
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item label,
+.field-name-commerce-discount-offer .form-type-radios > div .form-item.selected label,
 .field-name-commerce-discount-offer .form-type-radios > div .form-item label {
-  background-color: #fefefe;
+  background: none;
+  color: inherit;
+}
+.form-item-enabled #edit-enabled .form-item label {
+  margin: 0 !important;
+}
+.form-item-enabled #edit-enabled .form-item label:hover {
+  cursor: pointer;
+}
+.form-item-enabled #edit-enabled .form-item label[for="edit-enabled-1"] {
+  color: #6D6D6D;
 }
 /* Give some radios styles similar to fieldsets */
-#commerce-discount-edit-order-discount-form .form-item-commerce-discount-type label,
-#commerce-discount-edit-order-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label,
-#commerce-discount-edit-product-discount-form .form-item-commerce-discount-type label,
-#commerce-discount-edit-product-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label,
-#commerce-discount-form .form-item-commerce-discount-type label,
-#commerce-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label{
+.commerce-discount-form .form-item-commerce-discount-type label,
+.commerce-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label{
   font-size: 22px;
   font-weight: 400;
 }
-#commerce-discount-edit-order-discount-form .form-item-commerce-discount-type .form-radios label,
-#commerce-discount-edit-order-discount-form .form-item-commerce-discount-type .form-item label,
-#commerce-discount-edit-order-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-radios label,
-#commerce-discount-edit-order-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-item label,
-#commerce-discount-edit-product-discount-form .form-item-commerce-discount-type .form-radios label,
-#commerce-discount-edit-product-discount-form .form-item-commerce-discount-type .form-item label,
-#commerce-discount-edit-product-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-radios label,
-#commerce-discount-edit-product-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-item label,
-#commerce-discount-form .form-item-commerce-discount-type .form-radios label,
-#commerce-discount-form .form-item-commerce-discount-type .form-item label,
-#commerce-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-radios label,
-#commerce-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-item label
+.commerce-discount-form .form-item-commerce-discount-type .form-radios label,
+.commerce-discount-form .form-item-commerce-discount-type .form-item label,
+.commerce-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-radios label,
+.commerce-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-item label
 {
   font-size: 15px;
   font-weight: 500;
-}
-#commerce-discount-edit-order-discount-form #edit-commerce-discount-type,
-#commerce-discount-edit-order-discount-form div.form-type-textfield,
-#commerce-discount-edit-product-discount-form #edit-commerce-discount-type,
-#commerce-discount-edit-product-discount-form div.form-type-textfield,
-#commerce-discount-form #edit-commerce-discount-type,
-#commerce-discount-form div.form-type-textfield,
-#commerce-discount-fields-wrapper .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-radios,
-#commerce-discount-fields-wrapper .field-name-commerce-discount-offer .fieldset-wrapper .field-name-commerce-fixed-amount,
-#commerce-discount-fields-wrapper .field-name-commerce-discount-max-uses,
-#commerce-discount-fields-wrapper .field-name-commerce-percentage {
-  border: 1px solid #fff;
-  outline: 1px solid #CCC;
 }
 .field-name-commerce-discount-offer .fieldset-wrapper,
 #commerce-discount-fields-wrapper .field-name-commerce-discount-offer .fieldset-wrapper .field-name-commerce-fixed-amount .form-type-text-field,
 #commerce-discount-fields-wrapper .form-wrapper div.form-type-textfield,
 #commerce-discount-fields-wrapper .field-name-commerce-discount-offer .fieldset-wrapper .field-name-commerce-fixed-amount .form-type-text-field,
-#commerce-discount-form .form-wrapper div.form-type-textfield{
+.commerce-discount-form .form-wrapper div.form-type-textfield{
   background: transparent;
   border: 0;
   outline: 0;
@@ -1040,25 +1028,11 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   box-sizing: -moz-box;
   margin-top: 9px;
 }
-#commerce-discount-edit-order-discount-form input.form-text,
-#commerce-discount-edit-product-discount-form input.form-text,
-#commerce-discount-form input.form-text {
-  background: #fff;
-}
-#commerce-discount-fields-wrapper input.form-text[disabled]{
-  background: #F3F3F3;
-}
 .field-name-commerce-discount-offer .form-wrapper {
   padding-top: 5px;
 }
-.field-name-commerce-discount-date .form-wrapper {
-  margin-bottom: 3px;
-}
 .field-name-commerce-discount-max-uses {
   min-height: 51px;
-}
-.view-commerce-discount-overview .views-table td.views-field-type span {
-  background: transparent;
 }
 /* Inline form fix */
 #commerce-backoffice-message-form textarea {
