@@ -339,6 +339,29 @@ function commerce_backoffice_views_default_views() {
     'calculation' => FALSE,
   );
   $handler->display->display_options['fields']['commerce_order_total']['field_api_classes'] = 0;
+  /* Field: Commerce Order: Order status */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['label'] = 'Status';
+  $handler->display->display_options['fields']['status']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['status']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['status']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['status']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['status']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['status']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['status']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['status']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['status']['hide_alter_empty'] = 1;
   /* Field: Commerce Order: Operations links (Dropbutton) */
   $handler->display->display_options['fields']['operations_dropbutton']['id'] = 'operations_dropbutton';
   $handler->display->display_options['fields']['operations_dropbutton']['table'] = 'commerce_order';
@@ -363,55 +386,6 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['operations_dropbutton']['empty_zero'] = 0;
   $handler->display->display_options['fields']['operations_dropbutton']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['operations_dropbutton']['add_destination'] = 1;
-  /* Field: Commerce Order: Order status */
-  $handler->display->display_options['fields']['status']['id'] = 'status';
-  $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
-  $handler->display->display_options['fields']['status']['field'] = 'status';
-  $handler->display->display_options['fields']['status']['label'] = 'Status';
-  $handler->display->display_options['fields']['status']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['status']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['status']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['status']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['status']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['status']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['status']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['status']['hide_alter_empty'] = 1;
-  /* Field: Commerce Order: Megarow links */
-  $handler->display->display_options['fields']['megarow_links']['id'] = 'megarow_links';
-  $handler->display->display_options['fields']['megarow_links']['table'] = 'views_entity_commerce_order';
-  $handler->display->display_options['fields']['megarow_links']['field'] = 'megarow_links';
-  $handler->display->display_options['fields']['megarow_links']['label'] = '';
-  $handler->display->display_options['fields']['megarow_links']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['megarow_links']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['megarow_links']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['megarow_links']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['megarow_links']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['megarow_links']['megarow'] = array(
-    'links' => 'View order|commerce_backoffice/order/[commerce-order:order-id]',
-  );
   /* Contextual filter: Commerce Order: Order ID */
   $handler->display->display_options['arguments']['order_id']['id'] = 'order_id';
   $handler->display->display_options['arguments']['order_id']['table'] = 'commerce_order';
@@ -934,32 +908,6 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['operations_dropbutton']['field'] = 'operations_dropbutton';
   $handler->display->display_options['fields']['operations_dropbutton']['label'] = '';
   $handler->display->display_options['fields']['operations_dropbutton']['element_label_colon'] = FALSE;
-  /* Field: Content: Megarow links */
-  $handler->display->display_options['fields']['megarow_links']['id'] = 'megarow_links';
-  $handler->display->display_options['fields']['megarow_links']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['megarow_links']['field'] = 'megarow_links';
-  $handler->display->display_options['fields']['megarow_links']['label'] = '';
-  $handler->display->display_options['fields']['megarow_links']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['megarow_links']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['megarow_links']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['megarow_links']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['megarow_links']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['megarow_links']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['megarow_links']['megarow'] = array(
-    'links' => 'View variations|commerce_backoffice/variations/[node:nid]',
-  );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

@@ -16,3 +16,12 @@
 .megarow-content tr td:last-child {
   border: 0 !important;
 }
+.views-field-operations-dropbutton .quick-edit {
+  padding-right: 10px;
+  position :relative;
+}
+.views-field-operations-dropbutton .quick-edit .ajax-progress-throbber {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
