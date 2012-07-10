@@ -403,6 +403,10 @@ select[multiple] {
 /**
 * Navigation
 */
+.navigation select.mnav {
+  height: 32px;
+  margin-bottom: 10px;
+}
 .navigation .primary-menu,
 .navigation .second-menu {
   font-size: 1.142857142857143em;

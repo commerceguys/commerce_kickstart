@@ -61,6 +61,7 @@ css[global.css][description] = This file holds all the globally active custom CS
 css[global.css][options][weight] = 10
 
 ; OPTIONAL LIBRARIES
+
 libraries[commerce_kickstart_theme_custom][name] = Commerce kickstart theme JS
 libraries[commerce_kickstart_theme_custom][description] = This file holds all the custom JS.
 libraries[commerce_kickstart_theme_custom][js][0][file] = commerce_kickstart_theme_custom.js

@@ -174,4 +174,6 @@ libraries[jquery_expander][download][url] = "https://github.com/kswedberg/jquery
 libraries[selectnav.js][type] = "libraries"
 libraries[selectnav.js][download][type] = "git"
 libraries[selectnav.js][download][url] = "https://github.com/lukaszfiszer/selectnav.js.git"
-
+libraries[responsive_menu][type] = "libraries"
+libraries[responsive_menu][download][type] = "git"
+libraries[responsive_menu][download][url] = "https://github.com/mattkersley/Responsive-Menu.git"

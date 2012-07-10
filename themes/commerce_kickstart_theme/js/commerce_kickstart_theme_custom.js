@@ -1,7 +1,6 @@
 (function ($) {
-
   // Handle user toolbar when user is admin and have admin toolbar enabled.
-  Drupal.behaviors.commerce_kickstart_theme_custom = {
+  Drupal.behaviors.commerce_kickstart_theme_custom_toolbar = {
     attach: function(context, settings) {
       if ($('body').hasClass('toolbar')) {
         $(window, context).resize(function() {
@@ -12,7 +11,7 @@
     }
   }
   // Add background overlay to add to cart popin.
-  Drupal.behaviors.commerce_kickstart_add_to_cart_overlay = {
+  Drupal.behaviors.commerce_kickstart_theme_custom_add_to_cart_overlay = {
     attach:function (context, settings) {
       if ($('.commerce-kickstart-add-to-cart').length > 0 ) {
         $('body').append("<div class=\"commerce_kickstart_add_to_cart_overlay\"></div>");
@@ -79,5 +78,15 @@
       });
     }
   }
-
+  // Replace navigation list to a select list on small devices.
+  Drupal.behaviors.commerce_kickstart_theme_custom_navigation = {
+    attach: function(context, settings) {
+      $('#main-menu, #secondary-menu').mobileMenu(
+        {
+          prependTo: '.region-menu nav',
+          topOptionText: Drupal.t('Jump to...')
+        }
+      );
+    }
+  }
 })(jQuery);
