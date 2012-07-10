@@ -76,6 +76,14 @@ body.in-maintenance .form-item-commerce-kickstart-example-content .description {
   padding: 3px 5px 5px 23px;
 }
 
+body.in-maintenance div.form-type-password {
+  width: 500px;
+}
+
+body.in-maintenance .password-strength {
+  width: 15em;
+}
+
 /* Setting Museo Slab Family */
 h1, h2, h3, h4, h5, h6, ul.admin-list li a, div.breadcrumb, fieldset .fieldset-legend {
   font-family: "Open Sans", Arial, sans-serif;

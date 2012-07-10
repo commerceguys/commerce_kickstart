@@ -21,12 +21,9 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
 
   // Use "admin" as the default username.
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
-  $form['admin_account']['account']['name']['#access'] = FALSE;
+
   // Set the default admin password.
   $form['admin_account']['account']['pass']['#value'] = 'admin';
-  // Make the password "hidden".
-  $form['admin_account']['account']['pass']['#type'] = 'hidden';
-  $form['admin_account']['account']['mail']['#access'] = FALSE;
 
   // Hide Update Notifications.
   $form['update_notifications']['#access'] = FALSE;
@@ -41,19 +38,58 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
     '#markup' => 'admin'
   );
   $form['admin_account']['account']['commerce_kickstart_informations'] = array(
-    '#markup' => '<p>' . t('You can change the default username and password from the store administration page. This information will be emailed to the store email address.') . '</p>'
+    '#markup' => '<p>' . t('This information will be emailed to the store email address.') . '</p>'
   );
+  $form['admin_account']['override_account_informations'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Change my username and password.'),
+  );
+  $form['admin_account']['setup_account'] = array(
+    '#type' => 'container',
+    '#parents' => array('admin_account'),
+    '#states' => array(
+      'invisible' => array(
+        'input[name="override_account_informations"]' => array('checked' => FALSE),
+      ),
+    ),
+  );
+
+  // Make a "copy" of the original name and pass form fields.
+  $form['admin_account']['setup_account']['account']['name'] = $form['admin_account']['account']['name'];
+  $form['admin_account']['setup_account']['account']['pass'] = $form['admin_account']['account']['pass'];
+
+  // Use "admin" as the default username.
+  $form['admin_account']['account']['name']['#default_value'] = 'admin';
+  $form['admin_account']['account']['name']['#access'] = FALSE;
+
+  // Set the default admin password.
+  $form['admin_account']['account']['pass']['#value'] = 'admin';
+
+  // Make the password "hidden".
+  $form['admin_account']['account']['pass']['#type'] = 'hidden';
+  $form['admin_account']['account']['mail']['#access'] = FALSE;
 
   // Add a custom validation that needs to be trigger before the original one,
   // where we can copy the site's mail as the admin account's mail.
-  array_unshift($form['#validate'], 'commerce_kickstart_customset_admin_mail');
+  array_unshift($form['#validate'], 'commerce_kickstart_custom_setting');
 }
 
 /**
- * Validate callback; Populate the admin account mail with the site's mail.
+ * Validate callback; Populate the admin account mail, user and password with
+ * custom values.
  */
-function commerce_kickstart_customset_admin_mail(&$form, &$form_state) {
+function commerce_kickstart_custom_setting(&$form, &$form_state) {
   $form_state['values']['account']['mail'] = $form_state['values']['site_mail'];
+  // Use our custom values only the corresponding checkbox is checked.
+  if ($form_state['values']['override_account_informations'] == TRUE) {
+    if ($form_state['input']['pass']['pass1'] == $form_state['input']['pass']['pass2']) {
+      $form_state['values']['account']['pass'] = $form_state['input']['pass']['pass1'];
+    }
+    else {
+      form_error($form_state['input']['pass'], t('The specified passwords do not match.'));
+    }
+  }
+  $form_state['values']['account']['name'] = $form_state['values']['name'];
 }
 
 /**
