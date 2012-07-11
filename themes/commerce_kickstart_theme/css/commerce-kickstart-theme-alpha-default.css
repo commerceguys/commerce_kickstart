@@ -191,6 +191,7 @@ body {
   font-weight: 700;
   padding: 5px 28px;
   text-transform: capitalize;
+  white-space: nowrap;
 }
 /* HP blocks: Slideshow */
 .block-demo-content-block-3 {
