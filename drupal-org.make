@@ -39,6 +39,7 @@ projects[commerce][version] = 1.x-dev
 projects[commerce][subdir] = "contrib"
 projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
 projects[commerce][patch][] = "http://drupal.org/files/referenced_product_types_fields_for_display-1672118-3.patch"
+projects[commerce][patch][] = "http://drupal.org/files/error_messages_inside_checkout_pane-1679408-1.patch"
 projects[commerce_features][version] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"
