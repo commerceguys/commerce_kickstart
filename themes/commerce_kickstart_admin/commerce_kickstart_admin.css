@@ -142,9 +142,7 @@ input.form-autocomplete,
 input.form-text,
 input.form-file,
 .resizable-textarea .grippie {
-  background: #f3f3f3;
   border: 1px solid #fff;
-  color: #4c4c4c;
   font: normal 400 14px/14px "Open Sans", Arial, sans-serif;
   margin: 1px;
   max-width: 100%;
