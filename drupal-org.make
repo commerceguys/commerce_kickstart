@@ -25,7 +25,7 @@ projects[features][patch][] = "http://drupal.org/files/1597186-1-features-do-not
 projects[features][patch][] = "http://drupal.org/files/927566-multiple-link_path.patch"
 projects[features][patch][] = "http://drupal.org/files/1669720-fix-features-flush-cache.patch"
 projects[features][subdir] = "contrib"
-projects[strongarm][version] = 2.0-rc1
+projects[strongarm][version] = 2.0
 projects[strongarm][subdir] = "contrib"
 projects[taxonomy_menu][version] = 1.2
 projects[taxonomy_menu][subdir] = "contrib"
@@ -113,23 +113,21 @@ projects[date][subdir] = "contrib"
 projects[date][patch][] = "http://drupal.org/files/1659638-dont-show-message-always.patch"
 
 ; Search related modules.
-projects[search_api][version] = 1.x-dev
+projects[search_api][version] = 1.2
 projects[search_api][subdir] = "contrib"
 projects[search_api_db][version] = 1.x-dev
 projects[search_api_db][subdir] = "contrib"
 projects[search_api_ranges][type] = module
-projects[search_api_ranges][download][type] = git
-projects[search_api_ranges][download][revision] = 8b4ac77411fbfa7346ff637de94a64a97e4b4656
-projects[search_api_ranges][download][branch] = 7.x-1.x
+projects[search_api_ranges][version] = 1.x-dev
 projects[search_api_ranges][subdir] = "contrib"
-projects[facetapi][version] = 1.0-rc4
+projects[facetapi][version] = 1.0
 projects[facetapi][subdir] = "contrib"
-projects[facetapi][patch][] = "http://drupal.org/files/facetapi-1616518-1_show-active-term.patch"
+projects[facetapi][patch][] = "http://drupal.org/files/1616518-3-show-active-term_0.patch"
 projects[search_api_sorts][version] = 1.x-dev
 projects[search_api_sorts][subdir] = "contrib"
 
 ; UI improvement modules.
-projects[module_filter][version] = 1.6
+projects[module_filter][version] = 1.7
 projects[module_filter][subdir] = "contrib"
 projects[image_delta_formatter][version] = 1.x-dev
 projects[image_delta_formatter][subdir] = "contrib"
