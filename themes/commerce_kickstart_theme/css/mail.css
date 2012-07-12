@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+.message-wrapper a {
+  text-decoration: none;
+}
+
 .message-wrapper .header {
   background-color: #FFF;
   color: #000000;
@@ -19,7 +23,6 @@
 
 .message-wrapper .header .thank-you {
   float: right;
-  margin-top: 65px;
   font-size: 25px;
   font-weight: bold;
 }
@@ -27,6 +30,10 @@
 .message-wrapper .body {
   border: solid 1px #E9E9E9;
   padding: 10px;
+}
+
+.message-wrapper .detail span.order a {
+  color: #009BD4;
 }
 
 .message-wrapper .detail {
@@ -40,7 +47,7 @@
 }
 
 .message-wrapper .view-order-status {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .message-wrapper .view-order-status a {
@@ -54,6 +61,7 @@
 
 .message-wrapper .ship-to {
   float: left;
+  margin-bottom: 30px;
 }
 
 .message-wrapper .ship-to .ship-to-title,
@@ -66,11 +74,15 @@
 
 .message-wrapper .ship-method .express-delivery,
 .message-wrapper .ship-method p,
-.message-wrapper .ship-to .addressfield-container-inline.name-block,
+.message-wrapper .ship-to .addressfield-container-inline *,
 .message-wrapper .ship-to .street-block,
 .message-wrapper .ship-to .country {
   color: #90847c;
   font-size: 17px;
+}
+
+.message-wrapper .shipping-wrapper p {
+  margin-top: 0px;
 }
 
 .message-wrapper .ship-to .first-name,
@@ -102,26 +114,35 @@
   text-transform: none;
   font-weight: bold;
   text-align: left;
+  color: black;
 }
 
-.message-wrapper .order-summary-wrapper .view-commerce-cart-summary tr,
-.message-wrapper .order-summary-wrapper .view-commerce-cart-summary td {
+.message-wrapper .order-summary-wrapper .view-commerce-cart-summary tr {
   border: none;
   background: transparent;
   padding: 10px;
   text-align: left;
 }
 
+.view-commerce-cart-summary .views-table tbody td {
+  padding: 20px 10px;
+}
+
 .message-wrapper .order-summary-wrapper table.commerce-price-formatted-components {
-  width: 25%;
+  width: auto;
   float: right; /* LTR */
+  margin-bottom: 30px;
 }
 
 .message-wrapper .order-summary-wrapper table.commerce-price-formatted-components td {
   text-align: right; /* LTR */
+  padding: 10px;
 }
 
 .message-wrapper .question {
   clear: both;
 }
 
+.message-wrapper .question a {
+  color: #009BD4;
+}
