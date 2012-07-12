@@ -83,13 +83,13 @@ function commerce_kickstart_custom_setting(&$form, &$form_state) {
   // Use our custom values only the corresponding checkbox is checked.
   if ($form_state['values']['override_account_informations'] == TRUE) {
     if ($form_state['input']['pass']['pass1'] == $form_state['input']['pass']['pass2']) {
+      $form_state['values']['account']['name'] = $form_state['values']['name'];
       $form_state['values']['account']['pass'] = $form_state['input']['pass']['pass1'];
     }
-    else {
-      form_error($form_state['input']['pass'], t('The specified passwords do not match.'));
+  else {
+      form_set_error('pass', t('The specified passwords do not match.'));
     }
   }
-  $form_state['values']['account']['name'] = $form_state['values']['name'];
 }
 
 /**
