@@ -58,3 +58,9 @@
   margin-left: 130px;
   position: relative;
 }
+/**********************************************
+* 5.4. Checkout process
+**********************************************/
+.page-cart .entity-commerce-product .content .field-name-field-images img {
+  max-width: none;
+}

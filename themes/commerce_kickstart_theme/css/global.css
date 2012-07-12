@@ -1733,6 +1733,7 @@ div.messages.commerce-kickstart-add-to-cart {
 .page-cart .entity-commerce-product h2 {
   display: none;
   font-size: 0;
+  height: 0;
   text-indent: -9999px;
 }
 .page-cart .entity-commerce-product .content .field:after {
@@ -1759,6 +1760,10 @@ div.messages.commerce-kickstart-add-to-cart {
   line-height: 22px;
   text-transform: uppercase;
   vertical-align: bottom;
+}
+.page-cart .entity-commerce-product .content .commerce-product-sku,
+.page-cart .entity-commerce-product .content .field-label-inline {
+  padding-bottom: 1px;
 }
 .page-cart .entity-commerce-product .content .field-label-inline .field-items {
   float: inherit;

@@ -117,8 +117,10 @@ function commerce_kickstart_order_views_default_views_alter(&$views) {
     $handler->display->display_options['fields']['line_item_title']['relationship'] = 'commerce_line_items_line_item_id';
     $handler->display->display_options['fields']['line_item_title']['label'] = '';
     $handler->display->display_options['fields']['line_item_title']['exclude'] = TRUE;
-    $handler->display->display_options['fields']['line_item_title']['alter']['alter_text'] = 0;
-    $handler->display->display_options['fields']['line_item_title']['alter']['make_link'] = 0;
+    $handler->display->display_options['fields']['line_item_title']['alter']['alter_text'] = 1;
+    $handler->display->display_options['fields']['line_item_title']['alter']['text'] = 'View product';
+    $handler->display->display_options['fields']['line_item_title']['alter']['make_link'] = 1;
+    $handler->display->display_options['fields']['line_item_title']['alter']['path'] = '[commerce_display_path]';
     $handler->display->display_options['fields']['line_item_title']['alter']['absolute'] = 0;
     $handler->display->display_options['fields']['line_item_title']['alter']['external'] = 0;
     $handler->display->display_options['fields']['line_item_title']['alter']['replace_spaces'] = 0;
