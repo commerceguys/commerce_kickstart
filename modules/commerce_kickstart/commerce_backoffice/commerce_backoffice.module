@@ -41,7 +41,7 @@ function commerce_backoffice_menu() {
     'page callback' => 'commerce_backoffice_product_variations_view',
     'page arguments' => array(2),
     'delivery callback' => 'ajax_deliver',
-    'access arguments' => array('administer products'),
+    'access arguments' => array('administer commerce_product entities'),
   );
 
   return $items;
