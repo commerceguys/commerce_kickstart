@@ -17,10 +17,10 @@ function commerce_backoffice_views_api() {
  * Implements hook_menu().
  */
 function commerce_backoffice_menu() {
-  // Activity tab on orders.
-  $items['admin/commerce/orders/%commerce_order/activity'] = array(
-    'title' => 'Activity',
-    'page callback' => 'commerce_backoffice_order_activity',
+  // History tab on orders.
+  $items['admin/commerce/orders/%commerce_order/history'] = array(
+    'title' => t('History'),
+    'page callback' => 'commerce_backoffice_order_history',
     'page arguments' => array(3),
     'access callback' => 'commerce_order_access',
     'access arguments' => array('view', 3),
@@ -59,9 +59,9 @@ function commerce_backoffice_admin_paths() {
 }
 
 /**
- * Displays the complete activity for the given order.
+ * Displays the complete history for the given order.
  */
-function commerce_backoffice_order_activity($order) {
+function commerce_backoffice_order_history($order) {
   $arguments = array($order->order_id);
   $view = views_get_view('commerce_backoffice_order_messages');
   $view->set_display('block_1');

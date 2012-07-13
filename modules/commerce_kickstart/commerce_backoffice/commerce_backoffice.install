@@ -115,7 +115,7 @@ function commerce_backoffice_install() {
     field_update_instance($shipping);
   }
 
-  // Update the extra fields (Activity view added by EVA, Status field provided
+  // Update the extra fields (History view added by EVA, Status field provided
   // by this module).
   $bundle_settings = field_bundle_settings('commerce_order', 'commerce_order');
   $bundle_settings['extra_fields']['display']['commerce_backoffice_order_messages_order_view']['backoffice'] = array(
