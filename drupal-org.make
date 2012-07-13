@@ -123,7 +123,7 @@ projects[search_api_ranges][version] = 1.x-dev
 projects[search_api_ranges][subdir] = "contrib"
 projects[facetapi][version] = 1.0
 projects[facetapi][subdir] = "contrib"
-projects[facetapi][patch][] = "http://drupal.org/files/1616518-3-show-active-term_0.patch"
+projects[facetapi][patch][] = "http://drupal.org/files/1616518-7-show-active-term.patch"
 projects[search_api_sorts][version] = 1.x-dev
 projects[search_api_sorts][subdir] = "contrib"
 
