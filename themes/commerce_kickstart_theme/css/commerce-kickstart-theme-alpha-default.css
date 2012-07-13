@@ -378,6 +378,14 @@ body {
   clear: left;
   float: left;
 }
+/**********************************************
+* 5.4. Checkout process
+**********************************************/
+.page-cart .entity-commerce-product .content .field-name-field-images {
+  display: inline;
+  float: left;
+  margin-right: 8px;
+}
 /**************************************************
 * --
 * 6. Kickstart specific
