@@ -12,17 +12,46 @@ function commerce_kickstart_help_menu() {
   $items = array();
 
   // View help topic.
-  $items['admin/getting-started'] = array(
-    'title' => 'Getting Started',
+  $items['admin/help'] = array(
+    'title' => 'First Steps',
+    'description' => 'Your first steps in Commerce Kickstart.',
+    'page callback' => 'advanced_help_topic_page',
+    'page arguments' => array('commerce_kickstart_help', 'first-steps'),
+    'access arguments' => array('view advanced help topic'),
+    'file path' => drupal_get_path('module', 'advanced_help'),
+    'weight' => -200,
+  );
+  $items['admin/help/first-steps'] = array(
+    'title' => 'Introduction',
+    'description' => 'Your first steps in Commerce Kickstart.',
+    'page callback' => 'advanced_help_topic_page',
+    'page arguments' => array('commerce_kickstart_help', 'first-steps'),
+    'access arguments' => array('view advanced help topic'),
+    'file path' => drupal_get_path('module', 'advanced_help'),
+    'weight' => -200,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  // View help topic.
+  $items['admin/help/getting-started'] = array(
+    'title' => 'Kickstart Advanced Help',
     'description' => 'Find all the help you need to start using your store.',
     'page callback' => 'advanced_help_topic_page',
     'page arguments' => array('commerce_kickstart_help', 'getting-started'),
     'access arguments' => array('view advanced help topic'),
     'file path' => drupal_get_path('module', 'advanced_help'),
     'weight' => -200,
-  );
+    'type' => MENU_LOCAL_TASK,
+);
 
   return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function commerce_kickstart_help_menu_alter(&$items) {
+  $items['admin/tasks']['type'] =  MENU_CALLBACK;
+  $items['admin/index']['type'] = MENU_CALLBACK;
 }
 
 /**
@@ -30,7 +59,7 @@ function commerce_kickstart_help_menu() {
  */
 function commerce_kickstart_help_preprocess_page(&$vars) {
   if ((arg(0) == 'help' && arg(1) == 'commerce_kickstart_help') ||
-    arg(0) == 'admin' && arg(1) == 'getting-started') {
+    arg(0) == 'admin' && arg(1) == 'help' && arg(2) == 'getting-started') {
     // Add libraries
     drupal_add_library('system', 'drupal.ajax');
     drupal_add_library('system', 'jquery.form');

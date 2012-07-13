@@ -7,6 +7,7 @@
         header: 'h2',
         autoHeight: false,
         collapsible: true,
+        navigation:true,
         change: function(event, ui) {
           if (ui.newHeader.length > 0) {
             $('html, body').animate({ scrollTop: $(ui.newHeader).offset().top - 80}, 300);

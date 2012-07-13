@@ -1,3 +1,77 @@
+/* First Steps */
+.first-steps-left {
+  float: left;
+  width: 60%;
+}
+.first-steps-right {
+  float: left;
+  width: 35%;
+}
+
+.first-steps-column.first-steps-right {
+  float: right;
+}
+.first-steps-blocks h2 {
+  background-color: #ccc;
+  padding: 5px;
+  margin-top: 0;
+}
+
+.first-steps-videos .first-steps-blocks-inner {
+  height: 400px;
+  text-align: center;
+}
+
+iframe {
+  height: 90%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.documentation-steps {
+  width: 45%;
+  float: left;
+  list-style: none;
+  font-weight: bold;
+}
+
+#kickstart-help-topic ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.documentation-steps ul li {
+  list-style: none;
+  font-weight: normal;
+}
+
+.first-steps-blocks {
+  border: 1px solid #ccc;
+  margin: 5px;
+}
+
+.first-steps-blocks-inner {
+  padding: 5px;
+}
+
+.documentation-websites {
+  border-top: 1px solid #ccc;
+  background-color: #ddd;
+}
+
+.first-steps-quick .first-steps-blocks-inner {
+  padding: 0;
+}
+.first-steps-quick ul li {
+  border-top: 1px solid #ccc;
+  line-height: 2em;
+  padding: 4px;
+}
+
+.first-steps-quick ul li.first {
+  border-top: none;
+}
 /* Accordion */
 #accordion .accordion-section form {
   float: right;

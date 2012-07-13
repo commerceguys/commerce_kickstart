@@ -354,10 +354,10 @@ function commerce_kickstart_install_finished(&$install_state) {
     // page.
     if (!drupal_is_cli()) {
       if (module_exists('overlay')) {
-        drupal_goto('', array('fragment' => 'overlay=admin/getting-started'));
+        drupal_goto('', array('fragment' => 'overlay=admin/help/first-steps'));
       }
       else {
-        drupal_goto('admin/getting-started');
+        drupal_goto('admin/help/first-steps');
       }
     }
   }

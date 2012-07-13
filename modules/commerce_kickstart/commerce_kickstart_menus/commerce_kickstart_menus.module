@@ -4,6 +4,16 @@
  * Implements hook_menu().
  */
 function commerce_kickstart_menus_menu() {
+  $items['admin/help'] = array(
+    'title' => 'Getting Started',
+    'description' => '',
+    'page callback' => 'advanced_help_topic_page',
+    'page arguments' => array('commerce_kickstart_help', 'first-steps'),
+    'access arguments' => array('view advanced help topic'),
+    'file path' => drupal_get_path('module', 'advanced_help'),
+    'weight' => 100,
+  );
+
   $items['admin/site-config/layout'] = array(
     'title' => 'Visual & Layout',
     'description' => 'Administer the appearance and layout of your store.',
@@ -101,6 +111,29 @@ function commerce_kickstart_menus_menu() {
  */
 function commerce_kickstart_menus_menu_alter(&$items) {
 
+
+  // "Getting Started" (help) entry point.
+  if (isset($items['admin/help'])) {
+    $items['admin/help']['title'] = 'Getting Started';
+    $items['admin/help']['parent'] = 'admin';
+    $items['admin/help']['weight'] = -100;
+    $items['admin/help']['options'] = array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    );
+  }
+
+  // Move the pages under the "Getting Started" entry.
+  foreach (array('admin/help/getting-started', 'admin/help/first-steps', 'admin/demo') as $path) {
+    if (isset($items[$path])) {
+      $items[$path]['parent'] = 'admin/help';
+      $items[$path]['context'] = MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE;
+      if ($path == 'admin/demo') {
+        $items[$path]['title'] = 'Reset your Demo Site';
+      }
+    }
+  }
+
   // "Products" entry point.
   if (isset($items['admin/commerce/products'])) {
     $items['admin/commerce/products']['parent'] = 'admin';
@@ -169,7 +202,7 @@ function commerce_kickstart_menus_menu_alter(&$items) {
   }
 
   // Move the main Drupal entry points below admin/site-config/advanced.
-  foreach (array('admin/structure', 'admin/people', 'admin/modules', 'admin/config', 'admin/reports', 'admin/help', 'admin/advanced_help') as $path) {
+  foreach (array('admin/structure', 'admin/people', 'admin/modules', 'admin/config', 'admin/reports', 'admin/advanced_help') as $path) {
     if (isset($items[$path])) {
       $items[$path]['parent'] = 'admin/site-config/advanced';
     }
