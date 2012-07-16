@@ -3,7 +3,6 @@ description = Provides the blog_post content type and related functionality.
 core = 7.x
 package = Commerce Kickstart
 php = 5.2.4
-dependencies[] = commerce_kickstart_merchandising
 dependencies[] = features
 dependencies[] = image
 dependencies[] = image_delta_formatter
