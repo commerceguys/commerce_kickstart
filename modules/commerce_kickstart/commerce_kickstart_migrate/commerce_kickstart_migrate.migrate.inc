@@ -413,8 +413,8 @@ class CommerceKickstartStorage extends CommerceKickstartMigration {
 class CommerceKickstartNode extends DynamicMigration {
 
   public function __construct(array $arguments) {
-    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->arguments = $arguments;
+    parent::__construct(MigrateGroup::getInstance('demo_store'));
     $this->description = t('Import product nodes.');
     $this->dependencies = array('CommerceKickstartBagsCases', 'CommerceKickstartDrinks', 'CommerceKickstartHats', 'CommerceKickstartShoes', 'CommerceKickstartStorage', 'CommerceKickstartTops', 'CommerceKickstartPages');
 
