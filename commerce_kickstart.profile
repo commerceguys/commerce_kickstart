@@ -237,7 +237,8 @@ function commerce_kickstart_configure_store_form() {
   );
 
   $options_selection = array(
-    'merchandising' => 'Frontpage <strong>slideshow</strong> and additional <strong>blocks</strong> for featuring specific content.',
+    'merchandising' => 'Additional <strong>blocks</strong> for featuring specific content.',
+    'slideshow' => 'Frontpage <strong>slideshow</strong>.',
     'menus' => 'Custom <strong>admin menu</strong> designed for store owners.',
     'blog' => '<strong>Blog</strong> functionality.',
     'social' => '<strong>Social</strong> logins and links for sharing products via social networks.',
@@ -331,6 +332,7 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_product_ui',
       'commerce_kickstart_blog',
       'commerce_kickstart_blog_ui',
+      'commerce_kickstart_slideshow',
       'commerce_kickstart_merchandising',
       'commerce_kickstart_merchandising_ui',
       'commerce_kickstart_menus',
@@ -350,6 +352,9 @@ function commerce_kickstart_install_additional_modules() {
     if (!empty($selected_extras['merchandising'])) {
       $modules[] = 'commerce_kickstart_merchandising';
       $modules[] = 'commerce_kickstart_merchandising_ui';
+    }
+    if (!empty($selected_extras['slideshow'])) {
+      $modules[] = 'commerce_kickstart_slideshow';
     }
     if (!empty($selected_extras['menus'])) {
       $modules[] = 'commerce_kickstart_menus';

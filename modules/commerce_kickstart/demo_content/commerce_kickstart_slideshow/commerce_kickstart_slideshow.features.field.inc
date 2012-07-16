@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * commerce_kickstart_merchandising.features.field.inc
+ * commerce_kickstart_slideshow.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function commerce_kickstart_merchandising_field_default_fields() {
+function commerce_kickstart_slideshow_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'comment-comment_node_ad_push-comment_body'
-  $fields['comment-comment_node_ad_push-comment_body'] = array(
+  // Exported field: 'comment-comment_node_slideshow-comment_body'
+  $fields['comment-comment_node_slideshow-comment_body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -39,7 +39,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'type' => 'text_long',
     ),
     'field_instance' => array(
-      'bundle' => 'comment_node_ad_push',
+      'bundle' => 'comment_node_slideshow',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -71,8 +71,88 @@ function commerce_kickstart_merchandising_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_push-field_image'
-  $fields['node-ad_push-field_image'] = array(
+  // Exported field: 'node-slideshow-field_headline'
+  $fields['node-slideshow-field_headline'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_headline',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '20',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'slideshow',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'This field will be displayed as a pager title under the slideshow.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'product_in_cart' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_headline',
+      'label' => 'Headline',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '20',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-slideshow-field_image'
+  $fields['node-slideshow-field_image'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -101,7 +181,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'type' => 'image',
     ),
     'field_instance' => array(
-      'bundle' => 'ad_push',
+      'bundle' => 'slideshow',
       'deleted' => '0',
       'description' => 'Upload an image to go with this article.',
       'display' => array(
@@ -113,7 +193,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
             'image_style' => 'large',
           ),
           'type' => 'image',
-          'weight' => '-1',
+          'weight' => -1,
         ),
         'product_in_cart' => array(
           'label' => 'above',
@@ -145,7 +225,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'settings' => array(
         'alt_field' => 1,
         'default_image' => 0,
-        'file_directory' => 'field/image/brand',
+        'file_directory' => 'field/image/slideshow',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
         'max_resolution' => '',
@@ -166,8 +246,8 @@ function commerce_kickstart_merchandising_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_push-field_link'
-  $fields['node-ad_push-field_link'] = array(
+  // Exported field: 'node-slideshow-field_link'
+  $fields['node-slideshow-field_link'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -194,17 +274,17 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'type' => 'link_field',
     ),
     'field_instance' => array(
-      'bundle' => 'ad_push',
+      'bundle' => 'slideshow',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Link this content to a URL. It can either be relative to your site (for example : <em>all-products</em>) or an absolute path.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
-          'weight' => '2',
+          'weight' => -1,
         ),
         'product_in_cart' => array(
           'label' => 'above',
@@ -213,16 +293,16 @@ function commerce_kickstart_merchandising_field_default_fields() {
           'weight' => 0,
         ),
         'product_list' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => -1,
         ),
         'teaser' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => 0,
+          'weight' => -1,
         ),
       ),
       'entity_type' => 'node',
@@ -258,8 +338,8 @@ function commerce_kickstart_merchandising_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_push-field_tagline'
-  $fields['node-ad_push-field_tagline'] = array(
+  // Exported field: 'node-slideshow-field_tagline'
+  $fields['node-slideshow-field_tagline'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -287,17 +367,17 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'ad_push',
+      'bundle' => 'slideshow',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Short description of the content that you promote.',
+      'description' => 'This field will be displayed as a pager description under the slideshow.',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 3,
+          'weight' => 1,
         ),
         'product_in_cart' => array(
           'label' => 'above',
@@ -330,7 +410,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'size' => '80',
+          'size' => '20',
         ),
         'type' => 'text_textfield',
         'weight' => '2',
@@ -345,8 +425,9 @@ function commerce_kickstart_merchandising_field_default_fields() {
   t('Image');
   t('Link');
   t('Link this content to a URL. It can either be relative to your site (for example : <em>all-products</em>) or an absolute path.');
-  t('Short description of the content that you promote.');
   t('Tagline');
+  t('This field will be displayed as a pager description under the slideshow.');
+  t('This field will be displayed as a pager title under the slideshow.');
   t('Upload an image to go with this article.');
 
   return $fields;

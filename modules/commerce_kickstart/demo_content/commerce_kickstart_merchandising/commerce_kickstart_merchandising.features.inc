@@ -27,14 +27,6 @@ function commerce_kickstart_merchandising_node_info() {
       'title_label' => t('Title'),
       'help' => t('Title field is for administrative purpose only and will not be displayed on the site.'),
     ),
-    'slideshow' => array(
-      'name' => t('Slideshow'),
-      'base' => 'node_content',
-      'description' => t('Use <em>slideshow</em> to promote content that will be displayed on the homepage.'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => t('Title field is for administrative purpose only and will not be displayed on the site, use Headline instead.'),
-    ),
   );
   return $items;
 }

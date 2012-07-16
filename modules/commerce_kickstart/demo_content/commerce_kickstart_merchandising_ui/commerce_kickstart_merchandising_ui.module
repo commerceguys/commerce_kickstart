@@ -5,27 +5,3 @@
  */
 
 include_once('commerce_kickstart_merchandising_ui.features.inc');
-
-/**
- * Implements hook_library().
- */
-function commerce_kickstart_merchandising_ui_library() {
-  $libraries['bxslider'] = array(
-    'title' => 'Bxslider',
-    'website' => 'http://bxslider.com/',
-    'version' => '3.0',
-    'js' => array(
-      libraries_get_path('jquery.bxSlider') . '/jquery.bxSlider.min.js' => array(),
-    ),
-  );
-  return $libraries;
-}
-
-/**
- * Implements hook_preprocess_page().
- */
-function commerce_kickstart_merchandising_ui_preprocess_page(&$vars) {
-  if ($vars['is_front']) {
-    drupal_add_library('commerce_kickstart_merchandising_ui', 'bxslider');
-  }
-}

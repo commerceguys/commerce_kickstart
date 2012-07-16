@@ -59,19 +59,6 @@ function commerce_kickstart_merchandising_ui_install() {
       ->condition('delta', 'demo_content-block_2')
       ->condition('theme', $default_theme)
       ->execute();
-    // HP Slideshow.
-    db_update('block')
-      ->fields(array(
-      'region' => 'content',
-      'status' => (int) '1',
-      'visibility' => '1',
-      'pages' => '<front>',
-      'title' => '<none>',
-    ))
-      ->condition('module', 'views')
-      ->condition('delta', 'demo_content-block_3')
-      ->condition('theme', $default_theme)
-      ->execute();
   }
   catch (Exception $e) {
     watchdog_exception('block', $e);

@@ -209,7 +209,7 @@ body {
   white-space: nowrap;
 }
 /* HP blocks: Slideshow */
-.block-demo-content-block-3 {
+.block-views-demo-content-slideshow-block-1 {
   position: relative;
   top: -10px;
 }
@@ -225,21 +225,21 @@ body {
   min-width: 344px;
   max-width: 344px;
 }
-.view-display-id-block_3 .item-list .event-slider li {
+.view-display-id-block_1 .item-list .event-slider li {
   height: 168px;
   margin: 0 auto;
   width: 344px;
 }
-.view-display-id-block_3 .item-list .event-slider li img {
+.view-display-id-block_1 .item-list .event-slider li img {
   width: 100%;
   height: auto;
 }
 .event-slider .views-field-nothing,
 .event-slider .views-field-nothing em,
-.view-display-id-block_3 .bx-prev,
-.view-display-id-block_3 .bx-prev em,
-.view-display-id-block_3 .bx-next,
-.view-display-id-block_3 .bx-next em {
+.view-display-id-block_1 .bx-prev,
+.view-display-id-block_1 .bx-prev em,
+.view-display-id-block_1 .bx-next,
+.view-display-id-block_1 .bx-next em {
   display: none;
   text-indent: -9999px;
 }
