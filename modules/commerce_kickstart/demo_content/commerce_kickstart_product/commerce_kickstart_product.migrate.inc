@@ -394,6 +394,7 @@ class CommerceKickstartStorage extends CommerceKickstartMigration {
 
     // Capacity ("size")
     $this->addFieldMapping('field_storage_capacity', 'capacity');
+    $this->addFieldMapping('field_storage_capacity:weight', 'weight');
     $this->addFieldMapping('field_storage_capacity:create_term')
       ->defaultValue(TRUE);
 
@@ -415,6 +416,7 @@ class CommerceKickstartStorage extends CommerceKickstartMigration {
     $columns[4] = array('price', 'Price');
     $columns[5] = array('images', 'Images');
     $columns[6] = array('hexadecimal', 'Hexadecimal');
+    $columns[7] = array('weight', 'Weight');
     return $columns;
   }
 

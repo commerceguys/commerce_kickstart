@@ -8,7 +8,8 @@ class KickstartMigrateTaxonomyTermReferenceFieldHandler extends MigrateTaxonomyT
 
   public function fields($type) {
     return array(
-      'additional_field' => t('Option: Pass any additional field that should be added in the term. Array should be "field_name|value".')
+      'additional_field' => t('Option: Pass any additional field that should be added in the term. Array should be "field_name|value".'),
+      'weight' => t('Option: Pass term weight. Value should be "weight".')
     );
   }
 
@@ -52,6 +53,9 @@ class KickstartMigrateTaxonomyTermReferenceFieldHandler extends MigrateTaxonomyT
           $new_term = new stdClass();
           $new_term->vid = $vid;
           $new_term->name = $value;
+          if (!empty($arguments['weight'])) {
+            $new_term->weight = $arguments['weight'];
+          }
           if (!empty($arguments['additional_field'])) {
             $additional_field = explode('|', $arguments['additional_field']);
             $additional_field_machine_name = $additional_field[0];

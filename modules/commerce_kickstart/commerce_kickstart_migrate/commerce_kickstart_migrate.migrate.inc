@@ -19,6 +19,7 @@ abstract class CommerceKickstartMigration extends Migration {
 }
 
 class CommerceKickstartPages extends CommerceKickstartMigration {
+
   public function __construct() {
     parent::__construct();
     $this->description = t('Import pages nodes.');
