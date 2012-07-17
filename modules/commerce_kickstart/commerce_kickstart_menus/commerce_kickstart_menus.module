@@ -160,7 +160,7 @@ function commerce_kickstart_menus_menu_alter(&$items) {
   }
 
   // Move the main Drupal entry points below admin/site-config/advanced.
-  foreach (array('admin/structure', 'admin/people', 'admin/modules', 'admin/config', 'admin/reports', 'admin/help', 'admin/advanced_help', 'admin/demo') as $path) {
+  foreach (array('admin/structure', 'admin/people', 'admin/modules', 'admin/config', 'admin/reports', 'admin/help', 'admin/advanced_help') as $path) {
     if (isset($items[$path])) {
       $items[$path]['parent'] = 'admin/site-config/advanced';
     }

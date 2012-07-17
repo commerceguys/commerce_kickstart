@@ -38,7 +38,7 @@ class DemoTestCase extends DrupalWebTestCase {
     }
 
     // Delete them.
-    $this->drupalPost('admin/demo', array(), t('Kill me !'));
+    $this->drupalPost('admin/commerce/config/demo', array(), t('Kill me !'));
 
     // Check that they have been deleted.
     // Verify those nodes are here.
@@ -88,7 +88,7 @@ class Demo_other_TestCase extends DrupalWebTestCase {
     $nodes_demo[] = $this->drupalCreateNode(array('type' => 'page', 'status' => NODE_NOT_PUBLISHED));
 
     // Delete them.
-    $this->drupalPost('admin/demo', array(), t('Kill me !'));
+    $this->drupalPost('admin/commerce/config/demo', array(), t('Kill me !'));
 
     // Check that only node create after demo module has been enabled have been
     // deleted.
