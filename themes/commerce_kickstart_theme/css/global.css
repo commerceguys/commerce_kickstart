@@ -306,6 +306,7 @@ select[multiple] {
   display: inline;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+  float: left;
   height: 34px;
   line-height: 30px;
   padding: 0 12px 0 6px;
