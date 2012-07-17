@@ -603,22 +603,25 @@ select[multiple] {
   text-transform: uppercase;
 }
 #search-api-ranges-block-view-form .range-slider-box {
-  margin: 0 auto;
-  width: 90%;
+  display: none;
+}
+#search-api-ranges-block-view-form .range-box {
+  float: left;
 }
 #search-api-ranges-block-view-form label {
   float: left;
   line-height: 24px;
   margin-right: 5px;
-  text-align: right;
+  text-align: left;
   white-space: nowrap;
-  width: 25%;
+  width: 40%;
 }
 #search-api-ranges-block-view-form label:after {
   content: ":";
 }
 #search-api-ranges-block-view-form #edit-range-from,
 #search-api-ranges-block-view-form #edit-range-to {
+  float: left;
   width: 80px;
 }
 #search-api-ranges-block-view-form #edit-submit {
@@ -630,15 +633,10 @@ select[multiple] {
   color: #FFFFFF;
   font-size: 14px;
   font-weight: normal;
+  margin-top: 2em;
   padding: 5px 12px;
 }
-/* Category */
-.region-sidebar-first .block-facetapi.field_category .item-list {
-  border: 1px solid #d9d9d9;
-  height: 220px;
-  padding: 10px 20px;
-  overflow-y: scroll;
-}
+
 /*******************************************
 * 3.2.2. Content
 *******************************************/

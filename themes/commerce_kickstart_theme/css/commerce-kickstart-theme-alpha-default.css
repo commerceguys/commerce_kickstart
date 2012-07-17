@@ -148,9 +148,24 @@ body {
 * 3.2.1. Sidebar first
 *******************************************/
 /* Price range */
+#search-api-ranges-block-view-form .range-slider-box {
+  margin: 0 auto;
+  width: 90%;
+}
+#search-api-ranges-block-view-form .range-box {
+  float: inherit;
+}
 #search-api-ranges-block-view-form label {
   float: left;
 }
+#search-api-ranges-block-view-form #edit-range-from,
+#search-api-ranges-block-view-form #edit-range-to {
+  float: inherit;
+}
+#search-api-ranges-block-view-form #edit-submit {
+  margin-top: 0;
+}
+
 /*******************************************
 * 3.2.2. Content
 *******************************************/
