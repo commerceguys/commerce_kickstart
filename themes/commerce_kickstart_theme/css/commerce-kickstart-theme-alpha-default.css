@@ -52,7 +52,7 @@ body {
 **********************************************/
 .zone-user-wrapper {
   position: fixed;
-  z-index: 100;
+  z-index: 200;
 }
 /*******************************************
 * 2.1.2. Region user second
