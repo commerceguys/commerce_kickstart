@@ -65,3 +65,5 @@ features[variable][] = pathauto_node_pattern
 features[variable][] = pathauto_punctuation_hyphen
 features[variable][] = pathauto_taxonomy_term_pattern
 features[variable][] = pathauto_user_pattern
+
+files[] = commerce_kickstart_lite_product.migrate.inc

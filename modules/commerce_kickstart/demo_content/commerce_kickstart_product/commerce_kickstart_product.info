@@ -240,3 +240,5 @@ features[variable][] = pathauto_taxonomy_term_shoe_size_pattern
 features[variable][] = pathauto_taxonomy_term_storage_capacity_pattern
 features[variable][] = pathauto_taxonomy_term_top_size_pattern
 features[variable][] = pathauto_user_pattern
+
+files[] = commerce_kickstart_product.migrate.inc

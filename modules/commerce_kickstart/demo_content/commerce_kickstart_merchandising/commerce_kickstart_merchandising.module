@@ -5,3 +5,12 @@
  */
 
 include_once 'commerce_kickstart_merchandising.features.inc';
+
+/**
+ * Implements hook_migrate_api().
+ */
+function commerce_kickstart_merchandising_migrate_api() {
+  return array(
+    'api' => 2,
+  );
+}

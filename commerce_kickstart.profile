@@ -424,14 +424,10 @@ function commerce_kickstart_import_content() {
     $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up users.')));
   }
 
-  // Run the migrations matching the install mode (demo store or not).
+  // Run all available migrations.
   $migrations = migrate_migrations();
   foreach ($migrations as $machine_name => $migration) {
-    $migration_group = $migration->getGroup()->getName();
-    $expected_group = $install_demo_store ? 'demo_store' : 'default';
-    if ($migration_group == $expected_group) {
-      $operations[] = array('_commerce_kickstart_import', array($machine_name, t('Importing content.')));
-    }
+    $operations[] = array('_commerce_kickstart_import', array($machine_name, t('Importing content.')));
   }
 
   // Perform post-import tasks.

@@ -7,6 +7,15 @@
 include_once 'commerce_kickstart_product.features.inc';
 
 /**
+ * Implements hook_migrate_api().
+ */
+function commerce_kickstart_product_migrate_api() {
+  return array(
+    'api' => 2,
+  );
+}
+
+/**
  * Implements hook_commerce_product_type_info_alter().
  */
 function commerce_product_commerce_product_type_info_alter(&$product_types) {
