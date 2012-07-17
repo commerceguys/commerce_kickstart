@@ -60,6 +60,13 @@ css[global.css][name] = Your custom global styles
 css[global.css][description] = This file holds all the globally active custom CSS of your theme.
 css[global.css][options][weight] = 10
 
+; OPTIONAL LIBRARIES
+libraries[commerce_kickstart_theme_custom][name] = Commerce kickstart theme JS
+libraries[commerce_kickstart_theme_custom][description] = This file holds all the custom JS.
+libraries[commerce_kickstart_theme_custom][js][0][file] = commerce_kickstart_theme_custom.js
+libraries[commerce_kickstart_theme_custom][js][0][options][weight] = 15
+settings[alpha_libraries][commerce_kickstart_theme_custom] = 'commerce_kickstart_theme_custom'
+
 ; THEME SETTINGS (DEFAULTS)
 
 settings[alpha_grid] = 'alpha_default'
