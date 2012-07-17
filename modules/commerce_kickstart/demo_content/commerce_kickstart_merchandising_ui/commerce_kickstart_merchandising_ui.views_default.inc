@@ -94,7 +94,6 @@ function commerce_kickstart_merchandising_ui_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'brand' => 'brand',
     'product_push' => 'product_push',
-    'slideshow' => 'slideshow',
   );
 
   /* Display: First ad push block */

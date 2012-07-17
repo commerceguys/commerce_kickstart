@@ -27,7 +27,7 @@ function commerce_kickstart_merchandising_ui_views_api() {
 function commerce_kickstart_merchandising_ui_image_default_styles() {
   $styles = array();
 
-  // Exported image style: hp_blocks
+  // Exported image style: hp_blocks.
   $styles['hp_blocks'] = array(
     'name' => 'hp_blocks',
     'effects' => array(

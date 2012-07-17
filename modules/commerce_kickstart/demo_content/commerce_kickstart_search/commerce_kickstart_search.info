@@ -18,6 +18,7 @@ features[search_api_server][] = database_search_engine
 features[search_api_sort][] = search_commerce_display__created
 features[search_api_sort][] = search_commerce_display__field_product_commerce_price_amount_float_asc
 features[search_api_sort][] = search_commerce_display__title
+features[user_permission][] = use search_api_sorts
 files[] = plugins/facetapi/filter_kickstart_same_search.inc
 files[] = plugins/facetapi/filter_kickstart_search_start.inc
 scripts[] = commerce_kickstart_search.js

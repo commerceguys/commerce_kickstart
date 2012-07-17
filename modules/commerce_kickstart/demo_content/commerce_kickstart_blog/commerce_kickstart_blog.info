@@ -31,5 +31,9 @@ features[variable][] = node_options_blog_post
 features[variable][] = node_preview_blog_post
 features[variable][] = node_submitted_blog_post
 features[variable][] = pathauto_node_blog_post_pattern
-
+features[user_permission][] = delete any blog_post content
+features[user_permission][] = delete own blog_post content
+features[user_permission][] = edit any blog_post content
+features[user_permission][] = edit own blog_post content
+features[user_permission][] = create blog_post content
 files[] = commerce_kickstart_blog.migrate.inc

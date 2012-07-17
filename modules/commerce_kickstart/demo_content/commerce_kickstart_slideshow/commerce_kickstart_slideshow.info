@@ -44,5 +44,8 @@ features[variable][] = node_preview_slideshow
 features[variable][] = node_submitted_slideshow
 features[variable][] = pathauto_node_slideshow_pattern
 scripts[] = commerce_kickstart_slideshow.js
-
+features[user_permission][] = delete any slideshow content
+features[user_permission][] = edit any slideshow content
+features[user_permission][] = edit own slideshow content
+features[user_permission][] = delete own slideshow content
 files[] = commerce_kickstart_slideshow.migrate.inc

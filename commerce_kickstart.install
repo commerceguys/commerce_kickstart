@@ -197,6 +197,7 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_lite_search',
       'commerce_kickstart_lite_product',
       'commerce_kickstart_lite_product_ui',
+      'commerce_kickstart_user',
       'commerce_kickstart_migrate',
     );
     $selected_extras = variable_get('commerce_kickstart_selected_extras', array());
@@ -579,6 +580,12 @@ function commerce_kickstart_install() {
   db_insert('users_roles')
     ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
     ->execute();
+
+  // Create a "Store Administrator" role for site administrators.
+  $admin_role = new stdClass();
+  $admin_role->name = 'store administrator';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
 
   // Update the menu router information.
   menu_rebuild();
