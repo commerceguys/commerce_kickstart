@@ -87,8 +87,7 @@
 /**********************************************
 * 3.3. Zone postscript
 **********************************************/
-.view-display-id-block_1 .views-row .views-field-field-tagline,
-.view-display-id-block_2 .views-row .views-field-field-tagline,
+.view-demo-content .views-row .views-field-field-tagline,
 .block-blog-block .views-field-title {
   left: 10px;
 }

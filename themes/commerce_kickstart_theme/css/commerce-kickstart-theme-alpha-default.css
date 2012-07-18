@@ -296,8 +296,7 @@ body {
 * 3.3. Zone postscript
 **********************************************/
 /* Adverts blocks */
-.view-display-id-block_1 .views-row,
-.view-display-id-block_2 .views-row,
+.view-demo-content .views-row,
 .block-blog-block .block-inner {
   background-color: #cccccc;
   border: 1px solid #b1b1b1;
@@ -305,8 +304,7 @@ body {
   padding: 10px 0px 25px 0px;
   position: relative;
 }
-.view-display-id-block_1 .views-row img,
-.view-display-id-block_2 .views-row img,
+.view-demo-content .views-row img,
 .block-blog-block img {
   border: 4px solid #ffffff;
 }
@@ -321,16 +319,14 @@ body {
   width: 112px;
   z-index: 1;
 }
-.view-display-id-block_1 .views-row .views-field-field-tagline,
-.view-display-id-block_2 .views-row .views-field-field-tagline,
+.view-demo-content .views-row .views-field-field-tagline,
 .block-blog-block .views-field-title {
   margin: 5px 10px;
   position: absolute;
   bottom: 30px;
   left: 14px;
 }
-.view-display-id-block_1 .views-row .views-field-field-tagline,
-.view-display-id-block_2 .views-row .views-field-field-tagline,
+.view-demo-content .views-row .views-field-field-tagline,
 .block-blog-block .views-field-title .field-content {
   display: block;
   width: 260px;

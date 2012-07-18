@@ -155,8 +155,7 @@
 /**********************************************
 * 3.3. Zone postscript
 **********************************************/
-.view-display-id-block_1 .views-row,
-.view-display-id-block_2 .views-row,
+.view-demo-content .views-row,
 .block-blog-block .block-inner {
   margin : 0;
 }
