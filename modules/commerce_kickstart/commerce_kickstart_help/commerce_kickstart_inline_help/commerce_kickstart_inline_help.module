@@ -34,15 +34,17 @@ function commerce_kickstart_inline_help_page_alter(&$vars) {
 
     $rendered_help = advanced_help_view_topic('commerce_kickstart_inline_help', $help_topic, TRUE);
 
+    $commerce_kickstart_inline_help_form_ajax = drupal_get_form('commerce_kickstart_inline_help_form_ajax', $help_topic);
     $vars['content']['system_main']['help_button'] = array(
       '#weight' => -11,
-      '#markup' => '<div id="commerce-kickstart-inline-help-button">' . render(drupal_get_form('commerce_kickstart_inline_help_form_ajax', $help_topic)) . '</div><div class="clearfix"></div>',
+      '#markup' => '<div id="commerce-kickstart-inline-help-button">' . render($commerce_kickstart_inline_help_form_ajax) . '</div><div class="clearfix"></div>',
     );
     $help_status = variable_get('kickstart_inline_help', array());
     isset($help_status[$help_topic]) && $help_status[$help_topic] == FALSE ? $display = 'display: none' : $display = NULL;
+    $commerce_kickstart_inline_close_help_form_ajax = drupal_get_form('commerce_kickstart_inline_close_help_form_ajax', $help_topic);
     $vars['content']['system_main']['help_text'] = array(
       '#weight' => -10,
-      '#markup' => '<div id="commerce-kickstart-inline-help" style="' . $display . '">' . render(drupal_get_form('commerce_kickstart_inline_close_help_form_ajax', $help_topic)) . $rendered_help . '</div>',
+      '#markup' => '<div id="commerce-kickstart-inline-help" style="' . $display . '">' . render($commerce_kickstart_inline_close_help_form_ajax) . $rendered_help . '</div>',
     );
   }
 
