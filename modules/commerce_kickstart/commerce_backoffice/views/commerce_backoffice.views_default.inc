@@ -1052,6 +1052,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['tab_options']['title'] = 'Products';
   $handler->display->display_options['tab_options']['description'] = 'Manage products in the store.';
   $handler->display->display_options['tab_options']['weight'] = '0';
+  $handler->display->display_options['tab_options']['name'] = 'management';
   $views[$view->name] = $view;
 
   $view = new view;
