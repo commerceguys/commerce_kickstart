@@ -16,3 +16,4 @@ features[features_api][] = api:1
 features[search_api_server][] = kickstart_product_display
 files[] = plugins/facetapi/filter_kickstart_same_search.inc
 files[] = plugins/facetapi/filter_kickstart_search_start.inc
+scripts[] = commerce_kickstart_lite_search.js

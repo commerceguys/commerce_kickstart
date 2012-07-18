@@ -5,6 +5,7 @@ package = Commerce Kickstart
 php = 5.2.4
 version = 7.x-1.0
 project = commerce_kickstart_search
+
 dependencies[] = facetapi
 dependencies[] = search_api
 dependencies[] = search_api_db
@@ -19,3 +20,4 @@ features[search_api_sort][] = search_commerce_display__field_product_commerce_pr
 features[search_api_sort][] = search_commerce_display__title
 files[] = plugins/facetapi/filter_kickstart_same_search.inc
 files[] = plugins/facetapi/filter_kickstart_search_start.inc
+scripts[] = commerce_kickstart_search.js
