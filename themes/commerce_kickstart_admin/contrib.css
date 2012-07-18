@@ -683,7 +683,7 @@ tr.even {
 /* Megarow */
 .entity-commerce-order .content-right,
 .entity-commerce-order .content-left {
-  margin: 0 10px;
+  margin: 0 1%;
 }
 .entity-commerce-order .field-name-commerce-line-items th,
 .entity-commerce-order .content-right .field-label,
@@ -756,6 +756,9 @@ tr.even {
 .entity-commerce-order tr,
 tr td:last-child {
   border: 0;
+}
+#panes tr td:last-child {
+  border-right: 1px solid #BEBFB9;
 }
 /* Blocks admin doesn't */
 #blocks tr td:last-child {
@@ -1014,6 +1017,19 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 .ui-datepicker .ui-datepicker-title select {
   border: 1px solid #ccc;
 }
+.field-type-commerce-line-item-reference .add-line-item .form-submit {
+  margin-top: 10px;
+}
+.field-name-commerce-discounts input.field-add-more-submit {
+  margin-top: 20px;
+}
+.view-commerce-payment-order #commerce-payment-order-transaction-add-form .add-payment input.form-submit {
+  margin-top: 9px;
+}
+.view-commerce-discount-overview .views-reset-button input.form-submit {
+  margin-top: 23px;
+}
+
 /* @end */
 
 /* @end */

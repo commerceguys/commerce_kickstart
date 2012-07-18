@@ -490,7 +490,8 @@ body.in-maintenance #credit .logo a {
   -webkit-border-radius: 15px;
   border-radius: 15px;
   margin: 0;
-  min-height: 210px;
+  min-height: 250px;
+  padding: 10px 30px;
   width: 48.27586%; /* 420px/870px */
 }
 .block-commerce-kickstart-help h2 {
