@@ -83,6 +83,7 @@ dependencies[] = commerce_discount_date
 dependencies[] = commerce_discount_usage
 dependencies[] = commerce_fancy_attributes
 dependencies[] = commerce_backoffice
+dependencies[] = commerce_checkout_progress
 
 ; Install Features
 dependencies[] = features

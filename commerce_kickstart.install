@@ -453,7 +453,7 @@ function commerce_kickstart_install() {
       'pages' => '',
       'cache' => -1,
     ),
-     array(
+    array(
       'module' => 'system',
       'delta' => 'help',
       'theme' => $default_theme,
@@ -517,7 +517,21 @@ function commerce_kickstart_install() {
       'visibility' => 0,
       'cache' => -1,
     ),
+    // Commerce checkout progress
+    array(
+      'module' => 'commerce_checkout_progress',
+      'delta' => 'indication',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => 'breadcrumb',
+      'pages' => "checkout/*\ncart",
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'cache' => -1,
+      'title' => '<none>',
+    ),
   );
+
   drupal_static_reset();
   _block_rehash($admin_theme);
   _block_rehash($default_theme);
@@ -594,4 +608,9 @@ function commerce_kickstart_install() {
 
   // Set Mimemail.
   variable_set('mimemail_format', 'full_html');
+  // Set checkout progress.
+  variable_set('commerce_checkout_progress_cart', 1);
+  variable_set('commerce_checkout_progress_link', 1);
+  variable_set('commerce_checkout_progress_list_type', 'ol');
+  variable_set('commerce_checkout_progress_block_pages', array());
 }

@@ -370,6 +370,19 @@ function _commerce_kickstart_setup_omega_theme() {
       'visibility' => 0,
       'cache' => -1,
     ),
+    // Commerce checkout progress
+    array(
+      'module' => 'commerce_checkout_progress',
+      'delta' => 'indication',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => 'content',
+      'pages' => "checkout/*\ncart",
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'cache' => -1,
+      'title' => '<none>',
+    ),
   );
 
   drupal_static_reset();

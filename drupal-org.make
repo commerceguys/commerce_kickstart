@@ -63,6 +63,9 @@ projects[commerce_discount][subdir] = "contrib"
 projects[commerce_discount][download][type] = git
 projects[commerce_discount][download][revision] = 6e933cb8c6c58b2c833809239ba8468dd66c9f9e
 projects[commerce_discount][download][branch] = 7.x-1.x
+projects[commerce_checkout_progress][version] = 1.2
+projects[commerce_checkout_progress][subdir] = "contrib"
+
 
 ; Other contribs.
 projects[http_client][version] = 2.3

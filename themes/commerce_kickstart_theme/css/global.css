@@ -537,7 +537,7 @@ select[multiple] {
   text-indent: -9999px;
   width: 20px;
 }
-#region-breadcrumb li {
+#region-breadcrumb .pseudo-breadcrumb li {
   color: #898a8c;
   float: left;
   font-weight: bold;
@@ -1641,6 +1641,53 @@ div.messages.commerce-kickstart-add-to-cart {
 /**********************************************
 * 5.4. Checkout process
 **********************************************/
+/**
+* Checkout progress
+*/
+.block-commerce-checkout-progress .content .item-list {
+  background-color: #eeeeee;
+  border: 1px solid #d7d7d7;
+  padding: 5px 10px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+ol.commerce-checkout-progress {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+ol.inline.commerce-checkout-progress li {
+  font-weight: 300;
+  padding: 10px 10px 10px 0;
+  width: auto;
+}
+.commerce-checkout-progress li {
+  color: #898A8C;
+}
+.commerce-checkout-progress li a {
+  font-weight: bold;
+}
+
+.commerce-checkout-progress li.active,
+.commerce-checkout-progress li.previous,
+.commerce-checkout-progress li.visited {
+  color: #000000;
+  font-weight: 400;
+}
+.commerce-checkout-progress li.active,
+.commerce-checkout-progress li.visited,
+.commerce-checkout-progress li.previous:after,
+.commerce-checkout-progress li.visited:after {
+  color: #2698F2;
+}
+
+.commerce-checkout-progress li:after {
+  content: ">";
+  padding-left: 10px;
+}
+.commerce-checkout-progress li.last:after {
+  content: none;
+}
 /**
 * Shopping cart page
 * Checkout page
