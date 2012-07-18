@@ -186,3 +186,6 @@
 .node-product-type .cloud-zoom-container .cloud-zoom {
   float: right;
 }
+.commerce-kickstart-add-to-cart .message-inner {
+  position: relative;
+}

@@ -58,6 +58,9 @@
   margin-left: 130px;
   position: relative;
 }
+.commerce-kickstart-add-to-cart .message-inner {
+  position: relative;
+}
 /**********************************************
 * 5.4. Checkout process
 **********************************************/

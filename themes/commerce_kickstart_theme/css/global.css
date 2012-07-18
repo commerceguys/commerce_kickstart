@@ -304,6 +304,7 @@ select[multiple] {
 .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
   color: #888888;
   display: inline;
+  float: left;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   float: left;
@@ -1345,12 +1346,16 @@ ul#payments li:first-child {
 /**********************************************
 * 5.3. Product page
 **********************************************/
-.block-search-api-sorts .content a {
-
-}
 div.messages.commerce-kickstart-add-to-cart {
-  background-color: #E4F5FE;
+  background-color: #E4EEF3;
   border-color: #D7D7D7;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 2px 15px #57595A;
+  -webkit-box-shadow: 0 2px 15px #57595A;
+  box-shadow: 0 2px 15px #57595A;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#57595A', direction='180', strength='5');
   padding: 5px 10px 25px 30px;
 }
 .commerce-kickstart-add-to-cart {
@@ -1445,7 +1450,7 @@ div.messages.commerce-kickstart-add-to-cart {
 .commerce-product-sku .commerce-product-sku-label,
 .commerce-kickstart-add-to-cart .views-label-quantity,
 .commerce-kickstart-add-to-cart .views-label-commerce-price {
-    float: left; /* LTR */
+  float: left; /* LTR */
   font-weight: bold;
 }
 .commerce-kickstart-add-to-cart .field-items  {
@@ -1470,7 +1475,7 @@ div.messages.commerce-kickstart-add-to-cart {
 }
 .commerce-kickstart-add-to-cart .field:after,
 .entity-commerce-product:after {
-  content: initial;
+  content: none;
 }
 .node-product-type .product-title {
   clear: both;
@@ -2103,6 +2108,11 @@ a.login-account {
 a.login-register:hover,
 a.login-account:hover {
   background: #2698f2;
+}
+a.login-register {
+  display: block;
+  float: left;
+  margin-top: 20px;
 }
 /* User/login */
 #user_login_form {

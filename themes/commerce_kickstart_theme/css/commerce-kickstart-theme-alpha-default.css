@@ -434,9 +434,6 @@ body {
 #user_pass_form {
   width: auto;
 }
-a.login-register {
-  margin-left: 25px;
-}
 /* User/login */
 #user_login_form {
   border: 0;
