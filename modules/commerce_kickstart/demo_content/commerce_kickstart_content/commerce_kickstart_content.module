@@ -62,7 +62,6 @@ function commerce_kickstart_content_block_view($delta = '') {
         commerce_kickstart_content_build_element(t('Paypal'), 'payment_paypal'),
         commerce_kickstart_content_build_element(t('Mastercard'), 'payment_mastercard'),
         commerce_kickstart_content_build_element(t('American express'), 'payment_american_express'),
-        commerce_kickstart_content_build_element(t('Visa'), 'payment_visa'),
       );
       $block['content'] = theme('item_list', array('items' => $items, 'attributes' => array('id' => 'payments')));
       break;

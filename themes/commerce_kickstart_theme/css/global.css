@@ -565,9 +565,9 @@ select[multiple] {
 /* Search api facet blocks */
 .region-sidebar-first .block-facetapi {
   border-top: 1px solid #000000;
-  margin-top: 15px;
   margin-bottom: 30px;
   margin-left: 15px;
+  padding-top: 15px;
   padding-left: 15px;
 }
 .region-sidebar-first .block-facetapi ul {
@@ -1034,36 +1034,37 @@ select[multiple] {
 /**
 * Payment blocks
 */
-.block-payment {
+.block-payment .content {
   background-color: #ffffff;
   color: #3f3f3f;
   padding: 10px;
 }
 ul#payments {
+  height: 40px;
   margin-bottom: 0;
 }
 ul#payments li {
   display: inline;
   float: left;
-  margin-left: 0; /* LTR */
+  margin: 0;
+  text-align: center;
+  width: 24%;
 }
 ul#payments li:first-child {
-  margin-left: 10px;
+  padding-left: 10px;
 }
 #payments #payment_visa_premier,
 #payments #payment_paypal,
 #payments #payment_mastercard,
-#payments #payment_american_express,
-#payments #payment_visa {
+#payments #payment_american_express {
   display: block;
   height: 30px;
-  margin: 5px 6px;
+  margin: 5px 0px;
   text-indent: -9999px;
   width: 50px;
 }
 #payments #payment_visa_premier {
   background: url('../images/picto_visa_premier.png') left top no-repeat;
-  margin-left: 0;
 }
 #payments #payment_paypal {
   background: url('../images/picto_paypal.png') left top no-repeat;
@@ -1073,9 +1074,6 @@ ul#payments li:first-child {
 }
 #payments #payment_american_express {
   background: url('../images/picto_american_express.png') left top no-repeat;
-}
-#payments #payment_visa {
-  background: url('../images/picto_visa.png') left top no-repeat;
 }
 /**************************************************
 * --
