@@ -171,4 +171,7 @@ libraries[cloud-zoom][download][url] = "http://www.professorcloud.com/downloads/
 libraries[jquery_expander][type] = "libraries"
 libraries[jquery_expander][download][type] = "git"
 libraries[jquery_expander][download][url] = "https://github.com/kswedberg/jquery-expander.git"
+libraries[selectnav.js][type] = "libraries"
+libraries[selectnav.js][download][type] = "git"
+libraries[selectnav.js][download][url] = "https://github.com/lukaszfiszer/selectnav.js.git"
 

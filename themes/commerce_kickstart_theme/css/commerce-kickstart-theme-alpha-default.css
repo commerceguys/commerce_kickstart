@@ -42,6 +42,9 @@
 body {
   margin: 0;
 }
+.selectnav {
+  display: none;
+}
 /**************************************************
 * --
 * 2. Section header

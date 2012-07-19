@@ -167,6 +167,14 @@ select[size],
 select[multiple] {
   height: 25px;
 }
+
+.responsive-layout-mobile .facetapi-lists {
+  display: none;
+}
+.responsive-layout-mobile .selectnav {
+  display: block;
+}
+
 /**************************************************
 * --
 * 2. Section header
