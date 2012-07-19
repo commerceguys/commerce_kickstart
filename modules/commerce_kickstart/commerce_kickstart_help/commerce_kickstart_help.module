@@ -36,7 +36,7 @@ function commerce_kickstart_help_preprocess_page(&$vars) {
     drupal_add_library('system', 'jquery.form');
     drupal_add_library('system', 'ui.accordion');
     drupal_add_js(drupal_get_path('module', 'commerce_kickstart_help') . '/commerce_kickstart_help.js', 'file');
-    drupal_set_breadcrumb(array(l(t('Home'), '<front>'), l(t('Help'), 'advanced_help'), l(t('Getting Started'), 'admin/getting-started')));
+    drupal_set_breadcrumb(array(l(t('Home'), '<front>'), l(t('Help'), 'admin/advanced_help'), l(t('Getting Started'), 'admin/getting-started')));
 
     $vars['page']['content']['system_main']['help_text'] = array(
       '#weight' => -12,
