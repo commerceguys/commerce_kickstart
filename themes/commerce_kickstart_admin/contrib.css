@@ -374,7 +374,6 @@ table th {
   padding-left: 4px;
   padding-top: 4px;
 }
-
 /* @end */
 
 /* @group CTools */
@@ -611,8 +610,8 @@ tr.even {
   border-width: 0 1px 1px;
 }
 .node-form .field-widget-inline-entity-form #ief-entity-table tr.ief-row-entity-form {
-  background: #dcf8fc;
-  border: 1px solid #8ae6f1;
+  background: #DFF2FB;
+  border: 1px solid #AFDBE9;
   -moz-box-shadow: 0 0 5px #fff;
   -webkit-box-shadow: 0 0 5px #fff;
   box-shadow: 0 0 5px #fff;
@@ -908,11 +907,9 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
-
 #commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper {
   height: 70px;
 }
-
 #commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper input {
   background-position: 100px 3px;
   height: 25px;
