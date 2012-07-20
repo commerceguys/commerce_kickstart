@@ -1,15 +1,35 @@
 /* Toolbar Styles */
 body.toolbar #toolbar {
-  background: #55b5ff;
+  background-color: #50adf5;
+  background-image: url(images/select.png);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55b5ff), to(#50adf5));
+  background-image: -webkit-linear-gradient(top, #55b5ff, #50adf5);
+  background-image: -moz-linear-gradient(top, #55b5ff, #50adf5);
+  background-image: -ms-linear-gradient(top, #55b5ff, #50adf5);
+  background-image: -o-linear-gradient(top, #55b5ff, #50adf5);
+  background-image: linear-gradient(to bottom, #55b5ff, #50adf5);
 }
 body.toolbar #toolbar div.toolbar-menu {
-  width: 88%;
+  background-color: #50adf5;
+  background-image: url(images/select.png);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55b5ff), to(#50adf5));
+  background-image: -webkit-linear-gradient(top, #55b5ff, #50adf5);
+  background-image: -moz-linear-gradient(top, #55b5ff, #50adf5);
+  background-image: -ms-linear-gradient(top, #55b5ff, #50adf5);
+  background-image: -o-linear-gradient(top, #55b5ff, #50adf5);
+  background-image: linear-gradient(to bottom, #55b5ff, #50adf5);
   margin: 0 auto;
-  background: #55b5ff;
+  min-height: 50px;
   padding: 3px 0;
+  width: 88%;
 }
 #toolbar a {
   color: #fff;
+  text-shadow: 0 1px 1px #18466b;
+}
+#toolbar #toolbar-home {
+  float: left;
+  padding: 3px 0;
 }
 #toolbar-home li,
 #toolbar-user li,
@@ -24,10 +44,10 @@ body.toolbar #toolbar-home li {
 }
 body.toolbar #toolbar-home a span {
   background: transparent url("images/logo-menu.png") no-repeat 0 0;
-  width: 130px;
-  height: 40px;
   display: block;
+  height: 40px;
   text-indent: -9999px;
+  width: 130px;
 }
 body.toolbar #toolbar-home a,
 body.toolbar #toolbar-home ul li a.active,
@@ -39,15 +59,16 @@ body.toolbar #toolbar-home a:hover {
   color: #fff;
 }
 /* User Menu */
-#toolbar-user {
+#toolbar #toolbar-user {
   float: right;
+  padding-top: 11px;
 }
 #toolbar #toolbar-user li.account a {
   color: #fddb84;
 }
 /* Main Menu */
-#toolbar div.toolbar-menu ul.menu {
-  padding-top: 15px;
+#toolbar div.toolbar-menu .toolbar-menu-wrapper {
+  padding-top: 11px;
 }
 #toolbar div.toolbar-menu ul li a {
   font: normal 500 15px/1.75em "Open Sans",Arial,sans-serif;
@@ -85,13 +106,13 @@ body.toolbar #toolbar div.toolbar-menu-wrapper ul.menu {
 }
 body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   background: transparent url("images/bg-dropdown.png") repeat 0 0;
-  font-size: 14px;
-  padding: 1px;
-  width: 200px;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 0;
+  font-size: 14px;
+  padding: 1px;
+  width: 200px;
   z-index: -1;
 }
 body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu {
@@ -123,13 +144,13 @@ body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 div.toolbar-menu-wrapper ul.menu li a,
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 div.toolbar-menu-wrapper ul.menu li:hover a,
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 li:hover div.toolbar-menu-wrapper ul.menu li a {
-  font-size: 15px;
   color: #57b3fc;
+  font-size: 15px;
   font-weight: 500;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 div.toolbar-menu-wrapper ul.menu ul.menu li a {
-  font-weight: 100;
   color: #fff;
+  font-weight: 100;
 }
 body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu li a:hover,
 body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li a:hover{
@@ -150,8 +171,8 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   width: 425px;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu {
-  padding: 0 20px 0 0;
   margin: 0;
+  padding: 0 20px 0 0;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li {
   padding: 0;
@@ -168,8 +189,8 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
 #toolbar div.toolbar-menu ul ul li a.active:active,
 #toolbar div.toolbar-menu ul ul li a.active,
 #toolbar div.toolbar-menu ul ul li.active-trail a {
-  font-weight: 700;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  font-weight: 700;
 }
