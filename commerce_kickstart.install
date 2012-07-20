@@ -278,7 +278,6 @@ function commerce_kickstart_import_content() {
   $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
   if ($install_demo_store) {
     $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menus.')));
-    $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up users.')));
   }
 
   // Run all available migrations.
@@ -287,6 +286,9 @@ function commerce_kickstart_import_content() {
     $operations[] = array('_commerce_kickstart_import', array($machine_name, t('Importing content.')));
   }
 
+  if ($install_demo_store) {
+    $operations[] = array('_commerce_kickstart_example_user', array(t('Setting up users.')));
+  }
   // Perform post-import tasks.
   $operations[] = array('_commerce_kickstart_post_import', array(t('Completing setup.')));
 
