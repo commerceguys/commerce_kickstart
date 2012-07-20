@@ -81,7 +81,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
           'settings' => array(
             'calculation' => 'calculated_sell_price',
           ),
-          'type' => 'commerce_price_formatted_amount',
+          'type' => 'commerce_kickstart_price_from',
           'weight' => '2',
         ),
         'node_teaser' => array(

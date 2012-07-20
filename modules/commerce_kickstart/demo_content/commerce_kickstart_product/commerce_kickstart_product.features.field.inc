@@ -90,7 +90,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => '0',
           ),
-          'type' => 'commerce_price_formatted_amount',
+          'type' => 'commerce_kickstart_price_from',
           'weight' => '1',
         ),
         'node_rss' => array(
@@ -574,7 +574,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => FALSE,
           ),
-          'type' => 'commerce_price_formatted_amount',
+          'type' => 'commerce_kickstart_price_from',
           'weight' => '4',
         ),
         'node_rss' => array(
@@ -959,7 +959,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => FALSE,
           ),
-          'type' => 'commerce_price_formatted_amount',
+          'type' => 'commerce_kickstart_price_from',
           'weight' => '4',
         ),
         'node_rss' => array(
@@ -1452,7 +1452,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => FALSE,
           ),
-          'type' => 'commerce_price_formatted_amount',
+          'type' => 'commerce_kickstart_price_from',
           'weight' => '4',
         ),
         'node_rss' => array(
@@ -1937,7 +1937,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => FALSE,
           ),
-          'type' => 'commerce_price_formatted_amount',
+          'type' => 'commerce_kickstart_price_from',
           'weight' => '3',
         ),
         'node_rss' => array(
@@ -2321,7 +2321,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => '0',
           ),
-          'type' => 'commerce_price_formatted_amount',
+          'type' => 'commerce_kickstart_price_from',
           'weight' => '1',
         ),
         'node_rss' => array(
