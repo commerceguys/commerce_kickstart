@@ -4,6 +4,7 @@
  * Implements hook_menu().
  */
 function commerce_kickstart_menus_menu() {
+  // Getting started
   $items['admin/help'] = array(
     'title' => 'Getting Started',
     'description' => '',
@@ -11,9 +12,210 @@ function commerce_kickstart_menus_menu() {
     'page arguments' => array('commerce_kickstart_help', 'first-steps'),
     'access arguments' => array('view advanced help topic'),
     'file path' => drupal_get_path('module', 'advanced_help'),
-    'weight' => 100,
+    'weight' => -25,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
   );
-
+  // Site settings
+  $items['admin/site-config'] = array(
+    'title' => 'Site settings',
+    'description' => 'Administer the site configuration.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 100,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Products
+  $items['admin/commerce/manage-products'] = array(
+    'title' => 'Products',
+    'description' => 'Manage products.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => -20,
+    'parent' => 'admin',
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Products > Actions
+  $items['admin/commerce/manage-products/actions'] = array(
+    'title' => 'Actions',
+    'description' => 'Products actions.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 0,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Products > Settings
+  $items['admin/commerce/manage-products/settings'] = array(
+    'title' => 'Settings',
+    'description' => 'Products settings.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 1,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Products > Settings > Categories
+  $items['admin/commerce/manage-products/settings/categories'] = array(
+    'title' => 'Categories',
+    'description' => 'Manage tagging, categorization, and classification of your products.',
+    'page callback' => 'drupal_goto',
+    'page arguments' => array('admin/commerce/config/products-categories'),
+    'access callback' => TRUE,
+  );
+  // Products > Settings > Product types
+  $items['admin/commerce/manage-products/settings/product-types'] = array(
+    'title' => 'Product types',
+    'description' => 'Manage products types for your store.',
+    'page callback' => 'drupal_goto',
+    'page arguments' => array('admin/commerce/config/types'),
+    'access callback' => TRUE,
+  );
+  // Content
+  $items['admin/commerce/manage-content'] = array(
+    'title' => 'Content',
+    'description' => 'Manage content.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => -20,
+    'parent' => 'admin',
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Content > Actions
+  $items['admin/commerce/manage-content/actions'] = array(
+    'title' => 'Actions',
+    'description' => 'Content actions.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 0,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Content > Settings
+  $items['admin/commerce/manage-content/settings'] = array(
+    'title' => 'Settings',
+    'description' => 'Content settings.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 1,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Content > Settings > Content types
+  $items['admin/commerce/manage-content/settings/content-types'] = array(
+    'title' => 'Content types',
+    'description' => 'Manage content types for your store.',
+    'page callback' => 'drupal_goto',
+    'page arguments' => array('admin/commerce/config/types/content'),
+    'access callback' => TRUE,
+  );
+  // Orders
+  $items['admin/commerce/manage-orders'] = array(
+    'title' => 'Orders',
+    'description' => 'Manage Orders.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => -15,
+    'parent' => 'admin',
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Orders > Actions
+  $items['admin/commerce/manage-orders/actions'] = array(
+    'title' => 'Actions',
+    'description' => 'Orders actions.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 0,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Store settings > Advanced store settings
+  $items['admin/commerce/config/advanced-settings'] = array(
+    'title' => 'Advanced store settings',
+    'description' => 'Advanced store settings.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 0,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  // Store settings > Product settings
+  $items['admin/commerce/config/product-settings'] = array(
+    'title' => 'Product settings',
+    'description' => 'Administer the product settings.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => 5,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
+  );
+  if (module_exists('commerce_discount')) {
+    // Store settings > Promotions
+    $items['admin/commerce/config/promotions'] = array(
+      'title' => 'Promotions',
+      'description' => 'Administer promotions.',
+      'page callback' => 'system_admin_menu_block_page',
+      'access arguments' => array('access administration pages'),
+      'file path' => drupal_get_path('module', 'system'),
+      'file' => 'system.admin.inc',
+      'weight' => 10,
+      'options' => array(
+        'toolbar_expanded' => TRUE,
+        'toolbar_break' => TRUE,
+      ),
+    );
+  }
+  // Site settings > Visual & Layout
   $items['admin/site-config/layout'] = array(
     'title' => 'Visual & Layout',
     'description' => 'Administer the appearance and layout of your store.',
@@ -21,19 +223,13 @@ function commerce_kickstart_menus_menu() {
     'access arguments' => array('access administration pages'),
     'file path' => drupal_get_path('module', 'system'),
     'file' => 'system.admin.inc',
-    'weight' => 150,
+    'weight' => 0,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
   );
-
-  $items['admin/site-config'] = array(
-    'title' => 'Configure site',
-    'description' => 'Administer the site configuration.',
-    'page callback' => 'system_admin_menu_block_page',
-    'access arguments' => array('access administration pages'),
-    'file path' => drupal_get_path('module', 'system'),
-    'file' => 'system.admin.inc',
-    'weight' => 100,
-  );
-
+  // Site settings > Advanced settings
   $items['admin/site-config/advanced'] = array(
     'title' => 'Advanced settings',
     'description' => 'Administer the site configuration.',
@@ -41,21 +237,27 @@ function commerce_kickstart_menus_menu() {
     'access arguments' => array('access administration pages'),
     'file path' => drupal_get_path('module', 'system'),
     'file' => 'system.admin.inc',
-    'weight' => 200,
+    'weight' => 1,
+    'options' => array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    ),
   );
-
+  // Store settings > Product settings > Product types
   $items['admin/commerce/config/types'] = array(
-    'title' => 'Product & content types',
+    'title' => 'Product types',
     'description' => 'Manage products types for your store.',
     'page callback' => 'commerce_product_ui_types_overview',
     'access arguments' => array('administer product types'),
     'file' => 'includes/commerce_product_ui.types.inc',
     'file path' => drupal_get_path('module', 'commerce_product_ui'),
+    'parent' => 'admin/commerce/config/product-settings',
   );
   $items['admin/commerce/config/types/product'] = array(
     'title' => 'Product types',
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
+  // Store settings > Product settings > Product types > Add product type
   $items['admin/commerce/config/types/product/add'] = array(
     'title' => 'Add product type',
     'page callback' => 'commerce_product_ui_product_type_form_wrapper',
@@ -65,6 +267,7 @@ function commerce_kickstart_menus_menu() {
     'file' => 'includes/commerce_product_ui.types.inc',
     'file path' => drupal_get_path('module', 'commerce_product_ui'),
   );
+  // Store settings > Product settings > Product types > Content types
   $items['admin/commerce/config/types/content'] = array(
     'title' => 'Content types',
     'description' => 'Manage content types, including default status, front page promotion, comment settings, etc.',
@@ -74,6 +277,7 @@ function commerce_kickstart_menus_menu() {
     'file' => 'content_types.inc',
     'file path' => drupal_get_path('module', 'node'),
   );
+  // Store settings > Product settings > Product types > Content types > Add content type
   $items['admin/commerce/config/types/content/add'] = array(
     'title' => 'Add content type',
     'page callback' => 'drupal_get_form',
@@ -83,9 +287,9 @@ function commerce_kickstart_menus_menu() {
     'file' => 'content_types.inc',
     'file path' => drupal_get_path('module', 'node'),
   );
-
+  // Store settings > Product settings > Categories
   $items['admin/commerce/config/products-categories'] = array(
-    'title' => 'Product categories',
+    'title' => 'Categories',
     'description' => 'Manage tagging, categorization, and classification of your products.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('taxonomy_overview_vocabularies'),
@@ -93,6 +297,7 @@ function commerce_kickstart_menus_menu() {
     'file' => 'taxonomy.admin.inc',
     'file path' => drupal_get_path('module', 'taxonomy'),
   );
+  // Store settings > Product settings > Categories > Add categories
   $items['admin/commerce/config/products-categories/add'] = array(
     'title' => 'Add categories',
     'page callback' => 'drupal_get_form',
@@ -110,19 +315,6 @@ function commerce_kickstart_menus_menu() {
  * Implements hook_menu_alter().
  */
 function commerce_kickstart_menus_menu_alter(&$items) {
-
-
-  // "Getting Started" (help) entry point.
-  if (isset($items['admin/help'])) {
-    $items['admin/help']['title'] = 'Getting Started';
-    $items['admin/help']['parent'] = 'admin';
-    $items['admin/help']['weight'] = -100;
-    $items['admin/help']['options'] = array(
-      'toolbar_expanded' => TRUE,
-      'toolbar_break' => TRUE,
-    );
-  }
-
   // Move the pages under the "Getting Started" entry.
   foreach (array('admin/help/getting-started', 'admin/help/first-steps', 'admin/demo') as $path) {
     if (isset($items[$path])) {
@@ -134,15 +326,50 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     }
   }
 
-  // "Products" entry point.
+  // Products > Manage products
   if (isset($items['admin/commerce/products'])) {
-    $items['admin/commerce/products']['parent'] = 'admin';
+    $items['admin/commerce/products']['parent'] = 'admin/commerce/manage-products/actions';
+    $items['admin/commerce/products']['title'] = 'Manage products';
     $items['admin/commerce/products']['weight'] = -30;
+    $items['admin/commerce/products']['type'] = MENU_NORMAL_ITEM;
   }
-  // "Orders" entry point.
+  // Products > Add a product
+  if (isset($items['node/add/add-product'])) {
+    $items['node/add/add-product']['parent'] = 'admin/commerce/manage-products/actions';
+    $items['node/add/add-product']['title'] = 'Add a product';
+    $items['node/add/add-product']['type'] |= MENU_NORMAL_ITEM;
+  }
+  // Content > Manage content
+  if (isset($items['admin/content'])) {
+    $items['admin/content']['parent'] = 'admin/commerce/manage-content/actions';
+    $items['admin/content']['title'] = 'Manage content';
+    $items['admin/content']['weight'] = -30;
+    $items['admin/content']['type'] = MENU_NORMAL_ITEM;
+  }
+  // Content > Manage comments
+  if (isset($items['admin/content/comment'])) {
+    $items['admin/content/comment']['parent'] = 'admin/commerce/manage-content/actions';
+    $items['admin/content/comment']['title'] = 'Manage content';
+    $items['admin/content/comment']['weight'] = -29;
+    $items['admin/content/comment']['type'] = MENU_NORMAL_ITEM;
+  }
+  // Content > Add content
+  if (isset($items['node/add'])) {
+    $items['node/add']['parent'] = 'admin/commerce/manage-content/actions';
+    $items['node/add']['title'] = 'Add content';
+    $items['node/add']['type'] |= MENU_NORMAL_ITEM;
+  }
+  // Orders > Manage orders
   if (isset($items['admin/commerce/orders'])) {
-    $items['admin/commerce/orders']['parent'] = 'admin';
+    $items['admin/commerce/orders']['title'] = 'Manage orders';
+    $items['admin/commerce/orders']['parent'] = 'admin/commerce/manage-orders/actions';
     $items['admin/commerce/orders']['weight'] = -20;
+  }
+  // Orders > Add an order
+  if (isset($items['admin/commerce/orders/add'])) {
+    $items['admin/commerce/orders/add']['parent'] = 'admin/commerce/manage-orders/actions';
+    $items['admin/commerce/orders/add']['title'] = 'Add an order';
+    $items['admin/commerce/orders/add']['weight'] = -15;
   }
 
   // Disable "Store" entry point.
@@ -166,17 +393,32 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     $items['admin/commerce/config/product-pricing']['title'] = 'Pricing rules';
   }
 
-  // Show the Discounts link under "Store settings".
-  if (isset($items['admin/commerce/store/discounts'])) {
-    $items['admin/commerce/store/discounts']['parent'] = 'admin/commerce/config';
+  if (isset($items['admin/commerce/config/products-categories'])) {
+    $items['admin/commerce/config/products-categories']['parent'] = 'admin/commerce/config/product-settings';
   }
 
-  // - Visual & Layout subentry.
-  if (isset($items['admin/site-config/layout'])) {
-    $items['admin/site-config/layout']['options'] = array(
-      'toolbar_expanded' => TRUE,
-      'toolbar_break' => TRUE,
-    );
+  // Show the Discounts link under "Store settings".
+  if (module_exists('commerce_discount') && isset($items['admin/commerce/store/discounts'])) {
+    $items['admin/commerce/store/discounts']['parent'] = 'admin/commerce/config/promotions';
+  }
+  $advanced_store_items = array(
+    'admin/commerce/config/shipping',
+    'admin/commerce/config/taxes',
+    'admin/commerce/config/payment-methods',
+    'admin/commerce/config/checkout',
+    'admin/commerce/config/currency',
+    'admin/commerce/config/line-items',
+    'admin/commerce/config/order',
+    'admin/commerce/config/product-pricing',
+    'admin/commerce/config/demo',
+    'admin/commerce/config/jirafe',
+  );
+  $weight = 0;
+  foreach ($advanced_store_items as $advanced_store_item) {
+    if (isset($items[$advanced_store_item])) {
+      $items[$advanced_store_item]['parent'] = 'admin/commerce/config/advanced-settings';
+      $items[$advanced_store_item]['weight'] = $weight++;
+    }
   }
 
   // Move the appearance and layout entries under admin/site-config/layout.
@@ -185,22 +427,6 @@ function commerce_kickstart_menus_menu_alter(&$items) {
       $items[$path]['parent'] = 'admin/site-config/layout';
     }
   }
-
-  // - Site configuration subentry.
-  if (isset($items['admin/site-config'])) {
-    $items['admin/site-config']['options'] = array(
-      'toolbar_expanded' => TRUE,
-      'toolbar_break' => TRUE,
-    );
-  }
-  // - Advanced site configuration subentry.
-  if (isset($items['admin/site-config/advanced'])) {
-    $items['admin/site-config/advanced']['options'] = array(
-      'toolbar_expanded' => TRUE,
-      'toolbar_break' => TRUE,
-    );
-  }
-
   // Move the main Drupal entry points below admin/site-config/advanced.
   foreach (array('admin/structure', 'admin/people', 'admin/modules', 'admin/config', 'admin/reports', 'admin/advanced_help') as $path) {
     if (isset($items[$path])) {
@@ -280,29 +506,29 @@ function commerce_kickstart_menus_views_api() {
  * Implements hook_menu_breadcrumb_alter().
  */
 function commerce_kickstart_menus_menu_breadcrumb_alter(&$active_trail, $item) {
-  // Home > Administration > Products
-  if (drupal_match_path($item['path'], 'admin/commerce/products/types')) {
-    $active_trail_end = array_slice($active_trail, 3);
-    $active_trail = array_slice($active_trail, 0, 1);
-    $active_trail[] = menu_get_item('admin');
-    $active_trail[] = menu_get_item('admin/commerce/products');
-    $active_trail = array_merge($active_trail, $active_trail_end);
-  }
-  // Home > Administration > Store settings > Product & content types > Content types OR Product types
-  if (drupal_match_path($item['path'], "admin/structure/types/*\nadmin/commerce/products/types/*")) {
-    if (drupal_match_path($item['path'], 'admin/structure/types/*')) {
-      $active_trail_end = array_slice($active_trail, 6);
+  // Home > Administration > Store settings > Product settings > Content types OR Product types
+  if (drupal_match_path($item['path'], "admin/structure/types/*\nadmin/commerce/config/types/*\nadmin/commerce/products/types*")) {
+    if (drupal_match_path($item['path'], "admin/structure/types/add\nadmin/commerce/products/types")) {
+      return;
+    }
+    $is_product_type = in_array(strtr(arg(4),'-','_'), array_keys(commerce_product_reference_node_types()));
+    $is_product_type_page = drupal_match_path($item['path'], "admin/commerce/products/types*");
+    if ($is_product_type_page) {
+      $active_trail_end = array_slice($active_trail, 5);
     }
     else {
-      $active_trail_end = array_slice($active_trail, 4);
+      $active_trail_end = array_slice($active_trail, 6);
     }
     $active_trail = array_slice($active_trail, 0, 1);
     $active_trail[] = menu_get_item('admin');
     $active_trail[] = menu_get_item('admin/commerce/config');
-    $active_trail[] = menu_get_item('admin/commerce/config/types');
-    $is_product_type = in_array(strtr(arg(4),'-','_'), array_keys(commerce_product_reference_node_types()));
-    if ($is_product_type) {
-      $active_trail[] = menu_get_item('admin/commerce/config/types/product');
+    $active_trail[] = menu_get_item('admin/commerce/config/product-settings');
+    // Append either "Product types" OR "Content types".
+    if ($is_product_type_page || $is_product_type) {
+      if ($is_product_type_page) {
+        array_shift($active_trail_end);
+      }
+      $active_trail[] = menu_get_item('admin/commerce/config/types');
     }
     else {
       $active_trail[] = menu_get_item('admin/commerce/config/types/content');
@@ -310,15 +536,22 @@ function commerce_kickstart_menus_menu_breadcrumb_alter(&$active_trail, $item) {
     $active_trail = array_merge($active_trail, $active_trail_end);
   }
   // Home > Administration > Content > Add content OR Add product
-  if (drupal_match_path($item['path'], 'node/add*')) {
+  else if (drupal_match_path($item['path'], 'node/add*')) {
+    if (drupal_match_path($item['path'], 'node/add/add-product')) {
+      return;
+    }
     $active_trail_end = array_slice($active_trail, 1);
     $active_trail = array_slice($active_trail, 0, 1);
     $active_trail[] = menu_get_item('admin');
-    $active_trail[] = array('title' => 'Content') + menu_get_item('admin/content');
     $is_product_display_page = in_array(strtr(arg(2),'-','_'), array_keys(commerce_product_reference_node_types()));
-    if (drupal_match_path($item['path'], 'node/add/add-product') || $is_product_display_page) {
+    if ($is_product_display_page) {
       array_shift($active_trail_end);
-      $active_trail_end[0] = menu_get_item('node/add/add-product');
+      $active_trail[] = menu_get_item('admin/commerce/manage-products');
+      $active_trail[] = menu_get_item('admin/commerce/manage-products/actions');
+      $active_trail[] = menu_get_item('node/add/add-product');
+    }
+    else {
+      $active_trail[] = array('title' => 'Content') + menu_get_item('admin/content');
     }
     $active_trail = array_merge($active_trail, $active_trail_end);
   }
