@@ -164,6 +164,13 @@ textarea.form-textarea {
 .resizable-textarea textarea.form-textarea {
   border-bottom: none;
 }
+<<<<<<< Updated upstream
+.resizable-textarea textarea.form-textarea
+=======
+.node-form .field-name-body .resizable-textarea textarea.form-textarea {
+  height: 250px;
+}
+>>>>>>> Stashed changes
 .text-format-wrapper fieldset,
 .text-format-wrapper fieldset .fieldset-wrapper {
   background: transparent;
@@ -172,6 +179,9 @@ textarea.form-textarea {
 }
 .text-format-wrapper fieldset .fieldset-wrapper .form-item {
   clear: left; /* LTR */
+}
+.node-form .field-name-body .resizable-textarea textarea.form-textarea {
+  height: 280px;
 }
 input.form-autocomplete:focus,
 input.form-text:focus,
