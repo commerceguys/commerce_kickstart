@@ -441,7 +441,7 @@ body.in-maintenance #credit .logo a {
   right: 0; /* LTR */
   top: 10px;
 }
-.advanced-help-topic {
+#commerce-kickstart-inline-help .advanced-help-topic {
   background: #fef2c4;
   border: 1px solid #efb120;
   -moz-box-shadow: inset 0 0 10px #fff;
@@ -461,12 +461,12 @@ body.in-maintenance #credit .logo a {
 .page-admin-getting-started .advanced-help-topic a {
   color: #36A2F6;
 }
-.page-admin-getting-started #commerce-kickstart-help {
+.page-admin-help-getting-started #commerce-kickstart-help {
   font-size: 28px;
   font-weight: 400;
   width: 100%;
 }
-.page-admin-getting-started #commerce-kickstart-help-button {
+.page-admin-help-getting-started #commerce-kickstart-help-button {
   position: absolute;
   right: 30px; /* LTR */
   top: -55px;
