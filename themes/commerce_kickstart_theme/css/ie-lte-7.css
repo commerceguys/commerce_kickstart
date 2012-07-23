@@ -193,3 +193,26 @@ div.commerce_kickstart_add_to_cart_overlay {
 .commerce-kickstart-add-to-cart .message-inner {
   position: relative;
 }
+/**********************************************
+* 5.4. Checkout process
+**********************************************/
+/**
+* Checkout progress
+*/
+ol.inline.commerce-checkout-progress li {
+  padding-right: 50px;
+  padding-left: 25px;
+}
+ol.inline.commerce-checkout-progress li:after {
+  background: transparent url('../images/bg_checkout_progress_ie.png') right center no-repeat;
+  right: -5px;
+}
+ol.inline.commerce-checkout-progress li.active:after {
+  background: transparent url('../images/bg_checkout_progress_ie.png') right center no-repeat;
+}
+ol.inline.commerce-checkout-progress li.visited:after {
+  background: transparent url('../images/bg_checkout_progress_ie_visited.png') right center no-repeat;
+}
+ol.inline.commerce-checkout-progress li.last:after {
+  background: transparent url('../images/bg_checkout_progress_ie_last.png') right center no-repeat;
+}
