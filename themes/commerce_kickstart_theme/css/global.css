@@ -598,7 +598,13 @@ select[multiple] {
   text-decoration: underline;
 }
 /* Price range */
+#search-api-ranges-block-view-form,
+#search-api-ranges-block-view-form .range-box-left,
+#search-api-ranges-block-view-form .range-box-right {
+  position: relative;
+}
 #search-api-ranges-block-view-form .text-range {
+  display: none;
   font-size: 12px;
   margin: 5px 0;
   text-align: center;

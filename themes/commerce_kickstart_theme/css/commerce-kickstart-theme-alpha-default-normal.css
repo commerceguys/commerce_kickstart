@@ -41,12 +41,44 @@
 * 3.2.1. Sidebar first
 *******************************************/
 /* Price range */
+#search-api-ranges-block-view-form .range-box-left .form-item,
+#search-api-ranges-block-view-form .range-box-right .form-item {
+  margin-top: 0;
+}
+#search-api-ranges-block-view-form .range-box-left,
+#search-api-ranges-block-view-form .range-box-right {
+  position: absolute;
+  top: -30px;
+}
+#search-api-ranges-block-view-form .range-box-left {
+  left: 0;
+}
+#search-api-ranges-block-view-form .range-box-right {
+  right: 0;
+}
+
+#search-api-ranges-block-view-form .range-box-left label,
+#search-api-ranges-block-view-form .range-box-right label {
+  display: none;
+}
 #search-api-ranges-block-view-form .range-slider-box {
   display: block;
+  margin-top: 25px;
 }
-#search-api-ranges-block-view-form label {
-  float: left;
+#search-api-ranges-block-view-form #edit-range-from,
+#search-api-ranges-block-view-form #edit-range-to {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0;
+  width: auto;
+}
+#search-api-ranges-block-view-form #edit-range-to {
   text-align: right;
+}
+#search-api-ranges-block-view-form #edit-submit {
+  display: none;
 }
 /* Category */
 .region-sidebar-first .block-facetapi.field_category .item-list {
