@@ -116,7 +116,6 @@ projects[migrate_extras][version] = 2.4
 projects[migrate_extras][subdir] = "contrib"
 projects[date][version] = 2.x-dev
 projects[date][subdir] = "contrib"
-projects[date][patch][] = "http://drupal.org/files/1659638-dont-show-message-always.patch"
 
 ; Search related modules.
 projects[search_api][version] = 1.2
