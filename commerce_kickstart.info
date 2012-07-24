@@ -105,3 +105,4 @@ dependencies[] = commerce_kickstart_comment
 dependencies[] = commerce_kickstart_user
 dependencies[] = commerce_kickstart_migrate
 dependencies[] = commerce_kickstart_content
+dependencies[] = commerce_kickstart_jirafe

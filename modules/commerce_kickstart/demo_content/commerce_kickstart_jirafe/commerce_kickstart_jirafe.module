@@ -18,6 +18,29 @@ function commerce_kickstart_jirafe_menu() {
 }
 
 /**
+ * Implements hook_menu_alter().
+ */
+function commerce_kickstart_jirafe_menu_alter(&$items) {
+  $items['admin/commerce/jirafe']['title'] = t('Dashboard');
+  $items['admin/commerce/jirafe']['parent'] = 'admin';
+  $items['admin/commerce/jirafe']['weight'] = 200;
+}
+
+/**
+ * Implements hook_init().
+ *
+ * Alter the page title on the Jirafe dashboard page.
+ */
+function commerce_kickstart_jirafe_init() {
+  $item = menu_get_item();
+  if ($item['path'] != 'admin/commerce/jirafe') {
+    return;
+  }
+
+  drupal_set_title(t('Commerce Guys Dashboard by Jirafe'));
+}
+
+/**
  * Commerce Kickstart Jirafe configuration form.
  *
  * @see commerce_kickstart_jirafe_form_submit()
