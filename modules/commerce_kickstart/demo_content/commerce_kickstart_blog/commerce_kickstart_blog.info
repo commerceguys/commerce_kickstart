@@ -9,6 +9,7 @@ dependencies[] = image_delta_formatter
 dependencies[] = menu
 dependencies[] = options
 dependencies[] = strongarm
+dependencies[] = commerce_kickstart_migrate
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[field][] = node-blog_post-body

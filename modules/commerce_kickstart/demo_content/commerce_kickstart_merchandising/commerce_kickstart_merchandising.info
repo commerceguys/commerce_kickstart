@@ -19,6 +19,7 @@ dependencies[] = path
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
+dependencies[] = commerce_kickstart_migrate
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[field][] = comment-comment_node_ad_push-comment_body

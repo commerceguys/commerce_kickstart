@@ -9,6 +9,7 @@ dependencies[] = commerce_fancy_attributes
 dependencies[] = commerce_features
 dependencies[] = commerce_flat_rate
 dependencies[] = commerce_kickstart_lite_search
+dependencies[] = commerce_kickstart_migrate
 dependencies[] = commerce_price
 dependencies[] = commerce_product
 dependencies[] = commerce_product_reference

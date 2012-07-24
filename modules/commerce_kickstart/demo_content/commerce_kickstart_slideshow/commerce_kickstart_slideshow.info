@@ -21,6 +21,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = views
 dependencies[] = views_slideshow
+dependencies[] = commerce_kickstart_migrate
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[field][] = comment-comment_node_slideshow-comment_body
