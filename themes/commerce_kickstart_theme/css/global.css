@@ -1344,9 +1344,21 @@ ul#payments li:first-child {
 /**********************************************
 * 5.3. Product page
 **********************************************/
+/**
+* Add to cart popin.
+*/
+div.commerce_kickstart_add_to_cart_overlay {
+  background: transparent url('../images/bg_add_to_cart_overlay.png') left top;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+}
 div.messages.commerce-kickstart-add-to-cart {
-  background-color: #E4EEF3;
-  border-color: #D7D7D7;
+  background-color: #d6e5ec;
+  border-color: #6bb0cb;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -1354,7 +1366,8 @@ div.messages.commerce-kickstart-add-to-cart {
   -webkit-box-shadow: 0 2px 15px #57595A;
   box-shadow: 0 2px 15px #57595A;
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#57595A', direction='180', strength='5');
-  padding: 5px 10px 25px 30px;
+  overflow: hidden;
+  padding: 0;
 }
 .commerce-kickstart-add-to-cart {
   background-color: white;
@@ -1363,9 +1376,11 @@ div.messages.commerce-kickstart-add-to-cart {
   position: absolute;
   top: 50px;
   left: 50%;
-  text-align: center;
   width: 60%;
-  z-index: 100;
+  z-index: 201;
+}
+.commerce-kickstart-add-to-cart .view-content {
+  margin-left: 0;
 }
 .commerce-kickstart-add-to-cart .placeholder {
   background: transparent url('../images/bg_add_to_cart.png') left center no-repeat;
@@ -1374,40 +1389,53 @@ div.messages.commerce-kickstart-add-to-cart {
   padding-top: 5px;
   padding-left: 35px;
 }
-.commerce-kickstart-add-to-cart .field-name-field-images {
+.commerce-kickstart-add-to-cart .button-wrapper {
+  background-color: #e4eef3;
+  float: right;
+  padding: 40px 30px;
+}
+.commerce-kickstart-add-to-cart .button-wrapper:after {
+  display: block;
+  clear: both;
+  content: ".";
+  height: 0;
+  visibility: hidden;
+}
+.commerce-kickstart-add-to-cart .added-product-title {
+  color: #2698f2;
   float: left;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 30px 10px 20px;
+  text-transform: uppercase;
+  width: 180px;
+}
+.commerce-kickstart-add-to-cart .view-confirm-message-product-display {
+  float: left;
+  width: 200px;
+}
+.commerce-kickstart-add-to-cart .view-confirm-message-product-display .view-content {
+  padding: 20px;
+}
+.commerce-kickstart-add-to-cart .view-confirm-message-product-display .views-field-commerce-product h2 {
+  display: none;
 }
 .commerce-kickstart-add-to-cart .commerce-product-title {
   clear: both;
   margin-bottom: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  color: #696458;
+  color: #575757;
   text-align: left;
 }
-.commerce-kickstart-add-to-cart .view-confirm-message-product-display {
-  width: 350px;
-}
-.commerce-kickstart-add-to-cart .button-wrapper {
-  float: right;
-  padding-right: 30px;
-  padding-top: 35px;
-}
-.commerce-kickstart-add-to-cart .added-product-title {
-  color: #696458;
-  font-weight: bold;
-  margin-top: 10px;
-  font-size: 15px;
-  text-transform: uppercase;
-}
 .commerce-kickstart-add-to-cart-close {
-  background: url('../images/btn_close.png') no-repeat 0 0;
+  background: url('../images/btn_add-to-cart-close.png') no-repeat 0 0;
   width: 18px;
   height: 17px;
   display: block;
   position: absolute;
-  top: -9px;
-  right: -9px;
+  top: 15px;
+  right: 15px;
 }
 .commerce-kickstart-add-to-cart .button-wrapper .button .commerce-kickstart-add-to-cart-close {
   position: static;
@@ -1416,27 +1444,28 @@ div.messages.commerce-kickstart-add-to-cart {
   width: auto;
 }
 .commerce-kickstart-add-to-cart .button-wrapper .button {
-  margin-bottom: 10px;
-}
-.commerce-kickstart-add-to-cart .button-wrapper .button a {
-  font-weight: bold;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
 }
 .commerce-kickstart-add-to-cart .button-wrapper .button.checkout {
   background-color: #2698F2;
-  padding: 10px;
-  color: white;
-  font-weight: bold;
 }
 .commerce-kickstart-add-to-cart .button-wrapper .button.continue {
-  background-color: #6ebaf5;
-  padding: 10px;
-  color: white;
-  font-weight: bold;
+  background-color: #b3b3b3;
 }
 .commerce-kickstart-add-to-cart .button-wrapper .button.checkout:hover,
 .commerce-kickstart-add-to-cart .button-wrapper .button.continue:hover {
   cursor: pointer;
+}
+.commerce-kickstart-add-to-cart .button-wrapper .button a {
+  font-weight: bold;
+  color: white;
 }
 .commerce-kickstart-add-to-cart .field-name-field-images img {
   border: #D7D7D7 solid 1px;
@@ -1446,30 +1475,33 @@ div.messages.commerce-kickstart-add-to-cart {
   text-align: left; /* LTR */
 }
 .commerce-product-sku .commerce-product-sku-label,
-.commerce-kickstart-add-to-cart .views-label-quantity,
-.commerce-kickstart-add-to-cart .views-label-commerce-price {
-  float: left; /* LTR */
+.commerce-kickstart-add-to-cart .views-label-quantity {
   font-weight: bold;
-}
-.commerce-kickstart-add-to-cart .field-items  {
-  float: none;
 }
 .commerce-kickstart-add-to-cart .commerce-product-sku-label,
 .commerce-kickstart-add-to-cart .views-label-commerce-price,
 .commerce-kickstart-add-to-cart .views-label-quantity,
 .commerce-kickstart-add-to-cart .field-label {
-  color: #878380;
+  padding-right: 5px;
 }
 .commerce-kickstart-add-to-cart .field,
 .commerce-kickstart-add-to-cart .commerce-product-sku {
   clear: both;
-  float: left;
-  text-align: right; /* LTR */
+  color: #878380;
+  font-size: 12px;
   margin-right: 20px; /* LTR */
 }
 .commerce-kickstart-add-to-cart .views-field-commerce-price {
+  clear: both;
   color: #2698F2;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 25px;
+}
+.commerce-kickstart-add-to-cart .views-field-commerce-price .field {
+  display: inline;
+  font-size: 20px;
+  float: right;
 }
 .commerce-kickstart-add-to-cart .field:after,
 .entity-commerce-product:after {
@@ -1586,6 +1618,9 @@ div.messages.commerce-kickstart-add-to-cart {
   margin-top: 40px;
   margin-left: 5px;
   padding: 5px 50px 5px 10px;
+}
+.commerce-add-to-cart .form-submit:hover {
+  cursor: pointer;
 }
 .service-links {
   float: right;

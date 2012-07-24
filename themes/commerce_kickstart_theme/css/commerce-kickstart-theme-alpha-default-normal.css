@@ -201,18 +201,24 @@ ul#payments li:first-child {
 /**********************************************
 * 5.3. Product page
 **********************************************/
-.commerce-kickstart-add-to-cart .commerce-product-title,
-.commerce-kickstart-add-to-cart .field,
-.commerce-kickstart-add-to-cart .commerce-product-sku {
-  clear: none;
+.commerce-kickstart-add-to-cart .added-product-title {
+  padding-right: 10px;
+  width: 310px;
 }
-.commerce-kickstart-add-to-cart .field,
-.commerce-kickstart-add-to-cart .commerce-product-sku {
-  clear: none;
-  float: none;
+.commerce-kickstart-add-to-cart .view-confirm-message-product-display {
+  width: 340px;
 }
-.commerce-kickstart-add-to-cart .field-name-field-images {
-  float: left;
+.commerce-kickstart-add-to-cart .view-confirm-message-product-display .view-content {
+  margin-left: 130px;
+  padding-top: 0px;
+}
+.commerce-kickstart-add-to-cart .view-content .field-content .field {
+  text-align: left;
+}
+.commerce-kickstart-add-to-cart .view-content .field-content .field-name-field-images {
+  margin-right: 10px;
+  position: absolute;
+  left: 20px;
 }
 /* Cloud zoom */
 .node-product-type .cloud-zoom-gallery-thumbs {

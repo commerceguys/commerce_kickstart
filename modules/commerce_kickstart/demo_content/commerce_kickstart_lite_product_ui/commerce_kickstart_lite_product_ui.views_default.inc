@@ -470,7 +470,7 @@ function commerce_kickstart_lite_product_ui_views_default_views() {
   $handler->display->display_options['fields']['commerce_price']['table'] = 'field_data_commerce_price';
   $handler->display->display_options['fields']['commerce_price']['field'] = 'commerce_price';
   $handler->display->display_options['fields']['commerce_price']['relationship'] = 'commerce_product_product_id';
-  $handler->display->display_options['fields']['commerce_price']['label'] = '';
+  $handler->display->display_options['fields']['commerce_price']['label'] = 'Total';
   $handler->display->display_options['fields']['commerce_price']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['commerce_price']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['commerce_price']['alter']['absolute'] = 0;
@@ -485,7 +485,7 @@ function commerce_kickstart_lite_product_ui_views_default_views() {
   $handler->display->display_options['fields']['commerce_price']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['commerce_price']['alter']['html'] = 0;
   $handler->display->display_options['fields']['commerce_price']['element_class'] = 'field';
-  $handler->display->display_options['fields']['commerce_price']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['commerce_price']['element_label_colon'] = 1;
   $handler->display->display_options['fields']['commerce_price']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['commerce_price']['hide_empty'] = 0;
   $handler->display->display_options['fields']['commerce_price']['empty_zero'] = 0;

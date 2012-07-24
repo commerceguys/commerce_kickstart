@@ -106,6 +106,12 @@
 /**********************************************
 * 5.3. Product page
 **********************************************/
+/**
+* Add to cart popin.
+*/
+.commerce-kickstart-add-to-cart .commerce-product-title {
+  margin-top: 10px;
+}
 /* Cloud zoom */
 .cloud-zoom-container #wrap {
   z-index: 2 !important; /* fix overlay */
