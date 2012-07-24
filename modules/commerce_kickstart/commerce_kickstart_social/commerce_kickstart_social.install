@@ -17,38 +17,6 @@
  * @see commerce_kickstart_install()
  */
 function commerce_kickstart_social_install() {
-
-  $front_theme = variable_get('theme_default', 'omega');
-  // Enable service links in content types.
-  variable_set('service_links_node_types', array_keys(commerce_product_reference_node_types()));
-  variable_set('service_links_show', array(
-    'twitter_widget' => 1,
-    'facebook_like' => 1,
-    'google_plus_one' => 1
-  ));
-
-  // Enable block in content region.
-  try {
-    _block_rehash($front_theme);
-    db_update('block')
-      ->fields(array(
-      'region' => 'content',
-      'status' => '1',
-      'weight' => '10',
-      'visibility' => '0',
-      'pages' => '',
-      'title' => '<none>',
-      'cache' => '-1',
-    ))
-      ->condition('module', 'service_links')
-      ->condition('delta', 'service_links')
-      ->condition('theme', $front_theme)
-      ->execute();
-  } catch (Exception $e) {
-    watchdog_exception('block', $e);
-    throw $e;
-  }
-
   // Add service links permissions.
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access service links'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access service links'));
