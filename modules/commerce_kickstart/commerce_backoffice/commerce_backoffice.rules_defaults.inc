@@ -186,6 +186,7 @@ function commerce_backoffice_default_rules_configuration() {
   $rules['rules_commerce_order_message_order_notification'] = entity_import('rules_config', '{ "rules_commerce_order_message_order_notification" : {
       "LABEL" : "Commerce order message: order notification e-mail",
       "PLUGIN" : "reaction rule",
+      "WEIGHT" : "3",
       "REQUIRES" : [ "rules", "message_notify", "commerce_checkout" ],
       "ON" : [ "commerce_checkout_complete" ],
       "DO" : [
