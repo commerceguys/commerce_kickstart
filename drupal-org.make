@@ -66,6 +66,8 @@ projects[commerce_discount][download][revision] = 6e933cb8c6c58b2c833809239ba846
 projects[commerce_discount][download][branch] = 7.x-1.x
 projects[commerce_checkout_progress][version] = 1.2
 projects[commerce_checkout_progress][subdir] = "contrib"
+projects[commerce_extra_price_formatters][version] = 1.1
+projects[commerce_extra_price_formatters][subdir] = "contrib"
 
 
 ; Other contribs.

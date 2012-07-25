@@ -6,6 +6,7 @@ php = 5.2.4
 dependencies[] = cloud_zoom
 dependencies[] = commerce_autosku
 dependencies[] = commerce_cart
+dependencies[] = commerce_extra_price_formatters
 dependencies[] = commerce_fancy_attributes
 dependencies[] = commerce_features
 dependencies[] = commerce_flat_rate

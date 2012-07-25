@@ -16,47 +16,6 @@ function commerce_kickstart_lite_product_migrate_api() {
 }
 
 /**
- * Implements hook_field_formatter_info().
- */
-function commerce_kickstart_lite_product_field_formatter_info() {
-  return array(
-    'commerce_kickstart_price_from' => array(
-      'label' => t('Formatted amount prefixed by "From"'),
-      'field types' => array('commerce_price'),
-      'settings' => array(
-        'calculation' => FALSE,
-      ),
-    ),
-  );
-}
-
-/**
- * Implements hook_field_formatter_view().
- */
-function commerce_kickstart_lite_product_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
-  $element = array();
-
-  // Loop through each price value in this field.
-  foreach ($items as $delta => $item) {
-    // Do not render a price if the amount is NULL (i.e. non-zero empty value).
-    if (is_null($item['amount'])) {
-      // TODO: Consider if we should render as N/A or something indicating a
-      // price was not available as opposed to just leaving a blank.
-      continue;
-    }
-
-    // Theme the display of the price based on the display type.
-    if ($display['type'] == 'commerce_kickstart_price_from') {
-      $element[$delta] = array(
-        '#markup' => t('From') . ' ' . commerce_currency_format($item['amount'], $item['currency_code'], $entity),
-      );
-    }
-  }
-
-  return $element;
-}
-
-/**
  * Implements hook_commerce_product_type_info_alter().
  */
 function commerce_kickstart_lite_product_commerce_product_type_info_alter(&$product_types) {

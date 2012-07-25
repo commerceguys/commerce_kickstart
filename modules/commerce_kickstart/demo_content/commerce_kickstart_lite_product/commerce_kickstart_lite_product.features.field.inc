@@ -77,11 +77,13 @@ function commerce_kickstart_lite_product_field_default_fields() {
         ),
         'node_product_list' => array(
           'label' => 'hidden',
-          'module' => 'commerce_price',
+          'module' => 'commerce_extra_price_formatters',
           'settings' => array(
-            'calculation' => 'calculated_sell_price',
+            'calculation' => TRUE,
+            'prefix' => 'From',
+            'text_format' => 'plain_text',
           ),
-          'type' => 'commerce_kickstart_price_from',
+          'type' => 'commerce_price_prefix_suffix',
           'weight' => '2',
         ),
         'node_teaser' => array(

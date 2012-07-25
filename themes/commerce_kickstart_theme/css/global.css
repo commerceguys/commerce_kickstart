@@ -1125,6 +1125,10 @@ ul#payments li:first-child {
   font-size: 14px;
   text-decoration: none;
 }
+.view-collection-taxonomy-term .products-per-collection li .field-type-commerce-price .price_prefix p,
+.page-products .view-display-products li .field-type-commerce-price .price_prefix p {
+  display: inline;
+}
 .view-collection-taxonomy-term .products-per-collection li .field-type-commerce-price,
 .page-products .view-display-products li .field-type-commerce-price {
   color: #858787;
