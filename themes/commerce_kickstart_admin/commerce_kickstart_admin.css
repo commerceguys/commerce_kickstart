@@ -18,53 +18,88 @@ a {
 
 /* Installation/Maintenance Page */
 body.in-maintenance {
-  background: #191818 url("images/bg-maintenance.png") repeat-x 0 12px;
+  background: #256ba7 url("images/installation-bg.png") repeat 0 0;
 }
 body.in-maintenance .body-wrapper {
-  border-top: 12px solid #36a2f6;
-  padding-bottom: 30px;
+  background: #256ba7;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#569ad4), to(#256ba7));
+  background-image: -webkit-linear-gradient(top, #569ad4, #256ba7);
+  background-image: -moz-linear-gradient(top, #569ad4, #256ba7);
+  background-image: -ms-linear-gradient(top, #569ad4, #256ba7);
+  background-image: -o-linear-gradient(top, #569ad4, #256ba7);
+  background-image: linear-gradient(to bottom, #569ad4, #256ba7);
+}
+body.in-maintenance .body-wrapper .page-outer {
+  background: transparent url("images/installation-bg.png") repeat 0 0;
+  padding: 100px 0 30px;
 }
 body.in-maintenance #branding {
-  background: transparent;
-}
-body.in-maintenance #branding h1.page-title {
-  color: #fff;
-  font-size: 40px;
-  font-weight: 100;
-  line-height: 1em;
-  margin-bottom: 20px;
-  padding: 10px 0;
-  text-align: center;
-}
-body.in-maintenance #page {
-  background: rgba(255,255,255,.5);
-  padding: 8px 6px;
+  background: #f4f4f4;
+  border: 1px solid #edebeb;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  margin: 0;
+  padding: 30px 40px;
   width: 960px;
 }
+body.in-maintenance #branding h1.page-title {
+  color: #747474;
+  float: right;
+  font-size: 32px;
+  font-weight: 100;
+  line-height: 1em;
+  padding: 10px 0;
+  width: 550px;
+}
+body.in-maintenance #page {
+  background: transparent;
+  background: #ffffff;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,.28);
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,.28);
+  box-shadow: 0 5px 5px rgba(0,0,0,.28);
+  padding: 0;
+  width: 960px;
+  overflow: hidden;
+}
 body.in-maintenance .page-wrapper {
-  background: #ebebeb;
-  border: 1px solid #fff;
   padding: 40px;
+  width: 960px;
+}
+body.in-maintenance .logo-wrapper {
+  float: left;
 }
 body.in-maintenance #logo {
+  margin: 0;
   max-width: 100%;
 }
 body.in-maintenance #sidebar-first {
   width: 270px;
 }
+body.in-maintenance ol.task-list {
+  background: transparent url("images/wizard-bg.png") repeat-y 0 0;
+}
+body.installing-demo-store ol.task-list,
+body.importing-content ol.task-list {
+  background: transparent url("images/wizard-bg2.png") repeat-y 0 0;
+}
 body.in-maintenance ol.task-list li {
-  background: transparent url("images/tasks-inactive.png") no-repeat 0 0;
-  color: #999999;
+  background: transparent url("images/tasks-inactive.png") no-repeat 5px 4px;
+  color: #9a9a9a;
   font: normal 400 16px/18px "Open Sans", Arial, sans-serif;
-  padding: 3px 0 3px 30px;
-  margin: 0 0 17px 0;
+  height: 30px;
+  padding: 6px 0 0 40px;
+  margin: 0 0 22px 0;
 }
 body.in-maintenance ol.task-list li.active {
-  background: transparent url("images/tasks-active.png") no-repeat 0 0;
-  color: #585858;
+  background: transparent url("images/tasks-active.png") no-repeat 5px 4px;
+  color: #2e87cd;
 }
 body.in-maintenance ol.task-list li.done {
-  background: transparent url("images/tasks-complete.png") no-repeat 0 0;
+  background: transparent url("images/tasks-complete.png") no-repeat 5px 4px;
   color: #75cd27;
 }
 body.in-maintenance .form-item-install-demo-store .form-radios {
@@ -164,13 +199,9 @@ textarea.form-textarea {
 .resizable-textarea textarea.form-textarea {
   border-bottom: none;
 }
-<<<<<<< Updated upstream
-.resizable-textarea textarea.form-textarea
-=======
 .node-form .field-name-body .resizable-textarea textarea.form-textarea {
   height: 250px;
 }
->>>>>>> Stashed changes
 .text-format-wrapper fieldset,
 .text-format-wrapper fieldset .fieldset-wrapper {
   background: transparent;
@@ -222,16 +253,6 @@ body.in-maintenance select.form-select {
 .form-type-managed-file strong {
   color: #ff7e00;
   font-weight: 500;
-}
-body.in-maintenance .form-submit {
-  background: #60aa20 url("images/button.png") repeat-x 0 0;
-  border: 1px solid #fff;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  color: #fff;
-  font: normal 400 16px/16px "Open Sans", Arial, sans-serif;
-  padding: 8px 12px;
 }
 body.in-maintenance .form-submit:hover {
   background: #79d428 url("images/button-over.png") repeat-x 0 0;
@@ -506,34 +527,65 @@ body.in-maintenance #credit .logo a {
   color: #acacac;
   font: normal 600 26px/26px "Open Sans", Arial, sans-serif;
 }
-input.form-submit, a.button {
-  border: 1px solid #fff;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  -moz-box-shadow: 0 0 2px #999;
-  -webkit-box-shadow: 0 0 2px #999;
-  box-shadow: 0 0 2px #999;
-  font: normal 400 16px/16px "Open Sans", Arial, sans-serif;
+/* Default Buttons */
+input.form-submit,
+a.button {
+  border: 1px solid #ccc;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #fff;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #fff;
+  box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #fff;
+  font: normal 300 16px/16px "Open Sans", Arial, sans-serif;
   margin-left: 1px;
   margin-top: 1px;
-  padding: 5px 10px;
+  padding: 6px 10px;
+}
+input.form-submit:hover,
+a.button:hover {
+  background-position: 0 bottom;
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #fff;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #fff;
+  box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #fff;
 }
 .form-managed-file input.form-file {
   margin-right: 20px; /* LTR */
 }
-.form-actions #edit-submit {
+/* Green Buttons */
+.form-actions #edit-submit,
+.form-actions #edit-save {
   background: #60aa20 url("images/button.png") repeat-x 0 0;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#79d428), to(#60aa20));
+  background-image: -webkit-linear-gradient(top, #79d428, #60aa20);
+  background-image: -moz-linear-gradient(top, #79d428, #60aa20);
+  background-image: -ms-linear-gradient(top, #79d428, #60aa20);
+  background-image: -o-linear-gradient(top, #79d428, #60aa20);
+  background-image: linear-gradient(to bottom, #79d428, #60aa20);
+  border: 1px solid #60aa20;
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
+  box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
   color: #fff;
 }
-.form-actions #edit-submit:hover {
-  background: #60aa20 url("images/button-over.png") repeat-x 0 0;
+.form-actions #edit-submit:hover,
+.form-actions #edit-save:hover {
+  background: #79d428 url("images/button-over.png") repeat-x 0 bottom;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#60aa20), to(#79d428));
+  background-image: -webkit-linear-gradient(top, #60aa20, #79d428);
+  background-image: -moz-linear-gradient(top, #60aa20, #79d428);
+  background-image: -ms-linear-gradient(top, #60aa20, #79d428);
+  background-image: -o-linear-gradient(top, #60aa20, #79d428);
+  background-image: linear-gradient(to bottom, #60aa20, #79d428);
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
+  box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
 }
-input.form-submit:hover, a.button:hover {
+a.button:hover {
   background-position: 0 bottom;
-}
-.form-actions #edit-submit:hover {
-  background: #60aa20 url("images/button-over.png") repeat-x 0 0;
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 -1px 2px #fff;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 -1px 2px #fff;
+  box-shadow: 0 1px 2px #ccc, inset 0 -1px 2px #fff;
 }
 #overlay-container .overlay-modal-background {
   background: #ccc;
@@ -548,29 +600,62 @@ ul.action-links {
 ul.action-links li {
   padding: 6px 0;
 }
-ul.action-links a,
+/* Blue Buttons */
+ul.action-links li,
 html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend a,
-.field-widget-inline-entity-form .container-inline input.form-submit {
-  background: #36A2F6 url(images/add2.png) no-repeat 3px 3px;
-  border: 1px solid #fff;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  border-radius: 15px;
-  -moz-box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
-  -webkit-box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
-  box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+.field-widget-inline-entity-form .container-inline input.form-submit,
+input.ief-entity-submit {
+  background: #2F88CD;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#36A2F6), to(#2F88CD));
+  background-image: -webkit-linear-gradient(top, #36A2F6, #2F88CD);
+  background-image: -moz-linear-gradient(top, #36A2F6, #2F88CD);
+  background-image: -ms-linear-gradient(top, #36A2F6, #2F88CD);
+  background-image: -o-linear-gradient(top, #36A2F6, #2F88CD);
+  background-image: linear-gradient(to bottom, #36A2F6, #2F88CD);
+  border: 1px solid #2F88CD;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #7bb8ef;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #7bb8ef;
+  box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #7bb8ef;
   color: #fff;
   font: normal 16px/21px "Open Sans", Arial, sans-serif;
-  padding: 4px 10px 4px 30px; /* LTR */
+  padding: 4px 10px; /* LTR */
 }
-ul.action-links a:hover,
+ul.action-links li:hover,
 html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend a:hover,
-.field-widget-inline-entity-form .container-inline input.form-submit:hover {
-  background-color: #55B5FF;
-  box-shadow: 0 0 3px #cdcdcd, inset 0 0 8px #2F88CD;
+.field-widget-inline-entity-form .container-inline input.form-submit:hover,
+input.ief-entity-submit:hover {
+  background: #36A2F6;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2F88CD), to(#36A2F6));
+  background-image: -webkit-linear-gradient(top, #2F88CD, #36A2F6);
+  background-image: -moz-linear-gradient(top, #2F88CD, #36A2F6);
+  background-image: -ms-linear-gradient(top, #2F88CD, #36A2F6);
+  background-image: -o-linear-gradient(top, #2F88CD, #36A2F6);
+  background-image: linear-gradient(to bottom, #2F88CD, #36A2F6);
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #7bb8ef;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #7bb8ef;
+  box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #7bb8ef;
   text-decoration: none;
 }
-
+/* Action Links Overrides of above */
+ul.action-links li {
+  float: left;
+  padding: 0;
+}
+ul.action-links li a {
+  background: transparent url("images/add2.png") no-repeat 10px 10px;
+  color: #ffffff;
+  padding: 4px 10px 4px 30px;
+}
+ul.action-links li a:hover {
+  text-decoration: none;
+}
+.rules-elements-table ul.rules-operations-add a {
+  line-height: 1.25em;
+  float: left;
+}
 /* Table Styles */
 table th {
   background: #a8a8a8;

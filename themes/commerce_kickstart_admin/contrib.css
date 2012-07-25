@@ -264,6 +264,9 @@ table th {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   color: #008BCB;
 }
 
@@ -733,10 +736,30 @@ tr.even {
 }
 .entity-commerce-order .commerce-backoffice-order-status-form .form-submit,
 .view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit {
-  background: #77d227;
+  background: #60aa20 url("images/button.png") repeat-x 0 0;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#79d428), to(#60aa20));
+  background-image: -webkit-linear-gradient(top, #79d428, #60aa20);
+  background-image: -moz-linear-gradient(top, #79d428, #60aa20);
+  background-image: -ms-linear-gradient(top, #79d428, #60aa20);
+  background-image: -o-linear-gradient(top, #79d428, #60aa20);
+  background-image: linear-gradient(to bottom, #79d428, #60aa20);
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
+  box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
   color: #fff;
-  padding: 5px 15px;
-  margin: 10px 0;
+}
+.entity-commerce-order .commerce-backoffice-order-status-form .form-submit:hover,
+.view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit:hover {
+  background: #79d428 url("images/button-over.png") repeat-x 0 bottom;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#60aa20), to(#79d428));
+  background-image: -webkit-linear-gradient(top, #60aa20, #79d428);
+  background-image: -moz-linear-gradient(top, #60aa20, #79d428);
+  background-image: -ms-linear-gradient(top, #60aa20, #79d428);
+  background-image: -o-linear-gradient(top, #60aa20, #79d428);
+  background-image: linear-gradient(to bottom, #60aa20, #79d428);
+  -moz-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
+  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
+  box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
 }
 .field-name-commerce-customer-billing .name-block,
 .field-name-commerce-customer-shipping .name-block {
@@ -924,7 +947,6 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   top: 6px;
 }
 .rules-elements-table ul.rules-operations a {
-  background: #36A2F6;
   padding: 0 10px;
 }
 
@@ -1042,7 +1064,7 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   border: 1px solid #ccc;
 }
 .field-type-commerce-line-item-reference .add-line-item .form-submit {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .field-name-commerce-discounts input.field-add-more-submit {
   margin-top: 20px;

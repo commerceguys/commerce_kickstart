@@ -7,24 +7,25 @@
     <?php print $styles; ?>
     <?php print $scripts; ?>
   </head>
-  <body class="<?php print $classes; ?>">
+  <body class="<?php print $classes; ?> <?php print drupal_html_class($title);?>">
 
   <?php print $page_top; ?>
   <div class="body-wrapper">
-  <div id="branding">
-    <?php if ($title): ?><h1 class="page-title"><?php print $title; ?></h1><?php endif; ?>
-  </div>
-
+  <div class="page-outer">
   <div id="page">
+    <div id="branding">
+      <?php if ($logo): ?>
+      <div class="logo-wrapper">
+        <img id="logo" src="<?php print $logo ?>" alt="<?php print $site_name ?>" />
+      </div>
+      <?php endif; ?>
+      <?php if ($title): ?><h1 class="page-title"><?php print $title; ?></h1><?php endif; ?>
+    </div>
+
     <div class="page-wrapper clearfix">
 
       <?php if ($sidebar_first): ?>
         <div id="sidebar-first" class="sidebar">
-          <?php if ($logo): ?>
-            <div class="logo-wrapper">
-              <img id="logo" src="<?php print $logo ?>" alt="<?php print $site_name ?>" />
-            </div>
-          <?php endif; ?>
           <?php print $sidebar_first ?>
         </div>
       <?php endif; ?>
@@ -49,6 +50,7 @@
     </div>
     </div>
   <?php print $page_bottom; ?>
+  </div>
   </div>
   </body>
 </html>
