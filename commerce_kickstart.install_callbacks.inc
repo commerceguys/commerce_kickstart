@@ -378,7 +378,7 @@ function _commerce_kickstart_setup_omega_theme() {
       'status' => 1,
       'weight' => -10,
       'region' => 'content',
-      'pages' => "checkout/*\ncart",
+      'pages' => "checkout/*",
       'visibility' => BLOCK_VISIBILITY_LISTED,
       'cache' => -1,
       'title' => '<none>',
