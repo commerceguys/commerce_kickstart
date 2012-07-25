@@ -8,3 +8,4 @@ projects[drupal][patch][] = "http://drupal.org/files/drupal-1630110-1-hide_other
 projects[drupal][patch][] = "http://drupal.org/files/issues/install-redirect-on-empty-database-728702-36.patch"
 projects[drupal][patch][] = "http://drupal.org/files/drupal-1470656-14.patch"
 projects[drupal][patch][] = "http://drupal.org/files/1599306-field-sync-status-d7-do-not-test.patch"
+projects[drupal][patch][] = "http://drupal.org/files/drupal-865536-204.patch"

@@ -14,6 +14,8 @@ function commerce_kickstart_theme_preprocess_html(&$variables) {
   // Add external libraries.
   drupal_add_library('commerce_kickstart_theme', 'selectnav');
   drupal_add_library('commerce_kickstart_theme', 'responsive_menu');
+
+  drupal_add_js(libraries_get_path('ie7-js') . 'IE9.js', array('browsers' => array('IE' => 'lte IE 9', '!IE' => FALSE)));
 }
 
 /**

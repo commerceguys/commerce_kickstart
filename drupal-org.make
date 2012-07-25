@@ -177,3 +177,6 @@ libraries[selectnav.js][download][url] = "https://github.com/lukaszfiszer/select
 libraries[responsive_menu][type] = "libraries"
 libraries[responsive_menu][download][type] = "git"
 libraries[responsive_menu][download][url] = "https://github.com/mattkersley/Responsive-Menu.git"
+libraries[ie7-js][type] = "libraries"
+libraries[ie7-js][download][type] = "file"
+libraries[ie7-js][download][url] = "https://ie7-js.googlecode.com/files/ie7-2.1%28beta4%29.zip"
