@@ -74,15 +74,11 @@ function commerce_kickstart_order_views_default_views_alter(&$views) {
     );
     $handler->display->display_options['style_options']['override'] = 1;
     $handler->display->display_options['style_options']['sticky'] = 0;
-    /* Footer: Commerce Line Item: Line item summary */
-    $handler->display->display_options['footer']['line_item_summary']['id'] = 'line_item_summary';
-    $handler->display->display_options['footer']['line_item_summary']['table'] = 'commerce_line_item';
-    $handler->display->display_options['footer']['line_item_summary']['field'] = 'line_item_summary';
-    $handler->display->display_options['footer']['line_item_summary']['label'] = 'Cart summary';
-    $handler->display->display_options['footer']['line_item_summary']['info'] = array(
-      'quantity' => 0,
-      'total' => 'total',
-    );
+    /* Footer: Commerce Order: Order total */
+    $handler->display->display_options['footer']['order_total']['id'] = 'order_total';
+    $handler->display->display_options['footer']['order_total']['table'] = 'commerce_order';
+    $handler->display->display_options['footer']['order_total']['field'] = 'order_total';
+    $handler->display->display_options['footer']['order_total']['empty'] = FALSE;
     /* Relationship: Commerce Order: Referenced line item */
     $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['id'] = 'commerce_line_items_line_item_id';
     $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['table'] = 'field_data_commerce_line_items';
