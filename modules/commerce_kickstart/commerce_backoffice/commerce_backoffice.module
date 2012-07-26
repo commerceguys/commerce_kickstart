@@ -149,7 +149,7 @@ function commerce_backoffice_views_bulk_operations_form_alter(&$form, &$form_sta
 function commerce_backoffice_entity_info_alter(&$entity_info) {
   $entity_info['commerce_order']['view modes']['backoffice'] = array(
     'label' => t('Backoffice'),
-    'custom settings' => TRUE,
+    'custom settings' => FALSE,
   );
 }
 
