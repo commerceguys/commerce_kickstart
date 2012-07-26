@@ -7,16 +7,10 @@
   </header>
   <div<?php print $content_attributes; ?>>
     <?php
-      // We hide the comments and links now so that we can render them later.
+      // We hide the comments and links.
       hide($content['comments']);
       hide($content['links']);
       print render($content);
     ?>
-  </div>
-  
-  <div class="clearfix">
-    <?php if (!empty($content['links'])): ?>
-      <nav class="links node-links clearfix"><?php print render($content['links']); ?></nav>
-    <?php endif; ?>
   </div>
 </article>

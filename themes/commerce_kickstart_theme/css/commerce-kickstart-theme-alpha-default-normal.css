@@ -261,3 +261,28 @@ ul#payments li:first-child {
   float: none;
   margin: 5px 0;
 }
+/**************************************************
+* --
+* 7. Blog
+* --
+**************************************************/
+.page-blog .view-content .views-row {
+  display: inline;
+  clear: left;
+  float: left;
+  padding: 0;
+  width: 49%;
+}
+.page-blog .view-content .views-row-even {
+  clear: right;
+  float: right;
+}
+/**************************************************
+* --
+* 8. Comments
+* --
+**************************************************/
+/* Comment links */
+.links.node-links {
+  margin-top: 15px;
+}

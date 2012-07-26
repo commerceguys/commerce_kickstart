@@ -259,42 +259,42 @@ function commerce_kickstart_product_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_bags_cases';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_bags_cases'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_drinks';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_drinks'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_hats';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_hats'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_shoes';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_shoes'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_storage_devices';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_storage_devices'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_tops';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_tops'] = $strongarm;
 
   $strongarm = new stdClass();

@@ -23,14 +23,11 @@
         print render($content);
       ?>
     </div>
-
-    <div class="clearfix">
-      <?php if (!empty($content['links'])): ?>
-        <nav class="links node-links clearfix"><?php print render($content['links']); ?></nav>
-      <?php endif; ?>
-    </div>
   </div>
-  <div class="container-24 grid-24">
+  <div class="container-24 grid-24 clearfix">
+    <?php if (!empty($content['links'])): ?>
+    <nav class="links node-links clearfix"><?php print render($content['links']); ?></nav>
+    <?php endif; ?>
     <?php
     print render($content['comments']);
     ?>

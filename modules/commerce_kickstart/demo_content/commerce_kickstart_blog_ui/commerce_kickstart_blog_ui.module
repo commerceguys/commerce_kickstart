@@ -24,44 +24,6 @@ function commerce_kickstart_blog_ui_preprocess_node(&$vars) {
     // Switching to short date format.
     $vars['date'] = format_date($vars['created'], 'short');
 
-    // Hide login/register links and Add new comment.
-    unset($vars['content']['links']['comment']['#links']['comment_forbidden']);
-    unset($vars['content']['links']['comment']['#links']['comment-add']);
-
-    if ($vars['view_mode'] == 'teaser') {
-      if ($vars['comment'] != COMMENT_NODE_HIDDEN) {
-
-        if (empty($vars['comment_count'])) {
-          $vars['content']['links']['comment']['#links']['comment-comments'] = array (
-            'title' => t('0 <span>comment</span>'),
-            'href' => 'node/' . $vars['nid'],
-            'attributes' => array('title' => t('Be the first to add a comment'),),
-            'fragment' => 'comment-form',
-            'html' => TRUE,
-          );
-        }
-        else {
-          $vars['content']['links']['comment']['#links']['comment-comments'] = array(
-            'title' => format_plural($vars['comment_count'], '1 <span>comment</span>', '@count <span>comments</span>'),
-            'href' => 'node/' . $vars['nid'],
-            'attributes' => array('title' => t('Jump to the first comment of this posting.')),
-            'fragment' => 'comments',
-            'html' => TRUE,
-          );
-          if ($new = comment_num_new($vars['nid'])) {
-            $vars['content']['links']['comment']['#links']['comment-new-comments'] = array(
-              'title' => format_plural($new, '1 <span>new comment</span>', '@count <span>new comments</span>'),
-              'href' => 'node/' . $vars['nid'],
-              'query' => comment_new_page_count($vars['comment_count'], $new, $vars['node']),
-              'attributes' => array('title' => t('Jump to the first new comment of this posting.')),
-              'fragment' => 'new',
-              'html' => TRUE,
-            );
-          }
-        }
-      }
-    }
-
     // Override taxonomy path.
     if (array_key_exists('content', $vars)) {
       $content = &$vars['content'];
@@ -78,19 +40,5 @@ function commerce_kickstart_blog_ui_preprocess_node(&$vars) {
         }
       }
     }
-  }
-}
-
-/**
- * Process variables for comment.tpl.php.
- *
- * @see comment.tpl.php
- */
-function commerce_kickstart_blog_ui_preprocess_comment(&$variables) {
-  if (isset($variables['elements']['#node']->type) && $variables['elements']['#node']->type == 'blog_post') {
-    // Hide comment title.
-    $variables['title'] = '';
-    // Switching to short date format.
-    $variables['created'] = format_date($variables['elements']['#comment']->created, 'short');
   }
 }
