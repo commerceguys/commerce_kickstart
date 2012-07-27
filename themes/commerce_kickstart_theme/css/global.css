@@ -2006,7 +2006,7 @@ input.checkout-continue {
   clear: none;
   float: none;
 }
-.page-blog .views-row {
+.page-blog .region-content .views-row {
   border: 1px solid #E0E3E6;
   margin: 15px 0 0px 0;
   padding: 10px;
