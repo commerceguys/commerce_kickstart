@@ -10,16 +10,6 @@
 function commerce_kickstart_product_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: administer flat rate services.
-  $permissions['administer flat rate services'] = array(
-    'name' => 'administer flat rate services',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'commerce_flat_rate',
-  );
-
   // Exported permission: create bags_cases content.
   $permissions['create bags_cases content'] = array(
     'name' => 'create bags_cases content',
@@ -110,7 +100,6 @@ function commerce_kickstart_product_user_default_permissions() {
     'module' => 'node',
   );
 
-
   // Exported permission: create shoes content.
   $permissions['create shoes content'] = array(
     'name' => 'create shoes content',
@@ -140,7 +129,6 @@ function commerce_kickstart_product_user_default_permissions() {
     ),
     'module' => 'node',
   );
-
 
   // Exported permission: delete any bags_cases content.
   $permissions['delete any bags_cases content'] = array(
@@ -212,7 +200,6 @@ function commerce_kickstart_product_user_default_permissions() {
     'module' => 'node',
   );
 
-
   // Exported permission: delete own drinks content.
   $permissions['delete own drinks content'] = array(
     'name' => 'delete own drinks content',
@@ -233,7 +220,6 @@ function commerce_kickstart_product_user_default_permissions() {
     'module' => 'node',
   );
 
-
   // Exported permission: delete own shoes content.
   $permissions['delete own shoes content'] = array(
     'name' => 'delete own shoes content',
@@ -243,7 +229,6 @@ function commerce_kickstart_product_user_default_permissions() {
     ),
     'module' => 'node',
   );
-
 
   // Exported permission: delete own storage_devices content.
   $permissions['delete own storage_devices content'] = array(
@@ -505,16 +490,6 @@ function commerce_kickstart_product_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: edit own comments.
-  $permissions['edit own comments'] = array(
-    'name' => 'edit own comments',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'store administrator',
-    ),
-    'module' => 'comment',
-  );
-
   // Exported permission: edit own commerce_product entities of bundle bags_cases.
   $permissions['edit own commerce_product entities of bundle bags_cases'] = array(
     'name' => 'edit own commerce_product entities of bundle bags_cases',
@@ -595,7 +570,6 @@ function commerce_kickstart_product_user_default_permissions() {
     'module' => 'node',
   );
 
-
   // Exported permission: edit own shoes content.
   $permissions['edit own shoes content'] = array(
     'name' => 'edit own shoes content',
@@ -625,7 +599,6 @@ function commerce_kickstart_product_user_default_permissions() {
     ),
     'module' => 'node',
   );
-
 
   // Exported permission: edit terms in 1.
   $permissions['edit terms in 1'] = array(

@@ -326,7 +326,7 @@ function commerce_kickstart_lite_product_ui_views_default_views() {
   $handler->display->display_options['fields']['name']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = 0;
   $handler->display->display_options['fields']['name']['convert_spaces'] = 0;
-  /* Field: Node: Rendered Node */
+  /* Field: Content: Rendered Node */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
@@ -352,7 +352,7 @@ function commerce_kickstart_lite_product_ui_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'product_list';
-  /* Field: Node: Field extracted from entity referenced through field Product variations */
+  /* Field: Content: Field extracted from entity referenced through field Product variations */
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['id'] = 'field_extractor_field_product_variations';
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['field'] = 'field_extractor_field_product_variations';
@@ -540,7 +540,7 @@ function commerce_kickstart_lite_product_ui_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'products';
-  $export['sample_display_products'] = $view;
+  $export['display_products'] = $view;
 
   $view = new view;
   $view->name = 'shopping_cart';

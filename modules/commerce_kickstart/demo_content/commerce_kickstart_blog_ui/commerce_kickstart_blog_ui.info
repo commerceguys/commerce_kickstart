@@ -38,7 +38,6 @@ features[menu_links][] = menu-kickstart-user-menu_log-in:user/login
 features[menu_links][] = menu-kickstart-user-menu_log-out:user/logout
 features[menu_links][] = menu-kickstart-user-menu_my-account:user
 features[menu_links][] = secondary-navigation_about:node/2
-features[menu_links][] = secondary-navigation_blog:blog
 features[menu_links][] = secondary-navigation_contact:node/1
 features[variable][] = custom_breadcrumb_home
 features[variable][] = custom_breadcrumbs_exclude_list

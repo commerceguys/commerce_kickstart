@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * commerce_kickstart_merchandising_ui.views_default.inc
+ * commerce_kickstart_slideshow.views_default.inc
  */
 
 /**

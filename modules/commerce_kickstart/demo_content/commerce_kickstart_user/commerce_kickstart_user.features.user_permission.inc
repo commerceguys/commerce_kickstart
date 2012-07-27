@@ -214,6 +214,15 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
+  // Exported permission: administer consumers.
+  $permissions['administer consumers'] = array(
+    'name' => 'administer consumers',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'oauth_common',
+  );
+
   // Exported permission: administer content types.
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
@@ -274,6 +283,14 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'filter',
   );
 
+  // Exported permission: administer flat rate services.
+  $permissions['administer flat rate services'] = array(
+    'name' => 'administer flat rate services',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'commerce_flat_rate',
+  );
 
   // Exported permission: administer image styles.
   $permissions['administer image styles'] = array(
@@ -699,7 +716,6 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_payment',
   );
 
-
   // Exported permission: create url aliases.
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
@@ -708,6 +724,24 @@ function commerce_kickstart_user_user_default_permissions() {
       1 => 'store administrator',
     ),
     'module' => 'path',
+  );
+
+  // Exported permission: delete any page content.
+  $permissions['delete any page content'] = array(
+    'name' => 'delete any page content',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own page content.
+  $permissions['delete own page content'] = array(
+    'name' => 'delete own page content',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: delete payments.
@@ -790,6 +824,14 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
+  // Exported permission: edit any page content.
+  $permissions['edit any page content'] = array(
+    'name' => 'edit any page content',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'node',
+  );
 
   // Exported permission: edit mimemail user settings.
   $permissions['edit mimemail user settings'] = array(
@@ -863,6 +905,14 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
+  // Exported permission: edit own page content.
+  $permissions['edit own page content'] = array(
+    'name' => 'edit own page content',
+    'roles' => array(
+      0 => 'administrator',
+    ),
+    'module' => 'node',
+  );
 
   // Exported permission: manage features.
   $permissions['manage features'] = array(
@@ -1089,7 +1139,6 @@ function commerce_kickstart_user_user_default_permissions() {
     ),
     'module' => 'commerce_product',
   );
-
 
   // Exported permission: view own commerce_customer_profile entities.
   $permissions['view own commerce_customer_profile entities'] = array(

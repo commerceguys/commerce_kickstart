@@ -10,7 +10,7 @@
 function commerce_kickstart_merchandising_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'comment-comment_node_ad_push-comment_body'
+  // Exported field: 'comment-comment_node_ad_push-comment_body'.
   $fields['comment-comment_node_ad_push-comment_body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +33,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -71,7 +72,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_push-field_image'
+  // Exported field: 'node-ad_push-field_image'.
   $fields['node-ad_push-field_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -92,6 +93,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -166,7 +168,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_push-field_link'
+  // Exported field: 'node-ad_push-field_link'.
   $fields['node-ad_push-field_link'] = array(
     'field_config' => array(
       'active' => '1',
@@ -176,6 +178,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
       'field_name' => 'field_link',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -258,7 +261,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-ad_push-field_tagline'
+  // Exported field: 'node-ad_push-field_tagline'.
   $fields['node-ad_push-field_tagline'] = array(
     'field_config' => array(
       'active' => '1',
@@ -279,6 +282,7 @@ function commerce_kickstart_merchandising_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '80',
@@ -341,7 +345,6 @@ function commerce_kickstart_merchandising_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Comment');
-  t('Headline');
   t('Image');
   t('Link');
   t('Link this content to a URL. It can either be relative to your site (for example : <em>all-products</em>) or an absolute path.');

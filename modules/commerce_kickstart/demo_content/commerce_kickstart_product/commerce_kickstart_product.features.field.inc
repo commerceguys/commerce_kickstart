@@ -90,8 +90,9 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => TRUE,
             'prefix' => 'From',
+            'suffix' => '',
             'text_format' => 'plain_text',
-           ),
+          ),
           'type' => 'commerce_price_prefix_suffix',
           'weight' => '1',
         ),
@@ -576,6 +577,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => TRUE,
             'prefix' => 'From',
+            'suffix' => '',
             'text_format' => 'plain_text',
           ),
           'type' => 'commerce_price_prefix_suffix',
@@ -963,6 +965,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => TRUE,
             'prefix' => 'From',
+            'suffix' => '',
             'text_format' => 'plain_text',
           ),
           'type' => 'commerce_price_prefix_suffix',
@@ -1458,6 +1461,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => TRUE,
             'prefix' => 'From',
+            'suffix' => '',
             'text_format' => 'plain_text',
           ),
           'type' => 'commerce_price_prefix_suffix',
@@ -1945,6 +1949,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => TRUE,
             'prefix' => 'From',
+            'suffix' => '',
             'text_format' => 'plain_text',
           ),
           'type' => 'commerce_price_prefix_suffix',
@@ -2331,6 +2336,7 @@ function commerce_kickstart_product_field_default_fields() {
           'settings' => array(
             'calculation' => TRUE,
             'prefix' => 'From',
+            'suffix' => '',
             'text_format' => 'plain_text',
           ),
           'type' => 'commerce_price_prefix_suffix',

@@ -333,22 +333,6 @@ function commerce_kickstart_blog_ui_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '2',
   );
-  // Exported menu link: secondary-navigation_blog:blog
-  $menu_links['secondary-navigation_blog:blog'] = array(
-    'menu_name' => 'secondary-navigation',
-    'link_path' => 'blog',
-    'router_path' => 'blog',
-    'link_title' => 'Blog',
-    'options' => array(
-      'identifier' => 'secondary-navigation_blog:blog',
-    ),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-  );
   // Exported menu link: secondary-navigation_contact:node/1
   $menu_links['secondary-navigation_contact:node/1'] = array(
     'menu_name' => 'secondary-navigation',

@@ -22,29 +22,12 @@ function commerce_kickstart_slideshow_views_api() {
 }
 
 /**
- * Implements hook_node_info().
- */
-function commerce_kickstart_slideshow_node_info() {
-  $items = array(
-    'slideshow' => array(
-      'name' => t('Slideshow'),
-      'base' => 'node_content',
-      'description' => t('Use <em>slideshow</em> to promote content that will be displayed on the homepage.'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => t('Title field is for administrative purpose only and will not be displayed on the site, use Headline instead.'),
-    ),
-  );
-  return $items;
-}
-
-/**
  * Implements hook_image_default_styles().
  */
 function commerce_kickstart_slideshow_image_default_styles() {
   $styles = array();
 
-  // Exported image style: hp_slideshow
+  // Exported image style: hp_slideshow.
   $styles['hp_slideshow'] = array(
     'name' => 'hp_slideshow',
     'effects' => array(
@@ -67,4 +50,21 @@ function commerce_kickstart_slideshow_image_default_styles() {
   );
 
   return $styles;
+}
+
+/**
+ * Implements hook_node_info().
+ */
+function commerce_kickstart_slideshow_node_info() {
+  $items = array(
+    'slideshow' => array(
+      'name' => t('Slideshow'),
+      'base' => 'node_content',
+      'description' => t('Use <em>slideshow</em> to promote content that will be displayed on the homepage.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => t('Title field is for administrative purpose only and will not be displayed on the site, use Headline instead.'),
+    ),
+  );
+  return $items;
 }

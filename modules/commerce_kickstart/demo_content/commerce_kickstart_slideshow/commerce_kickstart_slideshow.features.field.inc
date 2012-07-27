@@ -10,7 +10,7 @@
 function commerce_kickstart_slideshow_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'comment-comment_node_slideshow-comment_body'
+  // Exported field: 'comment-comment_node_slideshow-comment_body'.
   $fields['comment-comment_node_slideshow-comment_body'] = array(
     'field_config' => array(
       'active' => '1',
@@ -33,6 +33,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(),
       'translatable' => '0',
@@ -71,7 +72,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-slideshow-field_headline'
+  // Exported field: 'node-slideshow-field_headline'.
   $fields['node-slideshow-field_headline'] = array(
     'field_config' => array(
       'active' => '1',
@@ -92,6 +93,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '20',
@@ -151,7 +153,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-slideshow-field_image'
+  // Exported field: 'node-slideshow-field_image'.
   $fields['node-slideshow-field_image'] = array(
     'field_config' => array(
       'active' => '1',
@@ -172,6 +174,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
           0 => 'fid',
         ),
       ),
+      'locked' => '0',
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
@@ -246,7 +249,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-slideshow-field_link'
+  // Exported field: 'node-slideshow-field_link'.
   $fields['node-slideshow-field_link'] = array(
     'field_config' => array(
       'active' => '1',
@@ -256,6 +259,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
       'field_name' => 'field_link',
       'foreign keys' => array(),
       'indexes' => array(),
+      'locked' => '0',
       'module' => 'link',
       'settings' => array(
         'attributes' => array(
@@ -338,7 +342,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-slideshow-field_tagline'
+  // Exported field: 'node-slideshow-field_tagline'.
   $fields['node-slideshow-field_tagline'] = array(
     'field_config' => array(
       'active' => '1',
@@ -359,6 +363,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
           0 => 'format',
         ),
       ),
+      'locked' => '0',
       'module' => 'text',
       'settings' => array(
         'max_length' => '80',
