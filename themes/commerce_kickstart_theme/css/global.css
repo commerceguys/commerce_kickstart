@@ -992,7 +992,7 @@ select[multiple] {
 /**
 * Connect with us
 */
-.block-social h2 {
+#block-menu-menu-social-connection h2 {
   background-color: #262626;
   color: #eeeeee;
   font-family: 'Open Sans', sans-serif;
@@ -1000,10 +1000,10 @@ select[multiple] {
   line-height: 16px;
   padding: 8px 15px;
 }
-.block-social .content ul#social {
+#block-menu-menu-social-connection .content ul.menu {
   list-style: none;
 }
-.block-social .content #social li {
+#block-menu-menu-social-connection .content .menu li {
   color: #eeeeee;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
@@ -1012,20 +1012,20 @@ select[multiple] {
   margin-bottom: 15px;
   margin-left: 0; /* LTR */
 }
-.block-social #facebook {
+#block-menu-menu-social-connection .facebook {
   background: url('../images/icon_facebook.png') 2% 50% no-repeat;
   line-height: 16px;
 }
-.block-social #twitter {
+#block-menu-menu-social-connection .twitter {
   background: url('../images/icon_twitter.png') 2% 50% no-repeat;
   line-height: 16px;
 }
-.block-social #pinterest {
+#block-menu-menu-social-connection .pinterest {
   background: url('../images/icon_pinterest.png') 2% 50% no-repeat;
   line-height: 16px;
 }
-.block-social .content li a,
-.block-social .content li span {
+#block-menu-menu-social-connection .content li a,
+#block-menu-menu-social-connection .content li span {
   color: #eeeeee;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
@@ -1035,13 +1035,13 @@ select[multiple] {
   padding-left: 50px;
   text-decoration: none;
 }
-.block-social #social li:hover {
+#block-menu-menu-social-connection .menu li:hover {
   background-color: #cecece;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.block-social .content a:hover {
+#block-menu-menu-social-connection .content a:hover {
   color: #717171;
   cursor: pointer;
 }
@@ -1066,45 +1066,48 @@ select[multiple] {
 /**
 * Payment blocks
 */
-.block-payment .content {
+#block-menu-menu-payment-methods {
   background-color: #ffffff;
   color: #3f3f3f;
   padding: 10px;
 }
-ul#payments {
+
+#block-menu-menu-payment-methods h2 {
+  display: none;
+}
+
+#block-menu-menu-payment-methods ul.menu {
   height: 40px;
   margin-bottom: 0;
 }
-ul#payments li {
+#block-menu-menu-payment-methods ul.menu li {
   display: inline;
   float: left;
   margin: 0;
   text-align: center;
   width: 24%;
+  padding: 0;
 }
-ul#payments li:first-child {
+#block-menu-menu-payment-methods ul.menu li:first-child {
   padding-left: 10px;
 }
-#payments #payment_visa_premier,
-#payments #payment_paypal,
-#payments #payment_mastercard,
-#payments #payment_american_express {
+#block-menu-menu-payment-methods ul.menu li a {
   display: block;
   height: 30px;
   margin: 5px 0px;
   text-indent: -9999px;
   width: 50px;
 }
-#payments #payment_visa_premier {
+#block-menu-menu-payment-methods .visa {
   background: url('../images/picto_visa_premier.png') left top no-repeat;
 }
-#payments #payment_paypal {
+#block-menu-menu-payment-methods .paypal {
   background: url('../images/picto_paypal.png') left top no-repeat;
 }
-#payments #payment_mastercard {
+#block-menu-menu-payment-methods .mastercard {
   background: url('../images/picto_mastercard.png') left top no-repeat;
 }
-#payments #payment_american_express {
+#block-menu-menu-payment-methods .american-express {
   background: url('../images/picto_american_express.png') left top no-repeat;
 }
 /**************************************************

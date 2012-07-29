@@ -171,11 +171,17 @@ function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
  * Task callback: uses Batch API to import modules based on user selection.
  * Installs all demo store modules if requested, or any modules providing
  * additional functionality to the base install.
+ *
+ * Any modules providing custom blocks should be enabled here, and not before
+ * (as an install profile dependency), because the themes are setup during
+ * commerce_kickstart_install(), which means region assignment can only happen
+ * after that.
  */
 function commerce_kickstart_install_additional_modules() {
   $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
   if ($install_demo_store) {
     $modules = array(
+      'commerce_kickstart_content',
       'commerce_kickstart_social',
       'commerce_kickstart_search',
       'commerce_kickstart_product',
@@ -190,6 +196,7 @@ function commerce_kickstart_install_additional_modules() {
   }
   else {
     $modules = array(
+      'commerce_kickstart_content',
       'commerce_kickstart_lite_search',
       'commerce_kickstart_lite_product',
       'commerce_kickstart_lite_product_ui',

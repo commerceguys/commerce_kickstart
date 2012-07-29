@@ -24,10 +24,37 @@ function commerce_kickstart_social_install() {
 
 /**
  * Implements hook_enable().
- *
- * Add "email" field to OAuth connector.
  */
 function commerce_kickstart_social_enable() {
+  // Rebuild the features static caches.
+  features_include(TRUE);
+
+  $module = 'commerce_kickstart_social';
+  $feature = feature_load($module);
+  $items[$module] = array_keys($feature->info['features']);
+  _features_restore('enable', $items);
+  _features_restore('rebuild', $items);
+
+  $default_theme = variable_get('theme_default', 'commerce_kickstart_theme');
+  // Make sure that the region list is populated for our theme.
+  drupal_static_reset();
+  _block_rehash($default_theme);
+
+  // Set the region of the connect-with-us menu block.
+  $fields = array(
+   'region' => 'footer_second',
+   'status' => 1,
+   'visibility' => 0,
+   'pages' => '',
+  );
+  db_update('block')
+    ->fields($fields)
+    ->condition('module', 'menu')
+    ->condition('delta', 'menu-social-connection')
+    ->condition('theme', $default_theme)
+    ->execute();
+
+  // Add "email" field to OAuth connector.
   $values = array(
     'title' => 'email',
     'description' => '',

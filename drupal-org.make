@@ -121,6 +121,8 @@ projects[date][version] = 2.x-dev
 projects[date][subdir] = "contrib"
 projects[jirafe][version] = 1.x-dev
 projects[jirafe][subdir] = "contrib"
+projects[menu_attributes][version] = 1.0-rc2
+projects[menu_attributes][subdir] = "contrib"
 
 ; Search related modules.
 projects[search_api][version] = 1.2

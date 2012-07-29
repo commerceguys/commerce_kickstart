@@ -1,7 +1,17 @@
-name = "Commerce kickstart content"
-description = "Setup custom block and dummy content."
+name = Commerce kickstart content
+description = Setup custom block and dummy content.
+core = 7.x
 package = Commerce Kickstart
-core = "7.x"
-php = "5.2.4"
-
+php = 5.2.4
+dependencies[] = block
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = menu
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[menu_custom][] = menu-payment-methods
+features[menu_links][] = menu-payment-methods_american-express:<front>
+features[menu_links][] = menu-payment-methods_mastercard:<front>
+features[menu_links][] = menu-payment-methods_paypal:<front>
+features[menu_links][] = menu-payment-methods_visa:<front>
 files[] = commerce_kickstart_content.module

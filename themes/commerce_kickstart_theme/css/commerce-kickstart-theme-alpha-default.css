@@ -343,7 +343,8 @@ body {
   display: inline;
   float: left;
 }
- .block-payment .content {
+
+#block-menu-menu-payment-methods {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;

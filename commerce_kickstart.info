@@ -86,6 +86,7 @@ dependencies[] = commerce_discount_usage
 dependencies[] = commerce_fancy_attributes
 dependencies[] = commerce_backoffice
 dependencies[] = commerce_checkout_progress
+dependencies[] = menu_attributes
 
 ; Install Features
 dependencies[] = features
@@ -104,5 +105,4 @@ dependencies[] = commerce_kickstart_payment
 dependencies[] = commerce_kickstart_comment
 dependencies[] = commerce_kickstart_user
 dependencies[] = commerce_kickstart_migrate
-dependencies[] = commerce_kickstart_content
 dependencies[] = commerce_kickstart_jirafe

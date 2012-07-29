@@ -6,16 +6,6 @@
  * This hook declares what blocks are provided by the module.
  */
 function commerce_kickstart_content_block_info() {
-  $blocks['social'] = array(
-    'info' => t('Social links'),
-    'weight' => '0',
-    'cache' => DRUPAL_CACHE_PER_ROLE,
-  );
-  $blocks['payment'] = array(
-    'info' => t('Payment methods'),
-    'weight' => '0',
-    'cache' => DRUPAL_CACHE_PER_ROLE,
-  );
   $blocks['shipping_discount'] = array(
     'info' => t('Shipping discount'),
     'weight' => '0',
@@ -46,26 +36,6 @@ function commerce_kickstart_content_block_view($delta = '') {
   );
 
   switch ($delta) {
-    case 'social':
-      $block['subject'] = t('Connect with us');
-      $items = array(
-        l(t('Like us on Facebook'), 'https://www.facebook.com/commerceguys', array('attributes' => array('id' => 'facebook'))),
-        l(t('Follow Us on Twitter'), 'https://twitter.com/commerceguys', array('attributes' => array('id' => 'twitter'))),
-        commerce_kickstart_content_build_element(t('What We Like on Pinterest'), 'pinterest'),
-      );
-      $block['content'] = theme('item_list', array('items' => $items, 'attributes' => array('id' => 'social')));;
-      break;
-
-    case 'payment':
-      $items = array(
-        commerce_kickstart_content_build_element(t('Visa premier'), 'payment_visa_premier'),
-        commerce_kickstart_content_build_element(t('Paypal'), 'payment_paypal'),
-        commerce_kickstart_content_build_element(t('Mastercard'), 'payment_mastercard'),
-        commerce_kickstart_content_build_element(t('American express'), 'payment_american_express'),
-      );
-      $block['content'] = theme('item_list', array('items' => $items, 'attributes' => array('id' => 'payments')));
-      break;
-
     case 'shipping_discount':
       $amount = '99';
       $items = array(
