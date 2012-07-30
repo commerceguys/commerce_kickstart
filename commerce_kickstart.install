@@ -177,7 +177,6 @@ function commerce_kickstart_install_additional_modules() {
   if ($install_demo_store) {
     $modules = array(
       'commerce_kickstart_social',
-      'commerce_kickstart_content',
       'commerce_kickstart_search',
       'commerce_kickstart_product',
       'commerce_kickstart_product_ui',
@@ -187,18 +186,13 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_merchandising',
       'commerce_kickstart_merchandising_ui',
       'commerce_kickstart_menus',
-      'commerce_kickstart_user',
-      'commerce_kickstart_migrate',
     );
   }
   else {
     $modules = array(
-      'commerce_kickstart_content',
       'commerce_kickstart_lite_search',
       'commerce_kickstart_lite_product',
       'commerce_kickstart_lite_product_ui',
-      'commerce_kickstart_user',
-      'commerce_kickstart_migrate',
     );
     $selected_extras = variable_get('commerce_kickstart_selected_extras', array());
     if (!empty($selected_extras['merchandising'])) {
