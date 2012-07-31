@@ -216,15 +216,6 @@
   line-height: inherit;
   padding: 0 0 22px 25px;
 }
-/**********************************************
-* 4.2. Zone footer2
-**********************************************/
-/**
-* Payment blocks
-*/
-ul#payments li:first-child {
-  padding-left: 15px;
-}
 /**************************************************
 * --
 * 5. Commerce specific
