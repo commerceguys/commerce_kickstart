@@ -25,7 +25,7 @@ function commerce_kickstart_lite_product_ui_rules_action_info() {
  * Rules action: displays a custom Add to Cart message.
  */
 function commerce_kickstart_lite_product_ui_rules_add_to_cart_message($line_item) {
-  $message = '<div class="added-product-title clearfix">' . t('The product has been added to your cart: ') . '</div>';
+  $message = '<div class="added-product-title clearfix">' . t('Item successfully added to your cart') . '</div>';
 
   $message .= '<div class="button-wrapper">';
   $message .= '<div class="button checkout">' . l(t('Go to checkout'), 'checkout') . '</div>';
