@@ -356,3 +356,52 @@ function commerce_kickstart_product_ui_preprocess_entity(&$variables) {
     $variables['theme_hook_suggestions'][] = $variables['elements']['#entity_type'] . '__' . $variables['elements']['#view_mode'];
   }
 }
+
+/**
+ * hook_preprocess_views_view
+ */
+function commerce_kickstart_product_ui_preprocess_views_view(&$vars) {
+  // Wrap exposed filters in a fieldset.
+  if ($vars['exposed']) {
+    drupal_add_js('misc/form.js');
+    drupal_add_js('misc/collapse.js');
+    // Default collapsed
+    $collapsed = TRUE;
+    $class = array('collapsible', 'collapsed');
+    if (count($_GET) > 1) {
+      // assume other get vars are exposed filters, so expand fieldset
+      // to show applied filters
+      $collapsed = FALSE;
+      $class = array('collapsible');
+    }
+
+    $pattern = "#(<form.*?>)(.*)(</form>)#s";
+    preg_match($pattern, $vars['exposed'], $matches);
+    $fieldset['element'] = array(
+      '#title' => t('Filter'),
+      '#collapsible' => TRUE,
+      '#collapsed' => $collapsed,
+      '#attributes' => array('class' => $class),
+      '#children' => $matches[2],
+    );
+    $vars['exposed'] = $matches[1] . theme('fieldset', $fieldset) . $matches[3];
+  }
+}
+
+/**
+ * Implements hook_field_attach_create_bundle().
+ */
+function commerce_kickstart_product_ui_field_create_instance($field) {
+  $entity_info = entity_get_info($field['entity_type']);
+
+  $field_name = $entity_info['field replacement'][$entity_info['entity keys']['label']]['field']['field_name'];
+
+  if ($field_name != $field['field_name']) {
+    return;
+  }
+
+  // Apply the h2 wrapper only for title fields.
+  $instance = field_info_instance($field['entity_type'], $field_name, $field['bundle']);
+  $instance['fences_wrapper'] = 'h2';
+  field_update_instance($instance);
+}

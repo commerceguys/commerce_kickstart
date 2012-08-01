@@ -14,7 +14,6 @@
   <?php print render($content['product:field_images']); ?>
 </div>
   <div class="container-24 grid-8 prefix-1">
-    <div class="product-title"><?php print $title; ?></div>
     <div<?php print $content_attributes; ?>>
       <?php
         // We hide the comments and links now so that we can render them later.

@@ -46,6 +46,7 @@ projects[commerce][patch][] = "http://drupal.org/files/1677694-commerce-remove_b
 projects[commerce][patch][] = "http://drupal.org/files/product_display_views_filters-1031494-7.patch"
 projects[commerce][patch][] = "http://drupal.org/files/1715436-reset-statics.patch"
 projects[commerce][patch][] = "http://drupal.org/files/1719454-line_item_summary-and-order_total-views-handler.patch"
+projects[commerce][patch][] = "http://drupal.org/files/commerce-product-hide-title-field-1713790-7.patch"
 projects[commerce_features][version] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"
@@ -129,6 +130,11 @@ projects[jirafe][subdir] = "contrib"
 projects[jirafe][patch][] = "http://drupal.org/files/1719236.provide_default_data-3.patch"
 projects[menu_attributes][version] = 1.0-rc2
 projects[menu_attributes][subdir] = "contrib"
+projects[fences][version] = "1.0"
+projects[fences][subdir] = "contrib"
+projects[fences][patch][] = "http://drupal.org/files/undefined-index-1561244-7.patch"
+projects[title][version] = "1.x-dev"
+projects[title][subdir] = "contrib"
 
 ; Search related modules.
 projects[search_api][version] = 1.2

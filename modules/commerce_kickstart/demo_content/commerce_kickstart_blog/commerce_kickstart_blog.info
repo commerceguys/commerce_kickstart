@@ -16,6 +16,7 @@ features[field][] = node-blog_post-body
 features[field][] = node-blog_post-field_blog_category
 features[field][] = node-blog_post-field_image
 features[field][] = node-blog_post-field_tags
+features[field][] = node-blog_post-title_field
 features[node][] = blog_post
 features[taxonomy][] = blog_category
 features[user_permission][] = create blog_post content

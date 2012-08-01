@@ -27,6 +27,7 @@ features[field][] = node-slideshow-field_headline
 features[field][] = node-slideshow-field_image
 features[field][] = node-slideshow-field_link
 features[field][] = node-slideshow-field_tagline
+features[field][] = node-slideshow-title_field
 features[image][] = hp_slideshow
 features[node][] = slideshow
 features[user_permission][] = create slideshow content

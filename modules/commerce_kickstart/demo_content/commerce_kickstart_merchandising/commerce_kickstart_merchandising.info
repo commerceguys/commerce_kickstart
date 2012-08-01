@@ -23,6 +23,7 @@ features[field][] = comment-comment_node_ad_push-comment_body
 features[field][] = node-ad_push-field_image
 features[field][] = node-ad_push-field_link
 features[field][] = node-ad_push-field_tagline
+features[field][] = node-ad_push-title_field
 features[node][] = ad_push
 features[taxonomy][] = tags
 features[user_permission][] = create ad_push content

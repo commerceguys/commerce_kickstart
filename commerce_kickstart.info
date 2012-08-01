@@ -88,6 +88,8 @@ dependencies[] = commerce_fancy_attributes
 dependencies[] = commerce_backoffice
 dependencies[] = commerce_checkout_progress
 dependencies[] = menu_attributes
+dependencies[] = fences
+dependencies[] = title
 
 ; Install Features
 dependencies[] = features
