@@ -798,15 +798,29 @@ select[multiple] {
 /*******************************************
 * 3.2.3. Sidebar second
 *******************************************/
-#block-views-blog-category-list-block,
-#block-views-blog-blog-archives {
-
+#block-views-blog-category-list-block .block-title,
+#block-views-blog-block-1 .block-title {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 #block-views-blog-category-list-block table {
   width: 100%;
 }
 #block-views-blog-category-list-block td {
   width: 50%;
+}
+#block-views-blog-block-1 .views-row {
+  border-bottom: 1px solid #E0E3E6;
+  padding: 4px 4px 10px 4px;
+}
+#block-views-blog-block-1 .views-row .views-field-title {
+  line-height: 13px;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+}
+#block-views-blog-block-1 .views-row-last {
+  border-bottom: 0;
 }
 /**********************************************
 * 3.3. Zone postscript
@@ -2087,7 +2101,28 @@ input.checkout-continue {
 **************************************************/
 /* Comment */
 .comment {
-  padding: 10px 0 5px 0;
+  padding: 10px 4px 5px 4px;
+  position: relative;
+}
+.comment .field-name-comment-body {
+  padding: 0px 10px;
+}
+.comment header em {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  float: right;
+  font-size: 12px;
+  font-style: normal;
+  padding: 2px 4px;
+  text-transform: uppercase;
+}
+.comment header em.new {
+  background-color: #ff2424;
+  color: #ffffff;
+}
+.comment header em.unpublished {
+  font-weight: 700;
 }
 .comment footer.comment-submitted {
   border-bottom: 1px dotted #E0E3E6;
@@ -2115,52 +2150,47 @@ input.checkout-continue {
   border-bottom: 1px solid #E0E3E6;
   margin-top: 20px;
 }
-.comment-wrapper .comment-form {
+.comment-form {
   background-color: #ececec;
   padding: 15px;
 }
-
-.comment-wrapper .comment-form .form-item label {
+.comment-form .form-item label {
   float: left;
   padding-right: 8px;
   text-align: right;
   width: 110px;
 }
-.comment-wrapper .comment-form .form-item label:after {
+.comment-form .form-item label:after {
   clear: both;
   content: ":";
 }
-.comment-wrapper .comment-form #edit-author--2 {
+.comment-form #edit-author--2 {
   margin: 0;
 }
-.comment-wrapper .comment-form #edit-author--2 label {
+.comment-form #edit-author--2 label {
   display: inline;
 }
-
-.comment-wrapper .comment-form .form-textarea-wrapper {
+.comment-form .form-textarea-wrapper {
   float: left;
   width: 65%;
 }
-.comment-wrapper .comment-form .filter-wrapper {
+.comment-form .filter-wrapper {
   clear: both;
 }
-.comment-wrapper .comment-form .filter-wrapper .fieldset-wrapper {
+.comment-form .filter-wrapper .fieldset-wrapper {
   font-size: 11px;
   margin: 0 auto;
   width: 80%;
 }
-
-.comment-wrapper .comment-form .filter-wrapper .form-item {
+.comment-form .filter-wrapper .form-item {
   margin-top: 0;
 }
-.comment-wrapper .comment-form .filter-wrapper .form-item label {
+.comment-form .filter-wrapper .form-item label {
   float: inherit;
   text-align: inherit;
   width: inherit;
 }
-.comment-wrapper .comment-form #edit-actions {
-}
-.comment-wrapper .comment-form .form-submit {
+.comment-form .form-submit {
   font: normal 16px/21px "Open Sans", Arial, sans-serif;
   line-height: 30px;
   padding: 4px 15px;
