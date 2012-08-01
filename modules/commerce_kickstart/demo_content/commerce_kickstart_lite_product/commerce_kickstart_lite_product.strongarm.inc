@@ -92,6 +92,12 @@ function commerce_kickstart_lite_product_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'commerce_line_item_token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -108,7 +114,7 @@ function commerce_kickstart_lite_product_strongarm() {
       'display' => array(
         'sku' => array(
           'default' => array(
-            'weight' => '-10',
+            'weight' => '0',
             'visible' => TRUE,
           ),
           'node_product_list' => array(
@@ -118,7 +124,7 @@ function commerce_kickstart_lite_product_strongarm() {
         ),
         'title' => array(
           'default' => array(
-            'weight' => '-5',
+            'weight' => '1',
             'visible' => TRUE,
           ),
           'node_product_list' => array(
@@ -128,18 +134,90 @@ function commerce_kickstart_lite_product_strongarm() {
         ),
         'status' => array(
           'default' => array(
-            'weight' => '5',
-            'visible' => TRUE,
+            'weight' => '6',
+            'visible' => FALSE,
           ),
           'node_product_list' => array(
-            'weight' => '3',
-            'visible' => TRUE,
+            'weight' => '4',
+            'visible' => FALSE,
           ),
         ),
       ),
     ),
   );
   $export['field_bundle_settings_commerce_product__product'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__product_display';
+  $strongarm->value = array(
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'product_list' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
+    'extra_fields' => array(
+      'form' => array(),
+      'display' => array(
+        'product:sku' => array(
+          'default' => array(
+            'weight' => '-10',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:title' => array(
+          'default' => array(
+            'weight' => '-5',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:status' => array(
+          'default' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:commerce_price' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+        ),
+        'product:field_color' => array(
+          'default' => array(
+            'weight' => '36',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:field_images' => array(
+          'default' => array(
+            'weight' => '38',
+            'visible' => TRUE,
+          ),
+        ),
+        'product:field_size' => array(
+          'default' => array(
+            'weight' => '37',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
+    ),
+  );
+  $export['field_bundle_settings_node__product_display'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -203,7 +281,7 @@ function commerce_kickstart_lite_product_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_product_display';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_product_display'] = $strongarm;
 
   $strongarm = new stdClass();

@@ -136,10 +136,7 @@ function commerce_kickstart_lite_product_default_search_api_index() {
         "search_api_alter_bundle_filter" : {
           "status" : 1,
           "weight" : "-10",
-          "settings" : {
-            "default" : "0",
-            "bundles" : { "product_display" : "product_display" }
-          }
+          "settings" : { "default" : "0", "bundles" : { "product_display" : "product_display" } }
         },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },

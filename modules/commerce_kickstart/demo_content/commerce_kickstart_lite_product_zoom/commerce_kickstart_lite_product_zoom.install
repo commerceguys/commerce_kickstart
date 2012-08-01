@@ -2,7 +2,7 @@
 
 function commerce_kickstart_lite_product_zoom_enable() {
   $settings = array(
-    'label' => 'above',
+    'label' => 'hidden',
     'module' => 'cloud_zoom',
     'settings' =>
     array(
@@ -35,12 +35,25 @@ function commerce_kickstart_lite_product_zoom_enable() {
     'type' => 'cloud_zoom',
     'weight' => '3',
   );
-
+  $settings_node_product_list = array(
+    'label' => 'hidden',
+    'module' => 'image_delta_formatter',
+    'settings' => array(
+      'deltas' => '0',
+      'deltas_reversed' => 0,
+      'image_link' => '',
+      'image_style' => 'product_medium',
+    ),
+    'type' => 'image_delta',
+    'weight' => '3',
+  );
   $instance = array(
     'entity_type' => 'commerce_product',
     'bundle' => 'product',
     'field_name' => 'field_images',
-    'display' => array('default' => $settings
+    'display' => array(
+      'default' => $settings,
+      'node_product_list' => $settings_node_product_list,
       ),
     );
   $field_instance = field_read_instance('commerce_product', 'field_images', 'product');

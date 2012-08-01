@@ -375,6 +375,7 @@ function commerce_kickstart_lite_product_ui_views_default_views() {
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_extractor_field_product_variations']['type'] = 'ul';
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['field_name'] = 'field_color';
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['formatter'] = 'entityreference_entity_view';
   $handler->display->display_options['fields']['field_extractor_field_product_variations']['settings'] = array(
