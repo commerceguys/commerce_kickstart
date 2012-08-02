@@ -2102,7 +2102,6 @@ input.checkout-continue {
 /* Comment */
 .comment {
   padding: 10px 4px 5px 4px;
-  position: relative;
 }
 .comment .field-name-comment-body {
   padding: 0px 10px;
@@ -2118,7 +2117,7 @@ input.checkout-continue {
   text-transform: uppercase;
 }
 .comment header em.new {
-  background-color: #ff2424;
+  background-color: #207cca;
   color: #ffffff;
 }
 .comment header em.unpublished {

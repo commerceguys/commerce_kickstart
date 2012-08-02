@@ -89,14 +89,4 @@
       );
     }
   }
-  // Replace navigation list to a select list on small devices.
-  Drupal.behaviors.commerce_kickstart_theme_custom_zoom = {
-    attach: function(context, settings) {
-      $('body').bind('responsivelayout', function(e, d) {
-        if($(this).hasClass("responsive-layout-mobile")) {
-         console.log('small');
-        }
-      });
-    }
-  }
 })(jQuery);
