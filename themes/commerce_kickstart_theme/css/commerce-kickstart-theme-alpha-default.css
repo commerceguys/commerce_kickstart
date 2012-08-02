@@ -402,6 +402,12 @@ body {
 .commerce-add-to-cart label {
   float: left;
 }
+/* Cloud zoom */
+.cloud-zoom-big,
+.mousetrap,
+.cloud-zoom-lens {
+  display: inherit !important;
+}
 /**********************************************
 * 5.4. Checkout process
 **********************************************/

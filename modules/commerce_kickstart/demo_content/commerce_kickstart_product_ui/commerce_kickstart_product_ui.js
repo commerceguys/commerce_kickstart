@@ -26,5 +26,19 @@
       });
     }
   }
-
+  // Handle cloud zoom on small devices.
+  Drupal.behaviors.cloud_zoom = {
+    attach: function(context, settings) {
+      $('body').bind('responsivelayout', function(e, d) {
+        if($(this).hasClass("responsive-layout-mobile")) {
+          $('.cloud-zoom-big, .cloud-zoom-lens').hide();
+          $('.cloud-zoom-big, .mousetrap, .cloud-zoom-lens').css('display','none');
+        }
+        else {
+          $('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
+          $('body').unbind('responsivelayout');
+        }
+      });
+    }
+  }
 })(jQuery);

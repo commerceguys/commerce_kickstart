@@ -10,7 +10,7 @@
   <?php if ($display_submitted): ?>
   <footer class="submitted"><?php print $date; ?> -- <?php print $name; ?></footer>
   <?php endif; ?>
-  <div class="container-24 grid-14 prefix-1">
+  <div class="container-24 grid-14 prefix-1 clearfix">
     <?php print render($content['product:field_images']); ?>
   </div>
   <div class="container-24 grid-8 prefix-1">
