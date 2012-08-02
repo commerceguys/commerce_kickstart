@@ -2,7 +2,6 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
 
 /* Base Admin Theme Styles */
-
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -31,7 +30,7 @@ body.in-maintenance .body-wrapper {
 }
 body.in-maintenance .body-wrapper .page-outer {
   background: transparent url("images/installation-bg.png") repeat 0 0;
-  padding: 100px 0 30px;
+  padding: 40px 0;
 }
 body.in-maintenance #branding {
   background: #f4f4f4;
@@ -83,7 +82,8 @@ body.in-maintenance ol.task-list {
   background: transparent url("images/wizard-bg.png") repeat-y 0 0;
 }
 body.installing-demo-store ol.task-list,
-body.importing-content ol.task-list {
+body.importing-content ol.task-list,
+body.installing-additional-functionality ol.task-list {
   background: transparent url("images/wizard-bg2.png") repeat-y 0 0;
 }
 body.in-maintenance ol.task-list li {
@@ -129,7 +129,6 @@ h1, h2, h3, h4, h5, h6, ul.admin-list li a, div.breadcrumb, fieldset .fieldset-l
 }
 
 /* Form Overrides */
-
 fieldset.form-wrapper {
   border: 0;
   margin-bottom: 2em;

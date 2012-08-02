@@ -40,15 +40,13 @@ body.toolbar #toolbar div.toolbar-menu {
   position: relative;
 }
 /* Home Logo Link */
-body.toolbar #toolbar-home li {
-  margin-right: 30px;
-}
 body.toolbar #toolbar-home a span {
   background: transparent url("images/logo-menu.png") no-repeat 0 0;
   display: block;
   height: 40px;
   text-indent: -9999px;
   width: 130px;
+  margin: 0;
 }
 body.toolbar #toolbar-home a,
 body.toolbar #toolbar-home ul li a.active,
@@ -169,7 +167,7 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   float: left;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-2 div.toolbar-menu-wrapper {
-  width: 425px;
+  width: 400px;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu {
   margin: 0;
