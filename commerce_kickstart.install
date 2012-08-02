@@ -244,6 +244,10 @@ function commerce_kickstart_install_additional_modules() {
   arsort($modules_sorted);
 
   $operations = array();
+  // Enable and set as default the correct theme.
+  $theme = $install_demo_store ? 'commerce_kickstart_theme' : 'omega_kickstart';
+  $operations[] = array('_commerce_kickstart_enable_theme', array($theme));
+  // Enable the selected modules.
   foreach ($modules_sorted as $module => $weight) {
     $operations[] = array('_commerce_kickstart_enable_module', array($module, $files[$module]->info['name']));
   }
@@ -424,129 +428,11 @@ function commerce_kickstart_install() {
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
 
-  // Enable themes and blocks.
-  $default_theme = 'commerce_kickstart_theme';
+  // Enable the admin theme.
   $admin_theme = 'commerce_kickstart_admin';
-  theme_enable(array($default_theme, $admin_theme));
-  variable_set('theme_default', $default_theme);
+  theme_enable(array($admin_theme));
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
-
-  $blocks = array(
-    array(
-      'module' => 'system',
-      'delta' => 'main',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'pages' => '<front>', // Do not show the block on front.
-      'visibility' => 0,
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'navigation',
-      'theme' => $default_theme,
-      'status' => 0, // Do not enable the navigation menu block.
-      'weight' => 0,
-      'region' => 'sidebar_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'preface_first',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'main',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 10,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    // Connector.
-    array(
-      'module' => 'connector',
-      'delta' => 'one_click_block',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => 1,
-      'region' => 'content',
-      'pages' => "user\r\nuser/login",
-      'visibility' => BLOCK_VISIBILITY_LISTED,
-      'cache' => -1,
-    ),
-    // Search sorting.
-    array(
-      'module' => 'search_api_sorts',
-      'delta' => 'search-sorts',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -30,
-      'region' => 'content',
-      'pages' => '',
-      'visibility' => 0,
-      'cache' => -1,
-    ),
-    // Commerce checkout progress
-    array(
-      'module' => 'commerce_checkout_progress',
-      'delta' => 'indication',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -10,
-      'region' => 'breadcrumb',
-      'pages' => "checkout/*\ncart",
-      'visibility' => BLOCK_VISIBILITY_LISTED,
-      'cache' => -1,
-      'title' => '<none>',
-    ),
-  );
-
-  drupal_static_reset();
-  _block_rehash($admin_theme);
-  _block_rehash($default_theme);
-  foreach ($blocks as $record) {
-    $module = array_shift($record);
-    $delta = array_shift($record);
-    $theme = array_shift($record);
-    db_update('block')
-      ->fields($record)
-      ->condition('module', $module)
-      ->condition('delta', $delta)
-      ->condition('theme', $theme)
-      ->execute();
-  }
 
   // Insert default pre-defined node types into the database.
   $types = array(

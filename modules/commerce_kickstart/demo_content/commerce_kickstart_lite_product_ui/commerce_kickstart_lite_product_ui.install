@@ -23,7 +23,7 @@ function commerce_kickstart_lite_product_ui_enable() {
   _features_restore('rebuild', $items);
 
   drupal_static_reset();
-  $default_theme = variable_get('theme_default', 'omega');
+  $default_theme = variable_get('theme_default', 'omega_kickstart');
   _block_rehash($default_theme);
   try {
     // Put the facets blocks in the right place.

@@ -21,7 +21,7 @@ function commerce_kickstart_merchandising_ui_enable() {
  */
 function commerce_kickstart_merchandising_ui_install() {
   drupal_static_reset();
-  $default_theme = variable_get('theme_default', 'omega');
+  $default_theme = variable_get('theme_default', 'omega_kickstart');
   _block_rehash($default_theme);
   try {
     // Footer navigation.

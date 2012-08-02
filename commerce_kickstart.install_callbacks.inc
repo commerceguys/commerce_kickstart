@@ -10,6 +10,18 @@
  *
  * @see commerce_kickstart_install_additional_modules()
  */
+function _commerce_kickstart_enable_theme($theme, &$context) {
+  theme_enable(array($theme));
+  variable_set('theme_default', $theme);
+
+  $context['message'] = st('Installed the default theme.');
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_install_additional_modules()
+ */
 function _commerce_kickstart_enable_module($module, $module_name, &$context) {
   module_enable(array($module), FALSE);
   $context['message'] = st('Installed %module module.', array('%module' => $module_name));
@@ -214,52 +226,26 @@ function _commerce_kickstart_example_user($operation, &$context) {
 function _commerce_kickstart_post_import($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
 
-  $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
-  if (!$install_demo_store) {
-    _commerce_kickstart_setup_omega_theme();
-  }
-
-  features_rebuild();
-  drupal_static_reset();
+  _commerce_kickstart_setup_blocks();
 }
 
 /**
- * Configures blocks for the theme during base install (no demo store).
+ * Configures the theme and assign blocks to the appropriate regions.
  */
-function _commerce_kickstart_setup_omega_theme() {
-  $default_theme = 'omega';
+function _commerce_kickstart_setup_blocks() {
   $admin_theme = 'commerce_kickstart_admin';
-  theme_enable(array($default_theme, $admin_theme));
-  variable_set('theme_default', $default_theme);
-  variable_set('admin_theme', $admin_theme);
-  variable_set('node_admin_theme', '1');
-  // Don't show the grid by default.
-  $omega_settings = array(
-    'alpha_debug_grid_active' => FALSE,
-  );
-  variable_set('theme_omega_settings', $omega_settings);
+  $default_theme = variable_get('theme_default', 'omega_kickstart');
 
   $blocks = array(
     array(
       'module' => 'system',
-      'delta' => 'main',
-      'theme' => $default_theme,
+      'delta' => 'help',
+      'theme' => $admin_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'content',
-      'pages' => '<front>', // Do not show the block on front.
-      'visibility' => 0,
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'navigation',
-      'theme' => $default_theme,
-      'status' => 0, // Do not enable the navigation menu block.
-      'weight' => 0,
-      'region' => 'sidebar_first',
+      'region' => 'help',
       'pages' => '',
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     array(
       'module' => 'system',
@@ -269,37 +255,18 @@ function _commerce_kickstart_setup_omega_theme() {
       'weight' => 0,
       'region' => 'preface_first',
       'pages' => '',
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     array(
       'module' => 'system',
       'delta' => 'main',
-      'theme' => $admin_theme,
+      'theme' => $default_theme,
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 10,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
+      'pages' => '<front>', // Do not show the block on front.
+      'visibility' => 0,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     // Connector.
     array(
@@ -311,7 +278,7 @@ function _commerce_kickstart_setup_omega_theme() {
       'region' => 'content',
       'pages' => "user\r\nuser/login",
       'visibility' => BLOCK_VISIBILITY_LISTED,
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     // Search sorting.
     array(
@@ -323,7 +290,7 @@ function _commerce_kickstart_setup_omega_theme() {
       'region' => 'content',
       'pages' => '',
       'visibility' => 0,
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     // Commerce checkout progress
     array(
@@ -332,10 +299,10 @@ function _commerce_kickstart_setup_omega_theme() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => -10,
-      'region' => 'content',
-      'pages' => "checkout/*",
+      'region' => 'breadcrumb',
+      'pages' => "checkout/*\ncart",
       'visibility' => BLOCK_VISIBILITY_LISTED,
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
       'title' => '<none>',
     ),
   );
