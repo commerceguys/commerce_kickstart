@@ -9,10 +9,6 @@
  */
 function commerce_kickstart_product_ui_ctools_plugin_api() {
   list($module, $api) = func_get_args();
-  if ($module == "current_search" && $api == "current_search") {
-    return array("version" => "1");
-  }
-  list($module, $api) = func_get_args();
   if ($module == "facetapi" && $api == "facetapi_defaults") {
     return array("version" => "1");
   }

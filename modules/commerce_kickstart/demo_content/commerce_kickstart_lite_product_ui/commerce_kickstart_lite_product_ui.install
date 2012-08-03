@@ -60,39 +60,14 @@ function commerce_kickstart_lite_product_ui_enable() {
       ->condition('delta', '-exp-display_products-page')
       ->condition('theme', $default_theme)
       ->execute();
-
-    db_update('block')
-      ->fields(array(
-        'region' => 'branding',
-        'status' => (int) '1',
-      ))
-      ->condition('module', 'views')
-      ->condition('delta', '-exp-display_products-page')
-      ->condition('theme', $default_theme)
-      ->execute();
-
-    db_update('block')
-      ->fields(array(
-        'region' => 'breadcrumb',
-        'weight' => -10,
-        'status' => (int) '1',
-        'title' => '<none>'
-      ))
-      ->condition('module', 'current_search')
-      ->condition('delta', 'kickstart_search')
-      ->condition('theme', $default_theme)
-      ->execute();
-
   }
   catch (Exception $e) {
     watchdog_exception('block', $e);
     throw $e;
   }
 
-  // Fill menus
   // Set up taxonomy main menu.
   $collection = taxonomy_vocabulary_machine_name_load('product_category');
   $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
   variable_set($variable_name, 'main-menu');
-
 }

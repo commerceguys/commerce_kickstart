@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * commerce_kickstart_product_ui.current_search.inc
+ * commerce_kickstart_search.current_search.inc
  */
 
 /**
  * Implements hook_current_search_default_items().
  */
-function commerce_kickstart_product_ui_current_search_default_items() {
+function commerce_kickstart_search_current_search_default_items() {
   $export = array();
 
   $item = new stdClass();

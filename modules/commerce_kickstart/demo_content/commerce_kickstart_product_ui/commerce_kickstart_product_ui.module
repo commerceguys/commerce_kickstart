@@ -66,9 +66,6 @@ function commerce_kickstart_product_ui_theme(&$existing) {
       }
     }
   }
-  if (!empty($existing['facetapi_title']) && $existing['facetapi_title']['function']) {
-    $existing['facetapi_title']['function'] = 'theme_commerce_kickstart_product_ui_facetapi_title';
-  }
   // Remove commerce product label.
   if ($existing['commerce_product_title']) {
     $existing['commerce_product_title']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
@@ -78,9 +75,6 @@ function commerce_kickstart_product_ui_theme(&$existing) {
   if ($existing['commerce_line_item_summary']) {
     $existing['commerce_line_item_summary']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
     $existing['commerce_line_item_summary']['template'] = 'commerce-line-item-summary';
-  }
-  if ($existing['current_search_text']) {
-    $existing['current_search_text']['function'] = 'theme_commerce_kickstart_product_ui_current_search_text';
   }
   if ($existing['search_api_sorts_sort']) {
     $existing['search_api_sorts_sort']['theme path'] = drupal_get_path('module', 'commerce_kickstart_product_ui');
@@ -119,30 +113,6 @@ function commerce_kickstart_product_ui_theme(&$existing) {
 function commerce_kickstart_product_ui_theme_registry_alter(&$theme_registry) {
   // Split node add list in two columns.
   $theme_registry['node_add_list']['function'] = 'theme_commerce_kickstart_product_ui_node_add_list';
-}
-
-/**
- * Override facetapi default title.
- */
-function theme_commerce_kickstart_product_ui_facetapi_title($variables) {
-  $title = explode(' » ', $variables['title']);
-  return drupal_ucfirst(drupal_strtolower(array_pop($title)));
-}
-
-/**
- * Preprocess theme variables for facetapi blocks.
- * Add facet field machine name to block class, make it easier to theme.
- */
-function commerce_kickstart_product_ui_preprocess_block(&$variables) {
-  if ($variables['block']->module == 'facetapi') {
-    $delta = $variables['block']->delta;
-    $map = facetapi_get_delta_map();
-    $name = $map[$delta];
-    $name = explode(':', $name);
-    $name = array_pop($name);
-    $name = str_replace('%3A', '_', $name);
-    $variables['classes_array'][] = $name;
-  }
 }
 
 /**
@@ -262,53 +232,6 @@ function theme_commerce_kickstart_product_ui_node_add_list($variables) {
 }
 
 /**
- * Implements hook_search_api_facetapi_keys_alter().
- *
- * We do not want to see [all items] in breadcrumbs when browsing all
- * products, but only if search term is empty and no facets are used.
- *
- * @see SearchApiFacetapiAdapter::getSearchKeys()
- */
-function commerce_kickstart_product_ui_search_api_facetapi_keys_alter(&$keys, $query) {
-  if ($keys == '[all items]' && !isset($_GET['f'])) {
-    // All products without facets.
-    $keys = '';
-    drupal_set_breadcrumb(array(l(t('Home'), '<front>'), 'All Products'));
-  }
-  else {
-    if ($keys == '[all items]' && isset($_GET['f'])) {
-      // All products with facets.
-      drupal_set_breadcrumb(array());
-    }
-    else {
-      if ($keys != '[all items]') {
-        // Search result by key with or without facets.
-        drupal_set_breadcrumb(array());
-      }
-    }
-  }
-}
-
-/**
- * Override current_search_text theme.
- *
- * Allow HTML.
- */
-function theme_commerce_kickstart_product_ui_current_search_text(array $variables) {
-  // Initializes output, don't sanitizes text.
-  $output = $variables['text'];
-
-  // Adds wrapper markup and CSS classes.
-  if ($variables['wrapper'] && $variables['element']) {
-    $attributes = array('class' => $variables['class']);
-    $element = check_plain($variables['element']);
-    $output = '<' . $element . drupal_attributes($attributes) . '>' . $output . '</' . $element . '>';
-  }
-
-  return $output;
-}
-
-/**
  * Implements hook_commerce_checkout_pane_info_alter().
  */
 function commerce_kickstart_product_ui_commerce_checkout_pane_info_alter(&$checkout_panes) {
@@ -400,3 +323,27 @@ function commerce_kickstart_product_ui_preprocess_views_view(&$vars) {
     }
   }
 }
+
+/**
+ * Implements hook_block_info_alter().
+ */
+function commerce_kickstart_product_ui_block_info_alter(&$blocks, $theme, $code_blocks) {
+  // Override facetapi blocks label.
+  if (isset($blocks['facetapi']['sEfBkM5gYOzQ0rqCRvhBYUZpHqK1SSNm'])) {
+    $blocks['facetapi']['sEfBkM5gYOzQ0rqCRvhBYUZpHqK1SSNm']['title'] = t('Price');
+    $blocks['facetapi']['sEfBkM5gYOzQ0rqCRvhBYUZpHqK1SSNm']['weight'] = -1;
+  }
+  if (isset($blocks['facetapi']['bLnoZinIxE1jGb2PRK60VXpQAiOUVaBT'])) {
+    $blocks['facetapi']['bLnoZinIxE1jGb2PRK60VXpQAiOUVaBT']['title'] = t('Shoe size');
+  }
+  if (isset($blocks['facetapi']['G1C31UEu0CE1nJNBKS8vf340Ze4SYYEt'])) {
+    $blocks['facetapi']['G1C31UEu0CE1nJNBKS8vf340Ze4SYYEt']['title'] = t('Hat size');
+  }
+  if (isset($blocks['facetapi']['0ipnwlXipzrm39vOO6k11dGc0FQlH9sg'])) {
+    $blocks['facetapi']['0ipnwlXipzrm39vOO6k11dGc0FQlH9sg']['title'] = t('Top size');
+  }
+  if (isset($blocks['facetapi']['y7cJ8JiPggb9kLdqx2RyReFZulrBd8Ig'])) {
+    $blocks['facetapi']['y7cJ8JiPggb9kLdqx2RyReFZulrBd8Ig']['title'] = t('Bag size');
+  }
+}
+

@@ -16,7 +16,7 @@ function commerce_kickstart_product_enable() {
   _features_restore('rebuild', $items);
 
   entity_defaults_rebuild();
-  $index = entity_load_single('search_api_index', 'search_commerce_display');
+  $index = entity_load_single('search_api_index', 'product_display');
   $index->server()->fieldsUpdated($index);
 }
 

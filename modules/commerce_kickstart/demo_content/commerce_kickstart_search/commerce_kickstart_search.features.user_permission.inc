@@ -12,13 +12,13 @@ function commerce_kickstart_search_user_default_permissions() {
 
   // Exported permission: use search_api_sorts.
   $permissions['use search_api_sorts'] = array(
-     'module' => 'search_api_sorts',
-     'name' => 'use search_api_sorts',
-     'roles' => array(
-       0 => 'administrator',
-       1 => 'anonymous user',
-       2 => 'authenticated user',
-     ),
+    'name' => 'use search_api_sorts',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'anonymous user',
+      2 => 'authenticated user',
+    ),
+    'module' => 'search_api_sorts',
   );
 
   return $permissions;

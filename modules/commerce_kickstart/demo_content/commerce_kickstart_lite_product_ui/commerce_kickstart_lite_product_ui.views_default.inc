@@ -505,38 +505,6 @@ function commerce_kickstart_lite_product_ui_views_default_views() {
   $export['confirm_message_product_display'] = $view;
 
   $view = new view;
-  $view->name = 'display_products';
-  $view->description = 'Display all the products that are available, using Search API';
-  $view->tag = 'default';
-  $view->base_table = 'search_api_index_kickstart_product_display';
-  $view->human_name = 'Display products';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Display products';
-  $handler->display->display_options['access']['type'] = 'none';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'entity';
-  $handler->display->display_options['row_options']['view_mode'] = 'product_list';
-  /* Field: Indexed Node: Node ID */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_kickstart_product_display';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'products';
-  $export['display_products'] = $view;
-
-  $view = new view;
   $view->name = 'shopping_cart';
   $view->description = '';
   $view->tag = 'default';

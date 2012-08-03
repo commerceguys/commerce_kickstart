@@ -243,7 +243,6 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_block',
       'commerce_kickstart_checkout_redirect',
       'commerce_kickstart_social',
-      'commerce_kickstart_search',
       'commerce_kickstart_product',
       'commerce_kickstart_product_ui',
       'commerce_kickstart_blog',
@@ -252,14 +251,15 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_merchandising',
       'commerce_kickstart_merchandising_ui',
       'commerce_kickstart_menus',
+      'commerce_kickstart_search',
     );
   }
   else {
     $modules = array(
       'commerce_kickstart_block',
-      'commerce_kickstart_lite_search',
       'commerce_kickstart_lite_product',
       'commerce_kickstart_lite_product_ui',
+      'commerce_kickstart_search',
     );
     $selected_extras = variable_get('commerce_kickstart_selected_extras', array());
     if (empty($selected_extras['anonymous_checkout'])) {
@@ -587,4 +587,17 @@ function commerce_kickstart_install() {
   variable_set('chosen_minimum', 0);
   variable_set('chosen_minimum_width', 200);
   variable_set('chosen_search_contains', TRUE);
+
+  // Create the default Search API server.
+  $values = array(
+    'machine_name' => 'frontend',
+    'name' => 'Frontend',
+    'description' => '',
+    'class' => 'search_api_db_service',
+    'options' => array(
+      'database' => 'default:default',
+      'min_chars' => 3,
+    ),
+  );
+  search_api_server_insert($values);
 }

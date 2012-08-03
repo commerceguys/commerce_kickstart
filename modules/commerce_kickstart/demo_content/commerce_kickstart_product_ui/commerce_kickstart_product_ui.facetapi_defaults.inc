@@ -13,8 +13,8 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_brand';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_brand';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_brand';
   $facet->enabled = FALSE;
@@ -42,13 +42,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@search_commerce_display:block:field_brand'] = $facet;
+  $export['search_api@product_display:block:field_brand'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_category';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_category';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_category';
   $facet->enabled = TRUE;
@@ -89,13 +89,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@search_commerce_display:block:field_category'] = $facet;
+  $export['search_api@product_display:block:field_category'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_collection';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_collection';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_collection';
   $facet->enabled = TRUE;
@@ -147,13 +147,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@search_commerce_display:block:field_collection'] = $facet;
+  $export['search_api@product_display:block:field_collection'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_gender';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_gender';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_gender';
   $facet->enabled = TRUE;
@@ -194,13 +194,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@search_commerce_display:block:field_gender'] = $facet;
+  $export['search_api@product_display:block:field_gender'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_product:commerce_price:amount_float';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_product:commerce_price:amount_float';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_product:commerce_price:amount_float';
   $facet->enabled = TRUE;
@@ -239,13 +239,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@search_commerce_display:block:field_product:commerce_price:amount_float'] = $facet;
+  $export['search_api@product_display:block:field_product:commerce_price:amount_float'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_product:field_bag_size';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_product:field_bag_size';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_product:field_bag_size';
   $facet->enabled = TRUE;
@@ -290,13 +290,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@search_commerce_display:block:field_product:field_bag_size'] = $facet;
+  $export['search_api@product_display:block:field_product:field_bag_size'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_product:field_color';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_product:field_color';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_product:field_color';
   $facet->enabled = TRUE;
@@ -341,13 +341,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@search_commerce_display:block:field_product:field_color'] = $facet;
+  $export['search_api@product_display:block:field_product:field_color'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_product:field_hat_size';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_product:field_hat_size';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_product:field_hat_size';
   $facet->enabled = TRUE;
@@ -392,13 +392,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@search_commerce_display:block:field_product:field_hat_size'] = $facet;
+  $export['search_api@product_display:block:field_product:field_hat_size'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_product:field_shoe_size';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_product:field_shoe_size';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_product:field_shoe_size';
   $facet->enabled = TRUE;
@@ -454,13 +454,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@search_commerce_display:block:field_product:field_shoe_size'] = $facet;
+  $export['search_api@product_display:block:field_product:field_shoe_size'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_product:field_storage_capacity';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_product:field_storage_capacity';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_product:field_storage_capacity';
   $facet->enabled = TRUE;
@@ -516,13 +516,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@search_commerce_display:block:field_product:field_storage_capacity'] = $facet;
+  $export['search_api@product_display:block:field_product:field_storage_capacity'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:field_product:field_top_size';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:field_product:field_top_size';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'field_product:field_top_size';
   $facet->enabled = TRUE;
@@ -578,13 +578,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@search_commerce_display:block:field_product:field_top_size'] = $facet;
+  $export['search_api@product_display:block:field_product:field_top_size'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:search_api_language';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:search_api_language';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'search_api_language';
   $facet->enabled = FALSE;
@@ -612,13 +612,13 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@search_commerce_display:block:search_api_language'] = $facet;
+  $export['search_api@product_display:block:search_api_language'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@search_commerce_display:block:title';
-  $facet->searcher = 'search_api@search_commerce_display';
+  $facet->name = 'search_api@product_display:block:title';
+  $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
   $facet->facet = 'title';
   $facet->enabled = FALSE;
@@ -646,7 +646,7 @@ function commerce_kickstart_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@search_commerce_display:block:title'] = $facet;
+  $export['search_api@product_display:block:title'] = $facet;
 
   return $export;
 }

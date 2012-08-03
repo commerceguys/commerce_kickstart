@@ -141,11 +141,11 @@ function commerce_kickstart_lite_product_node_info() {
  */
 function commerce_kickstart_lite_product_default_search_api_index() {
   $items = array();
-  $items['kickstart_product_display'] = entity_import('search_api_index', '{
-    "name" : "Kickstart_product_display",
-    "machine_name" : "kickstart_product_display",
-    "description" : null,
-    "server" : "kickstart_product_display",
+  $items['product_display'] = entity_import('search_api_index', '{
+    "name" : "Product Display",
+    "machine_name" : "product_display",
+    "description" : "Used for the frontend product listings and search pages.",
+    "server" : "frontend",
     "item_type" : "node",
     "options" : {
       "index_directly" : 1,

@@ -59,29 +59,6 @@ function commerce_kickstart_product_ui_enable() {
       ->condition('delta', '-exp-display_products-page')
       ->condition('theme', 'commerce_kickstart_theme')
       ->execute();
-
-    db_update('block')
-      ->fields(array(
-        'region' => 'branding',
-        'status' => (int) '1',
-      ))
-      ->condition('module', 'views')
-      ->condition('delta', '-exp-display_products-page')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
-
-    db_update('block')
-      ->fields(array(
-        'region' => 'breadcrumb',
-        'weight' => -10,
-        'status' => (int) '1',
-        'title' => '<none>'
-      ))
-      ->condition('module', 'current_search')
-      ->condition('delta', 'kickstart_search')
-      ->condition('theme', 'commerce_kickstart_theme')
-      ->execute();
-
   }
   catch (Exception $e) {
     watchdog_exception('block', $e);

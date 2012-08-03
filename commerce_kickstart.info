@@ -105,6 +105,14 @@ dependencies[] = commerce_features
 dependencies[] = migrate
 dependencies[] = commerce_migrate
 
+; Install Search API
+dependencies[] = facetapi
+dependencies[] = search_api
+dependencies[] = search_api_db
+dependencies[] = search_api_views
+dependencies[] = search_api_facetapi
+dependencies[] = search_api_ranges
+
 ; Distribution modules.
 dependencies[] = commerce_kickstart_help
 dependencies[] = commerce_kickstart_inline_help

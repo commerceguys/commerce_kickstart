@@ -350,11 +350,11 @@ function commerce_kickstart_product_node_info() {
  */
 function commerce_kickstart_product_default_search_api_index() {
   $items = array();
-  $items['search_commerce_display'] = entity_import('search_api_index', '{
-    "name" : "Search Commerce Display",
-    "machine_name" : "search_commerce_display",
-    "description" : null,
-    "server" : "database_search_engine",
+  $items['product_display'] = entity_import('search_api_index', '{
+    "name" : "Product Display",
+    "machine_name" : "product_display",
+    "description" : "Used for the frontend product listings and search pages.",
+    "server" : "frontend",
     "item_type" : "node",
     "options" : {
       "index_directly" : 1,
@@ -393,10 +393,14 @@ function commerce_kickstart_product_default_search_api_index() {
           "settings" : { "fields" : { "field_product:commerce_price:amount_float" : "field_product:commerce_price:amount_float" } }
         },
         "commerce_kickstart_search_bundle_filter" : { "status" : 1, "weight" : "-10", "settings" : [] },
-        "search_api_alter_bundle_filter" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
         "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_bundle_filter" : {
+          "status" : 0,
+          "weight" : "0",
+          "settings" : { "default" : "1", "bundles" : [] }
+        },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } }
       },
