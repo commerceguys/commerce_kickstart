@@ -79,6 +79,7 @@ projects[connector][subdir] = "contrib"
 projects[oauthconnector][version] = 1.x-dev
 projects[oauthconnector][subdir] = "contrib"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oathuconnector-notice-no-csid.patch"
+projects[oauthconnector][patch][] = "http://drupal.org/files/oauthconnector-fix-ctools-exportables-1712262-2.patch"
 projects[inline_entity_form][version] = 1.0-beta3
 projects[inline_entity_form][subdir] = "contrib"
 projects[inline_entity_form][patch][] = "http://drupal.org/files/1674004-override-default-term-formatter.patch"
