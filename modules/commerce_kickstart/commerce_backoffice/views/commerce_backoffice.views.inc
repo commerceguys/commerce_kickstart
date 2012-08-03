@@ -43,4 +43,13 @@ function commerce_backoffice_views_data_alter(&$data) {
       'handler' => 'commerce_backoffice_handler_field_node_operations',
     ),
   );
+  $data['node']['term_node_tid_multiple_vocabularies'] = array(
+    'title' => 'Has taxonomy terms (from Multiple Vocabularies)',
+    'help' => 'Display content if it has the selected taxonomy terms from Multiple Vocabularies. It has an option to work as independent filters per vocabulary.',
+    'real field' => 'nid',
+    'filter' => array(
+      'handler' => 'views_handler_filter_term_node_tid_multiple_vocabularies',
+      'allow empty' => TRUE,
+      )
+  );
 }

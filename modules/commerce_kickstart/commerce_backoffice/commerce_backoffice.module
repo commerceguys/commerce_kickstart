@@ -127,6 +127,12 @@ function commerce_backoffice_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
+  if (isset($form['submit']['#id']) && $form['submit']['#id'] == 'edit-submit-commerce-backoffice-products') {
+    $form['product_display_node_type']['#attributes'] = array('data-placeholder' => array(t('All product types')));
+    $form['term_node_tid_multiple_vocabularies']['#attributes'] = array('data-placeholder' => array(t('All categories')));
+    $form['status']['#options']['All'] = t('All statutes');
+    $form['combine']['#attributes'] = array('placeholder' => array(t('Search by title or SKU')));
+  }
 }
 
 /**
@@ -134,10 +140,9 @@ function commerce_backoffice_form_alter(&$form, &$form_state, $form_id) {
  */
 function commerce_backoffice_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
   if ($form_state['step'] == 'views_form_views_form') {
-    $form['select']['#title'] = t('Bulk Updates');
-    $form['select']['#collapsible'] = TRUE;
-    $form['select']['#collapsed'] = TRUE;
-    $form['select']['submit']['#value'] = t('Update');
+    $form['select']['#title'] = '';
+    $form['select']['submit']['#value'] = t('Apply');
+    $form['select']['operation']['#options'][0] = t('Bulk operations');
   }
 }
 

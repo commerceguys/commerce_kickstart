@@ -737,7 +737,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $views[$view->name] = $view;
 
-  $view = new view;
+  $view = new view();
   $view->name = 'commerce_backoffice_products';
   $view->description = '';
   $view->tag = 'default';
@@ -751,6 +751,7 @@ function commerce_backoffice_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Products';
   $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'administer commerce_product entities';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -758,6 +759,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'table_megarows';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -791,38 +793,18 @@ function commerce_backoffice_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['override'] = 1;
-  $handler->display->display_options['style_options']['sticky'] = 0;
-  $handler->display->display_options['style_options']['empty_table'] = 0;
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Content: Referenced product */
   $handler->display->display_options['relationships']['field_product_product_id']['id'] = 'field_product_product_id';
   $handler->display->display_options['relationships']['field_product_product_id']['table'] = 'field_data_field_product';
   $handler->display->display_options['relationships']['field_product_product_id']['field'] = 'field_product_product_id';
-  $handler->display->display_options['relationships']['field_product_product_id']['required'] = 1;
+  $handler->display->display_options['relationships']['field_product_product_id']['required'] = TRUE;
   /* Field: Bulk operations: Content */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['alter']['html'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['views_bulk_operations']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['operations'] = array(
     'action::views_bulk_operations_delete_item' => array(
@@ -843,51 +825,26 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  /* Field: Commerce Product: SKU */
+  $handler->display->display_options['fields']['sku']['id'] = 'sku';
+  $handler->display->display_options['fields']['sku']['table'] = 'commerce_product';
+  $handler->display->display_options['fields']['sku']['field'] = 'sku';
+  $handler->display->display_options['fields']['sku']['relationship'] = 'field_product_product_id';
+  $handler->display->display_options['fields']['sku']['label'] = '';
+  $handler->display->display_options['fields']['sku']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['sku']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['sku']['link_to_product'] = 0;
   /* Field: Content: All taxonomy terms */
   $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
   $handler->display->display_options['fields']['term_node_tid']['label'] = '';
   $handler->display->display_options['fields']['term_node_tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['html'] = 0;
   $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['term_node_tid']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['term_node_tid']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['term_node_tid']['link_to_taxonomy'] = 0;
-  $handler->display->display_options['fields']['term_node_tid']['limit'] = 0;
+  $handler->display->display_options['fields']['term_node_tid']['link_to_taxonomy'] = FALSE;
   $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
     'bag_size' => 0,
     'brand' => 0,
@@ -907,23 +864,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[title]<br />[term_node_tid]';
-  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['nothing']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['nothing']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 0;
   /* Field: Content: Operations links (Dropbutton) */
   $handler->display->display_options['fields']['operations_dropbutton']['id'] = 'operations_dropbutton';
   $handler->display->display_options['fields']['operations_dropbutton']['table'] = 'node';
@@ -940,114 +881,26 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['nid']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['nid']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['nid']['not'] = 0;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'bags_cases' => 'bags_cases',
-    'drinks' => 'drinks',
-    'hats' => 'hats',
-    'shoes' => 'shoes',
-    'storage_devices' => 'storage_devices',
-    'tops' => 'tops',
+  /* Filter criterion: Content: Product Display Content Type */
+  $handler->display->display_options['filters']['product_display_node_type']['id'] = 'product_display_node_type';
+  $handler->display->display_options['filters']['product_display_node_type']['table'] = 'node';
+  $handler->display->display_options['filters']['product_display_node_type']['field'] = 'product_display_node_type';
+  $handler->display->display_options['filters']['product_display_node_type']['group'] = 1;
+  $handler->display->display_options['filters']['product_display_node_type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['product_display_node_type']['expose']['operator_id'] = 'product_display_node_type_op';
+  $handler->display->display_options['filters']['product_display_node_type']['expose']['label'] = 'Filter by';
+  $handler->display->display_options['filters']['product_display_node_type']['expose']['operator'] = 'product_display_node_type_op';
+  $handler->display->display_options['filters']['product_display_node_type']['expose']['identifier'] = 'product_display_node_type';
+  $handler->display->display_options['filters']['product_display_node_type']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['product_display_node_type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
   );
-  $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Commerce Product: SKU */
-  $handler->display->display_options['filters']['sku']['id'] = 'sku';
-  $handler->display->display_options['filters']['sku']['table'] = 'commerce_product';
-  $handler->display->display_options['filters']['sku']['field'] = 'sku';
-  $handler->display->display_options['filters']['sku']['relationship'] = 'field_product_product_id';
-  $handler->display->display_options['filters']['sku']['operator'] = 'contains';
-  $handler->display->display_options['filters']['sku']['group'] = 1;
-  $handler->display->display_options['filters']['sku']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['sku']['expose']['operator_id'] = 'sku_op';
-  $handler->display->display_options['filters']['sku']['expose']['label'] = 'SKU';
-  $handler->display->display_options['filters']['sku']['expose']['operator'] = 'sku_op';
-  $handler->display->display_options['filters']['sku']['expose']['identifier'] = 'sku';
-  $handler->display->display_options['filters']['sku']['expose']['required'] = 0;
-  $handler->display->display_options['filters']['sku']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['group'] = 1;
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['required'] = 0;
-  $handler->display->display_options['filters']['title']['expose']['multiple'] = FALSE;
-  /* Filter criterion: Content: Collection (field_collection) */
-  $handler->display->display_options['filters']['field_collection_tid']['id'] = 'field_collection_tid';
-  $handler->display->display_options['filters']['field_collection_tid']['table'] = 'field_data_field_collection';
-  $handler->display->display_options['filters']['field_collection_tid']['field'] = 'field_collection_tid';
-  $handler->display->display_options['filters']['field_collection_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_collection_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_collection_tid']['expose']['operator_id'] = 'field_collection_tid_op';
-  $handler->display->display_options['filters']['field_collection_tid']['expose']['label'] = 'Collection';
-  $handler->display->display_options['filters']['field_collection_tid']['expose']['operator'] = 'field_collection_tid_op';
-  $handler->display->display_options['filters']['field_collection_tid']['expose']['identifier'] = 'field_collection_tid';
-  $handler->display->display_options['filters']['field_collection_tid']['expose']['reduce'] = 0;
-  $handler->display->display_options['filters']['field_collection_tid']['reduce_duplicates'] = 0;
-  $handler->display->display_options['filters']['field_collection_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_collection_tid']['vocabulary'] = 'collection';
-  $handler->display->display_options['filters']['field_collection_tid']['hierarchy'] = 1;
-  $handler->display->display_options['filters']['field_collection_tid']['error_message'] = 1;
-  /* Filter criterion: Content: Gender (field_gender) */
-  $handler->display->display_options['filters']['field_gender_tid']['id'] = 'field_gender_tid';
-  $handler->display->display_options['filters']['field_gender_tid']['table'] = 'field_data_field_gender';
-  $handler->display->display_options['filters']['field_gender_tid']['field'] = 'field_gender_tid';
-  $handler->display->display_options['filters']['field_gender_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_gender_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_gender_tid']['expose']['operator_id'] = 'field_gender_tid_op';
-  $handler->display->display_options['filters']['field_gender_tid']['expose']['label'] = 'Gender';
-  $handler->display->display_options['filters']['field_gender_tid']['expose']['operator'] = 'field_gender_tid_op';
-  $handler->display->display_options['filters']['field_gender_tid']['expose']['identifier'] = 'field_gender_tid';
-  $handler->display->display_options['filters']['field_gender_tid']['expose']['reduce'] = 0;
-  $handler->display->display_options['filters']['field_gender_tid']['reduce_duplicates'] = 0;
-  $handler->display->display_options['filters']['field_gender_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_gender_tid']['vocabulary'] = 'gender';
-  $handler->display->display_options['filters']['field_gender_tid']['hierarchy'] = 1;
-  $handler->display->display_options['filters']['field_gender_tid']['error_message'] = 1;
-  /* Filter criterion: Content: Brand (field_brand) */
-  $handler->display->display_options['filters']['field_brand_tid']['id'] = 'field_brand_tid';
-  $handler->display->display_options['filters']['field_brand_tid']['table'] = 'field_data_field_brand';
-  $handler->display->display_options['filters']['field_brand_tid']['field'] = 'field_brand_tid';
-  $handler->display->display_options['filters']['field_brand_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_brand_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_brand_tid']['expose']['operator_id'] = 'field_brand_tid_op';
-  $handler->display->display_options['filters']['field_brand_tid']['expose']['label'] = 'Brand';
-  $handler->display->display_options['filters']['field_brand_tid']['expose']['operator'] = 'field_brand_tid_op';
-  $handler->display->display_options['filters']['field_brand_tid']['expose']['identifier'] = 'field_brand_tid';
-  $handler->display->display_options['filters']['field_brand_tid']['expose']['reduce'] = 0;
-  $handler->display->display_options['filters']['field_brand_tid']['reduce_duplicates'] = 0;
-  $handler->display->display_options['filters']['field_brand_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_brand_tid']['vocabulary'] = 'brand';
-  $handler->display->display_options['filters']['field_brand_tid']['error_message'] = 1;
-  /* Filter criterion: Content: Category (field_category) */
-  $handler->display->display_options['filters']['field_category_tid']['id'] = 'field_category_tid';
-  $handler->display->display_options['filters']['field_category_tid']['table'] = 'field_data_field_category';
-  $handler->display->display_options['filters']['field_category_tid']['field'] = 'field_category_tid';
-  $handler->display->display_options['filters']['field_category_tid']['group'] = 1;
-  $handler->display->display_options['filters']['field_category_tid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_category_tid']['expose']['operator_id'] = 'field_category_tid_op';
-  $handler->display->display_options['filters']['field_category_tid']['expose']['label'] = 'Category';
-  $handler->display->display_options['filters']['field_category_tid']['expose']['operator'] = 'field_category_tid_op';
-  $handler->display->display_options['filters']['field_category_tid']['expose']['identifier'] = 'field_category_tid';
-  $handler->display->display_options['filters']['field_category_tid']['expose']['reduce'] = 0;
-  $handler->display->display_options['filters']['field_category_tid']['reduce_duplicates'] = 0;
-  $handler->display->display_options['filters']['field_category_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['field_category_tid']['vocabulary'] = 'category';
-  $handler->display->display_options['filters']['field_category_tid']['error_message'] = 1;
   /* Filter criterion: Commerce Product: Status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'commerce_product';
@@ -1057,11 +910,66 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['exposed'] = TRUE;
   $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
-  $handler->display->display_options['filters']['status']['expose']['label'] = 'Active';
-  $handler->display->display_options['filters']['status']['expose']['use_operator'] = FALSE;
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
-  $handler->display->display_options['filters']['status']['expose']['multiple'] = FALSE;
+  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: Content: Has taxonomy terms (from Multiple Vocabularies) */
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['id'] = 'term_node_tid_multiple_vocabularies';
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['table'] = 'node';
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['field'] = 'term_node_tid_multiple_vocabularies';
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['group'] = 1;
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['operator_id'] = 'term_node_tid_multiple_vocabularies_op';
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['operator'] = 'term_node_tid_multiple_vocabularies_op';
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['identifier'] = 'term_node_tid_multiple_vocabularies';
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['type'] = 'select';
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['vocabulary'] = array(
+    4 => '4',
+    5 => '5',
+    6 => '6',
+    8 => '8',
+    3 => 0,
+    1 => 0,
+    7 => 0,
+    9 => 0,
+    10 => 0,
+    11 => 0,
+    2 => 0,
+    12 => 0,
+  );
+  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['per_vocabulary'] = 1;
+  /* Filter criterion: Global: Combine fields filter */
+  $handler->display->display_options['filters']['combine']['id'] = 'combine';
+  $handler->display->display_options['filters']['combine']['table'] = 'views';
+  $handler->display->display_options['filters']['combine']['field'] = 'combine';
+  $handler->display->display_options['filters']['combine']['operator'] = 'contains';
+  $handler->display->display_options['filters']['combine']['group'] = 1;
+  $handler->display->display_options['filters']['combine']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['combine']['expose']['operator_id'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['operator'] = 'combine_op';
+  $handler->display->display_options['filters']['combine']['expose']['identifier'] = 'combine';
+  $handler->display->display_options['filters']['combine']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['combine']['fields'] = array(
+    'title' => 'title',
+    'sku' => 'sku',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
