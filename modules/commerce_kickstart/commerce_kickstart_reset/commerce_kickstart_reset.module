@@ -17,7 +17,7 @@ function commerce_kickstart_reset_permission() {
 function commerce_kickstart_reset_menu() {
   $items = array();
   $items['admin/commerce/config/demo'] = array(
-    'title' => 'Reset the site',
+    'title' => 'Reset',
     'description' => 'todo.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('commerce_kickstart_reset_kill_me_form'),
