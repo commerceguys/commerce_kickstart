@@ -52,6 +52,7 @@ projects[commerce_features][subdir] = "contrib"
 projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"
 projects[commerce_addressbook][version] = 2.x-dev
 projects[commerce_addressbook][subdir] = "contrib"
+projects[commerce_addressbook][patch][] = "http://drupal.org/files/addressbook_menu_issues-1540624-5.patch"
 projects[commerce_shipping][version] = 2.x-dev
 projects[commerce_shipping][subdir] = "contrib"
 projects[commerce_flat_rate][version] = 1.x-dev
