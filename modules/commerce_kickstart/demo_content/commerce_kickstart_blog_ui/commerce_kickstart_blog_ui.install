@@ -20,8 +20,10 @@ function commerce_kickstart_blog_ui_enable() {
   // @todo Investigate.
   features_revert(array($module => array('menu_links')));
 
+  $default_theme = variable_get('theme_default', 'omega_kickstart');
+  // Make sure that the region list is populated for our theme.
   drupal_static_reset();
-  _block_rehash('commerce_kickstart_theme');
+  _block_rehash($default_theme);
   try {
     db_update('block')
       ->fields(array(
@@ -32,7 +34,7 @@ function commerce_kickstart_blog_ui_enable() {
     ))
       ->condition('module', 'views')
       ->condition('delta', 'blog-block')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
     db_update('block')
       ->fields(array(
@@ -44,7 +46,7 @@ function commerce_kickstart_blog_ui_enable() {
     ))
       ->condition('module', 'menu')
       ->condition('delta', 'menu-kickstart-user-menu')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
     db_update('block')
       ->fields(array(
@@ -56,7 +58,7 @@ function commerce_kickstart_blog_ui_enable() {
     ))
       ->condition('module', 'views')
       ->condition('delta', 'blog-block_1')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
     db_update('block')
       ->fields(array(
@@ -68,7 +70,7 @@ function commerce_kickstart_blog_ui_enable() {
     ))
       ->condition('module', 'views')
       ->condition('delta', 'blog-block_2')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
     db_update('block')
       ->fields(array(
@@ -80,7 +82,7 @@ function commerce_kickstart_blog_ui_enable() {
     ))
       ->condition('module', 'views')
       ->condition('delta', 'blog_category_list-block')
-      ->condition('theme', 'commerce_kickstart_theme')
+      ->condition('theme', $default_theme)
       ->execute();
   }
   catch (Exception $e) {
