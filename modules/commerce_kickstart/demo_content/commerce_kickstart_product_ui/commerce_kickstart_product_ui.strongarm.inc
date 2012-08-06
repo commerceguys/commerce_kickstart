@@ -14,7 +14,7 @@ function commerce_kickstart_product_ui_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'chosen_jquery_selector';
-  $strongarm->value = '.view-filters .views-exposed-form select';
+  $strongarm->value = '.view-filters .views-exposed-form select, .form-item-operation select';
   $export['chosen_jquery_selector'] = $strongarm;
 
   $strongarm = new stdClass();

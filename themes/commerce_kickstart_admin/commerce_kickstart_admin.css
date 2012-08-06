@@ -551,6 +551,10 @@ a.button:hover {
 .form-managed-file input.form-file {
   margin-right: 20px; /* LTR */
 }
+/* Hide placeholder text on input focus */
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
 /* Green Buttons */
 .form-actions #edit-submit,
 .form-actions #edit-save {
@@ -671,7 +675,7 @@ table th a {
   color: #fff;
 }
 table th {
-  padding: 10px 15px;
+  padding: 5px 15px;
 }
 table th.views-field-operations-dropbutton {
   width: 175px;
@@ -711,39 +715,29 @@ table td.views-field-edit-node a {
   float: right; /* LTR */
 }
 .item-list ul.pager li {
-  padding: 0;
+  border-right: 1px solid #737373;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 5px 0 0;
+  padding: 0 5px 0 0;
+  text-transform: capitalize;
+}
+ul.pager li.pager-next {
+  border-right: 0;
 }
 .item-list ul.pager {
   text-align: right; /* LTR */
 }
 ul.pager li a,
 ul.pager li.pager-current {
-  border: 1px solid #949494;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
   font-weight: 100;
-  padding: 2px 8px;
+  line-height: 1em;
 }
 ul.pager li.pager-current {
-  background: #36a2f6;
   -moz-box-shadow: inset 0 0 1px #fff;
   -webkit-box-shadow: inset 0 0 1px #fff;
   box-shadow: inset 0 0 1px #fff;
-  color: #fff;
-}
-ul.pager li.pager-previous a,
-ul.pager li.pager-next a {
-  border: 0;
-  color: transparent;
-  font: 0/0 a;
-  padding: 14px 10px;
-}
-ul.pager li.pager-previous a {
-  background: transparent url("images/prev.png") no-repeat 0 0;
-}
-ul.pager li.pager-next a {
-  background: transparent url("images/next.png") no-repeat 0 0;
+  color: #737373;
 }
 ul.pager li.pager-first,
 ul.pager li.pager-last {

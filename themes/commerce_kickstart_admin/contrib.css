@@ -223,10 +223,10 @@ table th {
  */
 
 .views-displays .secondary {
- text-align: left; /* LTR */
+  text-align: left; /* LTR */
 }
 .views-displays .secondary > li:first-child {
- padding-left: 0;
+  padding-left: 0;
 }
 .views-admin .icon.add {
   background-position: center 3px;
@@ -526,7 +526,7 @@ table th {
   color: #0074BD;
 }
 .views-exposed-form .views-exposed-widget .form-submit {
-  margin-top: .6em;
+  margin-top: 0;
 }
 
 /* Inline Entity Form */
@@ -619,31 +619,7 @@ table th {
 }
 .node-form .field-widget-inline-entity-form #ief-entity-table tr:hover,
 tr.even {
-  background: #f0f0f0;
   background: #f1f1f1;
-  background-image:
-    -moz-linear-gradient(
-      -90deg,
-      #f1f1f1 0px,
-      #e8e6e7 100%);
-  background-image:
-    -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      color-stop(0.0, rgba(241, 241, 241, 1.0)),
-      color-stop(1.0, rgba(232, 230, 231, 1.0))
-    );
-  background-image:
-    -webkit-linear-gradient(
-      -90deg,
-      #f1f1f1 0px,
-      #e8e6e7 100%);
-  background-image:
-    linear-gradient(
-      -90deg,
-      #f1f1f1 0px,
-      #e8e6e7 100%);
 }
 .node-form .field-widget-inline-entity-form #ief-entity-table .ief-row-entity-form {
   background: #fff;
@@ -896,7 +872,7 @@ div.views-megarow-content .megarow-header .megarow-title {
 }
 /* Inline product edit field styles */
 #commerce-kickstart-inline-help-button {
-  bottom: 100%;
+  top: 6px;
   position: absolute;
   right: 0;
 }
@@ -1151,6 +1127,175 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 #kickstart-help-topic .first-steps-blocks h2 {
   padding: 5px 15px;
 }
+
+/* Manage Products */
+.views-exposed-form {
+  border-bottom: 1px solid #e2e2dc;
+  position: relative;
+}
+.views-exposed-form .views-exposed-widget {
+  width: auto;
+}
+.views-exposed-form label {
+  float: left;
+  margin-right: 10px;
+  font-weight: 500;
+}
+.views-exposed-form .views-widget,
+.views-exposed-form .date-padding {
+  float: left;
+  max-width: 230px;
+}
+/* Making wide enough to fit min and max date fields inline */
+.views-exposed-form #edit-date-filter-wrapper {
+  width: 624px;
+}
+.views-exposed-form #edit-date-filter-wrapper .views-widget {
+  max-width: 624px;
+}
+.views-exposed-form .form-item input {
+  border: 1px solid #C8C8C8;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  max-width: 100%;
+  outline: 0;
+  padding: 3px 5px;
+}
+html.js .views-exposed-form .form-item input.form-autocomplete {
+  background-position: 100% 6px;
+}
+html.js .views-exposed-form .form-item input.throbbing {
+  background-position: 100% -14px;
+}
+.view-commerce-backoffice-orders .views-exposed-form .date-padding .form-item {
+  margin-top: 0;
+}
+.view-commerce-backoffice-orders .views-exposed-form .date-padding .form-item input {
+  background: #fff url("images/calendar.png") no-repeat 95% center;
+}
+.view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-min-wrapper,
+.view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-max-wrapper {
+  float: left;
+}
+/* Positioning to be the search box */
+.views-exposed-form .views-widget-filter-combine {
+  padding: 1em 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+}
+.views-exposed-form .views-widget-filter-combine input{
+  background: white url("images/search.png") no-repeat right center;
+  line-height: normal;
+  padding: 3px 5px;
+}
+.vbo-views-form .fieldset-wrapper {
+  padding-left: 20px;
+  position: relative;
+  width: 220px;
+}
+.vbo-views-form .fieldset-wrapper input.form-submit {
+  left: 250px;
+  position: absolute;
+  top: 9px;
+}
+.vbo-views-form .form-item-operation {
+  background: transparent url("images/bg-vbo.png") no-repeat 0 0;
+  display: block;
+  width: 200px;
+}
+.vbo-views-form .form-item-operation .chzn-container {
+  left: 30px;
+}
+.vbo-views-form .views-table {
+  margin-top: 60px;
+}
+html.js .vbo-views-form fieldset.collapsible .fieldset-wrapper{
+  padding: 3px 0 0 10px;
+  margin-bottom: 0;
+}
+.views-field-views-bulk-operations {
+  width: 45px;
+  vertical-align: middle;
+}
+.vbo-views-form {
+  color: #6A6A6A;
+}
+.vbo-views-form .ctools-button-processed {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #C8C8C8;
+}
+.vbo-views-form .ctools-dropbutton-processed .ctools-link,
+.vbo-views-form .ctools-dropbutton-processed .ctools-content {
+  border: 0;
+}
+.vbo-views-form .views-field-operations-dropbutton .quick-edit {
+  padding: 0;
+}
+.vbo-views-form .ctools-dropbutton-processed a {
+  color: #424242;
+}
+
+/* Chosen Select Style Overrides */
+.chzn-container-multi .chzn-choices,
+.chzn-container-single .chzn-single {
+  color: #737373;
+  padding-right: 26px;
+}
+.chzn-container-multi .chzn-choices .search-field .default {
+  padding-top: 12px;
+}
+.chzn-container-single .chzn-single,
+.chzn-container-single .chzn-drop,
+.chzn-container-multi .chzn-choices,
+.chzn-container-multi .chzn-drop {
+  background: #fff;
+  border: 1px solid #c8c8c8;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.chzn-container-multi .chzn-choices {
+  background: #fff url("images/drop-filter.png") no-repeat right center;
+}
+.chzn-container-single .chzn-single {
+  height: 28px;
+}
+.chzn-container-single .select:focus {
+  box-shadow: 0;
+}
+.chzn-container-single .chzn-single-with-drop {
+  border-radius: 3px 3px 0 0;
+}
+.chzn-container-single .chzn-drop,
+.chzn-container-multi .chzn-drop {
+  border-radius: 0 0 3px 3px;
+}
+.chzn-container-single .chzn-single div {
+  width: 28px;
+}
+.chzn-container-single .chzn-single div b {
+  background: #fff url("images/drop-filter.png") no-repeat right center;
+}
+.chzn-container-single .chzn-single-with-drop div b,
+.chzn-container-active .chzn-choices {
+  background: #fff url("images/drop-filter-up.png") no-repeat right center;
+}
+.chzn-container-single .chzn-single span {
+  margin-right: 29px;
+}
+.views-widget-filter-status .chzn-search,
+.view-commerce-backoffice-products .vbo-views-form .fieldset-wrapper .chzn-drop .chzn-search {
+  display: none;
+}
+.vbo-views-form .fieldset-wrapper .chzn-drop {
+  top: -1px !important;
+}
+
 /* @end */
 
 /* @end */
