@@ -185,6 +185,9 @@ function commerce_kickstart_product_ui_library() {
     'css' => array(
       libraries_get_path('jquery_ui_spinner') . '/ui.spinner.css' => array(),
     ),
+    'dependencies' => array(
+      array('system', 'ui.widget'),
+    ),
   );
   $libraries['jquery_expander'] = array(
     'title' => 'jQuery Expander',
