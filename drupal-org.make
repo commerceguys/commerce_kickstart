@@ -44,6 +44,7 @@ projects[commerce][patch][] = "http://drupal.org/files/error_messages_inside_che
 projects[commerce][patch][] = "http://drupal.org/files/default_copy_address-1637674-13.patch"
 projects[commerce][patch][] = "http://drupal.org/files/1677694-commerce-remove_breadcrumb.patch"
 projects[commerce][patch][] = "http://drupal.org/files/product_display_views_filters-1031494-7.patch"
+projects[commerce][patch][] = "http://drupal.org/files/1715436-reset-statics.patch"
 projects[commerce_features][version] = 1.x-dev
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"
