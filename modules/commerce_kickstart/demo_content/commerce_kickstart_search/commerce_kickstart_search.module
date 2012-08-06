@@ -36,6 +36,20 @@ function commerce_kickstart_search_entity_property_info_alter(&$info) {
 }
 
 /**
+ * Implements hook_search_api_alter_callback_info().
+ */
+function commerce_kickstart_search_search_api_alter_callback_info() {
+  $callbacks['commerce_kickstart_search_bundle_filter'] = array(
+    'name' => t('Product Display filter'),
+    'description' => t("Exclude nodes that aren't product displays."),
+    'class' => 'CommerceKickstartSearchProductDisplayFilter',
+    // Filters should be executed first.
+    'weight' => -10,
+  );
+  return $callbacks;
+}
+
+/**
  * Getter callback for retrieving related entities.
  */
 function commerce_kickstart_search_backreference_getter($entity, array $options, $name, $type, $info) {

@@ -392,26 +392,13 @@ function commerce_kickstart_product_default_search_api_index() {
           "weight" : "-50",
           "settings" : { "fields" : { "field_product:commerce_price:amount_float" : "field_product:commerce_price:amount_float" } }
         },
-        "search_api_alter_bundle_filter" : {
-          "status" : 1,
-          "weight" : "-10",
-          "settings" : {
-            "default" : "0",
-            "bundles" : {
-              "bags_cases" : "bags_cases",
-              "drinks" : "drinks",
-              "hats" : "hats",
-              "shoes" : "shoes",
-              "storage_devices" : "storage_devices",
-              "tops" : "tops"
-            }
-          }
-        },
+        "commerce_kickstart_search_bundle_filter" : { "status" : 1, "weight" : "-10", "settings" : [] },
+        "search_api_alter_bundle_filter" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
-        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } }
       },
       "processors" : {
         "search_api_case_ignore" : {
