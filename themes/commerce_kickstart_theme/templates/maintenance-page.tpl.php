@@ -23,9 +23,13 @@
   <div id="page">
     <div class="page-wrapper clearfix">
       <div id="content" class="clearfix">
-
         <?php if ($title): ?><h1 class="page-title"><?php print $title; ?></h1><?php endif; ?>
         <?php print $content; ?>
+        <?php if ($messages): ?>
+        <div id="messages"><div class="section clearfix">
+          <?php print $messages; ?>
+        </div></div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
