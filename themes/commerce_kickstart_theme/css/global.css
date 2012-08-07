@@ -1702,11 +1702,11 @@ div.messages.commerce-kickstart-add-to-cart {
 .commerce-add-to-cart .attribute-widgets .form-item .description {
   position: relative;
 }
-.commerce-add-to-cart .attribute-widgets .field-name-field-category-color {
+.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .description .field {
   border: 1px solid #CBCDCC;
-  padding:3px;
+  padding: 3px;
 }
-.commerce-add-to-cart .attribute-widgets .description-selected .field-name-field-category-color {
+.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .description-selected .field {
   border-color: #2698F2;
 }
 .commerce-fancy-attributes-color {
