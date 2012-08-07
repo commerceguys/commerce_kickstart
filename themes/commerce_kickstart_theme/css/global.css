@@ -1160,7 +1160,7 @@ select[multiple] {
 .page-products .view-display-products li.views-row.last {
   padding-right: 0;
 }
-.views-field-field-extractor-field-product ul li {
+.views-field-field-extractor-field-product-variations ul li {
   border: 1px solid #CBCDCC;
   float: left;
   margin: 0 0.5em 0 0;
@@ -1608,7 +1608,7 @@ div.messages.commerce-kickstart-add-to-cart {
   background: url('../images/bg_product_attributes_top.png') center top no-repeat;
   padding-top: 40px;
 }
-.node-product-type .field-name-field-product {
+.node-product-type .field-name-field-product-variations {
   background: url('../images/bg_product_attributes_bottom.png') center bottom no-repeat;
   margin-bottom: 15px;
   padding-bottom: 50px;
