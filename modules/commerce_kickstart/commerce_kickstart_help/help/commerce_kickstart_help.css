@@ -118,10 +118,13 @@
 #-getting-started .search .form-item {
   margin-top: 0;
   float: left;
+  width: 85%;
 }
 #-getting-started .search .form-item input.form-text {
-  border: 1px solid #666;
+  border: 1px solid #999;
   line-height: normal;
+  outline: 0;
+  width: 100%;
 }
 #-getting-started a.search-submit {
   background: #2F88CD;
@@ -142,6 +145,8 @@
   float: right;
   font: normal 16px/21px "Open Sans", Arial, sans-serif;
   padding: 4px 15px;
+  text-align: center;
+  width: 13%;
 }
 #-getting-started a.search-submit:hover {
   background: #4f9fea;

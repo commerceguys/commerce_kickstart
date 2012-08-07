@@ -1,4 +1,4 @@
-/wwww**
+/***
  * The .seven.css file is intended to contain styles that override declarations
  * in the Seven admin theme.
  */
@@ -872,10 +872,34 @@ div.views-megarow-content .megarow-header .megarow-title {
 }
 /* Inline product edit field styles */
 #commerce-kickstart-inline-help-button {
-  top: 6px;
-  position: absolute;
-  right: 0;
+  float: right;
 }
+.page-admin-commerce-products #commerce-kickstart-inline-help-button {
+  margin-bottom: -54px;
+  padding-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.page-admin-commerce-products #commerce-kickstart-inline-help-button .ajax-progress {
+  bottom: 100%;
+  left: 0;
+  position: absolute;
+  width: 150px;
+}
+.page-admin-commerce-products #commerce-kickstart-inline-help {
+  position: relative;
+  z-index: 1;
+}
+.page-admin-commerce-products-types #commerce-kickstart-inline-help-button {
+  margin-bottom: 0;
+  margin-top: -45px;
+  padding-top: 0;
+}
+.page-admin-commerce-products-types #commerce-kickstart-inline-help-button .ajax-progress {
+  position: relative;
+  width: auto;
+}
+
 /* Customizing the View Filters */
 html.js .view-filters fieldset.collapsible,
 html.js .vbo-views-form fieldset.collapsible {
@@ -1067,6 +1091,12 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 .views-exposed-form .views-exposed-widget {
   width: auto;
 }
+#views-exposed-form-commerce-discount-overview-default .views-exposed-form .views-reset-button {
+  padding: 0;
+}
+#views-exposed-form-commerce-discount-overview-default .views-exposed-form .views-reset-button input.form-submit {
+  margin-top: 0;
+}
 .views-exposed-form label {
   float: left;
   margin-right: 10px;
@@ -1076,6 +1106,9 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 .views-exposed-form .date-padding {
   float: left;
   max-width: 230px;
+}
+.views-exposed-form .views-widget-filter-combine .views-widget {
+  max-width: 250px;
 }
 /* Making wide enough to fit min and max date fields inline */
 .views-exposed-form #edit-date-filter-wrapper {
@@ -1120,7 +1153,7 @@ html.js .views-exposed-form .form-item input.throbbing {
 .views-exposed-form .views-widget-filter-combine input{
   background: white url("images/search.png") no-repeat right center;
   line-height: normal;
-  padding: 3px 5px;
+  padding: 3px 20px 3px 5px;
 }
 .vbo-views-form .fieldset-wrapper {
   padding-left: 20px;
@@ -1141,6 +1174,10 @@ html.js .views-exposed-form .form-item input.throbbing {
   left: 30px;
 }
 .vbo-views-form .views-table {
+  margin-top: 20px;
+}
+.view-commerce-backoffice-products .vbo-views-form .views-table,
+.view-commerce-backoffice-orders .vbo-views-form .views-table {
   margin-top: 60px;
 }
 html.js .vbo-views-form fieldset.collapsible .fieldset-wrapper{
