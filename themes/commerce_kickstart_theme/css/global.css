@@ -1173,19 +1173,26 @@ select[multiple] {
 * Collection page
 */
 .view-collection-taxonomy-term .view-header {
+  overflow: hidden;
   position: relative;
 }
-.view-collection-taxonomy-term .view-header h2 {
+.view-collection-taxonomy-term .view-header {
+  min-height: 80px;
+  position: relative;
+}
+/*
+.view-collection-taxonomy-term .view-header .taxonomy-title {
+  min-height: 215px;
+}*/
+.view-collection-taxonomy-term .view-header .taxonomy-title {
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
   font-size: 48px;
+  font-weight: 700;
   margin: 0;
   position: absolute;
   bottom: 0px;
   left: 15px;
-}
-.view-collection-taxonomy-term .view-header h2 a {
-  color: #ffffff;
-  ffont-family: 'Open Sans', sans-serif;
-  font-weight: 700;
   text-decoration: none;
   text-shadow: 0 1px 1px #C3C3C3;
   text-transform: capitalize;

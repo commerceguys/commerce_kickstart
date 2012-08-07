@@ -14,5 +14,4 @@ features[features_api][] = api:1
 features[image][] = hp_blocks
 features[variable][] = field_bundle_settings_taxonomy_term__collection
 features[views_view][] = demo_content
-features[views_view][] = taxonomy_title
 scripts[] = commerce_kickstart_merchandising_ui.js

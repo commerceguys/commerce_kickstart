@@ -360,7 +360,10 @@ body {
 /**
 * Collection page
 */
-.view-collection-taxonomy-term .view-header h2 {
+.view-collection-taxonomy-term .view-header {
+  min-height: 160px;
+}
+.view-collection-taxonomy-term .view-header .taxonomy-title {
   font-size: 98px;
   line-height: 100px;
   margin: 0;
@@ -369,10 +372,15 @@ body {
   left: 15px;
 }
 .view-collection-taxonomy-term .view-header .collection-terms {
+  height: 185px;
   margin: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 20px;
   position: absolute;
   right: 0;
-  bottom: 5px;
+  top: 10px;
+  z-index: 2;
 }
 .view-collection-taxonomy-term .view-header .view-collection-taxonomy-term .view-content .item-list {
   clear: both;

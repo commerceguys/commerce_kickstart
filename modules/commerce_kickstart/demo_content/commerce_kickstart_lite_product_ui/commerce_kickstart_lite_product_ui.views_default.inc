@@ -248,13 +248,6 @@ function commerce_kickstart_lite_product_ui_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Header: Global: View area */
-  $handler->display->display_options['header']['view_1']['id'] = 'view_1';
-  $handler->display->display_options['header']['view_1']['table'] = 'views';
-  $handler->display->display_options['header']['view_1']['field'] = 'view';
-  $handler->display->display_options['header']['view_1']['empty'] = FALSE;
-  $handler->display->display_options['header']['view_1']['view_to_insert'] = 'taxonomy_title:default';
-  $handler->display->display_options['header']['view_1']['inherit_arguments'] = 1;
-  /* Header: Global: View area */
   $handler->display->display_options['header']['view']['id'] = 'view';
   $handler->display->display_options['header']['view']['table'] = 'views';
   $handler->display->display_options['header']['view']['field'] = 'view';
