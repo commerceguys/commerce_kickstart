@@ -366,34 +366,3 @@ function commerce_kickstart_lite_product_ui_preprocess_entity(&$variables) {
     $variables['url'] = "";
   }
 }
-
-/**
- * hook_preprocess_views_view
- */
-function commerce_kickstart_lite_product_ui_preprocess_views_view(&$vars) {
-  // Wrap exposed filters in a fieldset.
-  if ($vars['exposed']) {
-    drupal_add_js('misc/form.js');
-    drupal_add_js('misc/collapse.js');
-    // Default collapsed
-    $collapsed = TRUE;
-    $class = array('collapsible', 'collapsed');
-    if (count($_GET) > 1){
-      // assume other get vars are exposed filters, so expand fieldset
-      // to show applied filters
-      $collapsed = FALSE;
-      $class = array('collapsible');
-    }
-
-    $pattern = "#(<form.*?>)(.*)(</form>)#s";
-    preg_match($pattern, $vars['exposed'], $matches);
-    $fieldset['element'] = array(
-      '#title' => t('Filter'),
-      '#collapsible' => TRUE,
-      '#collapsed' => $collapsed,
-      '#attributes' => array('class' => $class),
-      '#children' => $matches[2],
-    );
-    $vars['exposed'] = $matches[1] . theme('fieldset', $fieldset) . $matches[3];
-  }
-}

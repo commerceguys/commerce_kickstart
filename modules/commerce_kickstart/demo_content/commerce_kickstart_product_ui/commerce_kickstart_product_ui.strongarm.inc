@@ -13,34 +13,6 @@ function commerce_kickstart_product_ui_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_jquery_selector';
-  $strongarm->value = '.view-filters .views-exposed-form select, .form-item-operation select';
-  $export['chosen_jquery_selector'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_minimum';
-  $strongarm->value = '5';
-  $export['chosen_minimum'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_minimum_width';
-  $strongarm->value = '200';
-  $export['chosen_minimum_width'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'chosen_search_contains';
-  $strongarm->value = 1;
-  $export['chosen_search_contains'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_breadcrumb_home';
   $strongarm->value = 'Home';
   $export['taxonomy_breadcrumb_home'] = $strongarm;

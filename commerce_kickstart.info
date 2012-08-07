@@ -64,6 +64,7 @@ dependencies[] = commerce_tax
 dependencies[] = commerce_tax_ui
 
 ; Install contribs.
+dependencies[] = chosen
 dependencies[] = module_filter
 dependencies[] = field_extractor
 dependencies[] = image_delta_formatter
