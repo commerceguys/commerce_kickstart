@@ -518,15 +518,6 @@ function commerce_kickstart_user_user_default_permissions() {
     'module' => 'system',
   );
 
-  // Exported permission: administer tipsy.
-  $permissions['administer tipsy'] = array(
-    'name' => 'administer tipsy',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'tipsy',
-  );
-
   // Exported permission: administer url aliases.
   $permissions['administer url aliases'] = array(
     'name' => 'administer url aliases',

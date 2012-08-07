@@ -485,9 +485,6 @@ body.in-maintenance #credit .logo a {
   border: 0;
   padding: 0;
 }
-.page-admin-getting-started #accordion .help-section h3 {
-  padding-top: 0;
-}
 .page-admin-getting-started .advanced-help-topic a {
   color: #36A2F6;
 }
@@ -506,9 +503,6 @@ body.in-maintenance #credit .logo a {
 .help-section h3 a {
   font-size: 16px;
   font-weight: 400;
-}
-.ui-accordion .help-section .tipsy-link {
-  margin-top: 6px;
 }
 #block-commerce-kickstart-help-commerce-kickstart-ressources,
 #block-commerce-kickstart-help-commerce-kickstart-community {

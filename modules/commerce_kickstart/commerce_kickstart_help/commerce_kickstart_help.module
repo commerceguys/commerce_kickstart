@@ -33,12 +33,11 @@ function commerce_kickstart_help_menu() {
   );
   // View help topic.
   $items['admin/help/getting-started'] = array(
-    'title' => 'Kickstart Advanced Help',
+    'title' => 'Help',
     'description' => 'Find all the help you need to start using your store.',
-    'page callback' => 'advanced_help_topic_page',
-    'page arguments' => array('commerce_kickstart_help', 'getting-started'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_getting_started'),
     'access arguments' => array('view advanced help topic'),
-    'file path' => drupal_get_path('module', 'advanced_help'),
     'weight' => -200,
     'type' => MENU_LOCAL_TASK,
 );
@@ -52,34 +51,6 @@ function commerce_kickstart_help_menu() {
 function commerce_kickstart_help_menu_alter(&$items) {
   $items['admin/tasks']['type'] =  MENU_CALLBACK;
   $items['admin/index']['type'] = MENU_CALLBACK;
-}
-
-/**
- * Implements hook_preprocess_page().
- */
-function commerce_kickstart_help_preprocess_page(&$vars) {
-  if ((arg(0) == 'help' && arg(1) == 'commerce_kickstart_help') ||
-    arg(0) == 'admin' && arg(1) == 'help' && arg(2) == 'getting-started') {
-    // Add libraries
-    drupal_add_library('system', 'drupal.ajax');
-    drupal_add_library('system', 'jquery.form');
-    drupal_add_library('system', 'ui.accordion');
-    drupal_add_js(drupal_get_path('module', 'commerce_kickstart_help') . '/commerce_kickstart_help.js', 'file');
-    drupal_set_breadcrumb(array(l(t('Home'), '<front>'), l(t('Help'), 'admin/advanced_help'), l(t('Getting Started'), 'admin/getting-started')));
-
-    $vars['page']['content']['system_main']['help_text'] = array(
-      '#weight' => -12,
-      '#markup' => "<div id='commerce-kickstart-help'><p>Find all the help you need to start using your store.</p></div>",
-    );
-    // Add 'Go to my store' link, only once.
-    if (variable_get('getting_started_seen', FALSE) == FALSE) {
-      variable_set('getting_started_seen', TRUE);
-      $vars['page']['content']['system_main']['help_button'] = array(
-        '#weight' => -11,
-        '#markup' => "<div id='commerce-kickstart-help-button' class='form-actions'><a class='overlay-close'><input type='submit' value='". t('Go to my store') . "' class='form-submit' id='edit-submit'></a></div>",
-      );
-    }
-  }
 }
 
 /**
@@ -213,3 +184,171 @@ function commerce_kickstart_help_contents($which_block) {
   return array('#markup' => implode('<br />', $links) . '<br />');
 }
 
+function _getting_started() {
+  drupal_set_breadcrumb(array(l(t('Home'), '<front>'), l(t('Help'), 'admin/advanced_help'), l(t('Getting Started'), 'admin/getting-started')));
+
+  $form = array();
+  $form['#attached']['css'] = array(drupal_get_path('module', 'commerce_kickstart_help') . '/help/commerce_kickstart_help.css');
+  $form['#attached']['js'] = array(drupal_get_path('module', 'commerce_kickstart_help') . '/commerce_kickstart_help.js');
+  $form['help_text'] = array(
+    '#weight' => -12,
+    '#markup' => "<div id='commerce-kickstart-help'><p>Find all the help you need to start using your store.</p></div>",
+  );
+  // Add 'Go to my store' link, only once.
+  if (variable_get('getting_started_seen', FALSE) == FALSE) {
+    variable_set('getting_started_seen', TRUE);
+    $form['help_button'] = array(
+      '#weight' => -11,
+      '#markup' => "<div id='commerce-kickstart-help-button' class='form-actions'><a class='overlay-close'><input type='submit' value='". t('Go to my store') . "' class='form-submit' id='edit-submit'></a></div>",
+    );
+  }
+
+  // Search
+  $form['search']['#prefix'] = '<div class="search clearfix">';
+  $form['search']['text'] = array(
+    '#type' => 'textfield',
+    '#weight' => -10,
+    '#attributes' => array('placeholder' => t('Cant find what you are looking for ? Search DrupalCommerce.org')),
+  );
+  $form['search']['submit'] = array(
+    '#type' => 'link',
+    '#title' => t('Search'),
+    '#href' => '',
+    '#attributes' => array('class' => array('search-submit'), 'target' => array('_blank')),
+    '#states' => array(
+      'disabled' => array(
+        '#edit-text' => array('filled' => false),
+      ),
+    ),
+  );
+  $form['search']['#suffix'] = '</div>';
+
+  // Product management
+  $form['product_management'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('product-management')),
+  );
+  $form['product_management']['product_management_title'] = array(
+    '#type' => 'item',
+    '#title' => t('Product Management'),
+    '#attributes' => array('class' => array('product-management-title')),
+  );
+  // Create a product
+  $form['product_management']['create_product'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Create a Product') . '<span class="sub-title"> - ' . t('How to create a product, add variations and update attributes.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['product_management']['create_product']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>You can <a href="/admin/commerce/products">create a product</a> by clicking on Products in the menu and then selecting Add Product. Variations of a product (for size, color, etc) that affect pricing can be added inline on the New Product page. <a href="http://www.drupalcommerce.org/faq">Learn More on DC.org</a></p><iframe width="420" height="315" src="http://www.youtube.com/embed/wTqk7V0dkPQ?rel=0" frameborder="0" allowfullscreen></iframe>',
+  );
+  // Manage product
+  $form['product_management']['manage_product'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Manage Products') . '<span class="sub-title"> - ' . t('How to bulk update prices, enabled/disabled states and delete.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['product_management']['manage_product']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>The Commerce Kickstart management screens includes a robust product listing creen that enables you to bulk update many different attributes and change variations (like color or price) right there in the list. The listing also includes advanced filtering for finding that one product in thousands. <a href="http://www.drupalcommerce.org/faq">Learn More on DC.org</a></p>',
+  );
+  // Product display
+  $form['product_management']['product_display'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Product Display') . '<span class="sub-title"> - ' . t('How to configure different displays for one product.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['product_management']['product_display']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>TBD</p>',
+  );
+  // Product images
+  $form['product_management']['product_images'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Product Images') . '<span class="sub-title"> - ' . t('Display and configure images that show up with products.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['product_management']['product_images']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>Product images can be :
+    <ul>
+      <li>1) part of the product variation, if the image changes based on an attribute like color or size</li>
+      <p>or</p>
+      <li>2) part of the product display if the image does not need to change when the user selects a different attribute. Additionally, product images use Drupal’s image style engine to make sure the images are fully optimized and the right size.</li>
+    </ul>
+    <a href="/admin/config/media/image-styles">Go to Image Styles</a>
+    <a href="http://www.drupalcommerce.org/faq">Learn More on DC.org</a></p>',
+  );
+
+  // Order management
+  $form['order_management'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('order-management')),
+  );
+  $form['order_management']['order_management_title'] = array(
+    '#type' => 'item',
+    '#title' => t('Order Management'),
+    '#attributes' => array('class' => array('order-management-title')),
+  );
+  // Edit an order
+  $form['order_management']['edit_order'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Edit an Order') . '<span class="sub-title"> - ' . t('How to change an order status and view the order history.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['order_management']['edit_order']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>Quick editing an order gives you access to update a status and viewing the order history. But Drupal Commerce also gives you the ability to fully edit the order by changing the quantity, adding other products, changing shipping or billing information, and we even allow you to modify or add a payment. <a href="/admin/commerce/orders">Go to Order Screen</a></p><iframe width="420" height="315" src="http://www.youtube.com/embed/D4rfkoTaOeI?rel=0" frameborder="0" allowfullscreen></iframe>',
+  );
+  // Manage orders
+  $form['order_management']['manage_orders'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Manage Orders') . '<span class="sub-title"> - ' . t('How to bulk update statuses and delete orders.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['order_management']['manage_orders']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>The bulk update and filtering of the order management screen gives you tools to not only find the right order, but also to edit multiple orders at once. For example, you could find all abandoned shopping carts that are three days old and choose to delete them. <a href="/admin/commerce/orders">Go to Order Screen</a></p>',
+  );
+
+  // Store Settings
+  $form['store_settings'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('store-settings')),
+  );
+  $form['store_settings']['store_settings_title'] = array(
+    '#type' => 'item',
+    '#title' => t('Store Settings'),
+    '#attributes' => array('class' => array('store-settings-title')),
+  );
+  // Shipping
+  $form['store_settings']['shipping'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Shipping') . '<span class="sub-title"> - ' . t('How to work with the flat rate shipping that comes default.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['store_settings']['shipping']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>Commerce Kickstart comes with <a href="/admin/commerce/config/shipping/services/flat-rate">three flat rate shipping services</a> setup for you. You can also install <a href="/admin/commerce/config/shipping">other shipping methods</a> and change the calculation rules.</p>',
+  );
+  // Checkout
+  $form['store_settings']['checkout'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Checkout') . '<span class="sub-title"> - ' . t('TBD') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['store_settings']['checkout']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>TBD</p>',
+  );
+  return $form;
+}
