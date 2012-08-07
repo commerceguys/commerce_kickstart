@@ -18,8 +18,6 @@ function commerce_kickstart_lite_product_enable() {
   entity_defaults_rebuild();
   $index = entity_load_single('search_api_index', 'kickstart_product_display');
   $index->server()->fieldsUpdated($index);
-//  $index = entity_load_single('search_api_index', 'search_commerce_product');
-//  $index->server()->fieldsUpdated($index);
 }
 
 /**

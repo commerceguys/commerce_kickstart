@@ -24,22 +24,22 @@ function commerce_kickstart_lite_search_default_search_api_server() {
             "boost" : "1.0"
           },
           "search_api_language" : {
-            "table" : "search_api_db_kickstart_product_display_search_api_langu",
+            "table" : "search_api_db_kickstart_product_display_search_api_language",
             "type" : "string",
             "boost" : "1.0"
           },
           "field_product_variations:title" : {
-            "table" : "search_api_db_kickstart_product_display_field_product_va",
+            "table" : "search_api_db_kickstart_product_display_field_product_variation",
             "type" : "list\\u003Ctext\\u003E",
             "boost" : "1.0"
           },
           "field_product_variations:field_color" : {
-            "table" : "search_api_db_kickstart_product_display_field_product__1",
+            "table" : "search_api_db_kickstart_product_display_field_product_variati_1",
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           },
           "field_product_variations:field_size" : {
-            "table" : "search_api_db_kickstart_product_display_field_product__2",
+            "table" : "search_api_db_kickstart_product_display_field_product_variati_2",
             "type" : "list\\u003Cinteger\\u003E",
             "boost" : "1.0"
           }

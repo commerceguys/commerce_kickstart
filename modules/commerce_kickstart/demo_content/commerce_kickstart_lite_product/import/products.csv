@@ -1,5 +1,5 @@
 Title,SKU,Color,Size,Price,Images,Hexadecimal Code
 Sample product 1,sample1,Sample Green,Sample L,16.00,"tote-1v1.jpg, tote-1v2.jpg, tote-1v3.jpg", "Sample category A", "field_hexadecimal_code|#00FF00"
 Sample product 2,sample2,Sample Blue,Sample S,62.00,"messenger-1v1.jpg, messenger-1v2.jpg, messenger-1v3.jpg, messenger-1v4.jpg", "Sample category B", "field_hexadecimal_code|#0000FF"
-Sample product 3,sample3,Sample white,Sample M,20.00,"tote-1v1.jpg, tote-1v2.jpg, tote-1v3.jpg", "Sample category A", "field_hexadecimal_code|#FFFFFF"
+Sample product 3,sample3,Sample Green,Sample M,20.00,"tote-1v1.jpg, tote-1v2.jpg, tote-1v3.jpg", "Sample category A", "field_hexadecimal_code|#00FF00"
 Sample product 4,sample4,Sample Blue,Sample S,40.00,"messenger-1v1.jpg, messenger-1v2.jpg, messenger-1v3.jpg, messenger-1v4.jpg", "Sample category B", "field_hexadecimal_code|#0000FF"

@@ -462,7 +462,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '1',
         ),
         'product_list' => array(
           'label' => 'above',
@@ -543,10 +543,9 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '1',
+          'type' => 'hidden',
+          'weight' => '4',
         ),
         'product_list' => array(
           'label' => 'above',

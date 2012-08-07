@@ -5,6 +5,32 @@
  */
 
 /**
+ * Implements hook_commerce_product_default_types().
+ */
+function commerce_kickstart_lite_product_commerce_product_default_types() {
+  $items = array(
+    'product' => array(
+      'type' => 'product',
+      'name' => 'Product',
+      'description' => 'A basic product type.',
+      'help' => '',
+      'revision' => '1',
+      'module' => 'commerce_product_ui',
+      'autosku' => array(
+        'product_type' => 'product',
+        'pattern' => '[commerce-product:title]',
+        'advanced' => array(
+          'update_existing' => 0,
+          'hide_sku' => 1,
+          'case' => 'uppercase',
+        ),
+      ),
+    ),
+  );
+  return $items;
+}
+
+/**
  * Implements hook_ctools_plugin_api().
  */
 function commerce_kickstart_lite_product_ctools_plugin_api() {
