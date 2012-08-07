@@ -32,6 +32,42 @@ function _commerce_kickstart_enable_module($module, $module_name, &$context) {
  *
  * @see commerce_kickstart_install_additional_modules()
  */
+function _commerce_kickstart_setup_localization($operation, &$context) {
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Enable en prefix for english language.
+  db_update('languages')
+    ->fields(array(
+      'prefix' => 'en',
+    ))
+    ->condition('language',  'en')
+    ->execute();
+
+  // Enable language detection via url.
+  $negotiation['locale-url'] = array(
+    'types' => array(
+      'language_content',
+      'language',
+      'language_url',
+    ),
+    'callbacks' => array(
+      'language' => 'locale_language_from_url',
+      'switcher' => 'locale_language_switcher_url',
+      'url_rewrite' => 'locale_language_url_rewrite_url',
+    ),
+    'file' => 'includes/locale.inc',
+    'weight' => '-8,',
+    'name' => 'URL',
+    'description' => t('Determine the language from the URL (Path prefix or domain).'),
+    'config' => 'admin/config/regional/language/configure/url',
+  );
+  language_negotiation_set('language', $negotiation);
+}
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_install_additional_modules()
+ */
 function _commerce_kickstart_flush_caches($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
   drupal_flush_all_caches();

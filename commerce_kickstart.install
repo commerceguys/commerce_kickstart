@@ -134,6 +134,16 @@ function commerce_kickstart_configure_store_form() {
     '#options' => $options,
     '#default_value' => '1',
   );
+  $form['localization'] = array(
+    '#type' => 'fieldset',
+    '#title' => st('Localization'),
+  );
+  $form['localization']['install_localization'] = array(
+    '#type' => 'radios',
+    '#title' => st('Do you want to be able to translate the interface of your store?'),
+    '#options' => $options,
+    '#default_value' => '0',
+  );
 
   $options_selection = array(
     'anonymous_checkout' => 'Allow checkout for <strong>anonymous users</strong>.',
@@ -211,6 +221,7 @@ function commerce_kickstart_configure_store_form() {
  */
 function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
   variable_set('commerce_kickstart_demo_store', $form_state['values']['install_demo_store']);
+  variable_set('commerce_kickstart_localization', $form_state['values']['install_localization']);
   variable_set('commerce_kickstart_selected_extras', $form_state['values']['extras']);
   variable_set('commerce_kickstart_choose_tax_country', $form_state['values']['commerce_kickstart_choose_tax_country']);
   variable_set('commerce_default_currency', $form_state['values']['commerce_default_currency']);
@@ -277,6 +288,14 @@ function commerce_kickstart_install_additional_modules() {
     }
   }
 
+  $install_localization = variable_get('commerce_kickstart_localization', FALSE);
+  if ($install_localization) {
+    $modules[] = 'locale';
+    $modules[] = 'variable';
+    $modules[] = 'i18n';
+    $modules[] = 'i18n_field';
+  }
+
   // Resolve the dependencies now, so that module_enable() doesn't need
   // to do it later for each individual module (which kills performance).
   $files = system_rebuild_module_data();
@@ -303,6 +322,9 @@ function commerce_kickstart_install_additional_modules() {
   // Enable the selected modules.
   foreach ($modules_sorted as $module => $weight) {
     $operations[] = array('_commerce_kickstart_enable_module', array($module, $files[$module]->info['name']));
+  }
+  if ($install_localization) {
+    $operations[] = array('_commerce_kickstart_setup_localization', array(t('Configured localization.')));
   }
   $operations[] = array('_commerce_kickstart_flush_caches', array(t('Flushed caches.')));
 

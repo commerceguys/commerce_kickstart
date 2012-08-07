@@ -178,6 +178,12 @@ projects[special_menu_items][patch][] = "http://drupal.org/files/undefined-index
 projects[chosen][version] = 1.x-dev
 projects[chosen][subdir] = "contrib"
 
+; Internationalization
+projects[variable][version] = "2.x-dev"
+projects[variable][subdir] = "contrib"
+projects[i18n][version] = "1.x-dev"
+projects[i18n][subdir] = "contrib"
+
 ; Base theme.
 projects[omega][version] = 3.1
 projects[omega_kickstart][version] = 3.x-dev
