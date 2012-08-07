@@ -41,8 +41,23 @@ function commerce_kickstart_install_tasks() {
  * Implements hook_install_tasks_alter().
  */
 function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
-  $tasks['install_select_profile']['display'] = FALSE;
   $tasks['install_finished']['function'] = 'commerce_kickstart_install_finished';
+
+  $tasks['install_select_profile']['display'] = FALSE;
+  $tasks['install_select_locale']['display'] = FALSE;
+  $tasks['install_select_locale']['run'] = INSTALL_TASK_SKIP;
+  // Since we skip the locale step, default the param to english.
+  $install_state['parameters']['locales'] = 'en';
+
+  // The "Welcome" screen needs to come after the first two steps
+  // (profile and language selection), despite the fact that they are disabled.
+  $new_task['install_welcome'] = array(
+    'display' => TRUE,
+    'display_name' => st('Welcome'),
+    'type' => 'form',
+  );
+  $old_tasks = $tasks;
+  $tasks = array_slice($old_tasks, 0, 2) + $new_task + array_slice($old_tasks, 2);
 
   _commerce_kickstart_set_theme('commerce_kickstart_admin');
 }
@@ -62,6 +77,35 @@ function _commerce_kickstart_set_theme($target_theme) {
     $GLOBALS['conf']['maintenance_theme'] = $target_theme;
     _drupal_maintenance_theme();
   }
+}
+
+/**
+ * Task callback: shows the welcome screen.
+ */
+function install_welcome() {
+  drupal_set_title(st('Welcome'));
+
+  $message = st('Thank you for choosing Commerce Kickstart!') . '<br />';
+  $message .= '<p>' . st('This distribution installs Drupal Commerce jam-packed with
+    the best community features, more than we could hope to mention here.') . '</p>';
+  $message .= '<p>' . st('Please note that this is a community-supported work in progress,
+    so be sure to join us over on ' . l('drupalcommerce.org', 'http://drupalcommerce.org') .
+    ' and share your first impressions.') . '</p>';
+
+  $form = array();
+  $form['welcome_message'] = array(
+    '#markup' => $message,
+  );
+  $form['actions'] = array(
+    '#type' => 'actions',
+  );
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st("Let's Get Started!"),
+    '#weight' => 10,
+  );
+
+  return $form;
 }
 
 /**
