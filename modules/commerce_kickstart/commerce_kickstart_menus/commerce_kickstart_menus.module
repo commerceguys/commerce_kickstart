@@ -363,10 +363,10 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     $items['admin/content/comment']['type'] = MENU_NORMAL_ITEM;
   }
   // Content > Add content
-  if (isset($items['node/add'])) {
-    $items['node/add']['parent'] = 'admin/commerce/manage-content/actions';
-    $items['node/add']['title'] = 'Add content';
-    $items['node/add']['type'] |= MENU_NORMAL_ITEM;
+  if (isset($items['node/add/add-content'])) {
+    $items['node/add/add-content']['parent'] = 'admin/commerce/manage-content/actions';
+    $items['node/add/add-content']['title'] = 'Add content';
+    $items['node/add/add-content']['type'] |= MENU_NORMAL_ITEM;
   }
 
   // Disable "Store" entry point.
