@@ -117,7 +117,6 @@ function install_welcome_submit($form, &$form_state) {
  */
 function commerce_kickstart_configure_store_form() {
   drupal_set_title(st('Configure store'));
-
   // Prepare all the options for sample content.
   $options = array(
     '1' => st('Yes'),

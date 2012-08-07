@@ -94,6 +94,7 @@ dependencies[] = commerce_checkout_progress
 dependencies[] = menu_attributes
 dependencies[] = fences
 dependencies[] = title
+dependencies[] = commerce_kickstart_service_provider
 
 ; Install Features
 dependencies[] = features

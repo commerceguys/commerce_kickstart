@@ -76,6 +76,9 @@ function commerce_kickstart_help_advanced_help_topic_alter(&$output, $popup) {
     $form = drupal_get_form('commerce_kickstart_help_form_ajax', $match);
     $output = str_replace('##' . $match . '##', render($form), $output);
   }
+
+  $output = str_replace('[%services-teaser%]', commerce_kickstart_service_provider_get_teaser(), $output);
+  $output = str_replace('[%services-link%]', url('admin/modules/serviceproviders'), $output);
 }
 
 /**

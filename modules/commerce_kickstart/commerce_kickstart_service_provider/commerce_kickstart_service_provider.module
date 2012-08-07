@@ -1,0 +1,245 @@
+<?php
+
+/**
+ * @file
+ * Main module file for commerce_kickstart_service_providers.module
+ */
+
+ // Service module is not exists.
+define('COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_NOT_EXISTS', 0);
+
+// Service module exists but enabled.
+define('COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_EXISTS', 1);
+
+// Service module is exists and enabled.
+define('COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_ENABLED', 2);
+
+// Service module is exists, enabled and the settings are defined.
+define('COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_DEFINED', 3);
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_kickstart_service_provider_theme($existing, $type, $theme, $path) {
+  return array(
+    'providers_teaser' => array(
+      'path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/theme',
+      'template' => 'commerce-kickstart-providers-teaser',
+    ),
+    'providers_page' => array(
+      'path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/theme',
+      'template' => 'commerce-kickstart-providers-page',
+    ),
+    'providers_page_row' => array(
+      'path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/theme',
+      'template' => 'commerce-kickstart-providers-page-row',
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_kickstart_service_provider_menu() {
+  $items = array();
+
+  $items['admin/modules/serviceproviders'] = array(
+    'title' => 'Service providers',
+    'description' => 'See all the available services for your Commerce Kickstart',
+    'page callback' => 'commerce_kickstart_service_provider_all_services',
+    'access arguments' => array('administer site configuration'),
+    'parent' => 'admin/commerce/config/advanced-settings',
+  );
+  return $items;
+}
+
+/**
+ * Get all the available services.
+ *
+ * For more information look in commerce_kickstart_service_provider.api.php.
+ */
+function commerce_kickstart_service_provider_providers_info() {
+  // Get all the implemented hooks.
+  $services = module_invoke_all('commerce_kickstart_service_provider');
+
+  $all_modules = system_rebuild_module_data();
+  $enabled_modules = module_list();
+
+  foreach ($services as $service_name => $service_info) {
+    if (isset($enabled_modules[$service_name])) {
+      // The module exists. Check for existing requirements status call back
+      // function. If not, return status: enabled module.
+      $status = empty($service_info['requirements_callback']) ? COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_ENABLED : call_user_func($service_info['requirements_callback']);
+    }
+    else if (isset($all_modules[$service_name])) {
+      // Service module is not enabled but exists.
+      $status = COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_EXISTS;
+    }
+    else {
+      // Module does not exist.
+      $status = COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_NOT_EXISTS;
+    }
+
+    $services[$service_name] = $service_info + array(
+      '#weight' => isset($service_info['weight']) ? $service_info['weight'] : 0,
+      'status' => $status,
+    );
+  }
+
+  // Allow other modules to alter the data before sorting the data.
+  drupal_alter('commerce_kickstart_service_provider', $services);
+
+  // Sorting by weight.
+  uasort($services, 'element_sort');
+
+  return $services;
+}
+
+/**
+ * Return a html of all the services in a teaser format.
+ */
+function commerce_kickstart_service_provider_get_teaser() {
+  _commerce_kickstart_service_provider_add_element('css', 'commerce_kickstart_service_provider.css');
+
+  // Displaying only 3 services in the teaser.
+  $services = array_slice(commerce_kickstart_service_provider_providers_info(), 0, 3, TRUE);
+
+  if (empty($services)) {
+    return '<span class="services-not-found">' . t("Couldn't found services providers") . '</span>';
+  }
+
+  // Render the collected from other modules.
+  $output = '';
+  foreach ($services as $name => $info) {
+    $params = array(
+      'path' => $info['logo_path'],
+      'width' => 123,
+    );
+
+    $variable['name'] = $name;
+    $variable['title'] = $info['title'];
+    $variable['logo'] = theme('image', $params);
+    $variable['type'] = $info['category'];
+    $variable['link'] = l(t('View service'), 'admin/modules/serviceproviders', array('fragment' => $name));
+    $variable['description'] = $info['teaser'];
+
+    $output .= theme('providers_teaser', $variable);
+  }
+
+  return $output;
+}
+
+/**
+ * Return a html of all the services in a full format.
+ */
+function commerce_kickstart_service_provider_get_full() {
+  _commerce_kickstart_service_provider_add_element('css', 'commerce_kickstart_service_provider.css');
+  _commerce_kickstart_service_provider_add_element('js', 'commerce_kickstart_service_provider.js');
+
+  $services = commerce_kickstart_service_provider_providers_info();
+
+  if (empty($services)) {
+    return '<span class="services-not-found">' . t("Couldn't found services providers") . '</span>';
+  }
+
+  // Render the collected from other modules.
+  $requiremets = array(
+    0 => array(
+      'text' => t("Doesn't exists"),
+      'class' => 'not-exists',
+    ),
+    1 => array(
+      'text' => t('Not installed'),
+      'class' => 'not-installed',
+    ),
+    2 => array(
+      'text' => t('Installed, requires configuration'),
+      'class' => 'requires-config'
+    ),
+    3 => array(
+      'text' => t('Installed, settings are defined'),
+      'class' => 'installed-defined'
+    ),
+  );
+  $i = 0;
+  $output = '';
+  foreach ($services as $name => $info) {
+    $params = array(
+      'path' => $info['logo_path'],
+      'width' => 123,
+    );
+    $variable['name'] = $name;
+    $variable['title'] = l($info['title'], $info['link']);
+    $variable['logo'] = theme('image', $params);
+    $variable['type'] = $info['category'];
+    $variable['description'] = $info['description'];
+    $variable['installation'] = $info['installation_proccess'];
+    $variable['requirements'] = $info['requirements'];
+    $variable['zebra'] = $i++ % 2 == 0 ? 'odd' : 'even';
+    $variable['status_text'] = $requiremets[$info['status']]['text'];
+    $variable['status_class'] = $requiremets[$info['status']]['class'];
+
+    $output .= theme('providers_page_row', $variable);
+  }
+
+  return $output;
+}
+
+/**
+ * Implements hook_commerce_kickstart_service_provider().
+ *
+ * Implementing the module on the behalf of Skrill.
+ */
+function commerce_kickstart_service_provider_commerce_kickstart_service_provider() {
+  return array(
+    'skrill' => array(
+      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/skrill.png',
+      'title' => t('Skrill'),
+      'module_path' => '',
+      'category' => t('Payment provider'),
+      'teaser' => t('A payment gateway that provides over 100 payment options, with 41 currencies covering 200 countries and territories through just one partner.'),
+      'description' => t('A payment gateway that provides over 100 payment options, with 41 currencies covering 200 countries and territories through just one partner. <br />Great product!'),
+      'requirements' => t('Requires configuration API code to be set.'),
+      'link' => 'http://skrill.com',
+      'installation_proccess' => t('1. Regsiter <br />2. Fill in API'),
+      'weight' => 0,
+    ),
+  );
+}
+
+/**
+ * Show all the services available.
+ */
+function commerce_kickstart_service_provider_all_services() {
+  $form = drupal_get_form('commerce_kickstart_service_provider_service_search');
+  $variables = array(
+    'page_title' => t('Services provided through Commerce Guys partners'),
+    'search' => render($form),
+    'services' => commerce_kickstart_service_provider_get_full(),
+  );
+
+  return theme('providers_page', $variables);
+}
+
+/**
+ * Custom form.
+ */
+function commerce_kickstart_service_provider_service_search() {
+  $form['text'] = array(
+    '#type' => 'textfield',
+    '#default_value' => t('Search'),
+    '#size' => 25,
+  );
+
+  return $form;
+}
+
+/**
+ * Helper function: add js/css more easily.
+ */
+function _commerce_kickstart_service_provider_add_element($type, $filename) {
+  $function_name = 'drupal_add_' . $type;
+
+  $function_name(drupal_get_path('module', 'commerce_kickstart_service_provider') . '/' . $type .'/' . $filename);
+}
+
