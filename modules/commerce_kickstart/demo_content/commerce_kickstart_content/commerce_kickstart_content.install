@@ -43,6 +43,7 @@ function commerce_kickstart_content_enable() {
       'status' => '1',
       'visibility' => '1',
       'pages' => '<front>',
+      'weight' => -8,
     ))
     ->condition('module', 'commerce_kickstart_content')
     ->condition('delta', 'shipping_discount')
