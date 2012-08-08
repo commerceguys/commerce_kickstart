@@ -430,6 +430,25 @@ function commerce_kickstart_menus_menu_alter(&$items) {
       $items[$path]['parent'] = 'admin/site-config/advanced';
     }
   }
+  if (isset($items['admin/commerce/jirafe'])) {
+    $items['admin/commerce/jirafe']['title'] = 'Dashboard';
+    $items['admin/commerce/jirafe']['parent'] = 'admin';
+    $items['admin/commerce/jirafe']['weight'] = 200;
+  }
+}
+
+/**
+ * Implements hook_init().
+ *
+ * Alter the page title on the Jirafe dashboard page.
+ */
+function commerce_kickstart_menus_init() {
+  $item = menu_get_item();
+  if ($item['path'] != 'admin/commerce/jirafe') {
+    return;
+  }
+
+  drupal_set_title(t('Commerce Guys Dashboard by Jirafe'));
 }
 
 /**

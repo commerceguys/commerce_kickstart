@@ -125,6 +125,7 @@ projects[date][version] = 2.x-dev
 projects[date][subdir] = "contrib"
 projects[jirafe][version] = 1.x-dev
 projects[jirafe][subdir] = "contrib"
+projects[jirafe][patch][] = "http://drupal.org/files/1719236.provide_default_data-3.patch"
 projects[menu_attributes][version] = 1.0-rc2
 projects[menu_attributes][subdir] = "contrib"
 
