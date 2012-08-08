@@ -605,6 +605,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['title'] = 'Products';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'administer commerce_product entities';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -681,15 +682,15 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Commerce Product: SKU */
+  /* Field: COUNT(Commerce Product: SKU) */
   $handler->display->display_options['fields']['sku']['id'] = 'sku';
   $handler->display->display_options['fields']['sku']['table'] = 'commerce_product';
   $handler->display->display_options['fields']['sku']['field'] = 'sku';
   $handler->display->display_options['fields']['sku']['relationship'] = 'field_product_product_id';
+  $handler->display->display_options['fields']['sku']['group_type'] = 'count';
   $handler->display->display_options['fields']['sku']['label'] = '';
   $handler->display->display_options['fields']['sku']['exclude'] = TRUE;
   $handler->display->display_options['fields']['sku']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['sku']['link_to_product'] = 0;
   /* Field: Content: All taxonomy terms */
   $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
