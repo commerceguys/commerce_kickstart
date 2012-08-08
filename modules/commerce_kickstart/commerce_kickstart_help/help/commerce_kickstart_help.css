@@ -108,6 +108,9 @@
 }
 
 /* Getting started */
+#-getting-started {
+  -webkit-font-smoothing: antialiased;
+}
 #-getting-started .search {
   background: #ccc;
   -moz-border-radius: 3px;
@@ -125,6 +128,7 @@
   line-height: normal;
   outline: 0;
   width: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 #-getting-started a.search-submit {
   background: #2F88CD;

@@ -11,6 +11,12 @@ body {
   /*font-family: "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font: normal 400 100%/1.5em "Open Sans", Arial, sans-serif;
 }
+/* Chrome Safari fix for text on video pages */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+}
 a {
   color: #36a2f6;
 }

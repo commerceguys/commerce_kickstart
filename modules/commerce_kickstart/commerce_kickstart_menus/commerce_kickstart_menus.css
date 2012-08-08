@@ -8,9 +8,6 @@ body.toolbar #toolbar {
   background-image: -o-linear-gradient(top, #55b5ff, #50adf5);
   background-image: linear-gradient(to bottom, #55b5ff, #50adf5);
 }
-.overlay-open #toolbar.toolbar {
-  clip: auto !important;
-}
 body.toolbar #toolbar div.toolbar-menu {
   background-color: #50adf5;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55b5ff), to(#50adf5));
@@ -64,6 +61,7 @@ body.toolbar #toolbar-home a:hover {
 }
 #toolbar #toolbar-user li.account a {
   color: #fddb84;
+  -webkit-text-stroke: .025em #fddb84;
 }
 /* Main Menu */
 #toolbar div.toolbar-menu .toolbar-menu-wrapper {
@@ -111,14 +109,14 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   border-radius: 0;
   font-size: 14px;
   padding: 1px;
-  width: 200px;
+  width: 190px;
   z-index: -1;
 }
 body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu {
   padding: 20px 0;
   margin: 0;
   float: left;
-  width: 200px;
+  width: 190px;
 }
 #toolbar > div.toolbar-menu > div.toolbar-menu-wrapper > ul.group {
   margin: 0;
@@ -193,7 +191,7 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-4 div.toolbar-menu-wrapper,
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-5 div.toolbar-menu-wrapper {
-  width: 400px;
+  width: 380px;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu {
   margin: 0;
@@ -205,8 +203,8 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li a.active {
   font-weight: 700;
 }
-#toolbar div.toolbar-menu-wrapper > ul.menu > li.open > div.toolbar-menu-wrapper,
-#toolbar div.toolbar-menu-wrapper > ul.menu > li:hover > div.toolbar-menu-wrapper {
+#toolbar div.toolbar-menu-wrapper ul.menu li.open div.toolbar-menu-wrapper,
+#toolbar div.toolbar-menu-wrapper ul.menu li:hover div.toolbar-menu-wrapper {
   top: 30px;
 }
 #toolbar div.toolbar-menu ul ul li a:hover,
@@ -218,4 +216,16 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   -webkit-box-shadow: none;
   box-shadow: none;
   font-weight: 700;
+}
+/* Chrome + Safari Hacks */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  /* Fix a weird font issue in Chrome for video pages */
+  #toolbar div.toolbar-menu ul li a {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: .025em #fff;
+  }
+  /* Fix for drop-downs disappering on video pages */
+  .overlay-open #toolbar.toolbar {
+    clip: inherit !important;
+  }
 }

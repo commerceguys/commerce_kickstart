@@ -899,7 +899,6 @@ div.views-megarow-content .megarow-header .megarow-title {
   position: relative;
   width: auto;
 }
-
 /* Customizing the View Filters */
 html.js .view-filters fieldset.collapsible,
 html.js .vbo-views-form fieldset.collapsible {
@@ -1103,7 +1102,7 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 .views-exposed-form {
   border-bottom: 1px solid #e2e2dc;
   position: relative;
-}.commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper {
+}
 .views-exposed-form .views-exposed-widget {
   width: auto;
 }
@@ -1128,7 +1127,7 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 }
 /* Making wide enough to fit min and max date fields inline */
 .views-exposed-form #edit-date-filter-wrapper {
-  width: 624px;
+  width: 570px;
 }
 .views-exposed-form #edit-date-filter-wrapper .views-widget {
   max-width: 624px;
