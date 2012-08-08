@@ -964,8 +964,13 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
+.commerce-discount-form .form-item-label {
+  padding-bottom: 10px;
+}
 .commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper {
-  height: 70px;
+  background: none;
+  border: 0;
+  outline: 0;
 }
 .commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper input {
   background-position: 100px 3px !important;
@@ -998,7 +1003,6 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   color: #6D6D6D;
 }
 /* Give some radios styles similar to fieldsets */
-.commerce-discount-form .form-item-commerce-discount-type label,
 .commerce-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label{
   font-size: 22px;
   font-weight: 400;
@@ -1087,7 +1091,7 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 .views-exposed-form {
   border-bottom: 1px solid #e2e2dc;
   position: relative;
-}
+}.commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper {
 .views-exposed-form .views-exposed-widget {
   width: auto;
 }
