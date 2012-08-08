@@ -9,10 +9,9 @@
  * Implements hook_install_tasks().
  */
 function commerce_kickstart_install_tasks() {
-  // Since any module can add a drupal_set_message, this can bug the user
-  // when we display this page. For a better user experience,
-  // remove all the messages.
-  drupal_get_messages(NULL, TRUE);
+  // Remove any status messages that might have been set. They are unneeded.
+  drupal_get_messages('status', TRUE);
+
   $tasks = array();
   $current_task = variable_get('install_task', 'done');
   $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
@@ -46,8 +45,6 @@ function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
   $tasks['install_select_profile']['display'] = FALSE;
   $tasks['install_select_locale']['display'] = FALSE;
   $tasks['install_select_locale']['run'] = INSTALL_TASK_SKIP;
-  // Since we skip the locale step, default the param to english.
-  $install_state['parameters']['locales'] = 'en';
 
   // The "Welcome" screen needs to come after the first two steps
   // (profile and language selection), despite the fact that they are disabled.
@@ -55,6 +52,7 @@ function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
     'display' => TRUE,
     'display_name' => st('Welcome'),
     'type' => 'form',
+    'run' => isset($install_state['parameters']['welcome']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
   );
   $old_tasks = $tasks;
   $tasks = array_slice($old_tasks, 0, 2) + $new_task + array_slice($old_tasks, 2);
@@ -82,7 +80,7 @@ function _commerce_kickstart_set_theme($target_theme) {
 /**
  * Task callback: shows the welcome screen.
  */
-function install_welcome() {
+function install_welcome($form, &$form_state, &$install_state) {
   drupal_set_title(st('Welcome'));
 
   $message = st('Thank you for choosing Commerce Kickstart!') . '<br />';
@@ -104,8 +102,14 @@ function install_welcome() {
     '#value' => st("Let's Get Started!"),
     '#weight' => 10,
   );
-
   return $form;
+}
+
+function install_welcome_submit($form, &$form_state) {
+  global $install_state;
+
+  $install_state['parameters']['welcome'] = 'done';
+  $install_state['parameters']['locale'] = 'en';
 }
 
 /**

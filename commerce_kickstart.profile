@@ -6,11 +6,6 @@
  * Allows the profile to alter the site configuration form.
  */
 function commerce_kickstart_form_install_configure_form_alter(&$form, $form_state) {
-  // Since any module can add a drupal_set_message, this can bug the user
-  // when we display this page. For a better user experience,
-  // remove all the messages.
-  drupal_get_messages(NULL, TRUE);
-
   // Set a default name for the dev site and change title's label.
   $form['site_information']['site_name']['#title'] = 'Store name';
   $form['site_information']['site_mail']['#title'] = 'Store email address';
@@ -86,9 +81,9 @@ function commerce_kickstart_custom_setting(&$form, &$form_state) {
       $form_state['values']['account']['name'] = $form_state['values']['name'];
       $form_state['values']['account']['pass'] = $form_state['input']['pass']['pass1'];
     }
-  else {
-      form_set_error('pass', t('The specified passwords do not match.'));
-    }
+    else {
+        form_set_error('pass', t('The specified passwords do not match.'));
+      }
   }
 }
 
