@@ -150,6 +150,7 @@ function commerce_backoffice_views_bulk_operations_form_alter(&$form, &$form_sta
     $form['select']['#collapsible'] = FALSE;
     $form['select']['submit']['#value'] = t('Apply');
     $form['select']['operation']['#options'][0] = t('Bulk operations');
+    $form['select']['#weight'] = 99999;
   }
 }
 

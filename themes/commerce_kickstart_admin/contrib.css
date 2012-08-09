@@ -872,13 +872,12 @@ div.views-megarow-content .megarow-header .megarow-title {
 }
 /* Inline product edit field styles */
 #commerce-kickstart-inline-help-button {
-  float: right;
+  float: inherit;
 }
 .page-admin-commerce-products #commerce-kickstart-inline-help-button {
-  margin-bottom: -54px;
-  padding-top: 8px;
+  /*margin-bottom: -54px;
+  padding-top: 8px;*/
   position: relative;
-  z-index: 1;
 }
 .page-admin-commerce-products #commerce-kickstart-inline-help-button .ajax-progress {
   bottom: 100%;
@@ -1098,7 +1097,11 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 #kickstart-help-topic .first-steps-blocks h2 {
   padding: 5px 15px;
 }
-
+/* Manage Orders/Content */
+.view-commerce-backoffice-orders .views-exposed-form,
+.view-admin-content-main .views-exposed-form {
+  border: 0;
+}
 /* Manage Products */
 .views-exposed-form {
   border-bottom: 1px solid #e2e2dc;
@@ -1163,7 +1166,7 @@ html.js .views-exposed-form .form-item input.throbbing {
   padding: 1em 0;
   position: absolute;
   right: 0;
-  top: 100%;
+  top: 0;
   z-index: 1;
 }
 .views-exposed-form .views-widget-filter-combine input{
@@ -1184,7 +1187,11 @@ html.js .views-exposed-form .form-item input.throbbing {
 .vbo-views-form .form-item-operation {
   background: transparent url("images/bg-vbo.png") no-repeat 0 0;
   display: block;
+  padding-left: 30px;
   width: 200px;
+}
+.vbo-views-form .form-item-operation #edit-operation {
+  margin-top: 0;
 }
 .vbo-views-form .form-item-operation .chzn-container {
   left: 30px;
@@ -1192,8 +1199,7 @@ html.js .views-exposed-form .form-item input.throbbing {
 .vbo-views-form .views-table {
   margin-top: 20px;
 }
-.view-commerce-backoffice-products .vbo-views-form .views-table,
-.view-commerce-backoffice-orders .vbo-views-form .views-table {
+.view-commerce-backoffice-products .vbo-views-form .views-table {
   margin-top: 60px;
 }
 html.js .vbo-views-form fieldset .fieldset-wrapper{
@@ -1223,7 +1229,9 @@ html.js .vbo-views-form fieldset .fieldset-wrapper{
 .vbo-views-form .ctools-dropbutton-processed a {
   color: #424242;
 }
-
+.vbo-views-form #edit-actions {
+  padding-top: 0;
+}
 /* Chosen Select Style Overrides */
 .chzn-container-multi .chzn-choices,
 .chzn-container-single .chzn-single {

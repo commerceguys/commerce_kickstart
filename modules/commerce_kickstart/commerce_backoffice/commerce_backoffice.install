@@ -71,12 +71,4 @@ function commerce_backoffice_install() {
     );
     filter_format_save($format);
   }
-
-  // Configure Chosen, if it's installed.
-  if (module_exists('chosen')) {
-    variable_set('chosen_jquery_selector', '.view-filters .views-exposed-form select, .form-item-operation select');
-    variable_set('chosen_minimum', 5);
-    variable_set('chosen_minimum_width', 200);
-    variable_set('chosen_search_contains', TRUE);
-  }
 }
