@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * commerce_kickstart_content.features.menu_links.inc
+ * commerce_kickstart_block.features.menu_links.inc
  */
 
 /**
  * Implements hook_menu_default_menu_links().
  */
-function commerce_kickstart_content_menu_default_menu_links() {
+function commerce_kickstart_block_menu_default_menu_links() {
   $menu_links = array();
 
   // Exported menu link: menu-payment-methods_american-express:<front>

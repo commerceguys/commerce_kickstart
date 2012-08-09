@@ -1,5 +1,5 @@
-name = Commerce kickstart content
-description = Setup custom block and dummy content.
+name = Commerce kickstart blocks
+description = Setup custom blocks.
 core = 7.x
 package = Commerce Kickstart
 php = 5.2.4
@@ -14,4 +14,4 @@ features[menu_links][] = menu-payment-methods_american-express:<front>
 features[menu_links][] = menu-payment-methods_mastercard:<front>
 features[menu_links][] = menu-payment-methods_paypal:<front>
 features[menu_links][] = menu-payment-methods_visa:<front>
-files[] = commerce_kickstart_content.module
+files[] = commerce_kickstart_block.module

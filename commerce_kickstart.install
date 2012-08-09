@@ -229,7 +229,7 @@ function commerce_kickstart_install_additional_modules() {
   $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
   if ($install_demo_store) {
     $modules = array(
-      'commerce_kickstart_content',
+      'commerce_kickstart_block',
       'commerce_kickstart_social',
       'commerce_kickstart_search',
       'commerce_kickstart_product',
@@ -244,7 +244,7 @@ function commerce_kickstart_install_additional_modules() {
   }
   else {
     $modules = array(
-      'commerce_kickstart_content',
+      'commerce_kickstart_block',
       'commerce_kickstart_lite_search',
       'commerce_kickstart_lite_product',
       'commerce_kickstart_lite_product_ui',

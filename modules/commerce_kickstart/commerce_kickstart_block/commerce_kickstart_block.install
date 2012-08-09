@@ -7,11 +7,11 @@
 /**
  * Implements hook_enable().
  */
-function commerce_kickstart_content_enable() {
+function commerce_kickstart_block_enable() {
   // Rebuild the features static caches.
   features_include(TRUE);
 
-  $module = 'commerce_kickstart_content';
+  $module = 'commerce_kickstart_block';
   $feature = feature_load($module);
   $items[$module] = array_keys($feature->info['features']);
   _features_restore('enable', $items);
@@ -21,6 +21,7 @@ function commerce_kickstart_content_enable() {
   // Make sure that the region list is populated for our theme.
   drupal_static_reset();
   _block_rehash($default_theme);
+
 
   // Payment-methods menu block.
   $fields = array(
@@ -35,48 +36,34 @@ function commerce_kickstart_content_enable() {
     ->condition('delta', 'menu-payment-methods')
     ->condition('theme', $default_theme)
     ->execute();
-
-  // Shipping block
-  db_update('block')
-    ->fields(array(
-      'region' => 'content',
-      'status' => '1',
-      'visibility' => '1',
-      'pages' => '<front>',
-      'weight' => -8,
-    ))
-    ->condition('module', 'commerce_kickstart_content')
-    ->condition('delta', 'shipping_discount')
-    ->condition('theme', $default_theme)
-    ->execute();
-
-  // Promotional banner block.
-  db_update('block')
-    ->fields(array(
-      'region' => 'content',
-      'status' => '1',
-      'visibility' => '1',
-      'pages' => '<front>',
-      'weight' => -9,
-    ))
-    ->condition('module', 'commerce_kickstart_content')
-    ->condition('delta', 'promotional_banner')
-    ->condition('theme', $default_theme)
-    ->execute();
-
-  // Shipping discount block.
-  db_update('block')
-    ->fields(array(
+  if (variable_get('commerce_kickstart_demo_store', FALSE)) {
+    // Promotional banner block.
+    db_update('block')
+      ->fields(array(
+        'region' => 'content',
+        'status' => '1',
+        'visibility' => '1',
+        'pages' => '<front>',
+        'weight' => -9,
+      ))
+      ->condition('module', 'commerce_kickstart_block')
+      ->condition('delta', 'promotional_banner')
+      ->condition('theme', $default_theme)
+      ->execute();
+    // Shipping discount block.
+    db_update('block')
+      ->fields(array(
       'region' => 'content',
       'status' => '1',
       'visibility' => '1',
       'pages' => '<front>',
       'weight' => 1,
     ))
-    ->condition('module', 'commerce_kickstart_content')
-    ->condition('delta', 'shipping_discount')
-    ->condition('theme', $default_theme)
-    ->execute();
+      ->condition('module', 'commerce_kickstart_block')
+      ->condition('delta', 'shipping_discount')
+      ->condition('theme', $default_theme)
+      ->execute();
+  }
 
   // Powered by Drupal Commerce block.
   db_update('block')
@@ -87,7 +74,7 @@ function commerce_kickstart_content_enable() {
       'pages' => '',
       'weight' => -30,
     ))
-    ->condition('module', 'commerce_kickstart_content')
+    ->condition('module', 'commerce_kickstart_block')
     ->condition('delta', 'powered_drupal_commerce')
     ->condition('theme', $default_theme)
     ->execute();
