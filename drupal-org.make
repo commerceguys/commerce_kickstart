@@ -5,6 +5,7 @@ api = 2
 ; Basic contributed modules.
 projects[ctools][version] = 1.0
 projects[ctools][subdir] = "contrib"
+projects[ctools][patch][] = "http://drupal.org/files/autosubmit_enhanced_textfield-1694988-4.patch"
 projects[entity][version] = 1.0-rc3
 projects[entity][subdir] = "contrib"
 projects[entity][patch][] = "http://drupal.org/files/entity-array_diff_assoc-1514764-15.patch"
@@ -67,7 +68,7 @@ projects[commerce_migrate][subdir] = "contrib"
 projects[commerce_discount][type] = module
 projects[commerce_discount][subdir] = "contrib"
 projects[commerce_discount][download][type] = git
-projects[commerce_discount][download][revision] = 065acffa53db1a6cd6fcbf5e089abee56d34c25e
+projects[commerce_discount][download][revision] = 49fc29df40c1f85c3325ef98dfa573825bf50b83
 projects[commerce_discount][download][branch] = 7.x-1.x
 projects[commerce_checkout_progress][version] = 1.2
 projects[commerce_checkout_progress][subdir] = "contrib"
