@@ -901,7 +901,8 @@ div.views-megarow-content .megarow-header .megarow-title {
 }
 /* Customizing the View Filters */
 html.js .view-filters fieldset.collapsible,
-html.js .vbo-views-form fieldset.collapsible {
+html.js .vbo-views-form fieldset,
+html.js .vbo-views-form .fieldset-wrapper {
   background: transparent;
   border: 0;
   height: auto;
@@ -910,12 +911,12 @@ html.js .vbo-views-form fieldset.collapsible {
   padding: 0;
 }
 html.js .view-filters fieldset.collapsible .fieldset-wrapper,
-html.js .vbo-views-form fieldset.collapsible .fieldset-wrapper {
+html.js .vbo-views-form fieldset .fieldset-wrapper {
   margin-bottom: 30px;
   padding-top: 30px;
 }
 html.js .view-filters fieldset.collapsible .fieldset-legend,
-html.js .vbo-views-form fieldset.collapsible .fieldset-legend {
+html.js .vbo-views-form fieldset .fieldset-legend {
   background: transparent url("images/filter.png") no-repeat 0 0;
   color: #36a2f6;
   margin-top: 0;
@@ -923,13 +924,13 @@ html.js .vbo-views-form fieldset.collapsible .fieldset-legend {
   text-transform: uppercase;
 }
 html.js .view-filters fieldset.collapsible .fieldset-legend a,
-html.js .vbo-views-form fieldset.collapsible .fieldset-legend a{
+html.js .vbo-views-form fieldset .fieldset-legend a{
   color: #36a2f6;
 }
 html.js .view-filters fieldset.collapsible .fieldset-legend {
   background: transparent url("images/filter.png") no-repeat 0 0;
 }
-html.js .vbo-views-form fieldset.collapsible .fieldset-legend {
+html.js .vbo-views-form fieldset .fieldset-legend {
   background: transparent url("images/bulk-update.png") no-repeat 0 0;
 }
 html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend {
@@ -1195,7 +1196,7 @@ html.js .views-exposed-form .form-item input.throbbing {
 .view-commerce-backoffice-orders .vbo-views-form .views-table {
   margin-top: 60px;
 }
-html.js .vbo-views-form fieldset.collapsible .fieldset-wrapper{
+html.js .vbo-views-form fieldset .fieldset-wrapper{
   padding: 3px 0 0 10px;
   margin-bottom: 0;
 }

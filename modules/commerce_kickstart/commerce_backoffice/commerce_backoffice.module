@@ -147,6 +147,7 @@ function commerce_backoffice_form_alter(&$form, &$form_state, $form_id) {
 function commerce_backoffice_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
   if ($form_state['step'] == 'views_form_views_form') {
     $form['select']['#title'] = '';
+    $form['select']['#collapsible'] = FALSE;
     $form['select']['submit']['#value'] = t('Apply');
     $form['select']['operation']['#options'][0] = t('Bulk operations');
   }
