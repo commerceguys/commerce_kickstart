@@ -38,7 +38,7 @@ function commerce_kickstart_help_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('_getting_started'),
     'access arguments' => array('view advanced help topic'),
-    'weight' => -200,
+    'weight' => -199,
     'type' => MENU_LOCAL_TASK,
 );
 
