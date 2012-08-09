@@ -285,7 +285,7 @@ function commerce_backoffice_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['expose']['identifier'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['form_type'] = 'date_popup';
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
-    'commerce_order.changed' => 'commerce_order.changed',
+    'commerce_order.created' => 'commerce_order.created',
   );
   /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine']['id'] = 'combine';
@@ -304,6 +304,7 @@ function commerce_backoffice_views_default_views() {
 
   /* Display: Admin page */
   $handler = $view->new_display('page', 'Admin page', 'admin_page');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'admin/commerce/orders/list';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Orders';
