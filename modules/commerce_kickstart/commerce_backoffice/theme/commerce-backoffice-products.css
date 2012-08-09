@@ -13,12 +13,15 @@
 .megarow-content tr td:last-child {
   border: 0 !important;
 }
-.views-field-operations-dropbutton .quick-edit {
+.page-admin-commerce .vbo-views-form .views-field-operations-dropbutton .quick-edit {
   padding-right: 10px;
   position :relative;
 }
-.views-field-operations-dropbutton .quick-edit .ajax-progress-throbber {
+.page-admin-commerce .vbo-views-form .views-field-operations-dropbutton .quick-edit .ajax-progress-throbber {
   position: absolute;
   top: 0;
   right: 0;
+}
+.page-admin-commerce .view-commerce-backoffice-products .vbo-views-form .views-table, .view-commerce-backoffice-orders .vbo-views-form .views-table {
+  margin-top: 0;
 }

@@ -37,6 +37,9 @@
 .commerce-backoffice-order-status-form form {
   padding: 3px 10px;
 }
+.commerce-backoffice-order-status-form form .form-submit {
+  margin-top: 15px;
+}
 .commerce-backoffice-order-status-form .form-item {
   margin-bottom: 0;
 }
@@ -59,12 +62,15 @@
 .view-commerce-backoffice-order-messages h2 {
   font-size: 1em;
 }
-.views-field-operations-dropbutton .quick-edit {
+.page-admin-commerce .vbo-views-form .views-field-operations-dropbutton .quick-edit {
   padding-right: 10px;
-  position: relative;
+  position :relative;
 }
-.views-field-operations-dropbutton .quick-edit .ajax-progress-throbber {
+.page-admin-commerce .vbo-views-form .views-field-operations-dropbutton .quick-edit .ajax-progress-throbber {
   position: absolute;
   top: 0;
   right: 0;
+}
+.page-admin-commerce .view-commerce-backoffice-orders .vbo-views-form .megarow-content .views-table {
+  margin-top: 0;
 }
