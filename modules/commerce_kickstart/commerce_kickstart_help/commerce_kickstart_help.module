@@ -194,14 +194,6 @@ function _getting_started() {
     '#weight' => -12,
     '#markup' => "<div id='commerce-kickstart-help'><p>Find all the help you need to start using your store.</p></div>",
   );
-  // Add 'Go to my store' link, only once.
-  if (variable_get('getting_started_seen', FALSE) == FALSE) {
-    variable_set('getting_started_seen', TRUE);
-    $form['help_button'] = array(
-      '#weight' => -11,
-      '#markup' => "<div id='commerce-kickstart-help-button' class='form-actions'><a class='overlay-close'><input type='submit' value='". t('Go to my store') . "' class='form-submit' id='edit-submit'></a></div>",
-    );
-  }
 
   // Search
   $form['search']['#prefix'] = '<div class="search clearfix">';
