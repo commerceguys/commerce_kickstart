@@ -319,7 +319,7 @@ function commerce_backoffice_product_quick_edit_form($form, &$form_state, $produ
     '#type' => 'select',
     '#title' => t('Status'),
     '#title_display' => 'invisible',
-    '#options' => array(0 => t('Inactive'), 1 => t('Active')),
+    '#options' => array(0 => t('Disabled'), 1 => t('Enabled')),
     '#default_value' => $product->status,
   );
   $form['save'] = array(
