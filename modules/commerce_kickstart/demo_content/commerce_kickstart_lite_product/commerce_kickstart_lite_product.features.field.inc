@@ -495,7 +495,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
           'rows' => 20,
           'summary_rows' => 5,
         ),
-        'type' => 'text_textarea_with_summary',
+        'type' => 'text_textarea',
         'weight' => '31',
       ),
     ),
