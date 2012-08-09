@@ -13,10 +13,10 @@ function commerce_kickstart_lite_product_ui_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@kickstart_product_display:block:field_product_variations:field_color';
+  $facet->name = 'search_api@kickstart_product_display:block:field_product:field_color';
   $facet->searcher = 'search_api@kickstart_product_display';
   $facet->realm = 'block';
-  $facet->facet = 'field_product_variations:field_color';
+  $facet->facet = 'field_product:field_color';
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
@@ -42,15 +42,15 @@ function commerce_kickstart_lite_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@kickstart_product_display:block:field_product_variations:field_color'] = $facet;
+  $export['search_api@kickstart_product_display:block:field_product:field_color'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@kickstart_product_display:block:field_product_variations:field_size';
+  $facet->name = 'search_api@kickstart_product_display:block:field_product:field_size';
   $facet->searcher = 'search_api@kickstart_product_display';
   $facet->realm = 'block';
-  $facet->facet = 'field_product_variations:field_size';
+  $facet->facet = 'field_product:field_size';
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
@@ -76,7 +76,7 @@ function commerce_kickstart_lite_product_ui_facetapi_default_facet_settings() {
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@kickstart_product_display:block:field_product_variations:field_size'] = $facet;
+  $export['search_api@kickstart_product_display:block:field_product:field_size'] = $facet;
 
   return $export;
 }

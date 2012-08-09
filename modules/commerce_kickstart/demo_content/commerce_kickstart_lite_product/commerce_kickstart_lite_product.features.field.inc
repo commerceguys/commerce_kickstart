@@ -577,14 +577,14 @@ function commerce_kickstart_lite_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-product_display-field_product_variations'.
-  $fields['node-product_display-field_product_variations'] = array(
+  // Exported field: 'node-product_display-field_product'.
+  $fields['node-product_display-field_product'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_product_variations',
+      'field_name' => 'field_product',
       'foreign keys' => array(
         'product_id' => array(
           'columns' => array(
@@ -637,7 +637,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_product_variations',
+      'field_name' => 'field_product',
       'label' => 'Product variations',
       'required' => 0,
       'settings' => array(

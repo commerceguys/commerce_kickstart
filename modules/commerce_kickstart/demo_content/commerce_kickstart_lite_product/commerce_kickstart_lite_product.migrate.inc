@@ -112,7 +112,7 @@ class CommerceKickstartNode extends CommerceKickstartMigration {
     $this->addFieldMapping('field_product_category', 'category');
     $this->addFieldMapping('field_product_category:create_term')
       ->defaultValue(TRUE);
-    $this->addFieldMapping('field_product_variations', 'skus');
+    $this->addFieldMapping('field_product', 'skus');
   }
 
   public function prepareRow($row) {

@@ -153,9 +153,9 @@ function commerce_kickstart_lite_product_default_search_api_index() {
       "fields" : {
         "title" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
-        "field_product_variations:title" : { "type" : "list\\u003Ctext\\u003E" },
-        "field_product_variations:field_color" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product_variations:field_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
+        "field_product:title" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_product:field_color" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_product:field_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
       },
       "data_alter_callbacks" : {
         "search_api_ranges_alter" : { "status" : 0, "weight" : "-50", "settings" : { "fields" : [] } },
