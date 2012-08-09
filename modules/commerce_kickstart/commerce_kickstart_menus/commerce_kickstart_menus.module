@@ -399,7 +399,7 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     $items['admin/commerce/store/discounts']['parent'] = 'admin/commerce/config/promotions';
   }
   $advanced_store_items = array(
-    'admin/commerce/config/jirafe',
+    'admin/commerce/customer-profiles',
     'admin/commerce/config/shipping',
     'admin/commerce/config/taxes',
     'admin/commerce/config/payment-methods',
