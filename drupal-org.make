@@ -56,6 +56,7 @@ projects[commerce_addressbook][subdir] = "contrib"
 projects[commerce_addressbook][patch][] = "http://drupal.org/files/addressbook_menu_issues-1540624-5.patch"
 projects[commerce_shipping][version] = 2.x-dev
 projects[commerce_shipping][subdir] = "contrib"
+projects[commerce_shipping][patch][] = "http://drupal.org/files/no_shipping_method_enabled_message-1720928-2.patch"
 projects[commerce_flat_rate][version] = 1.x-dev
 projects[commerce_flat_rate][subdir] = "contrib"
 projects[commerce_fancy_attributes][version] = 1.0
