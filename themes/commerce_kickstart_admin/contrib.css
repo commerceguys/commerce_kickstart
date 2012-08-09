@@ -993,6 +993,9 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   background: none;
   color: inherit;
 }
+.field-name-commerce-discount-date .fieldset-wrapper .container-inline-date .date-padding > .form-item:first-child input.form-text {
+  background: url('./images/calendar.png') left top no-repeat;
+}
 .form-item-enabled #edit-enabled .form-item label {
   margin: 0 !important;
 }
@@ -1003,9 +1006,18 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   color: #6D6D6D;
 }
 /* Give some radios styles similar to fieldsets */
-.commerce-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label{
+
+.commerce-discount-form .form-item-label label,
+.commerce-discount-form .form-item-commerce-discount-type label,
+.commerce-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label {
   font-size: 22px;
   font-weight: 400;
+}
+.commerce-discount-form .form-item-commerce-discount-type label {
+  border-bottom: 1px solid #CCCCCC;
+}
+.commerce-discount-form .form-item-commerce-discount-type .form-radios label {
+  border: none;
 }
 .commerce-discount-form .form-item-commerce-discount-type .form-radios label,
 .commerce-discount-form .form-item-commerce-discount-type .form-item label,
