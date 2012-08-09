@@ -200,7 +200,7 @@ function _getting_started() {
   $form['search']['text'] = array(
     '#type' => 'textfield',
     '#weight' => -10,
-    '#attributes' => array('placeholder' => t('Cant find what you are looking for ? Search DrupalCommerce.org')),
+    '#attributes' => array('placeholder' => t("Can't find what you are looking for? Search DrupalCommerce.org")),
   );
   $form['search']['submit'] = array(
     '#type' => 'link',
