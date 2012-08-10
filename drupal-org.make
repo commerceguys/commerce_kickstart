@@ -188,7 +188,6 @@ projects[i18n][subdir] = "contrib"
 ; Base theme.
 projects[omega][version] = 3.1
 projects[omega_kickstart][version] = 3.x-dev
-projects[omega_kickstart][patch][] = "http://drupal.org/files/1720806-update-class-names.patch"
 
 ; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
