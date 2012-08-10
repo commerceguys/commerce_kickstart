@@ -3,7 +3,7 @@ core = 7.14
 api = 2
 
 ; Basic contributed modules.
-projects[ctools][version] = 1.0
+projects[ctools][version] = 1.1
 projects[ctools][subdir] = "contrib"
 projects[ctools][patch][] = "http://drupal.org/files/autosubmit_enhanced_textfield-1694988-4.patch"
 projects[entity][version] = 1.0-rc3
@@ -164,7 +164,7 @@ projects[image_delta_formatter][subdir] = "contrib"
 projects[link][version] = 1.x-dev
 projects[link][subdir] = "contrib"
 projects[link][patch][] = "http://drupal.org/files/1715246.strict_warning_link_sanitize.patch"
-projects[pathauto][version] = 1.1
+projects[pathauto][version] = 1.2
 projects[pathauto][subdir] = "contrib"
 projects[cloud_zoom][version] = 1.x-dev
 projects[cloud_zoom][subdir] = "contrib"
