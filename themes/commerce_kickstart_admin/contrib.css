@@ -858,7 +858,7 @@ tr.megarow > td {
 }
 div.views-megarow-content {
   background: transparent;
-  border-bottom: 1px solid #BEBFB9;
+  border-bottom: 11px solid #CCC;
   padding-top: 0;
 }
 div.views-megarow-content .megarow-header,
@@ -875,13 +875,18 @@ div.views-megarow-content .megarow-header .megarow-title {
   float: inherit;
 }
 .page-admin-commerce-products #commerce-kickstart-inline-help-button {
-  /*margin-bottom: -54px;
-  padding-top: 8px;*/
   position: relative;
+}
+.page-admin-commerce-products #commerce-kickstart-inline-help-button #edit-commerce-kickstart-inline-help-button {
+  margin-top: 10px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
 }
 .page-admin-commerce-products #commerce-kickstart-inline-help-button .ajax-progress {
   bottom: 100%;
-  left: 0;
+  right: 0;
   position: absolute;
   width: 150px;
 }
@@ -889,10 +894,10 @@ div.views-megarow-content .megarow-header .megarow-title {
   position: relative;
   z-index: 1;
 }
-.page-admin-commerce-products-types #commerce-kickstart-inline-help-button {
+.page-admin-commerce-products-types #commerce-kickstart-inline-help-button #edit-commerce-kickstart-inline-help-button {
   margin-bottom: 0;
   margin-top: -45px;
-  padding-top: 0;
+  position: relative;
 }
 .page-admin-commerce-products-types #commerce-kickstart-inline-help-button .ajax-progress {
   position: relative;
@@ -1098,7 +1103,6 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   padding: 5px 15px;
 }
 /* Manage Orders/Content */
-.view-commerce-backoffice-orders .views-exposed-form,
 .view-admin-content-main .views-exposed-form {
   border: 0;
 }
@@ -1107,11 +1111,13 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   border-bottom: 1px solid #e2e2dc;
   position: relative;
 }
+/* Special padding for specific vbo pages */
+.view-commerce-backoffice-products .views-exposed-form,
+.view-commerce-backoffice-orders .views-exposed-form {
+  margin-bottom: 60px;
+}
 .views-exposed-form .views-exposed-widget {
   width: auto;
-}
-#views-exposed-form-commerce-discount-overview-default .views-exposed-form .views-reset-button {
-  padding: 0;
 }
 #views-exposed-form-commerce-discount-overview-default .views-exposed-form .views-reset-button input.form-submit {
   margin-top: 0;
@@ -1124,14 +1130,17 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 .views-exposed-form .views-widget,
 .views-exposed-form .date-padding {
   float: left;
-  max-width: 230px;
+  max-width: 210px;
+}
+.view-admin-content-main .views-exposed-form .views-widget {
+  max-width: 150px;
 }
 .views-exposed-form .views-widget-filter-combine .views-widget {
   max-width: 250px;
 }
 /* Making wide enough to fit min and max date fields inline */
 .views-exposed-form #edit-date-filter-wrapper {
-  width: 570px;
+  width: 624px;
 }
 .views-exposed-form #edit-date-filter-wrapper .views-widget {
   max-width: 624px;
@@ -1166,7 +1175,7 @@ html.js .views-exposed-form .form-item input.throbbing {
   padding: 1em 0;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 100%;
   z-index: 1;
 }
 .views-exposed-form .views-widget-filter-combine input{
@@ -1174,20 +1183,20 @@ html.js .views-exposed-form .form-item input.throbbing {
   line-height: normal;
   padding: 3px 20px 3px 5px;
 }
-.vbo-views-form .fieldset-wrapper {
-  padding-left: 20px;
+.vbo-views-form #edit-select .fieldset-wrapper {
+  padding: 3px 0 0 16px;
   position: relative;
   width: 220px;
 }
-.vbo-views-form .fieldset-wrapper input.form-submit {
-  left: 250px;
+.vbo-views-form #edit-select .fieldset-wrapper input.form-submit {
+  left: 100%;
   position: absolute;
   top: 9px;
 }
 .vbo-views-form .form-item-operation {
   background: transparent url("images/bg-vbo.png") no-repeat 0 0;
   display: block;
-  padding-left: 30px;
+  padding: 0 5px 0 30px;
   width: 200px;
 }
 .vbo-views-form .form-item-operation #edit-operation {
@@ -1196,22 +1205,13 @@ html.js .views-exposed-form .form-item input.throbbing {
 .vbo-views-form .form-item-operation .chzn-container {
   left: 30px;
 }
-.vbo-views-form .views-table {
-  margin-top: 20px;
-}
-.view-commerce-backoffice-products .vbo-views-form .views-table {
-  margin-top: 60px;
-}
-html.js .vbo-views-form fieldset .fieldset-wrapper{
+html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
   padding: 3px 0 0 10px;
   margin-bottom: 0;
 }
 .views-field-views-bulk-operations {
   width: 45px;
   vertical-align: middle;
-}
-.vbo-views-form {
-  color: #6A6A6A;
 }
 .vbo-views-form .ctools-button-processed {
   -moz-border-radius: 3px;
