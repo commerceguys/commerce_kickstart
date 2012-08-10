@@ -52,6 +52,7 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
   // Make a "copy" of the original name and pass form fields.
   $form['admin_account']['setup_account']['account']['name'] = $form['admin_account']['account']['name'];
   $form['admin_account']['setup_account']['account']['pass'] = $form['admin_account']['account']['pass'];
+  $form['admin_account']['setup_account']['account']['pass']['#value'] = array('pass1' => 'admin', 'pass2' => 'admin');
 
   // Use "admin" as the default username.
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
