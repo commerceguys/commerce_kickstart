@@ -116,7 +116,24 @@ function install_welcome_submit($form, &$form_state) {
  * Task callback: returns the form allowing the user to add example store content on install.
  */
 function commerce_kickstart_configure_store_form() {
+  include_once DRUPAL_ROOT . '/includes/iso.inc';
+
   drupal_set_title(st('Configure store'));
+
+  $form['country'] = array(
+    '#type' => 'fieldset',
+    '#title' => st('Country'),
+  );
+  $form['country']['country_list'] = array(
+    '#title' => t('Default store country'),
+    '#description' => t('Services specific to the selected country will be installed if they exist.'),
+    '#options' => _country_get_predefined_list(),
+    '#type' => 'select',
+    '#default_value' => variable_get('site_default_country'),
+    // This field is not required when installing through drush.
+    '#required' => !drupal_is_cli(),
+  );
+
   // Prepare all the options for sample content.
   $options = array(
     '1' => st('Yes'),
@@ -219,6 +236,7 @@ function commerce_kickstart_configure_store_form() {
  * Submit callback: creates the requested sample content.
  */
 function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
+  variable_set('commerce_kickstart_store_country', $form_state['values']['country_list']);
   variable_set('commerce_kickstart_demo_store', $form_state['values']['install_demo_store']);
   variable_set('commerce_kickstart_localization', $form_state['values']['install_localization']);
   variable_set('commerce_kickstart_selected_extras', $form_state['values']['extras']);
@@ -292,6 +310,16 @@ function commerce_kickstart_install_additional_modules() {
     $modules[] = 'variable';
     $modules[] = 'i18n';
     $modules[] = 'i18n_field';
+  }
+
+  // Enable Payleap for North America.
+  if (in_array(variable_get('commerce_kickstart_store_country', 'US'), array('CA', 'US'))) {
+    $modules[] = 'commerce_payleap';
+  }
+  // Enable Commerce Moneybookers for Germany, France and the UK.
+  if (in_array(variable_get('commerce_kickstart_store_country', 'US'), array('GB', 'DE', 'FR'))) {
+    $modules[] = 'commerce_moneybookers';
+    $modules[] = 'commerce_moneybookers_quickcheckout';
   }
 
   // Resolve the dependencies now, so that module_enable() doesn't need

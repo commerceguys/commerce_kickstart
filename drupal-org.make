@@ -77,6 +77,10 @@ projects[commerce_checkout_redirect][version] = 1.x-dev
 projects[commerce_checkout_redirect][subdir] = "contrib"
 projects[commerce_checkout_redirect][patch][] = "http://drupal.org/files/1275330-commerce_checkout_redirect-user_register.patch"
 projects[commerce_checkout_redirect][patch][] = "http://drupal.org/files/1677106-commerce_checkout_redirect-user_pass-2.patch"
+projects[commerce_payleap][version] = 1.x-dev
+projects[commerce_payleap][subdir] = "contrib"
+projects[commerce_moneybookers][version] = 1.1
+projects[commerce_moneybookers][subdir] = "contrib"
 
 ; Other contribs.
 projects[http_client][version] = 2.3
