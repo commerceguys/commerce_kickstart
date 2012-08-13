@@ -85,10 +85,12 @@ body.toolbar #toolbar div.toolbar-menu ul li.active-trail a {
   text-decoration: none;
 }
 /* Dropdown Styles */
-body.toolbar #toolbar div.toolbar-menu ul li:hover ul a {
+body.toolbar #toolbar div.toolbar-menu ul li:hover ul a,
+body.toolbar #toolbar div.toolbar-menu ul li:hover ul a:hover{
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  text-shadow: none;
 }
 body.toolbar #toolbar div.toolbar-menu #toolbar-home li a:hover,
 body.toolbar #toolbar div.toolbar-menu ul li:hover li a,
@@ -97,6 +99,7 @@ body.toolbar #toolbar div.toolbar-menu ul.menu ul.menu a.active{
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  text-shadow: none;
 }
 body.toolbar #toolbar div.toolbar-menu-wrapper ul.menu {
   margin: 0;
@@ -174,7 +177,8 @@ body.toolbar #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu
 body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   opacity: 1;
 }
-#toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper a:hover {
+#toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper a:hover,
+#toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper a.active:hover {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
