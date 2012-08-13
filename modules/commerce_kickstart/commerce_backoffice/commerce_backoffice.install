@@ -11,6 +11,8 @@ function commerce_backoffice_install() {
     'required' => TRUE,
     'settings' => array(
       'text_processing' => 1,
+      // Mark that this field can be rendered using Message::getText().
+      'message_text' => TRUE,
     ),
   );
   if ($existing_instance = field_info_instance($instance['entity_type'], $instance['field_name'], $instance['bundle'])) {
@@ -29,6 +31,8 @@ function commerce_backoffice_install() {
     'translatable' => TRUE,
     'settings' => array(
       'max_length' => '255',
+      // Mark that this field can be rendered using Message::getText().
+      'message_text' => TRUE,
     ),
   );
   if (field_info_field($field['field_name'])) {
