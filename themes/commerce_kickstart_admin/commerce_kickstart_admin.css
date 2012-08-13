@@ -417,6 +417,7 @@ body.in-maintenance #credit {
   margin-bottom: 20px;
   width: 180px;
 }
+/* CG Logo on White */
 #credit .logo a {
   background: transparent url("images/logo-cg2.png") no-repeat 0 0;
   clear: right; /* LTR */
@@ -426,9 +427,11 @@ body.in-maintenance #credit {
   padding: 50px 0 0;
   width: 180px;
 }
+/* CG Logo on Blue */
 body.in-maintenance #credit .logo a {
-  background: transparent url("images/logo-cg.png") no-repeat 0 0;
+  background: transparent url("images/logo-cg3.png") no-repeat 0 0;
 }
+/* CG Logo on Black */
 #overlay #overlay-content #credit .logo a {
   background: transparent url("images/logo-cg.png") no-repeat 0 0;
 }
