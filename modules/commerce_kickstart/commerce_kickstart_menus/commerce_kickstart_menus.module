@@ -6,13 +6,13 @@
 function commerce_kickstart_menus_menu() {
   // Getting started
   $items['admin/help'] = array(
-    'title' => 'Getting Started',
+    'title' => 'Help',
     'description' => '',
     'page callback' => 'advanced_help_topic_page',
     'page arguments' => array('commerce_kickstart_help', 'first-steps'),
     'access arguments' => array('view advanced help topic'),
     'file path' => drupal_get_path('module', 'advanced_help'),
-    'weight' => -25,
+    'weight' => 110,
     'options' => array(
       'toolbar_expanded' => TRUE,
       'toolbar_break' => TRUE,
@@ -429,11 +429,12 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     if (isset($items[$path])) {
       $items[$path]['parent'] = 'admin/site-config/advanced';
     }
+    $items['admin/reports']['title'] = 'Site reports';
   }
   if (isset($items['admin/commerce/jirafe'])) {
-    $items['admin/commerce/jirafe']['title'] = 'Dashboard';
+    $items['admin/commerce/jirafe']['title'] = 'Reports';
     $items['admin/commerce/jirafe']['parent'] = 'admin';
-    $items['admin/commerce/jirafe']['weight'] = 200;
+    $items['admin/commerce/jirafe']['weight'] = -25;
   }
 }
 
