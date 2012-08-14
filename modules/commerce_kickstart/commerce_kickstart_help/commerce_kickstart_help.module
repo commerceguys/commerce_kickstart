@@ -13,32 +13,27 @@ function commerce_kickstart_help_menu() {
 
   // View help topic.
   $items['admin/help'] = array(
-    'title' => 'First Steps',
-    'description' => 'Your first steps in Commerce Kickstart.',
-    'page callback' => 'advanced_help_topic_page',
-    'page arguments' => array('commerce_kickstart_help', 'first-steps'),
+    'title' => 'Help',
+    'description' => 'Find all the help you need to start using your store.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_commerce_kickstart_help_store'),
     'access arguments' => array('view advanced help topic'),
     'file path' => drupal_get_path('module', 'advanced_help'),
-    'weight' => -200,
+    'weight' => 200,
   );
-  $items['admin/help/first-steps'] = array(
-    'title' => 'Introduction',
-    'description' => 'Your first steps in Commerce Kickstart.',
-    'page callback' => 'advanced_help_topic_page',
-    'page arguments' => array('commerce_kickstart_help', 'first-steps'),
-    'access arguments' => array('view advanced help topic'),
-    'file path' => drupal_get_path('module', 'advanced_help'),
-    'weight' => -200,
+  $items['admin/help/store'] = array(
+    'title' => 'Help',
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
   // View help topic.
   $items['admin/help/getting-started'] = array(
-    'title' => 'Help',
-    'description' => 'Find all the help you need to start using your store.',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('_getting_started'),
+    'title' => 'Getting started',
+    'description' => 'Your first steps in Commerce Kickstart.',
+    'page callback' => 'advanced_help_topic_page',
+    'page arguments' => array('commerce_kickstart_help', 'getting-started'),
     'access arguments' => array('view advanced help topic'),
-    'weight' => -199,
+    'file path' => drupal_get_path('module', 'advanced_help'),
+    'weight' => -25,
     'type' => MENU_LOCAL_TASK,
 );
 
@@ -54,71 +49,23 @@ function commerce_kickstart_help_menu_alter(&$items) {
 }
 
 /**
- * Page callback.
- */
-function commerce_kickstart_help_ajax_callback($type = 'ajax', $var) {
-  if ($type == 'ajax') {
-    $commands = array();
-    $help = variable_get('kickstart_help', array());
-    $help[$var] == TRUE ? $help[$var] = FALSE : $help[$var] = TRUE;
-    $help[$var] == TRUE ? $value = 'uncheck' : $value = 'check';
-    variable_set('kickstart_help', $help);
-  }
-}
-
-/**
  * Implements hook_advanced_help_topic_alter().
  */
 function commerce_kickstart_help_advanced_help_topic_alter(&$output, $popup) {
-  preg_match_all('#\#\#(.*)\#\##', $output, $matches);
-  array_shift($matches);
-  foreach ($matches[0] as $match) {
-    $form = drupal_get_form('commerce_kickstart_help_form_ajax', $match);
-    $output = str_replace('##' . $match . '##', render($form), $output);
-  }
-
   $output = str_replace('[%services-teaser%]', commerce_kickstart_service_provider_get_teaser(), $output);
   $output = str_replace('[%services-link%]', url('admin/modules/serviceproviders'), $output);
-}
-
-/**
- * Form callback.
- */
-function commerce_kickstart_help_form_ajax($form, &$form_state, $id) {
-  $values = variable_get('kickstart_help', array());
-  $form['changed_command_example'] = array(
-    '#title' => t(''),
-    '#type' => 'checkbox',
-    '#default_value' => isset($values[$id]) ? $values[$id] : FALSE,
-    '#ajax' => array(
-      'callback' => 'commerce_kickstart_ajax_help_checked_callback',
-    ),
-  );
-  return $form;
-}
-
-/**
- * Ajax callback.
- */
-function commerce_kickstart_ajax_help_checked_callback($form, $form_state) {
-  $id = $form_state['build_info']['args'][0];
-
-  $help = variable_get('kickstart_help', array());
-  $help[$id] == TRUE ? $help[$id] = FALSE : $help[$id] = TRUE;
-  $help[$id] == TRUE ? $value = 'uncheck' : $value = 'check';
-  variable_set('kickstart_help', $help);
 }
 
 /**
  * Implements hook_block_info().
  */
 function commerce_kickstart_help_block_info() {
-  $blocks['commerce_kickstart_ressources'] = array(
+  $blocks['commerce_kickstart_resources'] = array(
     'info' => t('Kickstart Help'),
     'visibility' => BLOCK_VISIBILITY_LISTED,
     'pages' => implode("\n", array(
       'help/commerce_kickstart_help/getting-started',
-      'admin/getting-started'
+      'admin/help/getting-started'
     )),
     'region' => 'content',
     'status' => TRUE,
@@ -129,7 +76,7 @@ function commerce_kickstart_help_block_info() {
     'visibility' => BLOCK_VISIBILITY_LISTED,
     'pages' => implode("\n", array(
       'help/commerce_kickstart_help/getting-started',
-      'admin/getting-started'
+      'admin/help/getting-started'
     )),
     'region' => 'content',
     'status' => TRUE,
@@ -146,7 +93,7 @@ function commerce_kickstart_help_block_info() {
 function commerce_kickstart_help_block_view($delta = '') {
   $block = array();
   switch ($delta) {
-    case 'commerce_kickstart_ressources':
+    case 'commerce_kickstart_resources':
       $block['subject'] = t('Additional Site Builder Resources');
       $block['content'] = commerce_kickstart_help_contents($delta);
       break;
@@ -163,7 +110,7 @@ function commerce_kickstart_help_block_view($delta = '') {
  */
 function commerce_kickstart_help_contents($which_block) {
   switch ($which_block) {
-    case 'commerce_kickstart_ressources':
+    case 'commerce_kickstart_resources':
       $links = array(
         l(t('Drupal Commerce Site Builder Guide'), 'http://www.drupalcommerce.org/user-guide'),
         l(t('Commerce Kickstart User Guide (Link TBD)'), ''),
@@ -187,8 +134,8 @@ function commerce_kickstart_help_contents($which_block) {
   return array('#markup' => implode('<br />', $links) . '<br />');
 }
 
-function _getting_started() {
-  drupal_set_breadcrumb(array(l(t('Home'), '<front>'), l(t('Help'), 'admin/advanced_help'), l(t('Getting Started'), 'admin/getting-started')));
+function _commerce_kickstart_help_store() {
+  drupal_set_breadcrumb(array(l(t('Home'), '<front>'), l(t('Help'), 'admin/advanced_help')));
 
   $form = array();
   $form['#attached']['css'] = array(drupal_get_path('module', 'commerce_kickstart_help') . '/help/commerce_kickstart_help.css');

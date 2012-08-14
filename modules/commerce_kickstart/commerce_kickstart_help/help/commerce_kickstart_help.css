@@ -108,29 +108,29 @@
 }
 
 /* Getting started */
-#-getting-started {
+#-commerce-kickstart-help-store {
   -webkit-font-smoothing: antialiased;
 }
-#-getting-started .search {
+#-commerce-kickstart-help-store .search {
   background: #ccc;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   padding: 15px;
 }
-#-getting-started .search .form-item {
+#-commerce-kickstart-help-store .search .form-item {
   margin-top: 0;
   float: left;
   width: 85%;
 }
-#-getting-started .search .form-item input.form-text {
+#-commerce-kickstart-help-store .search .form-item input.form-text {
   border: 1px solid #999;
   line-height: normal;
   outline: 0;
   width: 100%;
   -webkit-font-smoothing: antialiased;
 }
-#-getting-started a.search-submit {
+#-commerce-kickstart-help-store a.search-submit {
   background: #2F88CD;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#36A2F6), to(#2F88CD));
   background-image: -webkit-linear-gradient(top, #36A2F6, #2F88CD);
@@ -152,30 +152,30 @@
   text-align: center;
   width: 13%;
 }
-#-getting-started a.search-submit:hover {
+#-commerce-kickstart-help-store a.search-submit:hover {
   background: #4f9fea;
   -moz-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #427ed2;
   -webkit-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #427ed2;
   box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #427ed2;
   text-decoration: none;
 }
-#-getting-started .fieldset-title {
+#-commerce-kickstart-help-store .fieldset-title {
   color: #0879bf;
 }
-#-getting-started .fieldset-title .sub-title {
+#-commerce-kickstart-help-store .fieldset-title .sub-title {
   color: #8d8d8d;
 }
-#-getting-started label {
+#-commerce-kickstart-help-store label {
   margin: 45px 0 15px;
 }
-html.js #-getting-started fieldset.collapsible {
+html.js #-commerce-kickstart-help-store fieldset.collapsible {
   background: #efefef;
   border: 0;
   margin: 0 0 10px 0;
   outline: 0;
 }
-html.js #-getting-started fieldset.collapsible .fieldset-wrapper,
-html.js #-getting-started fieldset.collapsible p {
+html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-wrapper,
+html.js #-commerce-kickstart-help-store fieldset.collapsible p {
   font-size: 14px;
   font-weight: 500;
 }
@@ -204,11 +204,11 @@ html.js #-getting-started fieldset.collapsible p {
   overflow: hidden;
 }
 
-html.js #-getting-started fieldset.collapsible .fieldset-legend {
+html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
   background: transparent url("../images/expandable.png") no-repeat 0 -13px;
   font-size: 16px;
   padding-left: 25px;
 }
-html.js #-getting-started fieldset.collapsed .fieldset-legend {
+html.js #-commerce-kickstart-help-store fieldset.collapsed .fieldset-legend {
   background-position: 0 9px;
 }
