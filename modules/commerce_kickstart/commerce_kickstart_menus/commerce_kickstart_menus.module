@@ -436,6 +436,9 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     $items['admin/commerce/jirafe']['parent'] = 'admin';
     $items['admin/commerce/jirafe']['weight'] = -25;
   }
+  if (isset($items['admin/commerce/config/jirafe'])) {
+    $items['admin/commerce/config/jirafe']['hidden'] = TRUE;
+  }
 }
 
 /**
