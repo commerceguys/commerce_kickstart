@@ -1,6 +1,9 @@
 <?php
 
-function commerce_backoffice_install() {
+/**
+ * Implements hook_install().
+ */
+function commerce_backoffice_order_install() {
   // Create the message text field for our message type category.
   $instance = array(
     'field_name' => MESSAGE_FIELD_MESSAGE_TEXT,

@@ -3,7 +3,7 @@
 /**
  * Implements hook_default_message_type_category().
  */
-function commerce_backoffice_default_message_type_category() {
+function commerce_backoffice_order_default_message_type_category() {
   $items = array();
   $items['commerce_order_message'] = entity_import('message_type_category', '{
     "category" : "commerce_order_message",
@@ -17,7 +17,7 @@ function commerce_backoffice_default_message_type_category() {
 /**
  * Implements hook_default_message_type().
  */
-function commerce_backoffice_default_message_type() {
+function commerce_backoffice_order_default_message_type() {
   $items['commerce_order_created'] = entity_import('message_type', '{
     "name" : "commerce_order_created",
     "description" : "Commerce Order: created",
@@ -211,7 +211,7 @@ function commerce_backoffice_default_message_type() {
 /**
  * Refresh the fields attached to the message types we support.
  */
-function commerce_backoffice_message_field_refresh() {
+function commerce_backoffice_order_message_field_refresh() {
   $fields['message_commerce_order']['field'] = array (
     'type' => 'entityreference',
     'module' => 'entityreference',
@@ -399,7 +399,7 @@ function commerce_backoffice_message_field_refresh() {
     ),
   );
 
-  drupal_alter('commerce_backoffice_message_fields', $fields);
+  drupal_alter('commerce_backoffice_order_message_fields', $fields);
 
   // Create the missing fields.
   foreach ($fields as $field_name => $info) {
@@ -427,7 +427,7 @@ function commerce_backoffice_message_field_refresh() {
 /**
  * Implements hook_field_access().
  */
-function commerce_backoffice_field_access($op, $field, $entity_type, $entity, $account) {
+function commerce_backoffice_order_field_access($op, $field, $entity_type, $entity, $account) {
   if ($op == 'edit' && $field['field_name'] == 'message_commerce_order') {
     return FALSE;
   }
@@ -436,7 +436,7 @@ function commerce_backoffice_field_access($op, $field, $entity_type, $entity, $a
 /**
  * Form callback: create/edit a message.
  */
-function commerce_backoffice_message_form($form, &$form_state, $entity, $valid_types = array()) {
+function commerce_backoffice_order_message_form($form, &$form_state, $entity, $valid_types = array()) {
   $form['#entity'] = $entity;
 
   $form['content'] = array(
@@ -464,10 +464,10 @@ function commerce_backoffice_message_form($form, &$form_state, $entity, $valid_t
       '#title' => t('Type'),
       '#options' => $options,
       '#default_value' => $entity->type,
-      '#process' => array('_commerce_backoffice_message_type_select_process', 'ajax_process_form'),
-      '#element_validate' => array('_commerce_backoffice_message_type_select_element_validate'),
+      '#process' => array('_commerce_backoffice_order_message_type_select_process', 'ajax_process_form'),
+      '#element_validate' => array('_commerce_backoffice_order_message_type_select_element_validate'),
       '#ajax' => array(
-        'callback' => '_commerce_backoffice_message_type_select_ajax_callback',
+        'callback' => '_commerce_backoffice_order_message_type_select_ajax_callback',
         'method' => 'replace',
       ),
       '#weight' => -10,
@@ -487,43 +487,43 @@ function commerce_backoffice_message_form($form, &$form_state, $entity, $valid_t
   $form['content']['actions']['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Save'),
-    '#submit' => (!empty($form['#submit']) ? $form['#submit'] : array()) + array('commerce_backoffice_message_form_submit'),
+    '#submit' => (!empty($form['#submit']) ? $form['#submit'] : array()) + array('commerce_backoffice_order_message_form_submit'),
   );
 
   // We append the validate handler to #validate in case a form callback_wrapper
   // is used to add validate handlers earlier.
-  $form['#validate'][] = 'commerce_backoffice_message_form_validate';
+  $form['#validate'][] = 'commerce_backoffice_order_message_form_validate';
 
   return $form;
 }
 
-function _commerce_backoffice_message_type_select_process($element, &$form_state, &$form) {
+function _commerce_backoffice_order_message_type_select_process($element, &$form_state, &$form) {
   $element['#ajax']['wrapper'] = $form['#id'];
   return $element;
 }
 
-function _commerce_backoffice_message_type_select_element_validate($element, &$form_state, &$form) {
+function _commerce_backoffice_order_message_type_select_element_validate($element, &$form_state, &$form) {
   if ($element['#value'] != $element['#default_value']) {
     $form['#entity']->type = $element['#value'];
   }
 }
 
-function _commerce_backoffice_message_type_select_ajax_callback($form, $form_state) {
+function _commerce_backoffice_order_message_type_select_ajax_callback($form, $form_state) {
   return $form;
 }
 
 /**
- * Validation callback for commerce_backoffice_message_form().
+ * Validation callback for commerce_backoffice_order_message_form().
  */
-function commerce_backoffice_message_form_validate($form, &$form_state) {
+function commerce_backoffice_order_message_form_validate($form, &$form_state) {
   // Notify field widgets to validate their data.
   field_attach_form_validate('message', $form['#entity'], $form['content'], $form_state);
 }
 
 /**
- * Submit callback for commerce_backoffice_message_form().
+ * Submit callback for commerce_backoffice_order_message_form().
  */
-function commerce_backoffice_message_form_submit($form, &$form_state) {
+function commerce_backoffice_order_message_form_submit($form, &$form_state) {
   // Notify field widgets.
   field_attach_submit('message', $form['#entity'], $form['content'], $form_state);
   entity_save('message', $form['#entity']);

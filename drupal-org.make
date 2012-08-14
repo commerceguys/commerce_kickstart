@@ -124,6 +124,7 @@ projects[eva][version] = 1.2
 projects[eva][subdir] = "contrib"
 projects[message][version] = 1.5
 projects[message][subdir] = "contrib"
+projects[message][patch][] = "http://drupal.org/files/1729800-add-message-type-category-filter-drush.patch"
 projects[message_notify][version] = 2.0
 projects[message_notify][subdir] = "contrib"
 projects[message_notify][patch][] = "http://drupal.org/files/message-notify-filter-subject-not-body.patch"

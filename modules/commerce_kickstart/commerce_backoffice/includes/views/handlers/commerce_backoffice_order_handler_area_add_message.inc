@@ -1,6 +1,6 @@
 <?php
 
-class commerce_backoffice_handler_area_add_message extends views_handler_area {
+class commerce_backoffice_order_handler_area_add_message extends views_handler_area {
 
   function option_definition() {
     $options = parent::option_definition();
@@ -32,7 +32,7 @@ class commerce_backoffice_handler_area_add_message extends views_handler_area {
 
     $message = entity_create('message', array('type' => 'commerce_order_user_comment'));
     $message->message_commerce_order[LANGUAGE_NONE][0]['target_id'] = $order_argument->value[0];
-    $commerce_backoffice_message_form = drupal_get_form('commerce_backoffice_message_form', $message, $this->options['valid_types']);
+    $commerce_backoffice_message_form = drupal_get_form('commerce_backoffice_order_message_form', $message, $this->options['valid_types']);
     return drupal_render($commerce_backoffice_message_form);
   }
 }

@@ -1,0 +1,196 @@
+<?php
+
+/**
+ * Implements hook_views_api().
+ */
+function commerce_backoffice_product_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'commerce_backoffice_product') . '/includes/views',
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_backoffice_product_menu() {
+  // Megarow callbacks.
+  $items['commerce_backoffice/variations/%node'] = array(
+    'page callback' => 'commerce_backoffice_product_variations_view',
+    'page arguments' => array(2),
+    'delivery callback' => 'ajax_deliver',
+    'access arguments' => array('administer commerce_product entities'),
+  );
+
+  return $items;
+}
+
+/**
+ * Displays a view of products referenced from the given node, in a megarow.
+ */
+function commerce_backoffice_product_variations_view($node) {
+  $title = t('Variations for product %title', array('%title' => $node->title));
+  $output = views_embed_view('commerce_backoffice_product_variations', 'default', $node->nid);
+
+  return views_megarow_display($title, $output, $node->nid);
+}
+
+/**
+ * Implements hook_form_views_form_alter().
+ */
+function commerce_backoffice_product_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#node_edit_form'])) {
+    $product_node_types = commerce_product_reference_node_types();
+    if (in_array($form['#node']->type, array_keys($product_node_types))) {
+      // Enable the #fieldset key.
+      $form['#pre_render'][] = 'commerce_backoffice_product_pre_render_add_fieldset_markup';
+      // Add a new vertical tab.
+      $form['product_catalog'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Product catalog'),
+        '#group' => 'additional_settings',
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+        '#weight' => -10,
+      );
+
+      // Assign all taxonomy reference fields to the new vertical tab.
+      foreach (field_info_instances('node', $form['#node']->type) as $field_name => $instance) {
+        $field = field_info_field($field_name);
+
+        if ($field['type'] == 'taxonomy_term_reference') {
+          $form[$field_name]['#fieldset'] = 'product_catalog';
+        }
+      }
+    }
+  }
+  // Alter the Exposed Filters for products page
+  if (isset($form['submit']['#id']) && $form['submit']['#id'] == 'edit-submit-commerce-backoffice-products') {
+    $form['product_display_node_type']['#attributes'] = array('data-placeholder' => array(t('All product types')));
+    $form['term_node_tid_multiple_vocabularies']['#attributes'] = array('data-placeholder' => array(t('All categories')));
+    $form['status']['#options']['All'] = t('All statuses');
+    $form['combine']['#attributes'] = array('placeholder' => array(t('Search by title or SKU')));
+  }
+}
+
+/**
+ * Implements hook_views_bulk_operations_form_alter().
+ *
+ * Tweaks the appearance of the VBO selector.
+ */
+function commerce_backoffice_product_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
+  if ($form_state['step'] == 'views_form_views_form' && $vbo->view->name == 'commerce_backoffice_products') {
+    $form['select']['#title'] = '';
+    $form['select']['#collapsible'] = FALSE;
+    $form['select']['submit']['#value'] = t('Apply');
+    $form['select']['operation']['#options'][0] = t('Bulk operations');
+    $form['select']['#weight'] = 99999;
+  }
+}
+
+/**
+ * Implement hook_views_pre_render().
+ */
+function commerce_backoffice_product_views_pre_render(&$view) {
+  if ($view->name == 'commerce_backoffice_products') {
+    drupal_add_css(drupal_get_path('module', 'commerce_backoffice_product') . '/theme/commerce-backoffice-products.css');
+  }
+}
+
+/**
+ * Form callback: Returns the form for modifying the product price and status.
+ */
+function commerce_backoffice_product_quick_edit_form($form, &$form_state, $product) {
+  $form_state['product'] = $product;
+
+  $price_array = $product->commerce_price[LANGUAGE_NONE][0];
+  $price = commerce_currency_amount_to_decimal($price_array['amount'], $price_array['currency_code']);
+
+  $wrapper = drupal_html_id('commerce-backoffice-product-quick-edit-form');
+  $form['#prefix'] = '<div class="container-inline" id="' . $wrapper . '">';
+  $form['#suffix'] = '</div>';
+
+  $form['price'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Price'),
+    '#title_display' => 'invisible',
+    '#default_value' => sprintf("%.2f", $price),
+    '#size' => 5,
+  );
+  $form['status'] = array(
+    '#type' => 'select',
+    '#title' => t('Status'),
+    '#title_display' => 'invisible',
+    '#options' => array(0 => t('Disabled'), 1 => t('Enabled')),
+    '#default_value' => $product->status,
+  );
+  $form['save'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+    '#ajax' => array(
+      'callback' => 'commerce_backoffice_product_quick_edit_form_ajax',
+      'wrapper' => $wrapper,
+    ),
+  );
+  if (!empty($form_state['product_saved'])) {
+    $form['save']['#suffix'] = t('Saved');
+  }
+
+  return $form;
+}
+
+/**
+ * Ajax callback for commerce_backoffice_product_quick_edit_form.
+ */
+function commerce_backoffice_product_quick_edit_form_ajax($form, &$form_state) {
+  return $form;
+}
+
+/**
+ * Submit callback for commerce_backoffice_product_quick_edit_form.
+ */
+function commerce_backoffice_product_quick_edit_form_submit($form, &$form_state) {
+  $product = $form_state['product'];
+  $currency_code = $product->commerce_price[LANGUAGE_NONE][0]['currency_code'];
+  $product->commerce_price[LANGUAGE_NONE][0]['amount'] = commerce_currency_decimal_to_amount($form_state['values']['price'], $currency_code);
+  $product->status = $form_state['values']['status'];
+  commerce_product_save($product);
+
+  $form_state['rebuild'] = TRUE;
+  $form_state['product_saved'] = TRUE;
+}
+
+/**
+ * Move form elements into fieldsets for presentation purposes.
+ *
+ * Entity forms use #tree = TRUE to keep their values in a hierarchy for
+ * easier storage. Moving the form elements into fieldsets during form building
+ * would break up that hierarchy, so it's not an option for Field API fields.
+ * Therefore, we wait until the pre_render stage, where any changes we make
+ * affect presentation only and aren't reflected in $form_state['values'].
+ */
+function commerce_backoffice_product_pre_render_add_fieldset_markup($form) {
+  $sort = array();
+  foreach (element_children($form) as $key) {
+    $element = $form[$key];
+    // In our form builder functions, we added an arbitrary #fieldset property
+    // to any element that belongs in a fieldset. If this form element has that
+    // property, move it into its fieldset.
+    if (isset($element['#fieldset']) && isset($form[$element['#fieldset']])) {
+      $form[$element['#fieldset']][$key] = $element;
+      // Remove the original element this duplicates.
+      unset($form[$key]);
+      // Mark the fieldset for sorting.
+      if (!in_array($key, $sort)) {
+        $sort[] = $element['#fieldset'];
+      }
+    }
+  }
+
+  // Sort all fieldsets, so that element #weight stays respected.
+  foreach ($sort as $key) {
+    uasort($form[$key], 'element_sort');
+  }
+
+  return $form;
+}

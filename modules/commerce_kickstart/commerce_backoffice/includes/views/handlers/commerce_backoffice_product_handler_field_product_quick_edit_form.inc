@@ -5,7 +5,7 @@
  *
  * @ingroup views_field_handlers
  */
-class commerce_backoffice_handler_field_product_quick_edit_form extends views_handler_field {
+class commerce_backoffice_product_handler_field_product_quick_edit_form extends views_handler_field {
   function query() {}
 
   function render($values) {
