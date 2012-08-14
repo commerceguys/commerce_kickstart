@@ -250,7 +250,7 @@ function commerce_backoffice_order_views_default_views() {
   $handler->display->display_options['fields']['status']['label'] = 'Status';
   /* Field: Commerce Order: Operations links (Dropbutton) */
   $handler->display->display_options['fields']['operations_dropbutton']['id'] = 'operations_dropbutton';
-  $handler->display->display_options['fields']['operations_dropbutton']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['operations_dropbutton']['table'] = 'views_entity_commerce_order';
   $handler->display->display_options['fields']['operations_dropbutton']['field'] = 'operations_dropbutton';
   $handler->display->display_options['fields']['operations_dropbutton']['label'] = 'Actions';
   $handler->display->display_options['fields']['operations_dropbutton']['add_destination'] = 1;

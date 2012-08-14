@@ -5,12 +5,7 @@
  *
  * @ingroup views_field_handlers
  */
-class commerce_backoffice_order_handler_field_order_operations extends views_handler_field {
-  function construct() {
-    parent::construct();
-
-    $this->additional_fields['order_id'] = 'order_id';
-  }
+class commerce_backoffice_order_handler_field_order_operations extends views_handler_field_entity {
 
   function option_definition() {
     $options = parent::option_definition();
@@ -27,11 +22,6 @@ class commerce_backoffice_order_handler_field_order_operations extends views_han
       '#title' => t('Add a destination parameter to operations links so users return to this View on form submission.'),
       '#default_value' => $this->options['add_destination'],
     );
-  }
-
-  function query() {
-    $this->ensure_my_table();
-    $this->add_additional_fields();
   }
 
   function render($values) {

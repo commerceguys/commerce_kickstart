@@ -11,7 +11,7 @@ function commerce_backoffice_product_views_data_alter(&$data) {
       'handler' => 'commerce_backoffice_product_handler_field_product_quick_edit_form',
     ),
   );
-  $data['node']['operations_dropbutton'] = array(
+  $data['views_entity_node']['operations_dropbutton'] = array(
     'field' => array(
       'title' => t('Operations links (Dropbutton)'),
       'help' => t('Display the available operations links for the node in a dropbutton.'),

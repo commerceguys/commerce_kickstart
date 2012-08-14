@@ -141,7 +141,7 @@ function commerce_backoffice_product_views_default_views() {
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Content: Operations links (Dropbutton) */
   $handler->display->display_options['fields']['operations_dropbutton']['id'] = 'operations_dropbutton';
-  $handler->display->display_options['fields']['operations_dropbutton']['table'] = 'node';
+  $handler->display->display_options['fields']['operations_dropbutton']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['operations_dropbutton']['field'] = 'operations_dropbutton';
   $handler->display->display_options['fields']['operations_dropbutton']['label'] = 'Operations';
   $handler->display->display_options['fields']['operations_dropbutton']['element_label_colon'] = FALSE;
