@@ -1,6 +1,21 @@
 <?php
 
 /**
+ * Implements hook_views_bulk_operations_form_alter().
+ *
+ * Tweaks the appearance of the VBO selector.
+ */
+function commerce_kickstart_admin_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
+  if ($form_state['step'] == 'views_form_views_form') {
+    $form['select']['#title'] = '';
+    $form['select']['#collapsible'] = FALSE;
+    $form['select']['submit']['#value'] = t('Apply');
+    $form['select']['operation']['#options'][0] = t('Bulk operations');
+    $form['select']['#weight'] = 99999;
+  }
+}
+
+/**
  * Override or insert variables into the maintenance page template.
  */
 function commerce_kickstart_admin_preprocess_maintenance_page(&$vars) {

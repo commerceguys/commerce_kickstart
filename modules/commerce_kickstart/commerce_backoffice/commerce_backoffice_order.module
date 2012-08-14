@@ -94,21 +94,6 @@ function commerce_backoffice_order_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Implements hook_views_bulk_operations_form_alter().
- *
- * Tweaks the appearance of the VBO selector.
- */
-function commerce_backoffice_order_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
-  if ($form_state['step'] == 'views_form_views_form' && $vbo->view->name == 'commerce_backoffice_orders') {
-    $form['select']['#title'] = '';
-    $form['select']['#collapsible'] = FALSE;
-    $form['select']['submit']['#value'] = t('Apply');
-    $form['select']['operation']['#options'][0] = t('Bulk operations');
-    $form['select']['#weight'] = 99999;
-  }
-}
-
-/**
  * Implements hook_entity_info_alter().
  *
  * Adds a new order view mode, used to display the order in a megarow.

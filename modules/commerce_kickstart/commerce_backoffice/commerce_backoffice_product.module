@@ -74,21 +74,6 @@ function commerce_backoffice_product_form_alter(&$form, &$form_state, $form_id) 
 }
 
 /**
- * Implements hook_views_bulk_operations_form_alter().
- *
- * Tweaks the appearance of the VBO selector.
- */
-function commerce_backoffice_product_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
-  if ($form_state['step'] == 'views_form_views_form' && $vbo->view->name == 'commerce_backoffice_products') {
-    $form['select']['#title'] = '';
-    $form['select']['#collapsible'] = FALSE;
-    $form['select']['submit']['#value'] = t('Apply');
-    $form['select']['operation']['#options'][0] = t('Bulk operations');
-    $form['select']['#weight'] = 99999;
-  }
-}
-
-/**
  * Implement hook_views_pre_render().
  */
 function commerce_backoffice_product_views_pre_render(&$view) {
