@@ -63,6 +63,9 @@ dependencies[] = commerce_product_reference
 dependencies[] = commerce_tax
 dependencies[] = commerce_tax_ui
 
+; Install Commerce services.
+dependencies[] = jirafe
+
 ; Install contribs.
 dependencies[] = chosen
 dependencies[] = module_filter
