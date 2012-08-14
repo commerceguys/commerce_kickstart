@@ -3,7 +3,7 @@ description = ''
 package = Commerce Kickstart
 core = 7.x
 screenshot = screenshot.png
-base theme = omega
+base theme = omega_kickstart
 
 ; REQUIRED CORE REGIONS
 
@@ -56,9 +56,10 @@ zones[footer2] = Footer second
 
 ; OPTIONAL STYLESHEETS
 
-css[global.css][name] = Your custom global styles
-css[global.css][description] = This file holds all the globally active custom CSS of your theme.
-css[global.css][options][weight] = 10
+css[commerce_kickstart_style.css][name] = Commerce Kickstart theme global style.
+css[commerce_kickstart_style.css][description] = This file holds all the globally active custom CSS of Commerce Kickstart theme.
+css[commerce_kickstart_style.css][options][weight] = 11
+settings[alpha_css][commerce_kickstart_style.css] = 'commerce_kickstart_style.css'
 
 ; OPTIONAL LIBRARIES
 

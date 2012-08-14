@@ -1,0 +1,750 @@
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+/* Override Omega */
+
+/*------------------------------------------------
+[Table of contents]
+0. Reset
+1. Global
+  1.1. Zones
+  1.2. Regions
+2. Section header
+  2.1. Zone user
+    2.1.1. Region user first
+    2.1.2. Region user second
+  2.2. Zone branding
+  2.3. Zone menu
+  2.4. Zone header
+3. Section content
+  3.1. Zone preface
+  3.2. Zone content
+    3.2.1. Sidebar first
+    3.2.2. Content
+    3.2.3. Sidebar second
+  3.3. Zone postscript
+4. Section footer
+  4.1. Zone footer
+  4.2. Zone footer2
+5. Commerce specific
+  5.1. Search & Collection page
+  5.2. All products page
+  5.3. Product page
+  5.4. Checkout process
+6. Kickstart specific
+  6.1. Homepage elements
+7. Blog
+  7.1. Blog comments
+8. User account
+------------------------------------------------*/
+
+/**************************************************
+* --
+* 1. Global
+* --
+**************************************************/
+
+body {
+  background: #ececec url('../images/bg.png') left top;
+}
+.responsive-layout-mobile .facetapi-lists {
+  display: none;
+}
+.responsive-layout-mobile .selectnav {
+  display: block;
+}
+
+/**************************************************
+* --
+* 2. Section header
+* --
+**************************************************/
+/**********************************************
+* 2.1. Zone user
+**********************************************/
+.zone-user-wrapper {
+  background-color: #8e8e8e;
+}
+/*******************************************
+* 2.1.1. Region user first
+*******************************************/
+#region-user-first {
+  /*float: none; O-K*/
+}
+/* User menu */
+.block-menu-kickstart-user-menu .content ul li.first {
+  border-right: 1px solid #ffffff;
+  padding-right: 7px;
+}
+.block-menu-kickstart-user-menu .content ul li.last {
+  padding-left: 7px;
+}
+.block-menu-kickstart-user-menu ul li a.active {
+  background-color: #cecece;
+}
+.block-menu-kickstart-user-menu ul li a.active:hover,
+.block-menu-kickstart-user-menu ul li a:hover {
+  background-color: #717171;
+  text-decoration: none;
+}
+/*******************************************
+* 2.1.2. Region user second
+*******************************************/
+#region-user-second {
+  /*float: none; O-K*/
+}
+/**
+* Cart block
+*/
+.block-shopping-cart-block .content {
+  background: #ffffff url('../images/picto_cart.png') 5px 5px no-repeat;
+}
+/*.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
+  display: inline;
+  height: 34px;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 30px;
+  margin: 0 0 0 5px;
+}
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links a {
+  background-color: #2698F2;
+  display: block;
+  height: 100%;
+  float: right;
+  padding: 0 10px;
+}*/
+/**********************************************
+* 2.2. Zone branding
+**********************************************/
+#region-branding {
+  width: 99%;
+}
+/**********************************************
+* 2.3. Zone menu
+**********************************************/
+/*.zone-menu .region-menu {
+  margin: 0;
+}
+#region-menu {
+  width: 100%;
+}*/
+/**
+* Navigation
+*/
+.navigation {
+  margin-bottom: 10px;
+}
+.menu-toggle {
+  background: 
+}
+
+/*
+.navigation .primary-menu,
+.navigation .second-menu {
+  font-size: 1.142857142857143em;
+  margin: 0 auto;
+}
+.navigation .primary-menu .main-menu ul li,
+.navigation .second-menu .secondary-menu ul li,
+.navigation .primary-menu .main-menu li,
+.navigation .second-menu .secondary-menu li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 33%;
+}
+.main-menu a,
+.secondary-menu a {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  display: block;
+  margin: 7px 0;
+  padding: 12px 16px;
+  text-decoration: none;
+}*/
+/* Main menu */
+/*.main-menu a {
+  color: #ffffff;
+  text-transform: capitalize;
+}
+.navigation .primary-menu li a {
+  background-color: #000000;
+  border: 1px solid #d7d7d7;
+}
+.navigation .primary-menu li a.active,
+.navigation .primary-menu li a:hover {
+  background-color: #ffffff;
+  border: 1px solid #d7d7d7;
+}
+.navigation .primary-menu li a.active {
+  color: #2698F2;
+}
+.navigation .primary-menu li a:hover {
+  color: #000000;
+}*/
+/* Secondary menu */
+/*.navigation .second-menu {
+  clear: left;
+}
+.secondary-menu a {
+  color: #000000;
+  padding: 12px 18px;
+}
+.navigation .second-menu li a {
+  background-color: #ffffff;
+  border: 1px solid #d7d7d7;
+}
+.navigation .second-menu li a.active,
+.navigation .second-menu li a:hover {
+  background-color: #000000;
+  border: 1px solid #d7d7d7;
+}
+.navigation .second-menu li a.active {
+  color: #2698F2;
+}
+.navigation .second-menu li a:hover {
+  color: #ffffff;
+}*/
+/**************************************************
+* --
+* 3. Section content
+* --
+**************************************************/
+
+/**********************************************
+* 3.1. Zone preface
+**********************************************/
+/**
+* Pseudo Breadcrumb
+*/
+.pseudo-breadcrumb a {
+  background: url('../images/btn_close.png') left center no-repeat;
+}
+
+
+/*******************************************
+* 3.2.2. Content
+*******************************************/
+/**
+* Blocks
+*/
+/* HP blocks: Top advert */
+#promotional_banner {
+  background-color: #2698F2;
+}
+#promotional_banner .promotional_banner_special_offer {
+  background-color: #ffffff;
+  color: #2698F2;
+}
+/* HP blocks: Slideshow *//*
+.block-demo-content-block-3 {
+  position: relative;
+  top: -10px;
+}
+.bx-wrapper,
+.bx-wrapper .bx-window {
+  max-height: 168px;
+  padding-bottom: 0;
+  width: 100% !important;
+}
+.bx-wrapper ul {
+  max-height: 165px;
+  width: 100%;
+  min-width: 344px;
+  max-width: 344px;
+}
+.view-display-id-block_1 .item-list .event-slider li {
+  height: 168px;
+  margin: 0 auto;
+  width: 344px;
+}
+.view-display-id-block_1 .item-list .event-slider li img {
+  width: 100%;
+  height: auto;
+}
+.event-slider .views-field-nothing,
+.event-slider .views-field-nothing em,
+.view-display-id-block_1 .bx-prev,
+.view-display-id-block_1 .bx-prev em,
+.view-display-id-block_1 .bx-next,
+.view-display-id-block_1 .bx-next em {
+  display: none;
+  text-indent: -9999px;
+}*/
+/* HP blocks: Side advert */
+.block-shipping-discount #shipping {
+  border: 6px solid #ffffff;
+  background-color: #000000;
+  color: #2698F2;
+}
+.block-shipping-discount #shipping #shipping_message span {
+  border-bottom: 1px solid #ffffff;
+}
+#zone-postscript .view-demo-content .views-row .views-field-field-tagline a,
+#zone-postscript .block-blog-block .views-field-title a {
+  background: none;
+}
+
+#zone-postscript .view-demo-content .views-row .views-field-field-tagline .field-content,
+#zone-postscript .block-blog-block .views-field-title .field-content {
+  border: 1px solid #5f5f5f;
+  background: transparent url('../images/bg_ad_push_headline.png') left top;
+}
+#zone-postscript .view-demo-content .views-row:hover .views-field-field-tagline .field-content,
+#zone-postscript .block-blog-block .view-content:hover .views-field-title .field-content,
+#zone-postscript .view-demo-content .views-row .views-field-field-tagline .field-content:hover,
+#zone-postscript .block-blog-block .views-field-title .field-content:hover {
+  border: 1px solid #585655;
+  background: transparent url('../images/bg_blog_headline.png') left top;
+}
+/**************************************************
+* --
+* 4. Section footer
+* --
+**************************************************/
+.section-footer {
+  background-color: #3f3f3f;
+}
+/**********************************************
+* 4.1. Zone footer
+**********************************************/
+.zone-footer-wrapper {
+  background-color: #494949;
+}
+/**
+* Menu footer navigation
+*/
+.section-footer ul.menu .expanded span,
+.section-footer ul.menu li a {
+  color: #ffffff;
+}
+.section-footer ul.menu .expanded ul.menu li a {
+  color: #c1c1c1;
+}
+/**
+* Connect with us
+*/
+#block-menu-menu-social-connection h2 {
+  background-color: #262626;
+  color: #eeeeee;
+}
+#block-menu-menu-social-connection .content .menu li {
+  color: #eeeeee;
+}
+#block-menu-menu-social-connection .facebook {
+  background: url('../images/icon_facebook.png') 2% 50% no-repeat;
+}
+#block-menu-menu-social-connection .twitter {
+  background: url('../images/icon_twitter.png') 2% 50% no-repeat;
+}
+#block-menu-menu-social-connection .pinterest {
+  background: url('../images/icon_pinterest.png') 2% 50% no-repeat;
+}
+#block-menu-menu-social-connection .content li a,
+#block-menu-menu-social-connection .content li span {
+  color: #eeeeee;
+}
+#block-menu-menu-social-connection .menu li:hover {
+  background-color: #cecece;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+/**********************************************
+* 4.2. Zone footer2
+**********************************************/
+.zone-footer2-wrapper {
+  background-color: #3f3f3f;
+}
+.zone-footer2 {
+  color: #eeeeee;
+}
+/**************************************************
+* --
+* 5. Commerce specific
+* --
+**************************************************/
+/**********************************************
+* 5.1. Search & Collection page
+**********************************************/
+
+.view-collection-taxonomy-term .products-per-collection li header,
+.page-products .view-display-products li header {
+  background: url('../images/bg_product_attributes_top.png') center top no-repeat;
+}
+
+
+/**********************************************
+* 5.3. Product page
+**********************************************/
+
+div.messages.commerce-kickstart-add-to-cart {
+  background-color: #d6e5ec;
+  border-color: #6bb0cb;
+}
+
+.commerce-kickstart-add-to-cart .message-inner .added-product-title {
+  color: #2698f2;
+}
+.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button.checkout {
+  background-color: #2698F2;
+}
+.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button.continue {
+  background-color: #b3b3b3;
+}
+.commerce-kickstart-add-to-cart .message-inner .commerce-kickstart-add-to-cart-close {
+  background: url('../images/btn_add-to-cart-close.png') no-repeat 0 0;
+}
+/*
+.commerce-kickstart-add-to-cart .placeholder {
+  background: transparent url('../images/bg_add_to_cart.png') left center no-repeat;
+  font-style: normal;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-left: 35px;
+  border: 1px solid red;
+}
+.commerce-kickstart-add-to-cart .commerce-product-title {
+  color: #575757;
+}*/
+
+.node-product-type .content .field-name-body .read-more a {
+  background: url('../images/btn_read_more.png') left top no-repeat;
+}
+.node-product-type .content .field-name-body .read-less a {
+  background: url('../images/btn_read_less.png') left top no-repeat;
+}
+
+/* Product details */
+
+
+
+.commerce-add-to-cart .field-name-field-product form.commerce-add-to-cart .form-submit {
+  background: #2698F2 url('../images/bg_add_to_cart.png') 90% 50% no-repeat;
+}
+
+
+
+
+/**********************************************
+* 5.4. Checkout process
+**********************************************/
+/**
+* Checkout progress
+*/
+ol.commerce-checkout-progress {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+ol.inline.commerce-checkout-progress li {
+  line-height: 20px;
+  margin: 0 0px 10px 0;
+  padding: 15px 20px 15px 35px;
+  position: relative;
+  width: auto;
+}
+.commerce-checkout-progress li {
+  background-color: #efefef;
+  color: #898A8C;
+}
+ol.inline.commerce-checkout-progress li:after {
+  background: transparent url('../images/bg_checkout_progress.png') right center no-repeat;
+  content: " ";
+  font-size: 0;
+  display: block;
+  float: right;
+  position: absolute;
+  top: 0;
+  right: -25px;
+  height: 50px;
+  width: 25px;
+  z-index: 2;
+}
+ol.inline.commerce-checkout-progress li.active:after {
+  background: transparent url('../images/bg_checkout_progress_active.png') right center no-repeat;
+}
+ol.inline.commerce-checkout-progress li.last:after {
+  background: #efefef url('../images/bg_checkout_progress_last.png') right center no-repeat;
+}
+.commerce-checkout-progress li.previous,
+.commerce-checkout-progress li.previous a,
+.commerce-checkout-progress li.visited,
+.commerce-checkout-progress li.visited a {
+  color: #3aae3f;
+}
+.commerce-checkout-progress li,
+.commerce-checkout-progress li a {
+  font-size: 16px;
+  font-weight: 700;
+}
+.commerce-checkout-progress li.active {
+  background-color: #3aa1f3;
+  color: #ffffff;
+}
+/**
+* Shopping cart page
+* Checkout page
+* Review order page
+*/
+.page-cart #views-form-commerce-cart-form-default table,
+.page-checkout #commerce-checkout-form-checkout .view-content table,
+.page-checkout #commerce-checkout-form-checkout .view-footer table,
+.page-checkout #commerce-checkout-form-review .view-content table,
+.page-checkout #commerce-checkout-form-review .view-footer table,
+.page-checkout #commerce-checkout-form-review .checkout_review table {
+  width: 100%;
+}
+.page-cart #views-form-commerce-cart-form-default table thead th,
+.page-checkout #commerce-checkout-form-checkout table thead th {
+  color: #777777;
+  font-size: 13px;
+  padding: 0 10px 10px 10px;
+  text-transform: uppercase;
+}
+.view-commerce-line-item-table table tbody tr td {
+  padding: 25px 10px;
+}
+.page-cart #views-form-commerce-cart-form-default .views-field-line-item-title {
+  width: 400px;
+}
+.page-cart #views-form-commerce-cart-form-default .views-field-edit-delete {
+  text-align: right;
+}
+.page-cart #views-form-commerce-cart-form-default .line-item-summary {
+}
+.page-cart #views-form-commerce-cart-form-default table tbody tr.odd,
+.page-checkout #commerce-checkout-form-checkout table tbody tr.odd {
+  background-color: transparent;
+}
+.page-cart #views-form-commerce-cart-form-default table tbody tr.even,
+.page-checkout #commerce-checkout-form-checkout table tbody tr.even,
+.page-checkout #commerce-checkout-form-review .checkout_review table tbody tr.even {
+  background-color: transparent;
+}
+/* Remove & update cart button styling */
+.commerce-line-item-views-form .views-field-edit-delete input[type="submit"],
+.commerce-line-item-actions input[value="Update cart"] {
+  background: none;
+  border: none transparent;
+  border-bottom: 1px solid #888;
+  border-radius: 0;
+  color: #666666;
+  font-weight: normal;
+  padding: 0 0 1px 0;
+}
+.commerce-line-item-actions input[value="Update cart"] {
+  margin-right:20px;
+}
+/* Checkout button */
+.commerce-line-item-actions input[value="Checkout"] {
+  background: #2698F2 none 0 0 no-repeat;
+  border: 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  font-weight: normal;
+  padding: 6px 12px;
+}
+.page-cart .views-field-nothing {
+  position: relative;
+}
+.page-cart .entity-commerce-product {
+  display: inline;
+}
+.page-cart .entity-commerce-product:after {
+  clear: none;
+}
+.page-cart .entity-commerce-product h2 {
+  display: none;
+  font-size: 0;
+  height: 0;
+  text-indent: -9999px;
+}
+.page-cart .entity-commerce-product .content .field:after {
+  clear: none;
+  margin-bottom: 3px;
+}
+.page-cart .entity-commerce-product .content .field-name-field-images {
+  display: block;
+  float: none;
+  margin-right: 0px;
+}
+.page-cart .entity-commerce-product .content .field-name-field-images img {
+  border: 1px solid #9d9d9d;
+}
+.page-cart a.view_product_details {
+  color: #7d7d7d;
+  font-size: 11px;
+  margin-top: 5px;
+}
+.page-cart .entity-commerce-product .content .commerce-product-sku-label,
+.page-cart .entity-commerce-product .content .field-label {
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 22px;
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+.page-cart .entity-commerce-product .content .commerce-product-sku,
+.page-cart .entity-commerce-product .content .field-label-inline {
+  padding-bottom: 1px;
+}
+.page-cart .entity-commerce-product .content .field-label-inline .field-items {
+  float: inherit;
+}
+.page-cart .entity-commerce-product .content .commerce-product-title {
+  font-weight: bold;
+}
+/* Review order page */
+table.checkout-review .pane-title td {
+  font-weight: 600;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+table.checkout-review td.pane-data-full {
+  padding: 20px;
+}
+.page-checkout #commerce-checkout-form-review .checkout-help {
+  margin: 0 0 10px 10px;
+}
+.page-checkout #commerce-checkout-form-review .checkout_review tr.pane-data,
+.page-checkout #commerce-checkout-form-review .checkout_review tr.pane-data td.pane-data-full{
+  border-bottom: 0;
+}
+.page-checkout #commerce-checkout-form-review .checkout_review tr.pane-data td.pane-data-full {
+  padding-bottom: 10px;
+}
+.page-checkout #commerce-checkout-form-review .checkout_review .view-commerce-cart-summary {
+  margin-top: 5px;
+}
+.page-checkout #commerce-checkout-form-review .checkout_review .view-commerce-cart-summary thead tr {
+  font-weight: bold;
+}
+/* Payment information */
+.commerce_payment .fieldset-wrapper {
+  padding: 0 10px;
+}
+/* Checkout complete */
+.page-checkout #commerce-checkout-form-complete {
+  margin: 0 10px;
+  padding-top: 15px;
+}
+/**
+* Checkout page
+* Shipping page
+*/
+.page-checkout fieldset {
+  padding: 10px;
+}
+.page-checkout fieldset legend {
+  border-bottom: 1px solid #d7d7d7;
+  margin: 0 0 10px 0;
+  padding: 0px;
+  width: 100%;
+}
+.page-checkout fieldset legend span {
+  font-weight: 600;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+.page-checkout #commerce-checkout-form-checkout table thead th {
+  font-size: 16px;
+}
+.page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-name-line,
+.page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-country .form-item,
+.page-checkout fieldset.customer_profile_shipping .street-block .form-item,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-addressbook .form-item,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-commerce-customer-address-und-0-name-line,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-commerce-customer-address-und-0-country .form-item,
+.page-checkout fieldset.customer_profile_billing .street-block .form-item {
+  width: 100%;
+}
+.page-checkout fieldset.account .form-item-account-login-mail label,
+.page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-name-line label,
+.page-checkout fieldset.customer_profile_shipping .form-item-customer-profile-shipping-commerce-customer-address-und-0-country label,
+.page-checkout fieldset.customer_profile_shipping .street-block label,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-addressbook label,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-commerce-customer-address-und-0-name-line label,
+.page-checkout fieldset.customer_profile_billing .form-item-customer-profile-billing-commerce-customer-address-und-0-country label,
+.page-checkout fieldset.customer_profile_billing .street-block label {
+  display: block;
+  float: left;
+  width: 20%;
+}
+.page-checkout .form-item-commerce-shipping-shipping-service {
+  border-bottom: 1px solid #f8f3f3;
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 25px 8px;
+  width: 400px;
+}
+.page-checkout .form-item-commerce-shipping-shipping-service label {
+  font-weight: 400;
+  padding: 0 0 0 10px;
+}
+.page-checkout #commerce-checkout-form-shipping .commerce_shipping .form-item-commerce-shipping-shipping-service .ajax-progress-throbber {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.page-checkout #commerce-checkout-form-shipping .commerce_shipping .form-item-commerce-shipping-shipping-service:hover,
+.page-checkout #commerce-checkout-form-shipping .commerce_shipping .form-item-commerce-shipping-shipping-service:hover .option {
+  background-color: #ececec;
+  cursor: pointer;
+}
+/* Checkout continue button */
+input.checkout-continue {
+  margin: 0 10px 0 0;
+  padding: 10px 15px;
+}
+.checkout-buttons .checkout-cancel,
+.checkout-buttons .checkout-back {
+  margin: 0 5px;
+}
+/**************************************************
+* --
+* 7. Blog
+* --
+**************************************************/
+
+/**************************************************
+* --
+* 8. Comments
+* --
+**************************************************/
+.node-teaser .links.node-links .links .node-readmore a {
+  background: transparent url('../images/icon_read-more.png') right center no-repeat;
+  color: #4386be;
+  padding-right: 15px;
+}
+.node-teaser .links.node-links .links .comment-comments a {
+  background: transparent url('../images/icon_chat.png') left center no-repeat;
+  padding-left: 15px;
+}
+.node-teaser .links.node-links .links .comment-comments a span {
+  display: block;
+  float: left;
+  text-indent: -9999px;
+}
+/**************************************************
+* --
+* 9. User account
+* --
+**************************************************/
+
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-facebook {
+  background:url('../images/btn_facebook.png') no-repeat;
+}
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-twitter {
+  background:url('../images/btn_twitter.png') no-repeat;
+}
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-google {
+  background:url('../images/btn_google.png') no-repeat;
+}

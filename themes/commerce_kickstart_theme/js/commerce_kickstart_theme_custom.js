@@ -78,15 +78,4 @@
       });
     }
   }
-  // Replace navigation list to a select list on small devices.
-  Drupal.behaviors.commerce_kickstart_theme_custom_navigation = {
-    attach: function(context, settings) {
-      $('#main-menu, #secondary-menu').mobileMenu(
-        {
-          prependTo: '.region-menu nav',
-          topOptionText: Drupal.t('Jump to...')
-        }
-      );
-    }
-  }
 })(jQuery);

@@ -7,28 +7,6 @@
 * 2. Section header
 * --
 **************************************************/
-/**********************************************
-* 2.1. Zone user
-**********************************************/
-
-/*******************************************
-* 2.1.1. Region user first
-*******************************************/
-.block-menu-kickstart-user-menu .block-inner {
-  float: right;
-  margin-right: 10px;
-}
-/**********************************************
-* 2.4. Zone header
-**********************************************/
-.navigation .primary-menu {
-  float: left;
-  margin-right: 12px;
-}
-.navigation .second-menu {
-  clear: inherit;
-  float: right;
-}
 /**************************************************
 * --
 * 3. Section content
@@ -37,165 +15,29 @@
 /**********************************************
 * 3.2. Zone content
 **********************************************/
-/*******************************************
-* 3.2.1. Sidebar first
-*******************************************/
-/* Price range */
-#search-api-ranges-block-view-form .range-box-left .form-item,
-#search-api-ranges-block-view-form .range-box-right .form-item {
-  margin-top: 0;
-}
-#search-api-ranges-block-view-form .range-box-left,
-#search-api-ranges-block-view-form .range-box-right {
-  position: absolute;
-  top: -30px;
-}
-#search-api-ranges-block-view-form .range-box-left {
-  left: 0;
-}
-#search-api-ranges-block-view-form .range-box-right {
-  right: 0;
-}
 
-#search-api-ranges-block-view-form .range-box-left label,
-#search-api-ranges-block-view-form .range-box-right label {
-  display: none;
-}
-#search-api-ranges-block-view-form .range-slider-box {
-  display: block;
-  margin-top: 25px;
-}
-#search-api-ranges-block-view-form #edit-range-from,
-#search-api-ranges-block-view-form #edit-range-to {
-  background: none;
-  border: none;
-  font-size: 16px;
-  font-weight: 300;
-  padding: 0;
-  width: auto;
-}
-#search-api-ranges-block-view-form #edit-range-to {
-  text-align: right;
-}
-#search-api-ranges-block-view-form #edit-submit {
-  display: none;
-}
-/* Category */
-.region-sidebar-first .block-facetapi.field_category .item-list {
-  border: 1px solid #d9d9d9;
-  height: 220px;
-  padding: 10px 20px;
-  overflow-y: scroll;
-}
 /*******************************************
 * 3.2.2. Content
 *******************************************/
-/* HP blocks: Top advert */
-#promotional_banner .promotional_banner_special_offer {
-  float: right;
-  line-height: 22px;
-  margin-top: 4px;
-}
 /* HP blocks: Slideshow */
-.view-display-id-block_1 .bx-window {
-  overflow: visible !important;
-}
-.bx-wrapper,
-.bx-wrapper .bx-window {
-  height: 580px !important;
-  max-height: 580px;
-  min-width: 940px;
-}
-.event-slider .views-field-nothing,
-.event-slider .views-field-nothing em,
-.view-display-id-block_1 .bx-prev,
-.view-display-id-block_1 .bx-prev em,
-.view-display-id-block_1 .bx-next,
-.view-display-id-block_1 .bx-next em {
-  display: block;
-  text-indent: 0;
-}
-.view-display-id-block_1 .bx-prev,
-.view-display-id-block_1 .bx-next {
-  position: absolute;
-  bottom: 0;
-}
-.view-display-id-block_1 .bx-next {
-  right: 0;
-}
-.view-display-id-block_1 .bx-window {
-  overflow: visible !important;
-}
-.view-display-id-block_1 .item-list .event-slider li {
-  height: 480px;
-  width: 940px;
-}
-.event-slider .views-field-nothing,
-.view-display-id-block_1 .bx-prev,
-.view-display-id-block_1 .bx-next {
-  height: 80px;
-  text-align: center;
+#block-views-demo-content-slideshow-block-1 .event-slider .views-field-nothing,
+#block-views-demo-content-slideshow-block-1 .view-display-id-block_1 .bx-prev,
+#block-views-demo-content-slideshow-block-1 .view-display-id-block_1 .bx-next {
+  border: 0;
   width: 320px;
 }
-.event-slider .views-field-nothing {
-  background: url('../images/bg_title_slideshow_current.png') left top no-repeat;
-  color: #ffffff;
-  padding-bottom: 5px;
-  position: absolute;
-  bottom: -100px;
+#block-views-demo-content-slideshow-block-1 .event-slider .views-field-nothing {
+  background: transparent url('../images/bg_title_slideshow_current.png') left top no-repeat;
   left: 32.5%;
 }
-.view-display-id-block_1 .bx-prev,
-.view-display-id-block_1 .bx-next {
-  color: #000000;
-  text-decoration: none;
-  display: block;
-  margin-top: 15px;
-  padding-bottom: 5px;
+#block-views-demo-content-slideshow-block-1 .bx-prev,
+#block-views-demo-content-slideshow-block-1 .bx-prev:hover {
+  background: transparent url('../images/bg_title_slideshow_previous.png') left top no-repeat;
 }
-.event-slider .views-field-nothing span,
-.view-display-id-block_1 .bx-prev span.control,
-.view-display-id-block_1 .bx-next span.control {
-  display: block;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
-  font-size: 21px;
-  height: 80px;
-  line-height: 28px;
-  padding: 10px 25px 0;
-  overflow: hidden;
-}
-.event-slider .views-field-nothing em,
-.view-display-id-block_1 .bx-prev span.control em,
-.view-display-id-block_1 .bx-next span.control em {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 900;
-  font-style: normal;
-  font-size: 32px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.view-display-id-block_1 .bx-prev {
-  background: url('../images/bg_title_slideshow_previous.png') left top no-repeat;
-  float: left;
-}
-.view-display-id-block_1 .bx-next {
-  background: url('../images/bg_title_slideshow_next.png') left top no-repeat;
-  float: right;
+#block-views-demo-content-slideshow-block-1 .bx-next,
+#block-views-demo-content-slideshow-block-1 .bx-next:hover {
+  background: transparent url('../images/bg_title_slideshow_next.png') left top no-repeat;
   margin-right: 5px;
-}
-/**********************************************
-* 3.3. Zone postscript
-**********************************************/
-.view-demo-content .views-row,
-.block-blog-block .block-inner {
-  margin : 0;
-}
-.block-blog-block .block-title {
-  background-position: -18px 0;
-  padding-left: 25px;
-  text-align: left;
-  width: 112px;
 }
 /**************************************************
 * --
@@ -211,10 +53,6 @@
 #block-menu-menu-social-connection h2 {
   background: url('../images/bg_block_footer_title.png') left top no-repeat;
   color: #eeeeee;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  line-height: inherit;
-  padding: 0 0 22px 25px;
 }
 /**************************************************
 * --
@@ -224,6 +62,7 @@
 /**********************************************
 * 5.3. Product page
 **********************************************/
+
 .commerce-kickstart-add-to-cart .added-product-title {
   padding-right: 10px;
   width: 310px;
@@ -242,31 +81,6 @@
   margin-right: 10px;
   position: absolute;
   left: 20px;
-}
-/* Cloud zoom */
-.node-product-type .cloud-zoom-gallery-thumbs {
-  clear: none;
-}
-.node-product-type .cloud-zoom-gallery {
-  display: block;
-  float: none;
-  margin: 5px 0;
-}
-/**************************************************
-* --
-* 7. Blog
-* --
-**************************************************/
-.page-blog .view-content .views-row {
-  display: inline;
-  clear: left;
-  float: left;
-  padding: 0;
-  width: 49%;
-}
-.page-blog .view-content .views-row-even {
-  clear: right;
-  float: right;
 }
 /**************************************************
 * --
