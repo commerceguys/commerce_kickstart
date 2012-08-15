@@ -1,0 +1,4 @@
+name = Commerce Backoffice
+description = Provides the basic backoffice functionality needed by the submodules.
+core = 7.x
+package = Commerce (contrib)

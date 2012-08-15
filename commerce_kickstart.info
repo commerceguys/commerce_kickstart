@@ -88,6 +88,7 @@ dependencies[] = commerce_discount
 dependencies[] = commerce_discount_date
 dependencies[] = commerce_discount_usage
 dependencies[] = commerce_fancy_attributes
+dependencies[] = commerce_backoffice
 dependencies[] = commerce_backoffice_product
 dependencies[] = commerce_backoffice_order
 dependencies[] = commerce_checkout_progress

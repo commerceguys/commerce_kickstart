@@ -3,6 +3,7 @@ description = Provides advanced product management.
 core = 7.x
 package = Commerce (contrib)
 
+dependencies[] = commerce_backoffice
 dependencies[] = commerce_product
 dependencies[] = views_bulk_operations
 dependencies[] = views_megarow

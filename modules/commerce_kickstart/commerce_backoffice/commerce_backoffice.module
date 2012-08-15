@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * Implements hook_views_bulk_operations_form_alter().
+ *
+ * Tweaks the appearance of the VBO selector.
+ */
+function commerce_backoffice_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
+  if ($form_state['step'] == 'views_form_views_form' && strpos($vbo->view->name, 'commerce_backoffice_') !== FALSE) {
+    $form['select']['#title'] = '';
+    $form['select']['#collapsible'] = FALSE;
+    $form['select']['submit']['#value'] = t('Apply');
+    $form['select']['operation']['#options'][0] = t('Bulk operations');
+    $form['select']['#weight'] = 99999;
+  }
+}
+
+/**
+ * Removes the action links from pages containing backoffice views, they
+ * will be rendered as a part of the view itself.
+ */
+function commerce_backoffice_preprocess_page(&$vars) {
+  $view = views_get_page_view();
+  if (!empty($view) && strpos($view->name, 'commerce_backoffice_') !== FALSE) {
+    $vars['action_links'] = '';
+  }
+}
+
+/**
+ * Adds the action links to $attachment_before (below the exposed filters).
+ */
+function commerce_backoffice_views_pre_build(&$view) {
+  if (strpos($view->name, 'commerce_backoffice_') !== FALSE) {
+    $actions = menu_local_actions();
+    $view->attachment_before = '<ul class="action-links">' . drupal_render($actions) . '</ul>';
+  }
+}
+
+/**
+ * Move form elements into fieldsets for presentation purposes.
+ *
+ * Entity forms use #tree = TRUE to keep their values in a hierarchy for
+ * easier storage. Moving the form elements into fieldsets during form building
+ * would break up that hierarchy, so it's not an option for Field API fields.
+ * Therefore, we wait until the pre_render stage, where any changes we make
+ * affect presentation only and aren't reflected in $form_state['values'].
+ */
+function commerce_backoffice_pre_render_add_fieldset_markup($form) {
+  $sort = array();
+  foreach (element_children($form) as $key) {
+    $element = $form[$key];
+    // In our form builder functions, we added an arbitrary #fieldset property
+    // to any element that belongs in a fieldset. If this form element has that
+    // property, move it into its fieldset.
+    if (isset($element['#fieldset']) && isset($form[$element['#fieldset']])) {
+      $form[$element['#fieldset']][$key] = $element;
+      // Remove the original element this duplicates.
+      unset($form[$key]);
+      // Mark the fieldset for sorting.
+      if (!in_array($key, $sort)) {
+        $sort[] = $element['#fieldset'];
+      }
+    }
+  }
+
+  // Sort all fieldsets, so that element #weight stays respected.
+  foreach ($sort as $key) {
+    uasort($form[$key], 'element_sort');
+  }
+
+  return $form;
+}
