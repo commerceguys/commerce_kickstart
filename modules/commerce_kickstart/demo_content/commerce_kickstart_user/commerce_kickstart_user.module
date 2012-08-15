@@ -22,6 +22,15 @@ function commerce_kickstart_user_menu_alter(&$items) {
 }
 
 /**
+ * Implements hook_views_pre_build().
+ */
+function commerce_kickstart_user_views_pre_build(&$view) {
+  if ($view->name == 'commerce_backoffice_order_user_orders' && $view->current_display == 'order_page') {
+    $view->display['order_page']->handler->options['title'] = _commerce_kickstart_user_page_title();
+  }
+}
+
+/**
  * Helper function for user page title.
  */
 function _commerce_kickstart_user_page_title($account = NULL) {
