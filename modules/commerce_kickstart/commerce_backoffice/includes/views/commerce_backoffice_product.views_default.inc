@@ -35,21 +35,22 @@ function commerce_backoffice_product_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table_megarows';
   $handler->display->display_options['style_options']['columns'] = array(
     'views_bulk_operations' => 'views_bulk_operations',
-    'term_node_tid' => 'term_node_tid',
     'title' => 'title',
+    'sku' => 'sku',
+    'term_node_tid' => 'term_node_tid',
+    'nothing' => 'nothing',
     'operations_dropbutton' => 'operations_dropbutton',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'views_bulk_operations' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'term_node_tid' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -61,13 +62,35 @@ function commerce_backoffice_product_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'sku' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'term_node_tid' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'operations_dropbutton' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
+  $handler->display->display_options['style_options']['empty_table'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* No results behavior: Commerce Product: Empty text */
+  $handler->display->display_options['empty']['empty_text']['id'] = 'empty_text';
+  $handler->display->display_options['empty']['empty_text']['table'] = 'commerce_product';
+  $handler->display->display_options['empty']['empty_text']['field'] = 'empty_text';
   /* Relationship: Content: Referenced product */
   $handler->display->display_options['relationships']['field_product_product_id']['id'] = 'field_product_product_id';
   $handler->display->display_options['relationships']['field_product_product_id']['table'] = 'field_data_field_product';
@@ -79,8 +102,12 @@ function commerce_backoffice_product_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
   $handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo']['entity_load_capacity'] = '10';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo']['operations'] = array(
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_result'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
     'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
       'use_queue' => 0,
@@ -89,10 +116,6 @@ function commerce_backoffice_product_views_default_views() {
       'label' => 'Delete product',
     ),
   );
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo']['enable_select_all_pages'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo']['display_type'] = '0';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo']['display_result'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo']['force_single'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -119,19 +142,6 @@ function commerce_backoffice_product_views_default_views() {
   $handler->display->display_options['fields']['term_node_tid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['term_node_tid']['link_to_taxonomy'] = FALSE;
-  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
-    'bag_size' => 0,
-    'brand' => 0,
-    'category' => 0,
-    'collection' => 0,
-    'color' => 0,
-    'gender' => 0,
-    'hat_size' => 0,
-    'shoe_size' => 0,
-    'storage_capacity' => 0,
-    'tags' => 0,
-    'top_size' => 0,
-  );
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -173,7 +183,6 @@ function commerce_backoffice_product_views_default_views() {
     2 => '2',
     1 => 0,
     3 => 0,
-    4 => 0,
   );
   /* Filter criterion: Commerce Product: Status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -190,7 +199,6 @@ function commerce_backoffice_product_views_default_views() {
     2 => '2',
     1 => 0,
     3 => 0,
-    4 => 0,
   );
   /* Filter criterion: Content: Has taxonomy terms (from Multiple Vocabularies) */
   $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['id'] = 'term_node_tid_multiple_vocabularies';
@@ -206,7 +214,6 @@ function commerce_backoffice_product_views_default_views() {
     2 => '2',
     1 => 0,
     3 => 0,
-    4 => 0,
   );
   $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['type'] = 'select';
   $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['vocabulary'] = array(
@@ -247,6 +254,7 @@ function commerce_backoffice_product_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'admin/commerce/products/list';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'List';
