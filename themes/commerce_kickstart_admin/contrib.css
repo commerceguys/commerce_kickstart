@@ -863,7 +863,7 @@ div.views-megarow-content {
 }
 div.views-megarow-content .megarow-header,
 .node-form .field-widget-inline-entity-form tr.ief-row-form .ief-form-row {
-  background: transparent url("images/mega-arrow.png") no-repeat 50px -1px;
+  background: transparent url("images/mega-arrow.png") no-repeat 50px -1px !important;
   margin-top: -1px;
   position: relative;
 }
@@ -1187,6 +1187,12 @@ html.js .views-exposed-form .form-item input.throbbing {
   margin-top: 9px;
   padding: 4px 10px;
 }
+/* Action Links in Views Attachments */
+.view-commerce-backoffice-products .attachment ul.action-links,
+.view-commerce-backoffice-orders .attachment ul.action-links {
+  margin: 1em 0;
+}
+/* Bulk Operations Select */
 .vbo-views-form .form-item-operation {
   background: transparent url("images/bg-vbo.png") no-repeat 0 0;
   float: left;
