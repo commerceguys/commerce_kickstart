@@ -17,7 +17,7 @@
   margin-top: 0;
 }
 .first-steps-videos .first-steps-blocks-inner {
-  height: 400px;
+  height: 650px;
   text-align: center;
 }
 
@@ -46,8 +46,7 @@
 }
 
 .first-steps-blocks {
-  border: 1px solid #ccc;
-  margin: 5px;
+  margin: 2px;
 }
 
 .first-steps-blocks-inner {
