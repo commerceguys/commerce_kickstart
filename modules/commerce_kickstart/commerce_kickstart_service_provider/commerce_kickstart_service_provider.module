@@ -120,7 +120,7 @@ function commerce_kickstart_service_provider_get_teaser() {
     $variable['title'] = $info['title'];
     $variable['logo'] = theme('image', $params);
     $variable['type'] = $info['category'];
-    $variable['link'] = l(t('View service'), 'admin/modules/serviceproviders', array('fragment' => $name));
+    $variable['link'] = l(t('View service'), 'admin/modules/service-providers', array('fragment' => $name));
     $variable['description'] = $info['teaser'];
 
     $output .= theme('providers_teaser', $variable);
@@ -201,7 +201,7 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
       'description' => t('A payment gateway that provides over 100 payment options, with 41 currencies covering 200 countries and territories through just one partner. <br />Great product!'),
       'requirements' => t('Requires configuration API code to be set.'),
       'link' => 'http://skrill.com',
-      'installation_proccess' => t('1. Regsiter <br />2. Fill in API'),
+      'installation_proccess' => t('1. Register <br />2. Fill in API'),
       'weight' => 0,
     ),
   );

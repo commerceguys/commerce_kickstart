@@ -53,7 +53,7 @@ function commerce_kickstart_help_menu_alter(&$items) {
  */
 function commerce_kickstart_help_advanced_help_topic_alter(&$output, $popup) {
   $output = str_replace('[%services-teaser%]', commerce_kickstart_service_provider_get_teaser(), $output);
-  $output = str_replace('[%services-link%]', url('admin/modules/serviceproviders'), $output);
+  $output = str_replace('[%services-link%]', url('admin/modules/service-providers'), $output);
 }
 
 function _commerce_kickstart_help_store() {
