@@ -43,7 +43,7 @@ function commerce_kickstart_service_provider_theme($existing, $type, $theme, $pa
 function commerce_kickstart_service_provider_menu() {
   $items = array();
 
-  $items['admin/modules/serviceproviders'] = array(
+  $items['admin/modules/service-providers'] = array(
     'title' => 'Service providers',
     'description' => 'See all the available services for your Commerce Kickstart',
     'page callback' => 'commerce_kickstart_service_provider_all_services',
