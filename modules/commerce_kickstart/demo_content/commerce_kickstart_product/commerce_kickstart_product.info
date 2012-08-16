@@ -132,7 +132,6 @@ features[rules_config][] = commerce_shipping_service_express_shipping
 features[rules_config][] = commerce_shipping_service_free_shipping
 features[rules_config][] = commerce_shipping_service_standard_shipping
 features[search_api_index][] = search_commerce_display
-features[search_api_index][] = search_commerce_product
 features[taxonomy][] = bag_size
 features[taxonomy][] = brand
 features[taxonomy][] = category

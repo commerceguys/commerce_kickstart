@@ -439,33 +439,5 @@ function commerce_kickstart_product_default_search_api_index() {
     "enabled" : "1",
     "read_only" : "0"
   }');
-  $items['search_commerce_product'] = entity_import('search_api_index', '{
-    "name" : "Search Commerce Product",
-    "machine_name" : "search_commerce_product",
-    "description" : null,
-    "server" : "database_search_engine",
-    "item_type" : "commerce_product",
-    "options" : {
-      "index_directly" : 1,
-      "cron_limit" : "50",
-      "fields" : {
-        "field_product_node" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
-        "field_bag_size" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "field_color" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "field_hat_size" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "field_shoe_size" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "field_storage_capacity" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "field_top_size" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "search_api_language" : { "type" : "string" },
-        "commerce_price:amount" : { "type" : "decimal" },
-        "field_product_node:field_brand" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product_node:field_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product_node:field_collection" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product_node:field_gender" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
-      }
-    },
-    "enabled" : "1",
-    "read_only" : "0"
-  }');
   return $items;
 }
