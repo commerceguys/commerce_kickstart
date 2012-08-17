@@ -98,6 +98,9 @@ body {
 .block-shopping-cart-block .content {
   background: #ffffff url('../images/picto_cart.png') 5px 5px no-repeat;
 }
+.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .links {
+  background-color: #2698F2;
+}
 /*.block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
   display: inline;
   height: 34px;
