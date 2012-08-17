@@ -1237,13 +1237,28 @@ html.js .views-exposed-form .form-item input.throbbing {
 .vbo-views-form .form-item-operation {
   background: transparent url("images/bg-vbo.png") no-repeat 0 0;
   float: left;
-  padding: 0 10px 0 30px;
+  padding: 2px 0 0 30px;
 }
 .vbo-views-form .form-item-operation #edit-operation {
   margin-top: 0;
 }
 .vbo-views-form .form-item-operation .chzn-container {
   left: 30px;
+}
+/* Cancel out some backoffice module styles */
+.view-commerce-backoffice-orders .vbo-views-form #edit-select,
+.view-commerce-backoffice-products .vbo-views-form #edit-select {
+  background: none;
+  padding: 0;
+}
+.view-commerce-backoffice-orders .views-exposed-form .date-padding .form-item input,
+.view-commerce-backoffice-orders .views-exposed-form .views-widget-filter-combine input,
+.view-commerce-backoffice-products .views-exposed-form .views-widget-filter-combine input {
+  padding: 4px 20px 4px 5px;
+}
+.view-commerce-backoffice-orders .views-exposed-form .views-exposed-widgets,
+.view-commerce-backoffice-products .views-exposed-form .views-exposed-widgets {
+  margin-bottom: .5em;
 }
 html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
   padding: 3px 0 0 10px;
@@ -1294,7 +1309,9 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
 .chzn-container-multi .chzn-choices {
   background: #fff url("images/drop-filter.png") no-repeat right center;
 }
-.chzn-container-single .chzn-single {
+.chzn-container-single .chzn-single,
+.view-commerce-backoffice-products .chzn-container-single .chzn-single,
+.view-commerce-backoffice-orders .chzn-container-single .chzn-single {
   height: 28px;
 }
 .chzn-container-single .select:focus {
@@ -1310,10 +1327,14 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
 .chzn-container-single .chzn-single div {
   width: 28px;
 }
-.chzn-container-single .chzn-single div b {
+.chzn-container-single .chzn-single div b,
+.view-commerce-backoffice-products .chzn-container-single .chzn-single div b,
+.view-commerce-backoffice-orders .chzn-container-single .chzn-single div b {
   background: #fff url("images/drop-filter.png") no-repeat right center;
 }
 .chzn-container-single .chzn-single-with-drop div b,
+.view-commerce-backoffice-products .chzn-container-single .chzn-single-with-drop div b,
+.view-commerce-backoffice-orders .chzn-container-single .chzn-single-with-drop div b,
 .chzn-container-active .chzn-choices {
   background: #fff url("images/drop-filter-up.png") no-repeat right center;
 }

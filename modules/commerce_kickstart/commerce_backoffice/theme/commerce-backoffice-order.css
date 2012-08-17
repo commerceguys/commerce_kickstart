@@ -78,6 +78,9 @@
   border-bottom: 1px solid #E2E2DC;
   position: relative;
 }
+.view-commerce-backoffice-orders .views-exposed-form .views-exposed-widgets {
+  margin-bottom: 1em;
+}
 .view-commerce-backoffice-orders .views-exposed-form .views-exposed-widget {
   width: auto;
 }
@@ -119,7 +122,7 @@
 }
 .view-commerce-backoffice-orders .views-exposed-form .date-padding .form-item input,
 .view-commerce-backoffice-orders .views-exposed-form .views-widget-filter-combine input {
-  padding: 3px 20px 3px 5px;
+  padding: 7px 20px 7px 5px;
 }
 /* Hide Placeholder Text on Focus */
 .view-commerce-backoffice-orders .views-exposed-form .views-widget-filter-combine input:focus::-webkit-input-placeholder {
@@ -128,11 +131,29 @@
 }
 /* Action Links */
 .view-commerce-backoffice-orders ul.action-links {
-  margin: .5em 0;
+  margin: .8em 0;
 }
 /* Table Styles */
 .view-commerce-backoffice-orders .views-field-views-bulk-operations {
   width: 20px;
+}
+/* VBO Apply Form */
+.view-commerce-backoffice-orders .vbo-views-form #edit-select {
+  background: transparent url("images/vbo-arrow.png") no-repeat 12px 1px;
+  border: 0;
+  padding: 0 0 0 28px;
+}
+.view-commerce-backoffice-orders .vbo-views-form select {
+  float: left;
+  height: 25px;
+  margin: 2px 10px 2px 0;
+}
+.view-commerce-backoffice-orders .vbo-views-form input.form-submit {
+  float: left;
+  margin: 0;
+}
+.view-commerce-backoffice-orders .vbo-views-form #edit-select select {
+  height: 25px;
 }
 /* Mega Row Styles */
 .view-commerce-backoffice-orders div.views-megarow-content {
