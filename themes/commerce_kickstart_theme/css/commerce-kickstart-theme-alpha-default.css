@@ -27,6 +27,10 @@
 /**********************************************
 * 2.3. Zone menu
 **********************************************/
+.zone-menu .region-menu {
+  margin: 0 !important;
+  width: 100% !important;
+}
 /**
 * Navigation
 */
