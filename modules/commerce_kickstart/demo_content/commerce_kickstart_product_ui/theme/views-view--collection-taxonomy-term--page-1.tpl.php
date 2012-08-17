@@ -37,10 +37,10 @@
   <?php print render($title_suffix); ?>
   <?php if ($header): ?>
   <div class="view-header" <?php if ($collection_image_url): print 'style="background-image: url(' . $collection_image_url . ');"'; else: print 'style="background-color: #494949;"'; endif; ?>>
+    <?php print $header; ?>
     <div class="taxonomy-title" >
       <?php print $collection_title; ?>
     </div>
-    <?php print $header; ?>
   </div>
   <?php endif; ?>
 
