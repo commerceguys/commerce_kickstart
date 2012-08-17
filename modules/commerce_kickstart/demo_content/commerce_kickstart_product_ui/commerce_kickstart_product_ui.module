@@ -329,10 +329,6 @@ function commerce_kickstart_product_ui_preprocess_views_view(&$vars) {
  */
 function commerce_kickstart_product_ui_block_info_alter(&$blocks, $theme, $code_blocks) {
   // Override facetapi blocks label.
-  if (isset($blocks['facetapi']['KYzjqB0HaTaxM69TNtPG01iyy1Z5SyR1'])) {
-    $blocks['facetapi']['KYzjqB0HaTaxM69TNtPG01iyy1Z5SyR1']['title'] = t('Price');
-    $blocks['facetapi']['KYzjqB0HaTaxM69TNtPG01iyy1Z5SyR1']['weight'] = -1;
-  }
   if (isset($blocks['facetapi']['bLnoZinIxE1jGb2PRK60VXpQAiOUVaBT'])) {
     $blocks['facetapi']['bLnoZinIxE1jGb2PRK60VXpQAiOUVaBT']['title'] = t('Shoe size');
   }

@@ -12,6 +12,10 @@ function commerce_kickstart_search_ctools_plugin_api() {
   if ($module == "current_search" && $api == "current_search") {
     return array("version" => "1");
   }
+  list($module, $api) = func_get_args();
+  if ($module == "facetapi" && $api == "facetapi_defaults") {
+    return array("version" => "1");
+  }
 }
 
 /**

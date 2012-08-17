@@ -33,7 +33,6 @@ features[facetapi][] = search_api@product_display:block:field_brand
 features[facetapi][] = search_api@product_display:block:field_category
 features[facetapi][] = search_api@product_display:block:field_collection
 features[facetapi][] = search_api@product_display:block:field_gender
-features[facetapi][] = search_api@product_display:block:field_product:commerce_price:amount_float
 features[facetapi][] = search_api@product_display:block:field_product:field_bag_size
 features[facetapi][] = search_api@product_display:block:field_product:field_color
 features[facetapi][] = search_api@product_display:block:field_product:field_hat_size

@@ -151,14 +151,24 @@ function commerce_kickstart_lite_product_default_search_api_index() {
       "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
-        "title" : { "type" : "text" },
+        "title" : { "type" : "string" },
+        "created" : { "type" : "date" },
         "search_api_language" : { "type" : "string" },
+        "search_api_aggregation_1" : { "type" : "text" },
+        "field_product_commerce_price_amount_float_asc" : { "type" : "decimal" },
+        "field_product_commerce_price_amount_float_desc" : { "type" : "decimal" },
         "field_product:title" : { "type" : "list\\u003Ctext\\u003E" },
         "field_product:field_color" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product:field_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
+        "field_product:field_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_product:commerce_price:amount_float" : { "type" : "list\\u003Cdecimal\\u003E" }
       },
       "data_alter_callbacks" : {
-        "search_api_ranges_alter" : { "status" : 0, "weight" : "-50", "settings" : { "fields" : [] } },
+        "search_api_ranges_alter" : {
+          "status" : 1,
+          "weight" : "-50",
+          "settings" : { "fields" : { "field_product:commerce_price:amount_float" : "field_product:commerce_price:amount_float" } }
+        },
+        "commerce_kickstart_search_bundle_filter" : { "status" : 0, "weight" : "-10", "settings" : [] },
         "search_api_alter_bundle_filter" : {
           "status" : 1,
           "weight" : "-10",
@@ -166,9 +176,20 @@ function commerce_kickstart_lite_product_default_search_api_index() {
         },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
-        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
+        "search_api_alter_add_aggregation" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : { "search_api_aggregation_1" : {
+                "name" : "Title (Fulltext)",
+                "type" : "fulltext",
+                "fields" : [ "title" ],
+                "description" : "A Fulltext aggregation of the following fields: Title."
+              }
+            }
+          }
+        },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } }
       },
       "processors" : {
         "search_api_case_ignore" : {
