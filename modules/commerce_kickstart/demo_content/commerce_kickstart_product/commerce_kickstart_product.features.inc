@@ -360,13 +360,14 @@ function commerce_kickstart_product_default_search_api_index() {
       "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
-        "title" : { "type" : "text" },
+        "title" : { "type" : "string" },
         "created" : { "type" : "date" },
         "field_brand" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_collection" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_gender" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" },
+        "search_api_aggregation_1" : { "type" : "text" },
         "field_product_commerce_price_amount_float_asc" : { "type" : "decimal" },
         "field_product_commerce_price_amount_float_desc" : { "type" : "decimal" },
         "body:value" : { "type" : "text" },
@@ -395,7 +396,18 @@ function commerce_kickstart_product_default_search_api_index() {
         "commerce_kickstart_search_bundle_filter" : { "status" : 1, "weight" : "-10", "settings" : [] },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_aggregation" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : { "search_api_aggregation_1" : {
+                "name" : "Title (Fulltext)",
+                "type" : "fulltext",
+                "fields" : [ "title" ],
+                "description" : "A Fulltext aggregation of the following fields: Title."
+              }
+            }
+          }
+        },
         "search_api_alter_bundle_filter" : {
           "status" : 0,
           "weight" : "0",
