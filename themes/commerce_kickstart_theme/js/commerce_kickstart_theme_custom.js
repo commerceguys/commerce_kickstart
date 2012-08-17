@@ -26,14 +26,10 @@
   Drupal.behaviors.commerce_kickstart_theme_custom_search_api_ranges = {
     attach:function (context, settings) {
       $('body').bind('responsivelayout', function(e, d) {
-        if($(this).hasClass("responsive-layout-normal")) {
-          $('#edit-range-from').attr({
-            "disabled" : true,
-            "readonly" : true
-          });
-          $('#edit-range-to').attr({
-            "disabled" : true,
-            "readonly" : true
+        if ($(this).hasClass("responsive-layout-normal")) {
+          $('div.search-api-ranges-widget').each(function() {
+            $(this).find('input[name=range-from]').attr('readonly', true).unbind('keyup');
+            $(this).find('input[name=range-to]').attr('readonly', true).unbind('keyup');
           });
         }
         else {
