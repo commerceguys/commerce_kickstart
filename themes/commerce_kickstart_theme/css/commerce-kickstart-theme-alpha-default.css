@@ -1,12 +1,9 @@
 /* This file will hold styles for all layouts using the alpha grid (i.e. not the mobile layout). */
-
-
 /**************************************************
 * --
 * 1. Global
 * --
 **************************************************/
-
 .selectnav {
   display: none;
 }
@@ -15,14 +12,6 @@
 * 2. Section header
 * --
 **************************************************/
-
-/*******************************************
-* 2.1.2. Region user second
-*******************************************/
-/*
-.region-user-second .region-user-second-inner {
-  margin-right: -10px;
-}*/
 
 /**********************************************
 * 2.3. Zone menu
@@ -111,7 +100,6 @@
 #promotional_banner .promotional_banner_special_offer {
   color: #2698F2;
 }
-
 /* HP blocks: Side advert */
 .block-shipping-discount #shipping {
 
@@ -129,24 +117,3 @@
   border-bottom: 1px solid #ffffff;
   color: #ffffff;
 }
-
-/**************************************************
-* --
-* 6. Kickstart specific
-* --
-**************************************************/
-/**********************************************
-* 6.1. Homepage
-**********************************************/
-/*.front #zone-postscript .grid-8 {
-  width: 313px;
-}
-.front #region-postscript-first,
-.front #region-postscript-second,
-.front #region-postscript-third {
-  margin: 0;
-}
-.front #region-postscript-first,
-.front #region-postscript-second {
-  margin-right: 10px;
-}*/
