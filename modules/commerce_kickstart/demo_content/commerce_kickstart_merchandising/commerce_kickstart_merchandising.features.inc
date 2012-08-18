@@ -15,6 +15,13 @@ function commerce_kickstart_merchandising_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function commerce_kickstart_merchandising_views_api() {
+  return array("version" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function commerce_kickstart_merchandising_node_info() {

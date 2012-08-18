@@ -25,61 +25,72 @@ function commerce_kickstart_blog_ui_enable() {
   drupal_static_reset();
   _block_rehash($default_theme);
   try {
+    // Footer navigation.
     db_update('block')
       ->fields(array(
-      'region' => 'postscript_third',
-      'status' => (int) '1',
-      'visibility' => '1',
-      'pages' => '<front>',
-    ))
+        'region' => 'footer_first',
+        'status' => (int) '1',
+        'title' => '<none>',
+      ))
+      ->condition('module', 'menu')
+      ->condition('delta', 'menu-footer-navigation')
+      ->condition('theme', $default_theme)
+      ->execute();
+    db_update('block')
+      ->fields(array(
+        'region' => 'postscript_third',
+        'status' => (int) '1',
+        'visibility' => '1',
+        'pages' => '<front>',
+      ))
       ->condition('module', 'views')
       ->condition('delta', 'blog-block')
       ->condition('theme', $default_theme)
       ->execute();
     db_update('block')
       ->fields(array(
-      'region' => 'user_first',
-      'status' => (int) '1',
-      'visibility' => '0',
-      'pages' => '',
-      'title' => '<none>',
-    ))
+        'region' => 'user_first',
+        'status' => (int) '1',
+        'visibility' => '0',
+        'pages' => '',
+        'title' => '<none>',
+      ))
       ->condition('module', 'menu')
       ->condition('delta', 'menu-kickstart-user-menu')
       ->condition('theme', $default_theme)
       ->execute();
     db_update('block')
       ->fields(array(
-      'region' => 'sidebar_second',
-      'status' => (int) '1',
-      'visibility' => '1',
-      'pages' => 'blog/*',
-      'weight' => 1,
-    ))
+        'region' => 'sidebar_second',
+        'status' => (int) '1',
+        'visibility' => '1',
+        'pages' => 'blog/*',
+        'weight' => 1,
+      ))
       ->condition('module', 'views')
       ->condition('delta', 'blog-block_1')
       ->condition('theme', $default_theme)
       ->execute();
     db_update('block')
       ->fields(array(
-      'region' => 'sidebar_second',
-      'status' => (int) '1',
-      'visibility' => '1',
-      'pages' => "blog\nblog/*",
-      'weight' => 1,
-    ))
+        'region' => 'sidebar_second',
+        'status' => (int) '1',
+        'visibility' => '1',
+        'pages' => "blog\nblog/*",
+        'weight' => 1,
+      ))
       ->condition('module', 'views')
       ->condition('delta', 'blog-block_2')
       ->condition('theme', $default_theme)
       ->execute();
     db_update('block')
       ->fields(array(
-      'region' => 'sidebar_second',
-      'status' => (int) '1',
-      'visibility' => '1',
-      'pages' => "blog\nblog/*",
-      'weight' => 0,
-    ))
+        'region' => 'sidebar_second',
+        'status' => (int) '1',
+        'visibility' => '1',
+        'pages' => "blog\nblog/*",
+        'weight' => 0,
+      ))
       ->condition('module', 'views')
       ->condition('delta', 'blog_category_list-block')
       ->condition('theme', $default_theme)

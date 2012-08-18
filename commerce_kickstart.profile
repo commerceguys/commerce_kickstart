@@ -1,6 +1,35 @@
 <?php
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function commerce_kickstart_image_default_styles() {
+  $styles = array();
+  $styles['frontpage_block'] = array(
+    'name' => 'frontpage_block',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '270',
+          'height' => '305',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_form_alter().
  *
  * Allows the profile to alter the site configuration form.

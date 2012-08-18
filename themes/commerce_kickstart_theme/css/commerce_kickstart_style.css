@@ -139,9 +139,6 @@ body {
 .navigation {
   margin-bottom: 10px;
 }
-.menu-toggle {
-  background: 
-}
 
 /*
 .navigation .primary-menu,
@@ -241,41 +238,6 @@ body {
   background-color: #ffffff;
   color: #2698F2;
 }
-/* HP blocks: Slideshow *//*
-.block-demo-content-block-3 {
-  position: relative;
-  top: -10px;
-}
-.bx-wrapper,
-.bx-wrapper .bx-window {
-  max-height: 168px;
-  padding-bottom: 0;
-  width: 100% !important;
-}
-.bx-wrapper ul {
-  max-height: 165px;
-  width: 100%;
-  min-width: 344px;
-  max-width: 344px;
-}
-.view-display-id-block_1 .item-list .event-slider li {
-  height: 168px;
-  margin: 0 auto;
-  width: 344px;
-}
-.view-display-id-block_1 .item-list .event-slider li img {
-  width: 100%;
-  height: auto;
-}
-.event-slider .views-field-nothing,
-.event-slider .views-field-nothing em,
-.view-display-id-block_1 .bx-prev,
-.view-display-id-block_1 .bx-prev em,
-.view-display-id-block_1 .bx-next,
-.view-display-id-block_1 .bx-next em {
-  display: none;
-  text-indent: -9999px;
-}*/
 /* HP blocks: Side advert */
 .block-shipping-discount #shipping {
   border: 6px solid #ffffff;
@@ -285,19 +247,19 @@ body {
 .block-shipping-discount #shipping #shipping_message span {
   border-bottom: 1px solid #ffffff;
 }
-#zone-postscript .view-demo-content .views-row .views-field-field-tagline a,
+#zone-postscript .view-ad-push .views-row .views-field-field-tagline a,
 #zone-postscript .block-blog-block .views-field-title a {
   background: none;
 }
 
-#zone-postscript .view-demo-content .views-row .views-field-field-tagline .field-content,
+#zone-postscript .view-ad-push .views-row .views-field-field-tagline .field-content,
 #zone-postscript .block-blog-block .views-field-title .field-content {
   border: 1px solid #5f5f5f;
   background: transparent url('../images/bg_ad_push_headline.png') left top;
 }
-#zone-postscript .view-demo-content .views-row:hover .views-field-field-tagline .field-content,
+#zone-postscript .view-ad-push .views-row:hover .views-field-field-tagline .field-content,
 #zone-postscript .block-blog-block .view-content:hover .views-field-title .field-content,
-#zone-postscript .view-demo-content .views-row .views-field-field-tagline .field-content:hover,
+#zone-postscript .view-ad-push .views-row .views-field-field-tagline .field-content:hover,
 #zone-postscript .block-blog-block .views-field-title .field-content:hover {
   border: 1px solid #585655;
   background: transparent url('../images/bg_blog_headline.png') left top;

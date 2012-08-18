@@ -15,3 +15,43 @@ function commerce_kickstart_merchandising_enable() {
   _features_restore('enable', $items);
   _features_restore('rebuild', $items);
 }
+
+/*
+ * Implements hook_install().
+ */
+function commerce_kickstart_merchandising_install() {
+  drupal_static_reset();
+  $default_theme = variable_get('theme_default', 'omega_kickstart');
+  _block_rehash($default_theme);
+  try {
+    // Ad push block 1.
+    db_update('block')
+      ->fields(array(
+        'region' => 'postscript_first',
+        'status' => (int) '1',
+        'visibility' => '1',
+        'pages' => '<front>',
+      ))
+      ->condition('module', 'views')
+      ->condition('delta', 'ad_push-block_1')
+      ->condition('theme', $default_theme)
+      ->execute();
+    // Ad push block 2.
+    db_update('block')
+      ->fields(array(
+        'region' => 'postscript_second',
+        'status' => (int) '1',
+        'visibility' => '1',
+        'pages' => '<front>',
+      ))
+      ->condition('module', 'views')
+      ->condition('delta', 'ad_push-block_2')
+      ->condition('theme', $default_theme)
+      ->execute();
+  }
+  catch (Exception $e) {
+    watchdog_exception('block', $e);
+    throw $e;
+  }
+}
+

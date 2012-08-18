@@ -249,7 +249,6 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_blog_ui',
       'commerce_kickstart_slideshow',
       'commerce_kickstart_merchandising',
-      'commerce_kickstart_merchandising_ui',
       'commerce_kickstart_menus',
       'commerce_kickstart_search',
     );
@@ -267,7 +266,6 @@ function commerce_kickstart_install_additional_modules() {
     }
     if (!empty($selected_extras['merchandising'])) {
       $modules[] = 'commerce_kickstart_merchandising';
-      $modules[] = 'commerce_kickstart_merchandising_ui';
     }
     if (!empty($selected_extras['slideshow'])) {
       $modules[] = 'commerce_kickstart_slideshow';
