@@ -164,7 +164,6 @@ projects[image_delta_formatter][version] = 1.x-dev
 projects[image_delta_formatter][subdir] = "contrib"
 projects[link][version] = 1.x-dev
 projects[link][subdir] = "contrib"
-projects[link][patch][] = "http://drupal.org/files/1715246.strict_warning_link_sanitize.patch"
 projects[pathauto][version] = 1.2
 projects[pathauto][subdir] = "contrib"
 projects[cloud_zoom][version] = 1.x-dev
