@@ -599,9 +599,6 @@ ol.inline.commerce-checkout-progress li.last:after {
 .page-cart .entity-commerce-product .content .field-label-inline {
   padding-bottom: 1px;
 }
-.page-cart .entity-commerce-product .content .field-label-inline .field-items {
-  float: inherit;
-}
 .page-cart .entity-commerce-product .content .commerce-product-title {
   font-weight: bold;
 }
