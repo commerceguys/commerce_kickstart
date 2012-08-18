@@ -372,7 +372,6 @@ body {
 /**********************************************
 * 5.1. Search & Collection page
 **********************************************/
-
 .view-collection-taxonomy-term .products-per-collection li header,
 .page-products .view-display-products li header {
   background: url('../images/bg_product_attributes_top.png') center top no-repeat;
@@ -382,7 +381,9 @@ body {
 /**********************************************
 * 5.3. Product page
 **********************************************/
-
+div.commerce_kickstart_add_to_cart_overlay {
+  background: transparent url('../images/bg_add_to_cart_overlay.png') left top;
+}
 div.messages.commerce-kickstart-add-to-cart {
   background-color: #d6e5ec;
   border-color: #6bb0cb;
