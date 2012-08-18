@@ -35,9 +35,9 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
   <?php if ($header): ?>
-  <div class="view-header" style="background-color: #494949;">
+  <div class="view-header">
     <div class="taxonomy-title" >
-      <?php print $collection_title; ?>
+      <?php if ($collection_title) : print $collection_title; endif;?>
     </div>
     <?php print $header; ?>
   </div>
