@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * commerce_kickstart_blog_ui.views_default.inc
+ * commerce_kickstart_blog.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function commerce_kickstart_blog_ui_views_default_views() {
+function commerce_kickstart_blog_views_default_views() {
   $export = array();
 
   $view = new view;

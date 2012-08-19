@@ -14,3 +14,30 @@ function commerce_kickstart_blog_migrate_api() {
     'api' => 2,
   );
 }
+
+/**
+ * Override or insert variables into the page template.
+ */
+function commerce_kickstart_blog_ui_preprocess_node(&$vars) {
+  if ($vars['type'] == 'blog_post') {
+    // Switching to short date format.
+    $vars['date'] = format_date($vars['created'], 'short');
+
+    // Override taxonomy path.
+    if (array_key_exists('content', $vars)) {
+      $content = &$vars['content'];
+      if (array_key_exists('field_tags', $content)) {
+        foreach ($content['field_tags']['#items'] as $index => $info) {
+          $id = $info['tid'];
+          $content['field_tags'][$index]['#href'] = 'blog/tags/' . $id;
+        }
+      }
+      if (array_key_exists('field_blog_category', $content)) {
+        foreach ($content['field_blog_category']['#items'] as $index => $info) {
+          $id = $info['tid'];
+          $content['field_blog_category'][$index]['#href'] = 'blog/category/' . $id;
+        }
+      }
+    }
+  }
+}

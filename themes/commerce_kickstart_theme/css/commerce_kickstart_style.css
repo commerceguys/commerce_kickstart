@@ -68,18 +68,18 @@ body {
 * 2.1.1. Region user first
 *******************************************/
 /* User menu */
-.block-menu-kickstart-user-menu .content ul li.first {
+.block-menu-user-menu .content ul li.first {
   border-right: 1px solid #ffffff;
   padding-right: 7px;
 }
-.block-menu-kickstart-user-menu .content ul li.last {
+.block-menu-user-menu .content ul li.last {
   padding-left: 7px;
 }
-.block-menu-kickstart-user-menu ul li a.active {
+.block-menu-user-menu ul li a.active {
   background-color: #cecece;
 }
-.block-menu-kickstart-user-menu ul li a.active:hover,
-.block-menu-kickstart-user-menu ul li a:hover {
+.block-menu-user-menu ul li a.active:hover,
+.block-menu-user-menu ul li a:hover {
   background-color: #717171;
   text-decoration: none;
 }

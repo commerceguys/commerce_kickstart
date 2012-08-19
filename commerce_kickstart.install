@@ -241,12 +241,12 @@ function commerce_kickstart_install_additional_modules() {
   if ($install_demo_store) {
     $modules = array(
       'commerce_kickstart_block',
+      'commerce_kickstart_user',
       'commerce_kickstart_checkout_redirect',
       'commerce_kickstart_social',
       'commerce_kickstart_product',
       'commerce_kickstart_product_ui',
       'commerce_kickstart_blog',
-      'commerce_kickstart_blog_ui',
       'commerce_kickstart_slideshow',
       'commerce_kickstart_merchandising',
       'commerce_kickstart_menus',
@@ -256,6 +256,7 @@ function commerce_kickstart_install_additional_modules() {
   else {
     $modules = array(
       'commerce_kickstart_block',
+      'commerce_kickstart_user',
       'commerce_kickstart_lite_product',
       'commerce_kickstart_lite_product_ui',
       'commerce_kickstart_search',
@@ -275,7 +276,6 @@ function commerce_kickstart_install_additional_modules() {
     }
     if (!empty($selected_extras['blog'])) {
       $modules[] = 'commerce_kickstart_blog';
-      $modules[] = 'commerce_kickstart_blog_ui';
     }
     if (!empty($selected_extras['social'])) {
       $modules[] = 'commerce_kickstart_social';
