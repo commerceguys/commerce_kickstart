@@ -33,6 +33,7 @@ function _commerce_kickstart_enable_module($module, $module_name, &$context) {
  * @see commerce_kickstart_install_additional_modules()
  */
 function _commerce_kickstart_setup_localization($operation, &$context) {
+  require_once DRUPAL_ROOT . '/includes/language.inc';
   $context['message'] = t('@operation', array('@operation' => $operation));
 
   // Enable en prefix for english language.
