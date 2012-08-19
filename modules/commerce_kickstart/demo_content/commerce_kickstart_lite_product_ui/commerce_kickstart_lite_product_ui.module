@@ -7,32 +7,6 @@
 include_once 'commerce_kickstart_lite_product_ui.features.inc';
 
 /**
- * Implements hook_menu().
- */
-function commerce_kickstart_lite_product_ui_menu() {
-  $items = array();
-
-  $base = array(
-    'page callback' => 'node_add_page',
-    'access callback' => '_node_add_access',
-    'file' => 'node.pages.inc',
-    'file path' => drupal_get_path('module', 'node'),
-  );
-
-  $items['node/add/add-content'] = array(
-    'title' => 'Add content',
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-  ) + $base;
-
-  $items['node/add/add-product'] = array(
-    'title' => 'Add product',
-    'type' => MENU_LOCAL_TASK,
-  ) + $base;
-
-  return $items;
-}
-
-/**
  * Implements hook_entity_info_alter().
  *
  * Create new view mode for product display, commerce product.
@@ -101,14 +75,6 @@ function commerce_kickstart_lite_product_ui_theme(&$existing) {
   );
 
   return $themes;
-}
-
-/**
- * Implements hook_theme_registry_alter().
- */
-function commerce_kickstart_lite_product_ui_theme_registry_alter(&$theme_registry) {
-  // Split node add list in two columns.
-  $theme_registry['node_add_list']['function'] = 'theme_commerce_kickstart_lite_product_ui_node_add_list';
 }
 
 /**
@@ -200,34 +166,6 @@ function commerce_kickstart_lite_product_ui_form_alter(&$form, &$form_state, $fo
 }
 
 /**
- * Override node_add_list theme.
- *
- * Split node add list in two columns: regular node types & product display.
- */
-function theme_commerce_kickstart_lite_product_ui_node_add_list($variables) {
-  $item = menu_get_item();
-
-  drupal_add_css(drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/css/node-add-list-columns.css');
-  $product_display = commerce_product_reference_node_types();
-  $product_display = array_keys($product_display);
-  $content = &$variables['content'];
-
-  foreach ($content as $key => $value) {
-    $node_type = unserialize($value['page_arguments']);
-    $node_type = $node_type[0];
-    $show_product = $item['path'] == 'node/add/add-product';
-    if (!in_array($node_type, $product_display) && $show_product) {
-      unset($content[$key]);
-    }
-    elseif (in_array($node_type, $product_display) && !$show_product) {
-      unset($content[$key]);
-    }
-  }
-
-  return theme_node_add_list($variables);
-}
-
-/**
  * Implements hook_commerce_checkout_pane_info_alter().
  */
 function commerce_kickstart_lite_product_ui_commerce_checkout_pane_info_alter(&$checkout_panes) {
@@ -254,21 +192,7 @@ function commerce_kickstart_lite_product_ui_page_alter(&$page) {
  * Implements hook_menu_local_tasks_alter().
  */
 function commerce_kickstart_lite_product_ui_menu_local_tasks_alter(&$data, $router_item, $root_path) {
-  // Replace add-product action link with add-content.
-  if ($root_path == 'admin/commerce/products') {
-    $link = menu_get_item('node/add');
-    $link['title'] = t('Add product');
-    $link['href'] = 'node/add/add-product';
-    foreach ($data['actions']['output'] as $key => $output) {
-      if ($output['#link']['href'] == 'admin/commerce/products/add') {
-        $data['actions']['output'][$key] = array(
-          '#theme' => 'menu_local_action',
-          '#link' => $link,
-        );
-      }
-    }
-  }
-  else if ($root_path == 'admin/commerce/products/types' || $root_path == 'admin/commerce/products/types/product-types') {
+  if ($root_path == 'admin/commerce/products/types' || $root_path == 'admin/commerce/products/types/product-types') {
     $link = menu_get_item('admin/commerce/products/types/add');
     $link['title'] = t('Add product type');
     $link['href'] = 'admin/commerce/products/types/add';
@@ -299,7 +223,6 @@ function commerce_kickstart_lite_product_ui_preprocess_entity(&$variables) {
     $variables['url'] = "";
   }
 }
-
 
 /**
  * Implements hook_preprocess_views_view().

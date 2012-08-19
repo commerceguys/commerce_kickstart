@@ -22,17 +22,78 @@ function commerce_backoffice_product_menu() {
     'access arguments' => array('administer commerce_product entities'),
   );
 
+  // The overriden node/add type listing.
+  $base = array(
+    'page callback' => 'node_add_page',
+    'access callback' => '_node_add_access',
+    'file' => 'node.pages.inc',
+    'file path' => drupal_get_path('module', 'node'),
+  );
+  $items['node/add/add-content'] = array(
+    'title' => 'Add content',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  ) + $base;
+  $items['node/add/add-product'] = array(
+    'title' => 'Add product',
+    'type' => MENU_LOCAL_TASK,
+  ) + $base;
+
   return $items;
 }
 
-/**
- * Displays a view of products referenced from the given node, in a megarow.
+/*
+ * Implements hook_menu_local_tasks_alter().
  */
-function commerce_backoffice_product_variations_view($node) {
-  $title = t('Variations for product %title', array('%title' => $node->title));
-  $output = views_embed_view('commerce_backoffice_product_variations', 'default', $node->nid);
+function commerce_backoffice_product_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  // Replace add-product action link with add-content.
+  if ($root_path == 'admin/commerce/products') {
+    $link = menu_get_item('node/add');
+    $link['title'] = t('Add product');
+    $link['href'] = 'node/add/add-product';
+    foreach ($data['actions']['output'] as $key => $output) {
+      if ($output['#link']['href'] == 'admin/commerce/products/add') {
+        $data['actions']['output'][$key] = array(
+          '#theme' => 'menu_local_action',
+          '#link' => $link,
+        );
+      }
+    }
+  }
+}
 
-  return views_megarow_display($title, $output, $node->nid);
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function commerce_backoffice_product_theme_registry_alter(&$theme_registry) {
+  $theme_registry['node_add_list']['function'] = 'theme_commerce_backoffice_product_node_add_list';
+}
+
+/**
+ * Override node_add_list theme.
+ *
+ * Based on the url, filters the list of node types to only include
+ * product node types, or non-product display types.
+ */
+function theme_commerce_backoffice_product_node_add_list($variables) {
+  $item = menu_get_item();
+
+  $product_display_types = commerce_product_reference_node_types();
+  $product_display_types = array_keys($product_display_types);
+  $content = &$variables['content'];
+
+  foreach ($content as $key => $value) {
+    $node_type = unserialize($value['page_arguments']);
+    $node_type = $node_type[0];
+    $show_product = $item['path'] == 'node/add/add-product';
+    if (!in_array($node_type, $product_display_types) && $show_product) {
+      unset($content[$key]);
+    }
+    elseif (in_array($node_type, $product_display_types) && !$show_product) {
+      unset($content[$key]);
+    }
+  }
+
+  return theme_node_add_list($variables);
 }
 
 /**
@@ -80,6 +141,16 @@ function commerce_backoffice_product_views_pre_render(&$view) {
   if ($view->name == 'commerce_backoffice_products') {
     drupal_add_css(drupal_get_path('module', 'commerce_backoffice_product') . '/theme/commerce-backoffice-products.css');
   }
+}
+
+/**
+ * Displays a view of products referenced from the given node, in a megarow.
+ */
+function commerce_backoffice_product_variations_view($node) {
+  $title = t('Variations for product %title', array('%title' => $node->title));
+  $output = views_embed_view('commerce_backoffice_product_variations', 'default', $node->nid);
+
+  return views_megarow_display($title, $output, $node->nid);
 }
 
 /**

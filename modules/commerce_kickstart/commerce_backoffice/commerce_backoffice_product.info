@@ -5,6 +5,7 @@ package = Commerce (contrib)
 
 dependencies[] = commerce_backoffice
 dependencies[] = commerce_product
+dependencies[] = commerce_product_ui
 dependencies[] = views_bulk_operations
 dependencies[] = views_megarow
 
