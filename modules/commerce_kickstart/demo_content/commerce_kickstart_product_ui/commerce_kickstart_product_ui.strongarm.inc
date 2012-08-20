@@ -53,7 +53,7 @@ function commerce_kickstart_product_ui_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_breadcrumb_selected_vid';
-  $strongarm->value = '4';
+  $strongarm->value = '6';
   $export['taxonomy_breadcrumb_selected_vid'] = $strongarm;
 
   $strongarm = new stdClass();
