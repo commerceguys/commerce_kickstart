@@ -210,3 +210,4 @@ libraries[ie7-js][download][url] = "https://ie7-js.googlecode.com/files/ie7-2.1%
 libraries[chosen][type] = "libraries"
 libraries[chosen][download][type] = "git"
 libraries[chosen][download][url] = "https://github.com/harvesthq/chosen.git"
+libraries[chosen][overwrite] = TRUE
