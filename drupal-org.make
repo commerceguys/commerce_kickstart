@@ -3,7 +3,7 @@ core = 7.14
 api = 2
 
 ; Basic contributed modules.
-projects[ctools][version] = 1.1
+projects[ctools][version] = 1.2
 projects[ctools][subdir] = "contrib"
 projects[ctools][patch][] = "http://drupal.org/files/autosubmit_enhanced_textfield-1694988-4.patch"
 projects[entity][version] = 1.0-rc3
@@ -90,10 +90,8 @@ projects[oauthconnector][version] = 1.x-dev
 projects[oauthconnector][subdir] = "contrib"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oathuconnector-notice-no-csid.patch"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oauthconnector-fix-ctools-exportables-1712262-2.patch"
-projects[inline_entity_form][version] = 1.0-beta3
+projects[inline_entity_form][version] = 1.0-beta4
 projects[inline_entity_form][subdir] = "contrib"
-projects[inline_entity_form][patch][] = "http://drupal.org/files/1674004-override-default-term-formatter.patch"
-projects[inline_entity_form][patch][] = "http://drupal.org/files/1700554-combined_0.patch"
 projects[field_extractor][version] = 1.x-dev
 projects[field_extractor][subdir] = "contrib"
 projects[service_links][version] = 2.1

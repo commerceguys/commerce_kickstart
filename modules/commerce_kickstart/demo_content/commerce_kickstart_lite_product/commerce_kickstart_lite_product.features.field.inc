@@ -219,7 +219,9 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '36',
       ),
@@ -415,7 +417,9 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '37',
       ),
@@ -501,6 +505,93 @@ function commerce_kickstart_lite_product_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-product_display-field_product'.
+  $fields['node-product_display-field_product'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_product',
+      'foreign keys' => array(
+        'product_id' => array(
+          'columns' => array(
+            'product_id' => 'product_id',
+          ),
+          'table' => 'commerce_product',
+        ),
+      ),
+      'indexes' => array(
+        'product_id' => array(
+          0 => 'product_id',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'commerce_product_reference',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'commerce_product_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'product_display',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'commerce_cart',
+          'settings' => array(
+            'combine' => 1,
+            'default_quantity' => '1',
+            'line_item_type' => 0,
+            'show_quantity' => 0,
+            'show_single_product_attributes' => 0,
+          ),
+          'type' => 'commerce_cart_add_to_cart_form',
+          'weight' => '2',
+        ),
+        'product_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'fences_wrapper' => 'div',
+      'field_name' => 'field_product',
+      'label' => 'Product variations',
+      'required' => 1,
+      'settings' => array(
+        'field_injection' => 1,
+        'referenceable_types' => array(
+          'product' => 'product',
+        ),
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'inline_entity_form',
+        'settings' => array(
+          'fields' => array(),
+          'type_settings' => array(
+            'autogenerate_title' => 1,
+            'use_variation_language' => 1,
+          ),
+        ),
+        'type' => 'inline_entity_form',
+        'weight' => '33',
+      ),
+    ),
+  );
+
   // Exported field: 'node-product_display-field_product_category'.
   $fields['node-product_display-field_product_category'] = array(
     'field_config' => array(
@@ -570,95 +661,11 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '32',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-product_display-field_product'.
-  $fields['node-product_display-field_product'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_product',
-      'foreign keys' => array(
-        'product_id' => array(
-          'columns' => array(
-            'product_id' => 'product_id',
-          ),
-          'table' => 'commerce_product',
-        ),
-      ),
-      'indexes' => array(
-        'product_id' => array(
-          0 => 'product_id',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'commerce_product_reference',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'commerce_product_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'product_display',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'module' => 'commerce_cart',
-          'settings' => array(
-            'combine' => 1,
-            'default_quantity' => '1',
-            'line_item_type' => 0,
-            'show_quantity' => 0,
-            'show_single_product_attributes' => 0,
-          ),
-          'type' => 'commerce_cart_add_to_cart_form',
-          'weight' => '2',
-        ),
-        'product_list' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_product',
-      'label' => 'Product variations',
-      'required' => 0,
-      'settings' => array(
-        'field_injection' => 1,
-        'referenceable_types' => array(
-          'product' => 0,
-        ),
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'inline_entity_form',
-        'settings' => array(
-          'fields' => array(),
-          'type_settings' => array(
-            'autogenerate_title' => 1,
-            'use_variation_language' => 1,
-          ),
-        ),
-        'type' => 'inline_entity_form',
-        'weight' => '33',
       ),
     ),
   );

@@ -250,7 +250,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '40',
       ),
@@ -350,7 +352,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '39',
       ),
@@ -831,7 +835,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '39',
       ),
@@ -1316,7 +1322,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '39',
       ),
@@ -1420,7 +1428,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '40',
       ),
@@ -1901,7 +1911,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '39',
       ),
@@ -2142,7 +2154,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '40',
       ),
@@ -2622,7 +2636,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '38',
       ),
@@ -2961,7 +2977,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '38',
       ),
@@ -3202,7 +3220,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '39',
       ),
@@ -3476,7 +3496,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '7',
       ),
@@ -3565,7 +3587,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '4',
       ),
@@ -3654,7 +3678,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '3',
       ),
@@ -3743,7 +3769,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '5',
       ),
@@ -4125,7 +4153,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '7',
       ),
@@ -4216,7 +4246,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '4',
       ),
@@ -4307,7 +4339,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '3',
       ),
@@ -4395,7 +4429,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '5',
       ),
@@ -4775,7 +4811,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '7',
       ),
@@ -4864,7 +4902,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '4',
       ),
@@ -4953,7 +4993,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '3',
       ),
@@ -5042,7 +5084,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '5',
       ),
@@ -5422,7 +5466,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '7',
       ),
@@ -5511,7 +5557,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '4',
       ),
@@ -5600,7 +5648,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '3',
       ),
@@ -5689,7 +5739,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '5',
       ),
@@ -6069,7 +6121,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '7',
       ),
@@ -6158,7 +6212,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '4',
       ),
@@ -6247,7 +6303,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '3',
       ),
@@ -6336,7 +6394,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '5',
       ),
@@ -6716,7 +6776,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '7',
       ),
@@ -6805,7 +6867,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '4',
       ),
@@ -6894,7 +6958,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '3',
       ),
@@ -6983,7 +7049,9 @@ function commerce_kickstart_product_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
+        'settings' => array(
+          'apply_chosen' => 0,
+        ),
         'type' => 'options_select',
         'weight' => '5',
       ),
