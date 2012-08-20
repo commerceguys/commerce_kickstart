@@ -30,33 +30,6 @@ function commerce_kickstart_lite_product_ui_entity_info_alter(&$entity_info) {
  * Implements hook_theme().
  */
 function commerce_kickstart_lite_product_ui_theme(&$existing) {
-  $themes = array();
-  foreach (entity_get_info() as $entity_type => $entity_info) {
-    foreach ($entity_info['bundles'] as $bundle => $bundle_info) {
-      foreach ($entity_info['view modes'] as $view_mode => $view_mode_info) {
-        $themes["{$entity_type}__{$bundle}__{$view_mode}"] = array(
-          'render element' => 'elements',
-        );
-      }
-    }
-  }
-  // Remove commerce product label.
-  if ($existing['commerce_product_title']) {
-    $existing['commerce_product_title']['path'] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme';
-    $existing['commerce_product_title']['template'] = 'commerce-product-title';
-  }
-  // Remove cart block total label & add cart link on item.
-  if ($existing['commerce_line_item_summary']) {
-    $existing['commerce_line_item_summary']['path'] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme';
-    $existing['commerce_line_item_summary']['template'] = 'commerce-line-item-summary';
-  }
-  if ($existing['search_api_sorts_sort']) {
-    $existing['search_api_sorts_sort']['theme path'] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui');
-    $existing['search_api_sorts_sort']['path'] = $existing['search_api_sorts_sort']['theme path'];
-    $existing['search_api_sorts_sort']['file'] = 'commerce_kickstart_lite_product_ui.theme.inc';
-    $existing['search_api_sorts_sort']['function'] = 'theme_commerce_kickstart_lite_product_ui_sorts_sort';
-    $existing['search_api_sorts_sort']['includes'] = array($existing['search_api_sorts_sort']['path'] . '/' . $existing['search_api_sorts_sort']['file']);
-  }
   $themes = array(
     'node__product__type' => array(
       'path' => drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme',
@@ -75,6 +48,18 @@ function commerce_kickstart_lite_product_ui_theme(&$existing) {
   );
 
   return $themes;
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function commerce_kickstart_lite_product_ui_theme_registry_alter(&$theme_registry) {
+  // Remove commerce product label.
+  $theme_registry['commerce_product_title']['path'] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme';
+  $theme_registry['commerce_product_title']['template'] = 'commerce-product-title';
+  // Remove cart block total label & add cart link on item.
+  $theme_registry['commerce_line_item_summary']['path'] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme';
+  $theme_registry['commerce_line_item_summary']['template'] = 'commerce-line-item-summary';
 }
 
 /**

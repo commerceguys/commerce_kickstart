@@ -140,7 +140,14 @@ function commerce_kickstart_search_search_api_facetapi_keys_alter(&$keys, $query
 function commerce_kickstart_search_theme_registry_alter(&$theme_registry) {
   $theme_registry['facetapi_title']['function'] = 'theme_commerce_kickstart_search_facetapi_title';
   $theme_registry['current_search_text']['function'] = 'theme_commerce_kickstart_search_current_search_text';
+
+  $theme_registry['search_api_sorts_sort']['theme path'] = drupal_get_path('module', 'commerce_kickstart_search');
+  $theme_registry['search_api_sorts_sort']['path'] = $theme_registry['search_api_sorts_sort']['theme path'];
+  $theme_registry['search_api_sorts_sort']['file'] = 'commerce_kickstart_search.theme.inc';
+  $theme_registry['search_api_sorts_sort']['function'] = 'theme_commerce_kickstart_search_sorts_sort';
+  $theme_registry['search_api_sorts_sort']['includes'] = array($theme_registry['search_api_sorts_sort']['path'] . '/' . $theme_registry['search_api_sorts_sort']['file']);
 }
+
 
 /**
  * Override facetapi default title.

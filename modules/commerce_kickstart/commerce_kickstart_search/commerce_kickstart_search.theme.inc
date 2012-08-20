@@ -11,7 +11,7 @@
  *   - active: A boolean telling whether this sort filter is active or not.
  *   - order_options: If active, a set of options to reverse the order
  */
-function theme_commerce_kickstart_product_ui_sorts_sort(array $variables) {
+function theme_commerce_kickstart_search_sorts_sort(array $variables) {
   $name = $variables['name'];
   $path = $variables['path'];
   $options = $variables['options'] + array('attributes' => array());
