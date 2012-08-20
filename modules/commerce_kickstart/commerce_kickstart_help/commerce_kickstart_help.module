@@ -100,13 +100,15 @@ function _commerce_kickstart_help_store() {
   // Create a product
   $form['product_management']['create_product'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Create a Product') . '<span class="sub-title"> - ' . t('How to create a product, add variations and update attributes.') . '</span>',
+    '#title' => t('Create a Product') . '<span class="sub-title"> - ' . t('How to create a product, add variations, and update attributes') . '</span>',
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
   $form['product_management']['create_product']['content'] = array(
     '#type' => 'item',
-    '#markup' => '<p>You can <a href="/admin/commerce/products">create a product</a> by clicking on Products in the menu and then selecting Add Product. Variations of a product (for size, color, etc) that affect pricing can be added inline on the New Product page. <a href="http://www.drupalcommerce.org/faq">Learn More on DC.org</a></p><iframe width="420" height="315" src="http://www.youtube.com/embed/wTqk7V0dkPQ?rel=0" frameborder="0" allowfullscreen></iframe>',
+    '#markup' => '<p>You can <a href="/admin/commerce/products">create a product</a> by clicking on Products in the menu and then selecting Add Product. Variations of a product (for size, color, etc) that affect pricing can be added inline on the create product page. Attributes can be assigned to variations or entire groups of products based on how the store is setup.</p>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/H66uLe3jZ_Q?rel=0" frameborder="0" allowfullscreen></iframe><br />
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/adding-new-product">Learn More about Creating Products</a>',
   );
   // Manage product
   $form['product_management']['manage_product'] = array(
@@ -117,18 +119,22 @@ function _commerce_kickstart_help_store() {
   );
   $form['product_management']['manage_product']['content'] = array(
     '#type' => 'item',
-    '#markup' => '<p>The Commerce Kickstart management screens includes a robust product listing creen that enables you to bulk update many different attributes and change variations (like color or price) right there in the list. The listing also includes advanced filtering for finding that one product in thousands. <a href="http://www.drupalcommerce.org/faq">Learn More on DC.org</a></p>',
+    '#markup' => '<p>The Commerce Kickstart product management screen includes a robust the ability to bulk update many different attributes and change variations (like color or price) without having to change your filters or open a separate page. The listing also includes advanced filtering for finding that one product in thousands.</p>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/H66uLe3jZ_Q?rel=0" frameborder="0" allowfullscreen></iframe><br />
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/product-management-overview">Learn More about Managing Products</a>',
   );
-  // Product display
-  $form['product_management']['product_display'] = array(
+  // Product variation
+  $form['product_management']['product_variation'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Product Display') . '<span class="sub-title"> - ' . t('How to configure different displays for one product.') . '</span>',
+    '#title' => t('Product Page or Variation') . '<span class="sub-title"> - ' . t('The differences between product pages and variations') . '</span>',
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
-  $form['product_management']['product_display']['content'] = array(
+  $form['product_management']['product_variation']['content'] = array(
     '#type' => 'item',
-    '#markup' => '<p>TBD</p>',
+    '#markup' => '<p>For most eCommerce shops you need to configure a product before purchasing. This could mean choosing a particular color or size. Creating a “product” in Drupal Commerce Kickstart 2 is really creating a “product page with variations.” These variations can be setup so that on your product page, a customer can configure the product by any available attribute before adding the product variation to their cart.</p>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/sNTXFIiYoo4?rel=0" frameborder="0" allowfullscreen></iframe><br />
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/choosing-between-page-or-variation">Learn More about Pages and Variations</a>',
   );
   // Product images
   $form['product_management']['product_images'] = array(
@@ -139,14 +145,9 @@ function _commerce_kickstart_help_store() {
   );
   $form['product_management']['product_images']['content'] = array(
     '#type' => 'item',
-    '#markup' => '<p>Product images can be :
-    <ul>
-      <li>1) part of the product variation, if the image changes based on an attribute like color or size</li>
-      <p>or</p>
-      <li>2) part of the product display if the image does not need to change when the user selects a different attribute. Additionally, product images use Drupal’s image style engine to make sure the images are fully optimized and the right size.</li>
-    </ul>
+    '#markup' => '<p>Product images can be attached to product variations or product pages (learn more about their differences above). Products are setup in the demo store to have images attached to product variations so that when selecting a certain kind of tshirt, the color selected will match the photograph. There are many other ways of setting this up.</p>
     <a href="/admin/config/media/image-styles">Go to Image Styles</a>
-    <a href="http://www.drupalcommerce.org/faq">Learn More on DC.org</a></p>',
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/adding-images-variations-and-dealing-image-styles">Learn more about Product Images</a></p>',
   );
 
   // Order management
@@ -168,7 +169,10 @@ function _commerce_kickstart_help_store() {
   );
   $form['order_management']['edit_order']['content'] = array(
     '#type' => 'item',
-    '#markup' => '<p>Quick editing an order gives you access to update a status and viewing the order history. But Drupal Commerce also gives you the ability to fully edit the order by changing the quantity, adding other products, changing shipping or billing information, and we even allow you to modify or add a payment. <a href="/admin/commerce/orders">Go to Order Screen</a></p><iframe width="420" height="315" src="http://www.youtube.com/embed/D4rfkoTaOeI?rel=0" frameborder="0" allowfullscreen></iframe>',
+    '#markup' => '<p>Clicking “Quick Edit” on the order listing gives you access to update a status and view the order history. Clicking “Edit” to fully edit the order by changing the quantity, adding other products, changing shipping or billing information, and modify or add a payment.</p>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/SyYs11jkj7s?rel=0" frameborder="0" allowfullscreen></iframe><br />
+    <a href="/admin/commerce/orders">Go to Order Screen</a>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/orders-overview">Learn more about Order Management</a>',
   );
   // Manage orders
   $form['order_management']['manage_orders'] = array(
@@ -179,7 +183,58 @@ function _commerce_kickstart_help_store() {
   );
   $form['order_management']['manage_orders']['content'] = array(
     '#type' => 'item',
-    '#markup' => '<p>The bulk update and filtering of the order management screen gives you tools to not only find the right order, but also to edit multiple orders at once. For example, you could find all abandoned shopping carts that are three days old and choose to delete them. <a href="/admin/commerce/orders">Go to Order Screen</a></p>',
+    '#markup' => '<p>The bulk update and filtering of the order management screen gives you tools to not only find the right order, but also to edit multiple orders at once. For example, you could find all abandoned shopping carts that are three days old and choose to delete them.</p>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/SyYs11jkj7s?rel=0" frameborder="0" allowfullscreen></iframe><br />
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/orders-overview">Learn more about Order Management</a></p>',
+  );
+
+  // Prices, Payments & Taxes
+  $form['prices_payments_taxes'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('prices-payments-taxes')),
+  );
+  $form['prices_payments_taxes']['prices_payments_taxes_title'] = array(
+    '#type' => 'item',
+    '#title' => t('Prices, Payments & Taxes'),
+    '#attributes' => array('class' => array('prices-payments-taxes-title')),
+  );
+  // Coupons / Discounts
+  $form['prices_payments_taxes']['coupons_discounts'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Coupons / Discounts') . '<span class="sub-title"> - ' . t('How to make coupons and discounts the easy way.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['prices_payments_taxes']['coupons_discounts']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>TBD - The discounts module is still being worked on. Once it is feature complete expect additional help to be written.</p>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/coupons-discounts-overview">Learn more about Discounts & Coupons</a>',
+  );
+  // Payment Methods
+  $form['prices_payments_taxes']['payment_ethods'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Payment Methods') . '<span class="sub-title"> - ' . t('How to download and setup various payment methods.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['prices_payments_taxes']['payment_ethods']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>There are payment gateways and there are service providers that have partnered with Commerce Guys. There are 50+ payment providers that have been integrated with Drupal Commerce in the last year. Out of the box we have provided an example payment method to show what is possible.</p>
+    <a href="/admin/modules/service-providers">Go to the Service Providers</a>
+    <a href="/admin/commerce/config/payment-methods">Go to the Payment Methods</a>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/how-download-and-setup-payment-method">Learn more about Payment Methods</a>',
+  );
+  // Taxes
+  $form['prices_payments_taxes']['taxes'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Taxes') . '<span class="sub-title"> - ' . t('How to setup and understand taxes on your store.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['prices_payments_taxes']['taxes']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>Taxes in Drupal Commerce have two parts: Tax Rates (percentages) and Tax Types (how & when they are applied). The Tax Rates page allows you to create as many kinds of percentage rates as you need. Each rate must be a kind of tax type, which comes in two defaults: Sales Tax (applied to total) or VAT (applied to product individually). You can control when certain pricing actions by going to the Pricing Rules and changing their weights. By default, taxes are added to the order total (sales tax) or for each product\'s total (VAT).</p>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/taxes-overview">Learn more about Taxes</a>',
   );
 
   // Store Settings
@@ -195,24 +250,108 @@ function _commerce_kickstart_help_store() {
   // Shipping
   $form['store_settings']['shipping'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Shipping') . '<span class="sub-title"> - ' . t('How to work with the flat rate shipping that comes default.') . '</span>',
+    '#title' => t('Shipping') . '<span class="sub-title"> - ' . t('How to setup your own flat rate shipping methods.') . '</span>',
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
   $form['store_settings']['shipping']['content'] = array(
     '#type' => 'item',
-    '#markup' => '<p>Commerce Kickstart comes with <a href="/admin/commerce/config/shipping/services/flat-rate">three flat rate shipping services</a> setup for you. You can also install <a href="/admin/commerce/config/shipping">other shipping methods</a> and change the calculation rules.</p>',
+    '#markup' => '<p>Shipping Services is a listing of the kinds of shipping services that are available in your store. In Commerce Kickstart, by default, there is a "Flat Rate" shipping method that has many flat rate services. You can also install shipping methods like UPS or FedEx and they will come with their own ability to handle methods and services. The calculation rules handle when and how shipping methods show up and how they get applied.</p>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/shipping-overview">Learn more about Shipping</a>',
   );
   // Checkout
   $form['store_settings']['checkout'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Checkout') . '<span class="sub-title"> - ' . t('TBD') . '</span>',
+    '#title' => t('Checkout') . '<span class="sub-title"> - ' . t('Customize the checkout process as much as you want.') . '</span>',
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
   $form['store_settings']['checkout']['content'] = array(
     '#type' => 'item',
+    '#markup' => '<p>Drupal Commerce comes with a drag-and-drop checkout form builder that lets you decide what information you need to collect from or display to customers during the checkout process. It supports single and multi-page checkout depending on your requirements and can be easily extended with new components through the use of contributed or custom modules.</p>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/checkout-overview">Learn more about Checkout</a>',
+  );
+  // Customer Profiles
+  $form['store_settings']['customer_profiles'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Customer Profiles') . '<span class="sub-title"> - ' . t('How to customize the information you collect from customers.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['store_settings']['customer_profiles']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>ustomer profiles contain collections of data required to process orders, whether it be billing information, shipping information, or other types of details. These customer profiles are not unique to a user, meaning a single user may have multiple instances of each type of profile.</p>
+    <a href="http://www.drupalcommerce.org/user-guide/customer-profiles">Learn more about Customer Profiles</a>',
+  );
+
+  // Demo Store Features
+  $form['demo_store_features'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('demo-store-features')),
+  );
+  $form['demo_store_features']['demo_store_featuress_title'] = array(
+    '#type' => 'item',
+    '#title' => t('Demo Store Features'),
+    '#attributes' => array('class' => array('demo-store-features-title')),
+  );
+  // Slideshow
+  $form['demo_store_features']['slideshow'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Slideshow') . '<span class="sub-title"> - ' . t('Create slides for your store’s homepage rotator.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['demo_store_features']['slideshow']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>The slideshow that comes with Kickstart 2 is quite easy to maintain. To add slides, you simply need to go to the Add Content page and select “Slideshow.” You are presented with the title, headline, tagline, link, and (of course) image. There is great inline text help per field to help you figure out what field does what. To edit the slideshow, simply edit the view that we have set up.</p>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/adding-slideshow">Learn more about the Slideshow</a>',
+  );
+ // Ad Push
+  $form['demo_store_features']['ad_push'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Ad Push') . '<span class="sub-title"> - ' . t('Create ads for your store’s homepage footer.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['demo_store_features']['ad_push']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>The “Ad Push” shares spots with the Demo store’s blog on the footer of the homepage. It’s very similar to the slideshow in functionality: to add “ad push”es to your site, simply go to the Add Content page and select “Ad Push.”</p>',
+  );
+ // Catalog
+  $form['demo_store_features']['catalog'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Catalog') . '<span class="sub-title"> - ' . t('How to setup or tweak a catalog like the Demo Store.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['demo_store_features']['catalog']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>The catalog for the Demo Store was created with product pages that have product variations. Most of the catalog is designed around which “category” a “product” is in. Since the categories are representative of product pages, these categories were added as fields to the product pages. The menu is a simple list of links to a view that selects the appropriate products attached to that category. Various groups of categories (known as vocabularies) are used to further denote and organize the content. The “All Products” page is created by using the Search API’s ability to use faceted search.</p>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/setup-product-catalog-using-views-taxonomy-and-menu">Learn more about Catalog</a>',
+  );
+ // Rich Email Notification
+  $form['demo_store_features']['rich_email_notification'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Rich Email Notification') . '<span class="sub-title"> - ' . t('Setup and manage sophisticated email notifications.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['demo_store_features']['rich_email_notification']['content'] = array(
+    '#type' => 'item',
     '#markup' => '<p>TBD</p>',
   );
+ // Social Logins
+  $form['demo_store_features']['social_logins'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Social Logins') . '<span class="sub-title"> - ' . t('Setup social logins for your customers.') . '</span>',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+  $form['demo_store_features']['social_logins']['content'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>Commerce Kickstart 2 implements the OAuth module for connecting to various social networks. The hardest part is simply getting a valid developer api access code for the social networks of your choice. Follow the documentation online for a full description of what’s possible and how to set it up.</p>
+    <a href="http://www.drupalcommerce.org/commerce-kickstart-2/social-logins">Learn more about Social Logins</a>',
+  );
+
   return $form;
 }
