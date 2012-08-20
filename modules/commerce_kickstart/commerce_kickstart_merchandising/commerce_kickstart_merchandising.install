@@ -2,24 +2,16 @@
 
 /**
  * Implements hook_enable().
- *
- * Rebuilds the feature immediately after it's enabled.
  */
 function commerce_kickstart_merchandising_enable() {
-  // Rebuild the features static caches.
+  // Rebuild the feature.
   features_include(TRUE);
-
   $module = 'commerce_kickstart_merchandising';
   $feature = feature_load($module);
   $items[$module] = array_keys($feature->info['features']);
   _features_restore('enable', $items);
   _features_restore('rebuild', $items);
-}
 
-/*
- * Implements hook_install().
- */
-function commerce_kickstart_merchandising_install() {
   drupal_static_reset();
   $default_theme = variable_get('theme_default', 'omega_kickstart');
   _block_rehash($default_theme);
