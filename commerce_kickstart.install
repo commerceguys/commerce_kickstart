@@ -224,6 +224,7 @@ function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
   variable_set('commerce_kickstart_selected_extras', $form_state['values']['extras']);
   variable_set('commerce_kickstart_choose_tax_country', $form_state['values']['commerce_kickstart_choose_tax_country']);
   variable_set('commerce_default_currency', $form_state['values']['commerce_default_currency']);
+  variable_set('commerce_enabled_currencies', array($form_state['values']['commerce_default_currency'] => $form_state['values']['commerce_default_currency']));
 }
 
 /**
