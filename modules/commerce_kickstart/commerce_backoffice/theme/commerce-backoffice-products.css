@@ -89,8 +89,7 @@
   margin: 2px 10px 2px 0;
 }
 .view-commerce-backoffice-products .vbo-views-form input.form-submit {
-  float: left;
-  margin: 0;
+  position: relative;
 }
 .view-commerce-backoffice-products .vbo-views-form #edit-select select {
   height: 25px;
