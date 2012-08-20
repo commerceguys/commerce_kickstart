@@ -92,7 +92,7 @@ projects[oauthconnector][patch][] = "http://drupal.org/files/oathuconnector-noti
 projects[oauthconnector][patch][] = "http://drupal.org/files/oauthconnector-fix-ctools-exportables-1712262-2.patch"
 projects[inline_entity_form][version] = 1.0-beta4
 projects[inline_entity_form][subdir] = "contrib"
-projects[field_extractor][version] = 1.x-dev
+projects[field_extractor][version] = 1.0
 projects[field_extractor][subdir] = "contrib"
 projects[service_links][version] = 2.1
 projects[service_links][subdir] = "contrib"
@@ -183,7 +183,7 @@ projects[i18n][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.x-dev
+projects[omega_kickstart][version] = 3.0-beta1
 
 ; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
