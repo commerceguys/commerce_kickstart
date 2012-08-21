@@ -13,7 +13,6 @@ function commerce_kickstart_theme_preprocess_html(&$variables) {
 
   // Add external libraries.
   drupal_add_library('commerce_kickstart_theme', 'selectnav');
-  drupal_add_library('commerce_kickstart_theme', 'responsive_menu');
 
   drupal_add_js(libraries_get_path('ie7-js') . '/IE9.js', array('browsers' => array('IE' => 'lte IE 9', '!IE' => FALSE)));
 }
@@ -27,13 +26,6 @@ function commerce_kickstart_theme_library() {
     'version' => '',
     'js' => array(
       libraries_get_path('selectnav.js') . '/selectnav.min.js' => array(),
-    ),
-  );
-  $libraries['responsive_menu'] = array(
-    'title' => 'Responsive menu',
-    'version' => '',
-    'js' => array(
-      libraries_get_path('responsive_menu') . '/jquery.mobilemenu.min.js' => array(),
     ),
   );
   return $libraries;
