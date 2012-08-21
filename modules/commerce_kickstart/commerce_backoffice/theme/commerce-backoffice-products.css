@@ -101,6 +101,10 @@
 .view-commerce-backoffice-products div.views-megarow-content {
   padding-top: 0;
 }
+.view-commerce-backoffice-products div.views-megarow-content #commerce-backoffice-product-quick-edit-form .form-item-price,
+.view-commerce-backoffice-products div.views-megarow-content .container-inline .form-item {
+  float: left;
+}
 .view-commerce-backoffice-products div.views-megarow-content .megarow-header {
   background: transparent url("images/mega-arrow.png") no-repeat 50px -1px;
   margin-top: -1px;

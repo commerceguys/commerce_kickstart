@@ -607,6 +607,10 @@ table th {
   padding-top: 5px;
   width: 100%;
 }
+.node-form .field-widget-inline-entity-form .tabledrag-changed-warning,
+.node-form .field-widget-inline-entity-form #ief-entity-table {
+  clear: both;
+}
 .node-form .field-widget-inline-entity-form #ief-entity-table,
 .node-form .field-widget-inline-entity-form #ief-entity-table tr td:last-child{
   background-color: transparent;
