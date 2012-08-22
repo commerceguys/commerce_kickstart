@@ -168,7 +168,7 @@ function commerce_backoffice_product_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Product Display Content Type */
+  /* Filter criterion: Content: Product display content type */
   $handler->display->display_options['filters']['product_display_node_type']['id'] = 'product_display_node_type';
   $handler->display->display_options['filters']['product_display_node_type']['table'] = 'node';
   $handler->display->display_options['filters']['product_display_node_type']['field'] = 'product_display_node_type';
@@ -200,37 +200,29 @@ function commerce_backoffice_product_views_default_views() {
     1 => 0,
     3 => 0,
   );
-  /* Filter criterion: Content: Has taxonomy terms (from Multiple Vocabularies) */
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['id'] = 'term_node_tid_multiple_vocabularies';
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['table'] = 'node';
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['field'] = 'term_node_tid_multiple_vocabularies';
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['group'] = 1;
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['operator_id'] = 'term_node_tid_multiple_vocabularies_op';
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['operator'] = 'term_node_tid_multiple_vocabularies_op';
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['identifier'] = 'term_node_tid_multiple_vocabularies';
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Product Display Has taxonomy terms (from Multiple Vocabularies) */
+  $handler->display->display_options['filters']['product_display_term_node_tid']['id'] = 'product_display_term_node_tid';
+  $handler->display->display_options['filters']['product_display_term_node_tid']['table'] = 'node';
+  $handler->display->display_options['filters']['product_display_term_node_tid']['field'] = 'product_display_term_node_tid';
+  $handler->display->display_options['filters']['product_display_term_node_tid']['group'] = 1;
+  $handler->display->display_options['filters']['product_display_term_node_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['product_display_term_node_tid']['expose']['operator_id'] = 'product_display_term_node_tid_op';
+  $handler->display->display_options['filters']['product_display_term_node_tid']['expose']['operator'] = 'product_display_term_node_tid_op';
+  $handler->display->display_options['filters']['product_display_term_node_tid']['expose']['identifier'] = 'product_display_term_node_tid';
+  $handler->display->display_options['filters']['product_display_term_node_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['product_display_term_node_tid']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
   );
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['type'] = 'select';
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['vocabulary'] = array(
-    4 => '4',
-    5 => '5',
-    6 => '6',
-    8 => '8',
-    3 => 0,
-    1 => 0,
-    7 => 0,
-    9 => 0,
-    10 => 0,
-    11 => 0,
-    2 => 0,
-    12 => 0,
+  $handler->display->display_options['filters']['product_display_term_node_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['product_display_term_node_tid']['vocabulary'] = array(
+    'brand' => 0,
+    'category' => 0,
+    'collection' => 0,
+    'gender' => 0,
   );
-  $handler->display->display_options['filters']['term_node_tid_multiple_vocabularies']['per_vocabulary'] = 1;
+  $handler->display->display_options['filters']['product_display_term_node_tid']['per_vocabulary'] = 1;
   /* Filter criterion: Global: Combine fields filter */
   $handler->display->display_options['filters']['combine']['id'] = 'combine';
   $handler->display->display_options['filters']['combine']['table'] = 'views';

@@ -27,4 +27,13 @@ function commerce_backoffice_product_views_data_alter(&$data) {
       'allow empty' => TRUE,
       )
   );
+  $data['node']['product_display_term_node_tid'] = array(
+    'title' => 'Product Display Has taxonomy terms (from Multiple Vocabularies)',
+    'help' => 'Display content if it has the selected taxonomy terms from Multiple Vocabularies, for Product displays content types ONLY. It has an option to work as independent filters per vocabulary.',
+    'real field' => 'nid',
+    'filter' => array(
+      'handler' => 'commerce_backoffice_handler_filter_product_display_term_node_tid',
+      'allow empty' => TRUE,
+      )
+  );
 }

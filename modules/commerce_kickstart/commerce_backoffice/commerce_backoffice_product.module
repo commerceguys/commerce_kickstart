@@ -215,3 +215,20 @@ function commerce_backoffice_product_quick_edit_form_submit($form, &$form_state)
   $form_state['rebuild'] = TRUE;
   $form_state['product_saved'] = TRUE;
 }
+/**
+ * Get the Product Displays Vocabularies.
+ */
+function _commerce_backoffice_product_display_vocabularies() {
+  $fields = field_info_fields();
+  $product_displays = commerce_product_reference_node_types();
+  $voc_names = array();
+  foreach ($fields as $field) {
+    if ($field['type'] == 'taxonomy_term_reference' && isset($field['bundles']['node']) && array_intersect($field['bundles']['node'], array_keys($product_displays))) {
+      $voc_names[$field['settings']['allowed_values'][0]['vocabulary']] = $field['settings']['allowed_values'][0]['vocabulary'];
+    }
+  }
+  if (!empty($voc_names)) {
+    return _views_taxonomy_get_vocabularies_by_names($voc_names);
+  }
+  return array();
+}

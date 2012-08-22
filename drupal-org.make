@@ -17,6 +17,7 @@ projects[rules][version] = 2.2
 projects[rules][subdir] = "contrib"
 projects[views][version] = 3.5
 projects[views][subdir] = "contrib"
+projects[views][patch][] = "http://drupal.org/files/filter_term_node_tid_multiple_vocabularies-1716826-15.patch"
 projects[views_bulk_operations][version] = 3.0
 projects[views_bulk_operations][subdir] = "contrib"
 projects[addressfield][version] = 1.0-beta3
