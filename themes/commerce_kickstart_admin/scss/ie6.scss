@@ -1,0 +1,25 @@
+ul {
+  &.menu li,
+  &.links li {
+    height: 1%;
+    a {
+      height: 1%;
+    }
+  }
+}
+
+.action-links,
+#page {
+  height: 1%;
+}
+
+#block-system-main li {
+  a {
+    height: 1px;
+    position: relative;
+    display: block;
+  }
+  div.description a {
+    display: inline;
+  }
+}

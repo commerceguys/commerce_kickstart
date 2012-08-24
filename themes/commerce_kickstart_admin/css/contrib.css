@@ -724,7 +724,7 @@ tr.even {
 }
 .entity-commerce-order .commerce-backoffice-order-status-form .form-submit,
 .view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit {
-  background: #60aa20 url("images/button.png") repeat-x 0 0;
+  background: #60aa20 url("../images/button.png") repeat-x 0 0;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#79d428), to(#60aa20));
   background-image: -webkit-linear-gradient(top, #79d428, #60aa20);
   background-image: -moz-linear-gradient(top, #79d428, #60aa20);
@@ -738,7 +738,7 @@ tr.even {
 }
 .entity-commerce-order .commerce-backoffice-order-status-form .form-submit:hover,
 .view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit:hover {
-  background: #79d428 url("images/button-over.png") repeat-x 0 bottom;
+  background: #79d428 url("../images/button-over.png") repeat-x 0 bottom;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#60aa20), to(#79d428));
   background-image: -webkit-linear-gradient(top, #60aa20, #79d428);
   background-image: -moz-linear-gradient(top, #60aa20, #79d428);
@@ -810,7 +810,7 @@ tr td:last-child {
   padding-bottom: 10px;
 }
 .view-commerce-backoffice-order-messages th {
-  background: transparent url("images/th-border.gif") repeat-x 0 bottom;
+  background: transparent url("../images/th-border.gif") repeat-x 0 bottom;
   border: 1px solid #d8d8d8;
   border-width: 0 0 1px 0;
   -moz-box-shadow: none;
@@ -867,7 +867,7 @@ div.views-megarow-content {
 }
 div.views-megarow-content .megarow-header,
 .node-form .field-widget-inline-entity-form tr.ief-row-form .ief-form-row {
-  background: transparent url("images/mega-arrow.png") no-repeat 50px -1px !important;
+  background: transparent url("../images/mega-arrow.png") no-repeat 50px -1px !important;
   margin-top: -1px;
   position: relative;
 }
@@ -925,7 +925,7 @@ html.js .vbo-views-form fieldset .fieldset-wrapper {
 }
 html.js .view-filters fieldset.collapsible .fieldset-legend,
 html.js .vbo-views-form fieldset .fieldset-legend {
-  background: transparent url("images/filter.png") no-repeat 0 0;
+  background: transparent url("../images/filter.png") no-repeat 0 0;
   color: #36a2f6;
   margin-top: 0;
   padding-left: 30px; /* LTR */
@@ -936,10 +936,10 @@ html.js .vbo-views-form fieldset .fieldset-legend a{
   color: #36a2f6;
 }
 html.js .view-filters fieldset.collapsible .fieldset-legend {
-  background: transparent url("images/filter.png") no-repeat 0 0;
+  background: transparent url("../images/filter.png") no-repeat 0 0;
 }
 html.js .vbo-views-form fieldset .fieldset-legend {
-  background: transparent url("images/bulk-update.png") no-repeat 0 0;
+  background: transparent url("../images/bulk-update.png") no-repeat 0 0;
 }
 html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend {
   background: transparent;
@@ -1002,7 +1002,7 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   color: inherit;
 }
 .field-name-commerce-discount-date .fieldset-wrapper .container-inline-date .date-padding > .form-item:first-child input.form-text {
-  background: url('./images/calendar.png') left top no-repeat;
+  background: url('../images/calendar.png') left top no-repeat;
 }
 .form-item-enabled #edit-enabled .form-item label {
   margin: 0 !important;
@@ -1108,14 +1108,14 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   width: 100%;
 }
 #kickstart-help-topic .first-steps-quick ul li a {
-  background: #ffffff url("images/quicklinks.png") no-repeat 8px center; /* LTR */
+  background: #ffffff url("../images/quicklinks.png") no-repeat 8px center; /* LTR */
   clear: left; /* LTR */
   float: left; /* LTR */
   padding: 0 5px 0 25px; /* LTR */
   width: 100%;
 }
 #kickstart-help-topic .first-steps-blocks h2 {
-  background: transparent url("images/icons-get-started.png") no-repeat 0 0;
+  background: transparent url("../images/icons-get-started.png") no-repeat 0 0;
   border-bottom: 1px solid #dfdfdf;
   font-weight: 500;
   padding: 5px 15px 10px 40px;
@@ -1204,7 +1204,7 @@ html.js .views-exposed-form .form-item input.throbbing {
   margin-top: 0;
 }
 .view-commerce-backoffice-orders .views-exposed-form .date-padding .form-item input {
-  background: #fff url("images/calendar.png") no-repeat 95% center;
+  background: #fff url("../images/calendar.png") no-repeat 95% center;
 }
 .view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-min-wrapper,
 .view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-max-wrapper {
@@ -1219,7 +1219,7 @@ html.js .views-exposed-form .form-item input.throbbing {
   z-index: 1;
 }
 .views-exposed-form .views-widget-filter-combine input{
-  background: white url("images/search.png") no-repeat right center;
+  background: white url("../images/search.png") no-repeat right center;
   line-height: normal;
   padding: 3px 20px 3px 5px;
 }
@@ -1239,7 +1239,7 @@ html.js .views-exposed-form .form-item input.throbbing {
 }
 /* Bulk Operations Select */
 .vbo-views-form .form-item-operation {
-  background: transparent url("images/bg-vbo.png") no-repeat 0 0;
+  background: transparent url("../images/bg-vbo.png") no-repeat 0 0;
   float: left;
   padding: 2px 0 0 30px;
 }
@@ -1311,7 +1311,7 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
   border-radius: 3px;
 }
 .chzn-container-multi .chzn-choices {
-  background: #fff url("images/drop-filter.png") no-repeat right center;
+  background: #fff url("../images/drop-filter.png") no-repeat right center;
 }
 .chzn-container-single .chzn-single,
 .view-commerce-backoffice-products .chzn-container-single .chzn-single,
@@ -1334,13 +1334,13 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
 .chzn-container-single .chzn-single div b,
 .view-commerce-backoffice-products .chzn-container-single .chzn-single div b,
 .view-commerce-backoffice-orders .chzn-container-single .chzn-single div b {
-  background: #fff url("images/drop-filter.png") no-repeat right center;
+  background: #fff url("../images/drop-filter.png") no-repeat right center;
 }
 .chzn-container-single .chzn-single-with-drop div b,
 .view-commerce-backoffice-products .chzn-container-single .chzn-single-with-drop div b,
 .view-commerce-backoffice-orders .chzn-container-single .chzn-single-with-drop div b,
 .chzn-container-active .chzn-choices {
-  background: #fff url("images/drop-filter-up.png") no-repeat right center;
+  background: #fff url("../images/drop-filter-up.png") no-repeat right center;
 }
 .chzn-container-single .chzn-single span {
   color: #999;

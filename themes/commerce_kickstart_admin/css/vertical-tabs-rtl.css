@@ -3,7 +3,7 @@
  * Override of misc/vertical-tabs-rtl.css.
  */
 div.vertical-tabs {
-  background: #fff url(images/fc-rtl.png) repeat-y right 0;
+  background: #fff url(../images/fc-rtl.png) repeat-y right 0;
 }
 div.vertical-tabs .vertical-tabs-list {
   float: right;

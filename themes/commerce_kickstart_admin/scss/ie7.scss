@@ -1,0 +1,34 @@
+ul {
+  &.tabs.primary {
+    padding: 0;
+  }
+  &.primary li {
+    float: none !important;
+    display: inline;
+    a,
+    &.active a {
+      float: none !important;
+      display: inline;
+    }
+    zoom: 1;
+    position: relative;
+    a {
+      zoom: 1;
+      position: relative;
+      &.active,
+      &:active,
+      &:visited,
+      &:hover {
+        zoom: 1;
+        position: relative;
+      }
+    }
+    &.active a {
+      zoom: 1;
+      position: relative;
+    }
+  }
+  &.admin-list li {
+    position: static;
+  }
+}
