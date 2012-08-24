@@ -1,5 +1,5 @@
 ; Drupal.org release file.
-core = 7.14
+core = 7.x
 api = 2
 
 ; Basic contributed modules.
