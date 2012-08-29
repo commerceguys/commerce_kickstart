@@ -105,10 +105,12 @@ function commerce_kickstart_user_form_alter(&$form, &$form_state, $form_id) {
     $form['name']['#prefix'] .= '<h1>' . t('Login') . '</h1>';
     $form['pass']['#suffix'] = l(t('Forgot your password?'), 'user/password', array('attributes' => array('class' => 'login-password', 'title' => t('Get a new password'))));
     $form['actions']['#suffix']  = '</div>';
-    $form['actions']['#suffix'] .= '<div class="create-account clearfix">';
-    $form['actions']['#suffix'] .= "\r<h2>" . t('I don\'t have an account') . "</h2>";
-    $form['actions']['#suffix'] .= "\r" . l(t('Create an account'), 'user/register', array('attributes' => array('class' => 'login-register', 'title' => t('Create a new account'))));
-    $form['actions']['#suffix'] .= '</div>';
+    if (variable_get('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL) != USER_REGISTER_ADMINISTRATORS_ONLY) {
+      $form['actions']['#suffix'] .= '<div class="create-account clearfix">';
+      $form['actions']['#suffix'] .= "\r<h2>" . t('I don\'t have an account') . "</h2>";
+      $form['actions']['#suffix'] .= "\r" . l(t('Create an account'), 'user/register', array('attributes' => array('class' => 'login-register', 'title' => t('Create a new account'))));
+      $form['actions']['#suffix'] .= '</div>';
+    }
   }
   if ($form_id == 'user_pass') {
     $form['name']['#prefix'] = '<div id="' . $form_id . '_form">';
