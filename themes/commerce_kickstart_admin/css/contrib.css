@@ -710,9 +710,11 @@ tr.even {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  clear: both;
   color: #000;
   font-size: 15px;
   font-weight: normal;
+  margin-top: 10px;
   padding: 10px 15px;
 }
 .entity-commerce-order .content-right .commerce-backoffice-order-status-label {
@@ -721,6 +723,7 @@ tr.even {
   -moz-box-shadow: inset 0 0 5px #fff;
   -webkit-box-shadow: inset 0 0 5px #fff;
   box-shadow: inset 0 0 5px #fff;
+  margin-top: 0px;
 }
 .entity-commerce-order .commerce-backoffice-order-status-form .form-submit,
 .view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit {
