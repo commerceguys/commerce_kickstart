@@ -137,45 +137,45 @@ function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
     '#markup' => '',
     '#attributes' => array('class' => array('user-information', 'clearfix')),
   );
-  $shipping_profile_id = $billing_profile_id = NULL;
   if (module_exists('commerce_addressbook')) {
-    $shipping_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'shipping');
+    $shipping_profile_id = $billing_profile_id = NULL;
+    if (commerce_addressbook_profile_page_access($account, 'shipping')) {
+      $shipping_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'shipping');
+      if ($shipping_profile_id) {
+        $shipping_profile = commerce_customer_profile_load($shipping_profile_id);
+        $shipping_profile_render = entity_view('commerce_customer_profile', array($shipping_profile), 'full');
+        $shipping_profile_render = reset($shipping_profile_render);
+        $shipping_profile_output = drupal_render($shipping_profile_render);
+      }
+      else {
+        $shipping_profile_output = '<p>' . t('No default shipping profile') . '</p>';
+      }
+      $account->content['information']['shipping_profile'] =  array(
+        '#type' => 'user_profile_item',
+        '#title' => t('Primary shipping address'),
+        '#markup' => $shipping_profile_output . l(t('Manage shipping address'), 'user/' . $account->uid . '/addressbook/shipping'),
+        '#attributes' => array('class' => array('shipping-address')),
+      );
+    }
+    if (commerce_addressbook_profile_page_access($account, 'billing')) {
+      $billing_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'billing');
+      if ($billing_profile_id) {
+        $billing_profile = commerce_customer_profile_load($billing_profile_id);
+        $billing_profile_render = entity_view('commerce_customer_profile', array($billing_profile), 'full');
+        $billing_profile_render = reset($billing_profile_render);
+        $billing_profile_output = drupal_render($billing_profile_render);
+      }
+      else {
+        $billing_profile_output = '<p>' . t('No default billing profile') . '</p>';
+      }
+      $account->content['information']['billing_profile'] =  array(
+        '#type' => 'user_profile_item',
+        '#title' => t('Primary billing address'),
+        '#markup' => $billing_profile_output  . l(t('Manage billing address'), 'user/' . $account->uid . '/addressbook/billing'),
+        '#attributes' => array('class' => array('billing-address')),
+      );
+    }
   }
-  if ($shipping_profile_id) {
-    $shipping_profile = commerce_customer_profile_load($shipping_profile_id);
-    $shipping_profile_render = entity_view('commerce_customer_profile', array($shipping_profile), 'full');
-    $shipping_profile_render = reset($shipping_profile_render);
-    $shipping_profile_output = drupal_render($shipping_profile_render);
-  }
-  else {
-    $shipping_profile_output = '<p>' . t('No default shipping profile') . '</p>';
-  }
-  $account->content['information']['shipping_profile'] =  array(
-    '#type' => 'user_profile_item',
-    '#title' => t('Primary shipping address'),
-    '#markup' => $shipping_profile_output . l(t('Manage shipping address'), 'user/' . $account->uid . '/addressbook/shipping'),
-    '#attributes' => array('class' => array('shipping-address')),
-  );
-
-  if (module_exists('commerce_addressbook')) {
-    $billing_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'billing');
-  }
-  if ($billing_profile_id) {
-    $billing_profile = commerce_customer_profile_load($billing_profile_id);
-    $billing_profile_render = entity_view('commerce_customer_profile', array($billing_profile), 'full');
-    $billing_profile_render = reset($billing_profile_render);
-    $billing_profile_output = drupal_render($billing_profile_render);
-  }
-  else {
-    $billing_profile_output = '<p>' . t('No default billing profile') . '</p>';
-  }
-  $account->content['information']['billing_profile'] =  array(
-    '#type' => 'user_profile_item',
-    '#title' => t('Primary billing address'),
-    '#markup' => $billing_profile_output  . l(t('Manage billing address'), 'user/' . $account->uid . '/addressbook/billing'),
-    '#attributes' => array('class' => array('billing-address')),
-  );
-
   $account->content['information']['mail'] = array(
     '#type' => 'user_profile_item',
     '#title' => t('Email address'),
