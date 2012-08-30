@@ -10,14 +10,14 @@
 * Menu footer navigation
 */
 .section-footer ul.menu li {
-  padding-right: 15px;
-}
+  padding-right: 15px; }
+
 /**
 * Connect with us
 */
 .block-social h2 {
-  line-height: 22px;
-}
+  line-height: 22px; }
+
 /**************************************************
 * --
 * 5. Commerce specific
@@ -29,61 +29,40 @@
 .page-products .view-display-products {
   clear: both;
   width: 700px;
-  margin-top: 40px;
-}
+  margin-top: 40px; }
+
 .page-products .view-display-products ul li.views-row {
   display: block;
   height: auto;
   margin: 0;
   padding-right: 5px;
-  width: 225px;
-}
+  width: 225px; }
+
 /**********************************************
 * 5.3. Product page
 **********************************************/
 .commerce-kickstart-add-to-cart .field-type-taxonomy-term-reference:after {
-  clear: none !important;
-}
+  clear: none !important; }
+
 .commerce-kickstart-add-to-cart .field-name-field-images img {
-  max-width: none;
-}
+  max-width: none; }
+
 /* Cloud zoom */
 .node-product-type .cloud-zoom-gallery-thumbs {
   position: absolute;
   top: 0;
   left: -130px;
-  width: 120px;
-}
+  width: 120px; }
+
 .node-product-type .cloud-zoom-container {
   margin-left: 130px;
-  position: relative;
-}
+  position: relative; }
+
 .commerce-kickstart-add-to-cart .message-inner {
-  position: relative;
-}
+  position: relative; }
+
 /**********************************************
 * 5.4. Checkout process
 **********************************************/
 .page-cart .entity-commerce-product .content .field-name-field-images img {
-  max-width: none;
-}
-/**
-* Checkout progress
-*/
-ol.inline.commerce-checkout-progress li {
-  padding-right: 50px;
-  padding-left: 25px;
-}
-ol.inline.commerce-checkout-progress li:after {
-  background: transparent url('../images/bg_checkout_progress_ie.png') right center no-repeat;
-  right: -5px;
-}
-ol.inline.commerce-checkout-progress li.active:after {
-  background: transparent url('../images/bg_checkout_progress_ie.png') right center no-repeat;
-}
-ol.inline.commerce-checkout-progress li.visited:after {
-  background: transparent url('../images/bg_checkout_progress_ie_visited.png') right center no-repeat;
-}
-ol.inline.commerce-checkout-progress li.last:after {
-  background: transparent url('../images/bg_checkout_progress_ie_last.png') right center no-repeat;
-}
+  max-width: none; }

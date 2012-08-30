@@ -1,43 +1,54 @@
 .message-wrapper {
-  width: 800px; }
+  width: 800px;
+}
 
 .message-wrapper .header,
 .message-wrapper .body {
-  padding: 10px; }
+  padding: 10px;
+}
 
 .message-wrapper a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .message-wrapper .header {
   background-color: #FFF;
   color: #000000;
-  height: 100px; }
+  height: 100px;
+}
 
 .message-wrapper .header .logo {
-  float: left; }
+  float: left;
+}
 
 .message-wrapper .header .thank-you {
   float: right;
   font-size: 25px;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .message-wrapper .body {
   border: solid 1px #E9E9E9;
-  padding: 10px; }
+  padding: 10px;
+}
 
 .message-wrapper .detail span.order a {
-  color: #009BD4; }
+  color: #009BD4;
+}
 
 .message-wrapper .detail {
   color: #b2b2b2;
   padding-bottom: 15px;
-  font-size: 18px; }
+  font-size: 18px;
+}
 
 .message-wrapper .detail span {
-  color: #00a0da; }
+  color: #00a0da;
+}
 
 .message-wrapper .view-order-status {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+}
 
 .message-wrapper .view-order-status a {
   background-color: #009bd4;
@@ -45,18 +56,21 @@
   color: white;
   font-weight: bold;
   padding: 10px 30px;
-  border-radius: 50px; }
+  border-radius: 50px;
+}
 
 .message-wrapper .ship-to {
   float: left;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+}
 
 .message-wrapper .ship-to .ship-to-title,
 .message-wrapper .ship-method .ship-method-title,
 .message-wrapper .order-summary-wrapper p.items-title {
   font-weight: bold;
   font-size: 20px;
-  color: black; }
+  color: black;
+}
 
 .message-wrapper .ship-method .express-delivery,
 .message-wrapper .ship-method p,
@@ -64,29 +78,34 @@
 .message-wrapper .ship-to .street-block,
 .message-wrapper .ship-to .country {
   color: #90847c;
-  font-size: 17px; }
+  font-size: 17px;
+}
 
 .message-wrapper .shipping-wrapper p {
-  margin-top: 0px; }
+  margin-top: 0px;
+}
 
 .message-wrapper .ship-to .first-name,
 .message-wrapper .ship-to .last-name,
 .message-wrapper .ship-to .name-block,
 .message-wrapper .ship-method .express-delivery {
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .message-wrapper .ship-method {
-  float: right;
-  /* LTR */ }
+  float: right; /* LTR */
+}
 
 .message-wrapper .shipping-wrapper,
 .message-wrapper .order-summary-wrapper {
-  clear: both; }
+  clear: both;
+}
 
 .message-wrapper .order-summary-wrapper .view-commerce-cart-summary table {
   border: none;
   border-collapse: collapse;
-  width: 100%; }
+  width: 100%
+}
 
 .message-wrapper .order-summary-wrapper .view-commerce-cart-summary th {
   border: none;
@@ -95,30 +114,35 @@
   text-transform: none;
   font-weight: bold;
   text-align: left;
-  color: black; }
+  color: black;
+}
 
 .message-wrapper .order-summary-wrapper .view-commerce-cart-summary tr {
   border: none;
   background: transparent;
   padding: 10px;
-  text-align: left; }
+  text-align: left;
+}
 
 .view-commerce-cart-summary .views-table tbody td {
-  padding: 20px 10px; }
+  padding: 20px 10px;
+}
 
 .message-wrapper .order-summary-wrapper table.commerce-price-formatted-components {
   width: auto;
-  float: right;
-  /* LTR */
-  margin-bottom: 30px; }
+  float: right; /* LTR */
+  margin-bottom: 30px;
+}
 
 .message-wrapper .order-summary-wrapper table.commerce-price-formatted-components td {
-  text-align: right;
-  /* LTR */
-  padding: 10px; }
+  text-align: right; /* LTR */
+  padding: 10px;
+}
 
 .message-wrapper .question {
-  clear: both; }
+  clear: both;
+}
 
 .message-wrapper .question a {
-  color: #009BD4; }
+  color: #009BD4;
+}

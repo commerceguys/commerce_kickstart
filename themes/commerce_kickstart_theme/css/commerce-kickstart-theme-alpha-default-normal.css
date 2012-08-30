@@ -1,7 +1,6 @@
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
 /* If you are using the default media queries provided by Omega, these styles will also
  *  apply to the widescreen layout unless they are overridden by the widescreen styles. */
-
 /**************************************************
 * --
 * 3. Section content
@@ -10,7 +9,6 @@
 /**********************************************
 * 3.2. Zone content
 **********************************************/
-
 /*******************************************
 * 3.2.2. Content
 *******************************************/
@@ -19,21 +17,18 @@
 #block-views-demo-content-slideshow-block-1 .view-display-id-block_1 .bx-prev,
 #block-views-demo-content-slideshow-block-1 .view-display-id-block_1 .bx-next {
   border: 0;
-  width: 320px;
-}
+  width: 320px; }
 #block-views-demo-content-slideshow-block-1 .event-slider .views-field-nothing {
-  background: transparent url('../images/bg_title_slideshow_current.png') left top no-repeat;
-  left: 32.5%;
-}
+  background: transparent url("../images/bg_title_slideshow_current.png") left top no-repeat;
+  left: 32.5%; }
 #block-views-demo-content-slideshow-block-1 .bx-prev,
 #block-views-demo-content-slideshow-block-1 .bx-prev:hover {
-  background: transparent url('../images/bg_title_slideshow_previous.png') left top no-repeat;
-}
+  background: transparent url("../images/bg_title_slideshow_previous.png") left top no-repeat; }
 #block-views-demo-content-slideshow-block-1 .bx-next,
 #block-views-demo-content-slideshow-block-1 .bx-next:hover {
-  background: transparent url('../images/bg_title_slideshow_next.png') left top no-repeat;
-  margin-right: 5px;
-}
+  background: transparent url("../images/bg_title_slideshow_next.png") left top no-repeat;
+  margin-right: 5px; }
+
 /**************************************************
 * --
 * 4. Section footer
@@ -46,9 +41,9 @@
 * Connect with us
 */
 #block-menu-menu-social-connection h2 {
-  background: url('../images/bg_block_footer_title.png') left top no-repeat;
-  color: #eeeeee;
-}
+  background: url("../images/bg_block_footer_title.png") left top no-repeat;
+  color: #eeeeee; }
+
 /**************************************************
 * --
 * 5. Commerce specific
@@ -57,32 +52,20 @@
 /**********************************************
 * 5.3. Product page
 **********************************************/
-
-.commerce-kickstart-add-to-cart .added-product-title {
-  padding-right: 10px;
-  width: 310px;
-}
-.commerce-kickstart-add-to-cart .view-confirm-message-product-display {
-  width: 340px;
-}
-.commerce-kickstart-add-to-cart .view-confirm-message-product-display .view-content {
-  margin-left: 130px;
-  padding-top: 0px;
-}
-.commerce-kickstart-add-to-cart .view-content .field-content .field {
-  text-align: left;
-}
-.commerce-kickstart-add-to-cart .view-content .field-content .field-name-field-images {
-  margin-right: 10px;
+/**
+* Add to cart popin.
+*/
+div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper {
+  float: none;
+  min-height: 210px;
+  height: 100%;
   position: absolute;
-  left: 20px;
-}
-/**************************************************
-* --
-* 8. Comments
-* --
-**************************************************/
-/* Comment links */
-.links.node-links {
-  margin-top: 15px;
-}
+  right: 0; }
+div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display {
+  float: left; }
+  div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content {
+    margin-left: 130px;
+    width: 90%; }
+    div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .field-name-field-images {
+      position: absolute;
+      left: 20px; }
