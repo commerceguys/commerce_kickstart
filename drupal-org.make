@@ -94,6 +94,7 @@ projects[oauthconnector][version] = 1.x-dev
 projects[oauthconnector][subdir] = "contrib"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oathuconnector-notice-no-csid.patch"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oauthconnector-fix-ctools-exportables-1712262-2.patch"
+projects[oauthconnector][patch][] = "http://drupal.org/files/1764028-oauthconnector-fix-css-class.patch"
 projects[inline_entity_form][version] = 1.0-beta4
 projects[inline_entity_form][subdir] = "contrib"
 projects[field_extractor][version] = 1.0
