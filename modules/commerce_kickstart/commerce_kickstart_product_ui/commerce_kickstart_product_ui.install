@@ -54,4 +54,17 @@ function commerce_kickstart_product_ui_enable() {
     watchdog_exception('block', $e);
     throw $e;
   }
+
+  // Set checkout panes order.
+  $pane_ids = array('cart_contents','account','customer_profile_billing','customer_profile_shipping');
+  $weight = 0;
+  foreach($pane_ids as $pane_id) {
+    $checkout_pane = commerce_checkout_pane_load($pane_id);
+    if ($checkout_pane) {
+      $checkout_pane['weight'] = $weight;
+      commerce_checkout_pane_save($checkout_pane);
+
+      $weight++;
+    }
+  }
 }

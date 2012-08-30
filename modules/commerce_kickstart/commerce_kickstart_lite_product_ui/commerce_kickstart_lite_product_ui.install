@@ -60,4 +60,17 @@ function commerce_kickstart_lite_product_ui_enable() {
   $collection = taxonomy_vocabulary_machine_name_load('product_category');
   $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
   variable_set($variable_name, 'main-menu');
+
+  // Set checkout panes order.
+  $pane_ids = array('cart_contents','account','customer_profile_billing','customer_profile_shipping');
+  $weight = 0;
+  foreach($pane_ids as $pane_id) {
+    $checkout_pane = commerce_checkout_pane_load($pane_id);
+    if ($checkout_pane) {
+      $checkout_pane['weight'] = $weight;
+      commerce_checkout_pane_save($checkout_pane);
+
+      $weight++;
+    }
+  }
 }

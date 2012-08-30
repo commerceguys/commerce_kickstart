@@ -143,16 +143,6 @@ function commerce_kickstart_lite_product_ui_form_alter(&$form, &$form_state, $fo
 }
 
 /**
- * Implements hook_commerce_checkout_pane_info_alter().
- */
-function commerce_kickstart_lite_product_ui_commerce_checkout_pane_info_alter(&$checkout_panes) {
-  $checkout_panes['cart_contents']['weight'] = 0;
-  $checkout_panes['account']['weight'] = 1;
-  $checkout_panes['customer_profile_billing']['weight'] = 2;
-  $checkout_panes['customer_profile_shipping']['weight'] = 3;
-}
-
-/**
  * Implements hook_page_alter().
  */
 function commerce_kickstart_lite_product_ui_page_alter(&$page) {
