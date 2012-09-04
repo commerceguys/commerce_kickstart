@@ -204,6 +204,7 @@ function commerce_kickstart_merchandising_views_default_views() {
   $handler->display->display_options['fields']['field_link']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['type'] = 'link_plain';
   /* Field: Content: Headline */
   $handler->display->display_options['fields']['field_headline']['id'] = 'field_headline';
   $handler->display->display_options['fields']['field_headline']['table'] = 'field_data_field_headline';
@@ -232,6 +233,7 @@ function commerce_kickstart_merchandising_views_default_views() {
   $handler->display->display_options['fields']['field_tagline']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_tagline']['alter']['path'] = '[field_link]';
   $handler->display->display_options['fields']['field_tagline']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tagline']['type'] = 'text_plain';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
