@@ -107,3 +107,6 @@ dependencies[] = commerce_kickstart_comment
 dependencies[] = commerce_kickstart_migrate
 dependencies[] = commerce_kickstart_reset
 dependencies[] = commerce_kickstart_service_provider
+
+; System Requirements.
+php_memory_limit = 128M
