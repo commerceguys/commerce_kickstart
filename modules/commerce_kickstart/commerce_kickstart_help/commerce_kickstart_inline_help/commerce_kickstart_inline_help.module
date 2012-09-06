@@ -19,6 +19,10 @@ function commerce_kickstart_inline_help_page_alter(&$vars) {
     case 'admin/commerce/products/types':
       $help_topic = 'product_type';
       break;
+    case 'admin/commerce/config/taxes':
+    case 'admin/commerce/config/taxes/rates':
+      $help_topic = 'tax';
+      break;
     default:
       $help_topic = NULL;
   }
@@ -48,6 +52,23 @@ function commerce_kickstart_inline_help_page_alter(&$vars) {
     );
   }
 
+}
+
+/**
+ * Remove the system help. Replaced by inline help.
+ * Moves the action links from pages with inline help, after inline help.
+ */
+function commerce_kickstart_inline_help_preprocess_page(&$vars) {
+  if (isset($vars['page']['content']['system_main']['help_text'])) {
+    $vars['page']['help'] = '';
+    if ($vars['action_links']) {
+      $vars['page']['content']['system_main']['local_tasks'] = array(
+        '#weight' => -9,
+        '#markup' => '<ul class="action-links">' . render($vars['action_links']) . '</ul>',
+      );
+      $vars['action_links'] = '';
+    }
+  }
 }
 
 /**
