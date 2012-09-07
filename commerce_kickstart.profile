@@ -186,3 +186,33 @@ function commerce_kickstart_update_status_alter(&$projects) {
     }
   }
 }
+
+/**
+ * Provides a list of Crumbs plugins and their weights.
+ */
+function commerce_kickstart_crumbs_get_info() {
+  $crumbs = array(
+    'crumbs.home_title' => 0
+  );
+
+  foreach (module_implements('commerce_kickstart_crumb_info') as $module) {
+    // The module-provided item might be just the name of the plugin, or it
+    // might be an array in the form of $plugin_name => $weight.
+    foreach (module_invoke($module, 'commerce_kickstart_crumb_info') as $crumb) {
+      if (is_array($crumb)) {
+        $crumbs += $crumb;
+      }
+      else {
+        $crumbs[$crumb] = count($crumbs);
+      }
+    }
+  }
+
+  // Add the fallback wildcard.
+  $crumbs['*'] = count($crumbs);
+
+  asort($crumbs);
+
+  return $crumbs;
+}
+

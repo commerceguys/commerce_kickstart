@@ -513,6 +513,7 @@ function commerce_kickstart_menus_views_api() {
  */
 function commerce_kickstart_menus_menu_breadcrumb_alter(&$active_trail, $item) {
   // Home > Administration > Store settings > Product settings > Content types OR Product types
+  // @todo Rework this.
   if (drupal_match_path($item['path'], "admin/structure/types/*\nadmin/commerce/config/types/*\nadmin/commerce/products/types*")) {
     if (drupal_match_path($item['path'], "admin/structure/types/add\nadmin/commerce/products/types")) {
       return;
@@ -526,39 +527,59 @@ function commerce_kickstart_menus_menu_breadcrumb_alter(&$active_trail, $item) {
       $active_trail_end = array_slice($active_trail, 6);
     }
     $active_trail = array_slice($active_trail, 0, 1);
-    $active_trail[] = menu_get_item('admin');
-    $active_trail[] = menu_get_item('admin/commerce/config');
-    $active_trail[] = menu_get_item('admin/commerce/config/product-settings');
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin');
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/config');
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/config/product-settings');
     // Append either "Product types" OR "Content types".
     if ($is_product_type_page || $is_product_type) {
       if ($is_product_type_page) {
         array_shift($active_trail_end);
       }
-      $active_trail[] = menu_get_item('admin/commerce/config/types');
+      $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/config/types');
     }
     else {
-      $active_trail[] = menu_get_item('admin/commerce/config/types/content');
+      $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/config/types/content');
     }
     $active_trail = array_merge($active_trail, $active_trail_end);
   }
-  // Home > Administration > Content > Add content OR Add product
-  else if (drupal_match_path($item['path'], 'node/add*')) {
-    if (drupal_match_path($item['path'], 'node/add/add-product')) {
-      return;
-    }
-    $active_trail_end = array_slice($active_trail, 1);
+  // Set the breadcrumb for the "Add content" tab of node/add.
+  else if (drupal_match_path($item['path'], 'node/add')) {
     $active_trail = array_slice($active_trail, 0, 1);
-    $active_trail[] = menu_get_item('admin');
-    $is_product_display_page = in_array(strtr(arg(2),'-','_'), array_keys(commerce_product_reference_node_types()));
-    if ($is_product_display_page) {
-      array_shift($active_trail_end);
-      $active_trail[] = menu_get_item('admin/commerce/manage-products');
-      $active_trail[] = menu_get_item('admin/commerce/manage-products/actions');
-      $active_trail[] = menu_get_item('node/add/add-product');
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin');
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/manage-content');
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/manage-content/actions');
+    $active_trail[] = _commerce_kickstart_menus_get_item('node/add/add-content');
+  }
+}
+
+/**
+ * Returns a menu router item.
+ *
+ * If the Crumbs module is enabled, uses the Crumbs-provided function and
+ * sets additional keys later expected by that module.
+ *
+ * @param $path
+ *   The path, for example node/5.
+ *
+ * @return
+ *   The loaded router item, with additional keys set if the Crumbs module is
+ *   present.
+ */
+function _commerce_kickstart_menus_get_item($path) {
+  if (module_exists('crumbs')) {
+    static $loaded = FALSE;
+    if (!$loaded) {
+      module_load_include('inc', 'crumbs', 'crumbs.trail');
+      $loaded = TRUE;
     }
-    else {
-      $active_trail[] = array('title' => 'Content') + menu_get_item('admin/content');
-    }
-    $active_trail = array_merge($active_trail, $active_trail_end);
+
+    $item = crumbs_get_router_item($path);
+    $item['link_title'] = $item['title'];
+    $item['link_options'] = array();
+
+    return $item;
+  }
+  else {
+    return menu_get_item($path);
   }
 }

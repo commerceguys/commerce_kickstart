@@ -16,6 +16,18 @@ function commerce_kickstart_product_migrate_api() {
 }
 
 /**
+ * Implements hoook_commerce_kickstart_crumb_info().
+ *
+ * Enables the Crumbs plugin relevant to this module that provides taxonomy
+ * based breadcrumbs for each product display node.
+ */
+function commerce_kickstart_product_commerce_kickstart_crumb_info() {
+  return array(
+    'taxonomy.termReference.field_collection.node.*',
+  );
+}
+
+/**
  * Implements hook_commerce_product_type_info_alter().
  */
 function commerce_product_commerce_product_type_info_alter(&$product_types) {

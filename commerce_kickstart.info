@@ -68,6 +68,7 @@ dependencies[] = jirafe
 
 ; Install contribs.
 dependencies[] = chosen
+dependencies[] = crumbs
 dependencies[] = module_filter
 dependencies[] = field_extractor
 dependencies[] = image_delta_formatter

@@ -64,6 +64,7 @@ function _commerce_kickstart_setup_localization($operation, &$context) {
   );
   language_negotiation_set('language', $negotiation);
 }
+
 /**
  * BatchAPI callback.
  *
@@ -264,6 +265,7 @@ function _commerce_kickstart_post_import($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
 
   _commerce_kickstart_setup_blocks();
+  _commerce_kickstart_setup_crumbs();
 }
 
 /**
@@ -358,6 +360,14 @@ function _commerce_kickstart_setup_blocks() {
       ->condition('theme', $theme)
       ->execute();
   }
+}
+
+/**
+ * Configures the Crumbs module and enables the required plugins.
+ */
+function _commerce_kickstart_setup_crumbs() {
+  variable_set('crumbs_show_current_page', TRUE);
+  variable_set('crumbs_weights', commerce_kickstart_crumbs_get_info());
 }
 
 /*

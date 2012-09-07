@@ -16,9 +16,21 @@ function commerce_kickstart_blog_migrate_api() {
 }
 
 /**
+ * Implements hoook_commerce_kickstart_crumb_info().
+ *
+ * Enables the Crumbs plugin relevant to this module that provides taxonomy
+ * based breadcrumbs for each blog post.
+ */
+function commerce_kickstart_blog_commerce_kickstart_crumb_info() {
+  return array(
+    'taxonomy.termReference.field_blog_category.node.blog_post',
+  );
+}
+
+/**
  * Override or insert variables into the page template.
  */
-function commerce_kickstart_blog_ui_preprocess_node(&$vars) {
+function commerce_kickstart_blog_preprocess_node(&$vars) {
   if ($vars['type'] == 'blog_post') {
     // Switching to short date format.
     $vars['date'] = format_date($vars['created'], 'short');

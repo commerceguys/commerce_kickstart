@@ -55,35 +55,4 @@ function commerce_kickstart_blog_enable() {
     watchdog_exception('block', $e);
     throw $e;
   }
-
-  // Configure Custom Breadcrumbs.
-  variable_set('custom_breadcrumbs_exclude_list', '<front>');
-  variable_set('custom_breadcrumbs_force_active_trail', 0);
-  variable_set('custom_breadcrumbs_use_exclude_list', 1);
-  variable_set('custom_breadcrumb_home', 'Home');
-
-  // Custom breadcrumbs is not currently integrated with features.
-  $breadcrumb = new stdClass();
-  $breadcrumb->node_type = 'page';
-  $breadcrumb->name = 'page';
-  $breadcrumb->visibility_php = '';
-  $breadcrumb->titles = '[node:title]';
-  $breadcrumb->paths = '<none>';
-  _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs', 'node', $breadcrumb);
-
-  $breadcrumb = new stdClass();
-  $breadcrumb->views_path = 'blog';
-  $breadcrumb->name = 'blog';
-  $breadcrumb->visibility_php = '';
-  $breadcrumb->titles = 'Blog';
-  $breadcrumb->paths = '<none>';
-  _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs_views', 'views', $breadcrumb);
-
-  $breadcrumb = new stdClass();
-  $breadcrumb->node_type = 'blog_post';
-  $breadcrumb->name = 'blog_post';
-  $breadcrumb->visibility_php = '';
-  $breadcrumb->titles = "Blog\n[node:title]";
-  $breadcrumb->paths = "blog\n<none>";
-  _custom_breadcrumbs_save_breadcrumb('custom_breadcrumbs', 'node', $breadcrumb);
 }
