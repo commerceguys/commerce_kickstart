@@ -22,7 +22,6 @@ dependencies[] = field_extractor
 dependencies[] = image
 dependencies[] = image_delta_formatter
 dependencies[] = inline_entity_form
-dependencies[] = link
 dependencies[] = menu
 dependencies[] = options
 dependencies[] = search_api

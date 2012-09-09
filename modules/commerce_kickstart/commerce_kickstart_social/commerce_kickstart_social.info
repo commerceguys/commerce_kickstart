@@ -6,6 +6,7 @@ php = 5.2.4
 dependencies[] = block
 dependencies[] = connector_action_default_register_form
 dependencies[] = features
+dependencies[] = http_client
 dependencies[] = menu
 dependencies[] = oauth_common
 dependencies[] = oauthconnector
