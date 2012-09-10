@@ -2,9 +2,7 @@
  * The .seven.css file is intended to contain styles that override declarations
  * in the Seven admin theme.
  */
-
 /* @group Content */
-
 .views-ui-display-tab-bucket h1,
 .views-ui-display-tab-bucket h2,
 .views-ui-display-tab-bucket h3,
@@ -15,12 +13,11 @@
 }
 
 /* @end */
-
 /* @group Forms */
-
 .views-ui-dialog fieldset {
   padding-top: 2.5em;
 }
+
 fieldset fieldset {
   border: medium none;
 }
@@ -42,48 +39,60 @@ fieldset.fieldset-no-legend {
   padding-left: 0;
   padding-right: 0;
 }
+
 .views-display-tab fieldset {
   padding: 0 12px;
 }
+
 .views-display-tab .fieldset-wrapper {
   padding: 10px 12px 12px;
 }
+
 .views-display-tab fieldset.box-padding .fieldset-wrapper {
   padding: 0;
 }
+
 .views-display-tab legend + .fieldset-wrapper {
   padding-top: 2.5em;
 }
+
 .views-admin .form-item label.option,
 #views-ui-preview-form .form-item label.option {
   font-size: 1em;
 }
+
 #views-ui-preview-form .form-submit {
   margin-top: 3px;
 }
+
 .views-admin input.form-submit,
 .views-ui-dialog input.form-submit,
 .views-admin a.button,
 .views-ui-dialog a.button {
   margin-bottom: 0;
-  margin-right: 0; /* LTR */
+  margin-right: 0;
+  /* LTR */
   margin-top: 0;
 }
 
 /* Override for a button on the edit display screen */
 #edit-displays-preview-controls .form-submit {
   display: inline-block;
-  margin-right: 1em; /* LTR */
+  margin-right: 1em;
+  /* LTR */
 }
 
 /* Override for filter button on the views list screen */
 #ctools-export-ui-list-form .form-submit {
   margin-bottom: 0;
 }
+
 #ctools-export-ui-list-form .ctools-export-ui-first-row .form-item {
-  margin-right: 5px; /* LTR */
+  margin-right: 5px;
+  /* LTR */
   margin-top: 3px;
 }
+
 .form-item,
 .form-item .form-item {
   margin-bottom: 0;
@@ -91,14 +100,17 @@ fieldset.fieldset-no-legend {
   padding-bottom: 0;
   padding-top: 0;
 }
+
 .form-actions {
   margin-bottom: 0;
   margin-top: 0;
 }
+
 .form-item .form-item {
   padding-bottom: 0;
   padding-top: 0;
 }
+
 .form-radios > .form-item {
   margin-top: 3px;
 }
@@ -107,7 +119,6 @@ fieldset.fieldset-no-legend {
  *
  * Dependent options are identified in CTools dependent.js
  */
-
 /* The .dependent-options.form-item is necessary to supercede the Seven .form-item
  * reset declaration that sets the margin to zero.
  */
@@ -117,6 +128,7 @@ fieldset.fieldset-no-legend {
 .form-item-options-expose-label {
   margin-left: 1.5em;
 }
+
 .views-admin-dependent .form-item .form-item,
 .views-admin-dependent .form-type-checkboxes,
 .views-admin-dependent .form-type-radios,
@@ -129,6 +141,7 @@ fieldset.fieldset-no-legend {
   margin-bottom: 6px;
   margin-top: 6px;
 }
+
 .views-admin-dependent .form-type-radio,
 .views-admin-dependent .form-radios .form-item {
   margin-bottom: 2px;
@@ -136,51 +149,57 @@ fieldset.fieldset-no-legend {
 }
 
 /* @end */
-
 /* @end */
-
 /* @group Lists */
-
 .views-admin ul.secondary,
 .views-admin .item-list ul {
   margin: 0;
   padding: 0;
 }
+
 .views-admin ul.secondary {
   clear: none;
 }
+
 .views-displays ul.secondary li a,
 .views-displays ul.secondary li.active a,
 .views-displays ul.secondary li.active a.active {
   padding: 2px 7px 3px;
 }
+
 .views-displays ul.secondary li.active a,
 .views-displays ul.secondary li.active a.active {
   border: 1px solid transparent;
 }
+
 .views-admin .links li {
-  padding-right: 0; /* LTR */
+  padding-right: 0;
+  /* LTR */
 }
+
 .views-admin .button .links li {
-  padding-right: 12px; /* LTR */
+  padding-right: 12px;
+  /* LTR */
 }
+
 .page-admin-structure-views #content ul.action-links {
   padding-left: 0;
   padding-right: 0;
 }
+
 .views-display-top ul.secondary {
   background-color: transparent;
-  float: left; /* LTR */
+  float: left;
+  /* LTR */
 }
+
 .views-display-top .secondary .action-list li {
   float: none;
   margin: 0;
 }
 
 /* @end */
-
 /* @group Buttons */
-
 .ctools-button-processed ul {
   margin: 0;
 }
@@ -191,6 +210,7 @@ fieldset.fieldset-no-legend {
   color: #0074BD;
   text-shadow: none;
 }
+
 .ctools-button-processed input.form-submit:active {
   background: none;
   border: medium none;
@@ -199,38 +219,36 @@ fieldset.fieldset-no-legend {
 }
 
 /* @end */
-
 /* @group Tables */
-
 table td,
 table th {
   vertical-align: top;
 }
 
 /* @end */
-
 /* @group Attachment details */
-
 #edit-display-settings-title {
   color: #008BCB;
 }
 
 /* @end */
-
 /* @group Attachment details tabs
  *
  * The tabs that switch between sections
  */
-
 .views-displays .secondary {
-  text-align: left; /* LTR */
+  text-align: left;
+  /* LTR */
 }
+
 .views-displays .secondary > li:first-child {
   padding-left: 0;
 }
+
 .views-admin .icon.add {
   background-position: center 3px;
 }
+
 .views-displays .secondary a {
   background-color: #f1f1f1;
   -moz-border-radius: 7px;
@@ -238,28 +256,34 @@ table th {
   border-radius: 7px;
   color: #008BCB;
 }
+
 .views-displays .secondary a:hover > .icon.add {
   background-position: center -25px;
 }
+
 .views-displays .secondary .open > a {
   -moz-border-radius: 7px 7px 0 0;
   -webkit-border-radius: 7px 7px 0 0;
   border-radius: 7px 7px 0 0;
 }
+
 .views-displays .secondary .open > a:hover {
   background-color: #f1f1f1;
   color: #008BCB;
 }
-.views-displays .secondary .action-list  li:first-child {
+
+.views-displays .secondary .action-list li:first-child {
   -moz-border-radius: 0 7px 0 0;
   -webkit-border-radius: 0 7px 0 0;
   border-radius: 0 7px 0 0;
 }
-.views-displays .secondary .action-list  li:last-child {
+
+.views-displays .secondary .action-list li:last-child {
   -moz-border-radius: 0 0 7px 7px;
   -webkit-border-radius: 0 0 7px 7px;
   border-radius: 0 0 7px 7px;
 }
+
 .views-displays .secondary .action-list input.form-submit {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -271,62 +295,63 @@ table th {
 }
 
 /* @end */
-
 /* @group Attachment buckets
  *
  * These are the individual "buckets," or boxes, inside the display settings area
  */
-
 .views-ui-display-tab-bucket h3 {
   font-size: 12px;
   text-transform: uppercase;
 }
+
 .views-ui-display-tab-bucket .links {
   padding: 2px 6px 4px;
 }
+
 .views-ui-display-tab-bucket .links li + li {
   margin-left: 3px;
 }
 
 /* @end */
-
 /* @group Rearrange filter criteria */
-
 #views-ui-rearrange-filter-form .action-links {
   margin: 0;
   padding: 0;
 }
+
 #views-ui-rearrange-filter-form table {
   border: medium none;
 }
+
 #views-ui-rearrange-filter-form [id^="views-row"] {
   border: medium none;
 }
+
 #views-ui-rearrange-filter-form tr td:last-child {
   border-right: medium none;
 }
+
 #views-ui-rearrange-filter-form .filter-group-operator-row {
   border-left: 1px solid transparent !important;
   border-right: 1px solid transparent !important;
 }
+
 #views-ui-rearrange-filter-form tr.drag td {
   background-color: #FFEE77 !important;
 }
+
 #views-ui-rearrange-filter-form tr.drag-previous td {
   background-color: #FFFFBB !important;
 }
 
 /* @end */
-
 /* @group Live preview elements */
-
 .views-query-info pre {
   margin-bottom: 0;
   margin-top: 0;
 }
 
 /* @group Query info table */
-
 .views-query-info table {
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
@@ -334,79 +359,58 @@ table th {
   -webkit-border-horizontal-spacing: 1px;
   -webkit-border-vertical-spacing: 1px;
 }
+
 .views-query-info table tr td:last-child {
   /* Fixes a Seven style that bleeds down into this table unnecessarily */
   border-right: 0 none;
 }
 
 /* @end */
-
 /* @end */
-
 /* @group Add view */
-
 .form-item-page-create,
 .form-item-block-create {
   margin-top: 13px;
 }
 
 /* @end */
-
 /* @group Modal dialog box
  *
  * The contents of the popup dialog on the views edit form.
  */
-
 .views-ui-dialog .ui-dialog-titlebar-close {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-color: #cccccc;
-  right: -27px; /* LTR */
+  right: -27px;
+  /* LTR */
   top: -1px;
 }
+
 .views-ui-dialog fieldset.collapsible {
   padding-top: 1.5em;
 }
+
 .views-ui-dialog fieldset.collapsed {
   padding-top: 2.5em;
 }
+
 .filterable-option .form-item.form-type-checkbox {
   /* This selector is aggressive because Seven's reset for .form-items is aggressive. */
   padding-bottom: 4px;
   padding-left: 4px;
   padding-top: 4px;
 }
+
 /* @end */
-
 /* @group CTools */
-
 /* @group Buttons */
-
 .ctools-button-processed {
-  background-image:
-    -moz-linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
-  background-image:
-    -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      color-stop(0.0, rgba(255, 255, 255, 1.0)),
-      color-stop(1.0, rgba(239, 239, 239, 1.0))
-    );
-  background-image:
-    -webkit-linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
-  background-image:
-    linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
+  background-image: -moz-linear-gradient(-90deg, white 0px, #efeded 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #efefef));
+  background-image: -webkit-linear-gradient(-90deg, white 0px, #efeded 100%);
+  background-image: linear-gradient(-90deg, #ffffff 0px, #efeded 100%);
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;
@@ -417,114 +421,91 @@ table th {
   line-height: 1em;
   text-transform: capitalize;
 }
+
 .ctools-button-processed:hover {
-  background-image:
-    -moz-linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
-  background-image:
-    -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      color-stop(0.0, rgba(255, 255, 255, 1.0)),
-      color-stop(1.0, rgba(239, 239, 239, 1.0))
-    );
-  background-image:
-    -webkit-linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
-  background-image:
-    linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
+  background-image: -moz-linear-gradient(-90deg, white 0px, #efeded 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #efefef));
+  background-image: -webkit-linear-gradient(-90deg, white 0px, #efeded 100%);
+  background-image: linear-gradient(-90deg, #ffffff 0px, #efeded 100%);
 }
+
 .ctools-dropbutton-processed.open:hover {
-  background-image:
-    -moz-linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
-  background-image:
-    -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      color-stop(0.0, rgba(255, 255, 255, 1.0)),
-      color-stop(1.0, rgba(239, 239, 239, 1.0))
-    );
-  background-image:
-    -webkit-linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
-  background-image:
-    linear-gradient(
-      -90deg,
-      #ffffff 0px,
-      #efeded 100%);
+  background-image: -moz-linear-gradient(-90deg, white 0px, #efeded 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #efefef));
+  background-image: -webkit-linear-gradient(-90deg, white 0px, #efeded 100%);
+  background-image: linear-gradient(-90deg, #ffffff 0px, #efeded 100%);
 }
+
 .ctools-dropbutton-processed.open {
-  -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
-  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 }
+
 .ctools-button li a,
 .views-ui-display-tab-actions .ctools-button-processed input {
   border: none;
 }
+
 .views-ui-display-tab-actions .ctools-button-processed li a,
 .views-ui-display-tab-actions .ctools-button-processed input,
 .views-display-top .ctools-button-processed li a {
   padding: 5px 20px;
 }
+
 .views-ui-display-tab-actions .ctools-button-processed .ctools-twisty,
 .views-display-top .ctools-button-processed .ctools-twisty {
   top: 13px;
 }
+
 .ctools-dropbutton-processed .ctools-content {
   border-right: 1px solid #fff;
 }
+
 .ctools-dropbutton-processed .ctools-link {
   border-left: 1px solid #eaeaea;
   width: 27px;
 }
+
 .ctools-dropbutton-processed {
   padding-right: 27px;
 }
+
 .ctools-twisty {
   right: 10px;
 }
 
 /* @end */
-
 /* @group Collapsible */
-
 .ctools-toggle {
   margin-top: 0.6667em;
 }
+
 .ctools-toggle.ctools-toggle-collapsed {
   margin-top: 0.5em;
 }
+
 .views-display-settings .ctools-toggle {
   color: #008BCB;
 }
+
 .views-display-column > .ctools-toggle {
   margin-top: 14px;
 }
+
 .views-display-column > .ctools-toggle.ctools-toggle-collapsed {
   margin-top: 12px;
 }
+
 .views-display-column > .ctools-collapsible-handle {
   color: #008BCB;
 }
+
 .views-ui-display-tab-actions .ctools-button-processed input {
   box-shadow: none;
   color: #0074BD;
 }
+
 .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 0;
 }
@@ -536,66 +517,79 @@ table th {
   outline: 0;
   padding: 0;
 }
+
 .node-form .field-widget-inline-entity-form .ief-form-bottom {
   padding-top: 40px;
 }
+
 .field-type-commerce-product-reference .fieldset-legend {
   padding-left: 0;
 }
+
 .node-form .field-widget-inline-entity-form .ief-form {
   background: transparent;
 }
+
 .node-form .field-widget-inline-entity-form .ief-form .fieldset-wrapper {
   background: #f6f6f6;
   border: 1px solid #E1E1E1;
   padding: 15px;
   margin-top: 0;
 }
+
 #overlay .node-form .field-widget-inline-entity-form .ief-form .fieldset-wrapper {
   background: #fff;
 }
+
 .node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit,
 .ief-row-form .ief-entity-submit {
   background-color: #36A2F6;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55b5ff), to(#36A2F6));
-  background-image: -webkit-linear-gradient(top, #55b5ff, #36A2F6);
-  background-image: -moz-linear-gradient(top, #55b5ff, #36A2F6);
-  background-image: -ms-linear-gradient(top, #55b5ff, #36A2F6);
-  background-image: -o-linear-gradient(top, #55b5ff, #36A2F6);
-  background-image: linear-gradient(to bottom, #55b5ff, #36A2F6);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55b5ff), to(#36a2f6));
+  background-image: -webkit-linear-gradient(top, #55b5ff, #36a2f6);
+  background-image: -moz-linear-gradient(top, #55b5ff, #36a2f6);
+  background-image: -ms-linear-gradient(top, #55b5ff, #36a2f6);
+  background-image: -o-linear-gradient(top, #55b5ff, #36a2f6);
+  background-image: linear-gradient(to bottom, #55b5ff, #36a2f6);
   color: #fff;
 }
+
 .node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit:hover,
 .ief-row-form .ief-entity-submit:hover {
   background-color: #55b5ff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#36A2F6), to(#55b5ff));
-  background-image: -webkit-linear-gradient(top, #36A2F6, #55b5ff);
-  background-image: -moz-linear-gradient(top, #36A2F6, #55b5ff);
-  background-image: -ms-linear-gradient(top, #36A2F6, #55b5ff);
-  background-image: -o-linear-gradient(top, #36A2F6, #55b5ff);
-  background-image: linear-gradient(to bottom, #36A2F6, #55b5ff);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#36a2f6), to(#55b5ff));
+  background-image: -webkit-linear-gradient(top, #36a2f6, #55b5ff);
+  background-image: -moz-linear-gradient(top, #36a2f6, #55b5ff);
+  background-image: -ms-linear-gradient(top, #36a2f6, #55b5ff);
+  background-image: -o-linear-gradient(top, #36a2f6, #55b5ff);
+  background-image: linear-gradient(to bottom, #36a2f6, #55b5ff);
 }
+
 .node-form .field-widget-inline-entity-form fieldset {
   padding: 1.5em 0 0;
 }
+
 .node-form .field-widget-inline-entity-form > fieldset {
   padding: 2em 0 0;
 }
+
 .node-form .field-widget-inline-entity-form fieldset .tabledrag-toggle-weight-wrapper {
   float: right;
   margin-top: -10px;
 }
+
 .node-form .field-widget-inline-entity-form fieldset.ief-entity-fieldset {
   background: transparent;
   border: 0;
   margin: 0;
 }
+
 .node-form .field-widget-inline-entity-form fieldset.ief-entity-fieldset .fieldset-legend {
   border-bottom: 1px solid #e4e4e4;
   font-size: 16px;
   font-weight: 600;
   width: 100%;
 }
+
 .node-form .field-widget-inline-entity-form fieldset.ief-entity-fieldset .fieldset-wrapper {
   background: transparent;
   border: 0;
@@ -603,33 +597,40 @@ table th {
   padding: 15px;
   width: 100%;
 }
+
 .node-form .field-widget-inline-entity-form fieldset.ief-product-image .fieldset-wrapper {
   padding-top: 5px;
   width: 100%;
 }
+
 .node-form .field-widget-inline-entity-form .tabledrag-changed-warning,
 .node-form .field-widget-inline-entity-form #ief-entity-table {
   clear: both;
 }
+
 .node-form .field-widget-inline-entity-form #ief-entity-table,
-.node-form .field-widget-inline-entity-form #ief-entity-table tr td:last-child{
+.node-form .field-widget-inline-entity-form #ief-entity-table tr td:last-child {
   background-color: transparent;
 }
+
 .node-form .field-widget-inline-entity-form #ief-entity-table,
 .node-form .field-widget-inline-entity-form #ief-entity-table tr.even,
 .node-form .field-widget-inline-entity-form #ief-entity-table tr.odd {
   background: #f1f1f1;
   border-bottom: 1px solid #BEBFB9;
 }
+
 .node-form .field-widget-inline-entity-form #ief-entity-table tr:hover,
 tr.even {
   background: #f1f1f1;
 }
+
 .node-form .field-widget-inline-entity-form #ief-entity-table .ief-row-entity-form {
   background: #fff;
   border: 1px solid #ccc;
   border-width: 0 1px 1px;
 }
+
 .node-form .field-widget-inline-entity-form #ief-entity-table tr.ief-row-entity-form {
   background: #DFF2FB;
   border: 1px solid #AFDBE9;
@@ -637,26 +638,33 @@ tr.even {
   -webkit-box-shadow: 0 0 5px #fff;
   box-shadow: 0 0 5px #fff;
 }
+
 .node-form .ief-row-entity .ief-entity-operations {
   position: relative;
 }
+
 .node-form .ief-row-entity .ief-entity-operations .ajax-progress {
   left: 0;
-  position:absolute;
+  position: absolute;
   top: 100%;
 }
+
 .node-form .ief-row-form {
   background: #fff;
 }
+
 .node-form .ief-row-form > td {
   padding-top: 0;
 }
+
 .node-form .field-widget-inline-entity-form tr.ief-row-form .ief-form-row {
   padding-top: 30px;
 }
+
 .node-form .field-widget-inline-entity-form #ief-entity-table tr.ief-row-form:hover {
   background: #fff;
 }
+
 .node-form .field-widget-inline-entity-form .ief-entity-operations input.form-submit,
 .node-form .field-widget-inline-entity-form .field-type-image table input.form-submit {
   background: transparent;
@@ -670,38 +678,51 @@ tr.even {
   color: #36a2f6;
   padding: 0;
 }
+
 .node-form .ief-product-attributes .form-wrapper,
 .node-form .ief-product-details .form-wrapper {
-  float: left; /* LTR */
-  margin-right: 25px; /* LTR */
+  float: left;
+  /* LTR */
+  margin-right: 25px;
+  /* LTR */
 }
+
 .node-form .field-widget-inline-entity-form .fieldset-legend {
   left: 0;
   padding: 0;
   font-size: 18px;
   font-weight: 600;
 }
+
 .node-form .field-widget-inline-entity-form .fieldset-wrapper .fieldset-wrapper .fieldset-legend {
   padding: 3px 0;
 }
+
 .node-form .ief-product-details .fieldset-wrapper {
-  width: 33%
+  width: 33%;
 }
+
 .node-form .ief-product-details .form-item label {
-  float: left; /* LTR */
-  margin-right: 10px; /* LTR */
+  float: left;
+  /* LTR */
+  margin-right: 10px;
+  /* LTR */
 }
+
 #module-filter-squeeze .form-item-module-filter-name {
   clear: none;
 }
+
 .rules-elements-table {
   position: relative;
 }
+
 /* Megarow */
 .entity-commerce-order .content-right,
 .entity-commerce-order .content-left {
   margin: 0 1%;
 }
+
 .entity-commerce-order .field-name-commerce-line-items th,
 .entity-commerce-order .content-right .field-label,
 .entity-commerce-order .content-right .commerce-backoffice-order-status-label {
@@ -717,6 +738,7 @@ tr.even {
   margin-top: 10px;
   padding: 10px 15px;
 }
+
 .entity-commerce-order .content-right .commerce-backoffice-order-status-label {
   background: #ffedcb;
   border: 1px solid #ffcb69;
@@ -725,6 +747,7 @@ tr.even {
   box-shadow: inset 0 0 5px #fff;
   margin-top: 0px;
 }
+
 .entity-commerce-order .commerce-backoffice-order-status-form .form-submit,
 .view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit {
   background: #60aa20 url("../images/button.png") repeat-x 0 0;
@@ -739,6 +762,7 @@ tr.even {
   box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
   color: #fff;
 }
+
 .entity-commerce-order .commerce-backoffice-order-status-form .form-submit:hover,
 .view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit:hover {
   background: #79d428 url("../images/button-over.png") repeat-x 0 bottom;
@@ -748,20 +772,24 @@ tr.even {
   background-image: -ms-linear-gradient(top, #60aa20, #79d428);
   background-image: -o-linear-gradient(top, #60aa20, #79d428);
   background-image: linear-gradient(to bottom, #60aa20, #79d428);
-  -moz-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
-  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
-  box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
+  -moz-box-shadow: 0 1px 2px #cccccc, inset 0 -1px 1px #b9e87b;
+  -webkit-box-shadow: 0 1px 2px #cccccc, inset 0 -1px 1px #b9e87b;
+  box-shadow: 0 1px 2px #cccccc, inset 0 -1px 1px #b9e87b;
 }
+
 .field-name-commerce-customer-billing .name-block,
 .field-name-commerce-customer-shipping .name-block {
   font-weight: 500;
 }
+
 .content-left .field-name-commerce-order-total {
   width: 270px !important;
 }
+
 .entity-commerce-order .field-name-commerce-order-total {
   background: transparent;
 }
+
 .entity-commerce-order .field-name-commerce-order-total .field-items {
   background: #DFF2FB;
   border: 1px solid #AFDBE9;
@@ -771,47 +799,59 @@ tr.even {
   margin-bottom: 30px;
   padding: 8px 15px;
 }
+
 .entity-commerce-order .field-name-commerce-order-total .field-items tr.even,
 .entity-commerce-order .field-name-commerce-order-total .field-items tr.odd {
   background: transparent;
 }
+
 .entity-commerce-order .field-name-commerce-order-total .field-items td {
   line-height: 1.5em;
   padding: 5px 0;
 }
+
 .entity-commerce-order .field-name-commerce-order-total .field-items .component-type-commerce-price-formatted-amount td {
   border-top: 2px solid #AFDBE9;
   font-weight: 700;
 }
+
 .entity-commerce-order .field-name-commerce-order-total .component-total {
   min-width: 85px;
 }
+
 .field-name-commerce-order-total .field-label {
   font-weight: 300;
 }
+
 .field-name-commerce-order-total .field-items {
   font-weight: 500;
 }
+
 .entity-commerce-order table,
 .entity-commerce-order tr,
 tr td:last-child {
   border: 0;
 }
+
 #panes tr td:last-child {
   border-right: 1px solid #BEBFB9;
 }
+
 /* Blocks admin doesn't */
 #blocks tr td:last-child {
   border-right: 1px solid #BEBFB9;
 }
+
 .content-right > div.field {
   border: 0;
 }
+
 .view-commerce-backoffice-order-messages h2 {
   border-bottom: 10px solid #d8d8d8;
   font-weight: 500;
   padding-bottom: 10px;
 }
+
 .view-commerce-backoffice-order-messages th {
   background: transparent url("../images/th-border.gif") repeat-x 0 bottom;
   border: 1px solid #d8d8d8;
@@ -823,18 +863,22 @@ tr td:last-child {
   font-weight: 500;
   margin-bottom: 2px;
 }
+
 .view-commerce-backoffice-order-messages tbody {
   padding-top: 2px;
 }
+
 .view-commerce-backoffice-order-messages .views-row-first {
   border-top: 1px solid #d8d8d8;
 }
+
 .view-commerce-backoffice-order-messages tr.odd,
 .view-commerce-backoffice-order-messages tr.even {
   background: transparent;
   border: 1px solid #d8d8d8;
   border-width: 0 0 1px 0;
 }
+
 .view-commerce-backoffice-order-messages .commerce_order_state,
 .view-commerce-backoffice-order-messages .commerce_order_admin_comment,
 .view-commerce-backoffice-order-messages .commerce_order_payment_entered {
@@ -844,46 +888,57 @@ tr td:last-child {
   border-radius: 8px;
   padding: 2px 10px;
 }
+
 .view-commerce-backoffice-order-messages #message-commerce-body-add-more-wrapper .resizable-textarea {
   margin: 0 2px 30px 0;
 }
+
 .view-commerce-backoffice-order-messages #message-commerce-body-add-more-wrapper .filter-wrapper {
   border: 1px solid #eee;
   padding: 0 15px 10px;
 }
+
 .view-commerce-backoffice-orders tr.views-row-active,
 .view-commerce-backoffice-products tr.views-row-active {
   background: #DFF2FB !important;
   border: 1px solid #AFDBE9;
 }
+
 .view-commerce-backoffice-orders tr.views-row-active td,
 .view-commerce-backoffice-products tr.views-row-active td {
   background: transparent;
 }
+
 tr.megarow > td {
   background: #fff;
 }
+
 div.views-megarow-content {
   background: transparent;
   border-bottom: 11px solid #CCC;
   padding-top: 0;
 }
+
 div.views-megarow-content .megarow-header,
 .node-form .field-widget-inline-entity-form tr.ief-row-form .ief-form-row {
   background: transparent url("../images/mega-arrow.png") no-repeat 50px -1px !important;
   margin-top: -1px;
   position: relative;
 }
+
 div.views-megarow-content .megarow-header .megarow-title {
   font-size: 0;
 }
+
 /* Inline product edit field styles */
 #commerce-kickstart-inline-help-button {
   float: inherit;
 }
+
 .page-admin-commerce-products #commerce-kickstart-inline-help-button {
   position: relative;
 }
+
 .page-admin-commerce-products #commerce-kickstart-inline-help-button #edit-commerce-kickstart-inline-help-button {
   margin: 10px 0 0;
   position: absolute;
@@ -891,25 +946,30 @@ div.views-megarow-content .megarow-header .megarow-title {
   top: 100%;
   z-index: 1;
 }
+
 .page-admin-commerce-products #commerce-kickstart-inline-help-button .ajax-progress {
   bottom: 100%;
   right: 0;
   position: absolute;
   width: 150px;
 }
+
 .page-admin-commerce-products #commerce-kickstart-inline-help {
   position: relative;
   z-index: 1;
 }
+
 .page-admin-commerce-products-types #commerce-kickstart-inline-help-button #edit-commerce-kickstart-inline-help-button {
   margin-bottom: 0;
   margin-top: -45px;
   position: relative;
 }
+
 .page-admin-commerce-products-types #commerce-kickstart-inline-help-button .ajax-progress {
   position: relative;
   width: auto;
 }
+
 /* Customizing the View Filters */
 html.js .view-filters fieldset.collapsible,
 html.js .vbo-views-form fieldset,
@@ -921,29 +981,36 @@ html.js .vbo-views-form .fieldset-wrapper {
   outline: 0;
   padding: 0;
 }
+
 html.js .view-filters fieldset.collapsible .fieldset-wrapper,
 html.js .vbo-views-form fieldset .fieldset-wrapper {
   margin-bottom: 30px;
   padding-top: 30px;
 }
+
 html.js .view-filters fieldset.collapsible .fieldset-legend,
 html.js .vbo-views-form fieldset .fieldset-legend {
   background: transparent url("../images/filter.png") no-repeat 0 0;
   color: #36a2f6;
   margin-top: 0;
-  padding-left: 30px; /* LTR */
+  padding-left: 30px;
+  /* LTR */
   text-transform: uppercase;
 }
+
 html.js .view-filters fieldset.collapsible .fieldset-legend a,
-html.js .vbo-views-form fieldset .fieldset-legend a{
+html.js .vbo-views-form fieldset .fieldset-legend a {
   color: #36a2f6;
 }
+
 html.js .view-filters fieldset.collapsible .fieldset-legend {
   background: transparent url("../images/filter.png") no-repeat 0 0;
 }
+
 html.js .vbo-views-form fieldset .fieldset-legend {
   background: transparent url("../images/bulk-update.png") no-repeat 0 0;
 }
+
 html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend {
   background: transparent;
   padding-left: 0;
@@ -959,12 +1026,15 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   box-shadow: inset 0 0 1px #fff;
   outline: 0;
 }
+
 #rules-ui-edit-element fieldset .fieldset-wrapper .fieldset-wrapper {
   border: 0;
 }
+
 .rules-autocomplete-button {
   top: 6px;
 }
+
 .rules-elements-table ul.rules-operations a {
   padding: 0 10px;
 }
@@ -975,28 +1045,34 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
+
 .commerce-discount-form .form-item-label {
   padding-bottom: 10px;
 }
+
 .commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper {
   background: none;
   border: 0;
   outline: 0;
 }
+
 .commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper input {
   background-position: 100px 3px !important;
   height: 25px;
   width: 120px !important;
 }
+
 /* Discounts Admin Fixes */
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type,
 .field-name-commerce-discount-offer .form-type-radios > div {
   background: none;
 }
+
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item input,
 .field-name-commerce-discount-offer .form-type-radios > div .form-item input {
   display: inline;
 }
+
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item.selected label,
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type .form-item label,
 .field-name-commerce-discount-offer .form-type-radios > div .form-item.selected label,
@@ -1004,83 +1080,102 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   background: none;
   color: inherit;
 }
+
 .field-name-commerce-discount-date .fieldset-wrapper .container-inline-date .date-padding > .form-item:first-child input.form-text {
-  background: url('../images/calendar.png') left top no-repeat;
+  background: url("../images/calendar.png") left top no-repeat;
 }
+
 .form-item-enabled #edit-enabled .form-item label {
   margin: 0 !important;
 }
+
 .form-item-enabled #edit-enabled .form-item label:hover {
   cursor: pointer;
 }
+
 .form-item-enabled #edit-enabled .form-item label[for="edit-enabled-1"] {
   color: #6D6D6D;
 }
-/* Give some radios styles similar to fieldsets */
 
+/* Give some radios styles similar to fieldsets */
 .commerce-discount-form .form-item-label label,
 .commerce-discount-form .form-item-commerce-discount-type label,
 .commerce-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label {
   font-size: 22px;
   font-weight: 400;
 }
+
 .commerce-discount-form .form-item-commerce-discount-type label {
   border-bottom: 1px solid #CCCCCC;
 }
+
 .commerce-discount-form .form-item-commerce-discount-type .form-radios label {
   border: none;
 }
+
 .commerce-discount-form .form-item-commerce-discount-type .form-radios label,
 .commerce-discount-form .form-item-commerce-discount-type .form-item label,
 .commerce-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-radios label,
-.commerce-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-item label
-{
+.commerce-discount-form .field-name-commerce-discount-offer .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type .form-item label {
   font-size: 15px;
   font-weight: 500;
 }
+
 .field-name-commerce-discount-offer .fieldset-wrapper,
 #commerce-discount-fields-wrapper .field-name-commerce-discount-offer .fieldset-wrapper .field-name-commerce-fixed-amount .form-type-text-field,
 #commerce-discount-fields-wrapper .form-wrapper div.form-type-textfield,
 #commerce-discount-fields-wrapper .field-name-commerce-discount-offer .fieldset-wrapper .field-name-commerce-fixed-amount .form-type-text-field,
-.commerce-discount-form .form-wrapper div.form-type-textfield{
+.commerce-discount-form .form-wrapper div.form-type-textfield {
   background: transparent;
   border: 0;
   outline: 0;
 }
+
 #commerce-discount-fields-wrapper .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type {
   margin-bottom: 9px;
 }
+
 #commerce-discount-fields-wrapper .start-date-wrapper label,
 #commerce-discount-fields-wrapper .end-date-wrapper label {
   box-sizing: -moz-box;
   margin-top: 9px;
 }
+
 .field-name-commerce-discount-offer .form-wrapper {
   padding-top: 5px;
 }
+
 .field-name-commerce-discount-max-uses {
   min-height: 51px;
 }
+
 /* Inline form fix */
 #commerce-backoffice-message-form textarea {
-  clear: left; /* LTR */
+  clear: left;
+  /* LTR */
 }
+
 #ui-datepicker-div {
   background: #fff;
   border: 1px solid #ccc;
 }
+
 .ui-datepicker .ui-datepicker-title select {
   border: 1px solid #ccc;
 }
+
 .field-type-commerce-line-item-reference .add-line-item .form-submit {
   margin-top: 8px;
 }
+
 .field-name-commerce-discounts input.field-add-more-submit {
   margin-top: 20px;
 }
+
 .view-commerce-payment-order #commerce-payment-order-transaction-add-form .add-payment input.form-submit {
   margin-top: 9px;
 }
+
 .view-commerce-discount-overview .views-reset-button input.form-submit {
   margin-top: 23px;
 }
@@ -1088,20 +1183,24 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 #kickstart-help-topic .first-steps-left {
   width: 63%;
 }
+
 #kickstart-help-topic .first-steps-blocks {
   margin-bottom: 30px;
   padding: 0;
 }
+
 #kickstart-help-topic .first-steps-blocks-inner,
 #kickstart-help-topic .first-steps-documentation .documentation-help,
 #kickstart-help-topic .first-steps-documentation .documentation-websites,
 #kickstart-help-topic .first-steps-quick .first-steps-blocks-inner {
   padding: 15px;
 }
+
 #kickstart-help-topic .first-steps-documentation .first-steps-blocks-inner,
 #kickstart-help-topic .first-steps-quick .first-steps-blocks-inner {
   padding: 0;
 }
+
 #kickstart-help-topic .first-steps-quick ul li {
   border: 0;
   clear: left;
@@ -1110,84 +1209,112 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   padding: 0;
   width: 100%;
 }
+
 #kickstart-help-topic .first-steps-quick ul li a {
-  background: #ffffff url("../images/quicklinks.png") no-repeat 8px center; /* LTR */
-  clear: left; /* LTR */
-  float: left; /* LTR */
-  padding: 0 5px 0 25px; /* LTR */
+  background: white url("../images/quicklinks.png") no-repeat 8px center;
+  /* LTR */
+  clear: left;
+  /* LTR */
+  float: left;
+  /* LTR */
+  padding: 0 5px 0 25px;
+  /* LTR */
   width: 100%;
 }
+
 #kickstart-help-topic .first-steps-blocks h2 {
   background: transparent url("../images/icons-get-started.png") no-repeat 0 0;
   border-bottom: 1px solid #dfdfdf;
   font-weight: 500;
   padding: 5px 15px 10px 40px;
 }
+
 /* Specific Help Block Styles */
 #kickstart-help-topic .first-steps-videos .first-steps-blocks-inner {
   padding: 0;
 }
+
 #kickstart-help-topic .first-steps-documentation h2 {
   background-position: 0 1px;
   border-bottom: 0;
   padding-bottom: 5px;
 }
+
 #kickstart-help-topic .first-steps-documentation .first-steps-blocks-inner {
   background: #ffffff;
   border: 1px solid #cccccc;
 }
+
 #kickstart-help-topic .first-steps-quick h2 {
   background-position: 0 -26px;
 }
+
 #kickstart-help-topic .first-steps-services h2 {
   background-position: 0 -55px;
   margin-bottom: 0;
 }
+
 #kickstart-help-topic .first-steps-services .first-steps-blocks-inner {
   background: #ffffff;
 }
+
 #kickstart-help-topic .first-steps-mode h2 {
   background-position: 0 -90px;
   margin-bottom: 0;
 }
+
 /* Manage Orders/Content */
 .view-admin-content-main .views-exposed-form {
   border: 0;
 }
+
 /* Manage Products */
 .views-exposed-form {
   border-bottom: 1px solid #e2e2dc;
   position: relative;
 }
+
 .views-exposed-form .views-exposed-widget {
   width: auto;
 }
+
 #views-exposed-form-commerce-discount-overview-default .views-exposed-form .views-reset-button input.form-submit {
   margin-top: 0;
 }
+
 .views-exposed-form label {
   float: left;
   margin-right: 10px;
   font-weight: 500;
 }
-.views-exposed-form .views-widget,
-.views-exposed-form .date-padding {
+
+.views-exposed-form .views-widget {
   float: left;
   max-width: 210px;
 }
+
 .view-admin-content-main .views-exposed-form .views-widget {
   max-width: 150px;
 }
+
 .views-exposed-form .views-widget-filter-combine .views-widget {
   max-width: 250px;
 }
+
 /* Making wide enough to fit min and max date fields inline */
 .views-exposed-form #edit-date-filter-wrapper {
-  width: 624px;
+  width: 650px;
 }
-.views-exposed-form #edit-date-filter-wrapper .views-widget {
-  max-width: 624px;
+
+.view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-wrapper .views-widget {
+  max-width: 650px;
 }
+
+.view-commerce-backoffice-orders .views-exposed-form .date-padding {
+  float: left;
+  max-width: 235px;
+}
+
 .views-exposed-form .form-item input {
   border: 1px solid #C8C8C8;
   -moz-border-radius: 3px;
@@ -1197,22 +1324,28 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   outline: 0;
   padding: 3px 5px;
 }
+
 html.js .views-exposed-form .form-item input.form-autocomplete {
   background-position: 100% 6px;
 }
+
 html.js .views-exposed-form .form-item input.throbbing {
   background-position: 100% -14px;
 }
+
 .view-commerce-backoffice-orders .views-exposed-form .date-padding .form-item {
   margin-top: 0;
 }
+
 .view-commerce-backoffice-orders .views-exposed-form .date-padding .form-item input {
-  background: #fff url("../images/calendar.png") no-repeat 95% center;
+  background: white url("../images/calendar.png") no-repeat 95% center;
 }
+
 .view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-min-wrapper,
 .view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-max-wrapper {
   float: left;
 }
+
 /* Positioning to be the search box */
 .views-exposed-form .views-widget-filter-combine {
   padding: 1em 0;
@@ -1221,88 +1354,108 @@ html.js .views-exposed-form .form-item input.throbbing {
   top: 100%;
   z-index: 1;
 }
-.views-exposed-form .views-widget-filter-combine input{
+
+.views-exposed-form .views-widget-filter-combine input {
   background: white url("../images/search.png") no-repeat right center;
   line-height: normal;
   padding: 3px 20px 3px 5px;
 }
+
 .vbo-views-form #edit-select .fieldset-wrapper {
   padding: 3px 0 0 16px;
   width: auto;
 }
+
 .vbo-views-form #edit-select .fieldset-wrapper input.form-submit {
   float: left;
   margin-top: 9px;
   padding: 4px 10px;
 }
+
 /* Action Links in Views Attachments */
 .view-commerce-backoffice-products .attachment ul.action-links,
 .view-commerce-backoffice-orders .attachment ul.action-links {
   margin: 1em 0;
 }
+
 /* Bulk Operations Select */
 .vbo-views-form .form-item-operation {
   background: transparent url("../images/bg-vbo.png") no-repeat 0 0;
   float: left;
   padding: 2px 0 0 30px;
 }
+
 .vbo-views-form .form-item-operation #edit-operation {
   margin-top: 0;
 }
+
 .vbo-views-form .form-item-operation .chzn-container {
   left: 30px;
 }
+
 /* Cancel out some backoffice module styles */
 .view-commerce-backoffice-orders .vbo-views-form #edit-select,
 .view-commerce-backoffice-products .vbo-views-form #edit-select {
   background: none;
   padding: 0;
 }
+
 .view-commerce-backoffice-orders .views-exposed-form .date-padding .form-item input,
 .view-commerce-backoffice-orders .views-exposed-form .views-widget-filter-combine input,
 .view-commerce-backoffice-products .views-exposed-form .views-widget-filter-combine input {
   padding: 4px 20px 4px 5px;
 }
+
 .view-commerce-backoffice-orders .views-exposed-form .views-exposed-widgets,
 .view-commerce-backoffice-products .views-exposed-form .views-exposed-widgets {
   margin-bottom: .5em;
 }
-html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
+
+html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper {
   padding: 3px 0 0 10px;
   margin-bottom: 0;
 }
+
 .views-field-views-bulk-operations {
   width: 45px;
   vertical-align: middle;
 }
+
 .vbo-views-form .ctools-button-processed {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid #C8C8C8;
 }
+
 .vbo-views-form .ctools-dropbutton-processed .ctools-link,
 .vbo-views-form .ctools-dropbutton-processed .ctools-content {
   border: 0;
 }
+
 .vbo-views-form .views-field-operations-dropbutton .quick-edit {
   padding: 0;
 }
+
 .vbo-views-form .ctools-dropbutton-processed a {
   color: #424242;
 }
+
 .vbo-views-form #edit-actions {
   padding-top: 0;
 }
+
 /* Chosen Select Style Overrides */
 .chzn-container-multi .chzn-choices,
 .chzn-container-single .chzn-single {
   color: #737373;
   padding-right: 26px;
 }
+
 .chzn-container-multi .chzn-choices .search-field .default {
   padding-top: 12px;
 }
+
 .chzn-container-single .chzn-single,
 .chzn-container-single .chzn-drop,
 .chzn-container-multi .chzn-choices,
@@ -1313,51 +1466,61 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
+
 .chzn-container-multi .chzn-choices {
-  background: #fff url("../images/drop-filter.png") no-repeat right center;
+  background: white url("../images/drop-filter.png") no-repeat right center;
 }
+
 .chzn-container-single .chzn-single,
 .view-commerce-backoffice-products .chzn-container-single .chzn-single,
 .view-commerce-backoffice-orders .chzn-container-single .chzn-single {
   height: 28px;
 }
+
 .chzn-container-single .select:focus {
   box-shadow: 0;
 }
+
 .chzn-container-single .chzn-single-with-drop {
   border-radius: 3px 3px 0 0;
 }
+
 .chzn-container-single .chzn-drop,
 .chzn-container-multi .chzn-drop {
   border-radius: 0 0 3px 3px;
 }
+
 .chzn-container-single .chzn-single div {
   width: 28px;
 }
+
 .chzn-container-single .chzn-single div b,
 .view-commerce-backoffice-products .chzn-container-single .chzn-single div b,
 .view-commerce-backoffice-orders .chzn-container-single .chzn-single div b {
-  background: #fff url("../images/drop-filter.png") no-repeat right center;
+  background: white url("../images/drop-filter.png") no-repeat right center;
 }
+
 .chzn-container-single .chzn-single-with-drop div b,
 .view-commerce-backoffice-products .chzn-container-single .chzn-single-with-drop div b,
 .view-commerce-backoffice-orders .chzn-container-single .chzn-single-with-drop div b,
 .chzn-container-active .chzn-choices {
-  background: #fff url("../images/drop-filter-up.png") no-repeat right center;
+  background: white url("../images/drop-filter-up.png") no-repeat right center;
 }
+
 .chzn-container-single .chzn-single span {
   color: #999;
   margin-right: 29px;
   -webkit-font-smoothing: subpixel-antialiased;
 }
+
 .views-widget-filter-status .chzn-search,
 .view-commerce-backoffice-products .vbo-views-form .fieldset-wrapper .chzn-drop .chzn-search {
   display: none;
 }
+
 .vbo-views-form .fieldset-wrapper .chzn-drop {
   top: -1px !important;
 }
 
 /* @end */
-
 /* @end */

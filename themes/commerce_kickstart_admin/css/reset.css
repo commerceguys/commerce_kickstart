@@ -1,11 +1,9 @@
-
 /**
  * Reset CSS styles.
  *
  * Based on Eric Meyer's "Reset CSS 1.0" tool from
  * http://meyerweb.com/eric/tools/css/reset
  */
-
 html,
 body,
 div,
@@ -71,15 +69,12 @@ thead,
 tr,
 th,
 td,
-/* Drupal: system-menus.css */
 td.menu-disabled,
 ul.links,
 ul.links.inline,
 ul.links li,
 .block ul,
-/* Drupal: admin.css */
 div.admin,
-/* Drupal: system.css */
 tr.even,
 tr.odd,
 tr.drag,
@@ -125,6 +120,7 @@ ul.secondary a.active,
   border: 0;
   vertical-align: baseline;
 }
+
 /* Drupal: system-menus.css */
 ul.links,
 ul.links.inline,
@@ -136,10 +132,12 @@ ul,
 .item-list ul li {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -152,6 +150,7 @@ q:after {
 ins {
   text-decoration: none;
 }
+
 del {
   text-decoration: line-through;
 }
@@ -173,10 +172,12 @@ select,
 textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 textarea {
   font-size: 1em;
   line-height: 1.538em;
 }
+
 /**
  * Markup free clearing.
  *
@@ -200,6 +201,7 @@ ul.inline:after {
   display: none;
   clear: none;
 }
+
 /* IE6 */
 * html .form-item,
 * html ul.links,
@@ -207,6 +209,7 @@ ul.inline:after {
 * html .clearfix {
   height: 1%;
 }
+
 /* IE7 */
 *:first-child + html .form-item,
 *:first-child + html ul.links,

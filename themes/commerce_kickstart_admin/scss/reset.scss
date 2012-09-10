@@ -1,3 +1,4 @@
+
 /**
  * Reset CSS styles.
  *
@@ -68,139 +69,35 @@ tbody,
 tfoot,
 thead,
 tr,
-th {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-
-td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  &.menu-disabled {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-  }
-}
-
-ul.links {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  &.inline,
-  li {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-  }
-}
-
-.block ul, div.admin {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-
-tr {
-  &.even,
-  &.odd,
-  &.drag {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-  }
-}
-
-tbody {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  th {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-  }
-}
-
+th,
+td,
+/* Drupal: system-menus.css */
+td.menu-disabled,
+ul.links,
+ul.links.inline,
+ul.links li,
+.block ul,
+/* Drupal: admin.css */
+div.admin,
+/* Drupal: system.css */
+tr.even,
+tr.odd,
+tr.drag,
+tbody,
+tbody th,
 thead th,
-.breadcrumb {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-
-.item-list {
-  .icon, .title {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    li {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      vertical-align: baseline;
-    }
-  }
-}
-
+.breadcrumb,
+.item-list .icon,
+.item-list .title,
+.item-list ul,
+.item-list ul li,
 ol.task-list li.active,
-.form-item {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-
-tr {
-  &.odd .form-item,
-  &.even .form-item {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-  }
-}
-
-.form-item {
-  .description {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-  }
-  label {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    &.option {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      vertical-align: baseline;
-    }
-  }
-}
-
+.form-item,
+tr.odd .form-item,
+tr.even .form-item,
+.form-item .description,
+.form-item label,
+.form-item label.option,
 .form-checkboxes,
 .form-radios,
 .form-checkboxes .form-item,
@@ -208,141 +105,58 @@ tr {
 .marker,
 .form-required,
 .more-link,
-.more-help-link {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-
-.item-list .pager {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-  li {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-  }
-}
-
+.more-help-link,
+.item-list .pager,
+.item-list .pager li,
 .pager-current,
-.tips {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-
-ul {
-  &.primary {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    li {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      vertical-align: baseline;
-      a,
-      &.active a,
-      a:hover {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        vertical-align: baseline;
-      }
-    }
-  }
-  &.secondary {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    li {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      vertical-align: baseline;
-    }
-    a {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      vertical-align: baseline;
-      &.active {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        vertical-align: baseline;
-      }
-    }
-  }
-}
-
+.tips,
+ul.primary,
+ul.primary li,
+ul.primary li a,
+ul.primary li.active a,
+ul.primary li a:hover,
+ul.secondary,
+ul.secondary li,
+ul.secondary a,
+ul.secondary a.active,
 .resizable-textarea {
   margin: 0;
   padding: 0;
   border: 0;
   vertical-align: baseline;
 }
-
 /* Drupal: system-menus.css */
-
-ul.links {
+ul.links,
+ul.links.inline,
+ul.links li,
+.block ul,
+ol,
+ul,
+.item-list ul,
+.item-list ul li {
   list-style: none;
-  &.inline, li {
-    list-style: none;
-  }
 }
-
-.block ul, ol, ul {
-  list-style: none;
-}
-
-.item-list ul {
-  list-style: none;
-  li {
-    list-style: none;
-  }
-}
-
 blockquote,
 q {
   quotes: none;
 }
-
-blockquote {
-  &:before,
-  &:after {
-    content: '';
-    content: none;
-  }
-}
-
-q {
-  &:before,
-  &:after {
-    content: '';
-    content: none;
-  }
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
 
 /* Remember to highlight inserts somehow! */
-
 ins {
   text-decoration: none;
 }
-
 del {
   text-decoration: line-through;
 }
 
 /* Tables still need 'cellspacing="0"' in the markup. */
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -354,18 +168,15 @@ table {
  * Specifically targets form elements which browsers often times give
  * special treatment.
  */
-
 input,
-select {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
+select,
 textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+textarea {
   font-size: 1em;
   line-height: 1.538em;
 }
-
 /**
  * Markup free clearing.
  *
@@ -373,7 +184,6 @@ textarea {
  * to sneak the clearfix class into Drupal's markup.
  * From http://perishablepress.com/press/2009/12/06/new-clearfix-hack
  */
-
 ul.links:after,
 div.admin-panel .body:after,
 .clearfix:after {
@@ -385,32 +195,22 @@ div.admin-panel .body:after,
 }
 
 /* Exclude inline links from clearfix behavior */
-
 ul.inline:after {
   content: "";
   display: none;
   clear: none;
 }
-
 /* IE6 */
-
-* {
-  html {
-    .form-item,
-    ul.links,
-    div.admin-panel .body,
-    .clearfix {
-      height: 1%;
-    }
-  }
-  &:first-child html {
-    .form-item,
-    ul.links,
-    div.admin-panel .body,
-    .clearfix {
-      min-height: 1%;
-    }
-  }
+* html .form-item,
+* html ul.links,
+* html div.admin-panel .body,
+* html .clearfix {
+  height: 1%;
 }
-
 /* IE7 */
+*:first-child + html .form-item,
+*:first-child + html ul.links,
+*:first-child + html div.admin-panel .body,
+*:first-child + html .clearfix {
+  min-height: 1%;
+}

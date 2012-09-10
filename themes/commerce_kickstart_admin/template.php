@@ -49,6 +49,10 @@ function commerce_kickstart_admin_preprocess_page(&$vars) {
     '#theme' => 'menu_local_tasks',
     '#secondary' => $vars['tabs']['#secondary'],
   );
+
+  if (overlay_get_mode() == 'child') {
+    $vars['breadcrumb'] = '';
+  }
 }
 
 /**
@@ -136,4 +140,20 @@ function commerce_kickstart_admin_breadcrumb($variables) {
   else {
     return t("Home");
   }
+}
+
+/**
+ * Preprocesses template variables for overlay.tpl.php
+ *
+ * @see overlay.tpl.php
+ */
+function commerce_kickstart_admin_preprocess_overlay(&$variables) {
+  if (module_exists('crumbs')) {
+    $breadcrumb_data = crumbs_get_breadcrumb_data();
+    $variables['crumbs_trail'] = $breadcrumb_data['trail'];
+    $variables['breadcrumb'] = $breadcrumb_data['html'];
+  } else {
+    $variables['breadcrumb'] = theme('breadcrumb', array('breadcrumb' => drupal_get_breadcrumb()));
+  }
+  //dpm(get_defined_vars());
 }

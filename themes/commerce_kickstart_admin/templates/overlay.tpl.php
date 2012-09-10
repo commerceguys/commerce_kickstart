@@ -26,6 +26,7 @@
     <div id="overlay-title-wrapper" class="clearfix">
       <h1 id="overlay-title"<?php print $title_attributes; ?>><?php print $title; ?></h1>
     </div>
+    <?php if($breadcrumb): ?><?php print $breadcrumb;?><?php endif;?>
     <?php if ($tabs): ?><div id="overlay-tabs-wrapper"><h2 class="element-invisible"><?php print t('Primary tabs'); ?></h2><ul id="overlay-tabs"><?php print render($tabs); ?></ul></div><?php endif; ?>
     <div id="overlay-close-wrapper">
       <a id="overlay-close" href="#" class="overlay-close"><span class="element-invisible"><?php print t('Close overlay'); ?></span></a>
