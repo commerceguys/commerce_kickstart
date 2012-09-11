@@ -9,7 +9,7 @@
 
 body {
   /*font-family: "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-  font: normal 400 100%/1.5em "Open Sans", Arial, sans-serif;
+  font: normal 500 0.923em/1.5em "Open Sans", Arial, sans-serif;
 }
 
 /* Chrome Safari fix for text on video pages */
@@ -87,6 +87,12 @@ body.in-maintenance #logo {
 body.in-maintenance #sidebar-first {
   width: 270px;
 }
+body.in-maintenance fieldset .fieldset-wrapper,
+body.in-maintenance fieldset.collapsible {
+  background: white url("../images/bg-fieldset.jpg") repeat-y right top;
+  border: 1px solid #ccc;
+  padding: 15px;
+}
 
 body.in-maintenance ol.task-list {
   background: transparent url("../images/wizard-bg.png") repeat-y 0 0;
@@ -152,29 +158,24 @@ fieldset.form-wrapper {
   margin-bottom: 2em;
 }
 
-fieldset .fieldset-wrapper, fieldset.collapsible {
-  background: white url("../images/bg-fieldset.jpg") repeat-y right top;
-  border: 1px solid #fff;
-  outline: 1px solid #ccc;
-  padding: 15px;
-}
-
 fieldset.collapsed {
   min-height: 50px;
   padding: 25px 15px;
 }
 
 fieldset .fieldset-legend {
-  font-size: 22px;
-  font-weight: 400;
-  margin-top: 0;
+  border-bottom: 1px solid #ccc;
+  font-weight: 700;
+  margin: 0 0 0 15px;
+  padding: 5px 0 5px 0;
   text-transform: none;
+  width: 97%;
 }
 
 fieldset.collapsible .fieldset-legend {
   color: #585858;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   margin-top: 15px;
 }
 
@@ -185,8 +186,7 @@ fieldset.collapsible .fieldset-legend a {
 fieldset.collapsible .fieldset-wrapper {
   background: transparent;
   border: 0;
-  outline: 0;
-  padding: 25px 0 0;
+  padding: 25px 15px 0;
 }
 
 body.in-maintenance fieldset .fieldset-legend {
@@ -195,8 +195,7 @@ body.in-maintenance fieldset .fieldset-legend {
 }
 
 .form-item label {
-  font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .form-item div.description, fieldset p {
@@ -206,25 +205,24 @@ body.in-maintenance fieldset .fieldset-legend {
 
 input.form-autocomplete,
 input.form-text,
-input.form-file,
-.resizable-textarea .grippie {
-  border: 1px solid #fff;
-  font: normal 400 0.923em/1em "Open Sans", Arial, sans-serif;
+input.form-file {
+  border: 1px solid #e0e0e0;
+  font: normal 500 1em/1em "Open Sans", Arial, sans-serif;
   margin: 1px;
   max-width: 100%;
-  outline: 1px solid #e0e0e0;
   padding: 5px;
+}
+
+input.form-text,
+textarea.form-textarea {
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+  background: #f8f8f8;
 }
 
 textarea.form-textarea {
   border: 1px solid #e0e0e0;
-  font-size: .923em;
+  font-size: 1em;
   padding: 5px 10px;
-}
-
-.resizable-textarea .grippie {
-  background: #f3f3f3 url("../images/grippie.png") no-repeat center center;
-  padding: 10px;
 }
 
 .resizable-textarea textarea.form-textarea {
@@ -239,7 +237,6 @@ textarea.form-textarea {
 .text-format-wrapper fieldset .fieldset-wrapper {
   background: transparent;
   border: none;
-  outline: none;
 }
 
 .text-format-wrapper fieldset .fieldset-wrapper .form-item {
@@ -259,6 +256,108 @@ textarea.form-textarea:focus {
   color: #000;
 }
 
+#edit-actions {
+  background: #f8f8f8;
+  padding: 15px;
+}
+#edit-actions input.form-submit {
+  margin-bottom: 0;
+}
+#edit-actions #edit-delete {
+  color: #ab5757;
+  float: right;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  -moz-box-shadow: 0 0 0 transparent;
+  -webkit-box-shadow: 0 0 0 transparent;
+  box-shadow: 0 0 0 transparent;
+}
+#edit-actions #edit-delete:hover {
+  text-decoration: underline;
+}
+
+/* Customized Checkbox and Radios */
+.form-type-checkbox,
+.form-type-radio {
+  position: relative;
+}
+
+input.form-checkbox + label,
+input.form-radio + label {
+  font-weight: 500;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+/* Using "foo" to make unsupporting browsers ignore */
+#foo:checked::before,
+input.form-checkbox,
+input.form-radio {
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+}
+
+#foo:checked,
+input.form-checkbox + label::before,
+input.form-radio + label::before {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: transparent url("../images/toggles.png") no-repeat 0 0;
+}
+
+#foo:checked,
+.form-disabled input.form-checkbox + label::before {
+  opacity: .4;
+}
+
+#foo:checked,
+input.form-radio + label::before {
+  background-position: 0 -40px;
+}
+
+input.form-checkbox:checked + label::before {
+  background-position: 0 -20px;
+}
+
+input.form-radio:checked + label::before {
+  background-position: 0 -60px;
+}
+
+select.form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  max-width: 100%;
+  padding: 3px;
+  width: auto;
+}
+select.form-select:focus {
+  color: #000;
+}
+
+/* Targeting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select.form-select {
+    padding: 5px 35px 5px 5px;
+    background: white url("../images/drop-filter.png") no-repeat right center;
+  }
+}
 .exposed-filters .form-item label {
   float: none;
 }
@@ -269,23 +368,6 @@ textarea.form-textarea:focus {
 
 body.in-maintenance fieldset.form-wrapper {
   max-width: 530px;
-}
-
-select.form-select {
-  background-color: #efeded;
-  background-image: url(../images/select.png);
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#efeded));
-  background-image: -webkit-linear-gradient(top, white, #efeded);
-  background-image: -moz-linear-gradient(top, white, #efeded);
-  background-image: -ms-linear-gradient(top, white, #efeded);
-  background-image: -o-linear-gradient(top, white, #efeded);
-  background-image: linear-gradient(to bottom, #ffffff, #efeded);
-  border: 1px solid #e0e0e0;
-  -moz-box-shadow: inset 0 0 2px #fff;
-  -webkit-box-shadow: inset 0 0 2px #fff;
-  box-shadow: inset 0 0 2px #fff;
-  font: normal 400 1em/1em "Open Sans", Arial, sans-serif;
-  max-width: 100%;
 }
 
 body.in-maintenance select.form-select {
@@ -355,7 +437,8 @@ a.tabledrag-handle .handle {
 }
 
 #overlay-titlebar,
-#branding {
+#branding,
+.views-ui-dialog .views-override {
   background: #dedede;
   background: -moz-linear-gradient(top, #f0f0f0 0%, #dedede 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0f0f0), color-stop(100%, #dedede));
@@ -365,6 +448,10 @@ a.tabledrag-handle .handle {
   background: linear-gradient(to bottom, #f0f0f0 0%, #dedede 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$from, endColorstr=$to,GradientType=0 );
   box-shadow: inset 0 -2px 3px #cccccc;
+}
+
+.views-ui-dialog #views-ajax-title {
+  background: #f0f0f0;
 }
 
 #overlay-titlebar {
@@ -706,6 +793,14 @@ a.button:active {
   text-shadow: 0 -1px 1px white;
 }
 
+/* Fix padding issue in Firefox */
+@-moz-document url-prefix() {
+  input.form-submit {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
 input.form-submit:hover,
 a.button:hover {
   background-position: 0 bottom;
@@ -826,6 +921,18 @@ input.ief-entity-submit:active {
   text-shadow: 0 -1px 1px #2f88cd;
 }
 
+/* Firefox padding issue */
+@-moz-document url-prefix() {
+  .form-actions #edit-submit,
+  .form-actions #edit-save,
+  ul.action-links li,
+  html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsible .fieldset-legend a,
+  .field-widget-inline-entity-form .container-inline input.form-submit,
+  input.ief-entity-submit {
+    padding: 2px 30px;
+  }
+}
+
 /* Action Links Overrides of above */
 ul.action-links li {
   float: left;
@@ -884,10 +991,6 @@ table.sticky-header {
 #views-form-commerce-orders-admin-page table td.views-field-commerce-order-total,
 #views-form-commerce-orders-admin-page table td.views-field-status {
   font-weight: 500;
-}
-
-#edit-actions {
-  padding-top: 30px;
 }
 
 div.vertical-tabs {
@@ -959,16 +1062,16 @@ ul.pager li.pager-last {
   display: none;
 }
 
-html.js fieldset.collapsed {
-  height: 55px;
+fieldset.collapsed {
+  padding-left: 0;
 }
 
 html.js input.form-autocomplete {
-  background-position: 100% 10px;
+  background-position: 100% 7px;
 }
 
 html.js input.throbbing {
-  background-position: 100% -12px;
+  background-position: 100% -13px;
 }
 
 /**

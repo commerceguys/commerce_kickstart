@@ -5,6 +5,9 @@
 
 /* @group Content */
 
+/* Import Base Styles and Functions */
+@import "_base.scss";
+
 .views-ui-display-tab-bucket h1,
 .views-ui-display-tab-bucket h2,
 .views-ui-display-tab-bucket h3,
@@ -376,6 +379,11 @@ table th {
   padding-bottom: 4px;
   padding-left: 4px;
   padding-top: 4px;
+
+  input.form-checkbox + label::before {
+    left: 5px;
+    top: 8px;
+  }
 }
 /* @end */
 
@@ -542,14 +550,21 @@ table th {
 .field-type-commerce-product-reference .fieldset-legend {
   padding-left: 0;
 }
+#edit-field-product > div > fieldset > legend .fieldset-legend {
+  border-bottom: 0;
+  margin-left: 0;
+}
 .node-form .field-widget-inline-entity-form .ief-form {
   background: transparent;
 }
 .node-form .field-widget-inline-entity-form .ief-form .fieldset-wrapper {
-  background: #f6f6f6;
-  border: 1px solid #E1E1E1;
-  padding: 15px;
   margin-top: 0;
+}
+.node-form .field-type-commerce-product-reference > div > div.form-wrapper > fieldset > legend .fieldset-legend {
+  border: 0;
+}
+.node-form .field-type-commerce-product-reference > div > div.form-wrapper > fieldset > div.fieldset-wrapper {
+  margin-left: 15px;
 }
 #overlay .node-form .field-widget-inline-entity-form .ief-form .fieldset-wrapper {
   background: #fff;
@@ -585,7 +600,8 @@ table th {
   float: right;
   margin-top: -10px;
 }
-.node-form .field-widget-inline-entity-form fieldset.ief-entity-fieldset {
+.node-form .field-widget-inline-entity-form fieldset.ief-entity-fieldset,
+.ief-form-bottom > legend .fieldset-legend {
   background: transparent;
   border: 0;
   margin: 0;
@@ -594,7 +610,7 @@ table th {
   border-bottom: 1px solid #e4e4e4;
   font-size: 16px;
   font-weight: 600;
-  width: 100%;
+  width: 98%;
 }
 .node-form .field-widget-inline-entity-form fieldset.ief-entity-fieldset .fieldset-wrapper {
   background: transparent;
@@ -717,6 +733,10 @@ tr.even {
   margin-top: 10px;
   padding: 10px 15px;
 }
+.entity-commerce-order .content-right .commerce-backoffice-order-status-form {
+  display: inline-block;
+  width: 100%;
+}
 .entity-commerce-order .content-right .commerce-backoffice-order-status-label {
   background: #ffedcb;
   border: 1px solid #ffcb69;
@@ -727,30 +747,7 @@ tr.even {
 }
 .entity-commerce-order .commerce-backoffice-order-status-form .form-submit,
 .view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit {
-  background: #60aa20 url("../images/button.png") repeat-x 0 0;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#79d428), to(#60aa20));
-  background-image: -webkit-linear-gradient(top, #79d428, #60aa20);
-  background-image: -moz-linear-gradient(top, #79d428, #60aa20);
-  background-image: -ms-linear-gradient(top, #79d428, #60aa20);
-  background-image: -o-linear-gradient(top, #79d428, #60aa20);
-  background-image: linear-gradient(to bottom, #79d428, #60aa20);
-  -moz-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
-  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
-  box-shadow: 0 1px 2px #ccc, inset 0 1px 1px #b9e87b;
-  color: #fff;
-}
-.entity-commerce-order .commerce-backoffice-order-status-form .form-submit:hover,
-.view-commerce-backoffice-order-messages #commerce-backoffice-message-form input.form-submit:hover {
-  background: #79d428 url("../images/button-over.png") repeat-x 0 bottom;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#60aa20), to(#79d428));
-  background-image: -webkit-linear-gradient(top, #60aa20, #79d428);
-  background-image: -moz-linear-gradient(top, #60aa20, #79d428);
-  background-image: -ms-linear-gradient(top, #60aa20, #79d428);
-  background-image: -o-linear-gradient(top, #60aa20, #79d428);
-  background-image: linear-gradient(to bottom, #60aa20, #79d428);
-  -moz-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
-  -webkit-box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
-  box-shadow: 0 1px 2px #ccc, inset 0 -1px 1px #b9e87b;
+  @include blue-button;
 }
 .field-name-commerce-customer-billing .name-block,
 .field-name-commerce-customer-shipping .name-block {
@@ -859,6 +856,13 @@ tr td:last-child {
 .view-commerce-backoffice-orders tr.views-row-active td,
 .view-commerce-backoffice-products tr.views-row-active td {
   background: transparent;
+}
+.view-commerce-backoffice-order-messages > .view-footer {
+  padding-top: 20px;
+}
+#commerce-backoffice-order-message-form > div > fieldset > legend .fieldset-legend {
+  margin: 0 0 10px 0;
+  border: 0;
 }
 tr.megarow > td {
   background: #fff;
@@ -982,13 +986,23 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   background: none;
   border: 0;
   outline: 0;
+  margin-left: 0;
+}
+.commerce-discount-form .field-type-datestamp .fieldset-legend {
+  margin-left: 0;
 }
 .commerce-discount-form .field-name-commerce-discount-date .fieldset-wrapper input {
   background-position: 100px 3px !important;
   height: 25px;
   width: 120px !important;
 }
+.commerce-discount-form #edit-actions {
+  margin-top: 20px;
+}
 /* Discounts Admin Fixes */
+.view-commerce-discount-overview .views-table td.views-field-operations-dropbutton .ctools-dropbutton {
+  @include round-corners(3px,3px,3px,3px);
+}
 .form-item-commerce-discount-type.form-item #edit-commerce-discount-type,
 .field-name-commerce-discount-offer .form-type-radios > div {
   background: none;
@@ -1021,8 +1035,7 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 .commerce-discount-form .form-item-label label,
 .commerce-discount-form .form-item-commerce-discount-type label,
 .commerce-discount-form .form-item-commerce-discount-fields-commerce-discount-offer-und-form-type label {
-  font-size: 22px;
-  font-weight: 400;
+  font-weight: 700;
 }
 .commerce-discount-form .form-item-commerce-discount-type label {
   border-bottom: 1px solid #CCCCCC;
@@ -1073,7 +1086,7 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   border: 1px solid #ccc;
 }
 .field-type-commerce-line-item-reference .add-line-item .form-submit {
-  margin-top: 8px;
+  margin-top: 11px;
 }
 .field-name-commerce-discounts input.field-add-more-submit {
   margin-top: 20px;
@@ -1216,6 +1229,11 @@ html.js .views-exposed-form .form-item input.throbbing {
 .view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-max-wrapper {
   float: left;
 }
+.view-commerce-backoffice-orders .views-exposed-form label,
+.view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-min-wrapper,
+.view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-max-wrapper {
+  font-weight: 500;
+}
 /* Positioning to be the search box */
 .views-exposed-form .views-widget-filter-combine {
   padding: 1em 0;
@@ -1235,8 +1253,51 @@ html.js .views-exposed-form .form-item input.throbbing {
 }
 .vbo-views-form #edit-select .fieldset-wrapper input.form-submit {
   float: left;
-  margin-top: 9px;
-  padding: 4px 10px;
+  margin-top: 10px;
+  padding: 6px 20px;
+}
+.view-commerce-backoffice-orders .vbo-views-form select {
+  height: auto;
+  margin: 2px 0 2px 0;
+}
+/* Adjust Firefox Specific Fixes */
+@-moz-document url-prefix() {
+  form table {
+    #edit-select .fieldset-wrapper input.form-submit {
+      padding: 1px 20px;
+    }
+
+    input.form-checkbox {
+      opacity: 1;
+      height: auto;
+      width: auto;
+    }
+  }
+  .vbo-views-form #edit-select .fieldset-wrapper input.form-submit {
+    padding: 2px 20px;
+  }
+}
+/* Edit Checkboxes only in Webkit which will render properly. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  form table {
+    input.form-checkbox {
+      -webkit-appearance: none;
+      appearance: none;
+      border: 0;
+      opacity: 1;
+      height: 20px;
+      width: 20px;
+      background: transparent url("../images/toggles.png") no-repeat 0 0;
+    }
+    input.form-checkbox:checked {
+      background-position: 0 -20px;
+    }
+  }
+  .vbo-views-form {
+    #edit-select .fieldset-wrapper {
+      padding: 3px 0 0 20px;
+    }
+  }
 }
 /* Action Links in Views Attachments */
 .view-commerce-backoffice-products .attachment ul.action-links,
@@ -1247,7 +1308,7 @@ html.js .views-exposed-form .form-item input.throbbing {
 .vbo-views-form .form-item-operation {
   background: transparent url("../images/bg-vbo.png") no-repeat 0 0;
   float: left;
-  padding: 2px 0 0 30px;
+  padding: 2px 10px 0 30px;
 }
 .vbo-views-form .form-item-operation #edit-operation {
   margin-top: 0;
@@ -1278,24 +1339,25 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
   width: 45px;
   vertical-align: middle;
 }
-.vbo-views-form .ctools-button-processed {
+.ctools-button-processed {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid #C8C8C8;
 }
-.vbo-views-form .ctools-dropbutton-processed .ctools-link,
-.vbo-views-form .ctools-dropbutton-processed .ctools-content {
+.ctools-dropbutton-processed .ctools-link,
+.ctools-dropbutton-processed .ctools-content {
   border: 0;
 }
-.vbo-views-form .views-field-operations-dropbutton .quick-edit {
+.views-field-operations-dropbutton .quick-edit {
   padding: 0;
 }
-.vbo-views-form .ctools-dropbutton-processed a {
+.ctools-dropbutton-processed a {
   color: #424242;
 }
 .vbo-views-form #edit-actions {
-  padding-top: 0;
+  padding: 0;
+  background: transparent;
 }
 /* Chosen Select Style Overrides */
 .chzn-container-multi .chzn-choices,
@@ -1359,6 +1421,15 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
 }
 .vbo-views-form .fieldset-wrapper .chzn-drop {
   top: -1px !important;
+}
+
+.view-commerce-backoffice-orders .vbo-views-form #edit-select select {
+  height: auto;
+}
+/* Vertical tabs adds a padding that needs removed on the custom checkboxes/radios */
+#foo:checked::before,
+.vertical-tabs-pane .fieldset-wrapper > div.form-type-checkbox:first-child {
+  padding-top: 0;
 }
 
 /* @end */
