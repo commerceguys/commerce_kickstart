@@ -99,16 +99,6 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'description' => '<em>Bags & Cases</em> are products which contain a size and a color.',
       'help' => '',
       'revision' => '1',
-      'module' => 'commerce_product_ui',
-      'autosku' => array(
-        'product_type' => 'bags_cases',
-        'pattern' => '[commerce-product:title]',
-        'advanced' => array(
-          'update_existing' => 0,
-          'hide_sku' => 1,
-          'case' => 'uppercase',
-        ),
-      ),
     ),
     'drinks' => array(
       'type' => 'drinks',
@@ -116,16 +106,6 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'description' => '<em>Drinks</em> are products which contain a color.',
       'help' => '',
       'revision' => '1',
-      'module' => 'commerce_product_ui',
-      'autosku' => array(
-        'product_type' => 'drinks',
-        'pattern' => '[commerce-product:title]',
-        'advanced' => array(
-          'update_existing' => 0,
-          'hide_sku' => 1,
-          'case' => 'uppercase',
-        ),
-      ),
     ),
     'hats' => array(
       'type' => 'hats',
@@ -133,16 +113,6 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'description' => '<em>Hats</em> are products which contain a size and a color.',
       'help' => '',
       'revision' => '1',
-      'module' => 'commerce_product_ui',
-      'autosku' => array(
-        'product_type' => 'hats',
-        'pattern' => '[commerce-product:title]',
-        'advanced' => array(
-          'update_existing' => 0,
-          'hide_sku' => 1,
-          'case' => 'uppercase',
-        ),
-      ),
     ),
     'shoes' => array(
       'type' => 'shoes',
@@ -150,16 +120,6 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'description' => '<em>Shoes</em> are products which contain a size and a color.',
       'help' => '',
       'revision' => '1',
-      'module' => 'commerce_product_ui',
-      'autosku' => array(
-        'product_type' => 'shoes',
-        'pattern' => '[commerce-product:title]',
-        'advanced' => array(
-          'update_existing' => 0,
-          'hide_sku' => 1,
-          'case' => 'uppercase',
-        ),
-      ),
     ),
     'storage_devices' => array(
       'type' => 'storage_devices',
@@ -167,16 +127,6 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'description' => '<em>Storage devices</em> are products which contain a capacity.',
       'help' => '',
       'revision' => '1',
-      'module' => 'commerce_product_ui',
-      'autosku' => array(
-        'product_type' => 'storage_devices',
-        'pattern' => '[commerce-product:title]',
-        'advanced' => array(
-          'update_existing' => 0,
-          'hide_sku' => 1,
-          'case' => 'uppercase',
-        ),
-      ),
     ),
     'tops' => array(
       'type' => 'tops',
@@ -184,16 +134,6 @@ function commerce_kickstart_product_commerce_product_default_types() {
       'description' => '<em>Tops</em> are products which contain a size and a color.',
       'help' => '',
       'revision' => '1',
-      'module' => 'commerce_product_ui',
-      'autosku' => array(
-        'product_type' => 'tops',
-        'pattern' => '[commerce-product:title]',
-        'advanced' => array(
-          'update_existing' => 0,
-          'hide_sku' => 1,
-          'case' => 'uppercase',
-        ),
-      ),
     ),
   );
   return $items;
