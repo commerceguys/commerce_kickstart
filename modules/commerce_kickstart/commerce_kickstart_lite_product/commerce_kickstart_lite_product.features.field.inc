@@ -133,101 +133,6 @@ function commerce_kickstart_lite_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-product-field_color'.
-  $fields['commerce_product-product-field_color'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_color',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'colors',
-            'parent' => '0',
-          ),
-        ),
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'product',
-      'commerce_cart_settings' => array(
-        'attribute_field' => 1,
-        'attribute_widget' => 'commerce_fancy_attributes',
-      ),
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '3',
-        ),
-        'line_item' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'node_product_list' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '6',
-        ),
-        'node_teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'product_in_cart' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'commerce_product',
-      'field_name' => 'field_color',
-      'label' => 'Color',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'apply_chosen' => 0,
-        ),
-        'type' => 'options_select',
-        'weight' => '36',
-      ),
-    ),
-  );
-
   // Exported field: 'commerce_product-product-field_images'.
   $fields['commerce_product-product-field_images'] = array(
     'field_config' => array(
@@ -331,101 +236,6 @@ function commerce_kickstart_lite_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-product-field_size'.
-  $fields['commerce_product-product-field_size'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_size',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'sizes',
-            'parent' => '0',
-          ),
-        ),
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'product',
-      'commerce_cart_settings' => array(
-        'attribute_field' => 1,
-        'attribute_widget' => 'select',
-      ),
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '4',
-        ),
-        'line_item' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'node_product_list' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '5',
-        ),
-        'node_teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'product_in_cart' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'commerce_product',
-      'field_name' => 'field_size',
-      'label' => 'Size',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'apply_chosen' => 0,
-        ),
-        'type' => 'options_select',
-        'weight' => '37',
-      ),
-    ),
-  );
-
   // Exported field: 'node-product_display-body'.
   $fields['node-product_display-body'] = array(
     'field_config' => array(
@@ -509,7 +319,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
   $fields['node-product_display-field_product'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_product',
@@ -545,7 +355,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
             'combine' => 1,
             'default_quantity' => '1',
             'line_item_type' => 0,
-            'show_quantity' => 0,
+            'show_quantity' => 1,
             'show_single_product_attributes' => 0,
           ),
           'type' => 'commerce_cart_add_to_cart_form',
@@ -670,84 +480,12 @@ function commerce_kickstart_lite_product_field_default_fields() {
     ),
   );
 
-  // Exported field: 'taxonomy_term-colors-field_hexadecimal_code'.
-  $fields['taxonomy_term-colors-field_hexadecimal_code'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_hexadecimal_code',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '255',
-      ),
-      'translatable' => '0',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'colors',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'add_to_cart_form' => array(
-          'label' => 'hidden',
-          'module' => 'commerce_fancy_attributes',
-          'settings' => array(),
-          'type' => 'commerce_fancy_attributes_color',
-          'weight' => '1',
-        ),
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'taxonomy_term',
-      'field_name' => 'field_hexadecimal_code',
-      'label' => 'Hexadecimal code',
-      'required' => FALSE,
-      'settings' => array(
-        'text_processing' => 0,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'text',
-        'settings' => array(
-          'size' => 60,
-        ),
-        'type' => 'text_textfield',
-        'weight' => '31',
-      ),
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Color');
-  t('Hexadecimal code');
   t('Price');
   t('Product category');
   t('Product variations');
-  t('Size');
   t('field_images');
 
   return $fields;

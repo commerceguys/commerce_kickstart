@@ -133,16 +133,8 @@ function commerce_kickstart_lite_product_ui_form_alter(&$form, &$form_state, $fo
     $form['#attached']['library'][] = array('commerce_kickstart_lite_product_ui', 'jquery_ui_spinner');
     $form['#attached']['js'][] = drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/commerce_kickstart_lite_product_ui.js';
 
-    // Rename add-to-cart form fields label (quantity, color, size)
+    // Rename add-to-cart form fields label.
     $form['quantity']['#title'] = t('Enter Quantity');
-    $form['attributes']['field_color']['#title'] = t('Select Color');
-
-    foreach(array_keys($form['attributes']) as $field_name) {
-      if (strstr($field_name, 'size')) {
-        $form['attributes'][$field_name]['#title'] = t('Select Size');
-        break;
-      }
-    }
   }
   if ($form_id == 'views_exposed_form') {
     $form['search_api_views_fulltext']['#size'] = 26;

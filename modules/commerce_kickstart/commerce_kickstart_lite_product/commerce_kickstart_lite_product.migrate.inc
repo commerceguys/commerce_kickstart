@@ -39,29 +39,15 @@ class CommerceKickstartProduct extends CommerceKickstartMigration {
     $this->addFieldMapping('field_images:source_dir')
       ->defaultValue(drupal_get_path('module', 'commerce_kickstart_lite_product') . '/import/images');
 
-    // Size
-    $this->addFieldMapping('field_size', 'size');
-    $this->addFieldMapping('field_size:create_term')
-      ->defaultValue(TRUE);
-
-    // Color
-    $this->addFieldMapping('field_color', 'color');
-    $this->addFieldMapping('field_color:additional_field', 'hexadecimal');
-    $this->addFieldMapping('field_color:create_term')
-      ->defaultValue(TRUE);
-
     $this->addFieldMapping('uid', 'uid');
   }
 
   function csvcolumns() {
     $columns[0] = array('title', 'Title');
     $columns[1] = array('sku', 'SKU');
-    $columns[2] = array('color', 'Color');
-    $columns[3] = array('size', 'Size');
-    $columns[4] = array('price', 'Price');
-    $columns[5] = array('images', 'Images');
-    $columns[6] = array('category', 'Category');
-    $columns[7] = array('hexadecimal', 'Hexadecimal');
+    $columns[2] = array('price', 'Price');
+    $columns[3] = array('images', 'Images');
+    $columns[4] = array('category', 'Category');
     return $columns;
   }
 

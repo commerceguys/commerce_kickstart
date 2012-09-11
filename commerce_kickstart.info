@@ -69,7 +69,6 @@ dependencies[] = pathauto
 dependencies[] = inline_entity_form
 dependencies[] = entityreference
 dependencies[] = views_megarow
-dependencies[] = commerce_autosku
 dependencies[] = commerce_addressbook
 dependencies[] = commerce_discount
 dependencies[] = commerce_discount_date

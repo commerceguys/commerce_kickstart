@@ -161,22 +161,10 @@ function commerce_kickstart_lite_product_strongarm() {
             'visible' => TRUE,
           ),
         ),
-        'product:field_color' => array(
-          'default' => array(
-            'weight' => '8',
-            'visible' => FALSE,
-          ),
-        ),
         'product:field_images' => array(
           'default' => array(
             'weight' => '3',
             'visible' => TRUE,
-          ),
-        ),
-        'product:field_size' => array(
-          'default' => array(
-            'weight' => '9',
-            'visible' => FALSE,
           ),
         ),
       ),

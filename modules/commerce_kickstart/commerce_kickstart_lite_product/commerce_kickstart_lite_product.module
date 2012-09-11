@@ -26,20 +26,3 @@ function commerce_kickstart_lite_product_commerce_kickstart_crumb_info() {
     'taxonomy.termReference.field_product_category.*',
   );
 }
-
-/**
- * Implements hook_commerce_product_type_info_alter().
- */
-function commerce_kickstart_lite_product_commerce_product_type_info_alter(&$product_types) {
-  if (isset($product_types['product'])) {
-    $product_types['product']['autosku'] = array(
-      'product_type' => 'product',
-      'pattern' => '[commerce-product:title]',
-      'advanced' => array(
-        'update_existing' => 0,
-        'hide_sku' => 1,
-        'case' => 'uppercase',
-      ),
-    );
-  }
-}

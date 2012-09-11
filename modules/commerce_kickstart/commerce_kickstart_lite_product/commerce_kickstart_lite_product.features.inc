@@ -15,16 +15,6 @@ function commerce_kickstart_lite_product_commerce_product_default_types() {
       'description' => 'A basic product type.',
       'help' => '',
       'revision' => '1',
-      'module' => 'commerce_product_ui',
-      'autosku' => array(
-        'product_type' => 'product',
-        'pattern' => '[commerce-product:title]',
-        'advanced' => array(
-          'update_existing' => 0,
-          'hide_sku' => 1,
-          'case' => 'uppercase',
-        ),
-      ),
     ),
   );
   return $items;
@@ -153,14 +143,13 @@ function commerce_kickstart_lite_product_default_search_api_index() {
       "fields" : {
         "title" : { "type" : "string" },
         "created" : { "type" : "date" },
+        "field_product_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" },
         "search_api_aggregation_1" : { "type" : "text" },
         "field_product_commerce_price_amount_float_asc" : { "type" : "decimal" },
         "field_product_commerce_price_amount_float_desc" : { "type" : "decimal" },
-        "field_product:title" : { "type" : "list\\u003Ctext\\u003E" },
-        "field_product:field_color" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product:field_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product:commerce_price:amount_float" : { "type" : "list\\u003Cdecimal\\u003E" }
+        "field_product:title" : { "type" : "text" },
+        "field_product:commerce_price:amount_float" : { "type" : "decimal" }
       },
       "data_alter_callbacks" : {
         "search_api_ranges_alter" : {
