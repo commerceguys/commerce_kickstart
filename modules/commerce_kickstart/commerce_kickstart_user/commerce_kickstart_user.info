@@ -27,6 +27,7 @@ features[user_permission][] = view own commerce_customer_profile entities
 features[user_permission][] = view own commerce_customer_profile entities of bundle billing
 features[user_permission][] = view own commerce_customer_profile entities of bundle shipping
 features[variable][] = configurable_timezones
+features[variable][] = pathauto_user_pattern
 features[variable][] = user_email_verification
 features[variable][] = user_pictures
 features[variable][] = user_register
