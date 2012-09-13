@@ -546,6 +546,17 @@ table th {
 }
 .node-form .field-widget-inline-entity-form .ief-form-bottom {
   padding-top: 40px;
+
+  > .fieldset-wrapper {
+    border: 1px solid #ccc;
+    padding: 15px;
+
+    .fieldset-legend,
+    fieldset > .fieldset-wrapper {
+      margin-left: 5px;
+      padding-left: 0;
+    }
+  }
 }
 .field-type-commerce-product-reference .fieldset-legend {
   padding-left: 0;
@@ -564,31 +575,22 @@ table th {
   border: 0;
 }
 .node-form .field-type-commerce-product-reference > div > div.form-wrapper > fieldset > div.fieldset-wrapper {
+  border: 1px solid #ccc;
   margin-left: 15px;
-}
-#overlay .node-form .field-widget-inline-entity-form .ief-form .fieldset-wrapper {
-  background: #fff;
+  padding: 15px;
+
+  > fieldset .fieldset-wrapper,
+  > fieldset .fieldset-legend {
+    padding-left: 0;
+    margin-left: 0;
+  }
+  > fieldset .fieldset-wrapper {
+    margin-bottom: 10px;
+  }
 }
 .node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit,
 .ief-row-form .ief-entity-submit {
-  background-color: #36A2F6;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55b5ff), to(#36A2F6));
-  background-image: -webkit-linear-gradient(top, #55b5ff, #36A2F6);
-  background-image: -moz-linear-gradient(top, #55b5ff, #36A2F6);
-  background-image: -ms-linear-gradient(top, #55b5ff, #36A2F6);
-  background-image: -o-linear-gradient(top, #55b5ff, #36A2F6);
-  background-image: linear-gradient(to bottom, #55b5ff, #36A2F6);
-  color: #fff;
-}
-.node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit:hover,
-.ief-row-form .ief-entity-submit:hover {
-  background-color: #55b5ff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#36A2F6), to(#55b5ff));
-  background-image: -webkit-linear-gradient(top, #36A2F6, #55b5ff);
-  background-image: -moz-linear-gradient(top, #36A2F6, #55b5ff);
-  background-image: -ms-linear-gradient(top, #36A2F6, #55b5ff);
-  background-image: -o-linear-gradient(top, #36A2F6, #55b5ff);
-  background-image: linear-gradient(to bottom, #36A2F6, #55b5ff);
+  @include blue-button;
 }
 .node-form .field-widget-inline-entity-form fieldset {
   padding: 1.5em 0 0;
@@ -1163,6 +1165,10 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   background-position: 0 -90px;
   margin-bottom: 0;
 }
+html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
+  border-bottom: 0;
+  padding: 0 0 0 25px;
+}
 /* Manage Orders/Content */
 .view-admin-content-main .views-exposed-form {
   border: 0;
@@ -1431,6 +1437,7 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
 .vertical-tabs-pane .fieldset-wrapper > div.form-type-checkbox:first-child {
   padding-top: 0;
 }
+
 
 /* @end */
 

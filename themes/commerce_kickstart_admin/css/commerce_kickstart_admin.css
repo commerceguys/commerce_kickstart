@@ -93,6 +93,10 @@ body.in-maintenance fieldset.collapsible {
   border: 1px solid #ccc;
   padding: 15px;
 }
+body.in-maintenance #edit-actions {
+  background: transparent;
+  padding: 30px 0 0 0;
+}
 
 body.in-maintenance ol.task-list {
   background: transparent url("../images/wizard-bg.png") repeat-y 0 0;
@@ -190,8 +194,11 @@ fieldset.collapsible .fieldset-wrapper {
 }
 
 body.in-maintenance fieldset .fieldset-legend {
+  border-bottom: 0;
   color: #000;
   font-size: 28px;
+  font-weight: 400;
+  margin-left: 0;
 }
 
 .form-item label {
@@ -216,7 +223,6 @@ input.form-file {
 input.form-text,
 textarea.form-textarea {
   font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
-  background: #f8f8f8;
 }
 
 textarea.form-textarea {
@@ -318,10 +324,15 @@ input.form-radio + label::before {
 }
 
 #foo:checked,
+body.in-maintenance input.form-radio + label::before {
+  top: 4px;
+}
+
 input.form-radio + label::before {
   background-position: 0 -40px;
 }
 
+#foo:checked,
 input.form-checkbox:checked + label::before {
   background-position: 0 -20px;
 }

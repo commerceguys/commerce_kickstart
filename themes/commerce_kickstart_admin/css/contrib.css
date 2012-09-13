@@ -526,6 +526,15 @@ table th {
 .node-form .field-widget-inline-entity-form .ief-form-bottom {
   padding-top: 40px;
 }
+.node-form .field-widget-inline-entity-form .ief-form-bottom > .fieldset-wrapper {
+  border: 1px solid #ccc;
+  padding: 15px;
+}
+.node-form .field-widget-inline-entity-form .ief-form-bottom > .fieldset-wrapper .fieldset-legend,
+.node-form .field-widget-inline-entity-form .ief-form-bottom > .fieldset-wrapper fieldset > .fieldset-wrapper {
+  margin-left: 5px;
+  padding-left: 0;
+}
 
 .field-type-commerce-product-reference .fieldset-legend {
   padding-left: 0;
@@ -549,34 +558,69 @@ table th {
 }
 
 .node-form .field-type-commerce-product-reference > div > div.form-wrapper > fieldset > div.fieldset-wrapper {
+  border: 1px solid #ccc;
   margin-left: 15px;
+  padding: 15px;
 }
-
-#overlay .node-form .field-widget-inline-entity-form .ief-form .fieldset-wrapper {
-  background: #fff;
+.node-form .field-type-commerce-product-reference > div > div.form-wrapper > fieldset > div.fieldset-wrapper > fieldset .fieldset-wrapper,
+.node-form .field-type-commerce-product-reference > div > div.form-wrapper > fieldset > div.fieldset-wrapper > fieldset .fieldset-legend {
+  padding-left: 0;
+  margin-left: 0;
+}
+.node-form .field-type-commerce-product-reference > div > div.form-wrapper > fieldset > div.fieldset-wrapper > fieldset .fieldset-wrapper {
+  margin-bottom: 10px;
 }
 
 .node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit,
 .ief-row-form .ief-entity-submit {
-  background-color: #36A2F6;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#55b5ff), to(#36a2f6));
-  background-image: -webkit-linear-gradient(top, #55b5ff, #36a2f6);
-  background-image: -moz-linear-gradient(top, #55b5ff, #36a2f6);
-  background-image: -ms-linear-gradient(top, #55b5ff, #36a2f6);
-  background-image: -o-linear-gradient(top, #55b5ff, #36a2f6);
-  background-image: linear-gradient(to bottom, #55b5ff, #36a2f6);
+  background: #2f88cd;
+  background: -moz-linear-gradient(top, #36a2f6 0%, #2f88cd 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #36a2f6), color-stop(100%, #2f88cd));
+  background: -webkit-linear-gradient(top, #36a2f6 0%, #2f88cd 100%);
+  background: -o-linear-gradient(top, #36a2f6 0%, #2f88cd 100%);
+  background: -ms-linear-gradient(top, #36a2f6 0%, #2f88cd 100%);
+  background: linear-gradient(to bottom, #36a2f6 0%, #2f88cd 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$from, endColorstr=$to,GradientType=0 );
+  border: 1px solid #2f88cd;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 1px 2px #cccccc, inset 0 1px 1px #7bb8ef;
+  -webkit-box-shadow: 0 1px 2px #cccccc, inset 0 1px 1px #7bb8ef;
+  box-shadow: 0 1px 2px #cccccc, inset 0 1px 1px #7bb8ef;
+  font: normal 500 16px/16px "Open Sans", Arial, sans-serif;
+  margin-left: 1px;
+  margin-top: 1px;
+  padding: 6px 30px;
+  text-decoration: none;
   color: #fff;
 }
-
 .node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit:hover,
 .ief-row-form .ief-entity-submit:hover {
-  background-color: #55b5ff;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#36a2f6), to(#55b5ff));
-  background-image: -webkit-linear-gradient(top, #36a2f6, #55b5ff);
-  background-image: -moz-linear-gradient(top, #36a2f6, #55b5ff);
-  background-image: -ms-linear-gradient(top, #36a2f6, #55b5ff);
-  background-image: -o-linear-gradient(top, #36a2f6, #55b5ff);
-  background-image: linear-gradient(to bottom, #36a2f6, #55b5ff);
+  -moz-box-shadow: 0 1px 2px #cccccc, inset 0 -1px 1px #7bb8ef;
+  -webkit-box-shadow: 0 1px 2px #cccccc, inset 0 -1px 1px #7bb8ef;
+  box-shadow: 0 1px 2px #cccccc, inset 0 -1px 1px #7bb8ef;
+}
+.node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit:focus,
+.ief-row-form .ief-entity-submit:focus {
+  color: #434343;
+}
+.node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit:hover,
+.ief-row-form .ief-entity-submit:hover {
+  background: #36a2f6;
+  background: -moz-linear-gradient(top, #2f88cd 0%, #36a2f6 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2f88cd), color-stop(100%, #36a2f6));
+  background: -webkit-linear-gradient(top, #2f88cd 0%, #36a2f6 100%);
+  background: -o-linear-gradient(top, #2f88cd 0%, #36a2f6 100%);
+  background: -ms-linear-gradient(top, #2f88cd 0%, #36a2f6 100%);
+  background: linear-gradient(to bottom, #2f88cd 0%, #36a2f6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$from, endColorstr=$to,GradientType=0 );
+}
+.node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit:focus, .node-form .field-widget-inline-entity-form fieldset fieldset .fieldset-wrapper .ief-entity-submit:active,
+.ief-row-form .ief-entity-submit:focus,
+.ief-row-form .ief-entity-submit:active {
+  color: #fff;
+  text-shadow: 0 -1px 1px #2f88cd;
 }
 
 .node-form .field-widget-inline-entity-form fieldset {
@@ -1328,6 +1372,11 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 #kickstart-help-topic .first-steps-mode h2 {
   background-position: 0 -90px;
   margin-bottom: 0;
+}
+
+html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
+  border-bottom: 0;
+  padding: 0 0 0 25px;
 }
 
 /* Manage Orders/Content */
