@@ -576,7 +576,6 @@ table th {
 }
 .node-form .field-type-commerce-product-reference > div > div.form-wrapper > fieldset > div.fieldset-wrapper {
   border: 1px solid #ccc;
-  margin-left: 15px;
   padding: 15px;
 
   > fieldset .fieldset-wrapper,
@@ -1167,7 +1166,32 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
 }
 html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
   border-bottom: 0;
+  font-weight: 500;
   padding: 0 0 0 25px;
+}
+#-commerce-kickstart-help-store .search .form-item input.form-text {
+  font-family: $normal;
+}
+#-commerce-kickstart-help-store div > .form-wrapper > .form-item label {
+  border-bottom: 1px solid #DFDFDF;
+  font-size: 22px;
+  line-height: 1em;
+  padding: 0 0 10px 40px;
+  overflow: hidden;
+}
+html.js #-commerce-kickstart-help-store fieldset.collapsible {
+  margin-top: 15px;
+  min-height: 55px;
+
+  .fieldset-wrapper {
+    padding: 0 42px 25px;
+  }
+}
+#prices-payments-taxes-title label {
+  background: transparent url("../images/icons-get-started.png") no-repeat 0 0;
+}
+#kickstart-help-topic {
+  padding-top: 30px;
 }
 /* Manage Orders/Content */
 .view-admin-content-main .views-exposed-form {
@@ -1425,12 +1449,19 @@ html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
 .view-commerce-backoffice-products .vbo-views-form .fieldset-wrapper .chzn-drop .chzn-search {
   display: none;
 }
+.view-commerce-backoffice-products .vbo-views-form #edit-select select {
+  height: auto;
+}
 .vbo-views-form .fieldset-wrapper .chzn-drop {
   top: -1px !important;
 }
 
 .view-commerce-backoffice-orders .vbo-views-form #edit-select select {
   height: auto;
+}
+
+#edit-combine-wrapper input.form-text {
+  font-family: $normal;
 }
 /* Vertical tabs adds a padding that needs removed on the custom checkboxes/radios */
 #foo:checked::before,

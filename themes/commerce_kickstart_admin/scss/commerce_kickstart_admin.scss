@@ -454,7 +454,7 @@ h1#overlay-title {
 #overlay-tabs li a:visited,
 #overlay-tabs li a:hover,
 #branding ul.tabs li a {
-  background: #c7c7c7;
+  @include gradient-vertical(#c8c8c8,#B6B6B6);
   @include round-corners(4px,4px,0,0);
   box-shadow: inset 0 -2px 3px #b5b5b5;
   float: left; /* LTR */
@@ -466,8 +466,8 @@ h1#overlay-title {
 }
 #overlay-tabs li a:hover,
 #branding ul.tabs li a:hover {
-  background: #666;
-  box-shadow: inset 0 -2px 3px #333;
+  @include gradient-vertical(#999999,#666666);
+  box-shadow: inset 0 -2px 3px #666666;
 }
 #overlay-tabs li.active a,
 #overlay-tabs li.active a.active,
@@ -732,12 +732,7 @@ ul.action-links li a:hover {
 }
 /* Table Styles */
 table th {
-  background: #a8a8a8;
-  border: 1px solid #a8a8a8;
-  -moz-box-shadow: inset 0 0 1px #fff;
-  -webkit-box-shadow: inset 0 0 1px #fff;
-  box-shadow: inset 0 0 1px #fff;
-  color: #fff;
+  background: #e0e0e0;
   font-weight: 400;
   font-size: 15px;
   text-transform: none;

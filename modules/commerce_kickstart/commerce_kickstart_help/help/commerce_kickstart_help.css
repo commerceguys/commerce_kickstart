@@ -202,6 +202,22 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible p {
   padding: 0 0 10px 40px;
   overflow: hidden;
 }
+.prices-payments-taxes #edit-prices-payments-taxes-title label {
+  background: url('../images/prices.png') 0 0 no-repeat;
+  border-bottom: 1px solid #dfdfdf;
+  font-size: 22px;
+  line-height: 1em;
+  padding: 0 0 10px 40px;
+  overflow: hidden;
+}
+.demo-store-features #edit-demo-store-featuress-title label {
+  background: url('../images/demo.png') 0 0 no-repeat;
+  border-bottom: 1px solid #dfdfdf;
+  font-size: 22px;
+  line-height: 1em;
+  padding: 0 0 10px 40px;
+  overflow: hidden;
+}
 
 html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
   background: transparent url("../images/expandable.png") no-repeat 0 -13px;
