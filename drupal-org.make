@@ -149,6 +149,7 @@ projects[search_api_db][version] = 1.x-dev
 projects[search_api_db][subdir] = "contrib"
 projects[search_api_ranges][version] = 1.x-dev
 projects[search_api_ranges][subdir] = "contrib"
+projects[search_api_ranges][patch][] = "http://drupal.org/files/single_value_fields_alteration-1784742-1.patch"
 projects[facetapi][version] = 1.1
 projects[facetapi][subdir] = "contrib"
 projects[facetapi][patch][] = "http://drupal.org/files/1616518-7-show-active-term.patch"
