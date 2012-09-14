@@ -50,8 +50,10 @@ function commerce_kickstart_admin_preprocess_page(&$vars) {
     '#secondary' => $vars['tabs']['#secondary'],
   );
 
-  if (overlay_get_mode() == 'child') {
-    $vars['breadcrumb'] = '';
+  if (module_exists('overlay')) {
+    if (overlay_get_mode() == 'child') {
+      $vars['breadcrumb'] = '';
+    }
   }
 }
 

@@ -738,7 +738,7 @@ table th {
   text-transform: none;
 }
 table th a {
-  color: #fff;
+  color: #000;
 }
 table th {
   padding: 5px 15px;
@@ -830,4 +830,8 @@ html.js input.throbbing {
   font: normal 16px/21px "Open Sans", Arial, sans-serif;
   margin: 1em 0;
   padding: 4px 10px;
+}
+
+#user-filter-form #edit-actions {
+  background: transparent;
 }

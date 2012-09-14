@@ -1193,17 +1193,15 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible {
 #kickstart-help-topic {
   padding-top: 30px;
 }
-/* Manage Orders/Content */
-.view-admin-content-main .views-exposed-form {
-  border: 0;
-}
 /* Manage Products */
 .views-exposed-form {
-  border-bottom: 1px solid #e2e2dc;
+  border-bottom: 1px solid #E2E2DC;
   position: relative;
-}
-.views-exposed-form .views-exposed-widget {
-  width: auto;
+
+  .views-exposed-widgets {
+    margin-bottom: .5em;
+    width: auto;
+  }
 }
 #views-exposed-form-commerce-discount-overview-default .views-exposed-form .views-reset-button input.form-submit {
   margin-top: 0;
@@ -1241,7 +1239,7 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible {
   border-radius: 3px;
   max-width: 100%;
   outline: 0;
-  padding: 3px 5px;
+  padding: 4px 5px;
 }
 html.js .views-exposed-form .form-item input.form-autocomplete {
   background-position: 100% 6px;
@@ -1259,10 +1257,11 @@ html.js .views-exposed-form .form-item input.throbbing {
 .view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-max-wrapper {
   float: left;
 }
-.view-commerce-backoffice-orders .views-exposed-form label,
-.view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-min-wrapper,
-.view-commerce-backoffice-orders .views-exposed-form #edit-date-filter-max-wrapper {
-  font-weight: 500;
+.views-exposed-form label,
+.views-exposed-form #edit-date-filter-min-wrapper,
+.views-exposed-form #edit-date-filter-max-wrapper {
+  font-weight: 500 !important;
+  padding-top: 1px;
 }
 /* Positioning to be the search box */
 .views-exposed-form .views-widget-filter-combine {
@@ -1356,10 +1355,6 @@ html.js .views-exposed-form .form-item input.throbbing {
 .view-commerce-backoffice-orders .views-exposed-form .views-widget-filter-combine input,
 .view-commerce-backoffice-products .views-exposed-form .views-widget-filter-combine input {
   padding: 4px 20px 4px 5px;
-}
-.view-commerce-backoffice-orders .views-exposed-form .views-exposed-widgets,
-.view-commerce-backoffice-products .views-exposed-form .views-exposed-widgets {
-  margin-bottom: .5em;
 }
 html.js .vbo-views-form #edit-select fieldset .fieldset-wrapper{
   padding: 3px 0 0 10px;
