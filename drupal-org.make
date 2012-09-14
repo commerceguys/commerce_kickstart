@@ -17,7 +17,7 @@ projects[rules][version] = 2.2
 projects[rules][subdir] = "contrib"
 projects[views][version] = 3.5
 projects[views][subdir] = "contrib"
-projects[views_bulk_operations][version] = 3.x-dev
+projects[views_bulk_operations][version] = 3.0
 projects[views_bulk_operations][subdir] = "contrib"
 projects[addressfield][version] = 1.0-beta3
 projects[addressfield][subdir] = "contrib"
@@ -29,7 +29,7 @@ projects[features][patch][] = "http://drupal.org/files/1669720-fix-features-flus
 projects[features][subdir] = "contrib"
 projects[strongarm][version] = 2.0
 projects[strongarm][subdir] = "contrib"
-projects[taxonomy_menu][version] = 1.3
+projects[taxonomy_menu][version] = 1.4
 projects[taxonomy_menu][subdir] = "contrib"
 projects[libraries][version] = 1.0
 projects[libraries][subdir] = "contrib"
@@ -62,7 +62,7 @@ projects[commerce_fancy_attributes][subdir] = "contrib"
 projects[commerce_autosku][version] = 1.1
 projects[commerce_autosku][subdir] = "contrib"
 projects[commerce_autosku][patch][] = "http://drupal.org/files/commerce_autosku-1616370-4_fixed_features_support.patch"
-projects[commerce_migrate][version] = 1.x-dev
+projects[commerce_migrate][version] = 1.0
 projects[commerce_migrate][subdir] = "contrib"
 projects[commerce_discount][type] = module
 projects[commerce_discount][subdir] = "contrib"
@@ -117,7 +117,7 @@ projects[mailsystem][subdir] = "contrib"
 projects[mimemail][version] = 1.0-alpha2
 projects[mimemail][subdir] = "contrib"
 projects[mimemail][patch][] = "http://drupal.org/files/1585546-2-move-rules-actions.patch"
-projects[token][version] = 1.2
+projects[token][version] = 1.3
 projects[token][subdir] = "contrib"
 projects[eva][version] = 1.2
 projects[eva][subdir] = "contrib"
@@ -184,7 +184,7 @@ projects[i18n][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.x-dev
+projects[omega_kickstart][version] = 3.0-beta2
 
 ; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
