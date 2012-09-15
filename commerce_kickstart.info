@@ -72,7 +72,6 @@ dependencies[] = views_megarow
 dependencies[] = commerce_addressbook
 dependencies[] = commerce_discount
 dependencies[] = commerce_discount_date
-dependencies[] = commerce_discount_usage
 dependencies[] = commerce_backoffice
 dependencies[] = commerce_backoffice_product
 dependencies[] = commerce_backoffice_order
