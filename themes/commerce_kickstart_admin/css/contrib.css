@@ -663,34 +663,34 @@ table th {
 }
 
 .node-form .field-widget-inline-entity-form .tabledrag-changed-warning,
-.node-form .field-widget-inline-entity-form #ief-entity-table {
+.node-form .field-widget-inline-entity-form .ief-entity-table {
   clear: both;
 }
 
-.node-form .field-widget-inline-entity-form #ief-entity-table,
-.node-form .field-widget-inline-entity-form #ief-entity-table tr td:last-child {
+.node-form .field-widget-inline-entity-form .ief-entity-table,
+.node-form .field-widget-inline-entity-form .ief-entity-table tr td:last-child {
   background-color: transparent;
 }
 
-.node-form .field-widget-inline-entity-form #ief-entity-table,
-.node-form .field-widget-inline-entity-form #ief-entity-table tr.even,
-.node-form .field-widget-inline-entity-form #ief-entity-table tr.odd {
+.node-form .field-widget-inline-entity-form .ief-entity-table,
+.node-form .field-widget-inline-entity-form .ief-entity-table tr.even,
+.node-form .field-widget-inline-entity-form .ief-entity-table tr.odd {
   background: #f1f1f1;
   border-bottom: 1px solid #BEBFB9;
 }
 
-.node-form .field-widget-inline-entity-form #ief-entity-table tr:hover,
+.node-form .field-widget-inline-entity-form .ief-entity-table tr:hover,
 tr.even {
   background: #f1f1f1;
 }
 
-.node-form .field-widget-inline-entity-form #ief-entity-table .ief-row-entity-form {
+.node-form .field-widget-inline-entity-form .ief-entity-table .ief-row-entity-form {
   background: #fff;
   border: 1px solid #ccc;
   border-width: 0 1px 1px;
 }
 
-.node-form .field-widget-inline-entity-form #ief-entity-table tr.ief-row-entity-form {
+.node-form .field-widget-inline-entity-form .ief-entity-table tr.ief-row-entity-form {
   background: #DFF2FB;
   border: 1px solid #AFDBE9;
   -moz-box-shadow: 0 0 5px #fff;
@@ -720,7 +720,7 @@ tr.even {
   padding-top: 30px;
 }
 
-.node-form .field-widget-inline-entity-form #ief-entity-table tr.ief-row-form:hover {
+.node-form .field-widget-inline-entity-form .ief-entity-table tr.ief-row-form:hover {
   background: #fff;
 }
 
