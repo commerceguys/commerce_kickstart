@@ -107,6 +107,15 @@ function commerce_kickstart_search_preprocess_block(&$variables) {
 }
 
 /**
+ * Remove the breadcrumb on search pages that have the current search shown.
+ */
+function commerce_kickstart_search_menu_breadcrumb_alter(&$active_trail, $item) {
+  if (isset($_GET['f']) || isset($_GET['search_api_views_fulltext'])) {
+    $active_trail = array();
+  }
+}
+
+/**
  * Implements hook_search_api_facetapi_keys_alter().
  *
  * We do not want to see [all items] in breadcrumbs when browsing all
