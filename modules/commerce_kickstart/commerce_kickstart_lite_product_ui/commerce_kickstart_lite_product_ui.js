@@ -5,7 +5,7 @@
     attach: function ( context, settings ) {
       $('.form-item-quantity input').spinner({
         min: 1,
-        max: 20,
+        max: 9999,
         increment: 'fast'
       });
     }
