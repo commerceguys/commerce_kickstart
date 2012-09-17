@@ -1541,7 +1541,8 @@ html.js .views-exposed-form .form-item input.throbbing {
 
 /* Edit Checkboxes only in Webkit which will render properly. */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  form table input.form-checkbox {
+  form table input.form-checkbox,
+  form table input.form-radio {
     -webkit-appearance: none;
     appearance: none;
     border: 0;
@@ -1552,6 +1553,12 @@ html.js .views-exposed-form .form-item input.throbbing {
   }
   form table input.form-checkbox:checked {
     background-position: 0 -20px;
+  }
+  form table input.form-radio {
+    background-position: 0 -40px;
+  }
+  form table input.form-radio:checked {
+    background-position: 0 -60px;
   }
 
   .vbo-views-form #edit-select .fieldset-wrapper {
