@@ -377,7 +377,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'entity_type' => 'node',
       'fences_wrapper' => 'div',
       'field_name' => 'field_product',
-      'label' => 'Product variations',
+      'label' => 'Product',
       'required' => 1,
       'settings' => array(
         'field_injection' => 1,
@@ -392,8 +392,11 @@ function commerce_kickstart_lite_product_field_default_fields() {
         'settings' => array(
           'fields' => array(),
           'type_settings' => array(
+            'allow_existing' => 0,
             'autogenerate_title' => 1,
-            'use_variation_language' => 1,
+            'delete_references' => 1,
+            'match_operator' => 'CONTAINS',
+            'use_variation_language' => 0,
           ),
         ),
         'type' => 'inline_entity_form',
@@ -485,7 +488,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
   t('Body');
   t('Price');
   t('Product category');
-  t('Product variations');
+  t('Product');
   t('field_images');
 
   return $fields;
