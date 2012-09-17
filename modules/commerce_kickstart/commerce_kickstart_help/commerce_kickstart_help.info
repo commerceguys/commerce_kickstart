@@ -2,3 +2,4 @@ name = Commerce Kickstart help
 description = Provides in-distribution help for Commerce Kickstart.
 core = 7.x
 dependencies[] = advanced_help
+dependencies[] = commerce_kickstart_service_provider
