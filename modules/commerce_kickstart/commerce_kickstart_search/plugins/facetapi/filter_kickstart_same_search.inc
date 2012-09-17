@@ -16,7 +16,7 @@ class CommerceKickstartSameSearch extends FacetapiFilter {
   protected function filterItems(&$items, $number) {
     foreach ($items as $key => $item) {
       if (!empty($item['#item_children'])) {
-        $this->filterItems($item['#item_children']);
+        $this->filterItems($item['#item_children'], $number);
       }
       if ($item['#count'] == $number && empty($item['#item_children']) && !$item['#active']) {
         unset($items[$key]);
