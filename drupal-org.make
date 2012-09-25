@@ -41,7 +41,6 @@ projects[views_megarow][subdir] = "contrib"
 projects[commerce][version] = 1.x-dev
 projects[commerce][subdir] = "contrib"
 projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
-projects[commerce][patch][] = "http://drupal.org/files/referenced_product_types_fields_for_display-1672118-3.patch"
 projects[commerce][patch][] = "http://drupal.org/files/error_messages_inside_checkout_pane-1679408-1.patch"
 projects[commerce][patch][] = "http://drupal.org/files/default_copy_address-1637674-13.patch"
 projects[commerce][patch][] = "http://drupal.org/files/1677694-commerce-remove_breadcrumb.patch"
@@ -80,12 +79,9 @@ projects[commerce_moneybookers][version] = 1.1
 projects[commerce_moneybookers][subdir] = "contrib"
 
 ; Other contribs.
-projects[crumbs][version] = 1.4
+projects[crumbs][version] = 1.x-dev
 projects[crumbs][subdir] = "contrib"
-projects[crumbs][patch][] = "http://drupal.org/files/1776486-special-menu-items.patch"
 projects[crumbs][patch][] = "http://drupal.org/files/1776490-fix-term-notice.patch"
-projects[crumbs][patch][] = "http://drupal.org/files/1776532-field-get-items.patch"
-projects[crumbs][patch][] = "http://drupal.org/files/1778236-show-current-page-5.patch"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = "contrib"
 projects[oauth][version] = 3.x-dev
