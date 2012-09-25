@@ -120,12 +120,16 @@
 #-commerce-kickstart-help-store .search .form-item {
   margin-top: 0;
   float: left;
-  width: 85%;
+  width: 80%;
 }
 #-commerce-kickstart-help-store .search .form-item input.form-text {
   border: 1px solid #999;
+  font: normal 500 1em/1em "Open Sans", Arial, sans-serif;
   line-height: normal;
   outline: 0;
+  margin: 1px;
+  max-width: 100%;
+  padding: 5px;
   width: 100%;
   -webkit-font-smoothing: antialiased;
 }
@@ -148,6 +152,7 @@
   float: right;
   font: normal 16px/21px "Open Sans", Arial, sans-serif;
   padding: 4px 15px;
+  margin-top: 9px;
   text-align: center;
   width: 13%;
 }
@@ -222,8 +227,99 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible p {
 html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
   background: transparent url("../images/expandable.png") no-repeat 0 -13px;
   font-size: 16px;
+  margin: 15px 0 0 25px;
   padding-left: 25px;
 }
 html.js #-commerce-kickstart-help-store fieldset.collapsed .fieldset-legend {
   background-position: 0 9px;
+}
+#kickstart-help-topic .first-steps-left {
+  width: 63%;
+}
+#kickstart-help-topic .first-steps-blocks {
+  margin-bottom: 30px;
+  padding: 0;
+}
+#kickstart-help-topic .first-steps-blocks-inner,
+#kickstart-help-topic .first-steps-documentation .documentation-help,
+#kickstart-help-topic .first-steps-documentation .documentation-websites,
+#kickstart-help-topic .first-steps-quick .first-steps-blocks-inner {
+  padding: 15px;
+}
+#kickstart-help-topic .first-steps-documentation .first-steps-blocks-inner,
+#kickstart-help-topic .first-steps-quick .first-steps-blocks-inner {
+  padding: 0;
+}
+#kickstart-help-topic .first-steps-quick ul li {
+  border: 0;
+  clear: left;
+  float: left;
+  margin-bottom: 5px;
+  padding: 0;
+  width: 100%;
+}
+#kickstart-help-topic .first-steps-quick ul li a {
+  background: #ffffff url("../images/quicklinks.png") no-repeat 8px center; /* LTR */
+  clear: left; /* LTR */
+  float: left; /* LTR */
+  padding: 0 5px 0 25px; /* LTR */
+  width: 100%;
+}
+#kickstart-help-topic .first-steps-blocks h2 {
+  background: transparent url("../images/icons-get-started.png") no-repeat 0 0;
+  border-bottom: 1px solid #dfdfdf;
+  font-weight: 500;
+  padding: 5px 15px 10px 40px;
+}
+/* Specific Help Block Styles */
+#kickstart-help-topic .first-steps-videos .first-steps-blocks-inner {
+  padding: 0;
+}
+#kickstart-help-topic .first-steps-documentation h2 {
+  background-position: 0 1px;
+  border-bottom: 0;
+  padding-bottom: 5px;
+}
+#kickstart-help-topic .first-steps-documentation .first-steps-blocks-inner {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+}
+#kickstart-help-topic .first-steps-quick h2 {
+  background-position: 0 -26px;
+}
+#kickstart-help-topic .first-steps-services h2 {
+  background-position: 0 -55px;
+  margin-bottom: 0;
+}
+#kickstart-help-topic .first-steps-services .first-steps-blocks-inner {
+  background: #ffffff;
+}
+#kickstart-help-topic .first-steps-mode h2 {
+  background-position: 0 -90px;
+  margin-bottom: 0;
+}
+html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
+  border-bottom: 0;
+  font-weight: 500;
+  padding: 0 0 0 25px;
+}
+#-commerce-kickstart-help-store div > .form-wrapper > .form-item label {
+  border-bottom: 1px solid #DFDFDF;
+  font-size: 22px;
+  line-height: 1em;
+  padding: 0 0 10px 40px;
+  overflow: hidden;
+}
+html.js #-commerce-kickstart-help-store fieldset.collapsible {
+  margin-top: 15px;
+  min-height: 25px;
+}
+.fieldset-wrapper {
+  padding: 0 42px 25px;
+}
+#prices-payments-taxes-title label {
+  background: transparent url("../images/icons-get-started.png") no-repeat 0 0;
+}
+#kickstart-help-topic {
+  padding-top: 30px;
 }

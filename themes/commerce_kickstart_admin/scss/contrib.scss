@@ -882,39 +882,6 @@ div.views-megarow-content .megarow-header,
 div.views-megarow-content .megarow-header .megarow-title {
   font-size: 0;
 }
-/* Inline product edit field styles */
-#commerce-kickstart-inline-help-button {
-  float: inherit;
-}
-.page-admin-commerce-products #commerce-kickstart-inline-help-button {
-  position: relative;
-}
-.page-admin-commerce-products #commerce-kickstart-inline-help-button #edit-commerce-kickstart-inline-help-button {
-  margin: 10px 0 0;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  z-index: 1;
-}
-.page-admin-commerce-products #commerce-kickstart-inline-help-button .ajax-progress {
-  bottom: 100%;
-  right: 0;
-  position: absolute;
-  width: 150px;
-}
-.page-admin-commerce-products #commerce-kickstart-inline-help {
-  position: relative;
-  z-index: 1;
-}
-.page-admin-commerce-products-types #commerce-kickstart-inline-help-button #edit-commerce-kickstart-inline-help-button {
-  margin-bottom: 0;
-  margin-top: -45px;
-  position: relative;
-}
-.page-admin-commerce-products-types #commerce-kickstart-inline-help-button .ajax-progress {
-  position: relative;
-  width: auto;
-}
 /* Customizing the View Filters */
 html.js .view-filters fieldset.collapsible,
 html.js .vbo-views-form fieldset,
@@ -1099,100 +1066,17 @@ html.js .view-commerce-backoffice-order-messages .view-footer fieldset.collapsib
   margin-top: 23px;
 }
 
-#kickstart-help-topic .first-steps-left {
-  width: 63%;
+/* Help Overrides */
+#-commerce-kickstart-help-store .search .form-item {
+  width: 85%;
 }
-#kickstart-help-topic .first-steps-blocks {
-  margin-bottom: 30px;
-  padding: 0;
-}
-#kickstart-help-topic .first-steps-blocks-inner,
-#kickstart-help-topic .first-steps-documentation .documentation-help,
-#kickstart-help-topic .first-steps-documentation .documentation-websites,
-#kickstart-help-topic .first-steps-quick .first-steps-blocks-inner {
-  padding: 15px;
-}
-#kickstart-help-topic .first-steps-documentation .first-steps-blocks-inner,
-#kickstart-help-topic .first-steps-quick .first-steps-blocks-inner {
-  padding: 0;
-}
-#kickstart-help-topic .first-steps-quick ul li {
-  border: 0;
-  clear: left;
-  float: left;
-  margin-bottom: 5px;
-  padding: 0;
-  width: 100%;
-}
-#kickstart-help-topic .first-steps-quick ul li a {
-  background: #ffffff url("../images/quicklinks.png") no-repeat 8px center; /* LTR */
-  clear: left; /* LTR */
-  float: left; /* LTR */
-  padding: 0 5px 0 25px; /* LTR */
-  width: 100%;
-}
-#kickstart-help-topic .first-steps-blocks h2 {
-  background: transparent url("../images/icons-get-started.png") no-repeat 0 0;
-  border-bottom: 1px solid #dfdfdf;
-  font-weight: 500;
-  padding: 5px 15px 10px 40px;
-}
-/* Specific Help Block Styles */
-#kickstart-help-topic .first-steps-videos .first-steps-blocks-inner {
-  padding: 0;
-}
-#kickstart-help-topic .first-steps-documentation h2 {
-  background-position: 0 1px;
-  border-bottom: 0;
-  padding-bottom: 5px;
-}
-#kickstart-help-topic .first-steps-documentation .first-steps-blocks-inner {
-  background: #ffffff;
-  border: 1px solid #cccccc;
-}
-#kickstart-help-topic .first-steps-quick h2 {
-  background-position: 0 -26px;
-}
-#kickstart-help-topic .first-steps-services h2 {
-  background-position: 0 -55px;
-  margin-bottom: 0;
-}
-#kickstart-help-topic .first-steps-services .first-steps-blocks-inner {
-  background: #ffffff;
-}
-#kickstart-help-topic .first-steps-mode h2 {
-  background-position: 0 -90px;
-  margin-bottom: 0;
-}
-html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
-  border-bottom: 0;
-  font-weight: 500;
-  padding: 0 0 0 25px;
-}
-#-commerce-kickstart-help-store .search .form-item input.form-text {
-  font-family: $normal;
-}
-#-commerce-kickstart-help-store div > .form-wrapper > .form-item label {
-  border-bottom: 1px solid #DFDFDF;
-  font-size: 22px;
-  line-height: 1em;
-  padding: 0 0 10px 40px;
-  overflow: hidden;
+#-commerce-kickstart-help-store a.search-submit {
+  margin-top: 0;
 }
 html.js #-commerce-kickstart-help-store fieldset.collapsible {
-  margin-top: 15px;
   min-height: 55px;
+}
 
-  .fieldset-wrapper {
-    padding: 0 42px 25px;
-  }
-}
-#prices-payments-taxes-title label {
-  background: transparent url("../images/icons-get-started.png") no-repeat 0 0;
-}
-#kickstart-help-topic {
-  padding-top: 30px;
-}
 /* Manage Products */
 .views-exposed-form {
   border-bottom: 1px solid #E2E2DC;
