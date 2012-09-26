@@ -121,13 +121,6 @@ function commerce_kickstart_merchandising_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_tags_pattern';
-  $strongarm->value = 'tags/[term:name]';
-  $export['pathauto_taxonomy_term_tags_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'site_403';
   $strongarm->value = 'node/9';
   $export['site_403'] = $strongarm;
