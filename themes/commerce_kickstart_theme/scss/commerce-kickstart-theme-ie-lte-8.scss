@@ -10,7 +10,7 @@
 * Menu footer navigation
 */
 .section-footer ul.menu li {
-  padding-right: 15px;
+  padding-right: 15px; /* LTR */
 }
 /**
 * Connect with us
@@ -35,7 +35,7 @@
   display: block;
   height: auto;
   margin: 0;
-  padding-right: 5px;
+  padding-right: 5px; /* LTR */
   width: 225px;
 }
 /**********************************************
@@ -51,11 +51,11 @@
 .node-product-type .cloud-zoom-gallery-thumbs {
   position: absolute;
   top: 0;
-  left: -130px;
+  left: -130px; /* LTR */
   width: 120px;
 }
 .node-product-type .cloud-zoom-container {
-  margin-left: 130px;
+  margin-left: 130px; /* LTR */
   position: relative;
 }
 .commerce-kickstart-add-to-cart .message-inner {

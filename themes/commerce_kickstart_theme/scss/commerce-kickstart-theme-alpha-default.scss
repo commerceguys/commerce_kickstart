@@ -35,16 +35,10 @@
     margin: 26px 0px;
     li {
       &.first a {
-        -moz-border-radius-topleft: 8px;
-        @include rounded(top-left, 8px);
-        -moz-border-radius-bottomleft: 8px;
-        @include rounded(bottom-left, 8px);
+        @include rounded-corners(8px 0 0 8px); /* LTR */
       }
       &.last a {
-        -moz-border-radius-topright: 8px;
-        @include rounded(top-right, 8px);
-        -moz-border-radius-bottomright: 8px;
-        @include rounded(bottom-right, 8px);
+        @include rounded-corners(0 8px 8px 0); /* LTR */
       }
     }
   }
@@ -98,14 +92,14 @@
 /* HP blocks: Top advert */
 #promotional_banner {
   padding-bottom: 10px;
-  left: -10px;
+  left: -10px; /* LTR */
   width: 100%;
 }
 
 .block-shipping-discount {
 /* HP blocks: Side advert */
   position: absolute;
-  left: -50px;
+  left: -50px; /* LTR */
   top: 85px;
   z-index: 100;
   #shipping {

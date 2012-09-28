@@ -1,0 +1,50 @@
+/* HP blocks: Slideshow */
+#block-views-demo-content-slideshow-block-1 {
+  .event-slider .views-field-nothing {
+    background: transparent url('../images/bg_title_slideshow_current.png') right top no-repeat;
+    left: auto;
+    right: 31%;
+  }
+  .bx-prev,
+  .bx-prev:hover {
+    background: transparent url('../images/bg_title_slideshow_next.png') right top no-repeat;
+  }
+  .bx-next,
+  .bx-next:hover {
+    background: transparent url('../images/bg_title_slideshow_previous.png') right top no-repeat;
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
+
+/**
+* Connect with us
+*/
+#block-menu-menu-social-connection h2 {
+  background: url('../images/bg_block_footer_title-rtl.png') right top no-repeat;
+}
+
+/**
+* Add to cart popin.
+*/
+div.messages.commerce-kickstart-add-to-cart .message-inner {
+  .button-wrapper {
+    left: 0;
+    right: auto;
+  }
+  .view-confirm-message-product-display {
+    float: right;
+
+    .view-content {
+      margin-right: 130px;
+
+      .views-field-commerce-product .content {
+
+        .field-name-field-images {
+          left: auto;
+          right: 20px;
+        }
+      }
+    }
+  }
+}

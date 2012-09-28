@@ -22,13 +22,13 @@
 #block-views-exp-display-products-page .views-exposed-widget {
   padding: 0;
   position: relative;
-  left: 0px;
+  left: 0px; /* LTR */
 }
 #block-views-exp-display-products-page #edit-search-api-views-fulltext {
   height: 18px;
 }
 #block-views-exp-display-products-page .views-submit-button .form-submit {
-  float: left;
+  float: left; /* LTR */
   width: 24px;
   height: 24px;
 }
@@ -57,7 +57,7 @@
 /* HP blocks: Top advert */
 #promotional_banner .promotional_banner_special_offer {
   position: absolute;
-  right: 10px;
+  right: 10px; /* LTR */
 }
 /**************************************************
 * --
@@ -85,7 +85,7 @@ div.commerce_kickstart_add_to_cart_overlay {
   width: 120px;
 }
 .node-product-type .cloud-zoom-container .cloud-zoom {
-  float: right;
+  float: right; /* LTR */
 }
 .commerce-kickstart-add-to-cart .message-inner {
   position: relative;

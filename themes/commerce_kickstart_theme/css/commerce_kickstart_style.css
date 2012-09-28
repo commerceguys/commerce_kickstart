@@ -69,9 +69,12 @@ body {
 /* User menu */
 .block-menu-user-menu .content ul.menu li.first {
   border-right: 1px solid #ffffff;
-  padding-right: 7px; }
+  /* LTR */
+  padding-right: 7px;
+  /* LTR */ }
 .block-menu-user-menu .content ul.menu li.last {
-  padding-left: 7px; }
+  padding-left: 7px;
+  /* LTR */ }
 .block-menu-user-menu .content ul.menu li a.active {
   background-color: #cecece;
   color: #000;
@@ -104,7 +107,8 @@ body {
 * Pseudo Breadcrumb
 */
 #region-breadcrumb .pseudo-breadcrumb li a {
-  background: url("../images/btn_close.png") left center no-repeat; }
+  background: url("../images/btn_close.png") left center no-repeat;
+  /* LTR */ }
 
 /**********************************************
 * 3.2. Zone content
@@ -120,7 +124,8 @@ body {
 *******************************************/
 /* Search api facet blocks */
 .region-sidebar-first .block-facetapi ul li a.facetapi-inactive {
-  padding-left: 0px; }
+  padding-left: 0px;
+  /* LTR */ }
 
 /*******************************************
 * 3.2.2. Content
@@ -159,6 +164,7 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
+    /* LTR */
     text-transform: capitalize; }
 
 .block-shipping-discount {
@@ -251,11 +257,14 @@ body {
   #block-menu-menu-social-connection .content ul.menu li a {
     color: #eeeeee; }
   #block-menu-menu-social-connection .content ul.menu li a.facebook {
-    background: url("../images/icon_facebook.png") 2% 50% no-repeat; }
+    background: url("../images/icon_facebook.png") 2% 50% no-repeat;
+    /* LTR */ }
   #block-menu-menu-social-connection .content ul.menu li a.twitter {
-    background: url("../images/icon_twitter.png") 2% 50% no-repeat; }
+    background: url("../images/icon_twitter.png") 2% 50% no-repeat;
+    /* LTR */ }
   #block-menu-menu-social-connection .content ul.menu li a.pinterest {
-    background: url("../images/icon_pinterest.png") 2% 50% no-repeat; }
+    background: url("../images/icon_pinterest.png") 2% 50% no-repeat;
+    /* LTR */ }
 
 /**********************************************
 * 4.2. Zone footer2
@@ -302,11 +311,14 @@ body {
     height: auto;
     margin: 0;
     padding-right: 5px;
+    /* LTR */
     padding-bottom: 30px;
     width: 230px; }
     .view-collection-taxonomy-term .view-content .item-list .products-per-collection li.views-row:nth-child(4n+5) {
       clear: left;
-      float: left; }
+      /* LTR */
+      float: left;
+      /* LTR */ }
     .view-collection-taxonomy-term .view-content .item-list .products-per-collection li.views-row h2 {
       font-size: 14px;
       height: 35px;
@@ -334,13 +346,6 @@ div.messages.commerce-kickstart-add-to-cart {
   div.messages.commerce-kickstart-add-to-cart .message-inner .commerce-kickstart-add-to-cart-close {
     background: url("../images/btn_add-to-cart-close.png") no-repeat 0 0; }
 
-.node-product-type .field-name-body .read-more a {
-  background: url("../images/btn_read_more.png") left top no-repeat; }
-.node-product-type .field-name-body .read-less a {
-  background: url("../images/btn_read_less.png") left top no-repeat; }
-.node-product-type .field-name-field-product form.commerce-add-to-cart .form-submit {
-  background: #2698f2 url("../images/bg_add_to_cart.png") 90% 50% no-repeat; }
-
 /**************************************************
 * --
 * 8. Comments
@@ -349,13 +354,16 @@ div.messages.commerce-kickstart-add-to-cart {
 .node-teaser .links.node-links .links .node-readmore a {
   background: transparent url("../images/icon_read-more.png") 95% center no-repeat;
   color: #4386be;
-  padding-right: 15px; }
+  padding-right: 15px;
+  /* LTR */ }
 .node-teaser .links.node-links .links .comment-comments a {
   background: transparent url("../images/icon_chat.png") 15% center no-repeat;
-  padding-left: 20px; }
+  padding-left: 20px;
+  /* LTR */ }
   .node-teaser .links.node-links .links .comment-comments a span {
     display: block;
     float: left;
+    /* LTR */
     text-indent: -9999px; }
 
 /**************************************************

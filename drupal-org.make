@@ -174,7 +174,7 @@ projects[i18n][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.0-beta2
+projects[omega_kickstart][version] = 3.x-dev
 
 ; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
