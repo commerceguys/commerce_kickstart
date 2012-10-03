@@ -1,15 +1,15 @@
 /* First Steps */
 .first-steps-left {
-  float: left;
+  float: left; /* LTR */
   width: 60%;
 }
 .first-steps-right {
-  float: left;
+  float: left; /* LTR */
   width: 35%;
 }
 
 .first-steps-column.first-steps-right {
-  float: right;
+  float: right; /* LTR */
 }
 .first-steps-blocks h2 {
   background-color: #ccc;
@@ -29,7 +29,7 @@
 
 .documentation-steps {
   width: 45%;
-  float: left;
+  float: left; /* LTR */
   list-style: none;
   font-weight: bold;
 }
@@ -81,10 +81,10 @@
 }
 /* Help Block */
 #block-commerce-kickstart-help-commerce-kickstart-ressources {
-  float: left;
+  float: left; /* LTR */
 }
 #block-commerce-kickstart-help-commerce-kickstart-community {
-  float: right;
+  float: right; /* LTR */
 }
 #block-commerce-kickstart-help-commerce-kickstart-ressources,
 #block-commerce-kickstart-help-commerce-kickstart-community {
@@ -99,11 +99,11 @@
 #block-commerce-kickstart-help-commerce-kickstart-ressources h2,
 #block-commerce-kickstart-help-commerce-kickstart-community h2 {
   background: transparent url("../images/help-lg.png") no-repeat 0 0;
-  padding: 5px 0 5px 40px;
+  padding: 5px 0 5px 40px; /* LTR */
 }
 #block-commerce-kickstart-help-commerce-kickstart-ressources .content,
 #block-commerce-kickstart-help-commerce-kickstart-community .content {
-  padding-left: 40px;
+  padding-left: 40px; /* LTR */
 }
 
 /* Getting started */
@@ -119,7 +119,7 @@
 }
 #-commerce-kickstart-help-store .search .form-item {
   margin-top: 0;
-  float: left;
+  float: left; /* LTR */
   width: 80%;
 }
 #-commerce-kickstart-help-store .search .form-item input.form-text {
@@ -149,7 +149,7 @@
   -webkit-box-shadow: 0 1px 2px #CCC, inset 0 1px 1px #7BB8EF;
   box-shadow: 0 1px 2px #CCC, inset 0 1px 1px #7BB8EF;
   color: white;
-  float: right;
+  float: right; /* LTR */
   font: normal 16px/21px "Open Sans", Arial, sans-serif;
   padding: 4px 15px;
   margin-top: 9px;
@@ -188,7 +188,7 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible p {
   border-bottom: 1px solid #dfdfdf;
   font-size: 22px;
   line-height: 1em;
-  padding: 0 0 10px 40px;
+  padding: 0 0 10px 40px; /* LTR */
   overflow: hidden;
 }
 .order-management #edit-order-management-title label {
@@ -196,7 +196,7 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible p {
   border-bottom: 1px solid #dfdfdf;
   font-size: 22px;
   line-height: 1em;
-  padding: 0 0 10px 40px;
+  padding: 0 0 10px 40px; /* LTR */
   overflow: hidden;
 }
 .store-settings #edit-store-settings-title label {
@@ -204,7 +204,7 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible p {
   border-bottom: 1px solid #dfdfdf;
   font-size: 22px;
   line-height: 1em;
-  padding: 0 0 10px 40px;
+  padding: 0 0 10px 40px; /* LTR */
   overflow: hidden;
 }
 .prices-payments-taxes #edit-prices-payments-taxes-title label {
@@ -212,7 +212,7 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible p {
   border-bottom: 1px solid #dfdfdf;
   font-size: 22px;
   line-height: 1em;
-  padding: 0 0 10px 40px;
+  padding: 0 0 10px 40px; /* LTR */
   overflow: hidden;
 }
 .demo-store-features #edit-demo-store-featuress-title label {
@@ -220,15 +220,15 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible p {
   border-bottom: 1px solid #dfdfdf;
   font-size: 22px;
   line-height: 1em;
-  padding: 0 0 10px 40px;
+  padding: 0 0 10px 40px; /* LTR */
   overflow: hidden;
 }
 
 html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
   background: transparent url("../images/expandable.png") no-repeat 0 -13px;
   font-size: 16px;
-  margin: 15px 0 0 25px;
-  padding-left: 25px;
+  margin: 15px 0 0 25px; /* LTR */
+  padding-left: 25px; /* LTR */
 }
 html.js #-commerce-kickstart-help-store fieldset.collapsed .fieldset-legend {
   background-position: 0 9px;
@@ -252,8 +252,8 @@ html.js #-commerce-kickstart-help-store fieldset.collapsed .fieldset-legend {
 }
 #kickstart-help-topic .first-steps-quick ul li {
   border: 0;
-  clear: left;
-  float: left;
+  clear: left; /* LTR */
+  float: left; /* LTR */
   margin-bottom: 5px;
   padding: 0;
   width: 100%;
@@ -269,7 +269,7 @@ html.js #-commerce-kickstart-help-store fieldset.collapsed .fieldset-legend {
   background: transparent url("../images/icons-get-started.png") no-repeat 0 0;
   border-bottom: 1px solid #dfdfdf;
   font-weight: 500;
-  padding: 5px 15px 10px 40px;
+  padding: 5px 15px 10px 40px; /* LTR */
 }
 /* Specific Help Block Styles */
 #kickstart-help-topic .first-steps-videos .first-steps-blocks-inner {
@@ -301,13 +301,13 @@ html.js #-commerce-kickstart-help-store fieldset.collapsed .fieldset-legend {
 html.js #-commerce-kickstart-help-store fieldset.collapsible .fieldset-legend {
   border-bottom: 0;
   font-weight: 500;
-  padding: 0 0 0 25px;
+  padding: 0 0 0 25px; /* LTR */
 }
 #-commerce-kickstart-help-store div > .form-wrapper > .form-item label {
   border-bottom: 1px solid #DFDFDF;
   font-size: 22px;
   line-height: 1em;
-  padding: 0 0 10px 40px;
+  padding: 0 0 10px 40px; /* LTR */
   overflow: hidden;
 }
 html.js #-commerce-kickstart-help-store fieldset.collapsible {

@@ -11,12 +11,12 @@
 
 }
 #toolbar > div.toolbar-menu > div.toolbar-menu-wrapper > ul.group {
-  float: left;
+  float: left; /* LTR */
 }
 #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   position: absolute;
   top: -1000px;
-  margin-left: -10px;
+  margin-left: -10px; /* LTR */
   background: #333;
   border-radius: 0 0 5px 5px;
   -moz-box-shadow: 0 3px 10px #000;
@@ -34,9 +34,9 @@
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  margin-left: 0;
+  margin-left: 0; /* LTR */
   padding: 0;
-  padding-left: 1em;
+  padding-left: 1em; /* LTR */
   width: normal;
   display: block;
   opacity: 1;
@@ -122,5 +122,5 @@
 
 #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper .group {
   width: 10em;
-  float: left;
+  float: left; /* LTR */
 }

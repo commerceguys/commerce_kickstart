@@ -1,3 +1,26 @@
-#toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
+#toolbar #toolbar-home,
+body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu,
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-4 div.toolbar-menu-wrapper ul.menu ul.menu,
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-5 div.toolbar-menu-wrapper ul.menu ul.menu {
+  float: right;
+}
+
+#toolbar #toolbar-user,
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-4 ul.group-0 {
   float: left;
+}
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-4 ul.group-1 {
+  clear: right;
+}
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu li {
+  float: right;
+  clear: right;
+}
+
+#toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu {
+  padding: 0 0 0 20px;
+}
+
+#toolbar div.toolbar-menu .toolbar-menu-wrapper {
+  padding-right: 175px;
 }

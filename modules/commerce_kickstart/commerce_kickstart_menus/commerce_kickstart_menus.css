@@ -26,7 +26,7 @@ body.toolbar #toolbar div.toolbar-menu {
   text-shadow: 0 1px 1px #18466b;
 }
 #toolbar #toolbar-home {
-  float: left;
+  float: left; /* LTR */
   padding: 3px 0;
 }
 #toolbar-home li,
@@ -56,7 +56,7 @@ body.toolbar #toolbar-home a:hover {
 }
 /* User Menu */
 #toolbar #toolbar-user {
-  float: right;
+  float: right; /* LTR */
   padding-top: 11px;
 }
 #toolbar #toolbar-user li.account a {
@@ -118,7 +118,7 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
 body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu {
   padding: 20px 0;
   margin: 0;
-  float: left;
+  float: left; /* LTR */
   width: 190px;
 }
 #toolbar > div.toolbar-menu > div.toolbar-menu-wrapper > ul.group {
@@ -128,8 +128,8 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu 
   padding: 0;
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu li {
-  float: left;
-  clear: left;
+  float: left; /* LTR */
+  clear: left; /* LTR */
   padding: 0;
   margin: 0;
   width: 100%;
@@ -185,13 +185,13 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-4 div.toolbar-menu-wrapper ul.menu ul.menu,
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-5 div.toolbar-menu-wrapper ul.menu ul.menu {
-  float: left;
+  float: left; /* LTR */
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-4 ul.group-1 {
-  clear: left;
+  clear: left; /* LTR */
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-4 ul.group-0 {
-  float: right;
+  float: right; /* LTR */
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-4 div.toolbar-menu-wrapper,
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper ul.group-5 div.toolbar-menu-wrapper {
@@ -199,7 +199,7 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu {
   margin: 0;
-  padding: 0 20px 0 0;
+  padding: 0 20px 0 0; /* LTR */
 }
 #toolbar div.toolbar-menu div.toolbar-menu-wrapper div.toolbar-menu-wrapper ul.menu ul.menu li {
   padding: 0;
