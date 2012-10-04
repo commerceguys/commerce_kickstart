@@ -223,11 +223,6 @@ body.toolbar #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
 }
 /* Chrome + Safari Hacks */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  /* Fix a weird font issue in Chrome for video pages */
-  #toolbar div.toolbar-menu ul li a {
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke: .025em #fff;
-  }
   /* Fix for drop-downs disappering on video pages */
   .overlay-open #toolbar.toolbar {
     clip: inherit !important;

@@ -4,6 +4,10 @@
  * (start from scratch)
  */
 
+/* Fix drop-down cropping in IE 7 & 8 */
+#toolbar {
+  filter: none !important;
+}
 #toolbar > div.toolbar-menu {
   background-color: #333;
 }
@@ -13,10 +17,14 @@
 #toolbar > div.toolbar-menu > div.toolbar-menu-wrapper > ul.group {
   float: left; /* LTR */
 }
+#toolbar > div.toolbar-menu > div.toolbar-menu-wrapper > ul.group > li {
+  margin-bottom: -1px;
+  height: 40px;
+}
 #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   position: absolute;
   top: -1000px;
-  margin-left: -10px; /* LTR */
+  left: -10px; /* LTR */
   background: #333;
   border-radius: 0 0 5px 5px;
   -moz-box-shadow: 0 3px 10px #000;
@@ -65,7 +73,7 @@
 
 
 #toolbar div.toolbar-menu-wrapper > ul.menu > li.open > div.toolbar-menu-wrapper,
-#toolbar div.toolbar-menu-wrapper > ul.menu > li:hover > div.toolbar-menu-wrapper {
+#toolbar div.toolbar-menu-wrapper > ul.menu:hover > li > div.toolbar-menu-wrapper {
   display: block;
   opacity: 1;
   top: 30px;
