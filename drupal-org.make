@@ -43,7 +43,6 @@ projects[commerce][subdir] = "contrib"
 projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
 projects[commerce][patch][] = "http://drupal.org/files/error_messages_inside_checkout_pane-1679408-1.patch"
 projects[commerce][patch][] = "http://drupal.org/files/default_copy_address-1637674-13.patch"
-projects[commerce][patch][] = "http://drupal.org/files/1677694-commerce-remove_breadcrumb.patch"
 projects[commerce][patch][] = "http://drupal.org/files/commerce-product-hide-title-field-1713790-7.patch"
 projects[commerce_features][version] = 1.0-rc1
 projects[commerce_features][subdir] = "contrib"
