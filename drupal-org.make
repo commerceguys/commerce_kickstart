@@ -131,7 +131,7 @@ projects[title][version] = "1.x-dev"
 projects[title][subdir] = "contrib"
 
 ; Search related modules.
-projects[search_api][version] = 1.2
+projects[search_api][version] = 1.3
 projects[search_api][subdir] = "contrib"
 projects[search_api_db][version] = 1.x-dev
 projects[search_api_db][subdir] = "contrib"
@@ -152,7 +152,7 @@ projects[link][version] = 1.x-dev
 projects[link][subdir] = "contrib"
 projects[pathauto][version] = 1.2
 projects[pathauto][subdir] = "contrib"
-projects[cloud_zoom][version] = 1.x-dev
+projects[cloud_zoom][version] = 1.1
 projects[cloud_zoom][subdir] = "contrib"
 projects[views_slideshow][version] = 3.0
 projects[views_slideshow][subdir] = "contrib"
