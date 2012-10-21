@@ -135,12 +135,12 @@ projects[search_api][version] = 1.3
 projects[search_api][subdir] = "contrib"
 projects[search_api_db][version] = 1.x-dev
 projects[search_api_db][subdir] = "contrib"
-projects[search_api_ranges][version] = 1.x-dev
+projects[search_api_ranges][version] = 1.4
 projects[search_api_ranges][subdir] = "contrib"
 projects[facetapi][version] = 1.2
 projects[facetapi][subdir] = "contrib"
 projects[facetapi][patch][] = "http://drupal.org/files/1616518-7-show-active-term.patch"
-projects[search_api_sorts][version] = 1.x-dev
+projects[search_api_sorts][version] = 1.3
 projects[search_api_sorts][subdir] = "contrib"
 
 ; UI improvement modules.
@@ -156,9 +156,8 @@ projects[cloud_zoom][version] = 1.1
 projects[cloud_zoom][subdir] = "contrib"
 projects[views_slideshow][version] = 3.0
 projects[views_slideshow][subdir] = "contrib"
-projects[special_menu_items][version] = 1.0
+projects[special_menu_items][version] = 2.0
 projects[special_menu_items][subdir] = "contrib"
-projects[special_menu_items][patch][] = "http://drupal.org/files/undefined-indexes-_over_v1.0_1407172-2.patch"
 projects[chosen][version] = 1.x-dev
 projects[chosen][subdir] = "contrib"
 
