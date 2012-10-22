@@ -1,5 +1,5 @@
 name = Commerce Kickstart Slideshow
-description = Provides the slideshow node types and related functionality.
+description = Provides the slideshow node type and related functionality.
 core = 7.x
 package = Commerce Kickstart
 php = 5.2.4

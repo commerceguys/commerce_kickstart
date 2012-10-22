@@ -1,5 +1,5 @@
-name = Commerce Kickstart service provider
-description = Commerce kickstart service providers.
+name = Commerce Kickstart Service Provider
+description = Provides information about Kickstart service providers.
 core = 7.x
 package = Commerce Kickstart
 php = 5.2.4

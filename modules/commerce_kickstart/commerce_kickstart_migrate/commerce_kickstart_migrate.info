@@ -1,5 +1,5 @@
 name = Commerce Kickstart Migrate
-description = "Populate the distribution with some content."
+description = Provides Kickstart-specific Migrate handlers and base migrations.
 package = Commerce Kickstart
 core = 7.x
 dependencies[] = migrate
