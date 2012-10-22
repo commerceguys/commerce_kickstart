@@ -1,16 +1,12 @@
 <?php
 
 /**
- * Implements hook_enable().
+ * Implements hook_install().
  */
-function commerce_kickstart_search_enable() {
-  // Rebuild the feature.
-  features_include(TRUE);
-  $module = 'commerce_kickstart_search';
-  $feature = feature_load($module);
-  $items[$module] = array_keys($feature->info['features']);
-  _features_restore('enable', $items);
-  _features_restore('rebuild', $items);
+function commerce_kickstart_search_install() {
+  // Grant permissions for using the sorts.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('use search_api_sorts'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('use search_api_sorts'));
 
   drupal_static_reset();
   $default_theme = variable_get('theme_default', 'omega_kickstart');
