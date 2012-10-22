@@ -28,4 +28,15 @@ function commerce_kickstart_lite_product_install() {
     ->fields(array('weight' => 10))
     ->condition('name', 'commerce_kickstart_lite_product')
     ->execute();
+
+  // Create a "Free shipping" service so that the shipping pane is not empty.
+  $shipping_service = commerce_flat_rate_service_new();
+  $shipping_service['name'] = 'free_shipping';
+  $shipping_service['title'] = 'Free shipping';
+  $shipping_service['base_rate'] = array(
+    'amount' => 0,
+    'currency_code' => commerce_default_currency(),
+    'data' => array(),
+  );
+  commerce_flat_rate_service_save($shipping_service);
 }
