@@ -60,6 +60,8 @@ function commerce_kickstart_lite_product_ui_enable() {
   $collection = taxonomy_vocabulary_machine_name_load('product_category');
   $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
   variable_set($variable_name, 'main-menu');
+  $variable_name = _taxonomy_menu_build_variable('path', $collection->vid);
+  variable_set($variable_name, 'commerce_kickstart_taxonomy_term_path');
 
   // Set checkout panes order.
   $pane_ids = array('cart_contents','account','customer_profile_billing','customer_profile_shipping');

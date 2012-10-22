@@ -186,7 +186,7 @@ function _commerce_kickstart_taxonomy_menu($operation, &$context) {
   $variable_name = _taxonomy_menu_build_variable('vocab_parent', $collection->vid);
   variable_set($variable_name, '0');
   $variable_name = _taxonomy_menu_build_variable('path', $collection->vid);
-  variable_set($variable_name, 'taxonomy_menu_path_default');
+  variable_set($variable_name, 'commerce_kickstart_taxonomy_term_path');
   $variable_name = _taxonomy_menu_build_variable('rebuild', $collection->vid);
   variable_set($variable_name, 1);
 }
@@ -327,8 +327,8 @@ function _commerce_kickstart_setup_blocks() {
       'status' => 1,
       'weight' => -30,
       'region' => 'content',
-      'pages' => '',
-      'visibility' => 0,
+      'pages' => 'products',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
       'cache' => DRUPAL_NO_CACHE,
     ),
     // Commerce checkout progress

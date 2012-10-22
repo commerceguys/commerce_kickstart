@@ -142,6 +142,7 @@ function commerce_kickstart_lite_product_default_search_api_index() {
       "cron_limit" : "50",
       "fields" : {
         "title" : { "type" : "string" },
+        "status" : { "type" : "integer" },
         "created" : { "type" : "date" },
         "field_product_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" },

@@ -301,6 +301,7 @@ function commerce_kickstart_product_default_search_api_index() {
       "cron_limit" : "50",
       "fields" : {
         "title" : { "type" : "string" },
+        "status" : { "type" : "integer" },
         "created" : { "type" : "date" },
         "field_brand" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
@@ -313,6 +314,7 @@ function commerce_kickstart_product_default_search_api_index() {
         "body:value" : { "type" : "text" },
         "field_brand:name" : { "type" : "text" },
         "field_brand:description" : { "type" : "text" },
+        "field_category:name" : { "type" : "string" },
         "field_collection:name" : { "type" : "text" },
         "field_collection:description" : { "type" : "text" },
         "field_gender:name" : { "type" : "text" },

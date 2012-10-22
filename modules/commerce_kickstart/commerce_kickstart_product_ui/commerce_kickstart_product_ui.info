@@ -39,6 +39,5 @@ features[facetapi][] = search_api@product_display:block:search_api_language
 features[facetapi][] = search_api@product_display:block:title
 features[features_api][] = api:1
 features[rules_config][] = commerce_kickstart_add_to_cart_message
-features[views_view][] = collection_taxonomy_term
 features[views_view][] = confirm_message_product_display
 features[views_view][] = shopping_cart

@@ -38,6 +38,8 @@ function commerce_kickstart_search_install() {
     db_update('block')
       ->fields(array(
         'region' => 'sidebar_first',
+        'pages' => 'products',
+        'visibility' => BLOCK_VISIBILITY_LISTED,
         'status' => (int) '1',
       ))
       ->condition('module', 'facetapi')
@@ -49,4 +51,5 @@ function commerce_kickstart_search_install() {
     watchdog_exception('block', $e);
     throw $e;
   }
+
 }

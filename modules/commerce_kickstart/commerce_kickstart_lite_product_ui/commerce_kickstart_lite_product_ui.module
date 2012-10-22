@@ -39,14 +39,7 @@ function commerce_kickstart_lite_product_ui_theme(&$existing) {
       'path' => drupal_get_path('module', 'commerce_kickstart_lite_product_ui') . '/theme',
       'template' => 'node--product--type--product--list',
     ),
-    'views_view__collection_taxonomy_term__page_1' => array(
-      'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
-      'template' => 'views-view--collection-taxonomy-term--page-1',
-      'arguments' => array('view' => NULL),
-      'base hook' => 'views_view',
-    ),
   );
-
   return $themes;
 }
 
@@ -188,21 +181,5 @@ function commerce_kickstart_lite_product_ui_preprocess_entity(&$variables) {
   if ($variables['elements']['#view_mode'] == 'product_in_cart') {
     $variables['title'] = "";
     $variables['url'] = "";
-  }
-}
-
-/**
- * Implements hook_preprocess_views_view().
- *
- * Add collection term as view header.
- */
-function commerce_kickstart_lite_product_ui_preprocess_views_view(&$vars) {
-  $view = $vars['view'];
-  if ($view->name == 'collection_taxonomy_term') {
-    if ($view->current_display == 'page_1') {
-      $tid = $view->args['0'];
-      $term = taxonomy_term_load($tid);
-      $vars['collection_title'] = $term->name;
-    }
   }
 }

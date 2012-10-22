@@ -276,6 +276,7 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_merchandising',
       'commerce_kickstart_menus',
       'commerce_kickstart_search',
+      'commerce_kickstart_taxonomy',
     );
   }
   else {
@@ -285,6 +286,7 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_lite_product',
       'commerce_kickstart_lite_product_ui',
       'commerce_kickstart_search',
+      'commerce_kickstart_taxonomy',
     );
     $selected_extras = variable_get('commerce_kickstart_selected_extras', array());
     if (empty($selected_extras['anonymous_checkout'])) {
@@ -735,4 +737,88 @@ function commerce_kickstart_update_7204() {
     ->execute();
   drupal_flush_all_caches();
   module_enable(array('commerce_backoffice_content'));
+}
+
+/**
+ * Replace the collection view by a view based on the product display index.
+ */
+function commerce_kickstart_update_7205(&$sandbox) {
+  // Enable commerce_kickstart_taxonomy.
+  module_enable(array('commerce_kickstart_taxonomy'));
+  menu_rebuild();
+  // Disable the old taxonomy/term/% view.
+  $view = views_get_view('collection_taxonomy_term');
+  if (isset($view->disabled) && $view->disabled === FALSE) {
+    views_export_status($view, TRUE);
+  }
+  $default_theme = variable_get('theme_default', 'omega_kickstart');
+  // Set the facets blocks only visibile on the "all products" view.
+  db_update('block')
+    ->fields(array('pages' => 'products', 'visibility' => BLOCK_VISIBILITY_LISTED))
+    ->condition('module', array('facetapi', 'search_api_sorts'))
+    ->condition('theme', $default_theme)
+    ->execute();
+  $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
+  // Set up taxonomy main menu..
+  if ($install_demo_store) {
+    $vocabulary_machine_name = 'collection';
+  }
+  else {
+    $vocabulary_machine_name = 'product_category';
+  }
+  if ($collection = taxonomy_vocabulary_machine_name_load($vocabulary_machine_name) && module_exists('taxonomy_menu')) {
+    drupal_load('module', 'taxonomy_menu');
+    $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
+    variable_set($variable_name, 'main-menu');
+    $variable_name = _taxonomy_menu_build_variable('path', $collection->vid);
+    variable_set($variable_name, 'commerce_kickstart_taxonomy_term_path');
+    // Remove the previous menu entries.
+    _taxonomy_menu_delete_all($collection->vid);
+    // Taxonomy menu links
+    $terms = taxonomy_get_tree($collection->vid);
+    // Loop through $terms to process each term.
+    foreach ($terms as $term) {
+      $args = array(
+        'term' => $term,
+        'menu_name' => 'main-menu',
+      );
+      $mlid = taxonomy_menu_handler('insert', $args);
+    }
+
+    // Delete old pathauto aliases to regenerate the new ones.
+    db_delete('url_alias')
+      ->condition('source', db_like('taxonomy/term/') . '%', 'LIKE')
+      ->execute();
+
+    // Generate the url using the pathauto bulkupdate.
+    module_load_include('inc', 'pathauto', 'pathauto.pathauto');
+    taxonomy_pathauto_bulk_update_batch_process($sandbox);
+  }
+  // Add fields to the index (Needed for the new view).
+  drupal_load('module', 'search_api');
+  $index = search_api_index_load('product_display');
+  if (!empty($index)) {
+    $indexed_fields = $index->getFields();
+    $options = $index->options;
+    if ($index->hasStatus(ENTITY_OVERRIDDEN)) {
+      $options['fields'] += array(
+        'status' => array(
+          'type' => 'integer',
+        ),
+      );
+      if ($install_demo_store) {
+        $options['fields'] += array(
+          'field_category:name' => array(
+            'type' => 'string',
+          ),
+        );
+      }
+      if (!$index->update(array('options' => $options))) {
+        return '<strong style="color: red;">' . t("Important: We couldn't add the new fields to the index.") . '</strong>';
+      }
+    }
+    // Schedule the reindexing.
+    $index->clear();
+    search_api_index_items($index, 100);
+  }
 }
