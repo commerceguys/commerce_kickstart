@@ -42,17 +42,17 @@ function commerce_kickstart_search_default_search_api_sort() {
     "default_order" : "asc",
     "options" : { "field_name" : "Date created" }
   }');
-  $items['product_display__field_product_commerce_price_amount_float_asc'] = entity_import('search_api_sort', '{
+  $items['product_display__field_product_commerce_price_amount_decimal_asc'] = entity_import('search_api_sort', '{
     "index_id" : "product_display",
-    "field" : "field_product_commerce_price_amount_float_asc",
+    "field" : "field_product_commerce_price_amount_decimal_asc",
     "name" : "Price",
     "enabled" : "1",
     "weight" : "0",
-    "identifier" : "product_display__field_product_commerce_price_amount_float_asc",
+    "identifier" : "product_display__field_product_commerce_price_amount_decimal_asc",
     "default_sort" : "0",
     "default_sort_no_terms" : "0",
     "default_order" : "asc",
-    "options" : { "field_name" : "Product variations \\u00bb Price \\u00bb Amount (float) (Min)" }
+    "options" : { "field_name" : "Product variations \\u00bb Price \\u00bb Amount (decimal) (Min)" }
   }');
   $items['product_display__title'] = entity_import('search_api_sort', '{
     "index_id" : "product_display",

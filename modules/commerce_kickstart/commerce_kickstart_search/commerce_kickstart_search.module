@@ -190,8 +190,8 @@ function theme_commerce_kickstart_search_current_search_text(array $variables) {
  */
 function commerce_kickstart_search_block_info_alter(&$blocks, $theme, $code_blocks) {
   // Override facetapi blocks label.
-  if (isset($blocks['facetapi']['KYzjqB0HaTaxM69TNtPG01iyy1Z5SyR1'])) {
-    $blocks['facetapi']['KYzjqB0HaTaxM69TNtPG01iyy1Z5SyR1']['title'] = t('Price');
-    $blocks['facetapi']['KYzjqB0HaTaxM69TNtPG01iyy1Z5SyR1']['weight'] = -1;
+  if (isset($blocks['facetapi']['TFVaQKSORCPdrULxfXDnLQZ40xH0Nper'])) {
+    $blocks['facetapi']['TFVaQKSORCPdrULxfXDnLQZ40xH0Nper']['title'] = t('Price');
+    $blocks['facetapi']['TFVaQKSORCPdrULxfXDnLQZ40xH0Nper']['weight'] = -1;
   }
 }

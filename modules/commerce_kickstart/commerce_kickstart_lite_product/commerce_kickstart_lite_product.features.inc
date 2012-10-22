@@ -146,16 +146,16 @@ function commerce_kickstart_lite_product_default_search_api_index() {
         "field_product_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" },
         "search_api_aggregation_1" : { "type" : "text" },
-        "field_product_commerce_price_amount_float_asc" : { "type" : "decimal" },
-        "field_product_commerce_price_amount_float_desc" : { "type" : "decimal" },
+        "field_product_commerce_price_amount_decimal_asc" : { "type" : "decimal" },
+        "field_product_commerce_price_amount_decimal_desc" : { "type" : "decimal" },
         "field_product:title" : { "type" : "text" },
-        "field_product:commerce_price:amount_float" : { "type" : "decimal" }
+        "field_product:commerce_price:amount_decimal" : { "type" : "decimal" }
       },
       "data_alter_callbacks" : {
         "search_api_ranges_alter" : {
           "status" : 1,
           "weight" : "-50",
-          "settings" : { "fields" : { "field_product:commerce_price:amount_float" : "field_product:commerce_price:amount_float" } }
+          "settings" : { "fields" : { "field_product:commerce_price:amount_decimal" : "field_product:commerce_price:amount_decimal" } }
         },
         "commerce_kickstart_search_bundle_filter" : { "status" : 0, "weight" : "-10", "settings" : [] },
         "search_api_alter_bundle_filter" : {

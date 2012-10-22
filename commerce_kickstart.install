@@ -629,10 +629,14 @@ function commerce_kickstart_install() {
   search_api_server_insert($values);
 }
 
+function commerce_kickstart_update_7100() {
+  // Do nothing, this update function was accidentally added instead of 7200.
+}
+
 /**
  * Update the admin theme from "Commerce Kickstart Admin Theme" to "Shiny".
  */
-function commerce_kickstart_update_7100() {
+function commerce_kickstart_update_7200() {
   // Enable the new theme.
   theme_enable(array('shiny'));
   variable_set('admin_theme', 'shiny');
@@ -660,4 +664,41 @@ function commerce_kickstart_update_7100() {
 
   // Disable the old theme.
   theme_disable(array('commerce_kickstart_admin'));
+}
+
+/**
+ * Flush caches and rebuild features.
+ */
+function commerce_kickstart_update_7201() {
+  entity_property_info_cache_clear();
+  drupal_flush_all_caches();
+}
+
+/**
+ * Update Search API integration to work with Commerce 1.4
+ */
+function commerce_kickstart_update_7202() {
+  // The price property has changed. A reindex is necessary.
+  drupal_load('module', 'search_api');
+  $index = search_api_index_load('product_display');
+  if (!$index->hasStatus(ENTITY_OVERRIDDEN)) {
+    // Refresh the list of blocks and enable the new Price facet block.
+    $default_theme = variable_get('theme_default', 'omega_kickstart');
+    drupal_static_reset();
+    _block_rehash($default_theme);
+    db_update('block')
+      ->fields(array('region' => 'sidebar_first', 'status' => 1, 'weight' => -1))
+      ->condition('module', 'facetapi')
+      ->condition('delta', 'TFVaQKSORCPdrULxfXDnLQZ40xH0Nper')
+      ->condition('theme', $default_theme)
+      ->execute();
+
+    $index->clear();
+    search_api_index_items($index, 100);
+  }
+  else {
+    // The index is overridden and can't be modified, so point the user
+    // to the documentation page.
+    return '<strong style="color: red">' . t('Important: To complete the update process, please visit http://drupal.org/node/1819842 and follow the instructions.') . '</strong>';
+  }
 }

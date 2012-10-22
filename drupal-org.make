@@ -38,9 +38,8 @@ projects[views_megarow][version] = 1.x-dev
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
-projects[commerce][version] = 1.x-dev
+projects[commerce][version] = 1.4
 projects[commerce][subdir] = "contrib"
-projects[commerce][patch][] = "http://drupal.org/files/1518084-commerce-expose-amount-floatted-4.patch"
 projects[commerce][patch][] = "http://drupal.org/files/commerce-product-hide-title-field-1713790-7.patch"
 projects[commerce_features][version] = 1.0-rc1
 projects[commerce_features][subdir] = "contrib"

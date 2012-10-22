@@ -13,10 +13,10 @@ function commerce_kickstart_search_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@product_display:block:field_product:commerce_price:amount_float';
+  $facet->name = 'search_api@product_display:block:field_product:commerce_price:amount_decimal';
   $facet->searcher = 'search_api@product_display';
   $facet->realm = 'block';
-  $facet->facet = 'field_product:commerce_price:amount_float';
+  $facet->facet = 'field_product:commerce_price:amount_decimal';
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
@@ -54,7 +54,7 @@ function commerce_kickstart_search_facetapi_default_facet_settings() {
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@product_display:block:field_product:commerce_price:amount_float'] = $facet;
+  $export['search_api@product_display:block:field_product:commerce_price:amount_decimal'] = $facet;
 
   return $export;
 }

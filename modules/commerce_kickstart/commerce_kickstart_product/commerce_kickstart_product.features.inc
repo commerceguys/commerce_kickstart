@@ -308,8 +308,8 @@ function commerce_kickstart_product_default_search_api_index() {
         "field_gender" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "search_api_language" : { "type" : "string" },
         "search_api_aggregation_1" : { "type" : "text" },
-        "field_product_commerce_price_amount_float_asc" : { "type" : "decimal" },
-        "field_product_commerce_price_amount_float_desc" : { "type" : "decimal" },
+        "field_product_commerce_price_amount_decimal_asc" : { "type" : "decimal" },
+        "field_product_commerce_price_amount_decimal_desc" : { "type" : "decimal" },
         "body:value" : { "type" : "text" },
         "field_brand:name" : { "type" : "text" },
         "field_brand:description" : { "type" : "text" },
@@ -323,7 +323,7 @@ function commerce_kickstart_product_default_search_api_index() {
         "field_product:field_shoe_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_storage_capacity" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_product:field_top_size" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_product:commerce_price:amount_float" : { "type" : "list\\u003Cdecimal\\u003E" },
+        "field_product:commerce_price:amount_decimal" : { "type" : "list\\u003Cdecimal\\u003E" },
         "field_product:field_color:name" : { "type" : "list\\u003Ctext\\u003E" },
         "field_product:field_color:description" : { "type" : "list\\u003Ctext\\u003E" }
       },
@@ -331,7 +331,7 @@ function commerce_kickstart_product_default_search_api_index() {
         "search_api_ranges_alter" : {
           "status" : 1,
           "weight" : "-50",
-          "settings" : { "fields" : { "field_product:commerce_price:amount_float" : "field_product:commerce_price:amount_float" } }
+          "settings" : { "fields" : { "field_product:commerce_price:amount_decimal" : "field_product:commerce_price:amount_decimal" } }
         },
         "commerce_kickstart_search_bundle_filter" : { "status" : 1, "weight" : "-10", "settings" : [] },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
