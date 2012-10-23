@@ -426,13 +426,14 @@ function commerce_kickstart_install_finished(&$install_state) {
   drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
   $messages = drupal_set_message();
 
+  // Remember the profile which was used.
+  variable_set('install_profile', drupal_get_profile());
+  variable_set('install_task', 'done');
+
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
   // registered by the install profile are registered correctly.
   drupal_flush_all_caches();
-
-  // Remember the profile which was used.
-  variable_set('install_profile', drupal_get_profile());
 
   // Install profiles are always loaded last
   db_update('system')
@@ -670,6 +671,10 @@ function commerce_kickstart_update_7200() {
  * Flush caches and rebuild features.
  */
 function commerce_kickstart_update_7201() {
+  // install_task wasn't set properly on older installs, which affects
+  // feature rebuilding.
+  variable_set('install_task', 'done');
+
   entity_property_info_cache_clear();
   drupal_flush_all_caches();
 }
