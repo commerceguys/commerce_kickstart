@@ -23,7 +23,7 @@ function commerce_kickstart_order_tokens($type, $tokens, array $data = array(), 
   $replacements = array();
   foreach ($tokens as $name => $original) {
     if ($name == 'site-logo') {
-      $replacements[$original] = theme('image', array('path' => theme_get_setting('logo')));
+      $replacements[$original] = theme('image', array('path' => theme_get_setting('logo'), 'alt' => variable_get('site_name'), 'title' => variable_get('site_name')));
     }
   }
 
