@@ -1,3 +1,19 @@
+/**************************************************
+* --
+* 2. Section header
+* --
+**************************************************/
+/**********************************************
+* 2.1. Zone user
+**********************************************/
+/*******************************************
+* 2.1.1. Region user first
+*******************************************/
+.block-menu-user-menu .block-inner {
+  float: left;
+  margin-left: 10px;
+  margin-right: 0px; }
+
 /* HP blocks: Slideshow */
 #block-views-demo-content-slideshow-block-1 .event-slider .views-field-nothing {
   background: transparent url("../images/bg_title_slideshow_current.png") right top no-repeat;

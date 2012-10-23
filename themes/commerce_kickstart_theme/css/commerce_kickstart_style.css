@@ -91,7 +91,8 @@ body {
 * Cart block
 */
 .block-shopping-cart-block .content {
-  background: white url("../images/picto_cart.png") 5px 5px no-repeat; }
+  background-color: #ffffff;
+  background-image: url("../images/picto_cart.png"); }
   .block-shopping-cart-block .content .view-shopping-cart .line-item-summary ul.links {
     background-color: #2698F2; }
 

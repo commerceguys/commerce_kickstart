@@ -7,6 +7,7 @@
 .block-menu-user-menu .content ul.menu li {
   &.first {
     border-left: 1px solid #ffffff;
+    border-right: 0;
     padding-left: 7px;
   }
   &.last {
@@ -95,6 +96,17 @@
     background-position: 2px -16px;
   }
 }
+
+/*******************************************
+* 2.1.2. Region user second
+*******************************************/
+/**
+* Cart block
+*/
+.block-shopping-cart-block .content {
+  background-position: 99% 48%;
+}
+
 /**************************************************
 * --
 * 8. Comments
