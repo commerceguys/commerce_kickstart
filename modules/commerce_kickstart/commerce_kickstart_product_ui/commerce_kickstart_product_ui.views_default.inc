@@ -286,9 +286,10 @@ function commerce_kickstart_product_ui_views_default_views() {
   $handler->display->display_options['fields']['commerce_product']['field'] = 'commerce_product';
   $handler->display->display_options['fields']['commerce_product']['label'] = '';
   $handler->display->display_options['fields']['commerce_product']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['commerce_product']['type'] = 'entityreference_entity_view';
+  $handler->display->display_options['fields']['commerce_product']['type'] = 'commerce_product_reference_rendered_product';
   $handler->display->display_options['fields']['commerce_product']['settings'] = array(
     'view_mode' => 'product_in_cart',
+    'page' => 1,
   );
   /* Field: Commerce Line Item: Quantity */
   $handler->display->display_options['fields']['quantity']['id'] = 'quantity';

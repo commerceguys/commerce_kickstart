@@ -158,9 +158,10 @@ function commerce_kickstart_order_views_default_views_alter(&$views) {
     $handler->display->display_options['fields']['commerce_product']['hide_empty'] = 0;
     $handler->display->display_options['fields']['commerce_product']['empty_zero'] = 0;
     $handler->display->display_options['fields']['commerce_product']['hide_alter_empty'] = 1;
-    $handler->display->display_options['fields']['commerce_product']['type'] = 'entityreference_entity_view';
+    $handler->display->display_options['fields']['commerce_product']['type'] = 'commerce_product_reference_rendered_product';
     $handler->display->display_options['fields']['commerce_product']['settings'] = array(
       'view_mode' => 'product_in_cart',
+      'page' => 1,
     );
     $handler->display->display_options['fields']['commerce_product']['field_api_classes'] = 0;
     /* Field: Global: Custom text */
