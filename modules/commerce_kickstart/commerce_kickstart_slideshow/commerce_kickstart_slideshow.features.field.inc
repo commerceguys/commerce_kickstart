@@ -266,7 +266,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
           'target' => 'default',
         ),
         'display' => array(
-          'url_cutoff' => 80,
+          'url_cutoff' => '',
         ),
         'enable_tokens' => 1,
         'title' => 'optional',
@@ -322,7 +322,7 @@ function commerce_kickstart_slideshow_field_default_fields() {
           'title' => '',
         ),
         'display' => array(
-          'url_cutoff' => '80',
+          'url_cutoff' => '',
         ),
         'enable_tokens' => 1,
         'title' => 'none',
