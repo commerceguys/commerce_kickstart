@@ -118,6 +118,38 @@ function commerce_kickstart_custom_setting(&$form, &$form_state) {
 }
 
 /**
+ * Implements hook_system_info_alter().
+ *
+ * Hides conflicting features (so demo store users don't see the "no demo store"
+ * features, and the other way around).
+ */
+function commerce_kickstart_system_info_alter(&$info, $file, $type) {
+  // Don't run during installation.
+  if (variable_get('install_task') != 'done') {
+    return;
+  }
+
+  $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
+  if ($install_demo_store) {
+    $hide_modules = array(
+      'commerce_kickstart_lite_product',
+      'commerce_kickstart_lite_product_ui',
+      'commerce_kickstart_lite_product_zoom'
+    );
+  }
+  else {
+    $hide_modules = array(
+      'commerce_kickstart_product',
+      'commerce_kickstart_product_ui',
+    );
+  }
+
+  if ($type == 'module' && in_array($file->name, $hide_modules)) {
+    $info['hidden'] = TRUE;
+  }
+}
+
+/**
  * Implements hook_update_projects_alter().
  */
 function commerce_kickstart_update_projects_alter(&$projects) {
