@@ -675,8 +675,13 @@ function commerce_kickstart_update_7201() {
   // feature rebuilding.
   variable_set('install_task', 'done');
 
-  entity_property_info_cache_clear();
-  drupal_flush_all_caches();
+  // Only non-overridden indexes get processed in 7202, no reason to do a
+  // cache clear this early otherwise.
+  $index = search_api_index_load('product_display');
+  if (!$index->hasStatus(ENTITY_OVERRIDDEN)) {
+    entity_property_info_cache_clear();
+    drupal_flush_all_caches();
+  }
 }
 
 /**
