@@ -72,7 +72,7 @@ projects[commerce_moneybookers][version] = 1.1
 projects[commerce_moneybookers][subdir] = "contrib"
 
 ; Other contribs.
-projects[crumbs][version] = 1.x-dev
+projects[crumbs][version] = 1.5
 projects[crumbs][subdir] = "contrib"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = "contrib"
@@ -164,8 +164,8 @@ projects[i18n][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.x-dev
-projects[shiny][version] = 1.x-dev
+projects[omega_kickstart][version] = 3.0-rc1
+projects[shiny][version] = 1.0-rc1
 
 ; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
