@@ -712,3 +712,14 @@ function commerce_kickstart_update_7202() {
     return '<strong style="color: red">' . t('Important: To complete the update process, please visit http://drupal.org/node/1819842 and follow the instructions.') . '</strong>';
   }
 }
+
+/**
+ * Remove the old price sort.
+ */
+function commerce_kickstart_update_7203() {
+  $sorts = entity_load('search_api_sort', FALSE, array('field' => 'field_product_commerce_price_amount_float_asc'));
+  if (!empty($sorts)) {
+    $sort = reset($sorts);
+    $sort->delete();
+  }
+}
