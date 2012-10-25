@@ -122,7 +122,7 @@ function commerce_kickstart_user_form_alter(&$form, &$form_state, $form_id) {
     $form['account']['name']['#prefix'] = '<div id="' . $form_id . '">';
     $form['account']['name']['#prefix'] .= '<h1>' . t('Register') . '</h1>';
     $form['actions']['submit']['#suffix'] = '</div>';
-    $form['actions']['submit']['#suffix'] = '<div class="back-to-login clearfix">' . l(t('Back to login'), 'user/login', array('attributes' => array('class' => 'login-account', 'title' => t('Sign in')))) . '</div>';
+    $form['actions']['submit']['#suffix'] = '<div class="back-to-login clearfix">' . l(t('Back to login'), 'user/login', array('attributes' => array('class' => 'login-account', 'title' => t('Sign in')))) . '</div></div>';
   }
 }
 
