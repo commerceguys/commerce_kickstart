@@ -3,7 +3,7 @@
 /**
  * Implements hook_views_default_views().
  */
-function commerce_kickstart_content_ui_views_default_views() {
+function commerce_backoffice_content_views_default_views() {
   $views = array();
 
   $view = new view();
@@ -181,16 +181,21 @@ function commerce_kickstart_content_ui_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['group'] = 1;
-  $handler->display->display_options['filters']['type']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
-  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
-  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  /* Filter criterion: Content: Non product display content types */
+  $handler->display->display_options['filters']['non_product_display_node_type']['id'] = 'non_product_display_node_type';
+  $handler->display->display_options['filters']['non_product_display_node_type']['table'] = 'node';
+  $handler->display->display_options['filters']['non_product_display_node_type']['field'] = 'non_product_display_node_type';
+  $handler->display->display_options['filters']['non_product_display_node_type']['group'] = 1;
+  $handler->display->display_options['filters']['non_product_display_node_type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['non_product_display_node_type']['expose']['operator_id'] = 'non_product_display_node_type_op';
+  $handler->display->display_options['filters']['non_product_display_node_type']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['non_product_display_node_type']['expose']['operator'] = 'non_product_display_node_type_op';
+  $handler->display->display_options['filters']['non_product_display_node_type']['expose']['identifier'] = 'non_product_display_node_type';
+  $handler->display->display_options['filters']['non_product_display_node_type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
   /* Filter criterion: User: Name */
   $handler->display->display_options['filters']['uid']['id'] = 'uid';
   $handler->display->display_options['filters']['uid']['table'] = 'users';
@@ -215,11 +220,11 @@ function commerce_kickstart_content_ui_views_default_views() {
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  /* Display: System */
+  $handler = $view->new_display('system', 'System', 'system_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['path'] = 'admin/content';
-
   $views[$view->name] = $view;
 
   $view = new view;
@@ -524,13 +529,11 @@ function commerce_kickstart_content_ui_views_default_views() {
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  /* Display: System */
+  $handler = $view->new_display('system', 'System', 'system_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['path'] = 'admin/content/comment';
-  $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Comments';
-  $handler->display->display_options['menu']['weight'] = '1';
-  $handler->display->display_options['menu']['context'] = 0;
 
   $views[$view->name] = $view;
 

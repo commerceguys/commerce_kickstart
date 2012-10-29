@@ -723,3 +723,16 @@ function commerce_kickstart_update_7203() {
     $sort->delete();
   }
 }
+
+/**
+ * Enable the commerce_backoffice_content module.
+ */
+function commerce_kickstart_update_7204() {
+  db_update('system')
+    ->fields(array('status' => 0))
+    ->condition('name', 'commerce_kickstart_content_ui')
+    ->condition('type', 'module')
+    ->execute();
+  drupal_flush_all_caches();
+  module_enable(array('commerce_backoffice_content'));
+}
