@@ -8,6 +8,7 @@ function commerce_kickstart_search_install() {
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('use search_api_sorts'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('use search_api_sorts'));
 
+  entity_defaults_rebuild();
   drupal_static_reset();
   $default_theme = variable_get('theme_default', 'omega_kickstart');
   _block_rehash($default_theme);

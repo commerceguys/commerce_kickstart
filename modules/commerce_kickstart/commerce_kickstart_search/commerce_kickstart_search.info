@@ -4,6 +4,7 @@ core = 7.x
 package = Commerce Kickstart
 php = 5.2.4
 dependencies[] = current_search
+dependencies[] = commerce_product_reference
 dependencies[] = entity
 dependencies[] = facetapi
 dependencies[] = search_api

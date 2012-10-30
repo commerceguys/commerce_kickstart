@@ -25,9 +25,6 @@ function commerce_kickstart_lite_product_commerce_product_default_types() {
  */
 function commerce_kickstart_lite_product_ctools_plugin_api() {
   list($module, $api) = func_get_args();
-  if ($module == "facetapi" && $api == "facetapi_defaults") {
-    return array("version" => "1");
-  }
   list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
@@ -123,102 +120,5 @@ function commerce_kickstart_lite_product_node_info() {
       'help' => '',
     ),
   );
-  return $items;
-}
-
-/**
- * Implements hook_default_search_api_index().
- */
-function commerce_kickstart_lite_product_default_search_api_index() {
-  $items = array();
-  $items['product_display'] = entity_import('search_api_index', '{
-    "name" : "Product Display",
-    "machine_name" : "product_display",
-    "description" : "Used for the frontend product listings and search pages.",
-    "server" : "frontend",
-    "item_type" : "node",
-    "options" : {
-      "index_directly" : 1,
-      "cron_limit" : "50",
-      "fields" : {
-        "title" : { "type" : "string" },
-        "status" : { "type" : "integer" },
-        "created" : { "type" : "date" },
-        "field_product_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "search_api_language" : { "type" : "string" },
-        "search_api_aggregation_1" : { "type" : "text" },
-        "field_product_commerce_price_amount_decimal_asc" : { "type" : "decimal" },
-        "field_product_commerce_price_amount_decimal_desc" : { "type" : "decimal" },
-        "field_product:title" : { "type" : "text" },
-        "field_product:commerce_price:amount_decimal" : { "type" : "decimal" }
-      },
-      "data_alter_callbacks" : {
-        "search_api_ranges_alter" : {
-          "status" : 1,
-          "weight" : "-50",
-          "settings" : { "fields" : { "field_product:commerce_price:amount_decimal" : "field_product:commerce_price:amount_decimal" } }
-        },
-        "commerce_kickstart_search_bundle_filter" : { "status" : 0, "weight" : "-10", "settings" : [] },
-        "search_api_alter_bundle_filter" : {
-          "status" : 1,
-          "weight" : "-10",
-          "settings" : { "default" : "0", "bundles" : { "product_display" : "product_display" } }
-        },
-        "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
-        "search_api_alter_add_aggregation" : {
-          "status" : 1,
-          "weight" : "0",
-          "settings" : { "fields" : { "search_api_aggregation_1" : {
-                "name" : "Title (Fulltext)",
-                "type" : "fulltext",
-                "fields" : [ "title" ],
-                "description" : "A Fulltext aggregation of the following fields: Title."
-              }
-            }
-          }
-        },
-        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } }
-      },
-      "processors" : {
-        "search_api_case_ignore" : {
-          "status" : 0,
-          "weight" : "0",
-          "settings" : { "fields" : { "title" : true } }
-        },
-        "search_api_html_filter" : {
-          "status" : 0,
-          "weight" : "10",
-          "settings" : {
-            "fields" : { "title" : true },
-            "title" : 0,
-            "alt" : 1,
-            "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
-          }
-        },
-        "search_api_tokenizer" : {
-          "status" : 0,
-          "weight" : "20",
-          "settings" : {
-            "fields" : { "title" : true },
-            "spaces" : "[^[:alnum:]]",
-            "ignorable" : "[\\u0027]"
-          }
-        },
-        "search_api_stopwords" : {
-          "status" : 0,
-          "weight" : "30",
-          "settings" : {
-            "fields" : { "title" : true },
-            "file" : "",
-            "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
-          }
-        }
-      }
-    },
-    "enabled" : "1",
-    "read_only" : "0"
-  }');
   return $items;
 }

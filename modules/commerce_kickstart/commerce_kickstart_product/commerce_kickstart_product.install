@@ -15,11 +15,6 @@ function commerce_kickstart_product_enable() {
   _features_restore('enable', $items);
   _features_restore('rebuild', $items);
 
-  // Rebuild the index so that it contains the newly created fields.
-  entity_defaults_rebuild();
-  $index = entity_load_single('search_api_index', 'product_display');
-  $index->server()->fieldsUpdated($index);
-
   // Setup AutoSKU for product types provided by this module.
   foreach (commerce_kickstart_product_commerce_product_default_types() as $type => $type_info) {
     $record = new stdClass();

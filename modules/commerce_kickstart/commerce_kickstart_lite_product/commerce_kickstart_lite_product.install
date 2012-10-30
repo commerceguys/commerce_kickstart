@@ -14,10 +14,6 @@ function commerce_kickstart_lite_product_enable() {
   $items[$module] = array_keys($feature->info['features']);
   _features_restore('enable', $items);
   _features_restore('rebuild', $items);
-
-  entity_defaults_rebuild();
-  $index = entity_load_single('search_api_index', 'product_display');
-  $index->server()->fieldsUpdated($index);
 }
 
 /**
