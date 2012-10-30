@@ -192,7 +192,7 @@ function commerce_kickstart_service_provider_get_full() {
  */
 function commerce_kickstart_service_provider_commerce_kickstart_service_provider() {
   return array(
-    'skrill' => array(
+    'commerce_moneybookers' => array(
       'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/skrill.png',
       'title' => t('Skrill'),
       'module_path' => '',
