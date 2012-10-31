@@ -68,12 +68,12 @@ function commerce_kickstart_menus_menu() {
     'page arguments' => array('admin/commerce/config/products-categories'),
     'access callback' => TRUE,
   );
-  // Products > Settings > Product types
-  $items['admin/commerce/manage-products/settings/product-types'] = array(
-    'title' => 'Product types',
-    'description' => 'Manage products types for your store.',
+  // Products > Settings > Variation types
+  $items['admin/commerce/manage-products/settings/product-variation-types'] = array(
+    'title' => 'Variation types',
+    'description' => 'Manage products variation types for your store.',
     'page callback' => 'drupal_goto',
-    'page arguments' => array('admin/commerce/config/types'),
+    'page arguments' => array('admin/commerce/config/product-variation-types'),
     'access callback' => TRUE,
   );
   // Orders
@@ -151,7 +151,7 @@ function commerce_kickstart_menus_menu() {
     'title' => 'Content types',
     'description' => 'Manage content types for your store.',
     'page callback' => 'drupal_goto',
-    'page arguments' => array('admin/commerce/config/types/content'),
+    'page arguments' => array('admin/structure/types'),
     'access callback' => TRUE,
   );
   // Store settings > Advanced store settings
@@ -225,50 +225,6 @@ function commerce_kickstart_menus_menu() {
       'toolbar_expanded' => TRUE,
       'toolbar_break' => TRUE,
     ),
-  );
-  // Store settings > Product settings > Product types
-  $items['admin/commerce/config/types'] = array(
-    'title' => 'Product types',
-    'description' => 'Manage products types for your store.',
-    'page callback' => 'commerce_product_ui_types_overview',
-    'access arguments' => array('administer product types'),
-    'file' => 'includes/commerce_product_ui.types.inc',
-    'file path' => drupal_get_path('module', 'commerce_product_ui'),
-    'parent' => 'admin/commerce/config/product-settings',
-  );
-  $items['admin/commerce/config/types/product'] = array(
-    'title' => 'Product types',
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-  );
-  // Store settings > Product settings > Product types > Add product type
-  $items['admin/commerce/config/types/product/add'] = array(
-    'title' => 'Add product type',
-    'page callback' => 'commerce_product_ui_product_type_form_wrapper',
-    'page arguments' => array(commerce_product_ui_product_type_new()),
-    'access arguments' => array('administer product types'),
-    'type' => MENU_LOCAL_ACTION,
-    'file' => 'includes/commerce_product_ui.types.inc',
-    'file path' => drupal_get_path('module', 'commerce_product_ui'),
-  );
-  // Store settings > Product settings > Product types > Content types
-  $items['admin/commerce/config/types/content'] = array(
-    'title' => 'Content types',
-    'description' => 'Manage content types, including default status, front page promotion, comment settings, etc.',
-    'page callback' => 'node_overview_types',
-    'access arguments' => array('administer content types'),
-    'type' => MENU_LOCAL_TASK,
-    'file' => 'content_types.inc',
-    'file path' => drupal_get_path('module', 'node'),
-  );
-  // Store settings > Product settings > Product types > Content types > Add content type
-  $items['admin/commerce/config/types/content/add'] = array(
-    'title' => 'Add content type',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('node_type_form'),
-    'access arguments' => array('administer content types'),
-    'type' => MENU_LOCAL_ACTION,
-    'file' => 'content_types.inc',
-    'file path' => drupal_get_path('module', 'node'),
   );
   // Store settings > Product settings > Categories
   $items['admin/commerce/config/products-categories'] = array(
@@ -378,6 +334,10 @@ function commerce_kickstart_menus_menu_alter(&$items) {
 
   if (isset($items['admin/commerce/config/products-categories'])) {
     $items['admin/commerce/config/products-categories']['parent'] = 'admin/commerce/config/product-settings';
+  }
+  if (isset($items['admin/commerce/config/product-variation-types'])) {
+    $items['admin/commerce/config/product-variation-types']['title'] = 'Variation types';
+    $items['admin/commerce/config/product-variation-types']['parent'] = 'admin/commerce/config/product-settings';
   }
 
   // Show the Discounts link under "Store settings".
@@ -512,34 +472,17 @@ function commerce_kickstart_menus_views_api() {
  * Implements hook_menu_breadcrumb_alter().
  */
 function commerce_kickstart_menus_menu_breadcrumb_alter(&$active_trail, $item) {
-  // Home > Administration > Store settings > Product settings > Content types OR Product types
-  // @todo Rework this.
-  if (drupal_match_path($item['path'], "admin/structure/types/*\nadmin/commerce/config/types/*\nadmin/commerce/products/types*")) {
-    if (drupal_match_path($item['path'], "admin/structure/types/add\nadmin/commerce/products/types")) {
+  // Home > Administration > Content > Settings > Content types
+  if (drupal_match_path($item['path'], "admin/structure/types") || drupal_match_path($item['path'], "admin/structure/types/*")) {
+    if (drupal_match_path($item['path'], "admin/structure/types/add")) {
       return;
     }
-    $is_product_type = in_array(strtr(arg(4),'-','_'), array_keys(commerce_product_reference_node_types()));
-    $is_product_type_page = drupal_match_path($item['path'], "admin/commerce/products/types*");
-    if ($is_product_type_page) {
-      $active_trail_end = array_slice($active_trail, 5);
-    }
-    else {
-      $active_trail_end = array_slice($active_trail, 6);
-    }
+    $active_trail_end = array_slice($active_trail, 6);
     $active_trail = array_slice($active_trail, 0, 1);
     $active_trail[] = _commerce_kickstart_menus_get_item('admin');
-    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/config');
-    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/config/product-settings');
-    // Append either "Product types" OR "Content types".
-    if ($is_product_type_page || $is_product_type) {
-      if ($is_product_type_page) {
-        array_shift($active_trail_end);
-      }
-      $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/config/types');
-    }
-    else {
-      $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/config/types/content');
-    }
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/manage-content');
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/manage-content/settings');
+    $active_trail[] = _commerce_kickstart_menus_get_item('admin/commerce/manage-content/settings/content-types');
     $active_trail = array_merge($active_trail, $active_trail_end);
   }
   // Set the breadcrumb for the "Add content" tab of node/add.

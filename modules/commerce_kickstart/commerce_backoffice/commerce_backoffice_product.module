@@ -38,10 +38,95 @@ function commerce_backoffice_product_menu() {
     'type' => MENU_LOCAL_TASK,
   ) + $base;
 
+  // Product variation types UI.
+  $items['admin/commerce/config/product-variation-types'] = array(
+    'title' => 'Product variation types',
+    'description' => 'Manage product variation types.',
+    'page callback' => 'commerce_backoffice_product_variation_types_overview',
+    'access arguments' => array('administer product types'),
+    'file' => 'includes/commerce_backoffice_product.product_variation_types.inc',
+  );
+  $items['admin/commerce/config/product-variation-types/add'] = array(
+    'title' => 'Add product variation type',
+    'page callback' => 'commerce_backoffice_product_variation_type_form_wrapper',
+    'page arguments' => array(commerce_product_ui_product_type_new()),
+    'access arguments' => array('administer product types'),
+    'type' => MENU_LOCAL_ACTION,
+    'file' => 'includes/commerce_backoffice_product.product_variation_types.inc',
+  );
+  foreach (commerce_product_types() as $type => $product_type) {
+    // Convert underscores to hyphens for the menu item argument.
+    $type_arg = strtr($type, '_', '-');
+
+    $items['admin/commerce/config/product-variation-types/' . $type_arg] = array(
+      'title' => $product_type['name'],
+      'page callback' => 'commerce_backoffice_product_variation_type_form_wrapper',
+      'page arguments' => array($type),
+      'access arguments' => array('administer product types'),
+      'file' => 'includes/commerce_backoffice_product.product_variation_types.inc',
+    );
+
+    if ($product_type['module'] == 'commerce_product_ui') {
+      $items['admin/commerce/config/product-variation-types/' . $type_arg . '/edit'] = array(
+        'title' => 'Edit',
+        'access callback' => 'commerce_product_ui_product_type_update_access',
+        'access arguments' => array($type),
+        'type' => MENU_DEFAULT_LOCAL_TASK,
+        'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+      );
+      $items['admin/commerce/config/product-variation-types/' . $type_arg . '/delete'] = array(
+        'title' => 'Delete',
+        'page callback' => 'commerce_backoffice_product_variation_type_delete_form_wrapper',
+        'page arguments' => array($type),
+        'access callback' => 'commerce_product_ui_product_type_update_access',
+        'access arguments' => array($type),
+        'type' => MENU_LOCAL_TASK,
+        'context' => MENU_CONTEXT_INLINE,
+        'weight' => 10,
+        'file' => 'includes/commerce_backoffice_product.product_variation_types.inc',
+      );
+    }
+  }
+
   return $items;
 }
 
-/*
+/**
+ * Implements hook_menu_alter().
+ */
+function commerce_backoffice_product_menu_alter(&$items) {
+  $items['admin/structure/types']['page callback'] = 'commerce_backoffice_product_node_overview_types';
+
+  // Remove the Commerce product types UI.
+  foreach ($items as $path => $item) {
+    if (strpos($path, 'admin/commerce/products/types') === 0) {
+      unset($items[$path]);
+    }
+  }
+
+  // Transform the field UI tabs into contextual links.
+  foreach (commerce_product_types() as $type => $product_type) {
+    // Convert underscores to hyphens for the menu item argument.
+    $type_arg = strtr($type, '_', '-');
+
+    $items['admin/commerce/config/product-variation-types/' . $type_arg . '/fields']['context'] = MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE;
+    $items['admin/commerce/config/product-variation-types/' . $type_arg . '/display']['context'] = MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE;
+  }
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function commerce_backoffice_product_entity_info_alter(&$entity_info) {
+  foreach ($entity_info['commerce_product']['bundles'] as $type => &$bundle) {
+    $bundle['admin'] = array(
+      'path' => 'admin/commerce/config/product-variation-types/' . strtr($type, '_', '-'),
+      'access arguments' => array('administer product types'),
+    );
+  }
+}
+
+/**
  * Implements hook_menu_local_tasks_alter().
  */
 function commerce_backoffice_product_menu_local_tasks_alter(&$data, $router_item, $root_path) {
@@ -59,6 +144,20 @@ function commerce_backoffice_product_menu_local_tasks_alter(&$data, $router_item
       }
     }
   }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function commerce_backoffice_product_permission() {
+  $perms = array(
+    'administer product display types' => array(
+      'title' => t('Administer product display types'),
+      'restrict access' => TRUE,
+    ),
+  );
+
+  return $perms;
 }
 
 /**
@@ -100,6 +199,7 @@ function theme_commerce_backoffice_product_node_add_list($variables) {
  * Implements hook_form_views_form_alter().
  */
 function commerce_backoffice_product_form_alter(&$form, &$form_state, $form_id) {
+  // Alter the node edit form to group the categories in a vertical tab.
   if (isset($form['#node_edit_form'])) {
     $product_node_types = commerce_product_reference_node_types();
     if (in_array($form['#node']->type, array_keys($product_node_types))) {
@@ -215,6 +315,72 @@ function commerce_backoffice_product_quick_edit_form_submit($form, &$form_state)
   $form_state['rebuild'] = TRUE;
   $form_state['product_saved'] = TRUE;
 }
+
+/**
+ * Override of node_overview_types().
+ *
+ * @see node_overview_types()
+ */
+function commerce_backoffice_product_node_overview_types() {
+  module_load_include('inc', 'node', 'content_types');
+
+  $types = node_type_get_types();
+  $product_node_types = commerce_product_reference_node_types();
+  $names = node_type_get_names();
+  $field_ui = module_exists('field_ui');
+  $header = array(t('Name'), t('Product display'), array('data' => t('Operations'), 'colspan' => $field_ui ? '4' : '2'));
+  $rows = array();
+
+  foreach ($names as $key => $name) {
+    $type = $types[$key];
+    if (node_hook($type->type, 'form')) {
+      $type_url_str = str_replace('_', '-', $type->type);
+      $row = array(theme('node_admin_overview', array('name' => $name, 'type' => $type)));
+      // Set the product display column.
+      $row[] = isset($product_node_types[$key]) ? t('Yes') : t('No');
+      // Set the edit column.
+      $row[] = array('data' => l(t('edit'), 'admin/structure/types/manage/' . $type_url_str));
+
+      if ($field_ui) {
+        // Manage fields.
+        $row[] = array('data' => l(t('manage fields'), 'admin/structure/types/manage/' . $type_url_str . '/fields'));
+
+        // Display fields.
+        $row[] = array('data' => l(t('manage display'), 'admin/structure/types/manage/' . $type_url_str . '/display'));
+      }
+
+      // Set the delete column.
+      if ($type->custom) {
+        $row[] = array('data' => l(t('delete'), 'admin/structure/types/manage/' . $type_url_str . '/delete'));
+      }
+      else {
+        $row[] = array('data' => '');
+      }
+
+      $rows[] = $row;
+    }
+  }
+
+  $args = array(
+    '!variation_type' => l(t('product variation type'), 'admin/commerce/config/product-variation-types'),
+  );
+  $build['help'] = array(
+    '#markup' => '<p>' . t('Each piece of content on the site (blog post, page, product) is of a specific type.') . ' <br />' .
+                 t('Different types have different fields, used for storing additional information, or categorizing the content.') . '</p>' .
+                 '<p>' . t('Each product display type has a matching !variation_type, since each product display must have one or more product variations.', $args) .
+                 '<br />' . t('Start by creating a new !variation_type, which will then create the matching product display type.', $args) .
+                 '</p>',
+  );
+  $build['node_table'] = array(
+    '#theme' => 'table',
+    '#header' => $header,
+    '#rows' => $rows,
+    '#empty' => t('No content types available. <a href="@link">Add content type</a>.', array('@link' => url('admin/structure/types/add'))),
+  );
+
+  return $build;
+}
+
 /**
  * Get the Product Displays Vocabularies.
  */
