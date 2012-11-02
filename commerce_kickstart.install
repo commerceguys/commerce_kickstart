@@ -766,7 +766,7 @@ function commerce_kickstart_update_7205(&$sandbox) {
   else {
     $vocabulary_machine_name = 'product_category';
   }
-  if ($collection = taxonomy_vocabulary_machine_name_load($vocabulary_machine_name) && module_exists('taxonomy_menu')) {
+  if (($collection = taxonomy_vocabulary_machine_name_load($vocabulary_machine_name)) && module_exists('taxonomy_menu')) {
     drupal_load('module', 'taxonomy_menu');
     $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
     variable_set($variable_name, 'main-menu');
