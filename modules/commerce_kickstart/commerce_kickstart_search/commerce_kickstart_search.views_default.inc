@@ -34,7 +34,8 @@ function commerce_kickstart_search_views_default_views() {
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options'] = '24, 100';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['class'] = 'all-products';
-  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'product_list';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -51,19 +52,6 @@ function commerce_kickstart_search_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'product_list';
-  /* Field: Content: Field extracted from entity referenced through field Product variations */
-  $handler->display->display_options['fields']['field_extractor_field_product']['id'] = 'field_extractor_field_product';
-  $handler->display->display_options['fields']['field_extractor_field_product']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['field_extractor_field_product']['field'] = 'field_extractor_field_product';
-  $handler->display->display_options['fields']['field_extractor_field_product']['label'] = '';
-  $handler->display->display_options['fields']['field_extractor_field_product']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_extractor_field_product']['type'] = 'ul';
-  $handler->display->display_options['fields']['field_extractor_field_product']['separator'] = ' ';
-  $handler->display->display_options['fields']['field_extractor_field_product']['field_name'] = 'field_color';
-  $handler->display->display_options['fields']['field_extractor_field_product']['formatter'] = 'entityreference_entity_view';
-  $handler->display->display_options['fields']['field_extractor_field_product']['settings'] = array(
-    'view_mode' => 'add_to_cart_form',
-  );
   /* Filter criterion: Search: Fulltext search */
   $handler->display->display_options['filters']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['filters']['search_api_views_fulltext']['table'] = 'search_api_index_product_display';

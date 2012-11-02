@@ -69,18 +69,6 @@ function commerce_kickstart_taxonomy_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'product_list';
-  /* Field: Content: Field extracted from entity referenced through field Product variations */
-  $handler->display->display_options['fields']['field_extractor_field_product']['id'] = 'field_extractor_field_product';
-  $handler->display->display_options['fields']['field_extractor_field_product']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['field_extractor_field_product']['field'] = 'field_extractor_field_product';
-  $handler->display->display_options['fields']['field_extractor_field_product']['label'] = '';
-  $handler->display->display_options['fields']['field_extractor_field_product']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_extractor_field_product']['type'] = 'ul';
-  $handler->display->display_options['fields']['field_extractor_field_product']['field_name'] = 'field_color';
-  $handler->display->display_options['fields']['field_extractor_field_product']['formatter'] = 'entityreference_entity_view';
-  $handler->display->display_options['fields']['field_extractor_field_product']['settings'] = array(
-    'view_mode' => 'add_to_cart_form',
-  );
   /* Sort criterion: Category: Name (indexed) */
   $handler->display->display_options['sorts']['field_category_name']['id'] = 'field_category_name';
   $handler->display->display_options['sorts']['field_category_name']['table'] = 'search_api_index_product_display';
@@ -146,21 +134,9 @@ function commerce_kickstart_taxonomy_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['label'] = '';
   $handler->display->display_options['fields']['rendered_entity']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'product_list';
-  /* Field: Content: Field extracted from entity referenced through field Product variations */
-  $handler->display->display_options['fields']['field_extractor_field_product']['id'] = 'field_extractor_field_product';
-  $handler->display->display_options['fields']['field_extractor_field_product']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['field_extractor_field_product']['field'] = 'field_extractor_field_product';
-  $handler->display->display_options['fields']['field_extractor_field_product']['label'] = '';
-  $handler->display->display_options['fields']['field_extractor_field_product']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_extractor_field_product']['type'] = 'ul';
-  $handler->display->display_options['fields']['field_extractor_field_product']['field_name'] = 'field_color';
-  $handler->display->display_options['fields']['field_extractor_field_product']['formatter'] = 'entityreference_entity_view';
-  $handler->display->display_options['fields']['field_extractor_field_product']['settings'] = array(
-    'view_mode' => 'add_to_cart_form',
-  );
   $handler->display->display_options['path'] = 'collection/%';
 
   /* Display: Block */
@@ -242,9 +218,6 @@ function commerce_kickstart_taxonomy_views_default_views_alter(&$views) {
     $default_handler->display->display_options['relationships']['field_product_category']['field'] = 'field_product_category';
     $page_handler->display->display_options['fields']['name']['relationship'] = 'field_product_category';
     $page_handler->display->display_options['fields']['name']['replace_spaces'] = TRUE;
-    // Remove the color field and the name_1.
-    unset($page_handler->display->display_options['fields']['field_extractor_field_product']);
-    unset($default_handler->display->display_options['fields']['field_extractor_field_product']);
     // Replace the contextual filter.
     unset($default_handler->display->display_options['arguments']['field_collection']);
     $default_handler->display->display_options['arguments']['field_product_category_1']['id'] = 'field_product_category_1';
