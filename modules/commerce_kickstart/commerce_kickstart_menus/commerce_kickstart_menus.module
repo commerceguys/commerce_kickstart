@@ -327,6 +327,13 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     );
   }
 
+  if (isset($items['admin/help'])) {
+    $items['admin/help']['options'] = array(
+      'toolbar_expanded' => TRUE,
+      'toolbar_break' => TRUE,
+    );
+  }
+
   if (isset($items['admin/commerce/config/product-pricing'])) {
     // Just because the default title 'Product pricing rules' is too long.
     $items['admin/commerce/config/product-pricing']['title'] = 'Pricing rules';
