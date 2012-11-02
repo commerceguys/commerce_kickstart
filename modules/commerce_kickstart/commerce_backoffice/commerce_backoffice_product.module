@@ -228,7 +228,7 @@ function commerce_backoffice_product_form_alter(&$form, &$form_state, $form_id) 
   // Alter the Exposed Filters for products page
   if (isset($form['submit']['#id']) && $form['submit']['#id'] == 'edit-submit-commerce-backoffice-products') {
     $form['product_display_node_type']['#attributes'] = array('data-placeholder' => array(t('All product types')));
-    $form['term_node_tid_multiple_vocabularies']['#attributes'] = array('data-placeholder' => array(t('All categories')));
+    $form['product_display_term_node_tid_multiple']['#attributes'] = array('data-placeholder' => array(t('All categories')));
     $form['status']['#options']['All'] = t('All statuses');
     $form['combine']['#attributes'] = array('placeholder' => array(t('Search by title or SKU')));
   }

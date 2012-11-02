@@ -18,6 +18,14 @@ function commerce_backoffice_content_views_data_alter(&$data) {
       'handler' => 'commerce_backoffice_content_filter_node_type',
     ),
   );
+  $data['node']['term_node_tid_multiple'] = array(
+    'title' => 'Has taxonomy terms (Multiple)',
+    'help' => 'Display content if it has one of (or all of) the selected terms.',
+    'filter' => array(
+      'handler' => 'commerce_backoffice_handler_filter_term_node_tid',
+      'product display' => FALSE,
+    ),
+  );
 }
 
 /**

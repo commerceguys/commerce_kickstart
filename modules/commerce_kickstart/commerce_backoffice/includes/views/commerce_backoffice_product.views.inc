@@ -18,22 +18,12 @@ function commerce_backoffice_product_views_data_alter(&$data) {
       'handler' => 'commerce_backoffice_product_handler_field_node_operations',
     ),
   );
-  $data['node']['term_node_tid_multiple_vocabularies'] = array(
-    'title' => 'Has taxonomy terms (from Multiple Vocabularies)',
-    'help' => 'Display content if it has the selected taxonomy terms from Multiple Vocabularies. It has an option to work as independent filters per vocabulary.',
-    'real field' => 'nid',
+  $data['node']['product_display_term_node_tid_multiple'] = array(
+    'title' => 'Product Display Has taxonomy terms (Multiple)',
+    'help' => 'Display content if it has one of (or all of) the selected terms.',
     'filter' => array(
-      'handler' => 'views_handler_filter_term_node_tid_multiple_vocabularies',
-      'allow empty' => TRUE,
-      )
-  );
-  $data['node']['product_display_term_node_tid'] = array(
-    'title' => 'Product Display Has taxonomy terms (from Multiple Vocabularies)',
-    'help' => 'Display content if it has the selected taxonomy terms from Multiple Vocabularies, for Product displays content types ONLY. It has an option to work as independent filters per vocabulary.',
-    'real field' => 'nid',
-    'filter' => array(
-      'handler' => 'commerce_backoffice_handler_filter_product_display_term_node_tid',
-      'allow empty' => TRUE,
-      )
+      'handler' => 'commerce_backoffice_handler_filter_term_node_tid',
+      'product display' => TRUE,
+    ),
   );
 }
