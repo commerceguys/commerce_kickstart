@@ -4,7 +4,7 @@
  * Data alteration callback that filters out nodes that aren't
  * product displays.
  */
-class CommerceKickstartSearchProductDisplayFilter extends SearchApiAbstractAlterCallback {
+class CommerceSearchApiProductDisplayFilter extends SearchApiAbstractAlterCallback {
 
   /**
    * @param SearchApiIndex $index

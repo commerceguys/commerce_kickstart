@@ -3,7 +3,7 @@
 /**
  * Filter out items that do not change search results.
  */
-class CommerceKickstartSameSearch extends FacetapiFilter {
+class CommerceSearchApiSameSearch extends FacetapiFilter {
 
   public function execute(array $build) {
     $this->filterItems($build, $this->adapter->getResultCount());
