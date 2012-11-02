@@ -161,57 +161,46 @@ function commerce_kickstart_update_projects_alter(&$projects) {
 /**
  * Implements hook_update_status_alter().
  *
- * Disable reporting of modules that are in the distribution, but only
- * if they have not been updated manually. In addition, we only hide security
- * issues if the distribution itself has not been updated.
+ * Disable reporting of projects that are in the distribution, but only
+ * if they have not been updated manually.
+ *
+ * Projects with insecure / revoked / unsupported releases are only shown
+ * after two days, which gives enough time to prepare a new Kickstart release
+ * which the users can install and solve the problem.
  */
 function commerce_kickstart_update_status_alter(&$projects) {
-  if (!isset($projects['commerce_kickstart']['status'])) {
-    // We cannot proceed if we don't know the update status of the distribution.
-    return;
-  }
-  $distribution_secure = !in_array($projects['commerce_kickstart']['status'], array(
+  $bad_statuses = array(
     UPDATE_NOT_SECURE,
     UPDATE_REVOKED,
-    UPDATE_NOT_SUPPORTED
-  ));
+    UPDATE_NOT_SUPPORTED,
+  );
 
   $make_filepath = drupal_get_path('module', 'commerce_kickstart') . '/drupal-org.make';
   if (!file_exists($make_filepath)) {
-    // We cannot proceed if we cannot find a proper makefile for the distribution.
     return;
   }
 
   $make_info = drupal_parse_info_file($make_filepath);
   foreach ($projects as $project_name => $project_info) {
-    if (!isset($project_info['info']['version']) || !isset($make_info['projects'][$project_name])) {
-      // Don't hide a project that is not shipped with the distribution.
-      continue;
-    }
-    if ($distribution_secure && in_array($project_info['status'], array(
-      UPDATE_NOT_SECURE,
-      UPDATE_REVOKED,
-      UPDATE_NOT_SUPPORTED
-    ))
-    ) {
-      // Don't hide a project that is in a security state if the distribution
-      // is not in a security state.
-      continue;
-    }
-    if (is_string($make_info['projects'][$project_name])) {
-      $make_project_version = $make_info['projects'][$project_name];
-    }
-    elseif (is_array($make_info['projects'][$project_name]) && isset($make_info['projects'][$project_name]['version'])) {
-      $make_project_version = $make_info['projects'][$project_name]['version'];
-    }
-    else {
-      break;
-    }
-
-    // Current version matches the version we shipped, remove it from the list.
-    if (DRUPAL_CORE_COMPATIBILITY . '-' . $make_project_version == $project_info['info']['version']) {
-      $projects['commerce_kickstart']['includes'][$project_info['name']] = $project_info['info']['name'];
+    // Hide Kickstart projects, they have no update status of their own.
+    if (strpos($project_name, 'commerce_kickstart_') !== FALSE) {
       unset($projects[$project_name]);
+    }
+    // Hide bad releases (insecure, revoked, unsupported) if they are younger
+    // than two days (giving Kickstart time to prepare an update).
+    elseif (isset($project_info['status']) && in_array($project_info['status'], $bad_statuses)) {
+      $two_days_ago = strtotime('2 days ago');
+      if ($project_info['releases'][$project_info['recommended']]['date'] < $two_days_ago) {
+        unset($projects[$project_name]);
+      }
+    }
+    // Hide projects shipped with Kickstart if they haven't been manually
+    // updated.
+    elseif (isset($make_info['projects'][$project_name])) {
+      $version = $make_info['projects'][$project_name]['version'];
+      if (strpos($version, 'dev') !== FALSE || (DRUPAL_CORE_COMPATIBILITY . '-' . $version == $project_info['info']['version'])) {
+        unset($projects[$project_name]);
+      }
     }
   }
 }
