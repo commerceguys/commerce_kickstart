@@ -46,7 +46,7 @@ projects[commerce_addressbook][version] = 2.0-rc3
 projects[commerce_addressbook][subdir] = "contrib"
 projects[commerce_shipping][version] = 2.x-dev
 projects[commerce_shipping][subdir] = "contrib"
-projects[commerce_flat_rate][version] = 1.x-dev
+projects[commerce_flat_rate][version] = 1.0-beta1
 projects[commerce_flat_rate][subdir] = "contrib"
 projects[commerce_fancy_attributes][version] = 1.0
 projects[commerce_fancy_attributes][subdir] = "contrib"
@@ -70,7 +70,7 @@ projects[commerce_moneybookers][version] = 1.1
 projects[commerce_moneybookers][subdir] = "contrib"
 
 ; Other contribs.
-projects[crumbs][version] = 1.5
+projects[crumbs][version] = 1.6
 projects[crumbs][subdir] = "contrib"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = "contrib"
