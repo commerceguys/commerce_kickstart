@@ -133,14 +133,11 @@ function commerce_kickstart_system_info_alter(&$info, $file, $type) {
   if ($install_demo_store) {
     $hide_modules = array(
       'commerce_kickstart_lite_product',
-      'commerce_kickstart_lite_product_ui',
-      'commerce_kickstart_lite_product_zoom'
     );
   }
   else {
     $hide_modules = array(
       'commerce_kickstart_product',
-      'commerce_kickstart_product_ui',
     );
   }
 

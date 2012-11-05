@@ -4121,11 +4121,9 @@ function commerce_kickstart_product_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'view_mode' => '',
-          ),
-          'type' => 'entityreference_entity_view',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
           'weight' => '6',
         ),
         'full' => array(
@@ -4215,12 +4213,10 @@ function commerce_kickstart_product_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'view_mode' => '',
-          ),
-          'type' => 'entityreference_entity_view',
-          'weight' => '5',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '6',
         ),
         'full' => array(
           'label' => 'above',
@@ -4308,12 +4304,10 @@ function commerce_kickstart_product_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'entityreference',
-          'settings' => array(
-            'view_mode' => '',
-          ),
-          'type' => 'entityreference_entity_view',
-          'weight' => '3',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '6',
         ),
         'full' => array(
           'label' => 'above',

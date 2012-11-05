@@ -162,7 +162,8 @@ projects[i18n][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.x-dev
+projects[omega_kickstart][download][type] = "git"
+projects[omega_kickstart][download][module] = "omega_kickstart"
 projects[shiny][version] = 1.x-dev
 
 ; Libraries.

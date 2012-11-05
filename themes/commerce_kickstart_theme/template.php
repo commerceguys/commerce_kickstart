@@ -28,15 +28,3 @@ function commerce_kickstart_theme_library() {
   );
   return $libraries;
 }
-
-/**
- * Preprocess field.
- */
-function commerce_kickstart_theme_preprocess_field(&$variables) {
-  $element = $variables['element'];
-  if ($element['#entity_type'] != 'node' || $element['#field_name'] != 'title_field') {
-    return;
-  }
-
-  $variables['theme_hook_suggestions'][] = 'field__fences_h2__node';
-}

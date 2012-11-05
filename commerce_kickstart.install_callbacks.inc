@@ -179,16 +179,19 @@ function _commerce_kickstart_example_taxes($operation, &$context) {
 function _commerce_kickstart_taxonomy_menu($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
 
+
   // Set up taxonomy main menu.
-  $collection = taxonomy_vocabulary_machine_name_load('collection');
-  $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
-  variable_set($variable_name, 'main-menu');
-  $variable_name = _taxonomy_menu_build_variable('vocab_parent', $collection->vid);
-  variable_set($variable_name, '0');
-  $variable_name = _taxonomy_menu_build_variable('path', $collection->vid);
-  variable_set($variable_name, 'commerce_kickstart_taxonomy_term_path');
-  $variable_name = _taxonomy_menu_build_variable('rebuild', $collection->vid);
-  variable_set($variable_name, 1);
+  $vocabulary_machine_name = variable_get('commerce_kickstart_demo_store', FALSE) ? 'collection' : 'product_category';
+  if ($collection = taxonomy_vocabulary_machine_name_load($vocabulary_machine_name)) {
+    $variable_name = _taxonomy_menu_build_variable('vocab_menu', $collection->vid);
+    variable_set($variable_name, 'main-menu');
+    $variable_name = _taxonomy_menu_build_variable('vocab_parent', $collection->vid);
+    variable_set($variable_name, '0');
+    $variable_name = _taxonomy_menu_build_variable('path', $collection->vid);
+    variable_set($variable_name, 'commerce_kickstart_taxonomy_term_path');
+    $variable_name = _taxonomy_menu_build_variable('rebuild', $collection->vid);
+    variable_set($variable_name, 1);
+  }
 }
 
 /**

@@ -25,7 +25,6 @@ function commerce_kickstart_lite_product_commerce_product_default_types() {
  */
 function commerce_kickstart_lite_product_ctools_plugin_api() {
   list($module, $api) = func_get_args();
-  list($module, $api) = func_get_args();
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }

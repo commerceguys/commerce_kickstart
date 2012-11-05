@@ -284,7 +284,7 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_block',
       'commerce_kickstart_user',
       'commerce_kickstart_lite_product',
-      'commerce_kickstart_lite_product_ui',
+      'commerce_kickstart_product_ui',
       'commerce_kickstart_search',
       'commerce_kickstart_taxonomy',
     );
@@ -308,7 +308,7 @@ function commerce_kickstart_install_additional_modules() {
       $modules[] = 'commerce_kickstart_social';
     }
     if (!empty($selected_extras['zoom_cloud'])) {
-      $modules[] = 'commerce_kickstart_lite_product_zoom';
+      variable_set('commerce_kickstart_product_zoom_enabled', TRUE);
     }
   }
 
@@ -390,9 +390,7 @@ function commerce_kickstart_import_content() {
   $operations[] = array('_commerce_kickstart_example_taxes', array(t('Setting up taxes.')));
 
   $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
-  if ($install_demo_store) {
-    $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menus.')));
-  }
+  $operations[] = array('_commerce_kickstart_taxonomy_menu', array(t('Setting up menus.')));
 
   // Run all available migrations.
   $migrations = migrate_migrations();
@@ -820,5 +818,21 @@ function commerce_kickstart_update_7205(&$sandbox) {
     // Schedule the reindexing.
     $index->clear();
     search_api_index_items($index, 100);
+  }
+}
+
+/**
+ * Enable the commerce_kickstart_product_ui on the no demo store.
+ */
+function commerce_kickstart_update_7206() {
+  if (!variable_get('commerce_kickstart_demo_store', FALSE)) {
+    // Disable the removed lite modules.
+    db_update('system')
+      ->fields(array('status' => 0))
+      ->condition('name', array('commerce_kickstart_lite_product_ui', 'commerce_kickstart_lite_product_zoom'))
+      ->condition('type', 'module')
+      ->execute();
+    drupal_flush_all_caches();
+    module_enable(array('commerce_kickstart_product_ui'));
   }
 }

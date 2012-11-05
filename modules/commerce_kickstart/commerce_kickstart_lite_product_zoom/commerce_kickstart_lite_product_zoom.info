@@ -1,7 +1,0 @@
-name = Commerce Kickstart Lite Product Zoom
-description = Enable the cloud zoom functionality for product images.
-core = 7.x
-package = Commerce Kickstart
-php = 5.2.4
-dependencies[] = cloud_zoom
-dependencies[] = commerce_kickstart_lite_product

@@ -35,3 +35,22 @@ function commerce_product_commerce_product_type_info_alter(&$product_types) {
   // Remove the default product type.
   unset($product_types['product']);
 }
+
+/**
+ * Implements hook_block_info_alter().
+ */
+function commerce_kickstart_product_block_info_alter(&$blocks, $theme, $code_blocks) {
+  // Override facetapi blocks label.
+  if (isset($blocks['facetapi']['bLnoZinIxE1jGb2PRK60VXpQAiOUVaBT'])) {
+    $blocks['facetapi']['bLnoZinIxE1jGb2PRK60VXpQAiOUVaBT']['title'] = t('Shoe size');
+  }
+  if (isset($blocks['facetapi']['G1C31UEu0CE1nJNBKS8vf340Ze4SYYEt'])) {
+    $blocks['facetapi']['G1C31UEu0CE1nJNBKS8vf340Ze4SYYEt']['title'] = t('Hat size');
+  }
+  if (isset($blocks['facetapi']['0ipnwlXipzrm39vOO6k11dGc0FQlH9sg'])) {
+    $blocks['facetapi']['0ipnwlXipzrm39vOO6k11dGc0FQlH9sg']['title'] = t('Top size');
+  }
+  if (isset($blocks['facetapi']['y7cJ8JiPggb9kLdqx2RyReFZulrBd8Ig'])) {
+    $blocks['facetapi']['y7cJ8JiPggb9kLdqx2RyReFZulrBd8Ig']['title'] = t('Bag size');
+  }
+}
