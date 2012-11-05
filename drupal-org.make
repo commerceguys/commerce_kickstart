@@ -68,6 +68,8 @@ projects[commerce_payleap][version] = 1.x-dev
 projects[commerce_payleap][subdir] = "contrib"
 projects[commerce_moneybookers][version] = 1.1
 projects[commerce_moneybookers][subdir] = "contrib"
+projects[commerce_search_api][subdir] = "contrib"
+projects[commerce_search_api][version] = 1.0-rc1
 
 ; Other contribs.
 projects[crumbs][version] = 1.6
