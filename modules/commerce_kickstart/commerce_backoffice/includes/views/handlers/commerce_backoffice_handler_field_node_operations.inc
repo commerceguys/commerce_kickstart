@@ -5,10 +5,11 @@
  *
  * @ingroup views_field_handlers
  */
-class commerce_backoffice_product_handler_field_node_operations extends views_handler_field_entity {
+class commerce_backoffice_handler_field_node_operations extends views_handler_field_entity {
 
   function option_definition() {
     $options = parent::option_definition();
+    $options['add_quick_edit'] = TRUE;
     $options['add_destination'] = TRUE;
 
     return $options;
@@ -17,6 +18,11 @@ class commerce_backoffice_product_handler_field_node_operations extends views_ha
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
 
+    $form['add_quick_edit'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Add the quick edit link for product displays.'),
+      '#default_value' => $this->options['add_quick_edit'],
+    );
     $form['add_destination'] = array(
       '#type' => 'checkbox',
       '#title' => t('Add a destination parameter to operations links so users return to this View on form submission.'),
@@ -29,10 +35,12 @@ class commerce_backoffice_product_handler_field_node_operations extends views_ha
     $links = menu_contextual_links('node', 'node', array($nid));
 
     // Add the quick-edit link which opens the megarow.
-    $quick_edit['quick-edit'] = menu_get_item('commerce_backoffice/variations/' . $nid);
-    $quick_edit['quick-edit']['title'] = t('Quick edit');
-    $quick_edit['quick-edit']['attributes']['class'] = 'views-megarow-open';
-    $links = array_merge($quick_edit, $links);
+    if ($this->options['add_quick_edit']) {
+      $quick_edit['quick-edit'] = menu_get_item('commerce_backoffice/variations/' . $nid);
+      $quick_edit['quick-edit']['title'] = t('Quick edit');
+      $quick_edit['quick-edit']['attributes']['class'] = 'views-megarow-open';
+      $links = array_merge($quick_edit, $links);
+    }
 
     // Add the destination to the links if specified.
     if ($this->options['add_destination']) {

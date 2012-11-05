@@ -34,7 +34,7 @@ function commerce_backoffice_product_views_data_alter(&$data) {
     'field' => array(
       'title' => t('Operations links (Dropbutton)'),
       'help' => t('Display the available operations links for the node in a dropbutton.'),
-      'handler' => 'commerce_backoffice_product_handler_field_node_operations',
+      'handler' => 'commerce_backoffice_handler_field_node_operations',
     ),
   );
   $data['node']['product_display_term_node_tid_multiple'] = array(

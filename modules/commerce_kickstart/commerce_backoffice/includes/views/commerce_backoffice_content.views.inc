@@ -18,6 +18,13 @@ function commerce_backoffice_content_views_data_alter(&$data) {
       'handler' => 'commerce_backoffice_content_filter_node_type',
     ),
   );
+  $data['views_entity_node']['operations_dropbutton'] = array(
+    'field' => array(
+      'title' => t('Operations links (Dropbutton)'),
+      'help' => t('Display the available operations links for the node in a dropbutton.'),
+      'handler' => 'commerce_backoffice_handler_field_node_operations',
+    ),
+  );
   $data['node']['term_node_tid_multiple'] = array(
     'title' => 'Has taxonomy terms (Multiple)',
     'help' => 'Display content if it has one of (or all of) the selected terms.',

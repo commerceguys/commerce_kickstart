@@ -10,4 +10,3 @@ dependencies[] = views_bulk_operations
 dependencies[] = views_megarow
 
 files[] = includes/views/handlers/commerce_backoffice_product_handler_field_product_quick_edit_form.inc
-files[] = includes/views/handlers/commerce_backoffice_product_handler_field_node_operations.inc

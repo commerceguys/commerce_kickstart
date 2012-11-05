@@ -23,6 +23,7 @@ function commerce_backoffice_product_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Products';
+  $handler->display->display_options['css_class'] = 'commerce-backoffice-view';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
@@ -155,6 +156,8 @@ function commerce_backoffice_product_views_default_views() {
   $handler->display->display_options['fields']['operations_dropbutton']['field'] = 'operations_dropbutton';
   $handler->display->display_options['fields']['operations_dropbutton']['label'] = 'Operations';
   $handler->display->display_options['fields']['operations_dropbutton']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['operations_dropbutton']['add_quick_edit'] = 1;
+  $handler->display->display_options['fields']['operations_dropbutton']['add_destination'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
