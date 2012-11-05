@@ -4,6 +4,24 @@
  * Implements hook_views_data_alter().
  */
 function commerce_backoffice_product_views_data_alter(&$data) {
+  $vocabularies_to_fetch = array();
+  foreach (field_info_instances('commerce_product') as $bundle => $instances) {
+    foreach ($instances as $field_name => $instance) {
+      $field = field_info_field($field_name);
+      if ($field['type'] == 'taxonomy_term_reference') {
+        $vocabularies_to_fetch[$field['settings']['allowed_values'][0]['vocabulary']] = $field_name;
+      }
+    }
+  }
+  $data['views_entity_commerce_product']['terms'] = array(
+    'title' => t('All taxonomy terms'),
+    'help' => t('Display all taxonomy terms associated with a product.'),
+    'field' => array(
+      'handler' => 'commerce_backoffice_handler_field_term_entity_tid',
+      'no group by' => TRUE,
+      'vocabularies_to_fetch' => $vocabularies_to_fetch,
+    ),
+  );
   $data['commerce_product']['quick_edit_form'] = array(
     'field' => array(
       'title' => t('Quick Edit Form'),
@@ -11,6 +29,7 @@ function commerce_backoffice_product_views_data_alter(&$data) {
       'handler' => 'commerce_backoffice_product_handler_field_product_quick_edit_form',
     ),
   );
+
   $data['views_entity_node']['operations_dropbutton'] = array(
     'field' => array(
       'title' => t('Operations links (Dropbutton)'),

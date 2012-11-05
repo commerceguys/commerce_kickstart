@@ -298,14 +298,14 @@ function commerce_backoffice_product_views_default_views() {
   $handler->display->display_options['relationships']['field_product']['table'] = 'commerce_product';
   $handler->display->display_options['relationships']['field_product']['field'] = 'field_product';
   $handler->display->display_options['relationships']['field_product']['required'] = TRUE;
-  /* Field: Commerce Product: Color */
-  $handler->display->display_options['fields']['field_color']['id'] = 'field_color';
-  $handler->display->display_options['fields']['field_color']['table'] = 'field_data_field_color';
-  $handler->display->display_options['fields']['field_color']['field'] = 'field_color';
-  $handler->display->display_options['fields']['field_color']['label'] = '';
-  $handler->display->display_options['fields']['field_color']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_color']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_color']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Commerce Product: All taxonomy terms */
+  $handler->display->display_options['fields']['terms']['id'] = 'terms';
+  $handler->display->display_options['fields']['terms']['table'] = 'views_entity_commerce_product';
+  $handler->display->display_options['fields']['terms']['field'] = 'terms';
+  $handler->display->display_options['fields']['terms']['label'] = '';
+  $handler->display->display_options['fields']['terms']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['terms']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['terms']['link_to_taxonomy'] = FALSE;
   /* Field: Commerce Product: Image */
   $handler->display->display_options['fields']['field_images']['id'] = 'field_images';
   $handler->display->display_options['fields']['field_images']['table'] = 'field_data_field_images';
@@ -328,7 +328,7 @@ function commerce_backoffice_product_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['text'] = '[title] <br />
-  [field_color]';
+    [terms]';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_product'] = 0;
   /* Field: Commerce Product: SKU */
