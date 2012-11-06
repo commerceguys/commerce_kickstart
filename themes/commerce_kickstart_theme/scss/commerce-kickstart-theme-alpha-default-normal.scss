@@ -63,7 +63,7 @@
 /**
 * Add to cart popin.
 */
-div.messages.commerce-kickstart-add-to-cart .message-inner {
+div.messages.commerce-add-to-cart-confirmation .message-inner {
   .button-wrapper {
     float: none;
     min-height: 210px;
@@ -75,6 +75,7 @@ div.messages.commerce-kickstart-add-to-cart .message-inner {
     float: left; /* LTR */
     .view-content {
       margin-left: 130px; /* LTR */
+      padding-bottom: 20px;
       width: 90%;
 
       .views-field-commerce-product .content {

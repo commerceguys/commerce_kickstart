@@ -377,10 +377,7 @@ body {
 /**
 * Add to cart popin.
 */
-div.commerce_kickstart_add_to_cart_overlay {
-  background: transparent url('../images/bg_add_to_cart_overlay.png') left top;
-}
-div.messages.commerce-kickstart-add-to-cart {
+div.messages.commerce-add-to-cart-confirmation {
   background-color: #d6e5ec;
   border-color: #6bb0cb;
 
@@ -396,8 +393,13 @@ div.messages.commerce-kickstart-add-to-cart {
         background-color: #b3b3b3;
       }
     }
-    .commerce-kickstart-add-to-cart-close {
+    .commerce-add-to-cart-confirmation-close {
       background: url('../images/btn_add-to-cart-close.png') no-repeat 0 0;
+    }
+    .view-confirm-message-product-display {
+      .view-content {
+        margin-left: inherit;
+      }
     }
   }
 }

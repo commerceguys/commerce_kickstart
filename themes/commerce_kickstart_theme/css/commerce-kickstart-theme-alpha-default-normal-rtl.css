@@ -37,13 +37,13 @@
 /**
 * Add to cart popin.
 */
-div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper {
+div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper {
   left: 0;
   right: auto; }
-div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display {
+div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display {
   float: right; }
-  div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content {
+  div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content {
     margin-right: 130px; }
-    div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .field-name-field-images {
+    div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .field-name-field-images {
       left: auto;
       right: 20px; }

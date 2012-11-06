@@ -856,3 +856,10 @@ function commerce_kickstart_update_7207() {
     ->condition('theme', $default_theme)
     ->execute();
 }
+
+/**
+ * Enable commerce_add_to_cart_confirmation.
+ */
+function commerce_kickstart_update_7208() {
+  module_enable(array('commerce_add_to_cart_confirmation'));
+}

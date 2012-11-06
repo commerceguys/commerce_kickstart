@@ -38,4 +38,3 @@ features[variable][] = site_403
 features[variable][] = site_404
 features[views_view][] = ad_push
 files[] = commerce_kickstart_merchandising.migrate.inc
-scripts[] = commerce_kickstart_merchandising.js

@@ -332,20 +332,19 @@ body {
 /**
 * Add to cart popin.
 */
-div.commerce_kickstart_add_to_cart_overlay {
-  background: transparent url("../images/bg_add_to_cart_overlay.png") left top; }
-
-div.messages.commerce-kickstart-add-to-cart {
+div.messages.commerce-add-to-cart-confirmation {
   background-color: #d6e5ec;
   border-color: #6bb0cb; }
-  div.messages.commerce-kickstart-add-to-cart .message-inner .added-product-title {
+  div.messages.commerce-add-to-cart-confirmation .message-inner .added-product-title {
     color: #2698f2; }
-  div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button.checkout {
+  div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .button.checkout {
     background-color: #2698F2; }
-  div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button.continue {
+  div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .button.continue {
     background-color: #b3b3b3; }
-  div.messages.commerce-kickstart-add-to-cart .message-inner .commerce-kickstart-add-to-cart-close {
+  div.messages.commerce-add-to-cart-confirmation .message-inner .commerce-kickstart-add-to-cart-close {
     background: url("../images/btn_add-to-cart-close.png") no-repeat 0 0; }
+  div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content {
+    margin-left: inherit; }
 
 /**************************************************
 * --

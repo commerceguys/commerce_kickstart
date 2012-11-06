@@ -10,17 +10,6 @@
       }
     }
   }
-  // Add background overlay to add to cart popin.
-  Drupal.behaviors.commerce_kickstart_theme_custom_add_to_cart_overlay = {
-    attach:function (context, settings) {
-      if ($('.commerce-kickstart-add-to-cart').length > 0 ) {
-        $('body').append("<div class=\"commerce_kickstart_add_to_cart_overlay\"></div>");
-        $('.commerce-kickstart-add-to-cart-close').live('click', function() {
-          $('.commerce_kickstart_add_to_cart_overlay').remove();
-        });
-      }
-    }
-  }
   // Disable input fields on price range when viewing the site
   // on normal devices.
   Drupal.behaviors.commerce_kickstart_theme_custom_search_api_ranges = {

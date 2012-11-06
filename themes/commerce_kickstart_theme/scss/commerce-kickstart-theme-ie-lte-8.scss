@@ -41,10 +41,10 @@
 /**********************************************
 * 5.3. Product page
 **********************************************/
-.commerce-kickstart-add-to-cart .field-type-taxonomy-term-reference:after {
+.commerce-add-to-cart-confirmation .field-type-taxonomy-term-reference:after {
   clear: none !important;
 }
-.commerce-kickstart-add-to-cart .field-name-field-images img {
+.commerce-add-to-cart-confirmation .field-name-field-images img {
   max-width: none;
 }
 /* Cloud zoom */
@@ -58,7 +58,7 @@
   margin-left: 130px; /* LTR */
   position: relative;
 }
-.commerce-kickstart-add-to-cart .message-inner {
+.commerce-add-to-cart-confirmation .message-inner {
   position: relative;
 }
 /**********************************************

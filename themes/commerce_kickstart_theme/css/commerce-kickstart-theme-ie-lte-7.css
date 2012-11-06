@@ -87,5 +87,5 @@ div.commerce_kickstart_add_to_cart_overlay {
   float: right;
   /* LTR */ }
 
-.commerce-kickstart-add-to-cart .message-inner {
+.commerce-add-to-cart-confirmation .message-inner {
   position: relative; }

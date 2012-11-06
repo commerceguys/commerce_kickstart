@@ -106,6 +106,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -128,6 +132,10 @@ function commerce_kickstart_product_strongarm() {
         'status' => array(
           'product_in_cart' => array(
             'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
@@ -190,6 +198,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -212,6 +224,10 @@ function commerce_kickstart_product_strongarm() {
         'status' => array(
           'product_in_cart' => array(
             'weight' => '4',
+            'visible' => FALSE,
+          ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -274,6 +290,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -296,6 +316,10 @@ function commerce_kickstart_product_strongarm() {
         'status' => array(
           'product_in_cart' => array(
             'weight' => '5',
+            'visible' => FALSE,
+          ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
@@ -358,6 +382,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -380,6 +408,10 @@ function commerce_kickstart_product_strongarm() {
         'status' => array(
           'product_in_cart' => array(
             'weight' => '5',
+            'visible' => FALSE,
+          ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
@@ -442,6 +474,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '1',
             'visible' => TRUE,
           ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -464,6 +500,10 @@ function commerce_kickstart_product_strongarm() {
         'status' => array(
           'product_in_cart' => array(
             'weight' => '4',
+            'visible' => FALSE,
+          ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -526,6 +566,10 @@ function commerce_kickstart_product_strongarm() {
             'weight' => '2',
             'visible' => TRUE,
           ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
         ),
         'title' => array(
           'default' => array(
@@ -548,6 +592,10 @@ function commerce_kickstart_product_strongarm() {
         'status' => array(
           'product_in_cart' => array(
             'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'add_to_cart_confirmation_view' => array(
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),

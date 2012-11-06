@@ -39,6 +39,12 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'add_to_cart_confirmation_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '4',
+        ),
         'commerce_line_item_display' => array(
           'label' => 'hidden',
           'module' => 'commerce_price',
@@ -168,12 +174,24 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'add_to_cart_confirmation_view' => array(
+          'label' => 'hidden',
+          'module' => 'image_delta_formatter',
+          'settings' => array(
+            'deltas' => '0',
+            'deltas_reversed' => 0,
+            'image_link' => '',
+            'image_style' => 'product_thumbnail',
+          ),
+          'type' => 'image_delta',
+          'weight' => '0',
+        ),
         'default' => array(
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
             'image_link' => '',
-            'image_style' => 'product_full'
+            'image_style' => 'product_full',
           ),
           'type' => 'image',
           'weight' => '3',
@@ -209,8 +227,8 @@ function commerce_kickstart_lite_product_field_default_fields() {
           'weight' => 0,
         ),
       ),
-      'fences_wrapper' => 'figure',
       'entity_type' => 'commerce_product',
+      'fences_wrapper' => 'figure',
       'field_name' => 'field_images',
       'label' => 'field_images',
       'required' => FALSE,
@@ -272,6 +290,12 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'deleted' => '0',
       'description' => '',
       'display' => array(
+        'add_to_cart_confirmation_view' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '3',
+        ),
         'default' => array(
           'label' => 'above',
           'module' => 'text',
