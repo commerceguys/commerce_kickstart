@@ -37,8 +37,10 @@
           $('.cloud-zoom-big, .mousetrap, .cloud-zoom-lens').css('display','none');
         }
         else {
-          $('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
-          $('body').unbind('responsivelayout');
+          if ($('.cloud-zoom').length) {
+            $('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
+            $('body').unbind('responsivelayout');
+          }
         }
       });
     }
