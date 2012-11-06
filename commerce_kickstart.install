@@ -678,7 +678,7 @@ function commerce_kickstart_update_7201() {
   // Only non-overridden indexes get processed in 7202, no reason to do a
   // cache clear this early otherwise.
   $index = search_api_index_load('product_display');
-  if (!$index->hasStatus(ENTITY_OVERRIDDEN)) {
+  if (!empty($index) && !$index->hasStatus(ENTITY_OVERRIDDEN)) {
     entity_property_info_cache_clear();
     drupal_flush_all_caches();
   }
@@ -691,7 +691,7 @@ function commerce_kickstart_update_7202() {
   // The price property has changed. A reindex is necessary.
   drupal_load('module', 'search_api');
   $index = search_api_index_load('product_display');
-  if (!$index->hasStatus(ENTITY_OVERRIDDEN)) {
+  if (!empty($index) && !$index->hasStatus(ENTITY_OVERRIDDEN)) {
     // Refresh the list of blocks and enable the new Price facet block.
     $default_theme = variable_get('theme_default', 'omega_kickstart');
     drupal_static_reset();
