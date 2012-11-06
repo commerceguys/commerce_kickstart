@@ -38,36 +38,35 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
   // Set a default name for the dev site and change title's label.
   $form['site_information']['site_name']['#title'] = 'Store name';
   $form['site_information']['site_mail']['#title'] = 'Store email address';
-  $form['site_information']['site_name']['#default_value'] = st('Commerce Kickstart');
+  $form['site_information']['site_name']['#default_value'] = t('Commerce Kickstart');
 
   // Set a default country so we can benefit from it on Address Fields.
   $form['server_settings']['site_default_country']['#default_value'] = 'US';
 
+  // Use "admin" as the default username.
+  $form['admin_account']['account']['name']['#default_value'] = 'admin';
+
+  // Set the default admin password.
+  $form['admin_account']['account']['pass']['#value'] = 'admin';
+
   // Hide Update Notifications.
   $form['update_notifications']['#access'] = FALSE;
 
-  // When using drush we need to skip default password and let drush set it.
-  if (drupal_is_cli()) {
-    return;
-  }
-
   // Add informations about the default username and password.
   $form['admin_account']['account']['commerce_kickstart_name'] = array(
-    '#type' => 'item',
-    '#title' => st('Username'),
-    '#markup' => 'admin',
+    '#type' => 'item', '#title' => st('Username'),
+    '#markup' => 'admin'
   );
   $form['admin_account']['account']['commerce_kickstart_password'] = array(
-    '#type' => 'item',
-    '#title' => st('Password'),
-    '#markup' => 'admin',
+    '#type' => 'item', '#title' => st('Password'),
+    '#markup' => 'admin'
   );
   $form['admin_account']['account']['commerce_kickstart_informations'] = array(
-    '#markup' => '<p>' . st('This information will be emailed to the store email address.') . '</p>'
+    '#markup' => '<p>' . t('This information will be emailed to the store email address.') . '</p>'
   );
   $form['admin_account']['override_account_informations'] = array(
     '#type' => 'checkbox',
-    '#title' => st('Change my username and password.'),
+    '#title' => t('Change my username and password.'),
   );
   $form['admin_account']['setup_account'] = array(
     '#type' => 'container',
@@ -113,8 +112,8 @@ function commerce_kickstart_custom_setting(&$form, &$form_state) {
       $form_state['values']['account']['pass'] = $form_state['input']['pass']['pass1'];
     }
     else {
-      form_set_error('pass', st('The specified passwords do not match.'));
-    }
+        form_set_error('pass', t('The specified passwords do not match.'));
+      }
   }
 }
 
