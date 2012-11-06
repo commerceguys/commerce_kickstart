@@ -296,6 +296,7 @@ function commerce_backoffice_content_views_default_views() {
   $handler->display->display_options['filters']['non_product_display_node_type']['expose']['label'] = 'Filter by';
   $handler->display->display_options['filters']['non_product_display_node_type']['expose']['operator'] = 'non_product_display_node_type_op';
   $handler->display->display_options['filters']['non_product_display_node_type']['expose']['identifier'] = 'non_product_display_node_type';
+  $handler->display->display_options['filters']['non_product_display_node_type']['expose']['multiple'] = TRUE;
   $handler->display->display_options['filters']['non_product_display_node_type']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
