@@ -68,6 +68,8 @@ projects[commerce_payleap][version] = 1.x-dev
 projects[commerce_payleap][subdir] = "contrib"
 projects[commerce_moneybookers][version] = 1.1
 projects[commerce_moneybookers][subdir] = "contrib"
+projects[commerce_backoffice][subdir] = "contrib"
+projects[commerce_backoffice][version] = 1.0-rc1
 projects[commerce_search_api][subdir] = "contrib"
 projects[commerce_search_api][version] = 1.0-rc1
 
@@ -164,7 +166,7 @@ projects[i18n][subdir] = "contrib"
 projects[omega][version] = 3.1
 projects[omega_kickstart][download][type] = "git"
 projects[omega_kickstart][download][module] = "omega_kickstart"
-projects[shiny][version] = 1.x-dev
+projects[shiny][version] = 1.0-rc2
 
 ; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
