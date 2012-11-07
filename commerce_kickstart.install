@@ -631,7 +631,7 @@ function commerce_kickstart_install() {
 }
 
 function commerce_kickstart_update_7100() {
-  // Do nothing, this update function was accidentally added instead of 7200.
+  registry_rebuild();
 }
 
 /**
