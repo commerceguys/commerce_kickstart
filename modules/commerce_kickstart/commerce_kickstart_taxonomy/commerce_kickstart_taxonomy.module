@@ -60,13 +60,10 @@ function commerce_kickstart_taxonomy_entity_info_alter(&$entity_info) {
  */
 function commerce_kickstart_taxonomy_term_uri($taxonomy_term) {
   $uri = 'taxonomy/term/' . $taxonomy_term->tid;
-  $machine_names = array(
-    'product_category',
-    'collection',
-  );
+  $machine_name = variable_get('commerce_kickstart_demo_store', FALSE) ? 'collection' : 'product_category';
   // Alter the default uri for those two vocabularies so that it point to our
   // custom views.
-  if (in_array($taxonomy_term->vocabulary_machine_name, $machine_names)) {
+  if ($taxonomy_term->vocabulary_machine_name == $machine_name) {
     $uri = $taxonomy_term->vocabulary_machine_name . '/' . $taxonomy_term->tid;
   }
   return array(
