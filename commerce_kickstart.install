@@ -863,3 +863,19 @@ function commerce_kickstart_update_7207() {
 function commerce_kickstart_update_7208() {
   module_enable(array('commerce_add_to_cart_confirmation'));
 }
+
+/**
+ * Check and remove sorts on non indexed fields.
+ */
+function commerce_kickstart_update_7209() {
+  if ($index = search_api_index_load('product_display')) {
+    $fields = $index->options['fields'];
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'search_api_sort')
+      ->propertyCondition('field', array_keys($fields), 'NOT IN');
+    $results = $query->execute();
+    if (!empty($results['search_api_sort'])) {
+      entity_delete_multiple('search_api_sort', array_keys($results['search_api_sort']));
+    }
+  }
+}
