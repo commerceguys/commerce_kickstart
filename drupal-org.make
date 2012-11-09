@@ -73,7 +73,6 @@ projects[commerce_backoffice][version] = 1.0-rc1
 projects[commerce_search_api][subdir] = "contrib"
 projects[commerce_search_api][version] = 1.0-rc1
 projects[commerce_search_api][patch][] = "http://drupal.org/files/commerce_search_api-fix-aggregated-fulltext-field-not-added-1834272-1.patch"
-projects[commerce_search_api][patch][] = "http://drupal.org/files/commerce_search_api-index-term-name-as-fulltext-1834282-1.patch"
 projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
 projects[commerce_add_to_cart_confirmation][version] = 1.0-beta1
 projects[commerce_add_to_cart_confirmation][patch][] = "http://drupal.org/files/commerce_add_to_cart_confirmation-remove-kickstart-css-1834398-1.patch"
