@@ -206,6 +206,27 @@ function commerce_kickstart_update_status_alter(&$projects) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Disable the update for Commerce Kickstart.
+ */
+function commerce_kickstart_form_update_manager_update_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['projects']['#options']) && isset($form['projects']['#options']['commerce_kickstart'])) {
+    if (count($form['projects']['#options']) > 1) {
+      unset($form['projects']['#options']['commerce_kickstart']);
+    }
+    else {
+      unset($form['projects']);
+      // Hide Download button if there's no other (disabled) projects to update.
+      if (!isset($form['disabled_projects'])) {
+        $form['actions']['#access'] = FALSE;
+      }
+      $form['message']['#markup'] = t('All of your projects are up to date.');
+    }
+  }
+}
+
+/**
  * Provides a list of Crumbs plugins and their weights.
  */
 function commerce_kickstart_crumbs_get_info() {
@@ -233,4 +254,3 @@ function commerce_kickstart_crumbs_get_info() {
 
   return $crumbs;
 }
-
