@@ -11,8 +11,8 @@
   <footer class="submitted"><?php print $date; ?> -- <?php print $name; ?></footer>
   <?php endif; ?>
   <div class="container-24 grid-14 prefix-1 clearfix">
-  <?php print render($content['product:field_images']); ?>
-</div>
+    <?php print render($content['product:field_images']); ?>
+  </div>
   <div class="container-24 grid-8 prefix-1">
     <div<?php print $content_attributes; ?>>
       <?php
@@ -31,5 +31,4 @@
     print render($content['comments']);
     ?>
   </div>
-</div>
 </article>
