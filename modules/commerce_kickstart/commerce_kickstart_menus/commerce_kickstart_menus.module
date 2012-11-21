@@ -12,7 +12,7 @@ function commerce_kickstart_menus_menu() {
     'access arguments' => array('access administration pages'),
     'file path' => drupal_get_path('module', 'system'),
     'file' => 'system.admin.inc',
-    'weight' => 100,
+    'weight' => 40,
     'options' => array(
       'toolbar_expanded' => TRUE,
       'toolbar_break' => TRUE,
@@ -320,7 +320,7 @@ function commerce_kickstart_menus_menu_alter(&$items) {
   if (isset($items['admin/commerce/config'])) {
     $items['admin/commerce/config']['title'] = 'Store settings';
     $items['admin/commerce/config']['parent'] = 'admin';
-    $items['admin/commerce/config']['weight'] = 50;
+    $items['admin/commerce/config']['weight'] = 30;
     $items['admin/commerce/config']['options'] = array(
       'toolbar_expanded' => TRUE,
       'toolbar_break' => TRUE,
@@ -328,6 +328,7 @@ function commerce_kickstart_menus_menu_alter(&$items) {
   }
 
   if (isset($items['admin/help'])) {
+    $items['admin/help']['weight'] = 50;
     $items['admin/help']['options'] = array(
       'toolbar_expanded' => TRUE,
       'toolbar_break' => TRUE,
@@ -418,6 +419,11 @@ function commerce_kickstart_menus_menu_link_alter(&$link) {
   // Check if the item belongs to a shortcut menu.
   if (module_exists('shortcut') && shortcut_set_load($link['menu_name'])) {
     // Don't change the plid of shortcut menu items.
+    return;
+  }
+
+  // Don't change the plid for customized menu items.
+  if (!empty($link['customized'])) {
     return;
   }
 
