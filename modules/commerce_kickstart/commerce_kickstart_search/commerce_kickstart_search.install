@@ -47,6 +47,15 @@ function commerce_kickstart_search_install() {
       ->condition('delta', '0', '<>')
       ->condition('theme', $default_theme)
       ->execute();
+    // Set the Price facet block weight.
+    db_update('block')
+      ->fields(array(
+        'weight' => '-1',
+      ))
+      ->condition('module', 'facetapi')
+      ->condition('delta', 'TFVaQKSORCPdrULxfXDnLQZ40xH0Nper')
+      ->condition('theme', $default_theme)
+      ->execute();
   }
   catch (Exception $e) {
     watchdog_exception('block', $e);
