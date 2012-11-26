@@ -78,6 +78,7 @@ projects[commerce_add_to_cart_confirmation][version] = 1.x-dev
 
 ; Other contribs.
 projects[crumbs][version] = 1.7
+projects[crumbs][patch][] = "http://drupal.org/files/crumbs-7.x-1.x-fix-taxonomy-term-uri-hardcode-1850860-10.patch"
 projects[crumbs][subdir] = "contrib"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = "contrib"
