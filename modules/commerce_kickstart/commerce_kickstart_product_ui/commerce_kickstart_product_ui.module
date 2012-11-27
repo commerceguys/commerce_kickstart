@@ -181,20 +181,14 @@ function commerce_kickstart_product_ui_views_api() {
 }
 
 /**
- * Implements hook_field_attach_create_bundle().
+ * Implements hook_field_create_instance().
+ *
+ * Apply the h2 wrapper for title fields.
  */
-function commerce_kickstart_product_ui_field_create_instance($field) {
-  $entity_info = entity_get_info($field['entity_type']);
-
-  $field_name = $entity_info['field replacement'][$entity_info['entity keys']['label']]['field']['field_name'];
-
-  if ($field_name != $field['field_name']) {
+function commerce_kickstart_product_ui_field_create_instance($instance) {
+  if (!title_field_replacement_info($instance['entity_type'], $instance['field_name'])) {
     return;
   }
-
-  // Apply the h2 wrapper only for title fields.
-  $instance = field_info_instance($field['entity_type'], $field_name, $field['bundle']);
   $instance['fences_wrapper'] = 'h2';
   field_update_instance($instance);
 }
-
