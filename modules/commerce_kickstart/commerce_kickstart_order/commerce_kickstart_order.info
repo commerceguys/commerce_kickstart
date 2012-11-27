@@ -4,7 +4,6 @@ core = 7.x
 package = Commerce Kickstart
 
 dependencies[] = views
-dependencies[] = message
-dependencies[] = message_notify
+dependencies[] = commerce_message
 dependencies[] = commerce_cart
 dependencies[] = ctools
