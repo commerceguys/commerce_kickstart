@@ -54,15 +54,9 @@ div.messages.commerce-add-to-cart-confirmation .message-inner {
     float: right;
 
     .view-content {
+      margin-left: 0;
       margin-right: 130px;
 
-      .views-field-commerce-product .content {
-
-        .field-name-field-images {
-          left: auto;
-          right: 20px;
-        }
-      }
     }
   }
 }

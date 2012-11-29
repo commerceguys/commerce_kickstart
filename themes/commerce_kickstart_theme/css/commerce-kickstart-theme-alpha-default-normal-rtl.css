@@ -43,7 +43,5 @@ div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper {
 div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display {
   float: right; }
   div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content {
+    margin-left: 0;
     margin-right: 130px; }
-    div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .field-name-field-images {
-      left: auto;
-      right: 20px; }

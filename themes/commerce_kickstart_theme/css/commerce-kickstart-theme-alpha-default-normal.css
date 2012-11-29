@@ -71,11 +71,4 @@ div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-mess
   float: left;
   /* LTR */ }
   div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content {
-    margin-left: 130px;
-    /* LTR */
-    padding-bottom: 20px;
-    width: 90%; }
-    div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .field-name-field-images {
-      position: absolute;
-      left: 20px;
-      /* LTR */ }
+    padding-bottom: 20px; }
