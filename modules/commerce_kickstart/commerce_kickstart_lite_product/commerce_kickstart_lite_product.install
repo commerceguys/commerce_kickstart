@@ -57,7 +57,7 @@ function commerce_kickstart_lite_product_enable() {
       'settings' => array(
         'deltas' => '0',
         'deltas_reversed' => 0,
-        'image_link' => '',
+        'image_link' => 'content',
         'image_style' => 'product_medium',
       ),
       'type' => 'image_delta',
