@@ -6,13 +6,6 @@
 /**********************************************
 * 2.2. Zone branding
 **********************************************/
-/*.zone-branding .region-branding {
-  margin-top: 50px;
-  margin-right: inherit !important;
-}
-#region-branding {
-  width: inherit !important;
-}*/
 /**
 * Search block
 */
@@ -79,7 +72,7 @@
   width: 120px;
 }
 .node-product-type .cloud-zoom-container .cloud-zoom {
-  float: right; /* LTR */
+  float: left; /* LTR */
 }
 .commerce-add-to-cart-confirmation .message-inner {
   position: relative;
