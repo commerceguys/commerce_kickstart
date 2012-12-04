@@ -11,9 +11,30 @@ include_once 'commerce_kickstart_product.features.inc';
  * Implements hook_migrate_api().
  */
 function commerce_kickstart_product_migrate_api() {
-  return array(
+  $api = array(
     'api' => 2,
+    'migrations' => array(
+      'CommerceKickstartBagsCases' => array('class_name' => 'CommerceKickstartBagsCases'),
+      'CommerceKickstartDrinks' => array('class_name' => 'CommerceKickstartDrinks'),
+      'CommerceKickstartHats' => array('class_name' => 'CommerceKickstartHats'),
+      'CommerceKickstartTops' => array('class_name' => 'CommerceKickstartTops'),
+      'CommerceKickstartShoes' => array('class_name' => 'CommerceKickstartShoes'),
+      'CommerceKickstartStorage' => array('class_name' => 'CommerceKickstartStorage'),
+      'CommerceKickstartCollection' => array('class_name' => 'CommerceKickstartCollection'),
+    ),
   );
+  $types = array(
+    'bags_cases',
+    'drinks',
+    'hats',
+    'shoes',
+    'storage_devices',
+    'tops',
+  );
+  foreach ($types as $type) {
+    $api['migrations']['CommerceKickstartNode' . $type] = array('class_name' => 'CommerceKickstartNode', 'type' => $type);
+  }
+  return $api;
 }
 
 /**

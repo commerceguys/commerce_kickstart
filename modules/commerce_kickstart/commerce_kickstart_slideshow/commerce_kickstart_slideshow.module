@@ -27,6 +27,9 @@ function commerce_kickstart_slideshow_library() {
 function commerce_kickstart_slideshow_migrate_api() {
   return array(
     'api' => 2,
+    'migrations' => array(
+      'CommerceKickstartSlideshow' => array('class_name' => 'CommerceKickstartSlideshow'),
+    ),
   );
 }
 

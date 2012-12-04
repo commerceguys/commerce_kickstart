@@ -12,5 +12,8 @@ include_once 'commerce_kickstart_merchandising.features.inc';
 function commerce_kickstart_merchandising_migrate_api() {
   return array(
     'api' => 2,
+    'migrations' => array(
+      'CommerceKickstartAdPush' => array('class_name' => 'CommerceKickstartAdPush'),
+    ),
   );
 }
