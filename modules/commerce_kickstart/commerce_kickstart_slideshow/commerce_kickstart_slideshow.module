@@ -34,10 +34,10 @@ function commerce_kickstart_slideshow_migrate_api() {
 }
 
 /**
- * Implements hook_preprocess_page().
+ * Implement hook_views_pre_render().
  */
-function commerce_kickstart_slideshow_preprocess_page(&$vars) {
-  if ($vars['is_front']) {
+function commerce_kickstart_slideshow_views_pre_render(&$view) {
+  if ($view->name == 'demo_content_slideshow') {
     drupal_add_library('commerce_kickstart_slideshow', 'bxslider');
   }
 }
