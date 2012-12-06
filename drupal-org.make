@@ -16,7 +16,7 @@ projects[rules][version] = 2.2
 projects[rules][subdir] = "contrib"
 projects[views][version] = 3.5
 projects[views][subdir] = "contrib"
-projects[views_bulk_operations][version] = 3.0
+projects[views_bulk_operations][version] = 3.1
 projects[views_bulk_operations][subdir] = "contrib"
 projects[addressfield][version] = 1.0-beta3
 projects[addressfield][subdir] = "contrib"
@@ -77,7 +77,7 @@ projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
 projects[commerce_add_to_cart_confirmation][version] = 1.x-dev
 
 ; Other contribs.
-projects[crumbs][version] = 1.7
+projects[crumbs][version] = 1.8
 projects[crumbs][patch][] = "http://drupal.org/files/crumbs-7.x-1.x-fix-taxonomy-term-uri-hardcode-1850860-10.patch"
 projects[crumbs][subdir] = "contrib"
 projects[http_client][version] = 2.4
