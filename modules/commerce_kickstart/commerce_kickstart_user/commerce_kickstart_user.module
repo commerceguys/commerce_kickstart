@@ -236,8 +236,15 @@ function commerce_kickstart_user_preprocess_user_profile_category(&$variables) {
  * Implements hook_theme_registry_alter().
  */
 function commerce_kickstart_user_theme_registry_alter(&$theme_registry) {
-  $theme_registry['user_profile_category']['template'] = drupal_get_path('module', 'commerce_kickstart_user') . '/user-profile-category';
-  $theme_registry['user_profile_item']['template'] = drupal_get_path('module', 'commerce_kickstart_user') . '/user-profile-item';
+  $path = drupal_get_path('module', 'commerce_kickstart_user');
+
+  // Only alter the template if it is not already overridden in a theme
+  if (strpos($theme_registry['user_profile_category']['theme path'], "themes/") === FALSE) {
+    $theme_registry['user_profile_category']['template'] = $path . '/user-profile-category';
+  }
+  if (strpos($theme_registry['user_profile_item']['theme path'], "themes/") === FALSE) {
+    $theme_registry['user_profile_item']['template'] = $path . '/user-profile-item';
+  }
 }
 
 /**
