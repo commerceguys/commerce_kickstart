@@ -188,6 +188,7 @@ function commerce_kickstart_user_user_view($account, $view_mode, $langcode) {
     '#title' => t('Recent orders'),
     '#markup' => '',
     '#attributes' => array('class' => array('user-recent-orders', 'clearfix')),
+    '#access' => user_access('view own commerce_order entities', $account),
   );
 
   $account->content['recent_orders']['view'] = array(
