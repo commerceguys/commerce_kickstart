@@ -57,6 +57,7 @@ dependencies[] = commerce_tax_ui
 
 ; Install Commerce services.
 dependencies[] = jirafe
+dependencies[] = yottaa
 
 ; Install contribs.
 dependencies[] = chosen
@@ -80,6 +81,7 @@ dependencies[] = commerce_backoffice_product
 dependencies[] = commerce_backoffice_order
 dependencies[] = commerce_backoffice_content
 dependencies[] = commerce_checkout_progress
+dependencies[] = commerce_hosted_pci
 dependencies[] = menu_attributes
 dependencies[] = fences
 dependencies[] = title
