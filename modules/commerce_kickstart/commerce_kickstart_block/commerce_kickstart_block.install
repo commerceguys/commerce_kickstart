@@ -58,7 +58,7 @@ function commerce_kickstart_block_enable() {
         'region' => 'content',
         'status' => '1',
         'visibility' => '1',
-        'pages' => '<front>',
+        'pages' => 'node',
         'weight' => -9,
       ))
       ->condition('module', 'commerce_kickstart_block')
@@ -71,7 +71,7 @@ function commerce_kickstart_block_enable() {
         'region' => 'content',
         'status' => '1',
         'visibility' => '1',
-        'pages' => '<front>',
+        'pages' => 'node',
         'weight' => 1,
       ))
       ->condition('module', 'commerce_kickstart_block')
