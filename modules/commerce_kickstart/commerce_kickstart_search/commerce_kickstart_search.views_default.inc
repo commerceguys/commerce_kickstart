@@ -68,7 +68,7 @@ function commerce_kickstart_search_views_default_views() {
   $handler->display->display_options['path'] = 'products';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'All products';
-  $handler->display->display_options['menu']['weight'] = '99';
+  $handler->display->display_options['menu']['weight'] = '50';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['tab_options']['weight'] = '0';
