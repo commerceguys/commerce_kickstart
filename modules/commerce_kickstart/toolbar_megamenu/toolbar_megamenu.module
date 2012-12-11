@@ -199,9 +199,14 @@ function toolbar_megamenu_tree_output($tree, $balance = TRUE) {
   }
   if ($build) {
     foreach (element_children($build) as $group_id) {
+      $mlid = key($build[$group_id]);
+      $css_class = $group_id;
+      if (isset($build[$group_id][$mlid]['#localized_options']['toolbar_css'])) {
+        $css_class = $build[$group_id][$mlid]['#localized_options']['toolbar_css'];
+      }
       $build[$group_id] += array(
         '#sorted' => TRUE,
-        '#prefix' => '<ul class="menu group group-' . $group_id . '">',
+        '#prefix' => '<ul class="menu group group-' . $group_id . ' toolbar-menu-' . $css_class . '">',
         '#suffix' => '</ul>',
       );
     }
