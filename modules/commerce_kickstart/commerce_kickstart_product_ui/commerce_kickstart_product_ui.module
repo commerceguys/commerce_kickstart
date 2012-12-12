@@ -49,12 +49,16 @@ function commerce_kickstart_product_ui_theme(&$existing) {
  * Implements hook_theme_registry_alter().
  */
 function commerce_kickstart_product_ui_theme_registry_alter(&$theme_registry) {
+  $path = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
+  // Only alter the template if it is not already overridden in a theme
   // Remove commerce product label.
-  $theme_registry['commerce_product_title']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
-  $theme_registry['commerce_product_title']['template'] = 'commerce-product-title';
+  if (strpos($theme_registry['commerce_product_title']['theme path'], "themes/") == FALSE) {
+    $theme_registry['commerce_product_title']['template'] = $path . 'commerce-product-title';
+  }
   // Remove cart block total label & add cart link on item.
-  $theme_registry['commerce_line_item_summary']['path'] = drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme';
-  $theme_registry['commerce_line_item_summary']['template'] = 'commerce-line-item-summary';
+  if (strpos($theme_registry['commerce_line_item_summary']['theme path'], "themes/") == FALSE) {
+    $theme_registry['commerce_line_item_summary']['template'] = $path . 'commerce-line-item-summary';
+  }
 }
 
 /**
