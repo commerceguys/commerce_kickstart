@@ -53,11 +53,11 @@ function commerce_kickstart_product_ui_theme_registry_alter(&$theme_registry) {
   // Only alter the template if it is not already overridden in a theme
   // Remove commerce product label.
   if (strpos($theme_registry['commerce_product_title']['theme path'], "themes/") == FALSE) {
-    $theme_registry['commerce_product_title']['template'] = $path . 'commerce-product-title';
+    $theme_registry['commerce_product_title']['theme path'] = $path;
   }
   // Remove cart block total label & add cart link on item.
   if (strpos($theme_registry['commerce_line_item_summary']['theme path'], "themes/") == FALSE) {
-    $theme_registry['commerce_line_item_summary']['template'] = $path . 'commerce-line-item-summary';
+    $theme_registry['commerce_line_item_summary']['theme path'] = $path;
   }
 }
 
