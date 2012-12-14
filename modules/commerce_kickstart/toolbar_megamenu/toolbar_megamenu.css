@@ -19,7 +19,9 @@
 }
 #toolbar > div.toolbar-menu > div.toolbar-menu-wrapper > ul.group > li {
   margin-bottom: -1px;
-  height: 40px;
+}
+#toolbar div.toolbar-menu-wrapper {
+  position: relative;
 }
 #toolbar div.toolbar-menu-wrapper div.toolbar-menu-wrapper {
   position: absolute;
