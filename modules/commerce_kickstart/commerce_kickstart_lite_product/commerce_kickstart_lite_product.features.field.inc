@@ -85,10 +85,12 @@ function commerce_kickstart_lite_product_field_default_fields() {
           'label' => 'hidden',
           'module' => 'commerce_extra_price_formatters',
           'settings' => array(
+            'alternative_text_for_zero_price' => '',
             'calculation' => TRUE,
             'prefix' => 'From',
             'suffix' => '',
             'text_format' => 'plain_text',
+            'whole_numbers_only' => FALSE,
           ),
           'type' => 'commerce_price_prefix_suffix',
           'weight' => '3',
@@ -230,8 +232,8 @@ function commerce_kickstart_lite_product_field_default_fields() {
       'entity_type' => 'commerce_product',
       'fences_wrapper' => 'figure',
       'field_name' => 'field_images',
-      'label' => 'field_images',
-      'required' => FALSE,
+      'label' => 'Images',
+      'required' => 0,
       'settings' => array(
         'alt_field' => 0,
         'default_image' => 0,
@@ -244,6 +246,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'image',
         'settings' => array(
           'preview_image_style' => 'thumbnail',
@@ -436,7 +439,7 @@ function commerce_kickstart_lite_product_field_default_fields() {
   $fields['node-product_display-field_product'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_product',
@@ -684,11 +687,11 @@ function commerce_kickstart_lite_product_field_default_fields() {
   // Included for use with string extractors like potx.
   t('A field replacing node title.');
   t('Body');
+  t('Images');
   t('Price');
   t('Product');
   t('Product category');
   t('Title');
-  t('field_images');
 
   return $fields;
 }
