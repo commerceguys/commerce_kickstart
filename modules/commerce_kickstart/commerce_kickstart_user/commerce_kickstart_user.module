@@ -48,15 +48,15 @@ function _commerce_kickstart_user_page_title($account = NULL) {
     $account = $GLOBALS['user'];
   }
 
-  $title = t('Hello');
+  $username = $account->name;
   if (module_exists('commerce_addressbook')) {
     $billing_profile_id = commerce_addressbook_get_default_profile_id($account->uid, 'billing');
     if ($billing_profile_id) {
       $billing_profile = commerce_customer_profile_load($billing_profile_id);
-      $title .= ', ' . check_plain($billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line']);
+      $username = $billing_profile->commerce_customer_address[LANGUAGE_NONE][0]['name_line'];
     }
   }
-  return $title;
+  return t('Hello, @user', array('@user' => $username));
 }
 
 /**
