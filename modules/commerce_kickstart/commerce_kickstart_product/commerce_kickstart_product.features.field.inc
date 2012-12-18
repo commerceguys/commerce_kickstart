@@ -94,10 +94,12 @@ function commerce_kickstart_product_field_default_fields() {
           'label' => 'hidden',
           'module' => 'commerce_extra_price_formatters',
           'settings' => array(
+            'alternative_text_for_zero_price' => '',
             'calculation' => TRUE,
             'prefix' => 'From',
             'suffix' => '',
             'text_format' => 'plain_text',
+            'whole_numbers_only' => FALSE,
           ),
           'type' => 'commerce_price_prefix_suffix',
           'weight' => '1',
@@ -716,10 +718,12 @@ function commerce_kickstart_product_field_default_fields() {
           'label' => 'hidden',
           'module' => 'commerce_extra_price_formatters',
           'settings' => array(
+            'alternative_text_for_zero_price' => '',
             'calculation' => TRUE,
             'prefix' => 'From',
             'suffix' => '',
             'text_format' => 'plain_text',
+            'whole_numbers_only' => FALSE,
           ),
           'type' => 'commerce_price_prefix_suffix',
           'weight' => '4',
@@ -1230,10 +1234,12 @@ function commerce_kickstart_product_field_default_fields() {
           'label' => 'hidden',
           'module' => 'commerce_extra_price_formatters',
           'settings' => array(
+            'alternative_text_for_zero_price' => '',
             'calculation' => TRUE,
             'prefix' => 'From',
             'suffix' => '',
             'text_format' => 'plain_text',
+            'whole_numbers_only' => FALSE,
           ),
           'type' => 'commerce_price_prefix_suffix',
           'weight' => '4',
@@ -1861,10 +1867,12 @@ function commerce_kickstart_product_field_default_fields() {
           'label' => 'hidden',
           'module' => 'commerce_extra_price_formatters',
           'settings' => array(
+            'alternative_text_for_zero_price' => '',
             'calculation' => TRUE,
             'prefix' => 'From',
             'suffix' => '',
             'text_format' => 'plain_text',
+            'whole_numbers_only' => FALSE,
           ),
           'type' => 'commerce_price_prefix_suffix',
           'weight' => '4',
@@ -2484,10 +2492,12 @@ function commerce_kickstart_product_field_default_fields() {
           'label' => 'hidden',
           'module' => 'commerce_extra_price_formatters',
           'settings' => array(
+            'alternative_text_for_zero_price' => '',
             'calculation' => TRUE,
             'prefix' => 'From',
             'suffix' => '',
             'text_format' => 'plain_text',
+            'whole_numbers_only' => FALSE,
           ),
           'type' => 'commerce_price_prefix_suffix',
           'weight' => '3',
@@ -2997,10 +3007,12 @@ function commerce_kickstart_product_field_default_fields() {
           'label' => 'hidden',
           'module' => 'commerce_extra_price_formatters',
           'settings' => array(
+            'alternative_text_for_zero_price' => '',
             'calculation' => TRUE,
             'prefix' => 'From',
             'suffix' => '',
             'text_format' => 'plain_text',
+            'whole_numbers_only' => FALSE,
           ),
           'type' => 'commerce_price_prefix_suffix',
           'weight' => '1',
@@ -4164,9 +4176,13 @@ function commerce_kickstart_product_field_default_fields() {
         ),
         'product_list' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => 'content',
+            'title_style' => '_none',
+          ),
+          'type' => 'title_linked',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -4829,9 +4845,13 @@ function commerce_kickstart_product_field_default_fields() {
         ),
         'product_list' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => 'content',
+            'title_style' => '_none',
+          ),
+          'type' => 'title_linked',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -5495,9 +5515,13 @@ function commerce_kickstart_product_field_default_fields() {
         ),
         'product_list' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => 'content',
+            'title_style' => '_none',
+          ),
+          'type' => 'title_linked',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -6161,9 +6185,13 @@ function commerce_kickstart_product_field_default_fields() {
         ),
         'product_list' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => 'content',
+            'title_style' => '_none',
+          ),
+          'type' => 'title_linked',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -6819,9 +6847,13 @@ function commerce_kickstart_product_field_default_fields() {
         ),
         'product_list' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => 'content',
+            'title_style' => '_none',
+          ),
+          'type' => 'title_linked',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -7485,9 +7517,13 @@ function commerce_kickstart_product_field_default_fields() {
         ),
         'product_list' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => 'content',
+            'title_style' => '_none',
+          ),
+          'type' => 'title_linked',
           'weight' => '1',
         ),
         'teaser' => array(

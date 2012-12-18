@@ -647,9 +647,13 @@ function commerce_kickstart_lite_product_field_default_fields() {
         ),
         'product_list' => array(
           'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
+          'module' => 'title',
+          'settings' => array(
+            'title_class' => '',
+            'title_link' => 'content',
+            'title_style' => '_none',
+          ),
+          'type' => 'title_linked',
           'weight' => '1',
         ),
         'teaser' => array(

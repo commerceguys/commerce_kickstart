@@ -128,7 +128,7 @@ projects[menu_attributes][subdir] = "contrib"
 projects[fences][version] = "1.0"
 projects[fences][subdir] = "contrib"
 projects[fences][patch][] = "http://drupal.org/files/undefined-index-1561244-7.patch"
-projects[title][version] = "1.x-dev"
+projects[title][version] = "1.0-alpha5"
 projects[title][subdir] = "contrib"
 
 ; Search related modules.

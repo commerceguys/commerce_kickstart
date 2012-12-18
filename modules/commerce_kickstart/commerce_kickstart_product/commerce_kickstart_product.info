@@ -26,6 +26,7 @@ dependencies[] = menu
 dependencies[] = options
 dependencies[] = strongarm
 dependencies[] = taxonomy
+dependencies[] = title
 features[commerce_flat_rate_services][] = express_shipping
 features[commerce_flat_rate_services][] = free_shipping
 features[commerce_flat_rate_services][] = standard_shipping

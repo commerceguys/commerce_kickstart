@@ -21,6 +21,7 @@ dependencies[] = menu
 dependencies[] = options
 dependencies[] = strongarm
 dependencies[] = taxonomy
+dependencies[] = title
 features[commerce_product_type][] = product
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
