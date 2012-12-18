@@ -69,7 +69,7 @@ projects[commerce_payleap][subdir] = "contrib"
 projects[commerce_moneybookers][version] = 1.1
 projects[commerce_moneybookers][subdir] = "contrib"
 projects[commerce_backoffice][subdir] = "contrib"
-projects[commerce_backoffice][version] = 1.x-dev
+projects[commerce_backoffice][version] = 1.0
 projects[commerce_message][subdir] = "contrib"
 projects[commerce_message][version] = 1.0-beta1
 projects[commerce_search_api][subdir] = "contrib"
@@ -129,6 +129,7 @@ projects[fences][version] = "1.0"
 projects[fences][subdir] = "contrib"
 projects[fences][patch][] = "http://drupal.org/files/undefined-index-1561244-7.patch"
 projects[title][version] = "1.0-alpha5"
+projects[title][patch][] = "http://drupal.org/files/title-fix-hook-field-attach-create-bundle-1869438-2.patch"
 projects[title][subdir] = "contrib"
 
 ; Search related modules.

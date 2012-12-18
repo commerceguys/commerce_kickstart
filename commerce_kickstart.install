@@ -474,15 +474,6 @@ function commerce_kickstart_install_finished(&$install_state) {
       }
     }
   }
-
-  // Set the entities that by default get the title_field when bundle is
-  // created.
-  $params = array(
-    'node:title' => 'node:title',
-    'commerce_product:title' => 'commerce_product:title',
-  );
-
-  variable_set('title_auto_attach', $params);
 }
 
 /**
@@ -628,6 +619,20 @@ function commerce_kickstart_install() {
     ),
   );
   search_api_server_insert($values);
+
+  // Enable automatic title replacement for node and commerce product bundles.
+  foreach (array('node', 'commerce_product') as $entity_type) {
+    $title_settings = array(
+      'auto_attach' => array(
+        'title' => 'title',
+      ),
+      'hide_label' => array(
+        'entity' => 'entity',
+        'page' => 0,
+      ),
+    );
+    variable_set('title_' . $entity_type, $title_settings);
+  }
 }
 
 function commerce_kickstart_update_7100() {
@@ -877,5 +882,23 @@ function commerce_kickstart_update_7209() {
     if (!empty($results['search_api_sort'])) {
       entity_delete_multiple('search_api_sort', array_keys($results['search_api_sort']));
     }
+  }
+}
+
+/**
+ * Enable automatic title replacement for node and commerce product bundles.
+ */
+function commerce_kickstart_update_7210() {
+  foreach (array('node', 'commerce_product') as $entity_type) {
+    $title_settings = array(
+      'auto_attach' => array(
+        'title' => 'title',
+      ),
+      'hide_label' => array(
+        'entity' => 'entity',
+        'page' => 0,
+      ),
+    );
+    variable_set('title_' . $entity_type, $title_settings);
   }
 }
