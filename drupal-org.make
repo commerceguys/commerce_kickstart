@@ -32,7 +32,7 @@ projects[taxonomy_menu][version] = 1.4
 projects[taxonomy_menu][subdir] = "contrib"
 projects[libraries][version] = 2.0
 projects[libraries][subdir] = "contrib"
-projects[views_megarow][version] = 1.x-dev
+projects[views_megarow][version] = 1.0
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
@@ -71,12 +71,11 @@ projects[commerce_moneybookers][subdir] = "contrib"
 projects[commerce_backoffice][subdir] = "contrib"
 projects[commerce_backoffice][version] = 1.x-dev
 projects[commerce_message][subdir] = "contrib"
-projects[commerce_message][version] = 1.x-dev
+projects[commerce_message][version] = 1.0-beta1
 projects[commerce_search_api][subdir] = "contrib"
-projects[commerce_search_api][version] = 1.0-rc1
-projects[commerce_search_api][patch][] = "http://drupal.org/files/commerce_search_api-fix-aggregated-fulltext-field-not-added-1834272-1.patch"
+projects[commerce_search_api][version] = 1.0-rc2
 projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
-projects[commerce_add_to_cart_confirmation][version] = 1.x-dev
+projects[commerce_add_to_cart_confirmation][version] = 1.0-rc1
 
 ; Other contribs.
 projects[crumbs][version] = 1.8
@@ -94,7 +93,7 @@ projects[oauthconnector][subdir] = "contrib"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oathuconnector-notice-no-csid.patch"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oauthconnector-fix-ctools-exportables-1712262-2.patch"
 projects[oauthconnector][patch][] = "http://drupal.org/files/1764028-oauthconnector-fix-css-class.patch"
-projects[inline_entity_form][version] = 1.x-dev
+projects[inline_entity_form][version] = 1.0
 projects[inline_entity_form][subdir] = "contrib"
 projects[field_extractor][version] = 1.1
 projects[field_extractor][subdir] = "contrib"
@@ -169,8 +168,8 @@ projects[i18n][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.x-dev
-projects[shiny][version] = 1.x-dev
+projects[omega_kickstart][version] = 3.0
+projects[shiny][version] = 1.0-rc5
 
 ; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
