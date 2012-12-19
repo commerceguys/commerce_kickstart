@@ -147,7 +147,7 @@ projects[search_api_sorts][subdir] = "contrib"
 ; UI improvement modules.
 projects[module_filter][version] = 1.7
 projects[module_filter][subdir] = "contrib"
-projects[image_delta_formatter][version] = 1.x-dev
+projects[image_delta_formatter][version] = 1.0-rc1
 projects[image_delta_formatter][subdir] = "contrib"
 projects[link][version] = 1.x-dev
 projects[link][subdir] = "contrib"
