@@ -10,12 +10,15 @@ include_once 'commerce_kickstart_blog.features.inc';
  * Implements hook_migrate_api().
  */
 function commerce_kickstart_blog_migrate_api() {
-  return array(
-    'api' => 2,
-    'migrations' => array(
-      'CommerceKickstartBlogPost' => array('class_name' => 'CommerceKickstartBlogPost'),
-    ),
-  );
+  // Only register the migration for demo store.
+  if (variable_get('commerce_kickstart_demo_store', FALSE)) {
+    return array(
+      'api' => 2,
+      'migrations' => array(
+        'CommerceKickstartBlogPost' => array('class_name' => 'CommerceKickstartBlogPost'),
+      ),
+    );
+  }
 }
 
 /**

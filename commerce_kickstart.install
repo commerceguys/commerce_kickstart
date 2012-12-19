@@ -633,6 +633,8 @@ function commerce_kickstart_install() {
     );
     variable_set('title_' . $entity_type, $title_settings);
   }
+  // Disable migrate autoregistration.
+  variable_set('migrate_disable_autoregistration', TRUE);
 }
 
 function commerce_kickstart_update_7100() {
