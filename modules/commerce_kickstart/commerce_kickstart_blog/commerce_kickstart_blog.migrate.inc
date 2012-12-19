@@ -27,7 +27,7 @@ class CommerceKickstartBlogPost extends CommerceKickstartMigration {
     // Create a MigrateSource object.
     $this->source = new MigrateSourceCSV(drupal_get_path('module', 'commerce_kickstart_blog') . '/import/blog_posts.csv', $this->csvcolumns(), array('header_rows' => 1));
 
-    $this->destination = new MigrateDestinationNode('blog_post');
+    $this->destination = new MigrateDestinationNode('blog_post', array('text_format' => 'full_html'));
 
     $this->addFieldMapping('title', 'title');
     $this->addFieldMapping('body', 'body');
