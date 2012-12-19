@@ -939,3 +939,10 @@ function commerce_kickstart_update_7210() {
     variable_set('title_' . $entity_type, $title_settings);
   }
 }
+
+/**
+ * Enable commerce_message.
+ */
+function commerce_kickstart_update_7211() {
+  module_enable(array('commerce_message'));
+}
