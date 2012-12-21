@@ -205,7 +205,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'menu_name' => 'menu-payment-methods',
     'link_path' => '<front>',
     'router_path' => '',
-    'link_title' => 'American express',
+    'link_title' => 'American Express',
     'options' => array(
       'attributes' => array(
         'class' => array(
@@ -228,7 +228,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'menu_name' => 'menu-payment-methods',
     'link_path' => '<front>',
     'router_path' => '',
-    'link_title' => 'Mastercard',
+    'link_title' => 'MasterCard',
     'options' => array(
       'attributes' => array(
         'class' => array(
@@ -251,7 +251,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'menu_name' => 'menu-payment-methods',
     'link_path' => '<front>',
     'router_path' => '',
-    'link_title' => 'Paypal',
+    'link_title' => 'PayPal',
     'options' => array(
       'attributes' => array(
         'class' => array(
@@ -328,12 +328,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('About');
   t('About us');
-  t('American express');
+  t('American Express');
   t('Company info');
   t('Contact');
-  t('Mastercard');
+  t('MasterCard');
   t('Our security policy');
-  t('Paypal');
+  t('PayPal');
   t('Press links');
   t('Security & privacy');
   t('Service & support');
