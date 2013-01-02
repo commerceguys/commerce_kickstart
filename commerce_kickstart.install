@@ -467,7 +467,9 @@ function commerce_kickstart_install_finished(&$install_state) {
     // page.
     if (!drupal_is_cli()) {
       if (module_exists('overlay')) {
-        drupal_goto('', array('fragment' => 'overlay=admin/help/getting-started'));
+        // Special case when no clean urls.
+        $fragment = empty($GLOBALS['conf']['clean_url']) ? urlencode('?q=admin/help/getting-started') : 'admin/help/getting-started';
+        drupal_goto('', array('fragment' => 'overlay=' . $fragment));
       }
       else {
         drupal_goto('admin/help/getting-started');
