@@ -45,10 +45,9 @@ function commerce_kickstart_search_default_search_api_sort() {
     "default_order" : "asc",
     "options" : { "field_name" : "Date created" }
   }');
-  $price_sort_field = variable_get('commerce_kickstart_demo_store', FALSE) ? 'field_product_commerce_price_amount_decimal_asc' : 'field_product:commerce_price:amount_decimal';
   $items['product_display__field_product_commerce_price_amount_decimal'] = entity_import('search_api_sort', '{
     "index_id" : "product_display",
-    "field" : "' . $price_sort_field . '",
+    "field" : "field_product_commerce_price_amount_decimal_asc",
     "name" : "Price",
     "enabled" : "1",
     "weight" : "0",
