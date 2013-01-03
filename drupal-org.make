@@ -3,7 +3,7 @@ core = 7.17
 api = 2
 
 projects[ctools] = 1.2
-projects[entity] = 1.0-rc3
+projects[entity] = 1.0
 projects[rules] = 2.2
 projects[views] = 3.5
 projects[addressfield] = 1.0-beta3
