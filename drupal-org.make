@@ -59,7 +59,6 @@ projects[commerce_checkout_progress][version] = 1.2
 projects[commerce_checkout_progress][subdir] = "contrib"
 projects[commerce_extra_price_formatters][version] = 1.x-dev
 projects[commerce_extra_price_formatters][subdir] = "contrib"
-projects[commerce_extra_price_formatters][patch][] = "http://drupal.org/files/calculation_setting_won-t-change-1864786-1.patch"
 projects[commerce_checkout_redirect][version] = 1.0-beta1
 projects[commerce_checkout_redirect][subdir] = "contrib"
 projects[commerce_payleap][version] = 1.0-beta1
