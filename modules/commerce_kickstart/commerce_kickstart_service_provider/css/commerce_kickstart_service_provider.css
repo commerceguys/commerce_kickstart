@@ -71,7 +71,7 @@
 .services-wrapper .services .provider-row-wrappepr .first,
 .services-wrapper .services .provider-row-wrappepr .second {
   float: left;
-  margin-left: 30px;
+  margin-left: 33px;
 }
 .services-wrapper .services .provider-row-wrappepr .first {
   width: 10%;
@@ -106,7 +106,7 @@
 }
 .services-wrapper .services .provider-row-wrappepr .second {
   display: block;
-  width: 85%;
+  width: 82%;
 }
 .services-wrapper .services .provider-row-wrappepr .second .top-wrapper .service-title {
   float: left;

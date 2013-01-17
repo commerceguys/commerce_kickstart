@@ -102,7 +102,7 @@ function commerce_kickstart_service_provider_get_teaser() {
   _commerce_kickstart_service_provider_add_element('css', 'commerce_kickstart_service_provider.css');
 
   // Displaying only 3 services in the teaser.
-  $services = array_slice(commerce_kickstart_service_provider_providers_info(), 0, 3, TRUE);
+  $services = commerce_kickstart_service_provider_providers_info();
 
   if (empty($services)) {
     return '<span class="services-not-found">' . t("Couldn't found services providers") . '</span>';
