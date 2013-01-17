@@ -176,6 +176,7 @@ projects[i18n][subdir] = "contrib"
 ; Base theme.
 projects[omega][version] = 3.1
 projects[omega_kickstart][version] = 3.0
+projects[omega_kickstart][patch][] = "http://drupal.org/files/omega_kickstart-fix-omega-php-memory-overflow-1814350-11.patch"
 projects[shiny][version] = 1.0-rc5
 
 ; Libraries.
