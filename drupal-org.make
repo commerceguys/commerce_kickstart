@@ -127,6 +127,7 @@ projects[fences][subdir] = "contrib"
 projects[fences][patch][] = "http://drupal.org/files/undefined-index-1561244-7.patch"
 projects[title][version] = "1.0-alpha5"
 projects[title][patch][] = "http://drupal.org/files/title-fix-hook-field-attach-create-bundle-1869438-2.patch"
+projects[title][patch][] = "http://drupal.org/files/title-fix-empty-class-in-title-1885358-4.patch"
 projects[title][subdir] = "contrib"
 
 ; Search related modules.
