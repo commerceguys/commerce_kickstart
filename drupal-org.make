@@ -138,7 +138,7 @@ projects[title][patch][] = "http://drupal.org/files/title-fix-empty-class-in-tit
 projects[title][subdir] = "contrib"
 
 ; Search related modules.
-projects[search_api][version] = 1.3
+projects[search_api][version] = 1.4
 projects[search_api][subdir] = "contrib"
 projects[search_api_db][version] = 1.0-beta4
 projects[search_api_db][subdir] = "contrib"
