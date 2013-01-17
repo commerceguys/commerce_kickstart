@@ -74,6 +74,7 @@ projects[commerce_message][subdir] = "contrib"
 projects[commerce_message][version] = 1.0-beta1
 projects[commerce_search_api][subdir] = "contrib"
 projects[commerce_search_api][version] = 1.0-rc2
+projects[commerce_search_api][patch][] = "http://drupal.org/files/commerce_search_api-fix-export-overriden-facets-1886846-2.patch"
 projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
 projects[commerce_add_to_cart_confirmation][version] = 1.0-rc1
 
