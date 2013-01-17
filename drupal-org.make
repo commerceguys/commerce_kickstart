@@ -109,6 +109,7 @@ projects[mimemail][subdir] = "contrib"
 projects[mimemail][patch][] = "http://drupal.org/files/1585546-2-move-rules-actions.patch"
 projects[token][version] = 1.4
 projects[token][subdir] = "contrib"
+projects[token][patch][] = "http://drupal.org/files/token-token_asort_tokens-1712336_0.patch"
 projects[eva][version] = 1.2
 projects[eva][subdir] = "contrib"
 projects[message][version] = 1.7
