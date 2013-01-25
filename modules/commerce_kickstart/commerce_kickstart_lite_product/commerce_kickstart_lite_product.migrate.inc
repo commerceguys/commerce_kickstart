@@ -40,6 +40,7 @@ class CommerceKickstartProduct extends CommerceKickstartMigration {
       ->defaultValue(drupal_get_path('module', 'commerce_kickstart_lite_product') . '/import/images');
 
     $this->addFieldMapping('uid', 'uid');
+    $this->addFieldMapping('language', 'language');
   }
 
   function csvcolumns() {
@@ -60,6 +61,7 @@ class CommerceKickstartProduct extends CommerceKickstartMigration {
   function prepareRow($row) {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
+    $row->language = LANGUAGE_NONE;
   }
 }
 

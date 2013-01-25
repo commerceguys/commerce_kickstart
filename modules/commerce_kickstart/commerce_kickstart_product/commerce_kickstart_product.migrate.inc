@@ -51,6 +51,7 @@ class CommerceKickstartBagsCases extends CommerceKickstartMigration {
       ->defaultValue(TRUE);
 
     $this->addFieldMapping('uid', 'uid');
+    $this->addFieldMapping('language', 'language');
   }
 
   function csvcolumns() {
@@ -73,6 +74,7 @@ class CommerceKickstartBagsCases extends CommerceKickstartMigration {
   function prepareRow($row) {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
+    $row->language = LANGUAGE_NONE;
   }
 }
 
@@ -117,6 +119,7 @@ class CommerceKickstartDrinks extends CommerceKickstartMigration {
       ->defaultValue(TRUE);
 
     $this->addFieldMapping('uid', 'uid');
+    $this->addFieldMapping('language', 'language');
   }
 
   function csvcolumns() {
@@ -139,6 +142,7 @@ class CommerceKickstartDrinks extends CommerceKickstartMigration {
   function prepareRow($row) {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
+    $row->language = LANGUAGE_NONE;
   }
 }
 
@@ -188,6 +192,7 @@ class CommerceKickstartHats extends CommerceKickstartMigration {
       ->defaultValue(TRUE);
 
     $this->addFieldMapping('uid', 'uid');
+    $this->addFieldMapping('language', 'language');
   }
 
   function csvcolumns() {
@@ -211,6 +216,7 @@ class CommerceKickstartHats extends CommerceKickstartMigration {
   function prepareRow($row) {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
+    $row->language = LANGUAGE_NONE;
   }
 }
 
@@ -260,6 +266,7 @@ class CommerceKickstartTops extends CommerceKickstartMigration {
       ->defaultValue(TRUE);
 
     $this->addFieldMapping('uid', 'uid');
+    $this->addFieldMapping('language', 'language');
   }
 
   function csvcolumns() {
@@ -283,6 +290,7 @@ class CommerceKickstartTops extends CommerceKickstartMigration {
   function prepareRow($row) {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
+    $row->language = LANGUAGE_NONE;
   }
 }
 
@@ -332,6 +340,7 @@ class CommerceKickstartShoes extends CommerceKickstartMigration {
       ->defaultValue(TRUE);
 
     $this->addFieldMapping('uid', 'uid');
+    $this->addFieldMapping('language', 'language');
   }
 
   function csvcolumns() {
@@ -355,6 +364,7 @@ class CommerceKickstartShoes extends CommerceKickstartMigration {
   function prepareRow($row) {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
+    $row->language = LANGUAGE_NONE;
   }
 }
 
@@ -405,6 +415,7 @@ class CommerceKickstartStorage extends CommerceKickstartMigration {
       ->defaultValue(TRUE);
 
     $this->addFieldMapping('uid', 'uid');
+    $this->addFieldMapping('language', 'language');
   }
 
   function csvcolumns() {
@@ -429,6 +440,7 @@ class CommerceKickstartStorage extends CommerceKickstartMigration {
   function prepareRow($row) {
     $row->product_images = explode(', ', $row->images);
     $row->uid = 1;
+    $row->language = LANGUAGE_NONE;
   }
 }
 
@@ -552,4 +564,3 @@ class CommerceKickstartCollection extends Migration {
     return $columns;
   }
 }
-
