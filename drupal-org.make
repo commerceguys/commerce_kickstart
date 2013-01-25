@@ -73,8 +73,7 @@ projects[commerce_backoffice][version] = 1.0
 projects[commerce_message][subdir] = "contrib"
 projects[commerce_message][version] = 1.0-beta1
 projects[commerce_search_api][subdir] = "contrib"
-projects[commerce_search_api][version] = 1.0-rc2
-projects[commerce_search_api][patch][] = "http://drupal.org/files/commerce_search_api-fix-export-overriden-facets-1886846-2.patch"
+projects[commerce_search_api][version] = 1.0
 projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
 projects[commerce_add_to_cart_confirmation][version] = 1.0-rc1
 
@@ -94,7 +93,7 @@ projects[oauthconnector][subdir] = "contrib"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oathuconnector-notice-no-csid.patch"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oauthconnector-fix-ctools-exportables-1712262-2.patch"
 projects[oauthconnector][patch][] = "http://drupal.org/files/1764028-oauthconnector-fix-css-class.patch"
-projects[inline_entity_form][version] = 1.0
+projects[inline_entity_form][version] = 1.1
 projects[inline_entity_form][subdir] = "contrib"
 projects[field_extractor][version] = 1.1
 projects[field_extractor][subdir] = "contrib"
@@ -148,7 +147,7 @@ projects[search_api_ranges][subdir] = "contrib"
 projects[facetapi][version] = 1.2
 projects[facetapi][subdir] = "contrib"
 projects[facetapi][patch][] = "http://drupal.org/files/1616518-7-show-active-term.patch"
-projects[search_api_sorts][version] = 1.3
+projects[search_api_sorts][version] = 1.4
 projects[search_api_sorts][subdir] = "contrib"
 
 ; UI improvement modules.
