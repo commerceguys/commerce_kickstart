@@ -4159,7 +4159,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'bags_cases',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'A field replacing node title.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -4827,7 +4827,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'drinks',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'A field replacing node title.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -5498,7 +5498,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'hats',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'A field replacing node title.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -6168,7 +6168,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'shoes',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'A field replacing node title.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -6830,7 +6830,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'storage_devices',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'A field replacing node title.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -7500,7 +7500,7 @@ function commerce_kickstart_product_field_default_fields() {
       'bundle' => 'tops',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'A field replacing node title.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -7791,7 +7791,6 @@ function commerce_kickstart_product_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('A field replacing node title.');
   t('Body');
   t('Brand');
   t('Capacity');
