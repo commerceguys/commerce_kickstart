@@ -34,11 +34,11 @@ function commerce_kickstart_reset_menu() {
 function commerce_kickstart_reset_kill_me_form() {
   $form['message'] = array(
     '#type' => 'item',
-    '#markup' => t('Warning : Your are going to wipe all content from this site'),
+    '#markup' => t('Warning: you are going to wipe all content from this site!'),
   );
   $form['buttons']['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Kill me !'),
+    '#value' => t('Wipe all content from this site'),
   );
   return $form;
 }

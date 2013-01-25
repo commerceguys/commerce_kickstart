@@ -265,6 +265,7 @@ function commerce_kickstart_install_additional_modules() {
   $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
   if ($install_demo_store) {
     $modules = array(
+      'commerce_kickstart_reset',
       'commerce_kickstart_block',
       'commerce_kickstart_user',
       'commerce_kickstart_checkout_redirect',
