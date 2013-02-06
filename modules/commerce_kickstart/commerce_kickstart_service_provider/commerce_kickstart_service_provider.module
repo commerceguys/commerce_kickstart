@@ -187,8 +187,6 @@ function commerce_kickstart_service_provider_get_full() {
 
 /**
  * Implements hook_commerce_kickstart_service_provider().
- *
- * Implementing the module on the behalf of Skrill.
  */
 function commerce_kickstart_service_provider_commerce_kickstart_service_provider() {
   $kiala_teaser = t('Kiala delivers parcels to a convenient collection point selected by your customer. ');
@@ -196,6 +194,7 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
 
   $kiala_description = t('Sign up for Kiala’s shipping service today to benefit from this pre-installed module! Want to try it for free first?<br/>');
   $kiala_description .= t('Get a demo account by filling out the form on the <a href="@marketplace_url">Marketplace!</a> (Available in Spain, France and Benelux regions)', array('@marketplace_url' => 'https://marketplace.commerceguys.com/partner/kiala'));
+
   return array(
     'commerce_moneybookers' => array(
       'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/skrill.png',
@@ -220,7 +219,103 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
       'installation_proccess' => _commerce_kickstart_service_provider_kiala_get_installation_text(),
       'weight' => 0,
     ),
+    'commerce_payflow' => array(
+      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/paypal.gif',
+      'title' => t('PayPal Payments Advanced / Payflow Link'),
+      'category' => t('Payment providers'),
+      'teaser' => _commerce_kickstart_service_provider_payflow_get_teaser(),
+      'description' => _commerce_kickstart_service_provider_payflow_get_teaser(),
+      'installation_proccess' => _commerce_kickstart_service_provider_payflow_get_installation_text(),
+      'link' => 'http://www.paypal.com',
+      'requirements' => '',
+      'weight' => 10,
+    ),
+    'commerce_paypal_ec' => array(
+      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/paypal.gif',
+      'title' => t('PayPal Express Checkout'),
+      'category' => t('Payment providers'),
+      'teaser' => _commerce_kickstart_service_provider_paypal_ec_get_teaser(),
+      'description' => _commerce_kickstart_service_provider_paypal_ec_get_teaser(),
+      'installation_proccess' => _commerce_kickstart_service_provider_paypal_ec_get_installation_text(),
+      'link' => 'http://www.paypal.com',
+      'requirements' => '',
+      'weight' => 10,
+    ),
   );
+}
+
+/**
+ * Return the teaser text for the PayPal EC module.
+ */
+function _commerce_kickstart_service_provider_paypal_ec_get_teaser() {
+  $text = t('Let your customers pay with PayPal, credit card, or debit card on securely hosted checkout forms.  ');
+  $text .= t('PayPal collects the necessary address and payment information and returns your customers to your site to finalize the purchase. ');
+  $text .= t('All you need to accept payments with Express Checkout is a  PayPal Business account.');
+  return $text;
+}
+
+/**
+ * Return the PayPal EC installation text.
+ */
+function _commerce_kickstart_service_provider_paypal_ec_get_installation_text() {
+  $items = array();
+  $variables = array(
+    '@paypal-url' => 'https://www.paypal.com/webapps/mpp/referral/paypal-express-checkout?partner_id=VZ6B9QLQ8LZEE',
+  );
+  $items[] = t('<a href="@paypal-url">Register for a PayPal Business account.</a>', $variables);
+  $variables += array(
+    '!store_settings' => l('Store settings > Payment methods', 'admin/commerce/config/payment-methods'),
+  );
+  $items[] = t('Enable <em>PayPal Express Checkout</em> from your !store_settings', $variables);
+  $text = t('Edit the payment method rule to configure your <em>PayPal Express Checkout</em> account credentials and transaction settings.');
+  $items[] = $text;
+  $text = t('To get your Express Checkout credentials, go to your PayPal account > Profile > My Selling Tools >API Access.');
+  $items[] = $text;
+  $variables += array(
+    '@drupal-url' => 'http://drupal.org/node/1902734',
+    '@marketplace-url' => 'https://marketplace.commerceguys.com/service/paypal',
+  );
+  $text = t('<a href="@drupal-url">Read the documentation</a> to learn how to locate your API credentials, understand the settings, and configure the checkout form to collect additional information when customers finalize the purchase on your site.', $variables);
+  $items[] = $text;
+  $text = t('Compare Express Checkout and PayPal’s other payment solutions, refer to the <a href="@marketplace-url">PayPal overview in the Commerce Marketplace</a>.', $variables);
+  $items[] = $text;
+  return theme('item_list', array('items' => $items, 'type' => 'ol'));
+}
+
+/**
+ * Return the Payflow installation text.
+ */
+function _commerce_kickstart_service_provider_payflow_get_installation_text() {
+  $items = array();
+  $variables = array(
+    '@paypal-payment-url' => 'https://www.paypal.com/webapps/mpp/referral/paypal-payments-advanced?partner_id=VZ6B9QLQ8LZEE',
+    '@paypal-payflow-url' => 'https://www.paypal.com/webapps/mpp/referral/paypal-payflow-link?partner_id=VZ6B9QLQ8LZEE',
+  );
+  $items[] = t('Register an account for <a href="@paypal-payment-url">PayPal Payments</a> or <a href="@paypal-payflow-url">Payflow Link</a>', $variables);
+  $variables += array(
+    '!store_settings' => l('Store settings > Payment methods', 'admin/commerce/config/payment-methods'),
+  );
+  $items[] = t('Enable Paypal Payment Advanced or Payflow Link from your !store_settings', $variables);
+  $text = t('Edit the payment method rule to configure your PayPal Payments Advanced or Payflow Link account credentials and transaction settings.');
+  $items[] = $text;
+  $variables += array(
+    '@drupal-url' => 'http://drupal.org/node/1902734',
+    '@marketplace-url' => 'https://marketplace.commerceguys.com/service/paypal',
+  );
+  $text = t('<a href="@drupal-url">Read the documentation for a guide</a>  for a guide to the required configuration of the service in your PayPal Payflow account settings and to learn how to connect your PayPal Payflow account to a PayPal Business account to accept PayPal payments.', $variables);
+  $items[] = $text;
+  $text = t('Compare PayPal Payments Advanced / Payflow Link with PayPal’s other payment solutions, refer to the <a href="@marketplace-url">PayPal overview in the Commerce Marketplace</a>', $variables);
+  $items[] = $text;
+  return theme('item_list', array('items' => $items, 'type' => 'ol'));
+}
+
+/**
+ * Return the teaser text for the PayFlow module.
+ */
+function _commerce_kickstart_service_provider_payflow_get_teaser() {
+  $text = t('Accept payments on your site via credit card, debit card and PayPal on secure iframes that are embedded in the Drupal Commerce checkout form. ');
+  $text .= t('With PayPal Payments Advanced, PayPal acts as your payment processor (available in the US only), while Payflow Link allows you to use the merchant account provider of your choice.');
+  return $text;
 }
 
 /**
@@ -303,4 +398,3 @@ function _commerce_kickstart_service_provider_add_element($type, $filename) {
 
   $function_name(drupal_get_path('module', 'commerce_kickstart_service_provider') . '/' . $type .'/' . $filename);
 }
-

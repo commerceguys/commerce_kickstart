@@ -1,6 +1,6 @@
 .provider-wrapper {
 
-  .first {
+  div.first {
     float: right;
     padding-left: 15px;
     padding-right: 0;
@@ -33,14 +33,14 @@
 
     .provider-row-wrappepr {
 
-      .first,
-      .second {
+      div.first,
+      div.second {
         float: right;
         margin-left: 0;
         margin-right: 30px;
       }
 
-      .second {
+      div.second {
 
         .top-wrapper {
 

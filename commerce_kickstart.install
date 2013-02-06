@@ -322,10 +322,6 @@ function commerce_kickstart_install_additional_modules() {
   }
 
   $store_country = variable_get('commerce_kickstart_store_country', 'US');
-  // Enable Payleap for North America.
-  if (in_array($store_country, array('CA', 'US'))) {
-    $modules[] = 'commerce_payleap';
-  }
   // Enable Commerce Moneybookers for Germany, France and the UK.
   if (in_array($store_country, array('GB', 'DE', 'FR'))) {
     $modules[] = 'commerce_moneybookers';
@@ -338,6 +334,45 @@ function commerce_kickstart_install_additional_modules() {
     $modules[] = 'commerce_kiala_track';
     variable_set('commerce_kiala_settings', array('ls_map_search_embed_type' => 'colorbox'));
     variable_set('colorbox_load', 1);
+  }
+  // Enable Payleap and Paypal for North America.
+  if (in_array($store_country, array('CA', 'US'))) {
+    $modules[] = 'commerce_payleap';
+    $modules[] = 'commerce_payflow';
+    $modules[] = 'commerce_paypal_ec';
+  }
+  $eu_country_codes = array(
+    'AT',
+    'BE',
+    'BG',
+    'CY',
+    'CZ',
+    'DE',
+    'DK',
+    'EE',
+    'ES',
+    'FI',
+    'FR',
+    'GB',
+    'GR',
+    'HU',
+    'IE',
+    'IT',
+    'LT',
+    'LU',
+    'LV',
+    'MT',
+    'NL',
+    'PL',
+    'PT',
+    'RO',
+    'SE',
+    'SI',
+    'SK',
+  );
+  // Enable Commerce Paypal Express Checkout for Europe.
+  if (in_array($store_country, $eu_country_codes)) {
+    $modules[] = 'commerce_paypal_ec';
   }
 
   // Resolve the dependencies now, so that module_enable() doesn't need

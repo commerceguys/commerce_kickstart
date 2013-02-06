@@ -11,13 +11,13 @@
   padding-top: 10px;
   padding-bottom: 10px;
 
-  .first {
+  div.first {
     float: left; // LTR
     padding-right: 15px;
   }
 
 
-  .second {
+  div.second {
 
     .service-title {
       padding-bottom: 5px;
@@ -93,13 +93,13 @@
         top: -60px;
       }
 
-      .first,
-      .second {
+      div.first,
+      div.second {
         float: left; // LTR
         margin-left: 33px;
       }
 
-      .first {
+      div.first {
         width: 10%;
         line-height: 15px;
 
@@ -138,7 +138,7 @@
         }
       }
 
-      .second {
+      div.second {
         display: block;
         width: 82%;
 
