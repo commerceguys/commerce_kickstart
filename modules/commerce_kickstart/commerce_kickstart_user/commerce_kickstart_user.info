@@ -6,6 +6,7 @@ php = 5.2.4
 dependencies[] = block
 dependencies[] = commerce_addressbook
 dependencies[] = commerce_customer
+dependencies[] = commerce_shipping
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = menu
