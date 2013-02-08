@@ -78,8 +78,7 @@ projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
 projects[commerce_add_to_cart_confirmation][version] = 1.0-rc1
 
 ; Other contribs.
-projects[crumbs][version] = 1.8
-projects[crumbs][patch][] = "http://drupal.org/files/crumbs-7.x-1.x-fix-taxonomy-term-uri-hardcode-1850860-10.patch"
+projects[crumbs][version] = 1.9
 projects[crumbs][subdir] = "contrib"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = "contrib"
@@ -95,7 +94,7 @@ projects[oauthconnector][patch][] = "http://drupal.org/files/oauthconnector-fix-
 projects[oauthconnector][patch][] = "http://drupal.org/files/1764028-oauthconnector-fix-css-class.patch"
 projects[inline_entity_form][version] = 1.1
 projects[inline_entity_form][subdir] = "contrib"
-projects[field_extractor][version] = 1.1
+projects[field_extractor][version] = 1.2
 projects[field_extractor][subdir] = "contrib"
 projects[service_links][version] = 2.1
 projects[service_links][subdir] = "contrib"
@@ -124,7 +123,7 @@ projects[date][version] = 2.6
 projects[date][subdir] = "contrib"
 projects[jirafe][version] = 1.0-beta4
 projects[jirafe][subdir] = "contrib"
-projects[yottaa][version] = 1.0
+projects[yottaa][version] = 1.1
 projects[yottaa][subdir] = "contrib"
 projects[menu_attributes][version] = 1.0-rc2
 projects[menu_attributes][subdir] = "contrib"
