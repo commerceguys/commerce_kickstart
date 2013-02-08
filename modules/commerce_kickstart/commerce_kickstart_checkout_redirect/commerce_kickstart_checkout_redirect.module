@@ -44,7 +44,7 @@ function commerce_kickstart_checkout_redirect_drupal_goto_alter(&$path, &$option
  */
 function commerce_kickstart_checkout_redirect_form_alter(&$form, &$form_state, $form_id) {
   // Rewrite path to point to checkout user urls.
-  if (drupal_match_path($form['#action'], '*/checkout/*/user/*')) {
+  if (isset($form['#action']) && drupal_match_path($form['#action'], '*/checkout/*/user/*')) {
     $order_id = commerce_cart_order_id();
     $register_url = 'checkout/' . $order_id . '/user/register';
     $login_url = 'checkout/' . $order_id . '/user/login';
