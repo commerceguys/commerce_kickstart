@@ -78,10 +78,14 @@ function commerce_kickstart_product_ui_preprocess_node(&$vars) {
   if (isset($vars['type']) && isset($product_display_types[$vars['node']->type])) {
     $vars['theme_hook_suggestions'][] = 'node__product__type';
     $vars['classes_array'][] = 'node-product-type';
-    if ($vars['view_mode'] == 'product_list') {
-      $vars['theme_hook_suggestions'][] = 'node__product__type__product__list';
-      $vars['classes_array'][] = 'node-product-type-product-list';
-    }
+    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type;
+    $vars['classes_array'][] = drupal_html_class('node-' . $vars['node']->type);
+    $vars['theme_hook_suggestions'][] = 'node__product__type__' . $vars['view_mode'];
+    // Backward compatibiliy with node--product--type--product--view_mode.
+    $vars['theme_hook_suggestions'][] = 'node__product__type__' . str_replace('_', '__', $vars['view_mode']);
+    $vars['classes_array'][] = drupal_html_class('node-product-type-' . $vars['view_mode']);
+    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__'  . $vars['view_mode'];
+    $vars['classes_array'][] = drupal_html_class('node-' . $vars['node']->type . '-' . $vars['view_mode']);
   }
 }
 
