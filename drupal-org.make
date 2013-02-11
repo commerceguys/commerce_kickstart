@@ -75,8 +75,18 @@ projects[commerce_search_api][subdir] = "contrib"
 projects[commerce_search_api][version] = 1.0
 projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
 projects[commerce_add_to_cart_confirmation][version] = 1.0-rc1
+projects[commerce_kiala][version] = 1.0-beta1
+projects[commerce_kiala][subdir] = "contrib"
+projects[commerce_physical][version] = 1.x-dev
+projects[commerce_physical][subdir] = "contrib"
 
 ; Other contribs.
+projects[remote_stream_wrapper][version] = 1.0-beta4
+projects[remote_stream_wrapper][subdir] = "contrib"
+projects[colorbox][version] = 2.3
+projects[colorbox][subdir] = "contrib"
+projects[physical][version] = 1.x-dev
+projects[physical][subdir] = "contrib"
 projects[crumbs][version] = 1.9
 projects[crumbs][subdir] = "contrib"
 projects[http_client][version] = 2.4
@@ -178,6 +188,9 @@ projects[omega_kickstart][patch][] = "http://drupal.org/files/omega_kickstart-fi
 projects[shiny][version] = 1.0
 
 ; Libraries.
+libraries[colorbox][type] = "libraries"
+libraries[colorbox][download][type] = "git"
+libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox.git"
 libraries[jquery.bxSlider][type] = "libraries"
 libraries[jquery.bxSlider][download][type] = "git"
 libraries[jquery.bxSlider][download][url] = "https://github.com/wandoledzep/bxslider.git"

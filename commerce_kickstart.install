@@ -321,14 +321,23 @@ function commerce_kickstart_install_additional_modules() {
     $modules[] = 'i18n_field';
   }
 
+  $store_country = variable_get('commerce_kickstart_store_country', 'US');
   // Enable Payleap for North America.
-  if (in_array(variable_get('commerce_kickstart_store_country', 'US'), array('CA', 'US'))) {
+  if (in_array($store_country, array('CA', 'US'))) {
     $modules[] = 'commerce_payleap';
   }
   // Enable Commerce Moneybookers for Germany, France and the UK.
-  if (in_array(variable_get('commerce_kickstart_store_country', 'US'), array('GB', 'DE', 'FR'))) {
+  if (in_array($store_country, array('GB', 'DE', 'FR'))) {
     $modules[] = 'commerce_moneybookers';
     $modules[] = 'commerce_moneybookers_quickcheckout';
+  }
+  // Enable kiala modules.
+  if (in_array($store_country, array('FR', 'SP', 'BE', 'NL', 'LU'))) {
+    $modules[] = 'colorbox';
+    $modules[] = 'commerce_kiala_ps';
+    $modules[] = 'commerce_kiala_track';
+    variable_set('commerce_kiala_settings', array('ls_map_search_embed_type' => 'colorbox'));
+    variable_set('colorbox_load', 1);
   }
 
   // Resolve the dependencies now, so that module_enable() doesn't need

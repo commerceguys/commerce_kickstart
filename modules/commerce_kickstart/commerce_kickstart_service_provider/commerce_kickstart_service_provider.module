@@ -143,9 +143,9 @@ function commerce_kickstart_service_provider_get_full() {
   }
 
   // Render the collected from other modules.
-  $requiremets = array(
+  $requirements = array(
     0 => array(
-      'text' => t("Doesn't exists"),
+      'text' => t("Doesn't exist"),
       'class' => 'not-exists',
     ),
     1 => array(
@@ -176,8 +176,8 @@ function commerce_kickstart_service_provider_get_full() {
     $variable['installation'] = $info['installation_proccess'];
     $variable['requirements'] = $info['requirements'];
     $variable['zebra'] = $i++ % 2 == 0 ? 'odd' : 'even';
-    $variable['status_text'] = $requiremets[$info['status']]['text'];
-    $variable['status_class'] = $requiremets[$info['status']]['class'];
+    $variable['status_text'] = $requirements[$info['status']]['text'];
+    $variable['status_class'] = $requirements[$info['status']]['class'];
 
     $output .= theme('providers_page_row', $variable);
   }
@@ -191,20 +191,81 @@ function commerce_kickstart_service_provider_get_full() {
  * Implementing the module on the behalf of Skrill.
  */
 function commerce_kickstart_service_provider_commerce_kickstart_service_provider() {
+  $kiala_teaser = t('Kiala delivers parcels to a convenient collection point selected by your customer. ');
+  $kiala_teaser .= t('Other benefits in addition to faster, more practical delivery include improved tracking and a simpler return process.');
+
+  $kiala_description = t('Sign up for Kiala’s shipping service today to benefit from this pre-installed module! Want to try it for free first?<br/>');
+  $kiala_description .= t('Get a demo account by filling out the form on the <a href="@marketplace_url">Marketplace!</a> (Available in Spain, France and Benelux regions)', array('@marketplace_url' => 'https://marketplace.commerceguys.com/partner/kiala'));
   return array(
     'commerce_moneybookers' => array(
-      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/skrill.png',
+      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/skrill.png',
       'title' => t('Skrill'),
-      'module_path' => '',
-      'category' => t('Payment provider'),
+      'category' => t('Payment providers'),
       'teaser' => t('A payment gateway that provides over 100 payment options, with 41 currencies covering 200 countries and territories through just one partner.'),
       'description' => t('A payment gateway that provides over 100 payment options, with 41 currencies covering 200 countries and territories through just one partner. <br />Great product!'),
-      'requirements' => t('Requires configuration API code to be set.'),
       'link' => 'http://skrill.com',
       'installation_proccess' => t('1. Register <br />2. Fill in API'),
+      'requirements' => t('Requires configuration API code to be set.'),
+      'weight' => 0,
+    ),
+    'commerce_kiala' => array(
+      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/logo-kiala.gif',
+      'title' => t('Kiala'),
+      'category' => t('Shipping methods'),
+      'teaser' => $kiala_teaser,
+      'description' => $kiala_description,
+      'requirements' => '',
+      'requirements_callback' => 'commerce_kickstart_service_provider_kiala_requirements',
+      'link' => 'http://www.kiala.com',
+      'installation_proccess' => _commerce_kickstart_service_provider_kiala_get_installation_text(),
       'weight' => 0,
     ),
   );
+}
+
+/**
+ * Return kiala installation text.
+ */
+function _commerce_kickstart_service_provider_kiala_get_installation_text() {
+  $text = t('Once you have an account:');
+  $text .= '<br/>';
+  $text .= '<h5>' . t('1. Add a service') . '</h5>';
+  $text .= t('Add one or more Kiala services to set up the price of your shipping on the site.')  . '<br/>';
+  $variables = array(
+    '!url' => l('"Store Settings - Shipping Methods"', 'admin/commerce/config/shipping/methods'),
+    '!kiala_url' => l('add a Kiala service', 'admin/commerce/config/shipping/services/kiala/'),
+  );
+  $text .= t('Go to the !url option in the main admin menu, then click on !kiala_url to add a service!', $variables);
+  $text .= '<h5>' . t('2. Configure your module') . '</h5>';
+  $variables += array(
+    '!edit_url' => l('edit', 'admin/commerce/config/shipping/methods/kiala/edit'),
+  );
+  $text .= t('Go to the !url option in the main admin menu, then click on !edit_url to configure your merchant ID. ', $variables);
+  $text .= t('You will also be able to edit details about which countries you will be delivering to, and how you wish to display your Kiala map.');
+  return $text;
+}
+
+/**
+ * Requirements callback for the kiala module.
+ */
+function commerce_kickstart_service_provider_kiala_requirements() {
+  $all_modules = system_rebuild_module_data();
+  $enabled_modules = module_list();
+  if (!isset($all_modules['commerce_kiala'])) {
+    return COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_NOT_EXISTS;
+  }
+  else {
+    if (isset($enabled_modules['commerce_kiala'])) {
+      $kiala_services = commerce_shipping_services('kiala');
+      if (!empty($kiala_services)) {
+        return COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_DEFINED;
+      }
+      return COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_ENABLED;
+    }
+    else {
+      return COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_EXISTS;
+    }
+  }
 }
 
 /**
