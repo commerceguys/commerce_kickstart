@@ -27,6 +27,9 @@ function commerce_kickstart_block_enable() {
   drupal_static_reset();
   _block_rehash($default_theme);
 
+  $admin_theme = variable_get('admin_theme', 'shiny');
+  _block_rehash($admin_theme);
+
   // Footer navigation.
   db_update('block')
     ->fields(array(
@@ -92,5 +95,33 @@ function commerce_kickstart_block_enable() {
     ->condition('module', 'commerce_kickstart_block')
     ->condition('delta', 'powered_drupal_commerce')
     ->condition('theme', $default_theme)
+    ->execute();
+
+  // Powered by Drupal Commerce block for admin.
+  db_update('block')
+    ->fields(array(
+      'region' => 'footer',
+      'status' => '1',
+      'visibility' => '0',
+      'pages' => '',
+      'weight' => -30,
+    ))
+    ->condition('module', 'commerce_kickstart_block')
+    ->condition('delta', 'powered_drupal_commerce')
+    ->condition('theme', $admin_theme)
+    ->execute();
+
+  // Proudly built by CG block.
+  db_update('block')
+    ->fields(array(
+      'region' => 'footer',
+      'status' => '1',
+      'visibility' => '0',
+      'pages' => '',
+      'weight' => -31,
+    ))
+    ->condition('module', 'commerce_kickstart_block')
+    ->condition('delta', 'proudly_built_by_cg')
+    ->condition('theme', $admin_theme)
     ->execute();
 }
