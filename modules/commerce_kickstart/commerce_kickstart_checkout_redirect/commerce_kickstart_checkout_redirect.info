@@ -1,5 +1,0 @@
-name = Commerce Kickstart Checkout Redirect
-description = Provide a login/register form on the checkout process.
-package = Commerce Kickstart
-core = 7.x
-dependencies[] = commerce_checkout_redirect

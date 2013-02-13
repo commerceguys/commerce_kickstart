@@ -268,7 +268,7 @@ function commerce_kickstart_install_additional_modules() {
       'commerce_kickstart_reset',
       'commerce_kickstart_block',
       'commerce_kickstart_user',
-      'commerce_kickstart_checkout_redirect',
+      'commerce_checkout_redirect',
       'commerce_kickstart_social',
       'commerce_kickstart_product',
       'commerce_kickstart_product_ui',
@@ -291,7 +291,7 @@ function commerce_kickstart_install_additional_modules() {
     );
     $selected_extras = variable_get('commerce_kickstart_selected_extras', array());
     if (empty($selected_extras['anonymous_checkout'])) {
-      $modules[] = 'commerce_kickstart_checkout_redirect';
+      $modules[] = 'commerce_checkout_redirect';
     }
     if (!empty($selected_extras['merchandising'])) {
       $modules[] = 'commerce_kickstart_merchandising';
@@ -649,6 +649,24 @@ function commerce_kickstart_install() {
   variable_set('migrate_disable_autoregistration', TRUE);
 }
 
+/**
+ * Disables the passed modules by removing their entries from the system table.
+ *
+ * Used for modules that have already disappeared from the filesystem.
+ * Implemented in order to avoid the core issue described in #1081266.
+ *
+ * @param $modules
+ *   The modules to disable.
+ */
+function _commerce_kickstart_disable_modules($modules) {
+  // Disable the removed modules.
+  db_update('system')
+    ->fields(array('status' => 0))
+    ->condition('name', $modules)
+    ->condition('type', 'module')
+    ->execute();
+}
+
 function commerce_kickstart_update_7100() {
   registry_rebuild();
 }
@@ -747,11 +765,7 @@ function commerce_kickstart_update_7203() {
  * Enable the commerce_backoffice_content module.
  */
 function commerce_kickstart_update_7204() {
-  db_update('system')
-    ->fields(array('status' => 0))
-    ->condition('name', 'commerce_kickstart_content_ui')
-    ->condition('type', 'module')
-    ->execute();
+  _commerce_kickstart_disable_modules('commerce_kickstart_content_ui');
   drupal_flush_all_caches();
   module_enable(array('commerce_backoffice_content'));
 }
@@ -883,11 +897,7 @@ function commerce_kickstart_update_7205(&$sandbox) {
 function commerce_kickstart_update_7206() {
   if (!variable_get('commerce_kickstart_demo_store', FALSE)) {
     // Disable the removed lite modules.
-    db_update('system')
-      ->fields(array('status' => 0))
-      ->condition('name', array('commerce_kickstart_lite_product_ui', 'commerce_kickstart_lite_product_zoom'))
-      ->condition('type', 'module')
-      ->execute();
+    _commerce_kickstart_disable_modules(array('commerce_kickstart_lite_product_ui', 'commerce_kickstart_lite_product_zoom'));
     drupal_flush_all_caches();
     module_enable(array('commerce_kickstart_product_ui'));
   }
@@ -959,4 +969,11 @@ function commerce_kickstart_update_7210() {
  */
 function commerce_kickstart_update_7211() {
   module_enable(array('commerce_message'));
+}
+
+/**
+ * Disable commerce_kickstart_checkout_redirect.
+ */
+function commerce_kickstart_update_7212() {
+  _commerce_kickstart_disable_modules('commerce_kickstart_checkout_redirect');
 }
