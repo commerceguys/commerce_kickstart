@@ -45,5 +45,3 @@ features[variable][] = node_submitted_slideshow
 features[variable][] = pathauto_node_slideshow_pattern
 features[views_view][] = demo_content_slideshow
 files[] = commerce_kickstart_slideshow.migrate.inc
-scripts[] = commerce_kickstart_slideshow.js
-
