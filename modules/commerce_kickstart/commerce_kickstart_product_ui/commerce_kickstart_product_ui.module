@@ -170,11 +170,24 @@ function commerce_kickstart_product_ui_page_alter(&$page) {
  * Process variables for entity.tpl.php.
  */
 function commerce_kickstart_product_ui_preprocess_entity(&$variables) {
-  if ($variables['elements']['#view_mode'] == 'product_in_cart') {
+  if ($variables['entity_type'] == 'commerce_product' && $variables['view_mode'] == 'product_in_cart') {
     $variables['title'] = "";
     $variables['url'] = "";
     // Need to remove the clearfix class from default entity.tpl.php for IE7/8...
     $variables['theme_hook_suggestions'][] = $variables['elements']['#entity_type'] . '__' . $variables['elements']['#view_mode'];
+  }
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ *
+ * Hide the title if the title_field is not empty.
+ */
+function commerce_kickstart_product_ui_entity_view_alter(&$build, $type) {
+  if ($type == 'commerce_product') {
+    if (!empty($build['#entity']->title_field) && isset($build['title'])) {
+      $build['title']['#access'] = FALSE;
+    }
   }
 }
 

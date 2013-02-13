@@ -36,9 +36,8 @@ projects[views_megarow][version] = 1.0
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
-projects[commerce][version] = 1.4
+projects[commerce][version] = 1.5
 projects[commerce][subdir] = "contrib"
-projects[commerce][patch][] = "http://drupal.org/files/commerce-product-hide-title-field-1713790-7.patch"
 projects[commerce_features][version] = 1.0-rc1
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"
@@ -69,7 +68,7 @@ projects[commerce_payleap][subdir] = "contrib"
 projects[commerce_moneybookers][version] = 1.1
 projects[commerce_moneybookers][subdir] = "contrib"
 projects[commerce_backoffice][subdir] = "contrib"
-projects[commerce_backoffice][version] = 1.0
+projects[commerce_backoffice][version] = 1.1
 projects[commerce_message][subdir] = "contrib"
 projects[commerce_message][version] = 1.0-beta1
 projects[commerce_search_api][subdir] = "contrib"
@@ -176,7 +175,7 @@ projects[i18n][subdir] = "contrib"
 projects[omega][version] = 3.1
 projects[omega_kickstart][version] = 3.0
 projects[omega_kickstart][patch][] = "http://drupal.org/files/omega_kickstart-fix-omega-php-memory-overflow-1814350-11.patch"
-projects[shiny][version] = 1.0-rc5
+projects[shiny][version] = 1.0
 
 ; Libraries.
 libraries[jquery.bxSlider][type] = "libraries"
