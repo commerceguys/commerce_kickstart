@@ -8,7 +8,9 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
   <?php if ($display_submitted): ?>
-  <footer class="submitted"><?php print t('By'); ?> <?php print $name; ?>, <?php print $date; ?></footer>
+  <footer class="submitted">
+    <?php print $submitted; ?>
+  </footer>
   <?php endif; ?>
 
   <div<?php print $content_attributes; ?>>
