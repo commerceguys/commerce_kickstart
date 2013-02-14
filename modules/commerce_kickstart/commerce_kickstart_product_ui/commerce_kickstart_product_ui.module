@@ -31,14 +31,17 @@ function commerce_kickstart_product_ui_theme(&$existing) {
   $themes = array(
     'node__product__type' => array(
       'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
+      'render element' => 'elements',
       'template' => 'node--product--type',
     ),
     'node__product__type__product__list' => array(
       'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
+      'render element' => 'elements',
       'template' => 'node--product--type--product--list',
     ),
     'commerce_product__product_in_cart' => array(
       'path' => drupal_get_path('module', 'commerce_kickstart_product_ui') . '/theme',
+      'render element' => 'elements',
       'template' => 'commerce_product__product_in_cart',
     ),
   );
