@@ -178,15 +178,14 @@ projects[chosen][version] = 1.x-dev
 projects[chosen][subdir] = "contrib"
 
 ; Internationalization
-projects[variable][version] = "2.x-dev"
+projects[variable][version] = 2.2
 projects[variable][subdir] = "contrib"
 projects[i18n][version] = "1.x-dev"
 projects[i18n][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.0
-projects[omega_kickstart][patch][] = "http://drupal.org/files/omega_kickstart-fix-omega-php-memory-overflow-1814350-11.patch"
+projects[omega_kickstart][version] = 3.1
 projects[shiny][version] = 1.0
 
 ; Libraries.
