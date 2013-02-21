@@ -98,6 +98,7 @@ projects[oauth][subdir] = "contrib"
 projects[oauth][patch][] = "http://drupal.org/files/980340-d7.patch"
 projects[connector][version] = 1.x-dev
 projects[connector][subdir] = "contrib"
+projects[connector][patch][] = "http://drupal.org/files/connector-fix-too-long-description-breaks-wamp-1648992-24.patch"
 projects[oauthconnector][version] = 1.x-dev
 projects[oauthconnector][subdir] = "contrib"
 projects[oauthconnector][patch][] = "http://drupal.org/files/oathuconnector-notice-no-csid.patch"
