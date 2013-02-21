@@ -6,7 +6,7 @@ class KickstartMigrateTaxonomyTermReferenceFieldHandler extends MigrateTaxonomyT
     $this->registerTypes(array('taxonomy_term_reference'));
   }
 
-  public function fields($type) {
+  public function fields($type, $instance, $migration = NULL) {
     return array(
       'additional_field' => t('Option: Pass any additional field that should be added in the term. Array should be "field_name|value".'),
       'weight' => t('Option: Pass term weight. Value should be "weight".')
