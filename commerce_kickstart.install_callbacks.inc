@@ -275,7 +275,7 @@ function _commerce_kickstart_post_import($operation, &$context) {
  * Configures the theme and assign blocks to the appropriate regions.
  */
 function _commerce_kickstart_setup_blocks() {
-  $admin_theme = 'shiny';
+  $admin_theme = variable_get('admin_theme', 'commerce_kickstart_admin');
   $default_theme = variable_get('theme_default', 'omega_kickstart');
 
   $blocks = array(

@@ -63,7 +63,7 @@ function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
   $old_tasks = $tasks;
   $tasks = array_slice($old_tasks, 0, 2) + $new_task + array_slice($old_tasks, 2);
 
-  _commerce_kickstart_set_theme('shiny');
+  _commerce_kickstart_set_theme('commerce_kickstart_admin');
 }
 
 /**
@@ -584,7 +584,7 @@ function commerce_kickstart_install() {
   filter_format_save($full_html_format);
 
   // Enable the admin theme.
-  $admin_theme = 'shiny';
+  $admin_theme = 'commerce_kickstart_admin';
   theme_enable(array($admin_theme));
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '1');
@@ -1011,4 +1011,39 @@ function commerce_kickstart_update_7211() {
  */
 function commerce_kickstart_update_7212() {
   _commerce_kickstart_disable_modules('commerce_kickstart_checkout_redirect');
+}
+
+/**
+ * Update the admin theme from "Shiny" to "Commerce Kickstart Admin Theme".
+ */
+function commerce_kickstart_update_7213() {
+  if (variable_get('admin_theme', 'shiny') == 'shiny') {
+    // Enable the new theme.
+    theme_enable(array('commerce_kickstart_admin'));
+    variable_set('admin_theme', 'commerce_kickstart_admin');
+    drupal_static_reset();
+    _block_rehash('commerce_kickstart_admin');
+
+    // Disable all blocks in the content region except "Main page content".
+    db_update('block')
+      ->fields(array('region' => '-1'))
+      ->condition('theme', 'commerce_kickstart_admin')
+      ->condition('region', 'content')
+      ->condition(db_and()
+        ->condition('module', 'system', '<>')
+        ->condition('delta', 'main', '<>')
+      )
+      ->execute();
+
+    // Move help to the correct region.
+    db_update('block')
+      ->fields(array('region' => 'help'))
+      ->condition('module', 'system')
+      ->condition('delta', 'help')
+      ->condition('theme', 'commerce_kickstart_admin')
+      ->execute();
+
+    // Disable the old theme.
+    theme_disable(array('shiny'));
+  }
 }

@@ -27,7 +27,7 @@ function commerce_kickstart_block_enable() {
   drupal_static_reset();
   _block_rehash($default_theme);
 
-  $admin_theme = variable_get('admin_theme', 'shiny');
+  $admin_theme = variable_get('admin_theme', 'commerce_kickstart_admin');
   _block_rehash($admin_theme);
 
   // Footer navigation.
