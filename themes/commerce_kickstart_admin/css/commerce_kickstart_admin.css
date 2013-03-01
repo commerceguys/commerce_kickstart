@@ -53,6 +53,8 @@ body.in-maintenance #credit .logo a {
 /* Installation/Maintenance Page */
 body.in-maintenance {
   background: #256ba7 url("../images/installation-bg.png") repeat 0 0;
+  /* Welcome Page Styles */
+  /* DFP Styles */
 }
 body.in-maintenance .body-wrapper {
   background: #256ba7;
@@ -118,7 +120,7 @@ body.in-maintenance #sidebar-first {
 }
 body.in-maintenance fieldset .fieldset-wrapper,
 body.in-maintenance fieldset.collapsible {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   padding: 15px;
 }
 body.in-maintenance ol.task-list {
@@ -161,6 +163,43 @@ body.in-maintenance .password-strength {
 }
 body.in-maintenance .form-item-extras label[for=edit-extras] {
   clear: both;
+}
+body.in-maintenance #edit-submit.form-disabled {
+  opacity: .5;
+  cursor: auto;
+}
+body.in-maintenance #install-welcome > div > p {
+  margin-top: 0;
+}
+body.in-maintenance #eula-installation-welcome {
+  background: #f4f4f4;
+  border: 1px solid #edebeb;
+  padding: 0 20px 10px;
+  font-size: .9em;
+  line-height: 1.5em;
+}
+body.in-maintenance #eula-installation-welcome ul {
+  margin-bottom: 20px;
+}
+body.in-maintenance #eula-installation-welcome ul li {
+  margin-bottom: 10px;
+}
+body.in-maintenance #eula-installation-welcome .form-item-eula-accept label.option {
+  line-height: 2em;
+}
+body.in-maintenance #progress {
+  margin-bottom: 50px;
+}
+body.in-maintenance #dfp-wrapper {
+  background: transparent url("../images/install-dfp-message.png") no-repeat 0 45px;
+  min-height: 250px;
+}
+body.in-maintenance .dfp-install-ad {
+  background: transparent url("../images/dfp-offline.png") no-repeat center center;
+  box-shadow: 0 0 1px #333;
+  float: right;
+  height: 250px;
+  width: 300px;
 }
 
 body.installing-demo-store ol.task-list,
@@ -212,9 +251,9 @@ body.installing-additional-functionality ol.task-list {
 #commerce-kickstart-inline-help .advanced-help-topic {
   background: #fef2c4;
   border: 1px solid #efb120;
-  -moz-box-shadow: inset 0 0 10px white;
-  -webkit-box-shadow: inset 0 0 10px white;
-  box-shadow: inset 0 0 10px white;
+  -moz-box-shadow: inset 0 0 10px #fff;
+  -webkit-box-shadow: inset 0 0 10px #fff;
+  box-shadow: inset 0 0 10px #fff;
   margin-bottom: 30px;
   padding: 15px;
 }
