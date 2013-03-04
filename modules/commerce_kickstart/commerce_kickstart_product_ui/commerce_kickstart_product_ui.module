@@ -210,7 +210,7 @@ function commerce_kickstart_product_ui_views_api() {
  * Apply the h2 wrapper for title fields.
  */
 function commerce_kickstart_product_ui_field_create_instance($instance) {
-  if (!title_field_replacement_info($instance['entity_type'], $instance['field_name'])) {
+  if (!module_exists('title') || !title_field_replacement_info($instance['entity_type'], $instance['field_name'])) {
     return;
   }
   $instance['fences_wrapper'] = 'h2';
