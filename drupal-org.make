@@ -91,7 +91,7 @@ projects[physical][version] = 1.x-dev
 projects[physical][subdir] = "contrib"
 projects[crumbs][version] = 1.9
 projects[crumbs][subdir] = "contrib"
-projects[crumbs][patch][] = "http://drupal.org/files/crumbs-translate-menu-items-1781112-47.patch"
+projects[crumbs][patch][] = "http://drupal.org/files/crumbs-translate-menu-items-1781112-49.patch"
 projects[crumbs][patch][] = "http://drupal.org/files/crumbs-7.x-1.x-1930060-6.patch"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = "contrib"
@@ -144,8 +144,9 @@ projects[fences][version] = "1.0"
 projects[fences][subdir] = "contrib"
 projects[fences][patch][] = "http://drupal.org/files/undefined-index-1561244-7.patch"
 projects[title][version] = "1.0-alpha5"
-projects[title][patch][] = "http://drupal.org/files/title-fix-hook-field-attach-create-bundle-1869438-2.patch"
-projects[title][patch][] = "http://drupal.org/files/title-fix-empty-class-in-title-1885358-4.patch"
+projects[title][patch][] = "http://drupal.org/files/title-autoattach_broken-1869438-9.patch"
+projects[title][patch][] = "http://drupal.org/files/title-empty_tag-1919640-1.patch"
+projects[title][patch][] = "http://drupal.org/files/title-empty_class-1885356-1.patch"
 projects[title][subdir] = "contrib"
 
 ; Search related modules.
