@@ -208,7 +208,7 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
       'weight' => 0,
     ),
     'commerce_kiala' => array(
-      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/logo-kiala.gif',
+      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/kiala-logo.jpg',
       'title' => t('Kiala'),
       'category' => t('Shipping methods'),
       'teaser' => $kiala_teaser,
