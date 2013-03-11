@@ -393,13 +393,13 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     $items['admin/reports']['title'] = 'Site reports';
   }
   if (isset($items['admin/commerce/jirafe'])) {
-    $items['admin/commerce/jirafe']['title'] = 'Reports';
+    $items['admin/commerce/jirafe']['title'] = 'Analytics';
     $items['admin/commerce/jirafe']['parent'] = 'admin';
-    $items['admin/commerce/jirafe']['weight'] = -25;
-    $items['admin/commerce/jirafe']['options']['toolbar_css'] = 'reports';
-  }
-  if (isset($items['admin/commerce/config/jirafe'])) {
-    $items['admin/commerce/config/jirafe']['hidden'] = TRUE;
+    $items['admin/commerce/jirafe']['weight'] = 49;
+    $items['admin/commerce/jirafe']['options'] = array(
+      'toolbar_break' => TRUE,
+      'toolbar_css' => 'reports',
+    );
   }
 }
 
