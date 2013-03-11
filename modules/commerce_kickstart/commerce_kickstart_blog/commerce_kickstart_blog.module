@@ -22,7 +22,7 @@ function commerce_kickstart_blog_migrate_api() {
 }
 
 /**
- * Implements hoook_commerce_kickstart_crumb_info().
+ * Implements hook_commerce_kickstart_crumb_info().
  *
  * Enables the Crumbs plugin relevant to this module that provides taxonomy
  * based breadcrumbs for each blog post.
