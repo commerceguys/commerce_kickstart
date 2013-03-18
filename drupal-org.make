@@ -74,7 +74,7 @@ projects[commerce_backoffice][version] = 1.1
 projects[commerce_message][subdir] = "contrib"
 projects[commerce_message][version] = 1.0-beta1
 projects[commerce_search_api][subdir] = "contrib"
-projects[commerce_search_api][version] = 1.0
+projects[commerce_search_api][version] = 1.1
 projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
 projects[commerce_add_to_cart_confirmation][version] = 1.0-rc2
 projects[commerce_kiala][version] = 1.0-beta1
@@ -143,10 +143,7 @@ projects[menu_attributes][subdir] = "contrib"
 projects[fences][version] = "1.0"
 projects[fences][subdir] = "contrib"
 projects[fences][patch][] = "http://drupal.org/files/undefined-index-1561244-7.patch"
-projects[title][version] = "1.0-alpha5"
-projects[title][patch][] = "http://drupal.org/files/title-autoattach_broken-1869438-9.patch"
-projects[title][patch][] = "http://drupal.org/files/title-empty_tag-1919640-1.patch"
-projects[title][patch][] = "http://drupal.org/files/title-empty_class-1885356-1.patch"
+projects[title][version] = "1.0-alpha7"
 projects[title][subdir] = "contrib"
 
 ; Search related modules.
