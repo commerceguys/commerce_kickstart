@@ -403,6 +403,13 @@ function commerce_kickstart_menus_menu_alter(&$items) {
       'toolbar_css' => 'reports',
     );
   }
+  // Lingotek alteration.
+  if (isset($items['admin/settings/lingotek'])) {
+    $items['admin/settings/lingotek']['options'] = array(
+      'toolbar_break' => TRUE,
+      'toolbar_css' => 'lingotek',
+    );
+  }
 }
 
 /**

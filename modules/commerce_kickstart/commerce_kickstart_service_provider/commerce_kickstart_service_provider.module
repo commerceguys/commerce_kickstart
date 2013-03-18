@@ -190,7 +190,6 @@ function commerce_kickstart_service_provider_get_full() {
     $variables['zebra'] = $i++ % 2 == 0 ? 'odd' : 'even';
     $variables['status_text'] = $requirements[$info['status']]['text'];
     $variables['status_class'] = $requirements[$info['status']]['class'];
-
     $output .= theme('providers_page_row', $variables);
   }
 
@@ -206,6 +205,14 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
 
   $kiala_description = t('Sign up for Kiala’s shipping service today to benefit from this pre-installed module! Want to try it for free first?<br/>');
   $kiala_description .= t('Get a demo account by filling out the form on the <a href="@marketplace_url">Marketplace!</a> (Available in Spain, France and Benelux regions)', array('@marketplace_url' => 'https://marketplace.commerceguys.com/partner/kiala'));
+
+  $lingotek_description = t('Make your site multilingual with the Lingotek module and translation services!');
+  $lingotek_description .= '<br/>' . t('They can adapt to fit your content translation needs by matching your timeline
+  and budget to the appropriate workflow-from machine translation post-editing to professional translation, and everything in between.');
+
+  $lingotek_installation = array();
+  $lingotek_installation[] = t('Enable the module (site settings > modules > search for Lingotek check enabled and save).');
+  $lingotek_installation[] = l(t('Sign up for the Lingotek service.'), 'admin/config/lingotek/new-account');
 
   return array(
     'commerce_moneybookers' => array(
@@ -253,6 +260,18 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
       'bypass_requirements' => TRUE,
       'weight' => 10,
     ),
+    'lingotek' => array(
+      'logo_path' => drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/lingotek.png',
+      'title' => t('Lingotek'),
+      'category' => t('Translation'),
+      'teaser' => t('The Translation Network helps you create and manage all of your multilingual content.'),
+      'description' => $lingotek_description,
+      'installation_proccess' => theme('item_list', array('items' => $lingotek_installation, 'type' => 'ol')),
+      'installation_label' => t('Get started now with two simple steps:'),
+      'link' => 'http://www.lingotek.com',
+      'requirements_callback' => '_commerce_kickstart_service_provider_lingotek_requirements',
+      'weight' => 10,
+    ),
   );
 }
 
@@ -263,6 +282,18 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
   if (isset($services['jirafe'])) {
     $services['jirafe']['logo_path'] = drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/jirafe_logo.png';
   }
+}
+
+/**
+ * Requirements callback for the Lingotek service.
+ */
+function _commerce_kickstart_service_provider_lingotek_requirements() {
+  $lingotek_lid = variable_get('lingotek_login_id', '');
+  $lingotek_password = variable_get('lingotek_password', '');
+  if (empty($lingotek_lid) || empty($lingotek_password)) {
+    return COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_ENABLED;
+  }
+  return COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_DEFINED;
 }
 
 /**

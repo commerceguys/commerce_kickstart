@@ -181,6 +181,8 @@ projects[variable][version] = 2.2
 projects[variable][subdir] = "contrib"
 projects[i18n][version] = "1.x-dev"
 projects[i18n][subdir] = "contrib"
+projects[lingotek][version] = 2.72
+projects[lingotek][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
