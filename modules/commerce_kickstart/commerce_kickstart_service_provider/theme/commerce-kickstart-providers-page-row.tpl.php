@@ -4,7 +4,11 @@
     <div class="first">
       <div class="service-logo"><?php print $logo; ?></div>
       <div class="status"><span class="<?php print $status_class; ?>"><?php print $status_text; ?></span></div>
-      <div class="requirements"><?php print $requirements; ?></div>
+      <?php if ($requirements): ?>
+        <div class="requirements">
+          <?php print $requirements; ?>
+        </div>
+      <?php endif; ?>
     </div>
 
     <div class="second">
@@ -16,8 +20,11 @@
       <div class="body-wrapper">
         <p class="body"><?php print $description; ?></p>
 
-        <h4 class="installation-title"><?php print t('Installation'); ?></h4>
-        <p  class="installation-body">
+
+        <h4 class="installation-title">
+          <?php print $installation_label; ?>
+        </h4>
+        <p class="installation-body">
           <?php print $installation; ?>
         </p>
       </div>

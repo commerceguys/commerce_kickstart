@@ -17,6 +17,9 @@ define('COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_ENABLED', 2);
 // Service module is exists, enabled and the settings are defined.
 define('COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_DEFINED', 3);
 
+// Service module exists, enabled, bypass the settings check.
+define('COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_BYPASS', 4);
+
 /**
  * Implements hook_theme().
  */
@@ -67,9 +70,14 @@ function commerce_kickstart_service_provider_providers_info() {
 
   foreach ($services as $service_name => $service_info) {
     if (isset($enabled_modules[$service_name])) {
-      // The module exists. Check for existing requirements status call back
-      // function. If not, return status: enabled module.
-      $status = empty($service_info['requirements_callback']) ? COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_ENABLED : call_user_func($service_info['requirements_callback']);
+      if (!empty($service_info['bypass_requirements'])) {
+        $status = COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_BYPASS;
+      }
+      else {
+        // The module exists. Check for existing requirements status call back
+        // function. If not, return status: enabled module.
+        $status = empty($service_info['requirements_callback']) ? COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_ENABLED : call_user_func($service_info['requirements_callback']);
+      }
     }
     else if (isset($all_modules[$service_name])) {
       // Service module is not enabled but exists.
@@ -79,7 +87,6 @@ function commerce_kickstart_service_provider_providers_info() {
       // Module does not exist.
       $status = COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_NOT_EXISTS;
     }
-
     $services[$service_name] = $service_info + array(
       '#weight' => isset($service_info['weight']) ? $service_info['weight'] : 0,
       'status' => $status,
@@ -144,21 +151,25 @@ function commerce_kickstart_service_provider_get_full() {
 
   // Render the collected from other modules.
   $requirements = array(
-    0 => array(
+    COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_NOT_EXISTS => array(
       'text' => t("Doesn't exist"),
       'class' => 'not-exists',
     ),
-    1 => array(
+    COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_EXISTS => array(
       'text' => t('Not installed'),
       'class' => 'not-installed',
     ),
-    2 => array(
+    COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_ENABLED => array(
       'text' => t('Installed, requires configuration'),
       'class' => 'requires-config'
     ),
-    3 => array(
+    COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_DEFINED => array(
       'text' => t('Installed, settings are defined'),
       'class' => 'installed-defined'
+    ),
+    COMMERCE_KICKSTART_SERVICE_PROVIDER_MODULE_BYPASS => array(
+      'text' => t('Installed'),
+      'class' => 'installed-defined',
     ),
   );
   $i = 0;
@@ -168,18 +179,19 @@ function commerce_kickstart_service_provider_get_full() {
       'path' => $info['logo_path'],
       'width' => 123,
     );
-    $variable['name'] = $name;
-    $variable['title'] = l($info['title'], $info['link']);
-    $variable['logo'] = theme('image', $params);
-    $variable['type'] = $info['category'];
-    $variable['description'] = $info['description'];
-    $variable['installation'] = $info['installation_proccess'];
-    $variable['requirements'] = $info['requirements'];
-    $variable['zebra'] = $i++ % 2 == 0 ? 'odd' : 'even';
-    $variable['status_text'] = $requirements[$info['status']]['text'];
-    $variable['status_class'] = $requirements[$info['status']]['class'];
+    $variables['name'] = $name;
+    $variables['title'] = l($info['title'], $info['link']);
+    $variables['logo'] = theme('image', $params);
+    $variables['type'] = $info['category'];
+    $variables['description'] = $info['description'];
+    $variables['installation'] = $info['installation_proccess'];
+    $variables['installation_label'] = isset($info['installation_label']) ? $info['installation_label'] : t('Installation');
+    $variables['requirements'] = isset($info['requirements']) ? $info['requirements'] : FALSE;
+    $variables['zebra'] = $i++ % 2 == 0 ? 'odd' : 'even';
+    $variables['status_text'] = $requirements[$info['status']]['text'];
+    $variables['status_class'] = $requirements[$info['status']]['class'];
 
-    $output .= theme('providers_page_row', $variable);
+    $output .= theme('providers_page_row', $variables);
   }
 
   return $output;
@@ -213,9 +225,9 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
       'category' => t('Shipping methods'),
       'teaser' => $kiala_teaser,
       'description' => $kiala_description,
-      'requirements' => '',
       'requirements_callback' => 'commerce_kickstart_service_provider_kiala_requirements',
       'link' => 'http://www.kiala.com',
+      'installation_label' => t('Once you have an account'),
       'installation_proccess' => _commerce_kickstart_service_provider_kiala_get_installation_text(),
       'weight' => 0,
     ),
@@ -227,7 +239,7 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
       'description' => _commerce_kickstart_service_provider_payflow_get_teaser(),
       'installation_proccess' => _commerce_kickstart_service_provider_payflow_get_installation_text(),
       'link' => 'http://www.paypal.com',
-      'requirements' => '',
+      'bypass_requirements' => TRUE,
       'weight' => 10,
     ),
     'commerce_paypal_ec' => array(
@@ -238,10 +250,19 @@ function commerce_kickstart_service_provider_commerce_kickstart_service_provider
       'description' => _commerce_kickstart_service_provider_paypal_ec_get_teaser(),
       'installation_proccess' => _commerce_kickstart_service_provider_paypal_ec_get_installation_text(),
       'link' => 'http://www.paypal.com',
-      'requirements' => '',
+      'bypass_requirements' => TRUE,
       'weight' => 10,
     ),
   );
+}
+
+/**
+ * Implements hook_commerce_kickstart_service_provider_alter().
+ */
+function commerce_kickstart_service_provider_commerce_kickstart_service_provider_alter(&$services) {
+  if (isset($services['jirafe'])) {
+    $services['jirafe']['logo_path'] = drupal_get_path('module', 'commerce_kickstart_service_provider') . '/images/jirafe_logo.png';
+  }
 }
 
 /**
@@ -322,9 +343,7 @@ function _commerce_kickstart_service_provider_payflow_get_teaser() {
  * Return kiala installation text.
  */
 function _commerce_kickstart_service_provider_kiala_get_installation_text() {
-  $text = t('Once you have an account:');
-  $text .= '<br/>';
-  $text .= '<h5>' . t('1. Add a service') . '</h5>';
+  $text = '<h5>' . t('1. Add a service') . '</h5>';
   $text .= t('Add one or more Kiala services to set up the price of your shipping on the site.')  . '<br/>';
   $variables = array(
     '!url' => l('"Store Settings - Shipping Methods"', 'admin/commerce/config/shipping/methods'),
