@@ -320,3 +320,13 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible {
 .page-admin-commerce-jirafe #overlay #overlay-content #page {
   padding: 0 0 30px;
 }
+
+/* Customer Profiles Fix */
+.view-commerce-customer-profiles .views-exposed-form #edit-name-wrapper {
+  width: 520px;
+}
+
+.view-commerce-customer-profiles .views-exposed-form label {
+  float: left;
+  margin-right: 15px;
+}
