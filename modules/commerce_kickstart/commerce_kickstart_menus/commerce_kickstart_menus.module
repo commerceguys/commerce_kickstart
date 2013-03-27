@@ -369,6 +369,8 @@ function commerce_kickstart_menus_menu_alter(&$items) {
     'admin/commerce/config/line-items',
     'admin/commerce/config/order',
     'admin/commerce/config/product-pricing',
+    'admin/commerce/config/jirafe',
+    'admin/commerce/config/commerce_search_api',
     'admin/commerce/config/demo',
   );
   $weight = 0;
