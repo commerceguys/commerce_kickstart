@@ -128,21 +128,21 @@ function commerce_kickstart_social_default_oauthconnector_provider() {
   $provider->mapping = array(
     'fields' => array(
       'uid' => array(
-        'resource' => 'https://api.twitter.com/1/account/verify_credentials.json',
+        'resource' => 'https://api.twitter.com/1.1/account/verify_credentials.json',
         'method post' => 0,
         'field' => 'id',
         'querypath' => FALSE,
         'sync_with_field' => '',
       ),
       'name' => array(
-        'resource' => 'https://api.twitter.com/1/account/verify_credentials.json',
+        'resource' => 'https://api.twitter.com/1.1/account/verify_credentials.json',
         'method post' => 0,
         'field' => 'name',
         'querypath' => FALSE,
         'sync_with_field' => 'name',
       ),
       'avatar' => array(
-        'resource' => 'https://api.twitter.com/1/account/verify_credentials.json',
+        'resource' => 'https://api.twitter.com/1.1/account/verify_credentials.json',
         'method post' => 0,
         'field' => 'profile_image_url',
         'querypath' => FALSE,
