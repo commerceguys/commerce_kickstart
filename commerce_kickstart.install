@@ -79,7 +79,8 @@ function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
     $tasks[$install_state['active_task']]['dfp_settings'] += array(
       'dfp_unit' => 'Kickstart_Install',
     );
-    drupal_add_js('//www.googletagservices.com/tag/js/gpt.js');
+    $prefix = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? 'https://' : 'http://';
+    drupal_add_js($prefix . 'www.googletagservices.com/tag/js/gpt.js');
     drupal_add_js(array(
       'dfp' => $tasks[$install_state['active_task']]['dfp_settings'],
     ), 'setting');
