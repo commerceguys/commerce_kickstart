@@ -12,9 +12,8 @@ projects[entityreference][subdir] = "contrib"
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-11.patch"
 projects[rules][version] = 2.3
 projects[rules][subdir] = "contrib"
-projects[views][version] = 3.6
+projects[views][version] = 3.7
 projects[views][subdir] = "contrib"
-projects[views][patch][] = "http://drupal.org/files/views-fix-machine-name-notice-1948646-5.patch"
 projects[views_bulk_operations][version] = 3.1
 projects[views_bulk_operations][subdir] = "contrib"
 projects[addressfield][version] = 1.0-beta3
@@ -35,7 +34,7 @@ projects[views_megarow][version] = 1.0
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
-projects[commerce][version] = 1.5
+projects[commerce][version] = 1.6
 projects[commerce][subdir] = "contrib"
 projects[commerce_features][version] = 1.0-rc1
 projects[commerce_features][subdir] = "contrib"
