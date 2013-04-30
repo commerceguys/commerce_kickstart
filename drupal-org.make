@@ -7,4 +7,4 @@ projects[entity] = 1.0
 projects[rules] = 2.3
 projects[views] = 3.7
 projects[addressfield] = 1.0-beta3
-projects[commerce] = 1.6
+projects[commerce] = 1.7
