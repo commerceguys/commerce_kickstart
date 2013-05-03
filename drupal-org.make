@@ -5,7 +5,7 @@ api = 2
 ; Basic contributed modules.
 projects[ctools][version] = 1.3
 projects[ctools][subdir] = "contrib"
-projects[entity][version] = 1.0
+projects[entity][version] = 1.1
 projects[entity][subdir] = "contrib"
 projects[entityreference][version] = 1.0
 projects[entityreference][subdir] = "contrib"
@@ -34,7 +34,7 @@ projects[views_megarow][version] = 1.0
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
-projects[commerce][version] = 1.6
+projects[commerce][version] = 1.7
 projects[commerce][subdir] = "contrib"
 projects[commerce_features][version] = 1.0-rc1
 projects[commerce_features][subdir] = "contrib"
@@ -60,7 +60,7 @@ projects[commerce_extra_price_formatters][version] = 1.x-dev
 projects[commerce_extra_price_formatters][subdir] = "contrib"
 projects[commerce_checkout_redirect][version] = 2.0-beta1
 projects[commerce_checkout_redirect][subdir] = "contrib"
-projects[commerce_hosted_pci][version] = 1.0-rc1
+projects[commerce_hosted_pci][version] = 1.0-rc2
 projects[commerce_hosted_pci][subdir] = "contrib"
 projects[commerce_payleap][version] = 1.0
 projects[commerce_payleap][subdir] = "contrib"
@@ -85,7 +85,7 @@ projects[commerce_physical][subdir] = "contrib"
 ; Other contribs.
 projects[remote_stream_wrapper][version] = 1.0-beta4
 projects[remote_stream_wrapper][subdir] = "contrib"
-projects[colorbox][version] = 2.3
+projects[colorbox][version] = 2.4
 projects[colorbox][subdir] = "contrib"
 projects[physical][version] = 1.x-dev
 projects[physical][subdir] = "contrib"
@@ -121,9 +121,9 @@ projects[token][subdir] = "contrib"
 projects[token][patch][] = "http://drupal.org/files/token-token_asort_tokens-1712336_0.patch"
 projects[eva][version] = 1.2
 projects[eva][subdir] = "contrib"
-projects[message][version] = 1.7
+projects[message][version] = 1.8
 projects[message][subdir] = "contrib"
-projects[message_notify][version] = 2.4
+projects[message_notify][version] = 2.5
 projects[message_notify][subdir] = "contrib"
 projects[migrate][version] = 2.5
 projects[migrate][subdir] = "contrib"
@@ -144,7 +144,7 @@ projects[title][version] = "1.0-alpha7"
 projects[title][subdir] = "contrib"
 
 ; Search related modules.
-projects[search_api][version] = 1.4
+projects[search_api][version] = 1.5
 projects[search_api][subdir] = "contrib"
 projects[search_api_db][version] = 1.0-beta4
 projects[search_api_db][subdir] = "contrib"
@@ -180,7 +180,7 @@ projects[variable][version] = 2.2
 projects[variable][subdir] = "contrib"
 projects[i18n][version] = "1.x-dev"
 projects[i18n][subdir] = "contrib"
-projects[lingotek][version] = 2.72
+projects[lingotek][version] = 3.02
 projects[lingotek][subdir] = "contrib"
 
 ; Base theme.
