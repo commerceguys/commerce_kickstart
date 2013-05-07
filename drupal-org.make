@@ -36,6 +36,7 @@ projects[views_megarow][subdir] = "contrib"
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.7
 projects[commerce][subdir] = "contrib"
+projects[commerce][patch][] = "http://drupal.org/files/commerce-add-some-self-healing-to-order-calculate-total-1423204-4.patch"
 projects[commerce_features][version] = 1.0-rc1
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"
