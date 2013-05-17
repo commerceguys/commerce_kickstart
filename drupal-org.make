@@ -73,7 +73,7 @@ projects[commerce_backoffice][subdir] = "contrib"
 projects[commerce_backoffice][version] = 1.2
 projects[commerce_backoffice][patch][] = "http://drupal.org/files/commerce_backoffice_product-add-product-variations-view-1954150-4.patch"
 projects[commerce_message][subdir] = "contrib"
-projects[commerce_message][version] = 1.0-beta1
+projects[commerce_message][version] = 1.0-rc1
 projects[commerce_search_api][subdir] = "contrib"
 projects[commerce_search_api][version] = 1.2
 projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
@@ -156,9 +156,8 @@ projects[title][subdir] = "contrib"
 ; Search related modules.
 projects[search_api][version] = 1.5
 projects[search_api][subdir] = "contrib"
-projects[search_api_db][version] = 1.0-beta4
+projects[search_api_db][version] = 1.0-rc1
 projects[search_api_db][subdir] = "contrib"
-projects[search_api_db][patch][] = "http://drupal.org/files/1649042-27-search_api_db.patch"
 projects[search_api_ranges][version] = 1.4
 projects[search_api_ranges][subdir] = "contrib"
 projects[facetapi][version] = 1.3
@@ -197,7 +196,7 @@ projects[lingotek][subdir] = "contrib"
 projects[omega][version] = 3.1
 projects[omega_kickstart][version] = 3.1
 projects[omega_kickstart][patch][] = http://drupal.org/files/omega_kickstart-fix-template-menu-show-gap-1932472-4.patch
-projects[shiny][version] = 1.1
+projects[shiny][version] = 1.2
 
 ; Libraries.
 libraries[colorbox][type] = "libraries"
