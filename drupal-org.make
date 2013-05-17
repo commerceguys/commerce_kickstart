@@ -72,6 +72,7 @@ projects[commerce_paypal][version] = 2.0-beta1
 projects[commerce_backoffice][subdir] = "contrib"
 projects[commerce_backoffice][version] = 1.2
 projects[commerce_backoffice][patch][] = "http://drupal.org/files/commerce_backoffice_product-add-product-variations-view-1954150-4.patch"
+projects[commerce_backoffice][patch][] = "http://drupal.org/files/backoffice_order_template_for_admin_order_page-1847008-2.patch"
 projects[commerce_message][subdir] = "contrib"
 projects[commerce_message][version] = 1.0-rc1
 projects[commerce_search_api][subdir] = "contrib"
@@ -90,6 +91,8 @@ projects[commerce_authnet][subdir] = "contrib"
 projects[commerce_authnet][version] = 1.1
 projects[commerce_exactor][subdir] = "contrib"
 projects[commerce_exactor][version] = 1.0-rc1
+projects[commerceguys_marketplace][version] = 1.0-beta1
+projects[commerceguys_marketplace][subdir] = "contrib"
 
 ; Other contribs.
 projects[remote_stream_wrapper][version] = 1.0-beta4
@@ -194,8 +197,7 @@ projects[lingotek][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.1
-projects[omega_kickstart][patch][] = http://drupal.org/files/omega_kickstart-fix-template-menu-show-gap-1932472-4.patch
+projects[omega_kickstart][version] = 3.2
 projects[shiny][version] = 1.2
 
 ; Libraries.

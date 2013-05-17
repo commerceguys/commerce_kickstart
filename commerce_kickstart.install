@@ -1090,3 +1090,12 @@ function commerce_kickstart_update_7213() {
     theme_disable(array('shiny'));
   }
 }
+
+/**
+ * Enable the Commerce Guys Marketplace module.
+ */
+function commerce_kickstart_update_7214() {
+  _commerce_kickstart_disable_modules('commerce_kickstart_checkout_redirect');
+  module_enable(array('commerceguys_marketplace'));
+  menu_rebuild();
+}
