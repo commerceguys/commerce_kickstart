@@ -685,7 +685,7 @@ function commerce_kickstart_install() {
   // Set Mimemail.
   variable_set('mimemail_format', 'full_html');
   // Set checkout progress.
-  variable_set('commerce_checkout_progress_link', 1);
+  variable_set('commerce_checkout_progress_link', 0);
   variable_set('commerce_checkout_progress_list_type', 'ol');
   variable_set('commerce_checkout_progress_block_pages', array_keys(commerce_checkout_pages()));
   // Configure Chosen.
