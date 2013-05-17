@@ -66,6 +66,7 @@ projects[commerce_payleap][version] = 1.0
 projects[commerce_payleap][subdir] = "contrib"
 projects[commerce_moneybookers][version] = 1.2
 projects[commerce_moneybookers][subdir] = "contrib"
+projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_moneybookers-disable_payment_method_by_default-1962226-3.patch"
 projects[commerce_paypal][subdir] = "contrib"
 projects[commerce_paypal][version] = 2.0-beta1
 projects[commerce_backoffice][subdir] = "contrib"
