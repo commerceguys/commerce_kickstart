@@ -124,6 +124,7 @@ projects[eva][version] = 1.2
 projects[eva][subdir] = "contrib"
 projects[message][version] = 1.8
 projects[message][subdir] = "contrib"
+projects[message][patch][] = "http://drupal.org/files/message-fix-table-index-name-1941448-3.patch"
 projects[message_notify][version] = 2.5
 projects[message_notify][subdir] = "contrib"
 projects[migrate][version] = 2.5
