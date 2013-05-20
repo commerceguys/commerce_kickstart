@@ -142,6 +142,7 @@ projects[migrate][version] = 2.5
 projects[migrate][subdir] = "contrib"
 projects[migrate_extras][version] = 2.5
 projects[migrate_extras][subdir] = "contrib"
+projects[migrate_extras][patch][] = "http://drupal.org/files/migrate_extras-fix-destid2-array-1951904-4.patch"
 projects[date][version] = 2.6
 projects[date][subdir] = "contrib"
 projects[jirafe][version] = 1.0-rc2
