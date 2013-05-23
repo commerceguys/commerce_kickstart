@@ -50,6 +50,7 @@ projects[commerce_fancy_attributes][version] = 1.0
 projects[commerce_fancy_attributes][subdir] = "contrib"
 projects[commerce_autosku][version] = 1.x-dev
 projects[commerce_autosku][subdir] = "contrib"
+projects[commerce_autosku][patch][] = "http://drupal.org/files/commerce_autosku-use-a-cloned-entity-1999086-1.patch"
 projects[commerce_migrate][version] = 1.1
 projects[commerce_migrate][subdir] = "contrib"
 projects[commerce_discount][version] = 1.x-dev
