@@ -155,6 +155,7 @@ projects[menu_attributes][subdir] = "contrib"
 projects[fences][version] = "1.0"
 projects[fences][subdir] = "contrib"
 projects[fences][patch][] = "http://drupal.org/files/undefined-index-1561244-7.patch"
+projects[fences][patch][] = "http://drupal.org/files/fences-default_markup_option-1857230-2.patch"
 projects[title][version] = "1.0-alpha7"
 projects[title][subdir] = "contrib"
 
