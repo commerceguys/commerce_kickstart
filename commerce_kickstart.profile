@@ -184,7 +184,7 @@ function commerce_kickstart_update_status_alter(&$projects) {
   foreach ($projects as $project_name => $project_info) {
     // Never unset the drupal project to avoid hitting an error with
     // _update_requirement_check(). See http://drupal.org/node/1875386.
-    if ($project_name == 'drupal') {
+    if ($project_name == 'drupal' || !isset($project_info['releases']) || !isset($project_info['recommended'])) {
       continue;
     }
     // Hide Kickstart projects, they have no update status of their own.
