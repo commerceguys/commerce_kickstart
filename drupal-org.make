@@ -50,7 +50,6 @@ projects[commerce_fancy_attributes][version] = 1.0
 projects[commerce_fancy_attributes][subdir] = "contrib"
 projects[commerce_autosku][version] = 1.x-dev
 projects[commerce_autosku][subdir] = "contrib"
-projects[commerce_autosku][patch][] = "http://drupal.org/files/commerce_autosku-use-a-cloned-entity-1999086-1.patch"
 projects[commerce_migrate][version] = 1.1
 projects[commerce_migrate][subdir] = "contrib"
 projects[commerce_discount][version] = 1.x-dev
@@ -77,7 +76,7 @@ projects[commerce_backoffice][patch][] = "http://drupal.org/files/backoffice_ord
 projects[commerce_message][subdir] = "contrib"
 projects[commerce_message][version] = 1.0-rc1
 projects[commerce_search_api][subdir] = "contrib"
-projects[commerce_search_api][version] = 1.2
+projects[commerce_search_api][version] = 1.3
 projects[commerce_add_to_cart_confirmation][subdir] = "contrib"
 projects[commerce_add_to_cart_confirmation][version] = 1.0-rc2
 projects[commerce_kiala][version] = 1.0-rc1
@@ -86,16 +85,22 @@ projects[commerce_physical][version] = 1.x-dev
 projects[commerce_physical][subdir] = "contrib"
 projects[commerce_amex][subdir] = "contrib"
 projects[commerce_amex][version] = 1.0-rc2
+projects[commerce_bean][subdir] = "contrib"
+projects[commerce_bean][version] = 1.0-beta1
 projects[commerce_cba][subdir] = "contrib"
 projects[commerce_cba][version] = 1.0-alpha1
 projects[commerce_authnet][subdir] = "contrib"
 projects[commerce_authnet][version] = 1.1
 projects[commerce_exactor][subdir] = "contrib"
 projects[commerce_exactor][version] = 1.0-rc1
-projects[commerceguys_marketplace][version] = 1.0-beta1
+projects[commerceguys_marketplace][version] = 1.0-beta3
 projects[commerceguys_marketplace][subdir] = "contrib"
 
 ; Other contribs.
+projects[bean][version] = 1.2
+projects[bean][subdir] = "contrib"
+projects[countries][version] = 2.1
+projects[countries][subdir] = "contrib"
 projects[remote_stream_wrapper][version] = 1.0-beta4
 projects[remote_stream_wrapper][subdir] = "contrib"
 projects[colorbox][version] = 2.4
@@ -113,7 +118,7 @@ projects[oauth][subdir] = "contrib"
 projects[oauth][patch][] = "http://drupal.org/files/980340-d7.patch"
 projects[connector][version] = 1.0-beta2
 projects[connector][subdir] = "contrib"
-projects[oauthconnector][version] = 1.x-dev
+projects[oauthconnector][version] = 1.0-beta2
 projects[oauthconnector][subdir] = "contrib"
 projects[inline_entity_form][version] = 1.2
 projects[inline_entity_form][subdir] = "contrib"
@@ -160,7 +165,7 @@ projects[title][version] = "1.0-alpha7"
 projects[title][subdir] = "contrib"
 
 ; Search related modules.
-projects[search_api][version] = 1.5
+projects[search_api][version] = 1.6
 projects[search_api][subdir] = "contrib"
 projects[search_api_db][version] = 1.0-rc1
 projects[search_api_db][subdir] = "contrib"
@@ -201,7 +206,7 @@ projects[lingotek][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
-projects[omega_kickstart][version] = 3.2
+projects[omega_kickstart][version] = 3.3
 projects[shiny][version] = 1.2
 
 ; Libraries.
