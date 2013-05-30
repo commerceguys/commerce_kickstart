@@ -111,6 +111,7 @@ projects[crumbs][version] = 1.9
 projects[crumbs][subdir] = "contrib"
 projects[crumbs][patch][] = "http://drupal.org/files/crumbs-translate-menu-items-1781112-49.patch"
 projects[crumbs][patch][] = "http://drupal.org/files/crumbs-7.x-1.x-1930060-6.patch"
+projects[crumbs][patch][] = "http://drupal.org/files/crumbs-7.x-1.x-views-contextual-filters-1914718-57.patch"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = "contrib"
 projects[oauth][version] = 3.1
