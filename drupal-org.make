@@ -164,6 +164,7 @@ projects[fences][patch][] = "http://drupal.org/files/undefined-index-1561244-7.p
 projects[fences][patch][] = "http://drupal.org/files/fences-default_markup_option-1857230-2.patch"
 projects[title][version] = "1.0-alpha7"
 projects[title][subdir] = "contrib"
+projects[title][patch][] = "http://drupal.org/files/title-translation_overwrite-1269076-35.patch"
 
 ; Search related modules.
 projects[search_api][version] = 1.6
