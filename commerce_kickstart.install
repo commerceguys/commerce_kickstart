@@ -1103,7 +1103,7 @@ function commerce_kickstart_update_7215() {
  * Revert body field to text with summary type.
  */
 function commerce_kickstart_update_7216() {
-  if (!db_field_exists('field_data_body', 'body_summary')) {
+  if (db_table_exists('field_data_body') && !db_field_exists('field_data_body', 'body_summary')) {
     // Force field type change.
     db_update('field_config')
       ->fields(array('type' => 'text_with_summary'))
