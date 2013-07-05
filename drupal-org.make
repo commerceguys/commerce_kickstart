@@ -237,5 +237,5 @@ libraries[ie7-js][download][type] = "file"
 libraries[ie7-js][download][url] = "https://ie7-js.googlecode.com/files/ie7-2.1%28beta4%29.zip"
 libraries[chosen][type] = "libraries"
 libraries[chosen][download][type] = "file"
-libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/archive/master.zip"
+libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/archive/v0.9.15.zip"
 libraries[chosen][overwrite] = TRUE
