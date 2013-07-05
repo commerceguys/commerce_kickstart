@@ -52,8 +52,9 @@ projects[commerce_autosku][version] = 1.x-dev
 projects[commerce_autosku][subdir] = "contrib"
 projects[commerce_migrate][version] = 1.1
 projects[commerce_migrate][subdir] = "contrib"
-projects[commerce_discount][version] = 1.x-dev
+projects[commerce_discount][version] = 1.0-alpha2
 projects[commerce_discount][subdir] = "contrib"
+projects[commerce_discount][patch][] = "http://drupal.org/files/commerce_discount-field_type_error-2035437-14.patch"
 projects[commerce_checkout_progress][version] = 1.2
 projects[commerce_checkout_progress][subdir] = "contrib"
 projects[commerce_extra_price_formatters][version] = 1.x-dev
@@ -68,7 +69,7 @@ projects[commerce_moneybookers][version] = 1.2
 projects[commerce_moneybookers][subdir] = "contrib"
 projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_moneybookers-disable_payment_method_by_default-1962226-3.patch"
 projects[commerce_paypal][subdir] = "contrib"
-projects[commerce_paypal][version] = 2.0-beta1
+projects[commerce_paypal][version] = 2.0
 projects[commerce_backoffice][subdir] = "contrib"
 projects[commerce_backoffice][version] = 1.2
 projects[commerce_backoffice][patch][] = "http://drupal.org/files/commerce_backoffice_product-add-product-variations-view-1954150-4.patch"
@@ -93,7 +94,7 @@ projects[commerce_authnet][subdir] = "contrib"
 projects[commerce_authnet][version] = 1.1
 projects[commerce_exactor][subdir] = "contrib"
 projects[commerce_exactor][version] = 1.0-rc1
-projects[commerceguys_marketplace][version] = 1.0-beta3
+projects[commerceguys_marketplace][version] = 1.0-beta4
 projects[commerceguys_marketplace][subdir] = "contrib"
 
 ; Other contribs.
@@ -127,9 +128,8 @@ projects[inline_conditions][version] = 1.x-dev
 projects[inline_conditions][subdir] = "contrib"
 projects[field_extractor][version] = 1.3
 projects[field_extractor][subdir] = "contrib"
-projects[service_links][version] = 2.1
+projects[service_links][version] = 2.2
 projects[service_links][subdir] = "contrib"
-projects[service_links][patch][] = "http://drupal.org/files/twitter-share-button-ssl-page-1524562-5.patch"
 projects[advanced_help][version] = 1.x-dev
 projects[advanced_help][subdir] = "contrib"
 projects[mailsystem][version] = 2.34
@@ -145,6 +145,7 @@ projects[eva][subdir] = "contrib"
 projects[message][version] = 1.8
 projects[message][subdir] = "contrib"
 projects[message][patch][] = "http://drupal.org/files/message-fix-table-index-name-1941448-3.patch"
+projects[message][patch][] = "http://drupal.org/files/1983138-clone-field-instances-1.patch"
 projects[message_notify][version] = 2.5
 projects[message_notify][subdir] = "contrib"
 projects[migrate][version] = 2.5
@@ -169,7 +170,7 @@ projects[title][subdir] = "contrib"
 projects[title][patch][] = "http://drupal.org/files/title-translation_overwrite-1269076-35.patch"
 
 ; Search related modules.
-projects[search_api][version] = 1.6
+projects[search_api][version] = 1.7
 projects[search_api][subdir] = "contrib"
 projects[search_api_db][version] = 1.0-rc1
 projects[search_api_db][subdir] = "contrib"
@@ -205,7 +206,7 @@ projects[variable][version] = 2.2
 projects[variable][subdir] = "contrib"
 projects[i18n][version] = "1.x-dev"
 projects[i18n][subdir] = "contrib"
-projects[lingotek][version] = 3.02
+projects[lingotek][version] = 3.03
 projects[lingotek][subdir] = "contrib"
 
 ; Base theme.
