@@ -106,6 +106,10 @@ body.in-maintenance {
   fieldset.collapsible  {
     border: 1px solid #ccc;
     padding: 15px;
+
+    input.form-text {
+      width: 100%;
+    }
   }
 
   ol.task-list {
