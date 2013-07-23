@@ -130,6 +130,7 @@ projects[field_extractor][version] = 1.3
 projects[field_extractor][subdir] = "contrib"
 projects[service_links][version] = 2.2
 projects[service_links][subdir] = "contrib"
+projects[service_links][patch][] = "http://drupal.org/files/drupal7-service_links-2.2-update_1.patch"
 projects[advanced_help][version] = 1.x-dev
 projects[advanced_help][subdir] = "contrib"
 projects[mailsystem][version] = 2.34
