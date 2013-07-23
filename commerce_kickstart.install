@@ -1133,7 +1133,9 @@ function commerce_kickstart_update_7216() {
  * Enable Inline Conditions (Needed by Commerce Discount).
  */
 function commerce_kickstart_update_7217() {
-  module_enable(array('inline_conditions'));
+  if (module_exists('commerce_discount')) {
+    module_enable(array('inline_conditions'));
+  }
 }
 
 /**
