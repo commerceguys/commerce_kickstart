@@ -1135,3 +1135,12 @@ function commerce_kickstart_update_7216() {
 function commerce_kickstart_update_7217() {
   module_enable(array('inline_conditions'));
 }
+
+/**
+ * Remove jirafe.
+ */
+function commerce_kickstart_update_7218() {
+  _commerce_kickstart_disable_modules(array('jirafe'));
+  variable_del('jirafe_config');
+  variable_del('jirafe_create_account_link');
+}
