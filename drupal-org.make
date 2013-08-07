@@ -14,6 +14,7 @@ projects[rules][version] = 2.3
 projects[rules][subdir] = "contrib"
 projects[views][version] = 3.7
 projects[views][subdir] = "contrib"
+projects[views][patch][] = "http://drupal.org/files/2059555-reduce-formatter-form-state.patch"
 projects[views_bulk_operations][version] = 3.1
 projects[views_bulk_operations][subdir] = "contrib"
 projects[addressfield][version] = 1.0-beta4
