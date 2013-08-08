@@ -31,7 +31,7 @@ projects[taxonomy_menu][version] = 1.4
 projects[taxonomy_menu][subdir] = "contrib"
 projects[libraries][version] = 2.1
 projects[libraries][subdir] = "contrib"
-projects[views_megarow][version] = 1.0
+projects[views_megarow][version] = 1.1
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
@@ -83,7 +83,7 @@ projects[commerce_kiala][subdir] = "contrib"
 projects[commerce_physical][version] = 1.x-dev
 projects[commerce_physical][subdir] = "contrib"
 projects[commerce_amex][subdir] = "contrib"
-projects[commerce_amex][version] = 1.0-rc2
+projects[commerce_amex][version] = 1.1
 projects[commerce_bean][subdir] = "contrib"
 projects[commerce_bean][version] = 1.0-beta1
 projects[commerce_cba][subdir] = "contrib"
@@ -94,7 +94,7 @@ projects[commerce_exactor][subdir] = "contrib"
 projects[commerce_exactor][version] = 1.0-rc1
 projects[commerceguys_marketplace][version] = 1.0-beta4
 projects[commerceguys_marketplace][subdir] = "contrib"
-projects[commerce_paymill][version] = 2.0
+projects[commerce_paymill][version] = 2.2
 projects[commerce_paymill][subdir] = "contrib"
 
 ; Other contribs.
@@ -108,11 +108,8 @@ projects[colorbox][version] = 2.4
 projects[colorbox][subdir] = "contrib"
 projects[physical][version] = 1.x-dev
 projects[physical][subdir] = "contrib"
-projects[crumbs][version] = 1.9
+projects[crumbs][version] = 1.10
 projects[crumbs][subdir] = "contrib"
-projects[crumbs][patch][] = "http://drupal.org/files/crumbs-translate-menu-items-1781112-49.patch"
-projects[crumbs][patch][] = "http://drupal.org/files/crumbs-7.x-1.x-1930060-6.patch"
-projects[crumbs][patch][] = "http://drupal.org/files/crumbs-7.x-1.x-views-contextual-filters-1914718-57.patch"
 projects[http_client][version] = 2.4
 projects[http_client][subdir] = "contrib"
 projects[oauth][version] = 3.1
@@ -124,7 +121,7 @@ projects[oauthconnector][version] = 1.0-beta2
 projects[oauthconnector][subdir] = "contrib"
 projects[inline_entity_form][version] = 1.3
 projects[inline_entity_form][subdir] = "contrib"
-projects[inline_conditions][version] = 1.x-dev
+projects[inline_conditions][version] = 1.0-alpha1
 projects[inline_conditions][subdir] = "contrib"
 projects[field_extractor][version] = 1.3
 projects[field_extractor][subdir] = "contrib"
@@ -201,7 +198,7 @@ projects[chosen][subdir] = "contrib"
 ; Internationalization
 projects[variable][version] = 2.2
 projects[variable][subdir] = "contrib"
-projects[i18n][version] = "1.x-dev"
+projects[i18n][version] = "1.9"
 projects[i18n][subdir] = "contrib"
 projects[lingotek][version] = 3.03
 projects[lingotek][subdir] = "contrib"
