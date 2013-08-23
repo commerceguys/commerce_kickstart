@@ -5,7 +5,7 @@ api = 2
 ; Basic contributed modules.
 projects[ctools][version] = 1.3
 projects[ctools][subdir] = "contrib"
-projects[entity][version] = 1.1
+projects[entity][version] = 1.2
 projects[entity][subdir] = "contrib"
 projects[entityreference][version] = 1.0
 projects[entityreference][subdir] = "contrib"
@@ -178,7 +178,7 @@ projects[search_api_sorts][version] = 1.4
 projects[search_api_sorts][subdir] = "contrib"
 
 ; UI improvement modules.
-projects[module_filter][version] = 1.7
+projects[module_filter][version] = 1.8
 projects[module_filter][subdir] = "contrib"
 projects[image_delta_formatter][version] = 1.0-rc1
 projects[image_delta_formatter][subdir] = "contrib"
@@ -196,7 +196,7 @@ projects[chosen][version] = 1.x-dev
 projects[chosen][subdir] = "contrib"
 
 ; Internationalization
-projects[variable][version] = 2.2
+projects[variable][version] = 2.3
 projects[variable][subdir] = "contrib"
 projects[i18n][version] = "1.9"
 projects[i18n][subdir] = "contrib"
