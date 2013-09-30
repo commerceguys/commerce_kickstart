@@ -205,6 +205,7 @@ projects[lingotek][subdir] = "contrib"
 
 ; Base theme.
 projects[omega][version] = 3.1
+projects[omega][patch][] = "http://drupal.org/files/relative-src-15.patch"
 projects[omega_kickstart][version] = 3.4
 projects[shiny][version] = 1.3
 
