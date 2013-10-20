@@ -5,3 +5,4 @@ package = Commerce Kickstart
 php = 5.2.4
 dependencies[] = commerce_product
 dependencies[] = views
+dependencies[] = libraries
