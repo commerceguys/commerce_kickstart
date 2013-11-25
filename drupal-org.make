@@ -165,8 +165,6 @@ projects[fences][patch][] = "http://drupal.org/files/fences-default_markup_optio
 projects[title][version] = "1.0-alpha7"
 projects[title][subdir] = "contrib"
 projects[title][patch][] = "http://drupal.org/files/title-translation_overwrite-1269076-35.patch"
-projects[Mailjet][subdir] = "contrib"
-projects[Mailjet][version] = 1.1
 
 ; Search related modules.
 projects[search_api][version] = 1.9
