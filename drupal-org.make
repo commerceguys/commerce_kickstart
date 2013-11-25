@@ -12,6 +12,7 @@ projects[entityreference][subdir] = "contrib"
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
 projects[rules][version] = 2.6
 projects[rules][subdir] = "contrib"
+projects[rules][patch][] = "http://drupal.org/files/issues/2120421-2-fix-events-inclusion-plana.patch"
 projects[views][version] = 3.7
 projects[views][subdir] = "contrib"
 projects[views][patch][] = "http://drupal.org/files/2059555-reduce-formatter-form-state.patch"
