@@ -7,7 +7,7 @@ api = 2
 core = 7.x
 
 projects[drupal][type] = core
-projects[drupal][version] = "7.23"
+projects[drupal][version] = "7.24"
 
 ; Add Commerce Kickstart to the full distribution build.
 projects[commerce_kickstart][type] = profile
