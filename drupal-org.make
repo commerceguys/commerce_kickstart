@@ -99,8 +99,6 @@ projects[commerce_paymill][subdir] = "contrib"
 projects[commerce_paymill][version] = 2.2
 projects[commerce_nosto_tagging][subdir] = "contrib"
 projects[commerce_nosto_tagging][version] = 1.0
-projects[commerce_yotpo][subdir] = "contrib"
-projects[commerce_yotpo][version] = 1.0-rc3
 
 ; Other contribs.
 projects[bean][version] = 1.6
