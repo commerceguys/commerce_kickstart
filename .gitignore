@@ -5,3 +5,6 @@
 !.htaccess
 nbproject/
 *.kpf
+modules
+themes
+libraries
