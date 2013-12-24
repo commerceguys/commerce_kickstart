@@ -103,8 +103,6 @@ projects[commerce_yotpo][subdir] = "contrib"
 projects[commerce_yotpo][version] = 1.0
 projects[commerce_firstdata_gge4][version] = 1.0
 projects[commerce_firstdata_gge4][subdir] = "contrib"
-projects[commerce_futurepay][version] = 1.2
-projects[commerce_futurepay][subdir] = "contrib"
 
 ; Other contribs.
 projects[bean][version] = 1.7
