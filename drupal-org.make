@@ -173,9 +173,9 @@ projects[kameleoon][subdir] = "contrib"
 projects[kameleoon][version] = "1.0"
 
 ; Search related modules.
-projects[search_api][version] = 1.10
+projects[search_api][version] = 1.11
 projects[search_api][subdir] = "contrib"
-projects[search_api_db][version] = 1.1
+projects[search_api_db][version] = 1.2
 projects[search_api_db][subdir] = "contrib"
 projects[search_api_ranges][version] = 1.4
 projects[search_api_ranges][subdir] = "contrib"
