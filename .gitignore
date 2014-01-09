@@ -1,6 +1,10 @@
 .*
+!.travis.yml
 !.gitignore
 !.gitmodules
 !.htaccess
 nbproject/
 *.kpf
+modules
+themes
+libraries
