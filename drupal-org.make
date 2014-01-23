@@ -5,7 +5,7 @@ api = 2
 ; Basic contributed modules.
 projects[ctools][version] = 1.3
 projects[ctools][subdir] = "contrib"
-projects[entity][version] = 1.2
+projects[entity][version] = 1.3
 projects[entity][subdir] = "contrib"
 projects[entityreference][version] = 1.1
 projects[entityreference][subdir] = "contrib"
@@ -70,7 +70,7 @@ projects[commerce_moneybookers][version] = 1.2
 projects[commerce_moneybookers][subdir] = "contrib"
 projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_moneybookers-disable_payment_method_by_default-1962226-3.patch"
 projects[commerce_paypal][subdir] = "contrib"
-projects[commerce_paypal][version] = 2.2
+projects[commerce_paypal][version] = 2.3
 projects[commerce_backoffice][subdir] = "contrib"
 projects[commerce_backoffice][version] = 1.4
 projects[commerce_message][subdir] = "contrib"
