@@ -2,7 +2,7 @@
 core = 7.26
 api = 2
 
-projects[ctools] = 1.3
+projects[ctools] = 1.4
 projects[entity] = 1.3
 projects[rules] = 2.6
 projects[views] = 3.7
