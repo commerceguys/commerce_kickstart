@@ -38,7 +38,6 @@ projects[views_megarow][subdir] = "contrib"
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.9
 projects[commerce][subdir] = "contrib"
-projects[commerce][patch][] = "http://drupal.org/files/undefined-hostname.patch"
 projects[commerce_features][version] = 1.0
 projects[commerce_features][subdir] = "contrib"
 projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"
