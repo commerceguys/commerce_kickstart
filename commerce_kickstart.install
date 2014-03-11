@@ -1113,12 +1113,3 @@ function commerce_kickstart_update_7218() {
   variable_del('jirafe_config');
   variable_del('jirafe_create_account_link');
 }
-
-/**
- * Remove Commerce Guys Marketplace.
- */
-function commerce_kickstart_update_7219() {
-  _commerce_kickstart_disable_modules(array('commerceguys_marketplace'));
-  variable_del('commerceguys_marketplace_api_key');
-  variable_del('commerceguys_marketplace_access_token');
-}
