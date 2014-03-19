@@ -7,6 +7,7 @@ projects[ctools][version] = 1.4
 projects[ctools][subdir] = "contrib"
 projects[entity][version] = 1.3
 projects[entity][subdir] = "contrib"
+projects[entity][patch][] = "http://drupal.org/files/issues/entity-missing-bundle-property-2171689-3.patch"
 projects[entityreference][version] = 1.1
 projects[entityreference][subdir] = "contrib"
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
