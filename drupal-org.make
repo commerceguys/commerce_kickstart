@@ -171,6 +171,8 @@ projects[title][subdir] = "contrib"
 projects[title][patch][] = "http://drupal.org/files/title-translation_overwrite-1269076-35.patch"
 projects[kameleoon][subdir] = "contrib"
 projects[kameleoon][version] = "1.0"
+projects[jquery_update][subdir] = "contrib"
+projects[jquery_update][version] = "2.3"
 
 ; Search related modules.
 projects[search_api][version] = 1.11
@@ -199,8 +201,9 @@ projects[cloud_zoom][version] = 1.x-dev
 projects[cloud_zoom][subdir] = "contrib"
 projects[special_menu_items][version] = 2.0
 projects[special_menu_items][subdir] = "contrib"
-projects[chosen][version] = 1.x-dev
+projects[chosen][version] = 2.0-alpha4
 projects[chosen][subdir] = "contrib"
+projects[chosen][patch][] = "http://drupal.org/files/chosen.code_.2092321-2_1.patch"
 
 ; Internationalization
 projects[variable][version] = 2.3
@@ -238,7 +241,7 @@ libraries[selectnav.js][download][url] = "https://github.com/lukaszfiszer/select
 libraries[ie7-js][type] = "libraries"
 libraries[ie7-js][download][type] = "file"
 libraries[ie7-js][download][url] = "https://ie7-js.googlecode.com/files/ie7-2.1%28beta4%29.zip"
+libraries[chosen][download][type] = "get"
+libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/1.0.0/chosen_v1.0.0.zip"
+libraries[chosen][directory_name] = "chosen"
 libraries[chosen][type] = "libraries"
-libraries[chosen][download][type] = "file"
-libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/archive/v0.9.15.zip"
-libraries[chosen][overwrite] = TRUE
