@@ -1,0 +1,16 @@
+default:
+  paths:
+    features: 'features'
+  extensions:
+    Behat\MinkExtension\Extension:
+      goutte: ~
+      selenium2: ~
+      base_url: http://127.0.0.1:8888
+      files_path: ../../
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      drush:
+        alias: self
+      drupal:
+        drupal_root: "/home/travis/build/commerceguys/drupal"
+
