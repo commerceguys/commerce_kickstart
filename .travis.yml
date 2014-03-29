@@ -1,0 +1,64 @@
+language: php
+
+php:
+  - 5.4
+
+branches:
+  only:
+    - 7.x-2.x
+
+mysql:
+  database: drupal
+  username: root
+  encoding: utf8
+
+install:
+  - sudo apt-get update > /dev/null
+  - "mysql -e 'create database drupal;'"
+
+  - pear channel-discover pear.drush.org
+  - pear install drush/drush-6.1.0.0
+  - phpenv rehash
+
+  # Build Behat dependencies
+  - cd ./tests/behat
+  - composer install
+  - cd ../../../
+
+  # Build Codebase
+  - mkdir private_files
+  - mkdir profiles
+  - mv commerce_kickstart profiles/
+  - mkdir drupal
+  - mv profiles drupal/
+
+  # Test the current branch
+  - cd drupal
+  - drush make --prepare-install profiles/commerce_kickstart/build-commerce-kickstart.make --yes
+  - cd ../
+
+  # Setup files
+  - sudo chmod -R 777 drupal/sites/all
+
+  # Setup display for Selenium
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 5
+
+  # Get Selenium
+  - wget http://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar
+  - java -jar selenium-server-standalone-2.37.0.jar > /dev/null 2>&1 &
+  - sleep 5
+
+before_script:
+
+  - cd drupal
+  - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - php `pear config-get php_dir`/drush/drush.php si commerce_kickstart --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Commerce Kickstart" --yes
+  - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
+  - sleep 3
+  - cd profiles/commerce_kickstart/tests/behat
+
+script:
+
+  - ./bin/behat --config behat.travis.yml
