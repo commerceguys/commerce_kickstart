@@ -298,6 +298,9 @@ function commerce_kickstart_configure_store_form_submit(&$form, &$form_state) {
   variable_set('commerce_kickstart_choose_tax_country', $form_state['values']['commerce_kickstart_choose_tax_country']);
   variable_set('commerce_default_currency', $form_state['values']['commerce_default_currency']);
   variable_set('commerce_enabled_currencies', array($form_state['values']['commerce_default_currency'] => $form_state['values']['commerce_default_currency']));
+  // Kickstart features rebuild themselves in their hook_enable() hooks, disable
+  // features_modules_enabled() until the end of install.
+  variable_set('features_rebuild_on_module_install', FALSE);
 }
 
 /**
@@ -482,6 +485,9 @@ function commerce_kickstart_install_finished(&$install_state) {
   // Remember the profile which was used.
   variable_set('install_profile', drupal_get_profile());
   variable_set('install_task', 'done');
+
+  // Restore features behavior.
+  variable_set('features_rebuild_on_module_install', TRUE);
 
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
