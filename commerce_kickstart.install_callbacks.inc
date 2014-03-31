@@ -448,7 +448,7 @@ function _commerce_kickstart_create_order($uid, $items_number, $is_cart = FALSE)
   $payment_method = commerce_payment_method_load('commerce_payment_example');
   $method_instance_id = commerce_payment_method_instance_id('commerce_payment_example', $rule);
   $method_instance = commerce_payment_method_instance_load($method_instance_id);
-  $transaction = commerce_kickstart_payment_transaction($method_instance, $order, $order->commerce_order_total[LANGUAGE_NONE][0], '');
+  $transaction = commerce_payment_example_transaction($method_instance, $order, $order->commerce_order_total[LANGUAGE_NONE][0], '');
 
   $message = message_create('commerce_order_payment_entered', array('uid' => $uid));
   $wrapper = entity_metadata_wrapper('message', $message);
