@@ -21,12 +21,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-footer-navigation_about-us:node/2',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
-    'parent_identifier' => 'menu-footer-navigation_company-info:<nolink>',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_company-info:<nolink>
   $menu_links['menu-footer-navigation_company-info:<nolink>'] = array(
@@ -41,11 +41,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'toolbar_break' => 0,
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '1',
-    'weight' => '-50',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -50,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_our-security-policy:node/8
   $menu_links['menu-footer-navigation_our-security-policy:node/8'] = array(
@@ -60,12 +61,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-footer-navigation_our-security-policy:node/8',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-49',
-    'parent_identifier' => 'menu-footer-navigation_security--privacy:<nolink>',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_press-links:node/6
   $menu_links['menu-footer-navigation_press-links:node/6'] = array(
@@ -78,12 +79,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-footer-navigation_press-links:node/6',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-49',
-    'parent_identifier' => 'menu-footer-navigation_company-info:<nolink>',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_security--privacy:<nolink>
   $menu_links['menu-footer-navigation_security--privacy:<nolink>'] = array(
@@ -98,11 +99,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'toolbar_break' => 0,
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '1',
-    'weight' => '-48',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -48,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_service--support:<nolink>
   $menu_links['menu-footer-navigation_service--support:<nolink>'] = array(
@@ -117,11 +119,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'toolbar_break' => 0,
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '1',
-    'weight' => '-49',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -49,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_service-agreements:node/7
   $menu_links['menu-footer-navigation_service-agreements:node/7'] = array(
@@ -136,12 +139,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-footer-navigation_service-agreements:node/7',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
-    'parent_identifier' => 'menu-footer-navigation_service--support:<nolink>',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_shipping--returns:<nolink>
   $menu_links['menu-footer-navigation_shipping--returns:<nolink>'] = array(
@@ -156,11 +159,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'toolbar_break' => 0,
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '1',
-    'weight' => '-47',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 1,
+    'weight' => -47,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_shipping-fees:node/5
   $menu_links['menu-footer-navigation_shipping-fees:node/5'] = array(
@@ -175,12 +179,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-footer-navigation_shipping-fees:node/5',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-50',
-    'parent_identifier' => 'menu-footer-navigation_shipping--returns:<nolink>',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 1,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 0,
   );
   // Exported menu link: menu-footer-navigation_terms-of-use:node/3
   $menu_links['menu-footer-navigation_terms-of-use:node/3'] = array(
@@ -193,12 +197,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-footer-navigation_terms-of-use:node/3',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
-    'parent_identifier' => 'menu-footer-navigation_security--privacy:<nolink>',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 0,
   );
   // Exported menu link: menu-payment-methods_american-express:<front>
   $menu_links['menu-payment-methods_american-express:<front>'] = array(
@@ -217,11 +221,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-payment-methods_american-express:<front>',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-47',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 0,
   );
   // Exported menu link: menu-payment-methods_mastercard:<front>
   $menu_links['menu-payment-methods_mastercard:<front>'] = array(
@@ -240,11 +245,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-payment-methods_mastercard:<front>',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-50',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 0,
   );
   // Exported menu link: menu-payment-methods_paypal:<front>
   $menu_links['menu-payment-methods_paypal:<front>'] = array(
@@ -263,11 +269,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-payment-methods_paypal:<front>',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-49',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 0,
   );
   // Exported menu link: menu-payment-methods_visa:<front>
   $menu_links['menu-payment-methods_visa:<front>'] = array(
@@ -286,11 +293,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'menu-payment-methods_visa:<front>',
     ),
     'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '-48',
+    'hidden' => 0,
+    'external' => 1,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 0,
   );
   // Exported menu link: secondary-navigation_about:node/2
   $menu_links['secondary-navigation_about:node/2'] = array(
@@ -302,11 +310,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'secondary-navigation_about:node/2',
     ),
     'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '2',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 2,
+    'customized' => 0,
   );
   // Exported menu link: secondary-navigation_contact:node/1
   $menu_links['secondary-navigation_contact:node/1'] = array(
@@ -318,11 +327,12 @@ function commerce_kickstart_block_menu_default_menu_links() {
       'identifier' => 'secondary-navigation_contact:node/1',
     ),
     'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '1',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 1,
+    'customized' => 0,
   );
   // Translatables
   // Included for use with string extractors like potx.
