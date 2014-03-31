@@ -1,4 +1,3 @@
-@user @login
 Feature: Login Commerce Kickstart
   In order to start using additional features of the site
   As an anonymous user
@@ -12,8 +11,7 @@ Feature: Login Commerce Kickstart
         | Forgot your password?    |
         | Create an account        |
 
-  @validation
-  Scenario Outline: Username validation: Valid username
+  Scenario Outline: Username validation: Invalid username
     When I go to "/user/login"
       And I fill in "Username" with "<name>"
       And I fill in "Password" with random text
@@ -25,6 +23,28 @@ Feature: Login Commerce Kickstart
     | randomname     |
     | 123453         |
     | mail@mail.com  |
+
+  Scenario: User should be able to login and see the user profile
+    When I go to "/user/login"
+    And I fill in "Username" with "Sample Customer"
+    And I fill in "Password" with "customer"
+    And I press "Log in"
+    Then I should see "HELLO, SAMPLE CUSTOMER"
+    Then I should see the following <links>
+      | links                   |
+      | My account              |
+      | Address Book            |
+      | Update email/password   |
+      | Order history           |
+      | Manage shipping address |
+      | Manage billing address  |
+    And I should see the following <texts>
+      | texts      |
+      | Account information      |
+      | Primary shipping address |
+      | Primary billing address  |
+      | Email address            |
+      | Recent orders            |
 
   @api
   Scenario: Login and as admin and view user profile
