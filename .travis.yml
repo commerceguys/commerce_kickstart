@@ -87,3 +87,7 @@ before_script:
 script:
 
   - ./bin/behat --config behat.travis.yml
+
+notifications:
+
+  irc: "chat.freenode.net#drupal-commerce"
