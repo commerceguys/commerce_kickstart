@@ -202,6 +202,24 @@ class FeatureContext extends DrupalContext {
     return FALSE;
   }
 
+  /**
+   * @When /^(?:|I )click on Quick Edit link$/
+   *
+   * Click on Quick edit.
+   */
+  public function clickOnQuickEdit() {
+    $this->getSession()->getPage()->clickLink('Quick edit');
+    $this->iWaitForSeconds(1);
+  }
+
+  /**
+   * @Given /^(?:|I )wait(?:| for) (\d+) seconds?$/
+   *
+   * Wait for the given number of seconds. ONLY USE FOR DEBUGGING!
+   */
+  public function iWaitForSeconds($arg1) {
+    sleep($arg1);
+  }
 //
 // Place your definition and hook methods here:
 //
