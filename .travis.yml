@@ -14,15 +14,20 @@ mysql:
 
 env:
   - UPGRADE=none
+  - UPGRADE=7.x-2.13
   - UPGRADE=7.x-2.12
   - UPGRADE=7.x-2.11
   - UPGRADE=7.x-2.10
   - UPGRADE=7.x-2.9
   - UPGRADE=7.x-2.8
   - UPGRADE=7.x-2.7
+  - UPGRADE=7.x-2.6
   - UPGRADE=7.x-2.5
+  - UPGRADE=7.x-2.4
+  - UPGRADE=7.x-2.3
+  - UPGRADE=7.x-2.2
+  - UPGRADE=7.x-2.1
   - UPGRADE=7.x-2.0
-  - UPGRADE=7.x-2.0-rc1
 
 install:
   - sudo apt-get update > /dev/null
@@ -30,11 +35,11 @@ install:
 
   # Install latest Drush 6.
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer global require --no-interaction drush/drush:6.*
+  - composer global require --no-interaction --prefer-source drush/drush:6.*
 
   # Build Behat dependencies
   - cd ./tests/behat
-  - composer install --no-interaction
+  - composer install --no-interaction --prefer-source
   - cd ../../../
 
   # Build Codebase
