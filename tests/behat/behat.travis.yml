@@ -11,6 +11,5 @@ default:
       blackbox: ~
       drush:
         alias: self
-      drupal:
-        drupal_root: "/home/travis/build/commerceguys/drupal"
-
+      # You need to set drupal - drupal_root with BEHAT_PARAMS
+      # export BEHAT_PARAMS="extensions[Drupal\\DrupalExtension\\Extension][drupal][drupal_root]=$DISTRO/drupal"

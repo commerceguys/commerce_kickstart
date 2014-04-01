@@ -86,6 +86,8 @@ before_script:
 
 script:
 
+  - DISTRO=`echo $TRAVIS_BUILD_DIR | sed -e "s/\/[^\/]*$//"`
+  - export BEHAT_PARAMS="extensions[Drupal\\DrupalExtension\\Extension][drupal][drupal_root]=$DISTRO/drupal"
   - ./bin/behat --config behat.travis.yml
 
 notifications:
