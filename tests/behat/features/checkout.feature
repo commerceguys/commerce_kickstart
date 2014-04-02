@@ -9,6 +9,7 @@ Feature: Checkout and pay
     Then I should see "ITEM SUCCESSFULLY ADDED TO YOUR CART"
     When I click "Go to checkout"
 
+  @javascript
   Scenario: Add coffee mug to cart and update quantity
     Then I should see "Shopping cart"
     Then I should see the following <texts>
@@ -31,14 +32,18 @@ Feature: Checkout and pay
       | $8.00                           |
       | $16.00                          |
       | Coffee Mug 1                    |
-      | Billing informatio              |
+      | Billing information             |
+    When I select "United States" from "Country"
+    Given I wait for 5 seconds
     When I fill in the following:
       | Full name | My full name |
       | Address 1 | My address   |
       | City      | My city      |
-    And I press "Continue to next step"
-    # Just choose the default shipping method
-    And I press "Continue to next step"
+      | ZIP Code  | 90120        |
+      And I select "California" from "State"
+      And I press "Continue to next step"
+      # Just choose the default shipping method
+      And I press "Continue to next step"
     Then I should see "Review order"
       # The default shipping method
       And I should see "Express shipping: 1 business day"
