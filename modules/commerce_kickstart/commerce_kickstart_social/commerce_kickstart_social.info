@@ -27,6 +27,7 @@ features[variable][] = service_links_in_links
 features[variable][] = service_links_in_node
 features[variable][] = service_links_label_in_node
 features[variable][] = service_links_node_types
+features[variable][] = service_links_node_view_modes
 features[variable][] = service_links_show
 features[variable][] = service_links_style
 features[variable][] = service_links_visibility_for_node
