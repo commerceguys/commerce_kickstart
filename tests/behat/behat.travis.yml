@@ -13,3 +13,5 @@ default:
         alias: self
       # You need to set drupal - drupal_root with BEHAT_PARAMS
       # export BEHAT_PARAMS="extensions[Drupal\\DrupalExtension\\Extension][drupal][drupal_root]=$DISTRO/drupal"
+      region_map:
+        Tabs: ".tabs.primary"

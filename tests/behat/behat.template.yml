@@ -11,4 +11,5 @@ default:
       blackbox: ~
       drush:
         root: ${drush.root}
-
+      region_map:
+        Tabs: ".tabs.primary"
