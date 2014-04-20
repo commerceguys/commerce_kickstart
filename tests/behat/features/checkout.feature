@@ -34,7 +34,7 @@ Feature: Checkout and pay
       | Coffee Mug 1                    |
       | Billing information             |
     When I select "United States" from "Country"
-    Given I wait for 5 seconds
+    Given I wait for AJAX loading to finish
     When I fill in the following:
       | Full name | My full name |
       | Address 1 | My address   |

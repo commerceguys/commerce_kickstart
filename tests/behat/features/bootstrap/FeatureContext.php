@@ -209,7 +209,16 @@ class FeatureContext extends DrupalContext {
    */
   public function clickOnQuickEdit() {
     $this->getSession()->getPage()->clickLink('Quick edit');
-    $this->iWaitForSeconds(1);
+    $this->getSession()->wait(5000, 'jQuery(".entity-commerce-order").length > 0');
+  }
+
+  /**
+   * @Given /^(?:|I )wait for AJAX loading to finish$/
+   *
+   * Wait for the jQuery AJAX loading to finish. ONLY USE FOR DEBUGGING!
+   */
+  public function iWaitForAJAX() {
+    $this->getSession()->wait(5000, 'jQuery.active === 0');
   }
 
   /**
