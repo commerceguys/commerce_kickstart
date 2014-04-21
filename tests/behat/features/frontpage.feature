@@ -29,7 +29,7 @@ Feature: Frontpage
   Scenario: User should see free shipping
     Then I should see "Free shipping"
     And I should see "on orders over"
-    And I should see "$0.99"
+    And I should see "$99.99"
 
   Scenario: User should see the top menu
     Then I should see the following <links>
