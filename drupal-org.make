@@ -28,11 +28,11 @@ projects[features][patch][] = "http://drupal.org/files/1669720-fix-features-flus
 projects[features][subdir] = "contrib"
 projects[strongarm][version] = 2.0
 projects[strongarm][subdir] = "contrib"
-projects[taxonomy_menu][version] = 1.4
+projects[taxonomy_menu][version] = 1.5
 projects[taxonomy_menu][subdir] = "contrib"
 projects[libraries][version] = 2.2
 projects[libraries][subdir] = "contrib"
-projects[views_megarow][version] = 1.2
+projects[views_megarow][version] = 1.3
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
@@ -178,9 +178,9 @@ projects[search_api][version] = 1.11
 projects[search_api][subdir] = "contrib"
 projects[search_api_db][version] = 1.2
 projects[search_api_db][subdir] = "contrib"
-projects[search_api_ranges][version] = 1.4
+projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][subdir] = "contrib"
-projects[search_api_ranges][patch][] = "http://drupal.org/files/search_api_ranges-rewrite-data-alteration-callback-2001846-3.patch"
+projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
 projects[facetapi][version] = 1.3
 projects[facetapi][subdir] = "contrib"
 projects[facetapi][patch][] = "http://drupal.org/files/facetapi-1616518-13-show-active-term.patch"
