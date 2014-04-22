@@ -32,7 +32,7 @@ projects[taxonomy_menu][version] = 1.5
 projects[taxonomy_menu][subdir] = "contrib"
 projects[libraries][version] = 2.2
 projects[libraries][subdir] = "contrib"
-projects[views_megarow][version] = 1.2
+projects[views_megarow][version] = 1.3
 projects[views_megarow][subdir] = "contrib"
 
 ; Drupal Commerce and Commerce contribs.
