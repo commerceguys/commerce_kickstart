@@ -651,7 +651,8 @@ function commerce_kickstart_install() {
   variable_set('commerce_checkout_progress_block_pages', array_keys(commerce_checkout_pages()));
   // Configure Chosen.
   variable_set('chosen_jquery_selector', '.view-filters .views-exposed-form select');
-  variable_set('chosen_minimum', 0);
+  variable_set('chosen_minimum_single', 'Always Apply');
+  variable_set('chosen_minimum_multiple', 'Always Apply');
   variable_set('chosen_minimum_width', 200);
   variable_set('chosen_search_contains', TRUE);
 
@@ -1153,4 +1154,13 @@ function commerce_kickstart_update_7218() {
 function commerce_kickstart_update_7219() {
   _commerce_kickstart_disable_modules(array('commerce_kickstart_payment'));
   module_enable(array('commerce_payment_example'));
+}
+
+/**
+ * Configure Chosen.
+ */
+function commerce_kickstart_update_7220() {
+  variable_del('chosen_minimum');
+  variable_set('chosen_minimum_single', 'Always Apply');
+  variable_set('chosen_minimum_multiple', 'Always Apply');
 }
