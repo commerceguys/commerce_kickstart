@@ -223,11 +223,11 @@ projects[cloud_zoom][download][revision] = 3cff30f
 projects[cloud_zoom][download][branch] = 7.x-1.x
 projects[special_menu_items][version] = 2.0
 projects[special_menu_items][subdir] = "contrib"
-projects[chosen][version] = 1.x-dev
+projects[chosen][version] = 2.x-dev
 projects[chosen][subdir] = "contrib"
 projects[chosen][download][type] = git
-projects[chosen][download][revision] = 4c4b8fd
-projects[chosen][download][branch] = 7.x-1.x
+projects[chosen][download][revision] = a8e1cca
+projects[chosen][download][branch] = 7.x-2.x
 
 ; Internationalization
 projects[variable][version] = 2.3
@@ -241,7 +241,10 @@ projects[lingotek][subdir] = "contrib"
 projects[omega][version] = 3.1
 projects[omega][patch][] = "http://drupal.org/files/relative-src-15.patch"
 projects[omega_kickstart][version] = 3.4
-projects[shiny][version] = 1.4
+projects[shiny][version] = 1.x-dev
+projects[shiny][download][type] = git
+projects[shiny][download][revision] = 6b68b49
+projects[shiny][download][branch] = 7.x-1.x
 
 ; Libraries.
 libraries[colorbox][type] = "libraries"
@@ -266,6 +269,7 @@ libraries[ie7-js][type] = "libraries"
 libraries[ie7-js][download][type] = "file"
 libraries[ie7-js][download][url] = "https://ie7-js.googlecode.com/files/ie7-2.1%28beta4%29.zip"
 libraries[chosen][type] = "libraries"
-libraries[chosen][download][type] = "file"
-libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/archive/v0.9.15.zip"
-libraries[chosen][overwrite] = TRUE
+libraries[chosen][download][type] = "get"
+libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/v1.1.0/chosen_v1.1.0.zip"
+libraries[chosen][directory_name] = "chosen"
+libraries[chosen][destination] = "libraries"
