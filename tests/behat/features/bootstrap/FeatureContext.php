@@ -53,8 +53,27 @@ class FeatureContext extends DrupalContext {
     }
   }
 
-  protected function randomString($number = 10) {
-    return 'abcdefghijk';
+  /**
+   * Makes a random key - e.g. for passwords
+   *
+   * Won't return 0 (zero) or o (as in Ole) or 1 (one) or l (lars), because they can be mistaken on print.
+   *
+   * @return string random key only letters
+   */
+  protected function randomString($length = 10) {
+    srand((double)microtime() * 1000000);
+    $chars = 'abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    $how_many = strlen($chars);
+    $i        = 0;
+    $pass     = '';
+
+    while ($i < $length) {
+      $num  = rand() % $how_many;
+      $tmp  = substr($chars, $num, 1);
+      $pass = $pass . $tmp;
+      $i++;
+    }
+    return $pass;
   }
 
   /**
@@ -120,6 +139,16 @@ class FeatureContext extends DrupalContext {
     $randomString = $this->randomString(10);
 
     $step = "I fill in \"$label\" with \"$randomString\"";
+    return new Then($step);
+  }
+
+  /**
+   * @Given /^I fill in "([^"]*)" with random email$/
+   */
+  public function iFillInWithRandomEmail($label) {
+    // A @Tranform would be more elegant.
+    $randomString = $this->randomString(10);
+    $step = "I fill in \"$label\" with \"$randomString@example.com\"";
     return new Then($step);
   }
 
