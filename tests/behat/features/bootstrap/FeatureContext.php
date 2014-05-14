@@ -7,6 +7,7 @@ use Behat\Behat\Context\ClosuredContextInterface,
 use Behat\Gherkin\Node\PyStringNode,
   Behat\Gherkin\Node\TableNode;
 use Drupal\DrupalExtension\Context\DrupalContext;
+use Drupal\Component\Utility\Random;
 
 use Symfony\Component\Process\Process;
 use Behat\Behat\Context\Step\Given;
@@ -51,10 +52,6 @@ class FeatureContext extends DrupalContext {
         throw new Exception("The text '" . $text . "' was not found");
       }
     }
-  }
-
-  protected function randomString($number = 10) {
-    return 'abcdefghijk';
   }
 
   /**
@@ -117,9 +114,21 @@ class FeatureContext extends DrupalContext {
    */
   public function iFillInWithRandomText($label) {
     // A @Tranform would be more elegant.
-    $randomString = $this->randomString(10);
+    $random = new Random;
+    $randomString = $random->name(10);
 
     $step = "I fill in \"$label\" with \"$randomString\"";
+    return new Then($step);
+  }
+
+  /**
+   * @Given /^I fill in "([^"]*)" with random email$/
+   */
+  public function iFillInWithRandomEmail($label) {
+    // A @Tranform would be more elegant.
+    $random = new Random;
+    $randomString = $random->name(10);
+    $step = "I fill in \"$label\" with \"$randomString@example.com\"";
     return new Then($step);
   }
 
