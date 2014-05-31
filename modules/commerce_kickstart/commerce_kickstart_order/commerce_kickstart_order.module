@@ -52,3 +52,99 @@ function commerce_kickstart_order_views_api() {
   );
 }
 
+/**
+ * Implements hook_commerce_checkout_pane_info().
+ */
+function commerce_kickstart_order_commerce_checkout_pane_info() {
+  $checkout_panes = array();
+
+  $checkout_panes['checkout_completion_review'] = array(
+    'title' => t('Completion review'),
+    'file' => drupal_get_path('module', 'commerce_kickstart_order') . '/commerce_kickstart_order.module',
+    'base' => 'commerce_kickstart_order_completion_review_pane',
+    'page' => 'complete',
+    'fieldset' => FALSE,
+    'weight' => 1,
+  );
+
+  return $checkout_panes;
+}
+
+/**
+ * Implements hook_commerce_checkout_pane_info_alter().
+ */
+function commerce_kickstart_order_commerce_checkout_pane_info_alter(&$checkout_panes) {
+  $completion_review_pages = variable_get('commerce_checkout_completion_review_pages', array());
+  // Do not include checkout panes on the completion review by default.
+  foreach($checkout_panes as $pane_id => $checkout_pane) {
+    if (!isset($checkout_panes[$pane_id]['complete'])) {
+      $checkout_panes[$pane_id]['complete'] = isset($completion_review_pages[$pane_id]) ? $completion_review_pages[$pane_id] : FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function commerce_kickstart_order_form_commerce_checkout_pane_settings_form_alter(&$form, &$form_state, $form_id) {
+  // Add complete setting on all checkout panes.
+  $form['display']['complete'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Include this pane on the Completion review checkout pane.'),
+    '#default_value' => $form['checkout_pane']['#value']['complete'],
+    '#access' => (boolean) commerce_checkout_pane_callback($form['checkout_pane']['#value'], 'review'),
+  );
+  $form['submit']['#submit'][] = 'commerce_kickstart_order_commerce_checkout_pane_settings_form_submit';
+}
+
+/**
+ * Form submit callback for checkout pane complete setting.
+ */
+function commerce_kickstart_order_commerce_checkout_pane_settings_form_submit($form, &$form_state) {
+  $completion_review_pages = variable_get('commerce_checkout_completion_review_pages', array());
+  $completion_review_pages[$form_state['values']['checkout_pane']['pane_id']] = $form_state['values']['complete'];
+  variable_set('commerce_checkout_completion_review_pages', $completion_review_pages);
+}
+
+/**
+ * Checkout pane callback: returns a pane allowing the customer to review the
+ * details of the order.
+ */
+function commerce_kickstart_order_completion_review_pane_checkout_form($form, &$form_state, $checkout_pane, $order) {
+  $pane_form = array();
+
+  // Otherwise add any enabled checkout panes that are visible on completion_review.
+  $pane_form['complete'] = array(
+    '#theme' => 'commerce_checkout_review',
+    '#data' => array('order' => array('title' => t('Order number'), 'data' => $order->order_number))
+  );
+
+  // Use the same system as the review pane since completion_review behave
+  // the same way.
+  foreach (commerce_checkout_pages() as $page_id => $checkout_page) {
+    // Exit the loop once the complete page is reached.
+    if ($page_id == 'complete') {
+      break;
+    }
+
+    // Loop through all the panes on the current page specifying complete...
+    foreach (commerce_checkout_panes(array('page' => $page_id, 'enabled' => TRUE, 'complete' => TRUE)) as $pane_id => $checkout_pane_local) {
+      // If the pane has a valid review callback...
+      if ($callback = commerce_checkout_pane_callback($checkout_pane_local, 'review')) {
+        // Get the review data for this pane.
+        $pane_data = $callback($form, $form_state, $checkout_pane_local, $order);
+
+        // Only display the pane if there is data in the pane.
+        if (!empty($pane_data)) {
+          // Add a row for it in the completion_review data.
+          $pane_form['complete']['#data'][$pane_id] = array(
+            'title' => $checkout_pane_local['title'],
+            'data' => $pane_data,
+          );
+        }
+      }
+    }
+  }
+
+  return $pane_form;
+}
