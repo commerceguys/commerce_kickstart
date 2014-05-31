@@ -10,7 +10,7 @@ projects[entity][subdir] = "contrib"
 projects[entityreference][version] = 1.1
 projects[entityreference][subdir] = "contrib"
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
-projects[rules][version] = 2.6
+projects[rules][version] = 2.7
 projects[rules][subdir] = "contrib"
 projects[rules][patch][] = "http://drupal.org/files/issues/2120421-2-fix-events-inclusion-plana.patch"
 projects[views][version] = 3.8
@@ -194,9 +194,9 @@ projects[kameleoon][subdir] = "contrib"
 projects[kameleoon][version] = "1.0"
 
 ; Search related modules.
-projects[search_api][version] = 1.11
+projects[search_api][version] = 1.12
 projects[search_api][subdir] = "contrib"
-projects[search_api_db][version] = 1.2
+projects[search_api_db][version] = 1.3
 projects[search_api_db][subdir] = "contrib"
 projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][subdir] = "contrib"
