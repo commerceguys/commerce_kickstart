@@ -239,10 +239,7 @@ projects[lingotek][subdir] = "contrib"
 projects[omega][version] = 3.1
 projects[omega][patch][] = "http://drupal.org/files/relative-src-15.patch"
 projects[omega_kickstart][version] = 3.4
-projects[shiny][version] = 1.x-dev
-projects[shiny][download][type] = git
-projects[shiny][download][revision] = 1f6d408
-projects[shiny][download][branch] = 7.x-1.x
+projects[shiny][version] = 1.5
 
 ; Libraries.
 libraries[colorbox][type] = "libraries"
