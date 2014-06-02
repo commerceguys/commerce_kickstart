@@ -99,11 +99,11 @@ projects[commerce_amex][version] = 1.1
 projects[commerce_bean][subdir] = "contrib"
 projects[commerce_bean][version] = 1.0-beta1
 projects[commerce_cba][subdir] = "contrib"
-projects[commerce_cba][version] = 1.0-alpha2
+projects[commerce_cba][version] = 1.0-alpha5
 projects[commerce_authnet][subdir] = "contrib"
 projects[commerce_authnet][version] = 1.1
 projects[commerce_exactor][subdir] = "contrib"
-projects[commerce_exactor][version] = 1.2
+projects[commerce_exactor][version] = 1.3
 projects[commerceguys_marketplace][version] = 1.0-beta4
 projects[commerceguys_marketplace][subdir] = "contrib"
 projects[commerce_paymill][subdir] = "contrib"
@@ -112,7 +112,7 @@ projects[commerce_nosto_tagging][subdir] = "contrib"
 projects[commerce_nosto_tagging][version] = 1.0
 projects[commerce_nosto_tagging][patch][] = https://drupal.org/files/issues/issue-2225883.patch
 projects[commerce_yotpo][subdir] = "contrib"
-projects[commerce_yotpo][version] = 1.0
+projects[commerce_yotpo][version] = 1.1
 projects[commerce_firstdata_gge4][version] = 1.0
 projects[commerce_firstdata_gge4][subdir] = "contrib"
 
@@ -121,9 +121,9 @@ projects[bean][version] = 1.7
 projects[bean][subdir] = "contrib"
 projects[countries][version] = 2.1
 projects[countries][subdir] = "contrib"
-projects[remote_stream_wrapper][version] = 1.0-beta4
+projects[remote_stream_wrapper][version] = 1.0-rc1
 projects[remote_stream_wrapper][subdir] = "contrib"
-projects[colorbox][version] = 2.5
+projects[colorbox][version] = 2.6
 projects[colorbox][subdir] = "contrib"
 projects[physical][version] = 1.x-dev
 projects[physical][subdir] = "contrib"
@@ -228,11 +228,11 @@ projects[chosen][download][revision] = a8e1cca
 projects[chosen][download][branch] = 7.x-2.x
 
 ; Internationalization
-projects[variable][version] = 2.3
+projects[variable][version] = 2.5
 projects[variable][subdir] = "contrib"
-projects[i18n][version] = "1.10"
+projects[i18n][version] = "1.11"
 projects[i18n][subdir] = "contrib"
-projects[lingotek][version] = 4.10
+projects[lingotek][version] = 5.07
 projects[lingotek][subdir] = "contrib"
 
 ; Base theme.
