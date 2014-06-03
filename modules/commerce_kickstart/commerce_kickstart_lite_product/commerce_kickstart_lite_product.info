@@ -26,7 +26,6 @@ dependencies[] = title
 features[commerce_product_type][] = product
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
-features[field_base][] = body
 features[field_base][] = commerce_price
 features[field_base][] = field_images
 features[field_base][] = field_product

@@ -49,7 +49,6 @@ features[commerce_product_type][] = tops
 features[ctools][] = commerce_autosku:autosku_pattern:1
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
-features[field_base][] = body
 features[field_base][] = commerce_price
 features[field_base][] = field_bag_size
 features[field_base][] = field_brand
