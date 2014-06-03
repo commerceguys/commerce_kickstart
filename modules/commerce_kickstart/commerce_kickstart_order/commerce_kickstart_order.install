@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements of hook_install()
+ */
+function commerce_kickstart_order_install() {
+  variable_set('commerce_checkout_completion_message_override', TRUE);
+  variable_set('commerce_checkout_completion_message', array('value' => 'Your order has been successfully registered. You can <a href="/user/[current-user:uid]/orders">view your orders</a> on your account page when logged in.
+  <a href="[site:url]">Return to the front page.</a>', 'format' => 'filtered_html'));
+  $completion_review_pages = array(
+    'cart_contents' => TRUE,
+    'customer_profile_shipping' => TRUE,
+    'commerce_shipping' => TRUE,
+  );
+  variable_set('commerce_checkout_completion_review_pages', $completion_review_pages);
+}
+
+/**
+ * Add the checkout completion review pane.
+ */
+function commerce_kickstart_order_update_7001() {
+  variable_set('commerce_checkout_completion_message_override', TRUE);
+  variable_set('commerce_checkout_completion_message', array('value' => 'Your order has been successfully registered. You can <a href="/user/[current-user:uid]/orders">view your orders</a> on your account page when logged in.
+  <a href="[site:url]">Return to the front page.</a>', 'format' => 'filtered_html'));
+  $completion_review_pages = array(
+    'cart_contents' => TRUE,
+    'customer_profile_shipping' => TRUE,
+    'commerce_shipping' => TRUE,
+  );
+  variable_set('commerce_checkout_completion_review_pages', $completion_review_pages);
+}
