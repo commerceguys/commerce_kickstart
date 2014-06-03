@@ -30,7 +30,6 @@ features[field_base][] = commerce_price
 features[field_base][] = field_images
 features[field_base][] = field_product
 features[field_base][] = field_product_category
-features[field_base][] = title_field
 features[field_instance][] = commerce_product-product-commerce_price
 features[field_instance][] = commerce_product-product-field_images
 features[field_instance][] = commerce_product-product-title_field

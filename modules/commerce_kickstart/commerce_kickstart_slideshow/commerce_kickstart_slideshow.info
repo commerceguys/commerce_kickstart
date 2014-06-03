@@ -24,7 +24,6 @@ features[field_base][] = field_headline
 features[field_base][] = field_image
 features[field_base][] = field_link
 features[field_base][] = field_tagline
-features[field_base][] = title_field
 features[field_instance][] = comment-comment_node_slideshow-comment_body
 features[field_instance][] = node-slideshow-field_headline
 features[field_instance][] = node-slideshow-field_image

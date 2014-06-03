@@ -64,7 +64,6 @@ features[field_base][] = field_product
 features[field_base][] = field_shoe_size
 features[field_base][] = field_storage_capacity
 features[field_base][] = field_top_size
-features[field_base][] = title_field
 features[field_instance][] = commerce_product-bags_cases-commerce_price
 features[field_instance][] = commerce_product-bags_cases-field_bag_size
 features[field_instance][] = commerce_product-bags_cases-field_color
