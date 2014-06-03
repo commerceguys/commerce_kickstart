@@ -78,8 +78,8 @@ install:
   - sleep 5
 
   # Get Selenium
-  - wget http://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar
-  - java -jar selenium-server-standalone-2.37.0.jar > /dev/null 2>&1 &
+  - wget http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.1.jar
+  - java -jar selenium-server-standalone-2.42.1.jar > /dev/null 2>&1 &
   - sleep 5
 
    # Disable sendmail
