@@ -30,6 +30,9 @@ env:
   - UPGRADE=7.x-2.1
   - UPGRADE=7.x-2.0
 
+matrix:
+  fast_finish: true
+
 install:
   - sudo apt-get update > /dev/null
   - "mysql -e 'create database drupal;'"
