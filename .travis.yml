@@ -83,7 +83,7 @@ install:
   # Get Selenium
   - wget http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.1.jar
   - java -jar selenium-server-standalone-2.42.1.jar > /dev/null 2>&1 &
-  - sleep 5
+  - until netstat -an 2>/dev/null | grep '4444.*LISTEN'; do true; done
 
    # Disable sendmail
   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
@@ -101,7 +101,7 @@ before_script:
 
   # Start server
   - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
-  - sleep 3
+  - until netstat -an 2>/dev/null | grep '8888.*LISTEN'; do true; done
   - cd profiles/commerce_kickstart/tests/behat
 
 script:
