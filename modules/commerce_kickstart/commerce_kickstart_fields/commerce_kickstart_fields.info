@@ -4,5 +4,7 @@ core = 7.x
 package = Commerce Kickstart
 dependencies[] = ctools
 dependencies[] = features
+dependencies[] = image
 features[features_api][] = api:2
 features[field_base][] = field_image
+features[field_base][] = field_images
