@@ -27,6 +27,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 0,
+    'parent_identifier' => 'menu-footer-navigation_company-info:<nolink>',
   );
   // Exported menu link: menu-footer-navigation_company-info:<nolink>
   $menu_links['menu-footer-navigation_company-info:<nolink>'] = array(
@@ -67,6 +68,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -49,
     'customized' => 0,
+    'parent_identifier' => 'menu-footer-navigation_security--privacy:<nolink>',
   );
   // Exported menu link: menu-footer-navigation_press-links:node/6
   $menu_links['menu-footer-navigation_press-links:node/6'] = array(
@@ -85,6 +87,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -49,
     'customized' => 0,
+    'parent_identifier' => 'menu-footer-navigation_company-info:<nolink>',
   );
   // Exported menu link: menu-footer-navigation_security--privacy:<nolink>
   $menu_links['menu-footer-navigation_security--privacy:<nolink>'] = array(
@@ -145,6 +148,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 0,
+    'parent_identifier' => 'menu-footer-navigation_service--support:<nolink>',
   );
   // Exported menu link: menu-footer-navigation_shipping--returns:<nolink>
   $menu_links['menu-footer-navigation_shipping--returns:<nolink>'] = array(
@@ -185,6 +189,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 0,
+    'parent_identifier' => 'menu-footer-navigation_shipping--returns:<nolink>',
   );
   // Exported menu link: menu-footer-navigation_terms-of-use:node/3
   $menu_links['menu-footer-navigation_terms-of-use:node/3'] = array(
@@ -203,6 +208,7 @@ function commerce_kickstart_block_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 0,
+    'parent_identifier' => 'menu-footer-navigation_security--privacy:<nolink>',
   );
   // Exported menu link: menu-payment-methods_american-express:<front>
   $menu_links['menu-payment-methods_american-express:<front>'] = array(
