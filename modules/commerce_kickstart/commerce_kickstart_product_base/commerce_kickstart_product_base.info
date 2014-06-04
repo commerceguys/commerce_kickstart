@@ -1,0 +1,14 @@
+name = Commerce Kickstart Product Base
+description = Provides shared functionality for products.
+core = 7.x
+package = Commerce Kickstart
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = field_extractor
+dependencies[] = image
+features[features_api][] = api:2
+features[field_base][] = commerce_price
+features[field_base][] = field_product
+features[image][] = product_full
+features[image][] = product_medium
+features[image][] = product_thumbnail
