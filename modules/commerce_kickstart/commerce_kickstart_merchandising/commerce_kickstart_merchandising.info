@@ -16,6 +16,7 @@ dependencies[] = menu
 dependencies[] = path
 dependencies[] = strongarm
 dependencies[] = text
+dependencies[] = title
 dependencies[] = views
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
