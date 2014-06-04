@@ -46,7 +46,4 @@ features[variable][] = menu_options_product_display
 features[variable][] = menu_parent_product_display
 features[variable][] = node_options_product_display
 features[variable][] = node_submitted_product_display
-features[variable][] = pathauto_node_pattern
-features[variable][] = pathauto_punctuation_hyphen
-features[variable][] = pathauto_taxonomy_term_pattern
 files[] = commerce_kickstart_lite_product.migrate.inc
