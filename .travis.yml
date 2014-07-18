@@ -108,6 +108,10 @@ before_script:
 
 script:
 
+  # If this isn't an upgrade, we test if any features are overridden.
+  - if [[ "$UPGRADE" == none ]]; then ../../scripts/check-overridden.sh; fi
+
+  # Run Behat tests.
   - ./bin/behat --config behat.travis.yml
 
 notifications:
