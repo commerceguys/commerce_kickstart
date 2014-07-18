@@ -65,6 +65,7 @@ install:
   - cd drupal
   - drush make --yes profiles/commerce_kickstart/drupal-org-core.make --prepare-install
   - drush make --yes profiles/commerce_kickstart/drupal-org.make --no-core --contrib-destination=profiles/commerce_kickstart
+  - drush dl diff
   - cd ../
 
   # Verify that all the .make files will work on Drupal.org.
@@ -108,6 +109,10 @@ before_script:
 
 script:
 
+  # If this isn't an upgrade, we test if any features are overridden.
+  - if [[ "$UPGRADE" == none ]]; then ../../scripts/check-overridden.sh; fi
+
+  # Run Behat tests.
   - ./bin/behat --config behat.travis.yml
 
 notifications:
