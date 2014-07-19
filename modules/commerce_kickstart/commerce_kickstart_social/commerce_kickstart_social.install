@@ -26,7 +26,7 @@ function commerce_kickstart_social_install() {
  * Implements hook_enable().
  */
 function commerce_kickstart_social_enable() {
-  commerce_kickstart_rebuild_feature('commerce_kickstart_social');
+  commerce_kickstart_rebuild_feature('commerce_kickstart_social', array('menu_links'));
 
   $default_theme = variable_get('theme_default', 'omega_kickstart');
   // Make sure that the region list is populated for our theme.
