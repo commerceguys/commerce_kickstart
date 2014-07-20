@@ -4,7 +4,6 @@ core = 7.x
 package = Commerce Kickstart
 dependencies[] = block
 dependencies[] = commerce_kickstart_migrate
-dependencies[] = commerce_kickstart_product
 dependencies[] = commerce_kickstart_slideshow
 dependencies[] = ctools
 dependencies[] = features
