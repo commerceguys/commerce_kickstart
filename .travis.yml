@@ -41,7 +41,7 @@ install:
 
   # Install latest Drush 6.
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer global require --no-interaction --prefer-source drush/drush:6.*
+  - composer global require --no-interaction --prefer-source drush/drush:6.*@dev
   - drush dl -y drupalorg_drush-7.x-1.x-dev --destination=$HOME/.drush
   - drush cc drush
 
