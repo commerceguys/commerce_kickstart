@@ -47,4 +47,5 @@ features[variable][] = node_preview_slideshow
 features[variable][] = node_submitted_slideshow
 features[variable][] = pathauto_node_slideshow_pattern
 features[views_view][] = demo_content_slideshow
+features_exclude[field_base][title_field] = title_field
 files[] = commerce_kickstart_slideshow.migrate.inc

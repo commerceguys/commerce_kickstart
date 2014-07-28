@@ -37,4 +37,5 @@ features[variable][] = pathauto_node_ad_push_pattern
 features[variable][] = site_403
 features[variable][] = site_404
 features[views_view][] = ad_push
+features_exclude[field_base][title_field] = title_field
 files[] = commerce_kickstart_merchandising.migrate.inc

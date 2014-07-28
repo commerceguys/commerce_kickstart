@@ -46,4 +46,6 @@ features[variable][] = node_submitted_blog_post
 features[variable][] = pathauto_node_blog_post_pattern
 features[views_view][] = blog
 features[views_view][] = blog_category_list
+features_exclude[field_base][body] = body
+features_exclude[field_base][title_field] = title_field
 files[] = commerce_kickstart_blog.migrate.inc
