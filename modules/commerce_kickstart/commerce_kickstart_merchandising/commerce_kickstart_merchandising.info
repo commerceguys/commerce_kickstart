@@ -38,4 +38,5 @@ features[variable][] = site_403
 features[variable][] = site_404
 features[views_view][] = ad_push
 features_exclude[field_base][title_field] = title_field
+features_exclude[field_base][field_image] = field_image
 files[] = commerce_kickstart_merchandising.migrate.inc
