@@ -99,7 +99,7 @@ before_script:
   - drush pm-disable dblog --yes
 
   # HACK Revert all features - needed because features limits rebuilds triggered by drush
-  - drush fra -y
+  - if [[ "$UPGRADE" == none ]]; drush fra -y; fi
 
   # Switching directory
   - cd ../drupal
