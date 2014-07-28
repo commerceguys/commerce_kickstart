@@ -65,6 +65,7 @@ install:
   - cd drupal
   - drush make --yes profiles/commerce_kickstart/drupal-org-core.make --prepare-install
   - drush make --yes profiles/commerce_kickstart/drupal-org.make --no-core --contrib-destination=profiles/commerce_kickstart
+  - drush dl diff
   - cd ../
 
   # Verify that all the .make files will work on Drupal.org.
@@ -96,6 +97,11 @@ before_script:
   - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd commerce_kickstart-$UPGRADE; fi
   - drush si commerce_kickstart --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Commerce Kickstart" --yes
   - drush pm-disable dblog --yes
+
+  # HACK Revert all features - needed because features limits rebuilds triggered by drush
+  - if [[ "$UPGRADE" == none ]]; drush fra -y; fi
+
+  # Switching directory
   - cd ../drupal
 
   # If we're an upgrade test, run the upgrade process.
@@ -108,6 +114,10 @@ before_script:
 
 script:
 
+  # If this isn't an upgrade, we test if any features are overridden.
+  - if [[ "$UPGRADE" == none ]]; then ../../scripts/check-overridden.sh; fi
+
+  # Run Behat tests.
   - ./bin/behat --config behat.travis.yml
 
 notifications:

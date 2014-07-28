@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_enable().
+ */
+function commerce_kickstart_product_base_enable() {
+  commerce_kickstart_rebuild_feature('commerce_kickstart_product_base');
+}

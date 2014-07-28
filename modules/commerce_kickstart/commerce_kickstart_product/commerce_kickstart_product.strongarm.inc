@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * commerce_kickstart_product.strongarm.inc
+ * commerce_kickstart_product_base.strongarm.inc
  */
 
 /**
@@ -1924,13 +1924,6 @@ function commerce_kickstart_product_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_pattern';
-  $strongarm->value = '[node:content-type:machine-name]/[node:title]';
-  $export['pathauto_node_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_shoes_pattern';
   $strongarm->value = 'shoes/[node:title]';
   $export['pathauto_node_shoes_pattern'] = $strongarm;
@@ -1948,13 +1941,6 @@ function commerce_kickstart_product_strongarm() {
   $strongarm->name = 'pathauto_node_tops_pattern';
   $strongarm->value = 'tops/[node:title]';
   $export['pathauto_node_tops_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_punctuation_hyphen';
-  $strongarm->value = 1;
-  $export['pathauto_punctuation_hyphen'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -2004,13 +1990,6 @@ function commerce_kickstart_product_strongarm() {
   $strongarm->name = 'pathauto_taxonomy_term_hat_size_pattern';
   $strongarm->value = 'hat-size/[term:name]';
   $export['pathauto_taxonomy_term_hat_size_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_term_pattern';
-  $strongarm->value = '[term:vocabulary]/[term:name]';
-  $export['pathauto_taxonomy_term_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
