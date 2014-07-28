@@ -41,7 +41,7 @@ install:
 
   # Install latest Drush 6.
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer global require --no-interaction --prefer-source drush/drush:6.*@dev
+  - composer global require --no-interaction --prefer-source drush/drush:6.*
   - drush dl -y drupalorg_drush-7.x-1.x-dev --destination=$HOME/.drush
   - drush cc drush
 
@@ -98,6 +98,9 @@ before_script:
   - drush si commerce_kickstart --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Commerce Kickstart" --yes
   - drush pm-disable dblog --yes
   - cd ../drupal
+
+  # HACK Revert all features - needed because features limits rebuilds triggered by drush
+  - drush fra -y
 
   # If we're an upgrade test, run the upgrade process.
   - if [[ "$UPGRADE" != none ]]; then cp -a ../commerce_kickstart-$UPGRADE/sites/default/* sites/default/ && drush updb --yes; fi
