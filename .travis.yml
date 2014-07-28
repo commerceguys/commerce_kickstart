@@ -97,10 +97,12 @@ before_script:
   - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd commerce_kickstart-$UPGRADE; fi
   - drush si commerce_kickstart --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Commerce Kickstart" --yes
   - drush pm-disable dblog --yes
-  - cd ../drupal
 
   # HACK Revert all features - needed because features limits rebuilds triggered by drush
   - drush fra -y
+
+  # Switching directory
+  - cd ../drupal
 
   # If we're an upgrade test, run the upgrade process.
   - if [[ "$UPGRADE" != none ]]; then cp -a ../commerce_kickstart-$UPGRADE/sites/default/* sites/default/ && drush updb --yes; fi
