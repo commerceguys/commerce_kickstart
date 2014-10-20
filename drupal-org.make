@@ -223,6 +223,8 @@ projects[chosen][subdir] = "contrib"
 projects[chosen][download][type] = git
 projects[chosen][download][revision] = e7a0d22
 projects[chosen][download][branch] = 7.x-2.x
+projects[distro_update][version] = 1.0-beta4
+projects[distro_update][subdir] = "contrib"
 
 ; Internationalization
 projects[variable][version] = 2.5

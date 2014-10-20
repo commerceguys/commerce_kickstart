@@ -1165,3 +1165,10 @@ function commerce_kickstart_update_7220() {
   variable_set('chosen_minimum_single', 'Always Apply');
   variable_set('chosen_minimum_multiple', 'Always Apply');
 }
+
+/**
+ * Enable the Distribution Update Status Manager module.
+ */
+function commerce_kickstart_update_7221() {
+  module_enable(array('distro_update'));
+}
