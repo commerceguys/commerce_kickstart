@@ -56,7 +56,7 @@ install:
 
   # Setting Behat environment
   - DISTRO=`echo $TRAVIS_BUILD_DIR | sed -e "s/\/[^\/]*$//"`
-  - export BEHAT_PARAMS="extensions[Drupal\\DrupalExtension\\Extension][drupal][drupal_root]=$DISTRO/drupal"
+  - export BEHAT_PARAMS="{\"extensions\":{\"Drupal\\\DrupalExtension\":{\"drupal\":{\"drupal_root\":\"$DISTRO/drupal\"}}}}"
 
   # Build Codebase
   - mkdir private_files
