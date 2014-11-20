@@ -1,36 +1,29 @@
 <?php
 /**
  * @file
- * commerce_kickstart_blog.features.inc
+ * commerce_kickstart_product_base.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function commerce_kickstart_blog_ctools_plugin_api($module = NULL, $api = NULL) {
+function commerce_kickstart_product_base_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
 }
 
 /**
- * Implements hook_views_api().
- */
-function commerce_kickstart_blog_views_api($module = NULL, $api = NULL) {
-  return array("api" => "3.0");
-}
-
-/**
  * Implements hook_image_default_styles().
  */
-function commerce_kickstart_blog_image_default_styles() {
+function commerce_kickstart_product_base_image_default_styles() {
   $styles = array();
 
-  // Exported image style: blog_full.
-  $styles['blog_full'] = array(
-    'name' => 'blog_full',
+  // Exported image style: product_full.
+  $styles['product_full'] = array(
+    'name' => 'product_full',
     'effects' => array(
-      2 => array(
+      1 => array(
         'label' => 'Scale and crop',
         'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
         'effect callback' => 'image_scale_and_crop_effect',
@@ -40,20 +33,20 @@ function commerce_kickstart_blog_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 940,
-          'height' => 380,
+          'width' => 400,
+          'height' => 550,
         ),
         'weight' => 1,
       ),
     ),
-    'label' => 'blog_full',
+    'label' => 'product_full',
   );
 
-  // Exported image style: blog_medium.
-  $styles['blog_medium'] = array(
-    'name' => 'blog_medium',
+  // Exported image style: product_medium.
+  $styles['product_medium'] = array(
+    'name' => 'product_medium',
     'effects' => array(
-      2 => array(
+      1 => array(
         'label' => 'Scale and crop',
         'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
         'effect callback' => 'image_scale_and_crop_effect',
@@ -63,31 +56,37 @@ function commerce_kickstart_blog_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 430,
-          'height' => 300,
+          'width' => 230,
+          'height' => 260,
         ),
         'weight' => 1,
       ),
     ),
-    'label' => 'blog_medium',
+    'label' => 'product_medium',
+  );
+
+  // Exported image style: product_thumbnail.
+  $styles['product_thumbnail'] = array(
+    'name' => 'product_thumbnail',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 110,
+          'height' => 130,
+        ),
+        'weight' => 1,
+      ),
+    ),
+    'label' => 'product_thumbnail',
   );
 
   return $styles;
-}
-
-/**
- * Implements hook_node_info().
- */
-function commerce_kickstart_blog_node_info() {
-  $items = array(
-    'blog_post' => array(
-      'name' => t('Blog Post'),
-      'base' => 'node_content',
-      'description' => t('Use <em>blog post</em> to write regular content.'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-  );
-  return $items;
 }

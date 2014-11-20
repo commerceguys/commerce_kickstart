@@ -1,0 +1,8 @@
+<?php
+/**
+ * @file
+ * Provides Kickstart shared features for product related functionality
+ * functionality.
+ */
+
+include_once 'commerce_kickstart_product_base.features.inc';
