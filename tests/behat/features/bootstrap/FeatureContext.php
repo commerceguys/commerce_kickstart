@@ -213,4 +213,31 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function iWaitForSeconds($arg1) {
     sleep($arg1);
   }
+
+  /**
+   * @When I resize the browser to mobile
+   */
+  public function iResizeTheBrowserToMobile() {
+    $this->getSession()->resizeWindow(200, 600, 'current');
+  }
+
+  /**
+   * @BeforeScenario
+   */
+  public function beforeScenario()
+  {
+    if (!$this->running_javascript()) {
+      return;
+    }
+    $this->getSession()->resizeWindow(1440, 900, 'current');
+  }
+
+  /**
+   * Returns whether the scenario is running in a browser that can run Javascript or not.
+   *
+   * @return boolean
+   */
+  protected function running_javascript() {
+    return get_class($this->getSession()->getDriver()) !== 'Behat\Mink\Driver\GoutteDriver';
+  }
 }
