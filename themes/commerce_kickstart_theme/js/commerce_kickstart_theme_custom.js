@@ -49,7 +49,7 @@
               $(this).addClass('facetapi-lists');
             });
 
-            if(list_element != 'undefined') {
+            if(typeof list_element != 'undefined') {
               selectnav(list_element, {
                 label: 'Select a ' + list_title + '...',
                 activeclass: 'false'
