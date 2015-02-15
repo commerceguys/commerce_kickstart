@@ -125,6 +125,7 @@ projects[remote_stream_wrapper][version] = 1.0-rc1
 projects[remote_stream_wrapper][subdir] = "contrib"
 projects[colorbox][version] = 2.7
 projects[colorbox][subdir] = "contrib"
+projects[colorbox][patch][] = https://www.drupal.org/files/issues/plugin_version_detection-2360375-9.patch
 projects[physical][version] = 1.x-dev
 projects[physical][subdir] = "contrib"
 projects[physical][download][type] = git
