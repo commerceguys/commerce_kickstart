@@ -444,7 +444,7 @@ class CommerceKickstartStorage extends CommerceKickstartMigration {
   }
 }
 
-class CommerceKickstartNode extends DynamicMigration {
+class CommerceKickstartNode extends Migration {
 
   public function __construct(array $arguments) {
     $this->arguments = $arguments;
