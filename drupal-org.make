@@ -5,7 +5,7 @@ api = 2
 ; Basic contributed modules.
 projects[ctools][version] = 1.6
 projects[ctools][subdir] = "contrib"
-projects[entity][version] = 1.5
+projects[entity][version] = 1.6
 projects[entity][subdir] = "contrib"
 projects[entityreference][version] = 1.1
 projects[entityreference][subdir] = "contrib"
