@@ -3,7 +3,7 @@ core = 7.x
 api = 2
 
 ; Basic contributed modules.
-projects[ctools][version] = 1.6
+projects[ctools][version] = 1.7
 projects[ctools][subdir] = "contrib"
 projects[entity][version] = 1.6
 projects[entity][subdir] = "contrib"
@@ -231,7 +231,7 @@ projects[variable][version] = 2.5
 projects[variable][subdir] = "contrib"
 projects[i18n][version] = "1.12"
 projects[i18n][subdir] = "contrib"
-projects[lingotek][version] = 6.01
+projects[lingotek][version] = 6.02
 projects[lingotek][subdir] = "contrib"
 
 ; Base theme.
