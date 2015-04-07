@@ -261,3 +261,40 @@ function commerce_kickstart_crumbs_get_info() {
 
   return $crumbs;
 }
+
+/**
+ * Rebuilds a feature using the same logic as features_modules_enabled().
+ *
+ * Called from the hook_enable() of every Kickstart feature.
+ *
+ * features_modules_enabled() runs too late, so when a feature's hook_enable()
+ * or hook_install() runs, the feature hasn't been rebuild yet, no exported
+ * structures exist in the system and can't be modified.
+ * It also rebuilds all features at once, which makes it prone to timeouts.
+ * This is why Kickstart disables features_modules_enabled() and rebuilds
+ * each feature manually in its hook_enable() hook.
+ *
+ * Some features components do not provide dependency sorting and require a
+ * manual revert, or require for unknown reasons (menu_links.) The $revert
+ * array provides Kickstart modules a method to revert specific components.
+ */
+function commerce_kickstart_rebuild_feature($module, $revert = array()) {
+  $feature = features_load_feature($module, TRUE);
+  $items[$module] = array_keys($feature->info['features']);
+  // Need to include any new files.
+  features_include_defaults(NULL, TRUE);
+  _features_restore('enable', $items);
+  // Rebuild the list of features includes.
+  features_include(TRUE);
+  // Reorders components to match hook order and removes non-existant.
+  $all_components = array_keys(features_get_components());
+  foreach ($items as $module => $components) {
+    $items[$module] = array_intersect($all_components, $components);
+  }
+  _features_restore('rebuild', $items);
+
+  // Revert any components, if specified.
+  if (!empty($revert)) {
+    features_revert(array($module => $revert));
+  }
+}
