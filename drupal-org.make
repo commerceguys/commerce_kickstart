@@ -93,8 +93,6 @@ projects[commerce_physical][download][revision] = e2a8866
 projects[commerce_physical][download][branch] = 7.x-1.x
 projects[commerce_amex][subdir] = "contrib"
 projects[commerce_amex][version] = 1.1
-projects[commerce_bean][subdir] = "contrib"
-projects[commerce_bean][version] = 1.0-beta1
 projects[commerce_cba][subdir] = "contrib"
 projects[commerce_cba][version] = 1.0-beta1
 projects[commerce_authnet][subdir] = "contrib"
@@ -117,8 +115,6 @@ projects[commerce_reports][subdir] = "contrib"
 projects[commerce_reports][version] = 4.0-beta1
 
 ; Other contribs.
-projects[bean][version] = 1.7
-projects[bean][subdir] = "contrib"
 projects[countries][version] = 2.3
 projects[countries][subdir] = "contrib"
 projects[remote_stream_wrapper][version] = 1.0-rc1
