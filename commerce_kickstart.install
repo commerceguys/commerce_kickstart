@@ -1165,3 +1165,10 @@ function commerce_kickstart_update_7220() {
   variable_set('chosen_minimum_single', 'Always Apply');
   variable_set('chosen_minimum_multiple', 'Always Apply');
 }
+
+/**
+ * Remove modules that are no longer used (bean, commerce_bean).
+ */
+function commerce_kickstart_update_7221() {
+  _commerce_kickstart_disable_modules(array('bean', 'commerce_bean'));
+}
