@@ -107,8 +107,10 @@ projects[commerce_nosto_tagging][subdir] = "contrib"
 projects[commerce_nosto_tagging][version] = 1.0
 projects[commerce_nosto_tagging][patch][] = https://drupal.org/files/issues/issue-2225883.patch
 projects[commerce_yotpo][subdir] = "contrib"
-projects[commerce_yotpo][version] = 1.1
-projects[commerce_yotpo][patch][] = https://www.drupal.org/files/issues/issue-2376233.patch
+projects[commerce_yotpo][version] = 1.x-dev
+projects[commerce_yotpo][download][type] = "git"
+projects[commerce_yotpo][download][revision] = "ecc41f9"
+projects[commerce_yotpo]download][branch] = 7.x-1.x
 projects[commerce_firstdata_gge4][version] = 1.0
 projects[commerce_firstdata_gge4][subdir] = "contrib"
 
