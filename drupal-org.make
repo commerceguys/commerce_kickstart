@@ -113,6 +113,8 @@ projects[commerce_yotpo][download][revision] = "ecc41f9"
 projects[commerce_yotpo]download][branch] = 7.x-1.x
 projects[commerce_firstdata_gge4][version] = 1.0
 projects[commerce_firstdata_gge4][subdir] = "contrib"
+projects[commerce_ingenico][subdir] = "contrib"
+projects[commerce_ingenico][version] = "1.3"
 
 ; Other contribs.
 projects[countries][version] = 2.3
