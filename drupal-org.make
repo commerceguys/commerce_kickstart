@@ -68,7 +68,7 @@ projects[commerce_nosto_tagging][version] = 1.0
 projects[commerce_nosto_tagging][patch][] = https://drupal.org/files/issues/issue-2225883.patch
 projects[commerce_yotpo][download][type] = "git"
 projects[commerce_yotpo][download][revision] = "ecc41f9"
-projects[commerce_yotpo]download][branch] = 7.x-1.x
+projects[commerce_yotpo][download][branch] = 7.x-1.x
 projects[commerce_firstdata_gge4][version] = 1.0
 
 ; Other contribs.
