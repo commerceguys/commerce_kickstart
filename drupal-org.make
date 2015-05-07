@@ -113,6 +113,8 @@ projects[commerce_yotpo][version] = 1.1
 projects[commerce_yotpo][patch][] = https://www.drupal.org/files/issues/issue-2376233.patch
 projects[commerce_firstdata_gge4][version] = 1.0
 projects[commerce_firstdata_gge4][subdir] = "contrib"
+projects[commerce_ingenico][subdir] = "contrib"
+projects[commerce_ingenico][version] = "1.3"
 
 ; Other contribs.
 projects[bean][version] = 1.7
