@@ -289,3 +289,16 @@ function commerce_kickstart_rebuild_feature($module) {
   }
   _features_restore('rebuild', $items);
 }
+
+/**
+ * Implements hook_features_api_alter().
+ *
+ * Commerce Kickstart provides different Features that can be utilized
+ * individually, which means there are conflicting field bases. This allows
+ * the feature structure to exist, including customizations by users.
+ */
+function commerce_kickstart_features_api_alter(&$components) {
+  if (isset($components['field_base'])) {
+    $components['field_base']['duplicates'] = FEATURES_DUPLICATES_ALLOWED;
+  }
+}
