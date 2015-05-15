@@ -497,6 +497,7 @@ function commerce_kickstart_install_finished(&$install_state) {
       'commerce_kickstart_product' => array('commerce_autosku_patterns'),
       // Fences has issues in Features
       'commerce_kickstart_blog' => array('field_instance'),
+      'commerce_kickstart_merchandising' => array('field_instance'),
     );
     features_revert($feature_install_fix);
 
