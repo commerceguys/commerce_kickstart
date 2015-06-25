@@ -64,7 +64,6 @@ projects[commerce_amex][version] = 1.1
 projects[commerce_cba][version] = 1.0-beta1
 projects[commerce_authnet][version] = 1.1
 projects[commerce_exactor][version] = 1.3
-projects[commerceguys_marketplace][version] = 1.0-beta4
 projects[commerce_paymill][version] = 2.4
 projects[commerce_nosto_tagging][version] = 1.0
 projects[commerce_nosto_tagging][patch][] = https://drupal.org/files/issues/issue-2225883.patch

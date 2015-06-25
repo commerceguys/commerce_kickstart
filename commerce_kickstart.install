@@ -1234,3 +1234,10 @@ function commerce_kickstart_update_7220() {
 function commerce_kickstart_update_7221() {
   _commerce_kickstart_disable_modules(array('bean', 'commerce_bean'));
 }
+
+/**
+ * Disable commerceguys_marketplace.
+ */
+function commerce_kickstart_update_7222() {
+  _commerce_kickstart_disable_modules(array('commerceguys_marketplace'));
+}
