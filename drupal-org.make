@@ -190,7 +190,7 @@ projects[kameleoon][version] = "1.1"
 projects[mailup][subdir] = "contrib"
 projects[mailup][version] = "1.1"
 projects[mailjet][subdir] = "contrib"
-projects[mailjet][version] = "2.2"
+projects[mailjet][version] = "2.3"
 
 ; Search related modules.
 projects[search_api][version] = 1.14
