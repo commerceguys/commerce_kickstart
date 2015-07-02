@@ -128,7 +128,7 @@ projects[facetapi][patch][] = "https://drupal.org/files/1616518-term_remove_link
 projects[search_api_sorts][version] = 1.5
 
 ; UI improvement modules.
-projects[module_filter][version] = 1.8
+projects[module_filter][version] = 2.0
 projects[image_delta_formatter][version] = 1.0-rc1
 projects[link][version] = 1.3
 projects[pathauto][version] = 1.2
