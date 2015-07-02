@@ -12,7 +12,7 @@ projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-
 projects[rules][version] = 2.9
 projects[views][version] = 3.11
 projects[views][patch][] = "http://drupal.org/files/2059555-reduce-formatter-form-state.patch"
-projects[views_bulk_operations][version] = 3.2
+projects[views_bulk_operations][version] = 3.3
 projects[addressfield][version] = 1.1
 projects[features][version] = "2.5"
 projects[features][patch][1572578] = "http://drupal.org/files/issues/1572578-27-allow-rebuild-to-be-disabled.patch"
@@ -95,7 +95,7 @@ projects[service_links][version] = 2.x-dev
 projects[service_links][download][type] = "git"
 projects[service_links][download][revision] = "6f63b84"
 projects[service_links]download][branch] = 7.x-2.x
-projects[advanced_help][version] = 1.2
+projects[advanced_help][version] = 1.3
 projects[mailsystem][version] = 2.34
 projects[mimemail][version] = 1.0-beta3
 projects[token][version] = 1.6
@@ -119,7 +119,7 @@ projects[mailup][version] = "1.1"
 projects[mailjet][version] = "2.2"
 
 ; Search related modules.
-projects[search_api][version] = 1.14
+projects[search_api][version] = 1.15
 projects[search_api_db][version] = 1.4
 projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
