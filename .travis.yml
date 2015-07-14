@@ -1,4 +1,5 @@
 language: php
+sudo: false
 
 php:
   - 5.4
@@ -32,7 +33,6 @@ matrix:
   fast_finish: true
 
 install:
-  - sudo apt-get update > /dev/null
   - "mysql -e 'create database drupal;'"
 
   # Install latest Drush 6.
@@ -73,7 +73,7 @@ install:
   - if [[ "$UPGRADE" != none ]]; then drush dl commerce_kickstart-$UPGRADE; fi
 
   # Setup files
-  - sudo chmod -R 777 drupal/sites/all
+  - chmod -R 777 drupal/sites/all
 
   # Setup display for Selenium
   - export DISPLAY=:99.0
@@ -83,7 +83,7 @@ install:
   # Get Selenium
   - wget http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.1.jar
   - java -jar selenium-server-standalone-2.42.1.jar > /dev/null 2>&1 &
-  - until netstat -an 2>/dev/null | grep '4444.*LISTEN'; do true; done
+  - nc -zvv localhost 4444; out=$?; while [[ $out -ne 0 ]]; do echo "Retry hit port 4444..."; nc -zvv localhost 4444; out=$?; sleep 5; done
 
    # Disable sendmail
   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
@@ -101,7 +101,7 @@ before_script:
 
   # Start server
   - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
-  - until netstat -an 2>/dev/null | grep '8888.*LISTEN'; do true; done
+  - nc -zvv localhost 8888; out=$?; while [[ $out -ne 0 ]]; do echo "Retry hit port 8888..."; nc -zvv localhost 8888; out=$?; sleep 5; done
   - cd profiles/commerce_kickstart/tests/behat
 
 script:
