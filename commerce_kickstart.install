@@ -1241,3 +1241,10 @@ function commerce_kickstart_update_7221() {
 function commerce_kickstart_update_7222() {
   _commerce_kickstart_disable_modules(array('commerceguys_marketplace'));
 }
+
+/**
+ * Rebuild registry now that contributed themes are in contrib subfolder.
+ */
+function commerce_kickstart_update_7223() {
+  registry_rebuild();
+}
