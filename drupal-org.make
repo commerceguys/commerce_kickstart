@@ -125,6 +125,7 @@ projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
 projects[facetapi][version] = 1.5
 projects[facetapi][patch][] = "https://drupal.org/files/1616518-term_remove_link-24.patch"
+projects[facetapi][patch][2378693] = "https://www.drupal.org/files/issues/notice_undefined-2378693-3.patch"
 projects[search_api_sorts][version] = 1.5
 
 ; UI improvement modules.
