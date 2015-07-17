@@ -31,6 +31,9 @@ env:
 
 matrix:
   fast_finish: true
+  include:
+    - php: 5.4
+      env: UPGRADE=7.x-2.22 CUSTOM_SQL=1
 
 install:
   - "mysql -e 'create database drupal;'"
@@ -94,6 +97,7 @@ before_script:
   - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd commerce_kickstart-$UPGRADE; fi
   - drush si commerce_kickstart --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Commerce Kickstart" --yes
   - drush pm-disable dblog --yes
+  - if [[ "$CUSTOM_SQL" == 1 ]]; then drush sql-drop -y && drush sqlc < ../drupal/profiles/commerce_kickstart/tests/behat/ck2-7.x-2.22-customized.sql; fi
   - cd ../drupal
 
   # If we're an upgrade test, run the upgrade process.
@@ -110,7 +114,7 @@ script:
   - if [[ "$UPGRADE" == none ]]; then ../../scripts/check-overridden.sh; fi
 
   # Run Behat tests.
-  - ./bin/behat --config behat.travis.yml
+  - if [[ "$CUSTOM_SQL" == 1 ]]; then ./bin/behat --config behat.travis.yml --tags @no-demo; else ./bin/behat --config behat.travis.yml --tags ~@no-demo; fi
 
 notifications:
 

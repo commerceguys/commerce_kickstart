@@ -288,6 +288,29 @@ function commerce_kickstart_rebuild_feature($module) {
     $items[$module] = array_intersect($all_components, $components);
   }
   _features_restore('rebuild', $items);
+
+  // Lock the Feature's components from rebuilding and reverting changes.
+  commerce_kickstart_lock_feature($module);
+}
+
+/**
+ * Locks a Feature to prevent automatic rebuilding.
+ *
+ * This is causing a loss of data for customized sites. We need Features to
+ * just provide our base configuration.
+ *
+ * @see features_feature_is_locked()
+ *
+ * @param string $module
+ *    The Feature to lock.
+ */
+function commerce_kickstart_lock_feature($module) {
+  $locked = variable_get('features_feature_locked', array());
+
+  // Mark all components as locked.
+  $locked[$module]['_all'] = TRUE;
+
+  variable_set('features_feature_locked', $locked);
 }
 
 /**

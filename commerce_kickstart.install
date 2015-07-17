@@ -1248,3 +1248,22 @@ function commerce_kickstart_update_7222() {
 function commerce_kickstart_update_7223() {
   registry_rebuild();
 }
+
+/**
+ * Lock Features from automatically rebuilding.
+ */
+function commerce_kickstart_update_7224() {
+  $modules = array(
+    'commerce_kickstart_block',
+    'commerce_kickstart_blog',
+    'commerce_kickstart_lite_product',
+    'commerce_kickstart_merchandising',
+    'commerce_kickstart_product',
+    'commerce_kickstart_slideshow',
+    'commerce_kickstart_social',
+    'commerce_kickstart_user',
+  );
+  foreach ($modules as $module) {
+    commerce_kickstart_lock_feature($module);
+  }
+}
