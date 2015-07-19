@@ -6,6 +6,12 @@
 function commerce_kickstart_merchandising_enable() {
   commerce_kickstart_rebuild_feature('commerce_kickstart_merchandising');
 
+  commerce_kickstart_lock_feature('commerce_kickstart_merchandising', array(
+    'field_base',
+    'field_instance',
+    'variable',
+  ));
+
   drupal_static_reset();
   $default_theme = variable_get('theme_default', 'omega_kickstart');
   _block_rehash($default_theme);

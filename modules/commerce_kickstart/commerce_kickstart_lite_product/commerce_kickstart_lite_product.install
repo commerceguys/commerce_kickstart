@@ -8,6 +8,12 @@
 function commerce_kickstart_lite_product_enable() {
   commerce_kickstart_rebuild_feature('commerce_kickstart_lite_product');
 
+  commerce_kickstart_lock_feature('commerce_kickstart_lite_product', array(
+    'field_base',
+    'field_instance',
+    'variable',
+  ));
+
   // Set up the zoom if it's enabled.
   if (variable_get('commerce_kickstart_product_zoom_enabled', FALSE)) {
     $settings = array(
@@ -128,4 +134,15 @@ function commerce_kickstart_lite_product_update_7201() {
   $product_display_type = node_type_load('product_display');
   $product_display_type->custom = 1;
   node_type_save($product_display_type);
+}
+
+/**
+ * Lock field_base, field_instance, variable from rebuild.
+ */
+function commerce_kickstart_lite_product_update_7202() {
+  commerce_kickstart_lock_feature('commerce_kickstart_lite_product', array(
+    'field_base',
+    'field_instance',
+    'variable',
+  ));
 }
