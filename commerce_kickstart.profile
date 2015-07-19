@@ -288,9 +288,6 @@ function commerce_kickstart_rebuild_feature($module) {
     $items[$module] = array_intersect($all_components, $components);
   }
   _features_restore('rebuild', $items);
-
-  // Lock the Feature's components from rebuilding and reverting changes.
-  commerce_kickstart_lock_feature($module);
 }
 
 /**
@@ -304,11 +301,13 @@ function commerce_kickstart_rebuild_feature($module) {
  * @param string $module
  *    The Feature to lock.
  */
-function commerce_kickstart_lock_feature($module) {
+function commerce_kickstart_lock_feature($module, $components = array()) {
   $locked = variable_get('features_feature_locked', array());
 
-  // Mark all components as locked.
-  $locked[$module]['_all'] = TRUE;
+  // Mark the components.
+  foreach ($components as $component) {
+    $locked[$module][$component] = TRUE;
+  }
 
   variable_set('features_feature_locked', $locked);
 }
