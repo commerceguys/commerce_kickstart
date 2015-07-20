@@ -138,8 +138,8 @@ function install_welcome($form, &$form_state, &$install_state) {
     '#markup' => $eula,
   );
   $form['eula-accept'] = array(
-    '#title' => st('I agree to the User Agreement'),
-    '#title_display' => 'attribute',
+    '#title' => st('Privacy Policy and User Agreement'),
+    '#title_display' => 'invisible',
     '#type' => 'radios',
     '#default_value' => 1,
     '#options' => array(
