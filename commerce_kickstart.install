@@ -1248,3 +1248,10 @@ function commerce_kickstart_update_7222() {
 function commerce_kickstart_update_7223() {
   registry_rebuild();
 }
+
+/**
+ * Enable Administration Views.
+ */
+function commerce_kickstart_update_7224() {
+  module_enable(array('admin_views'));
+}

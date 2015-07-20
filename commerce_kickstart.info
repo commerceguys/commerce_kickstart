@@ -89,6 +89,7 @@ dependencies[] = commerce_amex
 dependencies[] = menu_attributes
 dependencies[] = fences
 dependencies[] = title
+dependencies[] = admin_views
 
 ; Install Features
 dependencies[] = features
