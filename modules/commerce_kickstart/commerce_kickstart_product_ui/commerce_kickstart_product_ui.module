@@ -154,9 +154,9 @@ function commerce_kickstart_product_ui_form_alter(&$form, &$form_state, $form_id
  * Implements hook_page_alter().
  */
 function commerce_kickstart_product_ui_page_alter(&$page) {
-  // Disable breadcumb on user, checkout and cart pages.
+  // Disable breadrcumb on checkout and cart pages.
   $current_path = current_path();
-  $exclude_path = "user*\ncheckout/*\ncart";
+  $exclude_path = "checkout/*\ncart";
   $match = drupal_match_path(drupal_strtolower($current_path), drupal_strtolower($exclude_path));
   if ($match) {
     drupal_set_breadcrumb(array());
