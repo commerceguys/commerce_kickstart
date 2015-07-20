@@ -310,15 +310,17 @@ function commerce_kickstart_features_api_alter(&$components) {
  * of Fields and Field Base config.
  */
 function commerce_kickstart_field_default_field_bases_alter(&$fields) {
-  $possible_alters = commerce_kickstart_get_fields_default_alters();
-  drupal_alter('field_default_fields_alter', $possible_alters);
-  foreach ($possible_alters as $identifier => $field_default) {
-    // Check if the alter added a field base value.
-    $field_name = $field_default['field_name'];
-    if (!isset($field_default['field_base']) || !isset($fields[$field_name])) {
-      continue;
+  if (module_exists('features_override')) {
+    $possible_alters = commerce_kickstart_get_fields_default_alters();
+    drupal_alter('field_default_fields_alter', $possible_alters);
+    foreach ($possible_alters as $identifier => $field_default) {
+      // Check if the alter added a field base value.
+      $field_name = $field_default['field_name'];
+      if (!isset($field_default['field_base']) || !isset($fields[$field_name])) {
+        continue;
+      }
+      $fields[$field_name] = drupal_array_merge_deep($fields[$field_name], $field_default['field_base']);
     }
-    $fields[$field_name] = drupal_array_merge_deep($fields[$field_name], $field_default['field_base']);
   }
 }
 
@@ -329,14 +331,16 @@ function commerce_kickstart_field_default_field_bases_alter(&$fields) {
  * of Fields and Field Instance config.
  */
 function commerce_kickstart_field_default_field_instances_alter(&$fields) {
-  $possible_alters = commerce_kickstart_get_fields_default_alters();
-  drupal_alter('field_default_fields', $possible_alters);
-  foreach ($possible_alters as $identifier => $field_default) {
-    // Check if the alter added a field instance value.
-    if (!isset($field_default['field_instance']) || !isset($fields[$identifier])) {
-      continue;
+  if (module_exists('features_override')) {
+    $possible_alters = commerce_kickstart_get_fields_default_alters();
+    drupal_alter('field_default_fields', $possible_alters);
+    foreach ($possible_alters as $identifier => $field_default) {
+      // Check if the alter added a field instance value.
+      if (!isset($field_default['field_instance']) || !isset($fields[$identifier])) {
+        continue;
+      }
+      $fields[$identifier] = drupal_array_merge_deep($fields[$identifier], $field_default['field_instance']);
     }
-    $fields[$identifier] = drupal_array_merge_deep($fields[$identifier], $field_default['field_instance']);
   }
 }
 

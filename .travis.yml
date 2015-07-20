@@ -94,7 +94,7 @@ before_script:
   - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd commerce_kickstart-$UPGRADE; fi
   - drush si commerce_kickstart --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Commerce Kickstart" --yes
   - drush pm-disable dblog --yes
-  - if [[ "$UPGRADE" != none ]]; then drush en -y commerce_kickstart_overrides_test; fi
+  - if [[ "$UPGRADE" != none ]]; then cp -r ../drupal/profiles/commerce_kickstart/tests/commerce_kickstart_overrides_test profiles/commerce_kickstart/tests/commerce_kickstart_overrides_test && drush en -y commerce_kickstart_overrides_test && drush cc all; fi
   - cd ../drupal
 
   # If we're an upgrade test, run the upgrade process.
