@@ -18,6 +18,7 @@ projects[features][version] = "2.6"
 projects[features][patch][2143765] = "http://drupal.org/files/issues/features-fix-modules-enabled-2143765-1.patch"
 projects[features][patch][2479803] = "https://www.drupal.org/files/issues/ignore_hidden_modules-2479803-1.patch"
 projects[features][patch][2534138] = "https://www.drupal.org/files/issues/2534138-field-base-exception-catch-1.patch"
+projects[features_override][version] = 2.0-rc2
 projects[strongarm][version] = 2.0
 projects[taxonomy_menu][version] = 1.5
 projects[libraries][version] = 2.2
