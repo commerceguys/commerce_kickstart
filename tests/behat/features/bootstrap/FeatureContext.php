@@ -213,4 +213,20 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function iWaitForSeconds($arg1) {
     sleep($arg1);
   }
+
+  /**
+   * @AfterScenario @variables
+   */
+  public function afterScenarioVariableCleanUp(\Behat\Behat\Hook\Scope\AfterScenarioScope $scope) {
+    // Clean up variables after each scenario tagged @variable.
+    variable_del('commerce_kickstart_user_breadcrumbs');
+  }
+
+  /**
+   * @Given user breadcrumbs are enabled
+   */
+  public function userBreadcrumbsAreEnabled() {
+    $this->getDrupal();
+    variable_set('commerce_kickstart_user_breadcrumbs', TRUE);
+  }
 }
