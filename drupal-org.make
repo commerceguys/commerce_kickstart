@@ -26,8 +26,7 @@ projects[views_megarow][version] = 1.4
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.11
-projects[commerce_features][version] = 1.0
-projects[commerce_features][patch][] = "http://drupal.org/files/1402762_export_flat_rate_commerce_features-6.patch"
+projects[commerce_features][version] = 1.1
 projects[commerce_addressbook][version] = 2.0-rc8
 projects[commerce_shipping][version] = 2.2
 projects[commerce_flat_rate][version] = 1.0-beta2
