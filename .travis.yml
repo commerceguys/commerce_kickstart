@@ -2,7 +2,7 @@ language: php
 sudo: false
 
 php:
-  - 5.4
+  # - 5.4
   - 5.5
 
 branches:
@@ -16,21 +16,24 @@ mysql:
 
 env:
   - UPGRADE=none
-  - UPGRADE=7.x-2.23
-  - UPGRADE=7.x-2.22
-  - UPGRADE=7.x-2.21
-  - UPGRADE=7.x-2.20
-  - UPGRADE=7.x-2.19
-  - UPGRADE=7.x-2.18
-  - UPGRADE=7.x-2.17
-  - UPGRADE=7.x-2.16
-  - UPGRADE=7.x-2.15
-  - UPGRADE=7.x-2.14
-  - UPGRADE=7.x-2.13
-  - UPGRADE=7.x-2.12
+  # - UPGRADE=7.x-2.23
+  # - UPGRADE=7.x-2.22
+  # - UPGRADE=7.x-2.21
+  # - UPGRADE=7.x-2.20
+  # - UPGRADE=7.x-2.19
+  # - UPGRADE=7.x-2.18
+  # - UPGRADE=7.x-2.17
+  # - UPGRADE=7.x-2.16
+  # - UPGRADE=7.x-2.15
+  # - UPGRADE=7.x-2.14
+  # - UPGRADE=7.x-2.13
+  # - UPGRADE=7.x-2.12
 
 matrix:
   fast_finish: true
+  include:
+    - php: 5.5
+      env: UPGRADE=7.x-2.23 TEST_FEATURES_OVERRIDES=1
 
 install:
   - "mysql -e 'create database drupal;'"
@@ -105,8 +108,17 @@ before_script:
 
   # Do the site install (either the current revision or old for the upgrade).
   - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd commerce_kickstart-$UPGRADE; fi
+
+
+  # Copy override module into sites/default/modules so it carries over when testing upgrades.
+  - if [[ "$TEST_FEATURES_OVERRIDES" == 1 ]]; then mkdir sites/default/modules && cp -r ../drupal/profiles/commerce_kickstart/tests/commerce_kickstart_overrides_test sites/default/modules/commerce_kickstart_overrides_test; fi
+
   - drush si commerce_kickstart --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Commerce Kickstart" --yes
   - drush pm-disable dblog --yes
+
+  # If testing the override, enable it and revert feature it's overriding (because we didn't on the same install.)
+  - if [[ "$TEST_FEATURES_OVERRIDES" == 1 ]]; then drush en -y commerce_kickstart_overrides_test && drush fr -y commerce_kickstart_blog; fi
+
   - cd ../drupal
 
   # If we're an upgrade test, run the upgrade process.
@@ -123,7 +135,8 @@ script:
   - if [[ "$UPGRADE" == none ]]; then ../../scripts/check-overridden.sh; fi
 
   # Run Behat tests.
-  - ./bin/behat --config behat.travis.yml
+  - if [[ "$TEST_FEATURES_OVERRIDES" != 1 ]]; then ./bin/behat --config behat.travis.yml --tags ~@overrides; fi
+  - if [[ "$TEST_FEATURES_OVERRIDES" == 1 ]]; then ./bin/behat --config behat.travis.yml --tags @overrides; fi
 
 notifications:
 
