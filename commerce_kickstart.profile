@@ -302,3 +302,67 @@ function commerce_kickstart_features_api_alter(&$components) {
     $components['field_base']['duplicates'] = FEATURES_DUPLICATES_ALLOWED;
   }
 }
+
+/**
+ * Implements hook_field_default_field_bases_alter().
+ *
+ * Helper alter to aid in Features Override of Features 1.x override exports
+ * of Fields and Field Base config.
+ */
+function commerce_kickstart_field_default_field_bases_alter(&$fields) {
+  if (module_exists('features_override')) {
+    $possible_alters = commerce_kickstart_get_fields_default_alters();
+    drupal_alter('field_default_fields_alter', $possible_alters);
+    foreach ($possible_alters as $identifier => $field_default) {
+      // Check if the alter added a field base value.
+      $field_name = $field_default['field_name'];
+      if (!isset($field_default['field_base']) || !isset($fields[$field_name])) {
+        continue;
+      }
+      $fields[$field_name] = drupal_array_merge_deep($fields[$field_name], $field_default['field_base']);
+    }
+  }
+}
+
+/**
+ * Implements hook_field_default_field_instances_alter().
+ *
+ * Helper alter to aid in Features Override of Features 1.x override exports
+ * of Fields and Field Instance config.
+ */
+function commerce_kickstart_field_default_field_instances_alter(&$fields) {
+  if (module_exists('features_override')) {
+    $possible_alters = commerce_kickstart_get_fields_default_alters();
+    drupal_alter('field_default_fields', $possible_alters);
+    foreach ($possible_alters as $identifier => $field_default) {
+      // Check if the alter added a field instance value.
+      if (!isset($field_default['field_instance']) || !isset($fields[$identifier])) {
+        continue;
+      }
+      $fields[$identifier] = drupal_array_merge_deep($fields[$identifier], $field_default['field_instance']);
+    }
+  }
+}
+
+/**
+ * Gets Features Override alters for field from 1.x
+ */
+function commerce_kickstart_get_fields_default_alters() {
+  $cache = drupal_static(__FUNCTION__, array());
+  if (empty($cache)) {
+    module_load_include('inc', 'features', 'features.export');
+    features_include();
+    // Features 1.x labeled all field data same as field instance in 2.x
+    features_include_defaults('field_instance');
+    $default_hook = features_get_default_hooks('field_instance');
+
+    // Invoke each Feature to see if they provide default field instances,
+    // so that we can have all possible field identifiers.
+    foreach (array_keys(features_get_features()) as $module) {
+      if (module_hook($module, $default_hook)) {
+        $cache = array_merge($cache, call_user_func("{$module}_{$default_hook}"));
+      }
+    }
+  }
+  return $cache;
+}
