@@ -3,7 +3,6 @@ sudo: false
 
 php:
   - 5.4
-  - 5.5
 
 branches:
   except:
@@ -33,20 +32,33 @@ matrix:
   fast_finish: true
   include:
     - php: 5.5
+      env: UPGRADE=none
+    - php: 5.5
       env: UPGRADE=7.x-2.23 TEST_FEATURES_OVERRIDES=1
+    - php: 5.6
+      env: UPGRADE=none
+
+# Cache Composer & Drush directories.
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.drush/cache
 
 install:
   - "mysql -e 'create database drupal;'"
 
   # Install latest Drush 6.
+  - travis_retry composer self-update && composer --version
+  - travis_retry composer global require "drush/drush:6.*"
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer global require --no-interaction --prefer-source drush/drush:6.*
+
+  # Drupal.org verify tool
   - drush dl -y drupalorg_drush-7.x-1.x-dev --destination=$HOME/.drush
   - drush cc drush
 
   # Build Behat dependencies
   - cd ./tests/behat
-  - composer install --no-interaction --prefer-source
+  - travis_retry composer install --prefer-dist --no-interaction
   - cd ../../../
 
   # Setting Behat environment
@@ -93,9 +105,6 @@ install:
    # Disable sendmail
   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
-  # Enable APC
-  - if [[ $TRAVIS_PHP_VERSION < "5.5" ]]; then echo "mysql.connect_timeout=3000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini && echo "default_socket_timeout=3000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi
-
   # Increase the MySQL connection timeout on the PHP end.
   - echo "mysql.connect_timeout=3000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - echo "default_socket_timeout=3000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
@@ -103,6 +112,13 @@ install:
   # Increase the MySQL server timetout and packet size.
   - mysql -e "SET GLOBAL wait_timeout = 36000;"
   - mysql -e "SET GLOBAL max_allowed_packet = 33554432;"
+
+  # Enable APC
+  - |
+    if [[ $TRAVIS_PHP_VERSION < "5.5" ]]; then
+      echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+      echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+    fi
 
 before_script:
 
