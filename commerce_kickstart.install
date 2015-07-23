@@ -1255,3 +1255,10 @@ function commerce_kickstart_update_7223() {
 function commerce_kickstart_update_7224() {
   module_enable(array('admin_views'));
 }
+
+/**
+ * Enable the Distribution Update Status Manager module.
+ */
+function commerce_kickstart_update_7225() {
+  module_enable(array('distro_update'));
+}

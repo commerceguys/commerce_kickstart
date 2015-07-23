@@ -66,6 +66,7 @@ dependencies[] = commerce_tax_ui
 ; Install contribs.
 dependencies[] = chosen
 dependencies[] = crumbs
+dependencies[] = distro_update
 dependencies[] = module_filter
 dependencies[] = image_delta_formatter
 dependencies[] = taxonomy_menu
