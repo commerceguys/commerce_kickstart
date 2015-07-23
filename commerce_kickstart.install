@@ -205,6 +205,18 @@ function commerce_kickstart_configure_store_form() {
     '#options' => $options,
     '#default_value' => '1',
   );
+  $form['functionality']['notice'] = array(
+    '#type' => 'item',
+    '#markup' => '<p>' . t('<strong>Important</strong>: Once installed, products type cannot be deleted. Not recommended for development.') . '</p>',
+    '#attributes' => array(
+      'style' => 'clear: both;',
+    ),
+    '#states' => array(
+      'visible' => array(
+        ':input[name="install_demo_store"]' => array('value' => '1'),
+      ),
+    ),
+  );
   $form['localization'] = array(
     '#type' => 'fieldset',
     '#title' => st('Localization'),
