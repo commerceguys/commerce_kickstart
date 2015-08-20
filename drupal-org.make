@@ -5,7 +5,7 @@ api = 2
 defaults[projects][subdir] = contrib
 
 ; Basic contributed modules.
-projects[ctools][version] = 1.7
+projects[ctools][version] = 1.9
 projects[entity][version] = 1.6
 projects[entityreference][version] = 1.1
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
