@@ -11,7 +11,6 @@ projects[entityreference][version] = 1.1
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
 projects[rules][version] = 2.9
 projects[views][version] = 3.11
-projects[views][patch][] = "http://drupal.org/files/2059555-reduce-formatter-form-state.patch"
 projects[views_bulk_operations][version] = 3.3
 projects[addressfield][version] = 1.1
 projects[features][version] = "2.6"
