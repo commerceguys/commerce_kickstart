@@ -51,6 +51,7 @@ projects[commerce_payleap][version] = 1.1
 projects[commerce_moneybookers][version] = 1.2
 projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_moneybookers-disable_payment_method_by_default-1962226-3.patch"
 projects[commerce_paypal][version] = 2.3
+projects[commerce_paypal][patch][2458721] = "https://www.drupal.org/files/issues/commerce_paypal-addressfield-default-values-2458721-1.patch"
 projects[commerce_backoffice][version] = 1.4
 projects[commerce_message][version] = 1.0-rc3
 projects[commerce_search_api][version] = 1.3
