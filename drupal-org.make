@@ -115,7 +115,7 @@ projects[title][version] = "1.0-alpha7"
 projects[title][patch][] = "http://drupal.org/files/title-translation_overwrite-1269076-35.patch"
 projects[kameleoon][version] = "1.1"
 projects[mailup][version] = "1.1"
-projects[mailjet][version] = "2.3"
+projects[mailjet][version] = "2.5"
 
 ; Search related modules.
 projects[search_api][version] = 1.14
