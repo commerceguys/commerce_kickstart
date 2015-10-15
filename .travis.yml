@@ -136,7 +136,9 @@ before_script:
   - drush pm-disable dblog --yes
 
   # If testing the override, enable it and revert feature it's overriding (because we didn't on the same install.)
-  - if [[ "$TEST_FEATURES_OVERRIDES" == 1 ]]; then drush en -y commerce_kickstart_overrides_test && drush fr -y commerce_kickstart_blog; fi
+  # We need to download rc2, because rc3 requires a function in Features 2.7,
+  # breaking test.
+  - if [[ "$TEST_FEATURES_OVERRIDES" == 1 ]]; then drush dl features_override-7.x-2.0-rc2 && drush en -y commerce_kickstart_overrides_test && drush fr -y commerce_kickstart_blog; fi
 
   - cd ../drupal
 
