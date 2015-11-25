@@ -151,7 +151,7 @@ projects[omega][patch][] = "http://drupal.org/files/relative-src-15.patch"
 projects[omega][type] = theme
 projects[omega_kickstart][version] = 3.4
 projects[omega_kickstart][type] = theme
-projects[shiny][version] = 1.6
+projects[shiny][version] = 1.7
 projects[shiny][type] = theme
 
 ; Libraries.
