@@ -34,7 +34,6 @@ projects[commerce_autosku][download][type] = git
 projects[commerce_autosku][download][revision] = 32e86f4
 projects[commerce_autosku][download][branch] = 7.x-1.x
 projects[commerce_migrate][version] = 1.1
-projects[commerce_migrate][patch][1931302] = https://www.drupal.org/files/commerce_products_source_migration-1931302-2.patch
 projects[commerce_discount][version] = 1.0-alpha6
 projects[commerce_checkout_progress][version] = 1.3
 projects[commerce_extra_price_formatters][version] = 1.x-dev
