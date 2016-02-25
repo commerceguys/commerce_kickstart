@@ -50,6 +50,8 @@ cache:
 install:
   - "mysql -e 'create database drupal;'"
 
+  - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
+  
   # Install latest Drush 6.
   - travis_retry composer self-update && composer --version
   - travis_retry composer global require "drush/drush:6.*"
