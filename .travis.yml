@@ -49,8 +49,6 @@ cache:
 
 install:
   - "mysql -e 'create database drupal;'"
-
-  - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
   
   # Install latest Drush 6.
   - travis_retry composer self-update && composer --version
@@ -63,6 +61,7 @@ install:
 
   # Build Behat dependencies
   - cd ./tests/behat
+  - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
   - travis_retry composer install --prefer-dist --no-interaction
   - cd ../../../
 
