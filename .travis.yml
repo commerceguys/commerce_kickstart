@@ -165,6 +165,9 @@ script:
   # If this isn't an upgrade, we test if any features are overridden.
   - if [[ "$UPGRADE" == none ]]; then ../../scripts/check-overridden.sh; fi
 
+  # Fix bad Commerce Migrate release for testing the demo.
+  - if [[ "$UPGRADE" == "7.x-2.34" || "$UPGRADE" == "7.x-2.33" || "$UPGRADE" == "7.x-2.32" || "$UPGRADE" == "7.x-2.31" || "$UPGRADE" == "7.x-2.30" || "$UPGRADE" == "7.x-2.29" || "$UPGRADE" == "7.x-2.28" || "$UPGRADE" == "7.x-2.27" ]]; then drush mi --all --update; fi
+
   # Run Behat tests.
   - if [[ "$TEST_FEATURES_OVERRIDES" != 1 ]]; then ./bin/behat --config behat.travis.yml --tags ~@overrides; fi
   - if [[ "$TEST_FEATURES_OVERRIDES" == 1 ]]; then ./bin/behat --config behat.travis.yml --tags @overrides; fi
