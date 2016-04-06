@@ -106,7 +106,6 @@ projects[yottaa][version] = 1.2
 projects[menu_attributes][version] = 1.0
 projects[fences][version] = "1.2"
 projects[title][version] = 1.0-alpha8
-projects[title][patch][] = "http://drupal.org/files/title-translation_overwrite-1269076-35.patch"
 projects[kameleoon][version] = "1.1"
 projects[mailup][version] = "1.1"
 projects[mailjet][version] = "2.5"
