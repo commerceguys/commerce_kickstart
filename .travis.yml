@@ -2,7 +2,7 @@ language: php
 sudo: false
 
 php:
-  - 5.4
+  - 5.6
 
 branches:
   except:
@@ -15,6 +15,9 @@ mysql:
 
 env:
   - UPGRADE=none
+  - UPGRADE=7.x-2.34
+  - UPGRADE=7.x-2.33
+  - UPGRADE=7.x-2.32
   - UPGRADE=7.x-2.31
   - UPGRADE=7.x-2.30
   - UPGRADE=7.x-2.29
@@ -38,14 +41,13 @@ matrix:
       env: UPGRADE=none
     - php: 5.5
       env: UPGRADE=7.x-2.23 TEST_FEATURES_OVERRIDES=1
-    - php: 5.6
-      env: UPGRADE=none
 
 # Cache Composer & Drush directories.
 cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.drush/cache
+    - tests/behat/vendor
 
 install:
   - "mysql -e 'create database drupal;'"
@@ -112,6 +114,10 @@ install:
   # Increase the MySQL connection timeout on the PHP end.
   - echo "mysql.connect_timeout=3000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - echo "default_socket_timeout=3000" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+  # Multibyte string input conversion in PHP is active and must be disabled for Drupal on PHP 5.6.
+  - echo "mbstring.http_input = pass" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "mbstring.http_output = pass" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
   # Increase the MySQL server timetout and packet size.
   - mysql -e "SET GLOBAL wait_timeout = 36000;"
