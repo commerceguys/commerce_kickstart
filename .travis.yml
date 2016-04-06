@@ -37,6 +37,8 @@ env:
 matrix:
   fast_finish: true
   include:
+    - php: 5.4
+      env: UPGRADE=none
     - php: 5.5
       env: UPGRADE=none
     - php: 5.5
