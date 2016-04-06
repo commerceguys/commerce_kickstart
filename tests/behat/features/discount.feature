@@ -6,7 +6,7 @@ Feature: Handle discounts
   @api @javascript
   Scenario: Administrator is able to create a discount
     When I am logged in as a user with the "administrator" role
-      And I go to "/admin/commerce/store/discounts"
+      And I go to "/admin/commerce/discounts"
     When I click "Add discount"
     Then I should see "Add order discount commerce discount"
     When I fill in the following:
@@ -20,6 +20,7 @@ Feature: Handle discounts
     Then I should see "Discounts"
       And I should see "Test create discount"
     When I click "open"
+      And I wait for AJAX to finish
     When I click "delete"
     When I press "Confirm"
     Then I should see "Deleted Commerce Discount Test create discount."
@@ -27,7 +28,7 @@ Feature: Handle discounts
   @api @javascript
   Scenario: Discounts should be added on checkout
     When I am logged in as a user with the "administrator" role
-      And I go to "/admin/commerce/store/discounts"
+      And I go to "/admin/commerce/discounts"
     When I click "Add discount"
     Then I should see "Add order discount commerce discount"
     When I fill in the following:
@@ -50,8 +51,9 @@ Feature: Handle discounts
     Then I should see "-$5.00"
     Then I should see "$37.00"
     When I am logged in as a user with the "administrator" role
-      And I go to "/admin/commerce/store/discounts"
+      And I go to "/admin/commerce/discounts"
     When I click "open"
+      And I wait for AJAX to finish
     When I click "delete"
     When I press "Confirm"
     Then I should see "Deleted Commerce Discount Test discount."

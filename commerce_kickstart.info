@@ -66,6 +66,7 @@ dependencies[] = commerce_tax_ui
 ; Install contribs.
 dependencies[] = chosen
 dependencies[] = crumbs
+dependencies[] = distro_update
 dependencies[] = module_filter
 dependencies[] = image_delta_formatter
 dependencies[] = taxonomy_menu
@@ -85,11 +86,11 @@ dependencies[] = commerce_backoffice_product
 dependencies[] = commerce_backoffice_order
 dependencies[] = commerce_backoffice_content
 dependencies[] = commerce_checkout_progress
-dependencies[] = commerceguys_marketplace
 dependencies[] = commerce_amex
 dependencies[] = menu_attributes
 dependencies[] = fences
 dependencies[] = title
+dependencies[] = admin_views
 
 ; Install Features
 dependencies[] = features
