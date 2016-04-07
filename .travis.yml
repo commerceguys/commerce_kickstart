@@ -50,6 +50,10 @@ cache:
     - tests/behat/vendor
 
 install:
+  # Remove xdebug for the moment. We aren't generating code coverage, and it slows us down.
+  - rm /home/travis/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
+
+  # Create database.
   - "mysql -e 'create database drupal;'"
 
   # Install latest Drush 6.
