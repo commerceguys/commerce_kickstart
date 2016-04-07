@@ -3,5 +3,6 @@
 !.gitignore
 !.gitmodules
 !.htaccess
+!.blackfire.travis.ini.enc
 nbproject/
 *.kpf
