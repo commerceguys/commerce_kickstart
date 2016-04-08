@@ -6,7 +6,7 @@ defaults[projects][subdir] = contrib
 
 ; Basic contributed modules.
 projects[ctools][version] = 1.9
-projects[entity][version] = 1.6
+projects[entity][version] = 1.7
 projects[entityreference][version] = 1.1
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
 projects[rules][version] = 2.9
@@ -49,7 +49,7 @@ projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_mon
 projects[commerce_paypal][version] = 2.3
 projects[commerce_paypal][patch][2458721] = "https://www.drupal.org/files/issues/commerce_paypal-addressfield-default-values-2458721-1.patch"
 projects[commerce_backoffice][version] = 1.5
-projects[commerce_message][version] = 1.0-rc3
+projects[commerce_message][version] = 1.0-rc4
 projects[commerce_search_api][version] = 1.4
 projects[commerce_add_to_cart_confirmation][version] = 1.0-rc2
 projects[commerce_kiala][version] = 1.0-rc1
@@ -82,7 +82,7 @@ projects[oauth][patch][] = "http://drupal.org/files/980340-d7.patch"
 projects[connector][version] = 1.0-beta2
 projects[oauthconnector][version] = 1.0-beta2
 projects[inline_entity_form][version] = 1.6
-projects[inline_conditions][version] = 1.0-alpha5
+projects[inline_conditions][version] = 1.0-alpha7
 projects[field_extractor][version] = 1.3
 projects[service_links][version] = 2.x-dev
 projects[service_links][download][type] = "git"
@@ -103,16 +103,15 @@ projects[migrate_extras][version] = 2.5
 projects[migrate_extras][patch][] = "http://drupal.org/files/migrate_extras-fix-destid2-array-1951904-4.patch"
 projects[date][version] = 2.9
 projects[yottaa][version] = 1.2
-projects[menu_attributes][version] = 1.0-rc3
+projects[menu_attributes][version] = 1.0
 projects[fences][version] = "1.2"
-projects[title][version] = "1.0-alpha7"
-projects[title][patch][] = "http://drupal.org/files/title-translation_overwrite-1269076-35.patch"
+projects[title][version] = 1.0-alpha8
 projects[kameleoon][version] = "1.1"
 projects[mailup][version] = "1.1"
 projects[mailjet][version] = "2.5"
 
 ; Search related modules.
-projects[search_api][version] = 1.16
+projects[search_api][version] = 1.17
 projects[search_api_db][version] = 1.5
 projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
@@ -124,7 +123,7 @@ projects[search_api_sorts][version] = 1.6
 ; UI improvement modules.
 projects[module_filter][version] = 2.0
 projects[image_delta_formatter][version] = 1.0-rc1
-projects[link][version] = 1.3
+projects[link][version] = 1.4
 projects[pathauto][version] = 1.3
 ; projects[cloud_zoom][version] = 1.x-dev
 projects[cloud_zoom][download][type] = git
