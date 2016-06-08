@@ -14,14 +14,14 @@ projects[rules][version] = 2.9
 projects[views][version] = 3.13
 projects[views_bulk_operations][version] = 3.3
 projects[addressfield][version] = 1.2
-projects[features][version] = 2.8
+projects[features][version] = 2.10
 projects[features][patch][2143765] = "http://drupal.org/files/issues/features-fix-modules-enabled-2143765-1.patch"
 projects[features][patch][2479803] = "https://www.drupal.org/files/issues/ignore_hidden_modules-2479803-1.patch"
 projects[features_override][version] = 2.0-rc3
 projects[strongarm][version] = 2.0
 projects[taxonomy_menu][version] = 1.5
 projects[libraries][version] = 2.2
-projects[views_megarow][version] = 1.5
+projects[views_megarow][version] = 1.6
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.13
@@ -112,7 +112,7 @@ projects[mailup][version] = "1.1"
 projects[mailjet][version] = "2.5"
 
 ; Search related modules.
-projects[search_api][version] = 1.17
+projects[search_api][version] = 1.18
 projects[search_api_db][version] = 1.5
 projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
