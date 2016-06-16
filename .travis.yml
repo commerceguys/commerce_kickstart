@@ -31,9 +31,6 @@ env:
   - UPGRADE=7.x-2.22
   - UPGRADE=7.x-2.21
   - UPGRADE=7.x-2.20
-  - UPGRADE=7.x-2.19
-  - UPGRADE=7.x-2.18
-  - UPGRADE=7.x-2.17
 
 matrix:
   fast_finish: true
@@ -42,6 +39,13 @@ matrix:
       env: UPGRADE=none
     - php: 5.5
       env: UPGRADE=7.x-2.23 TEST_FEATURES_OVERRIDES=1
+    - php: 7.0
+      env: UPGRADE=none
+    - php: hhvm
+      env: UPGRADE=none
+  allow_failures:
+    - php: 7.0
+    - php: hhvm
 
 # Cache Composer & Drush directories.
 cache:
