@@ -69,8 +69,7 @@ projects[commerce_firstdata_gge4][version] = 1.0
 ; Other contribs.
 projects[countries][version] = 2.3
 projects[remote_stream_wrapper][version] = 1.0-rc1
-projects[colorbox][version] = 2.7
-projects[colorbox][patch][] = https://www.drupal.org/files/issues/plugin_version_detection-2360375-9.patch
+projects[colorbox][version] = 2.12
 ; projects[physical][version] = 1.x-dev
 projects[physical][download][type] = git
 projects[physical][download][revision] = 32e1a38
