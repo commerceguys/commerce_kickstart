@@ -133,7 +133,7 @@ projects[chosen][version] = 2.x-dev
 projects[chosen][download][type] = git
 projects[chosen][download][revision] = e7a0d22
 projects[chosen][download][branch] = 7.x-2.x
-projects[admin_views][version] = 1.5
+projects[admin_views][version] = 1.6
 projects[distro_update][version] = 1.0-beta4
 
 ; Internationalization
