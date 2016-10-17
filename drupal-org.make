@@ -7,7 +7,7 @@ defaults[projects][subdir] = contrib
 ; Basic contributed modules.
 projects[ctools][version] = 1.11
 projects[entity][version] = 1.8
-projects[entityreference][version] = 1.1
+projects[entityreference][version] = 1.
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
 projects[rules][version] = 2.9
 projects[views][version] = 3.14
@@ -102,11 +102,11 @@ projects[migrate_extras][patch][] = "http://drupal.org/files/migrate_extras-fix-
 projects[date][version] = 2.9
 projects[yottaa][version] = 1.2
 projects[menu_attributes][version] = 1.0
-projects[fences][version] = "1.2"
+projects[fences][version] = 1.2
 projects[title][version] = 1.0-alpha8
-projects[kameleoon][version] = "1.1"
-projects[mailup][version] = "1.1"
-projects[mailjet][version] = "2.5"
+projects[kameleoon][version] = 1.1
+projects[mailup][version] = 1.1
+projects[mailjet][version] = 2.5
 
 ; Search related modules.
 projects[search_api][version] = 1.20
@@ -137,7 +137,7 @@ projects[distro_update][version] = 1.0-beta4
 
 ; Internationalization
 projects[variable][version] = 2.5
-projects[i18n][version] = "1.13"
+projects[i18n][version] = 1.13
 projects[lingotek][version] = 6.02
 
 ; Base theme.
