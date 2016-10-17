@@ -50,7 +50,7 @@ projects[commerce_paypal][version] = 2.3
 projects[commerce_paypal][patch][2458721] = "https://www.drupal.org/files/issues/commerce_paypal-addressfield-default-values-2458721-1.patch"
 projects[commerce_backoffice][version] = 1.5
 projects[commerce_message][version] = 1.0-rc4
-projects[commerce_search_api][version] = 1.4
+projects[commerce_search_api][version] = 1.6
 projects[commerce_add_to_cart_confirmation][version] = 1.0-rc2
 projects[commerce_kiala][version] = 1.0-rc1
 ; projects[commerce_physical][version] = 1.x-dev
@@ -93,7 +93,7 @@ projects[mailsystem][patch][1534706] = "https://www.drupal.org/files/mailsystem.
 projects[mimemail][version] = 1.0-beta4
 projects[token][version] = 1.6
 projects[token][patch][] = "http://drupal.org/files/token-token_asort_tokens-1712336_0.patch"
-projects[eva][version] = 1.2
+projects[eva][version] = 1.3
 projects[message][version] = 1.12
 projects[message_notify][version] = 2.5
 projects[migrate][version] = 2.8
@@ -109,7 +109,7 @@ projects[mailup][version] = "1.1"
 projects[mailjet][version] = "2.5"
 
 ; Search related modules.
-projects[search_api][version] = 1.19
+projects[search_api][version] = 1.20
 projects[search_api_db][version] = 1.5
 projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
