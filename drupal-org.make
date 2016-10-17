@@ -6,7 +6,6 @@ defaults[projects][subdir] = contrib
 
 ; Basic contributed modules.
 projects[ctools][version] = 1.11
-projects[ctools][patch][2528736] = "https://www.drupal.org/files/issues/deprecating_php4_style-2528736-23.patch"
 projects[entity][version] = 1.8
 projects[entityreference][version] = 1.1
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
