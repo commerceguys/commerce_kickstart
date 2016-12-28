@@ -134,7 +134,7 @@ projects[distro_update][version] = 1.0-beta4
 
 ; Internationalization
 projects[variable][version] = 2.5
-projects[i18n][version] = 1.13
+projects[i18n][version] = 1.14
 projects[lingotek][version] = 6.02
 
 ; Base theme.
