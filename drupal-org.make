@@ -102,8 +102,8 @@ projects[menu_attributes][version] = 1.0
 projects[fences][version] = 1.2
 projects[title][version] = 1.0-alpha8
 projects[kameleoon][version] = 1.1
-projects[mailup][version] = 1.1
-projects[mailjet][version] = 2.5
+projects[mailup][version] = 1.4
+projects[mailjet][version] = 2.7
 
 ; Search related modules.
 projects[search_api][version] = 1.20
@@ -135,7 +135,7 @@ projects[distro_update][version] = 1.0-beta4
 ; Internationalization
 projects[variable][version] = 2.5
 projects[i18n][version] = 1.14
-projects[lingotek][version] = 6.02
+projects[lingotek][version] = 7.17
 
 ; Base theme.
 projects[omega][version] = 3.1
