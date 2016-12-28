@@ -5,7 +5,7 @@ api = 2
 defaults[projects][subdir] = contrib
 
 ; Basic contributed modules.
-projects[ctools][version] = 1.11
+projects[ctools][version] = 1.12
 projects[entity][version] = 1.8
 projects[entityreference][version] = 1.1
 projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
@@ -70,10 +70,7 @@ projects[commerce_firstdata_gge4][version] = 1.0
 projects[countries][version] = 2.3
 projects[remote_stream_wrapper][version] = 1.0-rc1
 projects[colorbox][version] = 2.12
-; projects[physical][version] = 1.x-dev
-projects[physical][download][type] = git
-projects[physical][download][revision] = 32e1a38
-projects[physical][download][branch] = 7.x-1.x
+projects[physical][version] = 1.0
 projects[crumbs][version] = 1.10
 projects[http_client][version] = 2.4
 projects[oauth][version] = 3.2
