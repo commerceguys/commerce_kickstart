@@ -8,7 +8,6 @@ defaults[projects][subdir] = contrib
 projects[ctools][version] = 1.12
 projects[entity][version] = 1.8
 projects[entityreference][version] = 1.2
-projects[entityreference][patch][] = "http://drupal.org/files/1580348-universal-formatters-17.patch"
 projects[rules][version] = 2.9
 projects[views][version] = 3.14
 projects[views_bulk_operations][version] = 3.3
