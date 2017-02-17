@@ -72,8 +72,7 @@ projects[colorbox][version] = 2.12
 projects[physical][version] = 1.0
 projects[crumbs][version] = 1.10
 projects[http_client][version] = 2.4
-projects[oauth][version] = 3.2
-projects[oauth][patch][] = "http://drupal.org/files/980340-d7.patch"
+projects[oauth][version] = 3.4
 projects[connector][version] = 1.0-beta2
 projects[oauthconnector][version] = 1.0-beta2
 projects[inline_entity_form][version] = 1.8
@@ -102,7 +101,7 @@ projects[fences][version] = 1.2
 projects[title][version] = 1.0-alpha9
 projects[kameleoon][version] = 1.1
 projects[mailup][version] = 1.4
-projects[mailjet][version] = 2.7
+projects[mailjet][version] = 2.12
 
 ; Search related modules.
 projects[search_api][version] = 1.20
