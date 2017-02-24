@@ -105,7 +105,7 @@ projects[mailjet][version] = 2.12
 
 ; Search related modules.
 projects[search_api][version] = 1.20
-projects[search_api_db][version] = 1.5
+projects[search_api_db][version] = 1.6
 projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
 projects[facetapi][version] = 1.5
