@@ -347,3 +347,7 @@ html.js #-commerce-kickstart-help-store fieldset.collapsible {
   top: 8px;
   right: 0;
 }
+/*Fix for field_group vertical tabs */
+.vertical-tabs .form-type-textfield input {
+  width: auto;
+}
