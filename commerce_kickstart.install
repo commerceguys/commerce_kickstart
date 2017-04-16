@@ -1226,11 +1226,13 @@ function commerce_kickstart_update_7218() {
 }
 
 /**
- * Remove Commerce Kickstart payment example and enable Commerce payment example.
+ * Disable Commerce Kickstart payment example and enable Commerce payment example.
  */
 function commerce_kickstart_update_7219() {
-  _commerce_kickstart_disable_modules(array('commerce_kickstart_payment'));
-  module_enable(array('commerce_payment_example'));
+  if (module_exists('commerce_kickstart_payment')) {
+    _commerce_kickstart_disable_modules(array('commerce_kickstart_payment'));
+    module_enable(array('commerce_payment_example'));
+  }
 }
 
 /**
