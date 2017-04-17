@@ -26,6 +26,7 @@ projects[commerce][version] = 1.13
 projects[commerce_features][version] = 1.2
 projects[commerce_addressbook][version] = 2.0-rc9
 projects[commerce_shipping][version] = 2.2
+projects[commerce_shipping][patch][2410911] = "https://www.drupal.org/files/issues/notice_undefined-2410911-10.patch"
 projects[commerce_flat_rate][version] = 1.0-beta2
 projects[commerce_fancy_attributes][version] = 1.0
 projects[commerce_autosku][version] = 1.x-dev
