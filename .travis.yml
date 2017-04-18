@@ -32,6 +32,8 @@ env:
 matrix:
   fast_finish: true
   include:
+    - php: 5.6
+      env: UPGRADE=none BLACKFIRE=on
     - php: 5.5
       env: UPGRADE=none
     - php: 5.5
@@ -50,6 +52,14 @@ cache:
     - $HOME/.composer/cache
     - $HOME/.drush/cache
     - tests/behat/vendor
+
+before_install:
+  - |
+      if [[ "$BLACKFIRE" = "on" ]]; then
+          openssl aes-256-cbc -K $encrypted_27641479ee56_key -iv $encrypted_27641479ee56_iv -in .blackfire.travis.ini.enc -out ~/.blackfire.ini -d
+          curl -L https://blackfire.io/api/v1/releases/agent/linux/amd64 | tar zxpf -
+          chmod 755 agent && ./agent --config=~/.blackfire.ini --socket=unix:///tmp/blackfire.sock &
+      fi
 
 install:
   # Remove xdebug for the moment. We aren't generating code coverage, and it slows us down.
@@ -136,6 +146,14 @@ install:
     fi
 
 before_script:
+
+  - phpenv config-rm xdebug.ini || true
+  - |
+      if [[ "$BLACKFIRE" = "on" ]]; then
+          curl -L https://blackfire.io/api/v1/releases/probe/php/linux/amd64/$(phpenv version-name | tr -d '.')-zts | tar zxpf -
+          echo "extension=$(pwd)/$(ls blackfire-*.so | tr -d '[[:space:]]')" > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/blackfire.ini
+          echo "blackfire.agent_socket=unix:///tmp/blackfire.sock" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/blackfire.ini
+      fi
 
   # Do the site install (either the current revision or old for the upgrade).
   - if [[ "$UPGRADE" == none ]]; then cd drupal; else cd commerce_kickstart-$UPGRADE; fi
