@@ -101,7 +101,7 @@ projects[fences][version] = 1.2
 projects[title][version] = 1.0-alpha9
 projects[kameleoon][version] = 1.1
 projects[mailup][version] = 1.4
-projects[mailjet][version] = 2.13
+projects[mailjet][version] = 2.14
 
 ; Search related modules.
 projects[search_api][version] = 1.21
@@ -114,7 +114,7 @@ projects[facetapi][patch][2378693] = "https://www.drupal.org/files/issues/notice
 projects[search_api_sorts][version] = 1.7
 
 ; UI improvement modules.
-projects[module_filter][version] = 2.0
+projects[module_filter][version] = 2.1
 projects[image_delta_formatter][version] = 1.0-rc1
 projects[link][version] = 1.4
 projects[pathauto][version] = 1.3
