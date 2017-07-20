@@ -387,14 +387,7 @@ function commerce_kickstart_install_additional_modules() {
     $modules[] = 'i18n';
     $modules[] = 'i18n_field';
   }
-
-  $store_country = variable_get('commerce_kickstart_store_country', 'US');
-  // Enable Payleap and Paypal for North America.
-  if (in_array($store_country, array('CA', 'US'))) {
-    $modules[] = 'commerce_payleap';
-    $modules[] = 'commerce_payflow';
-    $modules[] = 'commerce_paypal_ec';
-  }
+  
   // Enable the commerce_kickstart_dfp module.
   if ($install_state['parameters']['use_dfp']) {
     $modules[] = 'commerce_kickstart_dfp';

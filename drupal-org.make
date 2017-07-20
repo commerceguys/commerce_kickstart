@@ -42,11 +42,6 @@ projects[commerce_extra_price_formatters][download][type] = git
 projects[commerce_extra_price_formatters][download][revision] = 1371336
 projects[commerce_extra_price_formatters][download][branch] = 7.x-1.x
 projects[commerce_checkout_redirect][version] = 2.0
-projects[commerce_hosted_pci][version] = 1.0-rc2
-projects[commerce_payleap][version] = 1.1
-projects[commerce_moneybookers][version] = 1.2
-projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_moneybookers-disable_payment_method_by_default-1962226-3.patch"
-projects[commerce_paypal][version] = 2.4
 projects[commerce_backoffice][version] = 1.5
 projects[commerce_message][version] = 1.0-rc5
 projects[commerce_search_api][version] = 1.6
@@ -56,14 +51,21 @@ projects[commerce_physical][version] = 1.x-dev
 projects[commerce_physical][download][type] = git
 projects[commerce_physical][download][revision] = 477aaee
 projects[commerce_physical][download][branch] = 7.x-1.x
-projects[commerce_amex][version] = 1.1
-projects[commerce_cba][version] = 1.0-beta1
-projects[commerce_authnet][version] = 1.4
 projects[commerce_exactor][version] = 1.3
-projects[commerce_paymill][version] = 2.4
 projects[commerce_nosto_tagging][version] = 1.1
 projects[commerce_yotpo][version] = 1.2
 projects[commerce_firstdata_gge4][version] = 1.1
+; Payment modules
+projects[commerce_amex][version] = 1.1
+projects[commerce_authnet][version] = 1.4
+projects[commerce_cba][version] = 1.0-beta1
+projects[commerce_hosted_pci][version] = 1.0-rc2
+projects[commerce_moneybookers][version] = 1.2
+projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_moneybookers-disable_payment_method_by_default-1962226-3.patch"
+projects[commerce_payleap][version] = 1.1
+projects[commerce_paymill][version] = 2.4
+projects[commerce_paypal][version] = 2.4
+projects[commerce_square][version] = 1.0-beta3
 
 ; Other contribs.
 projects[countries][version] = 2.3
