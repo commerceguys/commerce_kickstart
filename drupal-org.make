@@ -7,9 +7,9 @@ defaults[projects][subdir] = contrib
 ; Basic contributed modules.
 projects[ctools][version] = 1.12
 projects[entity][version] = 1.8
-projects[entityreference][version] = 1.4
+projects[entityreference][version] = 1.5
 projects[rules][version] = 2.10
-projects[views][version] = 3.16
+projects[views][version] = 3.17
 projects[views_bulk_operations][version] = 3.4
 projects[addressfield][version] = 1.2
 projects[features][version] = 2.10
