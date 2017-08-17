@@ -99,6 +99,7 @@ projects[yottaa][version] = 1.2
 projects[menu_attributes][version] = 1.0
 projects[fences][version] = 1.2
 projects[title][version] = 1.0-alpha9
+projects[title][patch][] = "https://www.drupal.org/files/issues/title-fix_description_empty_on_submit-2075041-7.patch"
 projects[kameleoon][version] = 1.1
 projects[mailup][version] = 1.4
 projects[mailjet][version] = 2.14
