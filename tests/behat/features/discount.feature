@@ -1,3 +1,4 @@
+@skip
 Feature: Handle discounts
   In order to use discounts in the shop
   As an administrator user

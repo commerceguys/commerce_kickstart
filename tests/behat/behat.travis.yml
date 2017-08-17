@@ -2,6 +2,10 @@ imports:
     - behat.common.yml
 
 default:
+  suites:
+    default:
+      filters:
+        tags: "~@skip"
   extensions:
     Behat\MinkExtension:
       base_url: http://127.0.0.1:8888
