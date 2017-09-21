@@ -64,6 +64,7 @@ projects[commerce_paymill][version] = 2.4
 projects[commerce_nosto_tagging][version] = 1.1
 projects[commerce_yotpo][version] = 1.2
 projects[commerce_firstdata_gge4][version] = 1.1
+projects[commerce_square][version] = 1.0-beta6
 
 ; Other contribs.
 projects[countries][version] = 2.3
@@ -177,3 +178,8 @@ libraries[chosen][download][type] = "get"
 libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/v1.1.0/chosen_v1.1.0.zip"
 libraries[chosen][directory_name] = "chosen"
 libraries[chosen][destination] = "libraries"
+libraries[square][type] = "libraries"
+libraries[square][download][type] = "get"
+libraries[square][download][url] = "https://github.com/square/connect-php-sdk/archive/2.3.1.zip"
+libraries[square][directory_name] = "square"
+libraries[square][destination] = "libraries"
