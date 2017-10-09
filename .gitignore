@@ -5,3 +5,7 @@
 !.htaccess
 nbproject/
 *.kpf
+libraries
+modules/contrib
+themes/contrib
+tests/behat/failures

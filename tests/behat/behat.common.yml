@@ -8,9 +8,13 @@ default:
         - Drupal\DrupalExtension\Context\DrupalContext
         - Drupal\DrupalExtension\Context\MinkContext
   extensions:
+    DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension: ~
     Behat\MinkExtension:
       goutte: ~
-      selenium2: ~
+      sessions:
+          default:
+              chrome:
+                  api_url: "http://localhost:9222"
       files_path: ../../
     Drupal\DrupalExtension:
       blackbox: ~
