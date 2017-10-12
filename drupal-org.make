@@ -61,6 +61,7 @@ projects[commerce_paymill][version] = 2.4
 projects[commerce_nosto_tagging][version] = 1.1
 projects[commerce_yotpo][version] = 1.2
 projects[commerce_firstdata_gge4][version] = 1.1
+projects[commerce_amazon_lpa][version] = 1.3
 
 ; Other contribs.
 projects[countries][version] = 2.3
