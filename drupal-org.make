@@ -22,8 +22,7 @@ projects[libraries][version] = 2.3
 projects[views_megarow][version] = 1.7
 
 ; Drupal Commerce and Commerce contribs.
-projects[commerce][version] = 1.13
-projects[commerce][patch][] = "https://www.drupal.org/files/issues/commerce-cart_product_add_php7-2762907-5.patch"
+projects[commerce][version] = 1.14
 projects[commerce_features][version] = 1.2
 projects[commerce_addressbook][version] = 2.0-rc9
 projects[commerce_shipping][version] = 2.2
