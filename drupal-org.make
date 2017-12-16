@@ -23,7 +23,7 @@ projects[views_megarow][version] = 1.7
 
 ; Drupal Commerce and Commerce contribs.
 projects[commerce][version] = 1.14
-projects[commerce_features][version] = 1.2
+projects[commerce_features][version] = 1.3
 projects[commerce_addressbook][version] = 2.0-rc9
 projects[commerce_shipping][version] = 2.3
 projects[commerce_flat_rate][version] = 1.0-beta2
