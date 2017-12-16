@@ -3,7 +3,7 @@ Feature: Responsive product facet search api
   As any user
   I should see concise search facets
 
-  @javascript @demo
+  @javascript @demo @skip
   Scenario: Search facets should be presented as select lists
     When I go to "/products"
       And I click "To wear (12)"
