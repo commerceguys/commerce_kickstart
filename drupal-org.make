@@ -5,7 +5,7 @@ api = 2
 defaults[projects][subdir] = contrib
 
 ; Basic contributed modules.
-projects[ctools][version] = 1.12
+projects[ctools][version] = 1.13
 projects[entity][version] = 1.9
 projects[entityreference][version] = 1.5
 projects[rules][version] = 2.10
@@ -31,7 +31,7 @@ projects[commerce_fancy_attributes][version] = 1.0
 projects[commerce_autosku][version] = 1.2
 projects[commerce_migrate][version] = 1.2
 projects[commerce_migrate][patch][2701333] = https://www.drupal.org/files/issues/reference_fields_should-2701333-3.patch
-projects[commerce_discount][version] = 1.0-beta2
+projects[commerce_discount][version] = 1.0-beta5
 projects[commerce_checkout_progress][version] = 1.5
 projects[commerce_extra_price_formatters][version] = 1.x-dev
 projects[commerce_extra_price_formatters][download][type] = git
@@ -46,7 +46,7 @@ projects[commerce_paypal][version] = 2.4
 projects[commerce_backoffice][version] = 1.5
 projects[commerce_message][version] = 1.0
 projects[commerce_search_api][version] = 1.6
-projects[commerce_add_to_cart_confirmation][version] = 1.0-rc2
+projects[commerce_add_to_cart_confirmation][version] = 1.0-rc3
 projects[commerce_kiala][version] = 1.0-rc1
 projects[commerce_physical][version] = 1.x-dev
 projects[commerce_physical][download][type] = git
