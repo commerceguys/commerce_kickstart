@@ -178,37 +178,9 @@ body.in-maintenance #edit-submit.form-disabled {
 body.in-maintenance #install-welcome > div > p {
   margin-top: 0;
 }
-body.in-maintenance #eula-installation-welcome {
-  background: #f4f4f4;
-  border: 1px solid #edebeb;
-  padding: 0 20px 10px;
-  font-size: .9em;
-  line-height: 1.5em;
-}
-body.in-maintenance #eula-installation-welcome ul {
-  margin-bottom: 20px;
-}
-body.in-maintenance #eula-installation-welcome ul li {
-  margin-bottom: 10px;
-}
-body.in-maintenance #eula-installation-welcome .form-item-eula-accept label.option {
-  line-height: 2em;
-}
 body.in-maintenance #progress {
   margin-bottom: 50px;
 }
-body.in-maintenance #dfp-wrapper {
-  background: transparent url("../images/install-dfp-message.png") no-repeat 0 45px;
-  min-height: 250px;
-}
-body.in-maintenance .dfp-install-ad {
-  background: transparent url("../images/dfp-offline.png") no-repeat center center;
-  box-shadow: 0 0 1px #333;
-  float: right;
-  height: 250px;
-  width: 300px;
-}
-
 body.installing-demo-store ol.task-list,
 body.importing-content ol.task-list,
 body.installing-additional-functionality ol.task-list {
