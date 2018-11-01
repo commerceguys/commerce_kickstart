@@ -48,12 +48,16 @@ cache:
     - $HOME/.drush/cache
     - tests/behat/vendor
 before_install:
-  - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-address=0.0.0.0 --remote-debugging-port=9222 &
-
-install:
   # Remove xdebug for the moment. We aren't generating code coverage, and it slows us down.
   - rm /home/travis/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
+
+install:
+  # Install Chromedriver.
+  - CHROMEDRIVER_VERSION=$(wget http://chromedriver.storage.googleapis.com/LATEST_RELEASE -qO-)
+  - wget http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip && rm -f chromedriver_linux64.zip
+  - chmod a+x chromedriver
+
 
   # Create database.
   - "mysql -e 'create database drupal;'"
@@ -151,6 +155,9 @@ before_script:
   - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
   - nc -zvv localhost 8888; out=$?; while [[ $out -ne 0 ]]; do echo "Retry hit port 8888..."; nc -zvv localhost 8888; out=$?; sleep 5; done
   - cd profiles/commerce_kickstart/tests/behat
+
+  # Start Chrome
+  - ./bin/chromedriver > /dev/null 2>&1 &
 
 script:
 
