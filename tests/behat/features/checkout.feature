@@ -5,6 +5,7 @@ Feature: Checkout and pay
 
   @javascript
   Scenario: Add coffee mug to cart and update quantity
+    When I am an anonymous user
     When I go to "/drinks/drupal-commerce-wake-you"
       And I press "Add to cart"
     Then I should see "ITEM SUCCESSFULLY ADDED TO YOUR CART"

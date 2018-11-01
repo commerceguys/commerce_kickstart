@@ -5,19 +5,19 @@ use Behat\Behat\Hook\Scope\AfterStepScope;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 
+/**
+ * Defines application features from the specific context.
+ */
 class FailureContext implements Context {
 
-  /**
-   * @var \Drupal\DrupalExtension\Context\MinkContext
-   */
-  protected $minkContext;
+  protected $contexts = array();
   protected $failurePath;
 
   /**
    * @BeforeScenario
    */
   public function prepare(BeforeScenarioScope $scope) {
-    $this->minkContext = $scope->getEnvironment()->getContext('Drupal\DrupalExtension\Context\MinkContext');
+    $this->contexts['mink'] = $scope->getEnvironment()->getContext('Drupal\DrupalExtension\Context\MinkContext');
     $this->failurePath = $scope->getEnvironment()->getSuite()->getSetting('failure_path');
   }
 
@@ -45,6 +45,13 @@ class FailureContext implements Context {
   }
 
   /**
+   * @Then /^I take a markup dump$/
+   */
+  public function takeMarkupDump() {
+    $this->dumpMarkup($this->fileName());
+  }
+
+  /**
    * Compute a file name for the output.
    */
   protected function fileName($scope = NULL) {
@@ -54,7 +61,7 @@ class FailureContext implements Context {
       $baseName .= '-' . $scope->getStep()->getLine();
     }
     else {
-      $baseName = 'screenshot';
+      $baseName = 'failure';
     }
 
     $baseName .= '-' . date('YmdHis');
@@ -67,7 +74,7 @@ class FailureContext implements Context {
    */
   protected function dumpMarkup($fileName) {
     $fileName .= '.html';
-    $html = $this->minkContext->getSession()->getPage()->getHtml();
+    $html = $this->contexts['mink']->getSession()->getPage()->getContent();
     file_put_contents($fileName, $html);
     sprintf("HTML available at: %s\n", $fileName);
   }
@@ -77,12 +84,13 @@ class FailureContext implements Context {
    */
   protected function screenShot($fileName) {
     $fileName .= '.png';
-    $driver = $this->minkContext->getSession()->getDriver();
+    $driver = $this->contexts['mink']->getSession()->getDriver();
 
     if ($driver instanceof Selenium2Driver) {
-      file_put_contents($fileName, $this->minkContext->getSession()->getDriver()->getScreenshot());
+      file_put_contents($fileName, $this->contexts['mink']->getSession()->getDriver()->getScreenshot());
       sprintf("Screen shot available at: %s\n", $fileName);
       return;
     }
   }
+
 }

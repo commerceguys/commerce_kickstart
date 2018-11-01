@@ -1,7 +1,6 @@
 {
   "require": {
-    "drupal/drupal-extension": "3.*",
-    "enm1989/chromedriver": "^2.42"
+    "drupal/drupal-extension": "^3.4"
   },
   "config": {
     "bin-dir": "bin/"

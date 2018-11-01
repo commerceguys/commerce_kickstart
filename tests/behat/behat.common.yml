@@ -1,10 +1,12 @@
 default:
   suites:
     default:
+      failure_path: '%paths.base%/failures'
       paths:
         features: 'features'
       contexts:
         - FeatureContext
+        - FailureContext
         - Drupal\DrupalExtension\Context\DrupalContext
         - Drupal\DrupalExtension\Context\MinkContext
   extensions:

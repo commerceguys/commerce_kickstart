@@ -57,6 +57,7 @@ install:
   - wget http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip && rm -f chromedriver_linux64.zip
   - chmod a+x chromedriver
+  - mv chromedriver ~/
 
   # Create database.
   - "mysql -e 'create database drupal;'"
@@ -122,13 +123,6 @@ install:
   - mysql -e "SET GLOBAL wait_timeout = 36000;"
   - mysql -e "SET GLOBAL max_allowed_packet = 33554432;"
 
-  # Enable APC
-  - |
-    if [[ $TRAVIS_PHP_VERSION < "5.5" ]]; then
-      echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-      echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-    fi
-
 before_script:
 
   # Do the site install (either the current revision or old for the upgrade).
@@ -157,7 +151,7 @@ before_script:
   - cd profiles/commerce_kickstart/tests/behat
 
   # Start Chrome
-  - ./bin/chromedriver > /dev/null 2>&1 &
+  - ~/chromedriver > /dev/null 2>&1 &
 
 script:
 
@@ -172,5 +166,4 @@ script:
   - if [[ "$TEST_FEATURES_OVERRIDES" == 1 ]]; then ./bin/behat --config behat.travis.yml --tags @overrides; fi
 
 notifications:
-
   irc: "chat.freenode.net#drupal-commerce"
