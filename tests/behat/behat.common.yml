@@ -22,6 +22,8 @@ default:
             capabilities:
               chrome:
                 switches:
+                  - "--window-size=800,600"
+                  - "--no-sandbox"
                   - "--user-agent=ChromeDriver"
                   - "--headless"
       files_path: ../../
