@@ -29,14 +29,14 @@ function commerce_kickstart_install_tasks() {
   $tasks['commerce_kickstart_install_additional_modules'] = array(
     'display_name' => $install_demo_store ? st('Install demo store') : st('Install additional functionality'),
     'type' => 'batch',
-    // Show this task only after the Kickstart steps have bene reached.
+    // Show this task only after the Kickstart steps have been reached.
     'display' => strpos($current_task, 'commerce_kickstart_') !== FALSE,
 
   );
   $tasks['commerce_kickstart_import_content'] = array(
     'display_name' => st('Import content'),
     'type' => 'batch',
-    // Show this task only after the Kickstart steps have bene reached.
+    // Show this task only after the Kickstart steps have been reached.
     'display' => strpos($current_task, 'commerce_kickstart_') !== FALSE,
   );
 
