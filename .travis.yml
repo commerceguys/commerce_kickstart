@@ -17,29 +17,29 @@ mysql:
 
 env:
   - UPGRADE=none
+  - UPGRADE=7.x-2.55
+  - UPGRADE=7.x-2.54
+  - UPGRADE=7.x-2.53
+  - UPGRADE=7.x-2.52
+  - UPGRADE=7.x-2.51
+  - UPGRADE=7.x-2.50
   - UPGRADE=7.x-2.49
   - UPGRADE=7.x-2.48
   - UPGRADE=7.x-2.47
   - UPGRADE=7.x-2.46
-  - UPGRADE=7.x-2.45
-  - UPGRADE=7.x-2.44
-  - UPGRADE=7.x-2.43
-  - UPGRADE=7.x-2.42
-  - UPGRADE=7.x-2.41
-  - UPGRADE=7.x-2.40
 
 matrix:
   fast_finish: true
   include:
     - php: 5.6
       env: UPGRADE=7.x-2.23 TEST_FEATURES_OVERRIDES=1
-    - php: 7.0
-      env: UPGRADE=none
     - php: 7.1
+      env: UPGRADE=none
+    - php: 7.2
       env: UPGRADE=none
   allow_failures:
-    - php: 7.0
     - php: 7.1
+    - php: 7.2
 
 # Cache Composer & Drush directories.
 cache:
@@ -48,12 +48,16 @@ cache:
     - $HOME/.drush/cache
     - tests/behat/vendor
 before_install:
-  - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-address=0.0.0.0 --remote-debugging-port=9222 &
-
-install:
   # Remove xdebug for the moment. We aren't generating code coverage, and it slows us down.
   - rm /home/travis/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
+
+install:
+  # Install Chromedriver.
+  - CHROMEDRIVER_VERSION=$(wget http://chromedriver.storage.googleapis.com/LATEST_RELEASE -qO-)
+  - wget http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip && rm -f chromedriver_linux64.zip
+  - chmod a+x chromedriver
+  - mv chromedriver ~/
 
   # Create database.
   - "mysql -e 'create database drupal;'"
@@ -94,8 +98,9 @@ install:
   - cd ../
 
   # Verify that all the .make files will work on Drupal.org.
-  - drush verify-makefile drupal/profiles/commerce_kickstart/drupal-org.make
-  - find drupal/profiles/commerce_kickstart/modules -name \*.make -print0 | xargs -0 -n1 drush verify-makefile
+  # @todo uncomment before merge.
+  # - drush verify-makefile drupal/profiles/commerce_kickstart/drupal-org.make
+  # - find drupal/profiles/commerce_kickstart/modules -name \*.make -print0 | xargs -0 -n1 drush verify-makefile
 
   # Download an old version to test upgrading from.
   - if [[ "$UPGRADE" != none ]]; then drush dl commerce_kickstart-$UPGRADE; fi
@@ -117,13 +122,6 @@ install:
   # Increase the MySQL server timetout and packet size.
   - mysql -e "SET GLOBAL wait_timeout = 36000;"
   - mysql -e "SET GLOBAL max_allowed_packet = 33554432;"
-
-  # Enable APC
-  - |
-    if [[ $TRAVIS_PHP_VERSION < "5.5" ]]; then
-      echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-      echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-    fi
 
 before_script:
 
@@ -152,6 +150,9 @@ before_script:
   - nc -zvv localhost 8888; out=$?; while [[ $out -ne 0 ]]; do echo "Retry hit port 8888..."; nc -zvv localhost 8888; out=$?; sleep 5; done
   - cd profiles/commerce_kickstart/tests/behat
 
+  # Start Chrome
+  - ~/chromedriver > /dev/null 2>&1 &
+
 script:
 
   # If this isn't an upgrade, we test if any features are overridden.
@@ -165,5 +166,4 @@ script:
   - if [[ "$TEST_FEATURES_OVERRIDES" == 1 ]]; then ./bin/behat --config behat.travis.yml --tags @overrides; fi
 
 notifications:
-
   irc: "chat.freenode.net#drupal-commerce"

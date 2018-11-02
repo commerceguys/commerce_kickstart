@@ -2,3 +2,5 @@ behat.yml
 composer.phar
 bin
 vendor
+# Lock removed to make it easier to test across PHP versions.
+composer.lock

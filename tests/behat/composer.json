@@ -1,7 +1,6 @@
 {
   "require": {
-    "drupal/drupal-extension": "3.*",
-    "dmore/behat-chrome-extension": "^1.0"
+    "drupal/drupal-extension": "^3.4"
   },
   "config": {
     "bin-dir": "bin/"

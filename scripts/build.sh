@@ -115,6 +115,6 @@ drush make drupal-org-core.make $TEMP_BUILD
 echo -n "Moving to destination... "
 cp -r tmp $TEMP_BUILD/profiles/commerce_kickstart
 rm -rf tmp
-cp -r . $TEMP_BUILD/profiles/commerce_kickstart
+rsync -r --exclude '.git' . $TEMP_BUILD/profiles/commerce_kickstart
 mv $TEMP_BUILD $DESTINATION
 echo "done"

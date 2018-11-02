@@ -3,14 +3,13 @@ Feature: Checkout and pay
   As any user
   I should be able to checkout my cart and pay online
 
-  Background:
+  @javascript
+  Scenario: Add coffee mug to cart and update quantity
+    When I am an anonymous user
     When I go to "/drinks/drupal-commerce-wake-you"
       And I press "Add to cart"
     Then I should see "ITEM SUCCESSFULLY ADDED TO YOUR CART"
-    When I click "Go to checkout"
-
-  @javascript
-  Scenario: Add coffee mug to cart and update quantity
+    When I click "Go to cart"
     Then I should see "Shopping cart"
     Then I should see the following <texts>
       | texts                           |
