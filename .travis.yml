@@ -17,26 +17,29 @@ mysql:
 
 env:
   - UPGRADE=none
-  # - UPGRADE=7.x-2.49
-  # - UPGRADE=7.x-2.48
-  # - UPGRADE=7.x-2.47
-  # - UPGRADE=7.x-2.46
-  # - UPGRADE=7.x-2.45
-  # - UPGRADE=7.x-2.44
-  # - UPGRADE=7.x-2.43
-  # - UPGRADE=7.x-2.42
-  # - UPGRADE=7.x-2.41
-  # - UPGRADE=7.x-2.40
+  - UPGRADE=7.x-2.55
+  - UPGRADE=7.x-2.54
+  - UPGRADE=7.x-2.53
+  - UPGRADE=7.x-2.52
+  - UPGRADE=7.x-2.51
+  - UPGRADE=7.x-2.50
+  - UPGRADE=7.x-2.49
+  - UPGRADE=7.x-2.48
+  - UPGRADE=7.x-2.47
+  - UPGRADE=7.x-2.46
 
 matrix:
   fast_finish: true
   include:
-    # - php: 5.6
-    #   env: UPGRADE=7.x-2.23 TEST_FEATURES_OVERRIDES=1
+    - php: 5.6
+      env: UPGRADE=7.x-2.23 TEST_FEATURES_OVERRIDES=1
     - php: 7.1
+      env: UPGRADE=none
+    - php: 7.2
       env: UPGRADE=none
   allow_failures:
     - php: 7.1
+    - php: 7.2
 
 # Cache Composer & Drush directories.
 cache:

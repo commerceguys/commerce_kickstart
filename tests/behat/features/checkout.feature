@@ -9,7 +9,7 @@ Feature: Checkout and pay
     When I go to "/drinks/drupal-commerce-wake-you"
       And I press "Add to cart"
     Then I should see "ITEM SUCCESSFULLY ADDED TO YOUR CART"
-    When I click "Go to checkout"
+    When I click "Go to cart"
     Then I should see "Shopping cart"
     Then I should see the following <texts>
       | texts                           |
