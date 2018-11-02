@@ -264,4 +264,21 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   protected function runningJavascript() {
     return get_class($this->getSession()->getDriver()) !== 'Behat\Mink\Driver\GoutteDriver';
   }
+
+  /**
+   * @When I choose the radio button :label with the id :id
+   */
+  public function assertSelectRadioByLabel($label, $id = '') {
+    $element = $this->getSession()->getPage();
+    $radiobutton = $id ? $element->findById($id) : $element->find('named', array('radio', $this->getSession()->getSelectorsHandler()->xpathLiteral($label)));
+    if ($radiobutton === NULL) {
+      throw new \Exception(sprintf('The radio button with "%s" was not found on the page %s', $id ? $id : $label, $this->getSession()->getCurrentUrl()));
+    }
+    $radio_id = $radiobutton->getAttribute('id');
+    $labelonpage = $element->find('css', "label[for='$radio_id']");
+    if ($label != $labelonpage->getText()) {
+      throw new \Exception(sprintf("Button with id '%s' has label '%s' instead of '%s' on the page %s", $id, $labelonpage, $label, $this->getSession()->getCurrentUrl()));
+    }
+    $labelonpage->click();
+  }
 }

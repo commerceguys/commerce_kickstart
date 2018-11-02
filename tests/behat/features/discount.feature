@@ -13,9 +13,9 @@ Feature: Handle discounts
     When I fill in the following:
       | Admin title | Test create discount |
       | Name        | Test create discount |
-    When I select the radio button "Order discount" with the id "edit-commerce-discount-type-order-discount"
+    When I choose the radio button "Order discount" with the id "edit-commerce-discount-type-order-discount"
       And I select "- All -" from "commerce_discount_fields[inline_conditions][und][0][condition_name]"
-      And I select the radio button "$ off" with the id "edit-commerce-discount-fields-commerce-discount-offer-und-form-type-fixed-amount"
+      And I choose the radio button "$ off" with the id "edit-commerce-discount-fields-commerce-discount-offer-und-form-type-fixed-amount"
       And I fill in "5" for "Fixed amount"
       And I press "Save discount"
     Then I should see "Discounts"
@@ -35,9 +35,9 @@ Feature: Handle discounts
     When I fill in the following:
       | Admin title | Test discount |
       | Name        | Test discount |
-    When I select the radio button "Order discount" with the id "edit-commerce-discount-type-order-discount"
+    When I choose the radio button "Order discount" with the id "edit-commerce-discount-type-order-discount"
       And I select "- All -" from "commerce_discount_fields[inline_conditions][und][0][condition_name]"
-      And I select the radio button "$ off" with the id "edit-commerce-discount-fields-commerce-discount-offer-und-form-type-fixed-amount"
+      And I choose the radio button "$ off" with the id "edit-commerce-discount-fields-commerce-discount-offer-und-form-type-fixed-amount"
       And I fill in "5" for "Fixed amount"
       And I press "Save discount"
     Then I should see "Discounts"

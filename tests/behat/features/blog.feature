@@ -8,7 +8,6 @@ Feature: Blog
     When I click "Blog"
     Then I should see the heading "Blog"
 
-  @javascript
   Scenario: Categories should pull relevant blog posts
     When I click "Kickstart Tip"
     Then I should see the heading "Blog - Category: Kickstart Tip"
