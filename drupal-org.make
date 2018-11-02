@@ -18,7 +18,7 @@ projects[features][patch][2479803] = "https://www.drupal.org/files/issues/ignore
 projects[features_override][version] = 2.0-rc3
 projects[strongarm][version] = 2.0
 projects[taxonomy_menu][version] = 1.5
-projects[libraries][version] = 2.3
+projects[libraries][version] = 2.5
 projects[views_megarow][version] = 1.7
 
 ; Drupal Commerce and Commerce contribs.
