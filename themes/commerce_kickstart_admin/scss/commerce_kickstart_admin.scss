@@ -171,38 +171,8 @@ body.in-maintenance {
   #install-welcome > div > p {
     margin-top: 0;
   }
-  #eula-installation-welcome {
-    background: #f4f4f4;
-    border: 1px solid #edebeb;
-    padding: 0 20px 10px;
-    font-size: .9em;
-    line-height: 1.5em;
-
-    ul {
-      margin-bottom: 20px;
-      li {
-        margin-bottom: 10px;
-      }
-    }
-    .form-item-eula-accept label.option {
-      line-height: 2em;
-    }
-  }
-
-  /* DFP Styles */
   #progress {
     margin-bottom: 50px;
-  }
-  #dfp-wrapper {
-    background: transparent url("../images/install-dfp-message.png") no-repeat 0 45px;
-    min-height: 250px;
-  }
-  .dfp-install-ad {
-    background: transparent url("../images/dfp-offline.png") no-repeat center center;
-    box-shadow: 0 0 1px #333;
-    float: right;
-    height: 250px;
-    width: 300px;
   }
 }
 

@@ -31,18 +31,13 @@ function commerce_kickstart_install_tasks() {
     'type' => 'batch',
     // Show this task only after the Kickstart steps have bene reached.
     'display' => strpos($current_task, 'commerce_kickstart_') !== FALSE,
-    'dfp_settings' => array(
-      'dfp_unit' => 'Kickstart_Install_2',
-    ),
+
   );
   $tasks['commerce_kickstart_import_content'] = array(
     'display_name' => st('Import content'),
     'type' => 'batch',
     // Show this task only after the Kickstart steps have bene reached.
     'display' => strpos($current_task, 'commerce_kickstart_') !== FALSE,
-    'dfp_settings' => array(
-      'dfp_unit' => 'Kickstart_Install_3',
-    ),
   );
 
   return $tasks;
@@ -73,28 +68,6 @@ function commerce_kickstart_install_tasks_alter(&$tasks, $install_state) {
 
   // Set the installation theme.
   _commerce_kickstart_set_theme('commerce_kickstart_admin');
-
-  // Add the DFP javascript if needed.
-  if (!empty($install_state['parameters']['use_dfp'])) {
-    // Test if the current task is a batch task.
-    if (isset($tasks[$install_state['active_task']]['type']) && $tasks[$install_state['active_task']]['type'] == 'batch') {
-      if (!isset($tasks[$install_state['active_task']]['dfp_settings'])) {
-        $tasks[$install_state['active_task']]['dfp_settings'] = array();
-      }
-      // Default to Kickstart_Install dfp unit.
-      $tasks[$install_state['active_task']]['dfp_settings'] += array(
-        'dfp_unit' => 'Kickstart_Install',
-      );
-
-      drupal_add_js(array(
-        'dfp' => $tasks[$install_state['active_task']]['dfp_settings'],
-      ), 'setting');
-
-      $prefix = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? 'https://' : 'http://';
-      drupal_add_js($prefix . 'www.googletagservices.com/tag/js/gpt.js');
-      drupal_add_js(drupal_get_path('profile', 'commerce_kickstart') . '/js/commerce_kickstart.js');
-    }
-  }
 }
 
 /**
@@ -119,36 +92,12 @@ function _commerce_kickstart_set_theme($target_theme) {
  */
 function install_welcome($form, &$form_state, &$install_state) {
   drupal_set_title(st('Welcome to Commerce Kickstart 2'));
-  $message = '<p>' . st('Thank you for choosing Commerce Kickstart, a product offered by Commerce Guys.') . '</p>';
-  $eula = '<p>' . st('While we have a rather long, boring Privacy Policy just like any other technology company, here is a short summary of some key items we feel are important:') . '</p>';
-  $items = array();
-  $dfp_link = l("Google's DoubleClick for Publishers (\"DFP\")", "http://www.google.com/dfp/info/sb/index.html", array('attributes' => array('target' => '_blank')));
-  $items[] = st("Commerce Kickstart makes use of !dfp;", array('!dfp' => $dfp_link));
-  $items[] = st('We use DFP to show you content relevant to Drupal Commerce at various points and places in Commerce Kickstart, including during installation;');
-  $items[] = st('DFP is a third-party technology. It uses audience management tags which collect and use certain data;');
-  $items[] = st('Commerce Guys does not collect any personally identifiable information;');
-  $items[] = st('If at any time after installation you do not want us to utilize DFP through Commerce Kickstart, you can easily opt out of it;');
-  $eula .= theme('item_list', array('items' => $items));
-  $eula_link = l('Privacy Policy and User Agreement', 'https://marketplace.commerceguys.com/privacy/commerce-kickstart', array('attributes' => array('target' => '_blank')));
-  $eula .= '<p>' . st('That is it for the main points. The full !policy can be viewed on our website.  Thank you again for choosing Commerce Kickstart!', array('!policy' => $eula_link)) . '</p>';
+  $message = '<p>' . st('Thank you for choosing Commerce Kickstart!') . '</p>';
+  $message .= '<p>' . st('This distribution installs Drupal Commerce jam-packed with
+    the best community features, more than we could hope to mention here.') . '</p>';
   $form = array();
   $form['welcome_message'] = array(
     '#markup' => $message,
-  );
-  $form['eula'] = array(
-    '#prefix' => '<div id="eula-installation-welcome">',
-    '#markup' => $eula,
-  );
-  $form['eula-accept'] = array(
-    '#title' => st('Privacy Policy and User Agreement'),
-    '#title_display' => 'invisible',
-    '#type' => 'radios',
-    '#default_value' => 1,
-    '#options' => array(
-      1 => st('I agree to the Privacy Policy and User Agreement'),
-      0 => st('I want to opt out and disable content from Commerce Guys'),
-    ),
-    '#suffix' => '</div>',
   );
   $form['actions'] = array(
     '#type' => 'actions',
@@ -166,7 +115,6 @@ function install_welcome_submit($form, &$form_state) {
 
   $install_state['parameters']['welcome'] = 'done';
   $install_state['parameters']['locale'] = 'en';
-  $install_state['parameters']['use_dfp'] = $form_state['values']['eula-accept'];
 }
 
 /**
@@ -395,11 +343,6 @@ function commerce_kickstart_install_additional_modules() {
     $modules[] = 'commerce_payflow';
     $modules[] = 'commerce_paypal_ec';
   }
-  // Enable the commerce_kickstart_dfp module.
-  if ($install_state['parameters']['use_dfp']) {
-    $modules[] = 'commerce_kickstart_dfp';
-  }
-
   // Resolve the dependencies now, so that module_enable() doesn't need
   // to do it later for each individual module (which kills performance).
   $files = system_rebuild_module_data();
@@ -730,9 +673,6 @@ function commerce_kickstart_install() {
   }
   // Disable migrate autoregistration.
   variable_set('migrate_disable_autoregistration', TRUE);
-
-  // Check DFP User Agreement.
-  variable_set('commerce_kickstart_dfp_eula', TRUE);
 
   // Creating needed fields
   $field_image = array(
@@ -1290,4 +1230,15 @@ function commerce_kickstart_update_7226() {
  */
 function commerce_kickstart_update_7227() {
   module_enable(array('distro_update'));
+}
+
+/**
+ * Remove commerce_kickstart_dfp.
+ */
+function commerce_kickstart_update_7228() {
+  db_delete('system')
+    ->condition('name', 'commerce_kickstart_dfp')
+    ->condition('type', 'module')
+    ->execute();
+  variable_del('commerce_kickstart_dfp_eula');
 }
