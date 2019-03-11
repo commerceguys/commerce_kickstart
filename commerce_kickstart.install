@@ -1244,7 +1244,7 @@ function commerce_kickstart_update_7228() {
 }
 
 /**
- * Rebuild registry to ensure proper class loading after rules and link update.
+ * Rebuild registry after Rules 2.12 update.
  */
 function commerce_kickstart_update_7229() {
   registry_rebuild();
