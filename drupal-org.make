@@ -8,7 +8,7 @@ defaults[projects][subdir] = contrib
 projects[ctools][version] = 1.13
 projects[entity][version] = 1.9
 projects[entityreference][version] = 1.5
-projects[rules][version] = 2.10
+projects[rules][version] = 2.12
 projects[views][version] = 3.20
 projects[views_bulk_operations][version] = 3.5
 projects[addressfield][version] = 1.2
@@ -114,7 +114,7 @@ projects[search_api_sorts][version] = 1.7
 ; UI improvement modules.
 projects[module_filter][version] = 2.1
 projects[image_delta_formatter][version] = 1.0-rc1
-projects[link][version] = 1.4
+projects[link][version] = 1.5
 projects[pathauto][version] = 1.3
 ; projects[cloud_zoom][version] = 1.x-dev
 projects[cloud_zoom][download][type] = git
