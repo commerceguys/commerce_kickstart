@@ -1242,3 +1242,10 @@ function commerce_kickstart_update_7228() {
     ->execute();
   variable_del('commerce_kickstart_dfp_eula');
 }
+
+/**
+ * Rebuild registry after Rules 2.12 update.
+ */
+function commerce_kickstart_update_7229() {
+  registry_rebuild();
+}
