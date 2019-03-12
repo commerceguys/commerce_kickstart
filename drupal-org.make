@@ -5,19 +5,19 @@ api = 2
 defaults[projects][subdir] = contrib
 
 ; Basic contributed modules.
-projects[ctools][version] = 1.13
+projects[ctools][version] = 1.15
 projects[entity][version] = 1.9
 projects[entityreference][version] = 1.5
 projects[rules][version] = 2.10
 projects[views][version] = 3.20
 projects[views_bulk_operations][version] = 3.5
-projects[addressfield][version] = 1.2
-projects[features][version] = 2.10
+projects[addressfield][version] = 1.3
+projects[features][version] = 2.11
 projects[features][patch][2143765] = "http://drupal.org/files/issues/features-fix-modules-enabled-2143765-1.patch"
 projects[features][patch][2479803] = "https://www.drupal.org/files/issues/ignore_hidden_modules-2479803-1.patch"
 projects[features_override][version] = 2.0-rc3
 projects[strongarm][version] = 2.0
-projects[taxonomy_menu][version] = 1.5
+projects[taxonomy_menu][version] = 1.6
 projects[libraries][version] = 2.5
 projects[views_megarow][version] = 1.7
 
@@ -42,7 +42,7 @@ projects[commerce_hosted_pci][version] = 1.0-rc2
 projects[commerce_payleap][version] = 1.1
 projects[commerce_moneybookers][version] = 1.2
 projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_moneybookers-disable_payment_method_by_default-1962226-3.patch"
-projects[commerce_paypal][version] = 2.4
+projects[commerce_paypal][version] = 2.6
 projects[commerce_backoffice][version] = 1.5
 projects[commerce_message][version] = 1.0
 projects[commerce_search_api][version] = 1.6
@@ -54,13 +54,13 @@ projects[commerce_physical][download][revision] = 477aaee
 projects[commerce_physical][download][branch] = 7.x-1.x
 projects[commerce_amex][version] = 1.1
 projects[commerce_cba][version] = 1.0-beta1
-projects[commerce_authnet][version] = 1.4
+projects[commerce_authnet][version] = 1.6
 projects[commerce_exactor][version] = 1.3
 projects[commerce_paymill][version] = 2.4
 projects[commerce_nosto_tagging][version] = 1.1
 projects[commerce_yotpo][version] = 1.2
 projects[commerce_firstdata_gge4][version] = 1.1
-projects[commerce_amazon_lpa][version] = 1.3
+projects[commerce_amazon_lpa][version] = 1.4
 
 ; Other contribs.
 projects[countries][version] = 2.3
@@ -79,16 +79,16 @@ projects[service_links][version] = 2.x-dev
 projects[service_links][download][type] = "git"
 projects[service_links][download][revision] = "6f63b84"
 projects[service_links]download][branch] = 7.x-2.x
-projects[advanced_help][version] = 1.3
-projects[mailsystem][version] = 2.34
+projects[advanced_help][version] = 1.5
+projects[mailsystem][version] = 2.35
 projects[mailsystem][patch][1534706] = "https://www.drupal.org/files/mailsystem.1534706.6.patch"
 projects[mimemail][version] = 1.1
 projects[token][version] = 1.7
 projects[token][patch][] = "http://drupal.org/files/token-token_asort_tokens-1712336_0.patch"
-projects[eva][version] = 1.3
+projects[eva][version] = 1.4
 projects[message][version] = 1.12
 projects[message_notify][version] = 2.5
-projects[migrate][version] = 2.8
+projects[migrate][version] = 2.11
 projects[migrate_extras][version] = 2.5
 projects[migrate_extras][patch][] = "http://drupal.org/files/migrate_extras-fix-destid2-array-1951904-4.patch"
 projects[date][version] = 2.10
@@ -99,11 +99,11 @@ projects[title][version] = 1.0-alpha9
 projects[title][patch][] = "https://www.drupal.org/files/issues/title-fix_description_empty_on_submit-2075041-7.patch"
 projects[kameleoon][version] = 1.1
 projects[mailup][version] = 1.4
-projects[mailjet][version] = 2.14
+projects[mailjet][version] = 2.19
 
 ; Search related modules.
-projects[search_api][version] = 1.22
-projects[search_api_db][version] = 1.6
+projects[search_api][version] = 1.26
+projects[search_api_db][version] = 1.7
 projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
 projects[facetapi][version] = 1.5
@@ -127,8 +127,8 @@ projects[distro_update][version] = 1.0-beta4
 
 ; Internationalization
 projects[variable][version] = 2.5
-projects[i18n][version] = 1.17
-projects[lingotek][version] = 7.21
+projects[i18n][version] = 1.26
+projects[lingotek][version] = 7.30
 
 ; Base theme.
 projects[omega][version] = 3.1
