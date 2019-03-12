@@ -113,7 +113,7 @@ projects[search_api_sorts][version] = 1.7
 ; UI improvement modules.
 projects[module_filter][version] = 2.1
 projects[image_delta_formatter][version] = 1.0-rc1
-projects[link][version] = 1.5
+projects[link][version] = 1.6
 projects[pathauto][version] = 1.3
 ; projects[cloud_zoom][version] = 1.x-dev
 projects[cloud_zoom][download][type] = git
