@@ -81,7 +81,6 @@ projects[service_links][download][revision] = "6f63b84"
 projects[service_links]download][branch] = 7.x-2.x
 projects[advanced_help][version] = 1.5
 projects[mailsystem][version] = 2.35
-projects[mailsystem][patch][1534706] = "https://www.drupal.org/files/mailsystem.1534706.6.patch"
 projects[mimemail][version] = 1.1
 projects[token][version] = 1.7
 projects[token][patch][] = "http://drupal.org/files/token-token_asort_tokens-1712336_0.patch"
