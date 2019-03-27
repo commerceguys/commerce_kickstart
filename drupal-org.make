@@ -111,7 +111,7 @@ projects[facetapi][patch][2378693] = "https://www.drupal.org/files/issues/notice
 projects[search_api_sorts][version] = 1.7
 
 ; UI improvement modules.
-projects[module_filter][version] = 2.1
+projects[module_filter][version] = 2.2
 projects[image_delta_formatter][version] = 1.0-rc1
 projects[link][version] = 1.6
 projects[pathauto][version] = 1.3
