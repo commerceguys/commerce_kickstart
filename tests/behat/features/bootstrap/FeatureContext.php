@@ -42,7 +42,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
     $table = $table->getHash();
     foreach ($table as $key => $value) {
       $text = $table[$key]['texts'];
-      if ($page->hasContent($text) === FALSE) {
+      if ($page->hasContent($text) === false) {
         throw new Exception("The text '" . $text . "' was not found");
       }
     }
@@ -183,7 +183,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
         return str_replace('hello, ', '', strtolower($page_title));
       }
     }
-    return FALSE;
+    return false;
   }
 
   /**
@@ -227,7 +227,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
    */
   public function userBreadcrumbsAreEnabled() {
     $this->getDrupal();
-    variable_set('commerce_kickstart_user_breadcrumbs', TRUE);
+    variable_set('commerce_kickstart_user_breadcrumbs', true);
   }
 
   /**
@@ -271,7 +271,7 @@ class FeatureContext extends RawDrupalContext implements SnippetAcceptingContext
   public function assertSelectRadioByLabel($label, $id = '') {
     $element = $this->getSession()->getPage();
     $radiobutton = $id ? $element->findById($id) : $element->find('named', array('radio', $this->getSession()->getSelectorsHandler()->xpathLiteral($label)));
-    if ($radiobutton === NULL) {
+    if ($radiobutton === null) {
       throw new \Exception(sprintf('The radio button with "%s" was not found on the page %s', $id ? $id : $label, $this->getSession()->getCurrentUrl()));
     }
     $radio_id = $radiobutton->getAttribute('id');

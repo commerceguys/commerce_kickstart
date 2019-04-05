@@ -54,7 +54,7 @@ class FailureContext implements Context {
   /**
    * Compute a file name for the output.
    */
-  protected function fileName($scope = NULL) {
+  protected function fileName($scope = null) {
     if ($scope) {
       $baseName = pathinfo($scope->getFeature()->getFile());
       $baseName = substr($baseName['basename'], 0 , strlen($baseName['basename']) - strlen($baseName['extension']) - 1);
