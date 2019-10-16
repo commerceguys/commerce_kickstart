@@ -9,7 +9,7 @@ projects[ctools][version] = 1.15
 projects[entity][version] = 1.9
 projects[entityreference][version] = 1.5
 projects[rules][version] = 2.12
-projects[views][version] = 3.21
+projects[views][version] = 3.23
 projects[views_bulk_operations][version] = 3.5
 projects[addressfield][version] = 1.3
 projects[features][version] = 2.11
@@ -22,7 +22,7 @@ projects[libraries][version] = 2.5
 projects[views_megarow][version] = 1.7
 
 ; Drupal Commerce and Commerce contribs.
-projects[commerce][version] = 1.14
+projects[commerce][version] = 1.15
 projects[commerce_features][version] = 1.3
 projects[commerce_addressbook][version] = 2.0-rc9
 projects[commerce_shipping][version] = 2.3
@@ -42,7 +42,7 @@ projects[commerce_hosted_pci][version] = 1.0-rc2
 projects[commerce_payleap][version] = 1.1
 projects[commerce_moneybookers][version] = 1.2
 projects[commerce_moneybookers][patch][] = "http://drupal.org/files/commerce_moneybookers-disable_payment_method_by_default-1962226-3.patch"
-projects[commerce_paypal][version] = 2.6
+projects[commerce_paypal][version] = 2.7
 projects[commerce_backoffice][version] = 1.5
 projects[commerce_message][version] = 1.0
 projects[commerce_search_api][version] = 1.6
@@ -64,7 +64,7 @@ projects[commerce_amazon_lpa][version] = 1.4
 
 ; Other contribs.
 projects[countries][version] = 2.3
-projects[remote_stream_wrapper][version] = 1.0-rc1
+projects[remote_stream_wrapper][version] = 1.0
 projects[colorbox][version] = 2.13
 projects[physical][version] = 1.0
 projects[crumbs][version] = 1.10
@@ -73,7 +73,7 @@ projects[oauth][version] = 3.4
 projects[connector][version] = 1.0-beta2
 projects[oauthconnector][version] = 1.0-beta2
 projects[inline_entity_form][version] = 1.8
-projects[inline_conditions][version] = 1.0-rc1
+projects[inline_conditions][version] = 1.0
 projects[field_extractor][version] = 1.3
 projects[service_links][version] = 2.x-dev
 projects[service_links][download][type] = "git"
@@ -94,20 +94,18 @@ projects[date][version] = 2.10
 projects[yottaa][version] = 1.2
 projects[menu_attributes][version] = 1.0
 projects[fences][version] = 1.2
-projects[title][version] = 1.0-alpha9
+projects[title][version] = 1.0-beta3 
 projects[title][patch][] = "https://www.drupal.org/files/issues/title-fix_description_empty_on_submit-2075041-7.patch"
 projects[kameleoon][version] = 1.1
 projects[mailup][version] = 1.4
-projects[mailjet][version] = 2.19
+projects[mailjet][version] = 2.22
 
 ; Search related modules.
 projects[search_api][version] = 1.26
 projects[search_api_db][version] = 1.7
 projects[search_api_ranges][version] = 1.5
 projects[search_api_ranges][patch][] = "https://drupal.org/files/issues/search_api_ranges-rewrite-data-alteration-callback-2001846-4.patch"
-projects[facetapi][version] = 1.5
-projects[facetapi][patch][] = "https://drupal.org/files/1616518-term_remove_link-24.patch"
-projects[facetapi][patch][2378693] = "https://www.drupal.org/files/issues/notice_undefined-2378693-3.patch"
+projects[facetapi][version] = 1.6
 projects[search_api_sorts][version] = 1.7
 
 ; UI improvement modules.
@@ -119,7 +117,7 @@ projects[pathauto][version] = 1.3
 projects[cloud_zoom][download][type] = git
 projects[cloud_zoom][download][revision] = 3cff30f
 projects[cloud_zoom][download][branch] = 7.x-1.x
-projects[special_menu_items][version] = 2.0
+projects[special_menu_items][version] = 2.1
 projects[chosen][version] = 2.1
 projects[admin_views][version] = 1.6
 projects[distro_update][version] = 1.0-beta4
@@ -127,7 +125,7 @@ projects[distro_update][version] = 1.0-beta4
 ; Internationalization
 projects[variable][version] = 2.5
 projects[i18n][version] = 1.26
-projects[lingotek][version] = 7.30
+projects[lingotek][version] = 7.33
 
 ; Base theme.
 projects[omega][version] = 3.1
