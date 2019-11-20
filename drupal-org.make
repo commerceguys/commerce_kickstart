@@ -121,7 +121,7 @@ projects[cloud_zoom][download][revision] = 3cff30f
 projects[cloud_zoom][download][branch] = 7.x-1.x
 projects[special_menu_items][version] = 2.0
 projects[chosen][version] = 2.1
-projects[admin_views][version] = 1.6
+projects[admin_views][version] = 1.7
 projects[distro_update][version] = 1.0-beta4
 
 ; Internationalization
