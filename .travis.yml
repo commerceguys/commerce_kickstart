@@ -72,7 +72,7 @@ install:
 
   # Build Behat dependencies
   - cd ./tests/behat
-  - travis_retry composer install --prefer-dist --no-interaction
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install --prefer-dist --no-interaction
   - cd ../../../
 
   # Setting Behat environment
