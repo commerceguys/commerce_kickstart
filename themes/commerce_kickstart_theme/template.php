@@ -37,4 +37,21 @@ function commerce_kickstart_theme_preprocess_node(&$variables) {
   if ($variables['type'] == 'blog_post') {
     $variables['submitted'] = t('By') . ' ' . $variables['name'] . ', ' . $variables['date'];
   }
+
+  if (drupal_is_front_page()) {
+    // Remove the title from this page.
+    $variables['title'] = '';
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function commerce_kickstart_theme_preprocess_page(&$variables) {
+  // Remove collection_taxonomy_term view title.
+  $router_item = menu_get_item(current_path());
+  $machine_name = variable_get('commerce_kickstart_demo_store', FALSE) ? 'collection' : 'product_category';
+  if ($router_item['path'] == $machine_name . '/%') {
+    $variables['title'] = '';
+  }
 }
