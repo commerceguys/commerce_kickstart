@@ -1,6 +1,6 @@
 api = 2
 core = 7.x
-projects[drupal][version] = 7.70
+projects[drupal][version] = 7.72
 
 ; Patches for Core
 ; This patch will not apply, and there shouldn't be any new installs happening, so skip this patch.
